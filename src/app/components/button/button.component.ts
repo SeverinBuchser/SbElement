@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Attribute, Component, Input, OnInit, Optional } from '@angular/core';
 
 @Component({
   selector: 'sb-el-button',
@@ -13,10 +13,20 @@ export class ButtonComponent implements OnInit {
   @Input()
   public size: 's' | 'd' | 'm' | 'l' = 'd';
 
-  @Input()
-  public isPlain: boolean = false;
+  private plain: boolean = false;
+  private pill: boolean = false;
+  private round: boolean = false;
 
-  constructor() { }
+  constructor(
+    @Optional() @Attribute('pill') pill: any,
+    @Optional() @Attribute('round') round: any,
+    @Optional() @Attribute('plain') plain: any
+  ) {
+    if (pill === '') this.pill = true;
+    if (round === '') this.round = true;
+    if (this.pill && this.round) throw new Error('Cannot use pill and round attribute simultaneously!');
+    if (plain === '') this.plain = true;
+  }
 
   ngOnInit(): void {
   }
@@ -25,7 +35,9 @@ export class ButtonComponent implements OnInit {
     let classes = new Array<string>();
     classes.push('btn--' + this.color);
     classes.push('btn--' + this.size);
-    classes.push(this.isPlain ? 'is-plain' : '');
+    classes.push(this.pill ? 'is-pill' : '');
+    classes.push(this.round ? 'is-round' : '');
+    classes.push(this.plain ? 'is-plain' : '');
     return classes;
   }
 

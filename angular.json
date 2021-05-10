@@ -35,11 +35,11 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/sb-theming/scss/sb-theme.scss"
+              "../SbTheme/scss/sb-theme.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./node_modules/sb-theming/scss"
+                "../SbTheme/scss/sb-theme.scss"
               ]
             },
             "scripts": []
@@ -104,11 +104,11 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/sb-theming/scss/sb-theme.scss"
+              "../SbTheme/scss/sb-theme.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./node_modules/sb-theming/scss"
+                "../SbTheme/scss/sb-theme.scss"
               ]
             },
             "scripts": []
