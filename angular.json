@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "84518f06-aa24-49b4-bf10-8b01902afef9"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -31,8 +34,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/sb-theming/scss/sb-theme.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/sb-theming/scss"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -94,8 +103,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/sb-theming/scss/sb-theme.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/sb-theming/scss"
+              ]
+            },
             "scripts": []
           }
         },
