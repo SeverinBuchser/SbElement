@@ -8,6 +8,9 @@ import { Attribute, Component, Input, OnInit, Optional } from '@angular/core';
 export class IconButtonComponent implements OnInit {
 
   @Input()
+  public theme: 'light' | 'night' = 'light';
+
+  @Input()
   public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' = 'primary';
 
   @Input()

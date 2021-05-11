@@ -1,10 +1,11 @@
 <sb-el-button
+  [theme]="theme"
   [color]="color"
   [size]="size"
   [isPlain]="plain"
   [isRound]="round"
   [isPill]="pill">
-  <sb-el-icon [size]="size">
+  <sb-el-icon [color]="null" [size]="size">
     <ng-content></ng-content>
   </sb-el-icon>
 </sb-el-button>

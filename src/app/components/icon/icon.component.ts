@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class IconComponent implements OnInit {
 
   @Input()
-  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' = 'primary';
+  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
 
   @Input()
   public size: 's' | 'd' | 'm' | 'l' = 'd';
@@ -20,7 +20,7 @@ export class IconComponent implements OnInit {
 
   get iconClasses(): Array<string> {
     let classes = new Array<string>();
-    classes.push('icon--' + this.color);
+    classes.push(this.color ? 'icon--' + this.color : '');
     classes.push('icon--' + this.size);
     return classes;
   }
