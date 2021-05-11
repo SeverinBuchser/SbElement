@@ -8,6 +8,9 @@ import { Attribute, Component, Input, OnInit, Optional } from '@angular/core';
 export class ButtonComponent implements OnInit {
 
   @Input()
+  public theme: 'light' | 'night' = 'light';
+
+  @Input()
   public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' = 'primary';
 
   @Input()
@@ -50,7 +53,7 @@ export class ButtonComponent implements OnInit {
   get buttonClasses(): Array<string> {
     let classes = new Array<string>();
     classes.push('sb-btn');
-    classes.push('btn--' + this.color);
+    classes.push('btn--' + this.theme + '-' + this.color);
     classes.push('btn--' + this.size);
     classes.push(this.pill ? 'is-pill' : '');
     classes.push(this.round ? 'is-round' : '');
