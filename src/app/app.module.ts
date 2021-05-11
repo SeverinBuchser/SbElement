@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ButtonComponent } from './components/button/button.component';
 import { IconComponent } from './components/icon/icon.component';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
+import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { IconButtonComponent } from './components/icon-button/icon-button.compon
     ButtonComponent,
     IconComponent,
     IconButtonComponent,
+    ToggleSwitchComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
