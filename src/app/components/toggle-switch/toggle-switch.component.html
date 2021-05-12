@@ -1,3 +1,5 @@
-<button type="button" (click)="toggle()" name="button" [ngStyle]="getStyle">
-  {{ state ? 'Turn OFF' : 'Turn ON' }}
-</button>
+<div class="sb-toggle-switch" (click)="toggle()">
+  <div class="sb-toggle-switch__toggle" [ngClass]="{'is-on': state, 'is-off': !state}">
+
+  </div>
+</div>

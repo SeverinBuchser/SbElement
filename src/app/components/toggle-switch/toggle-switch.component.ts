@@ -79,8 +79,4 @@ export class ToggleSwitchComponent implements ControlValueAccessor {
     if (value !== this.on && value !== this.off) throw new Error("Option " + value + " not available!");
   }
 
-  get getStyle(): object {
-    return {color: this.state ? 'green' : 'red' };
-  }
-
 }
