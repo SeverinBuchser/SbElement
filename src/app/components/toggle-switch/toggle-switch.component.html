@@ -1,5 +1,3 @@
-<div class="sb-toggle-switch" (click)="toggle()">
-  <div class="sb-toggle-switch__toggle" [ngClass]="{'is-on': state, 'is-off': !state}">
-
-  </div>
+<div [ngClass]="toggleSwitchClasses" (click)="toggle()">
+  <div class="sb-toggle-switch__toggle"></div>
 </div>

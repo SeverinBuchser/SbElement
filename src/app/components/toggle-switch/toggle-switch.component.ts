@@ -14,6 +14,29 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class ToggleSwitchComponent implements ControlValueAccessor {
 
   @Input()
+  public theme: 'light' | 'night' = 'light';
+
+  @Input()
+  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' = 'primary';
+
+  @Input()
+  public size: 's' | 'd' | 'm' | 'l' = 'd';
+
+  constructor() {}
+
+  ngOnInit(): void {
+  }
+
+  get toggleSwitchClasses(): Array<string> {
+    let classes = new Array<string>();
+    classes.push('sb-toggle-switch');
+    classes.push('toggle-switch--' + this.theme + '-' + this.color);
+    classes.push('toggle-switch--' + this.size);
+    classes.push(this.state ? 'is-on' : 'is-off');
+    return classes;
+  }
+
+  @Input()
   public on: any;
 
   private _off: any;
@@ -28,8 +51,6 @@ export class ToggleSwitchComponent implements ControlValueAccessor {
 
   private innerValue: any;
   public state: boolean = false;
-
-  constructor() { }
 
   get value(): any {
     return this.innerValue;
