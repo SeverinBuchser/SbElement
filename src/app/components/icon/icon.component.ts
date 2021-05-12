@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { BaseColorSizeInputComponent } from '../base/base-color-size-input/base-color-size-input.component';
+import { BaseColorSizeInputDirective } from '../base/base-color-size-input/base-color-size-input.directive';
 
 @Component({
   selector: 'sb-el-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
 })
-export class IconComponent extends BaseColorSizeInputComponent {
+export class IconComponent extends BaseColorSizeInputDirective {
 
   ngOnInit(): void {
   }

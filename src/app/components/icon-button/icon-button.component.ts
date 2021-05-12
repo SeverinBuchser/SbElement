@@ -1,12 +1,12 @@
 import { Attribute, Component, Optional } from '@angular/core';
-import { BaseThemeSizeInputComponent } from '../base/base-theme-size-input/base-theme-size-input.component';
+import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-theme-size-input.directive';
 
 @Component({
   selector: 'sb-el-icon-button',
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss']
 })
-export class IconButtonComponent extends BaseThemeSizeInputComponent {
+export class IconButtonComponent extends BaseThemeSizeInputDirective {
 
   public plain: boolean = false;
   public pill: boolean = false;

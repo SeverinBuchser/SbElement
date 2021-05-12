@@ -1,12 +1,12 @@
 import { Attribute, Component, Input, OnInit, Optional } from '@angular/core';
-import { BaseThemeSizeInputComponent } from '../base/base-theme-size-input/base-theme-size-input.component';
+import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-theme-size-input.directive';
 
 @Component({
   selector: 'sb-el-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent extends BaseThemeSizeInputComponent implements OnInit {
+export class ButtonComponent extends BaseThemeSizeInputDirective implements OnInit {
 
   @Input()
   set isPlain(isPlain: any) {
