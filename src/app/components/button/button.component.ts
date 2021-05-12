@@ -1,20 +1,12 @@
 import { Attribute, Component, Input, OnInit, Optional } from '@angular/core';
+import { BaseThemeSizeInputComponent } from '../base/base-theme-size-input/base-theme-size-input.component';
 
 @Component({
   selector: 'sb-el-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent implements OnInit {
-
-  @Input()
-  public theme: 'light' | 'night' = 'light';
-
-  @Input()
-  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' = 'primary';
-
-  @Input()
-  public size: 's' | 'd' | 'm' | 'l' = 'd';
+export class ButtonComponent extends BaseThemeSizeInputComponent implements OnInit {
 
   @Input()
   set isPlain(isPlain: any) {
@@ -42,6 +34,7 @@ export class ButtonComponent implements OnInit {
     @Optional() @Attribute('round') round: any,
     @Optional() @Attribute('plain') plain: any
   ) {
+    super();
     if (pill === '') this.pill = true;
     if (round === '') this.round = true;
     if (plain === '') this.plain = true;

@@ -8,6 +8,7 @@ import { IconComponent } from './components/icon/icon.component';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
 import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
 import { FormsModule } from '@angular/forms';
+import { BaseModule } from './components/base/base.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
