@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-theme-size-input.directive';
 
 @Component({
   selector: 'sb-el-toggle-switch',
@@ -11,30 +12,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     multi: true
   }]
 })
-export class ToggleSwitchComponent implements ControlValueAccessor {
-
-  @Input()
-  public theme: 'light' | 'night' = 'light';
-
-  @Input()
-  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' = 'primary';
-
-  @Input()
-  public size: 's' | 'd' | 'm' | 'l' = 'd';
-
-  constructor() {}
-
-  ngOnInit(): void {
-  }
-
-  get toggleSwitchClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-toggle-switch');
-    classes.push('toggle-switch--' + this.theme + '-' + this.color);
-    classes.push('toggle-switch--' + this.size);
-    classes.push(this.state ? 'is-on' : 'is-off');
-    return classes;
-  }
+export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implements ControlValueAccessor {
 
   @Input()
   public on: any;
@@ -98,6 +76,15 @@ export class ToggleSwitchComponent implements ControlValueAccessor {
 
   private checkValueIsOption(value: any): void {
     if (value !== this.on && value !== this.off) throw new Error("Option " + value + " not available!");
+  }
+
+  get toggleSwitchClasses(): Array<string> {
+    let classes = new Array<string>();
+    classes.push('sb-toggle-switch');
+    classes.push('toggle-switch--' + this.theme + '-' + this.color);
+    classes.push('toggle-switch--' + this.size);
+    classes.push(this.state ? 'is-on' : 'is-off');
+    return classes;
   }
 
 }

@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'SbElement';
   public value: any = 'Switch is turned OFF';
+  public valuecheckbox: boolean = false;
 }
