@@ -7,6 +7,6 @@ import { BaseColorInputDirective } from '../base-color-input/base-color-input.di
 export class BaseColorSizeInputDirective extends BaseColorInputDirective {
 
   @Input()
-  public size: 's' | 'd' | 'm' | 'l' = 'd';
+  public size: 's' | 'd' | 'm' | 'l' | null = 'd';
 
 }

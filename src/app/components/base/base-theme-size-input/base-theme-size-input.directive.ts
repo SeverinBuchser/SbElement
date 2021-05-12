@@ -7,6 +7,6 @@ import { BaseThemeInputDirective } from '../base-theme-input/base-theme-input.di
 export class BaseThemeSizeInputDirective extends BaseThemeInputDirective{
 
   @Input()
-  public size: 's' | 'd' | 'm' | 'l' = 'd';
+  public size: 's' | 'd' | 'm' | 'l' | null = 'd';
 
 }

@@ -15,7 +15,7 @@ export class IconComponent extends BaseColorSizeInputDirective {
     let classes = new Array<string>();
     classes.push('sb-icon');
     classes.push(this.color ? 'icon--' + this.color : '');
-    classes.push('icon--' + this.size);
+    classes.push(this.size ? 'icon--' + this.size : '');
     return classes;
   }
 }

@@ -49,7 +49,7 @@ export class CheckboxComponent extends BaseThemeSizeInputDirective implements Co
     classes.push('sb-checkbox');
     classes.push('checkbox--' + this.theme + '-' + this.color);
     classes.push('checkbox--' + this.size);
-    classes.push(this.value ? 'checked' : 'unchecked');
+    classes.push(this.value ? 'is-checked' : 'is-unchecked');
     return classes;
   }
 

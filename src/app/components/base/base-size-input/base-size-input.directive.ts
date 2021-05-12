@@ -6,6 +6,6 @@ import { Directive, Input } from '@angular/core';
 export class BaseSizeInputDirective {
 
   @Input()
-  public size: 's' | 'd' | 'm' | 'l' = 'd';
+  public size: 's' | 'd' | 'm' | 'l' | null = 'd';
 
 }
