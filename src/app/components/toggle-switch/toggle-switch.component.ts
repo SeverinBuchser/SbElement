@@ -35,14 +35,14 @@ export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implement
   }
 
   set value(value: any) {
-    if (value !== this.innerValue && value) {
+    if (value !== this.innerValue && value !== null) {
       this.setInnerValue(value);
       this.onChangeCallback(value);
     }
   }
 
   public writeValue(value: any): void {
-    if (value !== this.innerValue && value) {
+    if (value !== this.innerValue && value !== null) {
       this.setInnerValue(value);
     }
   }

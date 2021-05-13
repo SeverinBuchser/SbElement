@@ -25,9 +25,18 @@ export class ButtonComponent extends BaseThemeSizeInputDirective implements OnIn
     else if (isRound && this.pill) throw new Error('Cannot use pill and round attribute simultaneously!');
   }
 
+  @Input()
+  set disabled(isDisabled: boolean) {
+    this._disabled = isDisabled;
+  }
+  get disabled(): boolean {
+    return this._disabled;
+  }
+
   private plain: boolean = false;
   private pill: boolean = false;
   private round: boolean = false;
+  private _disabled: boolean = false;
 
   constructor(
     @Optional() @Attribute('pill') pill: any,
@@ -38,6 +47,10 @@ export class ButtonComponent extends BaseThemeSizeInputDirective implements OnIn
     if (pill === '') this.pill = true;
     if (round === '') this.round = true;
     if (plain === '') this.plain = true;
+  }
+
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   ngOnInit(): void {
