@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { BaseModule } from './components/base/base.module';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
+import { RadioButtonGroupComponent } from './components/group/radio-button/radio-button-group.component';
+import { CheckboxGroupComponent } from './components/group/checkbox/checkbox-group.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { RadioButtonComponent } from './components/radio-button/radio-button.com
     ToggleSwitchComponent,
     CheckboxComponent,
     RadioButtonComponent,
+    RadioButtonGroupComponent,
+    CheckboxGroupComponent,
   ],
   imports: [
     BrowserModule,
