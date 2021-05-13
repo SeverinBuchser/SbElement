@@ -14,6 +14,11 @@ import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-
 })
 export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implements ControlValueAccessor {
 
+  private _disabled: boolean = false;
+  @Input()
+  set disabled(isDisabled: boolean) {this._disabled = isDisabled}
+  get disabled(): boolean {return this._disabled}
+
   @Input()
   public on: any;
 
@@ -21,7 +26,7 @@ export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implement
   @Input()
   set off(off: any) {
     this._off = off;
-    this.setInnerValue(off);
+    this.setInnerValue(off, false);
   }
   get off(): any {return this._off}
 
@@ -30,27 +35,18 @@ export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implement
   private innerValue: any;
   public state: boolean = false;
 
-  get value(): any {
-    return this.innerValue;
-  }
+  // writing value
+  get value(): any {return this.innerValue}
+  set value(value: any) {this.setInnerValue(value, true)}
+  public writeValue(value: any): void {this.setInnerValue(value, false)}
 
-  set value(value: any) {
-    if (value !== this.innerValue && value !== null) {
-      this.setInnerValue(value);
-      this.onChangeCallback(value);
+  private setInnerValue(value: any, change: boolean): void {
+    if (value !== this.innerValue && value !== null && !this.disabled) {
+      this.checkValueIsOption(value);
+      this.innerValue = value;
+      this.updateState();
+      if (change) this.onChangeCallback(value);
     }
-  }
-
-  public writeValue(value: any): void {
-    if (value !== this.innerValue && value !== null) {
-      this.setInnerValue(value);
-    }
-  }
-
-  private setInnerValue(value: any): void {
-    this.checkValueIsOption(value);
-    this.innerValue = value;
-    this.updateState();
   }
 
   private updateState(): void {
@@ -66,13 +62,12 @@ export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implement
   public registerOnTouched(fn: any): void {}
 
   public toggle(): void {
-    this.changeState()
-    this.writeValueFromState();
+    this.value = this.value === this.on ? this.off : this.on;
   }
 
-  private writeValueFromState(): void {this.value = this.state ? this.on : this.off}
-
-  private changeState(): void {this.state = !this.state}
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
   private checkValueIsOption(value: any): void {
     if (value !== this.on && value !== this.off) throw new Error("Option " + value + " not available!");
@@ -84,6 +79,7 @@ export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implement
     classes.push('toggle-switch--' + this.theme + '-' + this.color);
     classes.push('toggle-switch--' + this.size);
     classes.push(this.state ? 'is-on' : 'is-off');
+    classes.push(this.disabled ? 'disabled' : '');
     return classes;
   }
 
