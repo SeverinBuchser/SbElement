@@ -3,6 +3,7 @@
   [on]="true"
   [off]="false"
   size="s"></sb-el-toggle-switch>
+  <sb-el-checkbox [disabled]="!model.toggle"></sb-el-checkbox>
   <sb-el-icon-button size="s" [disabled]="!model.toggle">&#xe87d;</sb-el-icon-button>
   <sb-el-button size="s" [disabled]="!model.toggle">Submit</sb-el-button>
 </form>
