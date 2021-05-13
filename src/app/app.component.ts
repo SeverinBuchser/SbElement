@@ -12,7 +12,9 @@ export class AppComponent {
   public valuecheckbox: boolean = false;
 
   public model = {
-    toggle: false
+    toggle: false,
+    radio: false,
+    checkbox: false
   };
 
   onSubmit(form: NgForm) {

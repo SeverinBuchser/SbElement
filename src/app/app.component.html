@@ -1,10 +1,38 @@
 <form class="" (ngSubmit)="onSubmit(form)" #form="ngForm">
-  <sb-el-toggle-switch [(ngModel)]="model.toggle" name="toggle" #toggle="ngModel"
-  [on]="true"
-  [off]="false"
-  size="s"></sb-el-toggle-switch>
-  <sb-el-checkbox [disabled]="model.toggle" size="s"></sb-el-checkbox>
-  <sb-el-radio-button [disabled]="model.toggle" size="s"></sb-el-radio-button>
-  <sb-el-icon-button size="s" [disabled]="model.toggle">&#xe87d;</sb-el-icon-button>
-  <sb-el-button pill size="s" [disabled]="model.toggle">Submit</sb-el-button>
+  <sb-el-toggle-switch
+    [(ngModel)]="model.toggle"
+    name="toggle"
+    #toggle="ngModel"
+    [on]="true"
+    [off]="false"
+    size="s">
+  </sb-el-toggle-switch>
+
+  <sb-el-checkbox
+    [(ngModel)]="model.checkbox"
+    name="checkbox"
+    #checkbox="ngModel"
+    [disabled]="false"
+    size="s">
+  </sb-el-checkbox>
+
+  <sb-el-radio-button
+    [(ngModel)]="model.radio"
+    name="radio"
+    #radio="ngModel"
+    [disabled]="false"
+    size="s">
+  </sb-el-radio-button>
+
+  <sb-el-checkbox-group>
+
+  </sb-el-checkbox-group>
+
+  <sb-el-radio-button-group>
+
+  </sb-el-radio-button-group>
+
+  <sb-el-icon-button size="s" [disabled]="false">&#xe87d;</sb-el-icon-button>
+  <sb-el-button pill size="s" [disabled]="false">Submit</sb-el-button>
 </form>
+{{ form.value | json }}
