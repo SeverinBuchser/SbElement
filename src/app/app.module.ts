@@ -10,6 +10,7 @@ import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.
 import { FormsModule } from '@angular/forms';
 import { BaseModule } from './components/base/base.module';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     IconButtonComponent,
     ToggleSwitchComponent,
     CheckboxComponent,
+    RadioButtonComponent,
   ],
   imports: [
     BrowserModule,
