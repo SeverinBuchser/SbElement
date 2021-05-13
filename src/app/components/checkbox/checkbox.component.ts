@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-theme-size-input.directive';
 
@@ -14,6 +14,16 @@ import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-
 })
 export class CheckboxComponent extends BaseThemeSizeInputDirective implements ControlValueAccessor {
 
+  private _disabled: boolean = false;
+  @Input()
+  set disabled(isDisabled: boolean) {
+    this._disabled = isDisabled;
+  }
+  get disabled(): boolean {
+    return this._disabled;
+  }
+
+
   private onChangeCallback: (value: boolean) => void = () => {};
   private innerValue: boolean = false;
 
@@ -22,15 +32,17 @@ export class CheckboxComponent extends BaseThemeSizeInputDirective implements Co
   }
 
   set value(value: boolean) {
-    if (value !== this.innerValue && value !== null) {
-      this.innerValue = value;
-      this.onChangeCallback(value);
-    }
+    this.setInnerValue(value, true);
   }
 
   public writeValue(value: boolean): void {
-    if (value !== this.innerValue && value !== null) {
+    this.setInnerValue(value, false);
+  }
+
+  private setInnerValue(value: boolean, change: boolean): void {
+    if (value !== this.innerValue && value !== null && !this.disabled) {
       this.innerValue = value;
+      if (change) this.onChangeCallback(value);
     }
   }
 
@@ -50,6 +62,7 @@ export class CheckboxComponent extends BaseThemeSizeInputDirective implements Co
     classes.push('checkbox--' + this.theme + '-' + this.color);
     classes.push('checkbox--' + this.size);
     classes.push(this.value ? 'is-checked' : 'is-unchecked');
+    classes.push(this.disabled ? 'disabled' : '');
     return classes;
   }
 
