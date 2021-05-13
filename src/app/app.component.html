@@ -9,9 +9,16 @@
     Laura<3
   </sb-el-button>
 </div>
-<form class="" (ngSubmit)="onSubmit(form)" #form="ngForm">
-  <sb-el-toggle-switch [(ngModel)]="model.toggle" name="toggle" #toggle="ngModel"
-  [on]="true"
-  [off]="false"></sb-el-toggle-switch>
-  <sb-el-button [disabled]="!form.valid">Submit</sb-el-button>
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <sb-el-toggle-switch
+    [(ngModel)]="model.toggle"
+    name="toggle"
+    #toggle="ngModel"
+    [on]="true"
+    [off]="false"
+    [disabled]="true">
+  </sb-el-toggle-switch>
+  <sb-el-button [disabled]="!form.valid">
+    Submit
+  </sb-el-button>
 </form>
