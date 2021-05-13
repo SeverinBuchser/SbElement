@@ -1,17 +1,8 @@
-<div style="display: flex">
-  <sb-el-checkbox [(ngModel)]="valuecheckbox" theme="night"></sb-el-checkbox>
-
-  <sb-el-icon-button round theme="night" color="secondary">
-    &#xe87d;
-  </sb-el-icon-button>
-
-  <sb-el-button plain theme="light" size="l">
-    Laura<3
-  </sb-el-button>
-</div>
 <form class="" (ngSubmit)="onSubmit(form)" #form="ngForm">
   <sb-el-toggle-switch [(ngModel)]="model.toggle" name="toggle" #toggle="ngModel"
   [on]="true"
-  [off]="false"></sb-el-toggle-switch>
-  <sb-el-button [disabled]="!form.valid">Submit</sb-el-button>
+  [off]="false"
+  size="s"></sb-el-toggle-switch>
+  <sb-el-icon-button size="s" [disabled]="!model.toggle">&#xe87d;</sb-el-icon-button>
+  <sb-el-button size="s" [disabled]="!model.toggle">Submit</sb-el-button>
 </form>

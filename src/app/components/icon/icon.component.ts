@@ -7,10 +7,7 @@ import { BaseColorSizeInputDirective } from '../base/base-color-size-input/base-
   styleUrls: ['./icon.component.scss']
 })
 export class IconComponent extends BaseColorSizeInputDirective {
-
-  ngOnInit(): void {
-  }
-
+  
   get iconClasses(): Array<string> {
     let classes = new Array<string>();
     classes.push('sb-icon');

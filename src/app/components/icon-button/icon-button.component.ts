@@ -1,4 +1,4 @@
-import { Attribute, Component, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional } from '@angular/core';
 import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-theme-size-input.directive';
 
 @Component({
@@ -11,6 +11,15 @@ export class IconButtonComponent extends BaseThemeSizeInputDirective {
   public plain: boolean = false;
   public pill: boolean = false;
   public round: boolean = false;
+  private _disabled: boolean = false;
+
+  @Input()
+  set disabled(isDisabled: boolean) {
+    this._disabled = isDisabled;
+  }
+  get disabled(): boolean {
+    return this._disabled;
+  }
 
   constructor(
     @Optional() @Attribute('pill') pill: any,
