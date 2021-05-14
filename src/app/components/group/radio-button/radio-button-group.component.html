@@ -1,6 +1,6 @@
-<div class="sb-radio-button-group">
+<div class="sb-radio-button-group sb-form-group is-options">
   <div
-    class="sb-radio-button-group__radio-button"
+    class="sb-radio-button-group__radio-button sb-form-group-options__option"
     *ngFor="let option of options">
     <sb-el-radio-button
       [(ngModel)]="selectedOptions[option]"
@@ -8,6 +8,8 @@
       [disabled]="disabled"
       size="s">
     </sb-el-radio-button>
-    <label><span>{{ option }}</span></label>
+    <label class="sb-radio-button-group__label sb-form-group-options__option-label">
+      <span>{{ option }}</span>
+    </label>
   </div>
 </div>

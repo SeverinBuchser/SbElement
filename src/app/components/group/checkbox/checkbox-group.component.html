@@ -1,6 +1,6 @@
-<div class="sb-checkbox-group">
+<div class="sb-checkbox-group sb-form-group is-options">
   <div
-    class="sb-checkbox-group__checkbox" 
+    class="sb-checkbox-group__checkbox sb-form-group-options__option"
     *ngFor="let option of options">
     <sb-el-checkbox
       [(ngModel)]="selectedOptions[option]"
@@ -8,6 +8,8 @@
       [disabled]="disabled"
       size="s">
     </sb-el-checkbox>
-    <label><span>{{ option }}</span></label>
+    <label class="sb-checkbox-group__label sb-form-group-options__option-label">
+      <span>{{ option }}</span>
+    </label>
   </div>
 </div>
