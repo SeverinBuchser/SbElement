@@ -12,4 +12,13 @@ export class FormGroupBase<ValueType> extends ControlValueAccessorBase<ValueType
     return this.groupTitle !== '';
   }
 
+  @Input()
+  public size: 's' | 'd' | 'm' | 'l' | null = 's';
+
+  @Input()
+  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
+
+  @Input()
+  public theme: 'light' | 'night' = 'light';
+
 }

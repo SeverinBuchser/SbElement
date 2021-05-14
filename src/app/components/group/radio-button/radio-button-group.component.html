@@ -1,4 +1,4 @@
-<div class="sb-radio-button-group sb-form-group is-options">
+<div [ngClass]="classes">
   <span *ngIf="hasGroupTitle" class="sb-form-group__title">{{groupTitle}}</span>
   <div
     class="sb-radio-button-group__radio-button sb-form-group-options__option"
@@ -7,7 +7,9 @@
       [(ngModel)]="selectedOptions[option]"
       (ngModelChange)="change(option)"
       [disabled]="disabled"
-      size="s">
+      [size]="size"
+      [color]="color"
+      [theme]="theme">
     </sb-el-radio-button>
     <label class="sb-radio-button-group__label sb-form-group-options__option-label">
       <span>{{ option }}</span>

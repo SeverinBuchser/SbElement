@@ -23,4 +23,14 @@ export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOp
     this.selectedOptions = this.value as SelectedOptions;
   }
 
+  get classes(): Array<string> {
+    let classes = new Array<string>();
+    classes.push('sb-checkbox-group');
+    classes.push('sb-form-group');
+    classes.push('is-options');
+    classes.push('sb-form-group--' + this.size);
+    classes.push('sb-form-group--' + this.theme + '-' + this.color);
+    return classes;
+  }
+
 }
