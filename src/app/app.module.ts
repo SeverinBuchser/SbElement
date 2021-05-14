@@ -15,6 +15,7 @@ import { RadioButtonGroupComponent } from './components/group/radio-button/radio
 import { CheckboxGroupComponent } from './components/group/checkbox/checkbox-group.component';
 import { ControlValueAccessorBase } from './components/group/base/control-value-accessor.base.directive';
 import { SelectionOptionsDirective } from './components/group/base/selection-options.directive';
+import { FormGroupBase } from './components/group/base/form-group.base.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SelectionOptionsDirective } from './components/group/base/selection-opt
     CheckboxGroupComponent,
     ControlValueAccessorBase,
     SelectionOptionsDirective,
+    FormGroupBase,
   ],
   imports: [
     BrowserModule,

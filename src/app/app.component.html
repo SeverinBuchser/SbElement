@@ -1,6 +1,7 @@
 <form class="" (ngSubmit)="onSubmit(form)" #form="ngForm" style="width: 500px">
 
   <sb-el-checkbox-group
+    groupTitle="Select Checkboxes"
     [(ngModel)]="model.checkboxes"
     name="checkboxes"
     #checkboxes="ngModel"
@@ -8,6 +9,7 @@
   </sb-el-checkbox-group>
   <hr class="sb-form-group-separator">
   <sb-el-radio-button-group
+    groupTitle="Select Radio"
     [(ngModel)]="model.radios"
     name="radios"
     #radios="ngModel"

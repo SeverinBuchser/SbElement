@@ -1,4 +1,5 @@
 <div class="sb-radio-button-group sb-form-group is-options">
+  <span *ngIf="hasGroupTitle" class="sb-form-group__title">{{groupTitle}}</span>
   <div
     class="sb-radio-button-group__radio-button sb-form-group-options__option"
     *ngFor="let option of options">
