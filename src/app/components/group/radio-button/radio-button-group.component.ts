@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SelectionGroupBaseDirective } from '../base/selection-group-base.directive';
+import { SelectionOptionsDirective } from '../base/selection-options.directive';
 
 @Component({
   selector: 'sb-el-radio-button-group',
@@ -12,13 +12,23 @@ import { SelectionGroupBaseDirective } from '../base/selection-group-base.direct
     multi: true
   }]
 })
-export class RadioButtonGroupComponent extends SelectionGroupBaseDirective {
+export class RadioButtonGroupComponent extends SelectionOptionsDirective<string> {
 
-  change(newOption: any) {
-    this.options.forEach((option) => {
+  change(newOption: string) {
+    this.options.forEach((option: string) => {
       if (option !== newOption) this.selectedOptions[option] = false;
     })
-    this.value = newOption;
+    this.writeValueInnerChange(newOption);
+  }
+
+  protected updateValues(): void {
+    if (!this.innerChange) {
+      this.options.forEach((option: string) => {
+        if (option === this.value) {
+          this.selectedOptions[option] = true;
+        } else this.selectedOptions[option] = false;
+      })
+    }
   }
 
 }

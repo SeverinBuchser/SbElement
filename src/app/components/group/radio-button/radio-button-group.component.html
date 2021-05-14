@@ -1,6 +1,13 @@
-<sb-el-radio-button
-  *ngFor="let option of options"
-  [(ngModel)]="selectedOptions[option]"
-  (ngModelChange)="change(option)"
-  [disabled]="disabled">
-</sb-el-radio-button>
+<div class="sb-radio-button-group">
+  <div
+    class="sb-radio-button-group__radio-button"
+    *ngFor="let option of options">
+    <sb-el-radio-button
+      [(ngModel)]="selectedOptions[option]"
+      (ngModelChange)="change(option)"
+      [disabled]="disabled"
+      size="s">
+    </sb-el-radio-button>
+    <label><span>{{ option }}</span></label>
+  </div>
+</div>

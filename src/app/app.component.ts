@@ -17,7 +17,7 @@ export class AppComponent {
     toggle: false,
     radio: false,
     checkbox: false,
-    checkboxes: {},
+    checkboxes: {'Option 1': true, 'Option 2': false, 'Option 3': true},
     radios: 'Option 1'
   };
 
