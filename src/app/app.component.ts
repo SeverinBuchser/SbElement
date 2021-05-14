@@ -11,10 +11,14 @@ export class AppComponent {
   public value: any = 'Switch is turned OFF';
   public valuecheckbox: boolean = false;
 
+  public options = ['Option 1', 'Option 2', 'Option 3'];
+
   public model = {
     toggle: false,
     radio: false,
-    checkbox: false
+    checkbox: false,
+    checkboxes: {},
+    radios: 'Option 1'
   };
 
   onSubmit(form: NgForm) {

@@ -1,1 +1,6 @@
-<p>checkbox-group works!</p>
+<sb-el-checkbox
+  *ngFor="let option of options"
+  [(ngModel)]="selectedOptions[option]"
+  (ngModelChange)="change()"
+  [disabled]="disabled">
+</sb-el-checkbox>

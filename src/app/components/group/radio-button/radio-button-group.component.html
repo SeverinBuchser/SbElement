@@ -1,1 +1,6 @@
-<p>radio-button-group works!</p>
+<sb-el-radio-button
+  *ngFor="let option of options"
+  [(ngModel)]="selectedOptions[option]"
+  (ngModelChange)="change(option)"
+  [disabled]="disabled">
+</sb-el-radio-button>

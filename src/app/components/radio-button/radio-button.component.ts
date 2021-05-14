@@ -23,7 +23,6 @@ export class RadioButtonComponent extends BaseThemeSizeInputDirective implements
     return this._disabled;
   }
 
-
   private onChangeCallback: (value: boolean) => void = () => {};
   private innerValue: boolean = false;
 
@@ -52,8 +51,8 @@ export class RadioButtonComponent extends BaseThemeSizeInputDirective implements
 
   public registerOnTouched(fn: any): void {}
 
-  public changeChecked(): void {
-    this.value = !this.value;
+  public check(): void {
+    this.value = true;
   }
 
   get radioButtonClasses(): Array<string> {

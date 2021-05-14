@@ -24,12 +24,18 @@
     size="s">
   </sb-el-radio-button>
 
-  <sb-el-checkbox-group>
-
+  <sb-el-checkbox-group
+    [(ngModel)]="model.checkboxes"
+    name="checkboxes"
+    #checkboxes="ngModel"
+    [options]="['Option 1', 'Option 2', 'Option 3']">
   </sb-el-checkbox-group>
 
-  <sb-el-radio-button-group>
-
+  <sb-el-radio-button-group
+    [(ngModel)]="model.radios"
+    name="radios"
+    #radios="ngModel"
+    [options]="['Option 1', 'Option 2', 'Option 3']">
   </sb-el-radio-button-group>
 
   <sb-el-icon-button size="s" [disabled]="false">&#xe87d;</sb-el-icon-button>
