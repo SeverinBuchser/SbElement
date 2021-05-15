@@ -3,8 +3,8 @@
   <sb-el-checkbox-group
     groupTitle="Select Checkboxes"
     size="s"
-    color="success"
-    theme="night"
+    [color]="color"
+    [theme]="theme"
     [(ngModel)]="model.checkboxes"
     name="checkboxes"
     #checkboxes="ngModel"
@@ -14,8 +14,8 @@
   <sb-el-radio-button-group
     groupTitle="Select Radio"
     size="s"
-    color="success"
-    theme="night"
+    [color]="color"
+    [theme]="theme"
     [(ngModel)]="model.radios"
     name="radios"
     #radios="ngModel"
@@ -23,5 +23,27 @@
   </sb-el-radio-button-group>
   <hr class="sb-form-group-separator">
 
-  <sb-el-button pill size="d" [disabled]="!form.valid">Submit</sb-el-button>
+  <sb-el-button
+    pill
+    size="d"
+    [color]="color"
+    [theme]="theme"
+    [disabled]="!form.valid">
+      Submit
+  </sb-el-button>
+
+  <sb-el-icon-button
+    round
+    size="d"
+    [color]="color"
+    [theme]="theme"
+    [disabled]="!form.valid">
+      &#xe145;
+  </sb-el-icon-button>
+
+  <sb-el-toggle-switch
+    size="d"
+    [color]="color"
+    [theme]="theme">
+  </sb-el-toggle-switch>
 </form>

@@ -36,8 +36,8 @@ export class RadioButtonGroupComponent extends SelectionOptionsDirective<string>
     classes.push('sb-radio-button-group');
     classes.push('sb-form-group');
     classes.push('is-options');
-    classes.push('sb-form-group--' + this.size);
-    classes.push('sb-form-group--' + this.theme + '-' + this.color);
+    classes.push('form-group--' + this.size);
+    classes.push('form-group--' + this.theme + '-' + this.color);
     return classes;
   }
 

@@ -28,8 +28,8 @@ export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOp
     classes.push('sb-checkbox-group');
     classes.push('sb-form-group');
     classes.push('is-options');
-    classes.push('sb-form-group--' + this.size);
-    classes.push('sb-form-group--' + this.theme + '-' + this.color);
+    classes.push('form-group--' + this.size);
+    classes.push('form-group--' + this.theme + '-' + this.color);
     return classes;
   }
 

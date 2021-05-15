@@ -20,9 +20,9 @@ export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implement
   get disabled(): boolean {return this._disabled}
 
   @Input()
-  public on: any;
+  public on: any = true;
 
-  private _off: any;
+  private _off: any = false;
   @Input()
   set off(off: any) {
     this._off = off;

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-theme-size-input.directive';
+import { BaseColorSizeInputDirective } from '../base/base-color-size-input/base-color-size-input.directive';
 
 @Component({
   selector: 'sb-el-radio-button',
@@ -12,7 +12,7 @@ import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-
     multi: true
   }]
 })
-export class RadioButtonComponent extends BaseThemeSizeInputDirective implements ControlValueAccessor {
+export class RadioButtonComponent extends BaseColorSizeInputDirective implements ControlValueAccessor {
 
   private _disabled: boolean = false;
   @Input()
@@ -58,7 +58,7 @@ export class RadioButtonComponent extends BaseThemeSizeInputDirective implements
   get radioButtonClasses(): Array<string> {
     let classes = new Array<string>();
     classes.push('sb-radio-button');
-    classes.push('radio-button--' + this.theme + '-' + this.color);
+    classes.push('radio-button--' + this.color);
     classes.push('radio-button--' + this.size);
     classes.push(this.value ? 'is-checked' : 'is-unchecked');
     classes.push(this.disabled ? 'disabled' : '');
