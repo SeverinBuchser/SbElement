@@ -1,10 +1,10 @@
 import { Directive, Input } from '@angular/core';
-import { ControlValueAccessorBaseDirective } from '../../base/control-value-accessor/control-value-accessor.base.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Directive({
   selector: '[selector]'
 })
-export class FormGroupBase<ValueType> extends ControlValueAccessorBaseDirective<ValueType> {
+export class FormGroupBase<ValueType> extends ControlValueAccessorSizeThemeColorInputDirective<ValueType> {
 
   @Input()
   public groupTitle: string = '';
@@ -15,22 +15,10 @@ export class FormGroupBase<ValueType> extends ControlValueAccessorBaseDirective<
   public rootClass: string = 'sb-el-form-group';
 
   @Input()
-  public size: string | null = 'd';
-
-  @Input()
-  public theme: string | null = 'light';
-
-  @Input()
-  public color: string | null = 'primary';
-
-  @Input()
   public groupAlign: string | null = 'left';
 
   public getClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push(this.rootClass);
-    classes.push(this.size ? this.rootClass + '--' + this.size : '');
-    classes.push(this.theme && this.color ? this.rootClass + '--' + this.theme + '-' + this.color : '');
+    let classes = super.getClasses();
     classes.push(this.groupAlign ? 'is-' + this.groupAlign : '');
     return classes;
   }
