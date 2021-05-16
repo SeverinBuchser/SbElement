@@ -32,6 +32,11 @@ export class CheckboxComponent extends SizeThemeColorInputDirective implements C
   private onChangeCallback: (value: boolean) => void = () => {};
   private innerValue: boolean = false;
 
+  constructor() {
+    super();
+    this.rootClass = 'sb-el-checkbox';
+  }
+
   get value(): boolean {
     return this.innerValue;
   }
@@ -61,15 +66,12 @@ export class CheckboxComponent extends SizeThemeColorInputDirective implements C
     this.value = !this.value;
   }
 
-  get checkboxClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-checkbox');
-    classes.push('checkbox--' + this.theme + '-' + this.color);
-    classes.push('checkbox--' + this.size);
-    classes.push(this.value ? 'is-checked' : 'is-unchecked');
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
     classes.push(this.label ? 'is-label' : '');
     classes.push(this.label ? 'label-is-' + this.labelPosition : '');
     classes.push(this.disabled ? 'disabled' : '');
+    classes.push(this.value ? 'is-checked' : 'is-unchecked');
     return classes;
   }
 

@@ -31,6 +31,11 @@ export class RadioButtonComponent extends SizeColorInputDirective implements Con
   private onChangeCallback: (value: boolean) => void = () => {};
   private innerValue: boolean = false;
 
+  constructor() {
+    super();
+    this.rootClass = 'sb-el-radio-button';
+  }
+
   get value(): boolean {
     return this.innerValue;
   }
@@ -60,11 +65,8 @@ export class RadioButtonComponent extends SizeColorInputDirective implements Con
     this.value = true;
   }
 
-  get radioButtonClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-radio-button');
-    classes.push('radio-button--' + this.color);
-    classes.push('radio-button--' + this.size);
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
     classes.push(this.value ? 'is-checked' : 'is-unchecked');
     classes.push(this.label ? 'is-label' : '');
     classes.push(this.label ? 'label-is-' + this.labelPosition : '');

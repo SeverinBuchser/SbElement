@@ -1,7 +1,7 @@
-<div [ngClass]="classes">
-  <span *ngIf="hasGroupTitle" class="sb-form-group__title">{{groupTitle}}</span>
+<div [ngClass]="getClasses()">
+  <span *ngIf="hasGroupTitle" [ngClass]="rootClass + '__title'">{{groupTitle}}</span>
   <div
-    class="sb-radio-button-group__radio-button sb-form-group-options__option"
+    [ngClass]="rootClass + '__option'"
     *ngFor="let option of options">
     <sb-el-radio-button
       [(ngModel)]="selectedOptions[option]"

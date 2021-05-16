@@ -8,11 +8,9 @@ import { SizeColorInputDirective } from '../base/style-input/size-color-input.di
 })
 export class IconComponent extends SizeColorInputDirective {
 
-  get iconClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-icon');
-    classes.push(this.color ? 'icon--' + this.color : '');
-    classes.push(this.size ? 'icon--' + this.size : '');
-    return classes;
+  constructor() {
+    super();
+    this.rootClass = 'sb-el-icon';
   }
+
 }

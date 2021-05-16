@@ -44,6 +44,7 @@ export class ButtonComponent extends SizeThemeColorInputDirective implements OnI
     @Optional() @Attribute('plain') plain: any
   ) {
     super();
+    this.rootClass = 'sb-el-btn';
     if (pill === '') this.pill = true;
     if (round === '') this.round = true;
     if (plain === '') this.plain = true;
@@ -56,11 +57,8 @@ export class ButtonComponent extends SizeThemeColorInputDirective implements OnI
   ngOnInit(): void {
   }
 
-  get buttonClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-btn');
-    classes.push('btn--' + this.theme + '-' + this.color);
-    classes.push('btn--' + this.size);
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
     classes.push(this.pill ? 'is-pill' : '');
     classes.push(this.round ? 'is-round' : '');
     classes.push(this.plain ? 'is-plain' : '');

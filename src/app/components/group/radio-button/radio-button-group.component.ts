@@ -14,15 +14,15 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 })
 export class RadioButtonGroupComponent extends SelectionOptionsDirective<string> {
 
+  @Input()
+  public labelPosition: string = 'right';
+
   change(newOption: string) {
     this.options.forEach((option: string) => {
       if (option !== newOption) this.selectedOptions[option] = false;
     })
     this.writeValueInnerChange(newOption);
   }
-
-  @Input()
-  public labelPosition: string = 'right';
 
   protected updateValues(): void {
     if (!this.innerChange) {
@@ -34,13 +34,9 @@ export class RadioButtonGroupComponent extends SelectionOptionsDirective<string>
     }
   }
 
-  get classes(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-radio-button-group');
-    classes.push('sb-form-group');
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
     classes.push('is-options');
-    classes.push('form-group--' + this.size);
-    classes.push('form-group--' + this.theme + '-' + this.color);
     return classes;
   }
 

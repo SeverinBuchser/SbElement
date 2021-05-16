@@ -15,24 +15,21 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 })
 export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOptions> {
 
-  change() {
-    this.value = this.selectedOptions;
-  }
 
   @Input()
   public labelPosition: string = 'right';
+
+  change() {
+    this.value = this.selectedOptions;
+  }
 
   protected updateValues(): void {
     this.selectedOptions = this.value as SelectedOptions;
   }
 
-  get classes(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-checkbox-group');
-    classes.push('sb-form-group');
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
     classes.push('is-options');
-    classes.push('form-group--' + this.size);
-    classes.push('form-group--' + this.theme + '-' + this.color);
     return classes;
   }
 

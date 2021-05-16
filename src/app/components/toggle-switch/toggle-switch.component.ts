@@ -35,6 +35,11 @@ export class ToggleSwitchComponent extends SizeThemeColorInputDirective implemen
   private innerValue: any;
   public state: boolean = false;
 
+  constructor() {
+    super();
+    this.rootClass = 'sb-el-toggle-switch';
+  }
+
   // writing value
   get value(): any {return this.innerValue}
   set value(value: any) {this.setInnerValue(value, true)}
@@ -73,11 +78,8 @@ export class ToggleSwitchComponent extends SizeThemeColorInputDirective implemen
     if (value !== this.on && value !== this.off) throw new Error("Option " + value + " not available!");
   }
 
-  get toggleSwitchClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-toggle-switch');
-    classes.push('toggle-switch--' + this.theme + '-' + this.color);
-    classes.push('toggle-switch--' + this.size);
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
     classes.push(this.state ? 'is-on' : 'is-off');
     classes.push(this.disabled ? 'disabled' : '');
     return classes;
