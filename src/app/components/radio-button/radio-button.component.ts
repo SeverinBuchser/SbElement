@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SizeColorInputDirective } from '../base/style-input/size-color-input.directive';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessorSizeColorInputDirective } from '../base/control-value-accessor-style-input/control-value-accessor-size-color-input.directive';
 
 @Component({
   selector: 'sb-el-radio-button',
@@ -12,54 +12,17 @@ import { SizeColorInputDirective } from '../base/style-input/size-color-input.di
     multi: true
   }]
 })
-export class RadioButtonComponent extends SizeColorInputDirective implements ControlValueAccessor {
-
-  private _disabled: boolean = false;
-  @Input()
-  set disabled(isDisabled: boolean) {
-    this._disabled = isDisabled;
-  }
-  get disabled(): boolean {
-    return this._disabled;
-  }
+export class RadioButtonComponent extends ControlValueAccessorSizeColorInputDirective<boolean> {
 
   @Input()
   public label: string = '';
   @Input()
   public labelPosition: string = 'right';
 
-  private onChangeCallback: (value: boolean) => void = () => {};
-  private innerValue: boolean = false;
-
   constructor() {
     super();
     this.rootClass = 'sb-el-radio-button';
   }
-
-  get value(): boolean {
-    return this.innerValue;
-  }
-
-  set value(value: boolean) {
-    this.setInnerValue(value, true);
-  }
-
-  public writeValue(value: boolean): void {
-    this.setInnerValue(value, false);
-  }
-
-  private setInnerValue(value: boolean, change: boolean): void {
-    if (value !== this.innerValue && value !== null && !this.disabled) {
-      this.innerValue = value;
-      if (change) this.onChangeCallback(value);
-    }
-  }
-
-  public registerOnChange(fn: any): void {
-    this.onChangeCallback = fn;
-  }
-
-  public registerOnTouched(fn: any): void {}
 
   public check(): void {
     this.value = true;

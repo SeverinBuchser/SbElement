@@ -18,7 +18,7 @@ export class ControlValueAccessorBaseDirective<ValueType> implements ControlValu
   // writing value
   set value(value: ValueType | undefined) {this.setInnerValue(value, true)}
   get value(): ValueType | undefined {return this.innerValue}
-  public writeValue(value: ValueType | undefined): void {this.setInnerValue(value, true)}
+  public writeValue(value: ValueType | undefined): void {this.setInnerValue(value, false)}
   public writeValueInnerChange(value: ValueType | undefined) {
     this.innerChange = true;
     this.setInnerValue(value, true);
