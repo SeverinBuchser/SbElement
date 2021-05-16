@@ -1,2 +1,7 @@
-<div [ngClass]="radioButtonClasses" (click)="check()">
+<div [ngClass]="radioButtonClasses">
+  <label class="sb-radio-button__label"><span>{{ label }}</span></label>
+  <div class="sb-radio-button__radio-wrapper">
+    <div class="sb-radio-button__radio" (click)="check()">
+    </div>
+  </div>
 </div>

@@ -23,6 +23,11 @@ export class RadioButtonComponent extends BaseColorSizeInputDirective implements
     return this._disabled;
   }
 
+  @Input()
+  public label: string = '';
+  @Input()
+  public labelPosition: string = 'right';
+
   private onChangeCallback: (value: boolean) => void = () => {};
   private innerValue: boolean = false;
 
@@ -61,6 +66,8 @@ export class RadioButtonComponent extends BaseColorSizeInputDirective implements
     classes.push('radio-button--' + this.color);
     classes.push('radio-button--' + this.size);
     classes.push(this.value ? 'is-checked' : 'is-unchecked');
+    classes.push(this.label ? 'is-label' : '');
+    classes.push(this.label ? 'label-is-' + this.labelPosition : '');
     classes.push(this.disabled ? 'disabled' : '');
     return classes;
   }
