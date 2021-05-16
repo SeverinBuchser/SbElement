@@ -23,11 +23,15 @@ export class FormGroupBase<ValueType> extends ControlValueAccessorBase<ValueType
   @Input()
   public color: string | null = 'primary';
 
+  @Input()
+  public groupAlign: string | null = 'left';
+
   public getClasses(): Array<string> {
     let classes = new Array<string>();
     classes.push(this.rootClass);
     classes.push(this.size ? this.rootClass + '--' + this.size : '');
     classes.push(this.theme && this.color ? this.rootClass + '--' + this.theme + '-' + this.color : '');
+    classes.push(this.groupAlign ? 'is-' + this.groupAlign : '');
     return classes;
   }
 

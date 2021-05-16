@@ -3,6 +3,7 @@
   <sb-el-checkbox-group
     groupTitle="Select Checkboxes"
     size="s"
+    groupAlign="left"
     [color]="color"
     [theme]="theme"
     [(ngModel)]="model.checkboxes"
@@ -10,10 +11,11 @@
     #checkboxes="ngModel"
     [options]="['Option 1', 'Option 2', 'Option 3']">
   </sb-el-checkbox-group>
-  <hr class="sb-el-form-group-separator">
+  <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
   <sb-el-radio-button-group
     groupTitle="Select Radio"
     size="s"
+    groupAlign="left"
     [color]="color"
     [theme]="theme"
     [(ngModel)]="model.radios"
@@ -21,7 +23,7 @@
     #radios="ngModel"
     [options]="['Option 1', 'Option 2', 'Option 3']">
   </sb-el-radio-button-group>
-  <hr class="sb-el-form-group-separator">
+  <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
 
   <sb-el-button
     pill
