@@ -15,7 +15,6 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 })
 export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOptions> {
 
-
   @Input()
   public labelPosition: string = 'right';
 

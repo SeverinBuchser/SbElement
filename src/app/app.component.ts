@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   title = 'SbElement';
-  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'secondary';
+  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
   public theme: 'light' | 'night' = 'night';
 
   public value: any = 'Switch is turned OFF';
