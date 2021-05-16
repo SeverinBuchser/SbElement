@@ -13,7 +13,6 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioButtonGroupComponent } from './components/group/radio-button/radio-button-group.component';
 import { CheckboxGroupComponent } from './components/group/checkbox/checkbox-group.component';
-import { ControlValueAccessorBase } from './components/group/base/control-value-accessor.base.directive';
 import { SelectionOptionsDirective } from './components/group/base/selection-options.directive';
 import { FormGroupBase } from './components/group/base/form-group.base.directive';
 
@@ -28,7 +27,6 @@ import { FormGroupBase } from './components/group/base/form-group.base.directive
     RadioButtonComponent,
     RadioButtonGroupComponent,
     CheckboxGroupComponent,
-    ControlValueAccessorBase,
     SelectionOptionsDirective,
     FormGroupBase,
   ],

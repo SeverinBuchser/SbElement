@@ -1,10 +1,10 @@
 import { Directive, Input } from '@angular/core';
-import { ControlValueAccessorBase } from './control-value-accessor.base.directive';
+import { ControlValueAccessorBaseDirective } from '../../base/control-value-accessor/control-value-accessor.base.directive';
 
 @Directive({
   selector: '[selector]'
 })
-export class FormGroupBase<ValueType> extends ControlValueAccessorBase<ValueType> {
+export class FormGroupBase<ValueType> extends ControlValueAccessorBaseDirective<ValueType> {
 
   @Input()
   public groupTitle: string = '';
