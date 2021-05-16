@@ -6,6 +6,7 @@ import { SizeInputDirective } from './style-input/size-input.directive';
 import { SizeColorInputDirective } from './style-input/size-color-input.directive';
 import { SizeThemeColorInputDirective } from './style-input/size-theme-color-input.directive';
 import { ControlValueAccessorBaseDirective } from './control-value-accessor/control-value-accessor.base.directive';
+import { ClassNameInputDirective } from './style-input/class-name-input.directive';
 
 
 
@@ -17,6 +18,7 @@ import { ControlValueAccessorBaseDirective } from './control-value-accessor/cont
     SizeColorInputDirective,
     SizeThemeColorInputDirective,
     ControlValueAccessorBaseDirective,
+    ClassNameInputDirective,
   ],
   imports: [
     CommonModule

@@ -1,11 +1,10 @@
 import { Directive, Input } from '@angular/core';
+import { ClassNameInputDirective } from './class-name-input.directive';
 
 @Directive({
   selector: '[selector]'
 })
-export class SizeThemeColorInputDirective {
-
-  public rootClass: string = '';
+export class SizeThemeColorInputDirective extends ClassNameInputDirective {
 
   @Input()
   public size: string | null = 'd';
@@ -17,10 +16,10 @@ export class SizeThemeColorInputDirective {
   public color: string | null = 'primary';
 
   public getClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push(this.rootClass);
+    let classes = super.getClasses();
     classes.push(this.size ? this.rootClass + '--' + this.size : '');
-    classes.push(this.theme && this.color ? this.rootClass + '--' + this.theme + '-' + this.color : '');
+    classes.push(this.theme && this.color ?
+      this.rootClass + '--' + this.theme + '-' + this.color : '');
     return classes;
   }
 

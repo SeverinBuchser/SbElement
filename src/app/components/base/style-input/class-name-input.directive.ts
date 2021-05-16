@@ -1,0 +1,28 @@
+import { Directive, Input } from '@angular/core';
+
+@Directive({
+  selector: '[selector]'
+})
+export class ClassNameInputDirective {
+
+  public rootClass: string = '';
+
+  private _extraClasses: Array<string> = new Array<string>();
+  @Input()
+  set extraClasses(extraClasses: string | Array<string>) {
+    if (Array.isArray(extraClasses)) this._extraClasses = extraClasses;
+    else {
+      this._extraClasses = extraClasses.split(' ').filter(className => {
+        return className !== '';
+      });
+    }
+  }
+
+  public getClasses(): Array<string> {
+    let classes = new Array<string>();
+    classes.push(this.rootClass);
+    this._extraClasses.forEach(className => classes.push(className))
+    return classes;
+  }
+
+}

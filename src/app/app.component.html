@@ -1,51 +1,41 @@
-<form class="" (ngSubmit)="onSubmit(form)" #form="ngForm" style="width: 500px">
+<form class="sb-el-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="sb-el-form__header">
 
-  <sb-el-checkbox-group
-    groupTitle="Select Checkboxes"
-    size="s"
-    groupAlign="left"
-    [color]="color"
-    [theme]="theme"
-    [(ngModel)]="model.checkboxes"
-    name="checkboxes"
-    #checkboxes="ngModel"
-    [options]="['Option 1', 'Option 2', 'Option 3']">
-  </sb-el-checkbox-group>
-  <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-  <sb-el-radio-button-group
-    groupTitle="Select Radio"
-    size="s"
-    groupAlign="left"
-    [color]="color"
-    [theme]="theme"
-    [(ngModel)]="model.radios"
-    name="radios"
-    #radios="ngModel"
-    [options]="['Option 1', 'Option 2', 'Option 3']">
-  </sb-el-radio-button-group>
-  <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-
-  <sb-el-button
-    pill
-    size="d"
-    [color]="color"
-    [theme]="theme"
-    [disabled]="!form.valid">
-      Submit
-  </sb-el-button>
-
-  <sb-el-icon-button
-    round
-    size="d"
-    [color]="color"
-    [theme]="theme"
-    [disabled]="!form.valid">
-      &#xe145;
-  </sb-el-icon-button>
-
-  <sb-el-toggle-switch
-    size="d"
-    [color]="color"
-    [theme]="theme">
-  </sb-el-toggle-switch>
+  </div>
+  <div class="sb-el-form__content">
+    <sb-el-checkbox-group
+      groupTitle="Select Checkboxes"
+      size="s"
+      groupAlign="center"
+      [color]="color"
+      [theme]="theme"
+      [(ngModel)]="model.checkboxes"
+      name="checkboxes"
+      #checkboxes="ngModel"
+      [options]="['Option 1', 'Option 2', 'Option 3']">
+    </sb-el-checkbox-group>
+    <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
+    <sb-el-radio-button-group
+      groupTitle="Select Radio"
+      size="s"
+      groupAlign="center"
+      [color]="color"
+      [theme]="theme"
+      [(ngModel)]="model.radios"
+      name="radios"
+      #radios="ngModel"
+      [options]="['Option 1', 'Option 2', 'Option 3']">
+    </sb-el-radio-button-group>
+  </div>
+  <div class="sb-el-form__footer is-center">
+    <sb-el-button
+      extraClasses="sb-el-form__footer-element"
+      pill
+      size="d"
+      [color]="color"
+      [theme]="theme"
+      [disabled]="!form.valid">
+        Submit
+    </sb-el-button>
+  </div>
 </form>

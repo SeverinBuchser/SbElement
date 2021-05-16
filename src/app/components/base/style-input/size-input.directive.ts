@@ -1,18 +1,16 @@
 import { Directive, Input } from '@angular/core';
+import { ClassNameInputDirective } from './class-name-input.directive';
 
 @Directive({
   selector: '[selector]'
 })
-export class SizeInputDirective {
-
-  public rootClass: string = '';
+export class SizeInputDirective extends ClassNameInputDirective {
 
   @Input()
   public size: string | null = 'd';
 
   public getClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push(this.rootClass);
+    let classes = super.getClasses();
     classes.push(this.size ? this.rootClass + '--' + this.size : '');
     return classes;
   }
