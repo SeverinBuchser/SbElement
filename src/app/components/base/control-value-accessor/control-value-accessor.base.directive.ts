@@ -32,10 +32,16 @@ export class ControlValueAccessorBaseDirective<ValueType> implements ControlValu
       if (change) this.onChangeCallback(value);
     }
   }
+  
+  protected updateValues(): void {};
 
+  // register events
   public registerOnChange(fn: any): void {this.onChangeCallback = fn}
   public registerOnTouched(fn: any): void {}
 
-  protected updateValues(): void {};
+  // set disabled state
+  public setDisabledState(disabled: boolean): void {
+    this.disabled = disabled;
+  }
 
 }

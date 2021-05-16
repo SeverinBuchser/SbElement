@@ -23,6 +23,7 @@ export class ControlValueAccessorClassNameInputDirective<ValueType> extends Cont
     let classes = new Array<string>();
     classes.push(this.rootClass);
     this._extraClasses.forEach(className => classes.push(className))
+    classes.push(this.disabled ? 'disabled' : '');
     return classes;
   }
 

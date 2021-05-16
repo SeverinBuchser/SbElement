@@ -12,7 +12,8 @@
       [(ngModel)]="model.checkboxes"
       name="checkboxes"
       #checkboxes="ngModel"
-      [options]="['Option 1', 'Option 2', 'Option 3']">
+      [options]="['Option 1', 'Option 2', 'Option 3']"
+      [disabled]="true">
     </sb-el-checkbox-group>
     <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
     <sb-el-radio-button-group
@@ -24,7 +25,8 @@
       [(ngModel)]="model.radios"
       name="radios"
       #radios="ngModel"
-      [options]="['Option 1', 'Option 2', 'Option 3']">
+      [options]="['Option 1', 'Option 2', 'Option 3']"
+      [disabled]="false">
     </sb-el-radio-button-group>
   </div>
   <div class="sb-el-form__footer is-center">
@@ -34,8 +36,14 @@
       size="d"
       [color]="color"
       [theme]="theme"
-      [disabled]="!form.valid">
+      [disabled]="false">
         Submit
     </sb-el-button>
+    <sb-el-toggle-switch
+      [(ngModel)]="model.toggle"
+      name="toggle"
+      #toggle="ngModel"
+      [disabled]="false">
+    </sb-el-toggle-switch>
   </div>
 </form>
