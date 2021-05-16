@@ -23,6 +23,11 @@ export class CheckboxComponent extends BaseThemeSizeInputDirective implements Co
     return this._disabled;
   }
 
+  @Input()
+  public label: string = '';
+  @Input()
+  public labelPosition: string = 'right';
+
 
   private onChangeCallback: (value: boolean) => void = () => {};
   private innerValue: boolean = false;
@@ -52,7 +57,7 @@ export class CheckboxComponent extends BaseThemeSizeInputDirective implements Co
 
   public registerOnTouched(fn: any): void {}
 
-  public changeChecked(): void {
+  public check(): void {
     this.value = !this.value;
   }
 
@@ -62,6 +67,8 @@ export class CheckboxComponent extends BaseThemeSizeInputDirective implements Co
     classes.push('checkbox--' + this.theme + '-' + this.color);
     classes.push('checkbox--' + this.size);
     classes.push(this.value ? 'is-checked' : 'is-unchecked');
+    classes.push(this.label ? 'is-label' : '');
+    classes.push(this.label ? 'label-is-' + this.labelPosition : '');
     classes.push(this.disabled ? 'disabled' : '');
     return classes;
   }

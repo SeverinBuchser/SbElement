@@ -1,5 +1,10 @@
-<div [ngClass]="checkboxClasses" (click)="changeChecked()">
-  <div class="sb-checkbox__tick">
-    <sb-el-icon [color]="null" [size]="null">&#xe876;</sb-el-icon>
+<div [ngClass]="checkboxClasses" (click)="check()">
+  <label class="sb-checkbox__label"><span>{{ label }}</span></label>
+  <div class="sb-checkbox__checkbox-wrapper">
+    <div class="sb-checkbox__checkbox">
+      <div class="sb-checkbox__tick">
+        <sb-el-icon [color]="null" [size]="null">&#xe876;</sb-el-icon>
+      </div>
+    </div>
   </div>
 </div>

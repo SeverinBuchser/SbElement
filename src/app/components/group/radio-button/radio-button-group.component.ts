@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SelectionOptionsDirective } from '../base/selection-options.directive';
 
@@ -20,6 +20,9 @@ export class RadioButtonGroupComponent extends SelectionOptionsDirective<string>
     })
     this.writeValueInnerChange(newOption);
   }
+
+  @Input()
+  public labelPosition: string = 'right';
 
   protected updateValues(): void {
     if (!this.innerChange) {

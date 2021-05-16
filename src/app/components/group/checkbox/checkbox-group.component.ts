@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SelectedOptions } from '../base/selected-options';
 import { SelectionOptionsDirective } from '../base/selection-options.directive';
@@ -18,6 +18,9 @@ export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOp
   change() {
     this.value = this.selectedOptions;
   }
+
+  @Input()
+  public labelPosition: string = 'right';
 
   protected updateValues(): void {
     this.selectedOptions = this.value as SelectedOptions;
