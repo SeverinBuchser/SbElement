@@ -13,12 +13,12 @@ export class FormGroupBase<ValueType> extends ControlValueAccessorBase<ValueType
   }
 
   @Input()
-  public size: 's' | 'd' | 'm' | 'l' | null = 's';
+  public size: string | null = 's';
 
   @Input()
-  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
+  public color: string | null = 'primary';
 
   @Input()
-  public theme: 'light' | 'night' = 'light';
+  public theme: string | null = 'light';
 
 }

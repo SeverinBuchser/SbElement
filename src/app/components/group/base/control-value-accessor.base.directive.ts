@@ -11,7 +11,6 @@ export class ControlValueAccessorBase<ValueType> implements ControlValueAccessor
   private _disabled: boolean = false;
   protected innerChange: boolean = false;
 
-
   @Input()
   set disabled(isDisabled: boolean) {this._disabled = isDisabled}
   get disabled(): boolean {return this._disabled}

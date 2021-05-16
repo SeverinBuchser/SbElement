@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BaseColorSizeInputDirective } from '../base/base-color-size-input/base-color-size-input.directive';
+import { SizeColorInputDirective } from '../base/style-input/size-color-input.directive';
 
 @Component({
   selector: 'sb-el-radio-button',
@@ -12,7 +12,7 @@ import { BaseColorSizeInputDirective } from '../base/base-color-size-input/base-
     multi: true
   }]
 })
-export class RadioButtonComponent extends BaseColorSizeInputDirective implements ControlValueAccessor {
+export class RadioButtonComponent extends SizeColorInputDirective implements ControlValueAccessor {
 
   private _disabled: boolean = false;
   @Input()

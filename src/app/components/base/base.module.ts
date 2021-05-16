@@ -1,30 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BaseThemeInputDirective } from './base-theme-input/base-theme-input.directive';
-import { BaseSizeInputDirective } from './base-size-input/base-size-input.directive';
-import { BaseThemeSizeInputDirective } from './base-theme-size-input/base-theme-size-input.directive';
-import { BaseColorSizeInputDirective } from './base-color-size-input/base-color-size-input.directive';
-import { BaseColorInputDirective } from './base-color-input/base-color-input.directive';
+import { ColorInputDirective } from './style-input/color-input.directive';
+import { ThemeColorInputDirective } from './style-input/theme-color-input.directive';
+import { SizeInputDirective } from './style-input/size-input.directive';
+import { SizeColorInputDirective } from './style-input/size-color-input.directive';
+import { SizeThemeColorInputDirective } from './style-input/size-theme-color-input.directive';
 
 
 
 @NgModule({
   declarations: [
-    BaseColorInputDirective,
-    BaseThemeInputDirective,
-    BaseSizeInputDirective,
-    BaseThemeSizeInputDirective,
-    BaseColorSizeInputDirective
+    ColorInputDirective,
+    ThemeColorInputDirective,
+    SizeInputDirective,
+    SizeColorInputDirective,
+    SizeThemeColorInputDirective,
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    BaseColorInputDirective,
-    BaseThemeInputDirective,
-    BaseSizeInputDirective,
-    BaseThemeSizeInputDirective,
-    BaseColorSizeInputDirective
+    ColorInputDirective,
+    ThemeColorInputDirective,
+    SizeInputDirective,
+    SizeColorInputDirective,
+    SizeThemeColorInputDirective,
   ]
 })
 export class BaseModule { }

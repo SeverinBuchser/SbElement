@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { BaseColorSizeInputDirective } from '../base/base-color-size-input/base-color-size-input.directive';
+import { SizeColorInputDirective } from '../base/style-input/size-color-input.directive';
 
 @Component({
   selector: 'sb-el-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
 })
-export class IconComponent extends BaseColorSizeInputDirective {
-  
+export class IconComponent extends SizeColorInputDirective {
+
   get iconClasses(): Array<string> {
     let classes = new Array<string>();
     classes.push('sb-icon');

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-theme-size-input.directive';
+import { SizeThemeColorInputDirective } from '../base/style-input/size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-toggle-switch',
@@ -12,7 +12,7 @@ import { BaseThemeSizeInputDirective } from '../base/base-theme-size-input/base-
     multi: true
   }]
 })
-export class ToggleSwitchComponent extends BaseThemeSizeInputDirective implements ControlValueAccessor {
+export class ToggleSwitchComponent extends SizeThemeColorInputDirective implements ControlValueAccessor {
 
   private _disabled: boolean = false;
   @Input()
