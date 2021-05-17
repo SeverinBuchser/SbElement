@@ -18,7 +18,6 @@ export class RadioButtonGroupComponent extends SelectionOptionsDirective<string>
   public labelPosition: string = 'right';
 
   public change(newOption: string) {
-    console.log("change", newOption)
     this.options.forEach((option: string) => {
       if (option !== newOption) this.selectedOptions[option] = false;
     })
