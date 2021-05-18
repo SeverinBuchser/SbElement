@@ -33,6 +33,9 @@ export class ButtonComponent extends SizeThemeColorInputDirective implements OnI
     return this._disabled;
   }
 
+  @Input()
+  public type: string = 'button';
+
   private plain: boolean = false;
   private pill: boolean = false;
   private round: boolean = false;

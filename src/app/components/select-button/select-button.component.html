@@ -1,1 +1,24 @@
-<p>select-button works!</p>
+<div [ngClass]="getClasses()">
+  <sb-el-button
+    [theme]="theme"
+    [color]="color"
+    [size]="size"
+    [isPlain]="plain"
+    [isPill]="pill"
+    [disabled]="disabled"
+    [extraClasses]="getButtonClasses()"
+    (click)="toggle()">
+    <ng-content></ng-content>
+    <sb-el-icon>&#xe5cf;</sb-el-icon>
+  </sb-el-button>
+  <div [ngClass]="rootClass + '__options-wrapper'">
+    <div [ngClass]="rootClass + '__options'">
+      <div
+        [ngClass]="rootClass + '__option'"
+        *ngFor="let option of options"
+        (click)="select(option)">
+          {{ option }}
+      </div>
+    </div>
+  </div>
+</div>

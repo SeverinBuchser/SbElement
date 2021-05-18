@@ -16,7 +16,6 @@ import { CheckboxGroupComponent } from './components/group/checkbox/checkbox-gro
 import { SelectionOptionsDirective } from './components/group/base/selection-options.directive';
 import { FormGroupBase } from './components/group/base/form-group.base.directive';
 import { SelectButtonComponent } from './components/select-button/select-button.component';
-import { SelectButtonGroupComponent } from './components/group/select-button/select-button-group.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { SelectButtonGroupComponent } from './components/group/select-button/sel
     CheckboxGroupComponent,
     SelectionOptionsDirective,
     FormGroupBase,
-    SelectButtonGroupComponent,
     SelectButtonComponent,
   ],
   imports: [

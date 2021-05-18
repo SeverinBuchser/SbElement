@@ -1,12 +1,12 @@
 <form class="sb-el-form sb-el-form--night-success" (ngSubmit)="onSubmit(form)" #form="ngForm">
-  <div class="sb-el-form__header is-center">
+  <div class="sb-el-form__header is-left">
     This is a Form
   </div>
   <div class="sb-el-form__content">
     <sb-el-checkbox-group
       groupTitle="Select Checkboxes"
+      groupAlign="left"
       size="s"
-      groupAlign="center"
       [color]="color"
       [theme]="theme"
       [(ngModel)]="model.checkboxes"
@@ -18,8 +18,8 @@
     <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
     <sb-el-radio-button-group
       groupTitle="Select Radio"
+      groupAlign="left"
       size="s"
-      groupAlign="center"
       [color]="color"
       [theme]="theme"
       [(ngModel)]="model.radios"
@@ -29,12 +29,23 @@
       [disabled]="false">
     </sb-el-radio-button-group>
     <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-    <sb-el-select
+    <div class="">
+    <sb-el-select-button
+      pill
+      size="m"
+      [color]="color"
+      [theme]="theme"
+      [(ngModel)]="model.select"
+      name="select"
+      #select="ngModel"
       [options]="['Option 1', 'Option 2', 'Option 3']">
-    </sb-el-select>
+      Select
+    </sb-el-select-button>
+    </div>
   </div>
   <div class="sb-el-form__footer is-center">
     <sb-el-button
+      type="submit"
       extraClasses="sb-el-form__footer-element"
       pill
       size="d"
