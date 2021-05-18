@@ -29,7 +29,7 @@
       [disabled]="false">
     </sb-el-radio-button-group>
     <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-    <div class="">
+    <div class="hi">
     <sb-el-select-button
       pill
       size="m"
@@ -41,6 +41,20 @@
       [options]="['Option 1', 'Option 2', 'Option 3']">
       Select
     </sb-el-select-button>
+    <sb-el-slider
+      label="Slider"
+      size="m"
+      [color]="color"
+      [theme]="theme"
+      [max]="20"
+      [min]="-10"
+      [step]="1"
+      [snapTo]="[0, 10]"
+      [showValue]="true"
+      [(ngModel)]="model.slider"
+      name="slider"
+      #slider="ngModel">
+    </sb-el-slider>
     </div>
   </div>
   <div class="sb-el-form__footer is-center">

@@ -1,0 +1,19 @@
+<div [ngClass]="getClasses()">
+  <span *ngIf="label" [ngClass]="rootClass + '__label'">{{ label }}</span>
+  <input
+    [ngClass]="rootClass + '__slider'"
+    type="range"
+    [min]="min"
+    [max]="max"
+    [step]="step"
+    list="steplist"
+    [(ngModel)]="value"/>
+  <span
+    *ngIf="showValue"
+    [ngClass]="rootClass + '__value'">
+    {{ value }}
+  </span>
+  <datalist id="steplist">
+    <option *ngFor="let point of snapTo" [value]="point"></option>
+  </datalist>
+</div>

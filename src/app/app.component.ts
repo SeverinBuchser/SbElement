@@ -22,7 +22,8 @@ export class AppComponent {
     checkbox: false,
     select: 'Option 1',
     checkboxes: {'Option 1': true, 'Option 2': false, 'Option 3': true},
-    radios: 'Option 1'
+    radios: 'Option 1',
+    slider: 0
   };
 
   onSubmit(form: NgForm) {
