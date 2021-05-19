@@ -1,11 +1,11 @@
 import { Directive, Input } from '@angular/core';
 import { SelectedOptions } from './selected-options';
-import { FormGroupBase } from './form-group.base.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from 'src/app/components/base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Directive({
   selector: '[selector]'
 })
-export class SelectionOptionsDirective<ValueType> extends FormGroupBase<ValueType> {
+export class SelectionOptionsDirective<ValueType> extends ControlValueAccessorSizeThemeColorInputDirective<ValueType> {
 
   public selectedOptions: SelectedOptions = {};
   protected _options: Array<string> = new Array<string>();

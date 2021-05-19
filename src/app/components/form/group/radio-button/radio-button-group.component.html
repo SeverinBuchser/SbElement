@@ -1,20 +1,21 @@
-<div [ngClass]="getClasses()">
-  <span *ngIf="hasGroupTitle" [ngClass]="rootClass + '__title'">{{groupTitle}}</span>
-  <div [ngClass]="rootClass + '__options-wrapper'">
-    <div [ngClass]="rootClass + '__options'">
-      <div
-        [ngClass]="rootClass + '__option'"
-        *ngFor="let option of options">
-        <sb-el-radio-button
-          [(ngModel)]="selectedOptions[option]"
-          (ngModelChange)="change(option)"
-          [disabled]="disabled"
-          [size]="size"
-          [color]="color"
-          [label]="option"
-          [labelPosition]="labelPosition">
-        </sb-el-radio-button>
-      </div>
+<sb-el-form-group
+  [groupTitle]="groupTitle"
+  [groupAlign]="groupAlign"
+  [size]="size"
+  [color]="color">
+  <div [ngClass]="getClasses()">
+    <div
+      [ngClass]="rootClass + '__options'"
+      *ngFor="let option of options">
+      <sb-el-radio-button
+        [(ngModel)]="selectedOptions[option]"
+        (ngModelChange)="change(option)"
+        [size]="size"
+        [color]="color"
+        [disabled]="disabled"
+        [labelPosition]="labelPosition"
+        [label]="option">
+      </sb-el-radio-button>
     </div>
   </div>
-</div>
+</sb-el-form-group>

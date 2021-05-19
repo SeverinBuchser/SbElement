@@ -9,7 +9,6 @@ import { RadioButtonComponent } from './radio-button/radio-button.component';
 import { RadioButtonGroupComponent } from './group/radio-button/radio-button-group.component';
 import { CheckboxGroupComponent } from './group/checkbox/checkbox-group.component';
 import { SelectionOptionsDirective } from './group/base/selection-options.directive';
-import { FormGroupBase } from './group/base/form-group.base.directive';
 import { SelectButtonComponent } from './select-button/select-button.component';
 import { SliderComponent } from './slider/slider.component';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +26,6 @@ import { FormGroupComponent } from './group/form-group.component';
     RadioButtonGroupComponent,
     CheckboxGroupComponent,
     SelectionOptionsDirective,
-    FormGroupBase,
     SelectButtonComponent,
     SliderComponent,
     IconComponent,
@@ -47,7 +45,6 @@ import { FormGroupComponent } from './group/form-group.component';
     RadioButtonGroupComponent,
     CheckboxGroupComponent,
     SelectionOptionsDirective,
-    FormGroupBase,
     SelectButtonComponent,
     SliderComponent,
     IconComponent,

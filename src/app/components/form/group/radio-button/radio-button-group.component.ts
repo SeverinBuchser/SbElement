@@ -15,7 +15,18 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 export class RadioButtonGroupComponent extends SelectionOptionsDirective<string> {
 
   @Input()
+  public groupTitle: string = '';
+
+  @Input()
+  public groupAlign: string | null = 'left';
+
+  @Input()
   public labelPosition: string = 'right';
+
+  constructor() {
+    super();
+    this.rootClass = 'sb-el-radio-button-group';
+  }
 
   public change(newOption: string) {
     this.options.forEach((option: string) => {

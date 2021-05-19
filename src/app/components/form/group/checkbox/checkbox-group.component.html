@@ -1,21 +1,22 @@
-<div [ngClass]="getClasses()">
-  <span *ngIf="hasGroupTitle" [ngClass]="rootClass + '__title'">{{groupTitle}}</span>
-  <div [ngClass]="rootClass + '__options-wrapper'">
-    <div [ngClass]="rootClass + '__options'">
-      <div
-        [ngClass]="rootClass + '__option'"
-        *ngFor="let option of options">
-        <sb-el-checkbox
-          [(ngModel)]="selectedOptions[option]"
-          (ngModelChange)="change()"
-          [disabled]="disabled"
-          [size]="size"
-          [color]="color"
-          [theme]="theme"
-          [label]="option"
-          [labelPosition]="labelPosition">
-        </sb-el-checkbox>
-      </div>
+<sb-el-form-group
+  [groupTitle]="groupTitle"
+  [groupAlign]="groupAlign"
+  [size]="size"
+  [color]="color">
+  <div [ngClass]="getClasses()">
+  <div
+    [ngClass]="rootClass + '__options'"
+    *ngFor="let option of options">
+      <sb-el-checkbox
+        [(ngModel)]="selectedOptions[option]"
+        (ngModelChange)="change()"
+        [size]="size"
+        [color]="color"
+        [theme]="theme"
+        [disabled]="disabled"
+        [labelPosition]="labelPosition"
+        [label]="option">
+      </sb-el-checkbox>
     </div>
   </div>
-</div>
+</sb-el-form-group>

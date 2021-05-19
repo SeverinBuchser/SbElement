@@ -16,7 +16,18 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOptions> {
 
   @Input()
+  public groupTitle: string = '';
+
+  @Input()
+  public groupAlign: string | null = 'left';
+
+  @Input()
   public labelPosition: string = 'right';
+
+  constructor() {
+    super();
+    this.rootClass = 'sb-el-checkbox-group';
+  }
 
   change() {
     this.value = this.selectedOptions;
