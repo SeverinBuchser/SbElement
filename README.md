@@ -22,6 +22,21 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Git
+
+When finished with development on a branch (story marked as DONE), the branch will be merged into develop. After merging, the branch will be archived and deleted:
+
+```shell
+$ git checkout develop
+$ git merge {type}-{type-number}/{branch-name}
+$ git tag archive/{type}-{type-number}/{branch-name} {type}-{type-number}/{branch-name}
+$ git push origin archive/{type}-{type-number}/{branch-name}
+$ git branch -d {type}-{type-number}/{branch-name}
+$ git push
+```
+
+This will merge, archive and delete the branch.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
