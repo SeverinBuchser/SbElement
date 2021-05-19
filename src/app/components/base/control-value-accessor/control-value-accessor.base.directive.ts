@@ -8,30 +8,23 @@ import { EventManagerDirective } from './event-manager.directive';
 export class ControlValueAccessorBaseDirective<ValueType> extends EventManagerDirective<ValueType> implements ControlValueAccessor {
 
   private innerValue: ValueType | undefined;
-  protected innerChange: boolean = false;
 
   // writing value
-  set value(value: ValueType | undefined) { this.setInnerValue(value, true) }
+  set value(value: ValueType | undefined) { this.setInnerValue(value, true, false) }
   get value(): ValueType | undefined { return this.innerValue }
-  public writeValue(value: ValueType | undefined): void { this.setInnerValue(value, false) }
+  public writeValue(value: ValueType | undefined): void { this.setInnerValue(value, false, false) }
   public writeValueInnerChange(value: ValueType | undefined) {
-    this.innerChange = true;
-    this.setInnerValue(value, true);
-    this.innerChange = false;
+    this.setInnerValue(value, true, true);
   }
 
-  private setInnerValue(value: ValueType | undefined, change: boolean): void {
+  private setInnerValue(value: ValueType | undefined, emitChange: boolean, innerChange: boolean): void {
     if (value !== this.innerValue && value !== null && !this.disabled) {
       this.innerValue = value;
-      this.updateValues();
-      if (change) this.emitChange(value);
+      if (!innerChange) this.updateValues();
+      if (emitChange) this.emitChange(value);
     }
   }
 
   protected updateValues(): void {};
-
-  // register events
-  public registerOnChange(fn: any): void { this.onChangeCallback = fn }
-  public registerOnTouched(fn: any): void { this.onTouchedCallBack = fn }
 
 }

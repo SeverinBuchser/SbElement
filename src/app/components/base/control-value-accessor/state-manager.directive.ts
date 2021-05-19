@@ -7,12 +7,12 @@ export class StateManagerDirective {
 
   private _touched: boolean = false;
   @Input()
-  set touched(isTouched: boolean) { this.touched = isTouched }
+  set touched(isTouched: boolean) { this._touched = isTouched }
   get touched(): boolean {return this._touched}
 
   private _pristine: boolean = true;
   @Input()
-  set pristine(isPristine: boolean) { this.pristine = isPristine }
+  set pristine(isPristine: boolean) { this._pristine = isPristine }
   get pristine(): boolean {return this._pristine}
 
   private _disabled: boolean = false;

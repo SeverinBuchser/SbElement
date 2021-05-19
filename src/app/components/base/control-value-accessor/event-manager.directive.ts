@@ -2,7 +2,7 @@ import { Directive, EventEmitter, Output } from '@angular/core';
 import { StateManagerDirective } from './state-manager.directive';
 
 @Directive({
-  selector: '[appEventManager]'
+  selector: '[selector]'
 })
 export class EventManagerDirective<ValueType> extends StateManagerDirective {
 
@@ -20,6 +20,7 @@ export class EventManagerDirective<ValueType> extends StateManagerDirective {
 
   // events
   protected emitBlur(): void {
+    this.onTouchedCallBack();
     this.blur.emit();
   }
 
@@ -32,5 +33,9 @@ export class EventManagerDirective<ValueType> extends StateManagerDirective {
     this.onChangeCallback(value);
     this.change.emit(value);
   }
+
+  // register events
+  public registerOnChange(fn: any): void { this.onChangeCallback = fn }
+  public registerOnTouched(fn: any): void { this.onTouchedCallBack = fn }
 
 }
