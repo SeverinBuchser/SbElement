@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeColorInputDirective } from '../base/control-value-accessor-style-input/control-value-accessor-size-color-input.directive';
+import { ControlValueAccessorSizeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-color-input.directive';
 
 @Component({
   selector: 'sb-el-radio-button',

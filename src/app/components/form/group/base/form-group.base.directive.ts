@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from 'src/app/components/base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Directive({
   selector: '[selector]'

@@ -1,0 +1,54 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ButtonComponent } from './button/button.component';
+import { IconButtonComponent } from './icon-button/icon-button.component';
+import { ToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { RadioButtonComponent } from './radio-button/radio-button.component';
+import { RadioButtonGroupComponent } from './group/radio-button/radio-button-group.component';
+import { CheckboxGroupComponent } from './group/checkbox/checkbox-group.component';
+import { SelectionOptionsDirective } from './group/base/selection-options.directive';
+import { FormGroupBase } from './group/base/form-group.base.directive';
+import { SelectButtonComponent } from './select-button/select-button.component';
+import { SliderComponent } from './slider/slider.component';
+import { FormsModule } from '@angular/forms';
+import { BaseModule } from '../base/base.module';
+import { IconComponent } from '../icon/icon.component';
+
+@NgModule({
+  declarations: [
+    ButtonComponent,
+    IconButtonComponent,
+    ToggleSwitchComponent,
+    CheckboxComponent,
+    RadioButtonComponent,
+    RadioButtonGroupComponent,
+    CheckboxGroupComponent,
+    SelectionOptionsDirective,
+    FormGroupBase,
+    SelectButtonComponent,
+    SliderComponent,
+    IconComponent
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    BaseModule
+  ],
+  exports: [
+    ButtonComponent,
+    IconButtonComponent,
+    ToggleSwitchComponent,
+    CheckboxComponent,
+    RadioButtonComponent,
+    RadioButtonGroupComponent,
+    CheckboxGroupComponent,
+    SelectionOptionsDirective,
+    FormGroupBase,
+    SelectButtonComponent,
+    SliderComponent,
+    IconComponent
+  ]
+})
+export class FormModule { }
