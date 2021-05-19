@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BaseModule } from './components/base/base.module';
 import { FormModule } from './components/form/form.module';
+import { ContainerComponent } from './components/container/container.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ContainerComponent,
   ],
   imports: [
     BrowserModule,
