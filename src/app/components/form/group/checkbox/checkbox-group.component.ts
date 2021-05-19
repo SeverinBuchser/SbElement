@@ -36,11 +36,5 @@ export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOp
   protected updateValues(): void {
     this.selectedOptions = this.value as SelectedOptions;
   }
-
-  public getClasses(): Array<string> {
-    let classes = super.getClasses();
-    classes.push('is-options');
-    return classes;
-  }
-
+  
 }

@@ -45,10 +45,4 @@ export class RadioButtonGroupComponent extends SelectionOptionsDirective<string>
     }
   }
 
-  public getClasses(): Array<string> {
-    let classes = super.getClasses();
-    classes.push('is-options');
-    return classes;
-  }
-
 }
