@@ -8,7 +8,8 @@
     [disabled]="disabled"
     [extraClasses]="getButtonClasses()"
     (click)="toggle()">
-    <ng-content></ng-content>
+    {{ value }}
+    <ng-content *ngIf="!value"></ng-content>
     <sb-el-icon>&#xe5cf;</sb-el-icon>
   </sb-el-button>
   <div [ngClass]="rootClass + '__options-wrapper'">
