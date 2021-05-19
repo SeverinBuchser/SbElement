@@ -18,19 +18,45 @@ export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDire
   public label: string = '';
 
   @Input()
-  public max: number = 10;
-
-  @Input()
   public min: number = 0;
 
   @Input()
-  public step: number = 1;
+  public max: number = 10;
+
+  private _step: number = 1;
+  @Input()
+  set step(step: number) {
+    this._step = step;
+    if (Math.floor(step) !== step)
+        this.decimalPlaces = step.toString().split(".")[1].length || 0;
+  }
+  get step(): number { return this._step }
+  private decimalPlaces: number = 0;
 
   @Input()
-  public snapTo: Array<number> = [];
+  set snap(snap: Array<number> | boolean) {
+    if (Array.isArray(snap)) this.snapPoints = snap;
+    else if (snap) {
+      this.snapPoints = new Array<number>();
+      let snapStep = Math.round((this.max-this.min)/5/this.step)*this.step;
+      let sum = this.min;
+      while(sum < this.max - snapStep) {
+        this.snapPoints.push(sum)
+        sum += snapStep;
+      }
+    }
+  }
+  public snapPoints: Array<number> = new Array<number>();
+
+  get numberPipingValue(): string {
+    return '1.' + this.decimalPlaces + '-' + this.decimalPlaces;
+  }
 
   @Input()
   public showValue: boolean = false;
+
+  @Input()
+  public valueSuffix: string = '';
 
   constructor() {
     super();
@@ -42,7 +68,7 @@ export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDire
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.label ? 'is-label' : '');
+    classes.push(this.label ? 'is-label' : 'is-not-label');
     classes.push(this.showValue ? 'is-value' : 'is-not-value');
     return classes;
   }

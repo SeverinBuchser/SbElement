@@ -11,9 +11,9 @@
   <span
     *ngIf="showValue"
     [ngClass]="rootClass + '__value'">
-    {{ value }}
+    {{ value | number: numberPipingValue }} {{ valueSuffix }}
   </span>
   <datalist id="steplist">
-    <option *ngFor="let point of snapTo" [value]="point"></option>
+    <option *ngFor="let snapPoint of snapPoints" [value]="snapPoint"></option>
   </datalist>
 </div>
