@@ -1,76 +1,75 @@
-<form class="sb-el-form sb-el-form--night-success" (ngSubmit)="onSubmit(form)" #form="ngForm">
-  <div class="sb-el-form__header is-left">
-    This is a Form
-  </div>
-  <div class="sb-el-form__content">
-    <sb-el-checkbox-group
-      groupTitle="Select Checkboxes"
-      groupAlign="left"
-      size="s"
-      [color]="color"
-      [theme]="theme"
-      [(ngModel)]="model.checkboxes"
-      name="checkboxes"
-      #checkboxes="ngModel"
-      [options]="['Option 1', 'Option 2', 'Option 3']"
-      [disabled]="false">
-    </sb-el-checkbox-group>
-    <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-    <sb-el-radio-button-group
-      groupTitle="Select Radio"
-      groupAlign="left"
-      size="s"
-      [color]="color"
-      [theme]="theme"
-      [(ngModel)]="model.radios"
-      name="radios"
-      #radios="ngModel"
-      [options]="['Option 1', 'Option 2', 'Option 3']"
-      [disabled]="false">
-    </sb-el-radio-button-group>
-    <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-    <div class="hi">
-    <sb-el-select-button
-      pill
-      size="m"
-      [color]="color"
-      [theme]="theme"
-      [(ngModel)]="model.select"
-      name="select"
-      #select="ngModel"
-      [options]="['Option 1', 'Option 2', 'Option 3']">
-      Select
-    </sb-el-select-button>
-    <sb-el-slider
-      label="Slider"
-      size="s"
-      [color]="color"
-      [theme]="theme"
-      [max]="20"
-      [min]="-20"
-      [step]="0.1"
-      [snap]="[0, 3, 6]"
-      [showValue]="true"
-      [valueSuffix]="'kWh'"
-      [(ngModel)]="model.slider"
-      name="slider"
-      #slider="ngModel">
-    </sb-el-slider>
+<sb-el-container [theme]="theme" size="s">
+  <form class="sb-el-form sb-el-form--night-success" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="sb-el-form__header is-left">
+      This is a Form
     </div>
-  </div>
-  <div class="sb-el-form__footer is-center">
-    <sb-el-button
-      type="submit"
-      extraClasses="sb-el-form__footer-element"
-      pill
-      size="d"
-      [color]="color"
-      [theme]="theme"
-      [disabled]="!form.valid">
-        Submit
-    </sb-el-button>
-  </div>
-</form>
-<sb-el-container>
-  This is a container
+    <div class="sb-el-form__content">
+      <sb-el-checkbox-group
+        groupTitle="Select Checkboxes"
+        groupAlign="left"
+        size="s"
+        [color]="color"
+        [theme]="theme"
+        [(ngModel)]="model.checkboxes"
+        name="checkboxes"
+        #checkboxes="ngModel"
+        [options]="['Option 1', 'Option 2', 'Option 3']"
+        [disabled]="false">
+      </sb-el-checkbox-group>
+      <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
+      <sb-el-radio-button-group
+        groupTitle="Select Radio"
+        groupAlign="left"
+        size="s"
+        [color]="color"
+        [theme]="theme"
+        [(ngModel)]="model.radios"
+        name="radios"
+        #radios="ngModel"
+        [options]="['Option 1', 'Option 2', 'Option 3']"
+        [disabled]="false">
+      </sb-el-radio-button-group>
+      <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
+      <div class="hi">
+      <sb-el-select-button
+        pill
+        size="m"
+        [color]="color"
+        [theme]="theme"
+        [(ngModel)]="model.select"
+        name="select"
+        #select="ngModel"
+        [options]="['Option 1', 'Option 2', 'Option 3']">
+        Select
+      </sb-el-select-button>
+      <sb-el-slider
+        label="Slider"
+        size="s"
+        [color]="color"
+        [theme]="theme"
+        [max]="20"
+        [min]="-20"
+        [step]="0.1"
+        [snap]="[0, 3, 6]"
+        [showValue]="true"
+        [valueSuffix]="'kWh'"
+        [(ngModel)]="model.slider"
+        name="slider"
+        #slider="ngModel">
+      </sb-el-slider>
+      </div>
+    </div>
+    <div class="sb-el-form__footer is-center">
+      <sb-el-button
+        type="submit"
+        extraClasses="sb-el-form__footer-element"
+        pill
+        size="d"
+        [color]="color"
+        [theme]="theme"
+        [disabled]="!form.valid">
+          Submit
+      </sb-el-button>
+    </div>
+  </form>
 </sb-el-container>
