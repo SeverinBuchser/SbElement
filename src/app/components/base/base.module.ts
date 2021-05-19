@@ -14,6 +14,7 @@ import { ControlValueAccessorColorInputDirective } from './control-value-accesso
 import { ControlValueAccessorSizeInputDirective } from './control-value-accessor-style-input/control-value-accessor-size-input.directive';
 import { ControlValueAccessorSizeColorInputDirective } from './control-value-accessor-style-input/control-value-accessor-size-color-input.directive';
 import { ControlValueAccessorSizeThemeColorInputDirective } from './control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { SizeThemeInputDirective } from './style-input/size-theme-input.directive';
 
 
 
@@ -35,6 +36,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from './control-valu
     ControlValueAccessorSizeThemeColorInputDirective,
     ControlValueAccessorClassNameInputDirective,
     ThemeInputDirective,
+    SizeThemeInputDirective,
   ],
   imports: [
     CommonModule
