@@ -24,6 +24,8 @@ export class ControlValueAccessorClassNameInputDirective<ValueType> extends Cont
     classes.push(this.rootClass);
     this._extraClasses.forEach(className => classes.push(className))
     classes.push(this.disabled ? 'disabled' : '');
+    classes.push(this.pristine ? 'pristine' : 'dirty');
+    classes.push(this.touched ? 'touched' : 'untouched');
     return classes;
   }
 

@@ -28,7 +28,7 @@ export class RadioButtonGroupComponent extends SelectionOptionsDirective<string>
     this.rootClass = 'sb-el-radio-button-group';
   }
 
-  public change(newOption: string) {
+  public check(newOption: string) {
     this.options.forEach((option: string) => {
       if (option !== newOption) this.selectedOptions[option] = false;
     })

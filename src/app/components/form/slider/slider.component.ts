@@ -63,9 +63,6 @@ export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDire
     this.rootClass = 'sb-el-slider';
   }
 
-  ngOnInit(): void {
-  }
-
   public getClasses(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.label ? 'is-label' : 'is-not-label');

@@ -27,6 +27,8 @@ import { SizeThemeInputDirective } from './style-input/size-theme-input.directiv
     SizeInputDirective,
     SizeColorInputDirective,
     SizeThemeColorInputDirective,
+    ThemeInputDirective,
+    SizeThemeInputDirective,
     ClassNameInputDirective,
 
     ControlValueAccessorColorInputDirective,
@@ -35,8 +37,6 @@ import { SizeThemeInputDirective } from './style-input/size-theme-input.directiv
     ControlValueAccessorSizeColorInputDirective,
     ControlValueAccessorSizeThemeColorInputDirective,
     ControlValueAccessorClassNameInputDirective,
-    ThemeInputDirective,
-    SizeThemeInputDirective,
   ],
   imports: [
     CommonModule
@@ -49,6 +49,8 @@ import { SizeThemeInputDirective } from './style-input/size-theme-input.directiv
     SizeInputDirective,
     SizeColorInputDirective,
     SizeThemeColorInputDirective,
+    ThemeInputDirective,
+    SizeThemeInputDirective,
     ClassNameInputDirective,
 
     ControlValueAccessorColorInputDirective,

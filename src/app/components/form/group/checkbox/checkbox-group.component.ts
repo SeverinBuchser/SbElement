@@ -29,12 +29,12 @@ export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOp
     this.rootClass = 'sb-el-checkbox-group';
   }
 
-  change() {
+  check() {
     this.value = this.selectedOptions;
   }
 
   protected updateValues(): void {
     this.selectedOptions = this.value as SelectedOptions;
   }
-  
+
 }

@@ -9,7 +9,7 @@
       *ngFor="let option of options">
       <sb-el-radio-button
         [(ngModel)]="selectedOptions[option]"
-        (ngModelChange)="change(option)"
+        (change)="check(option)"
         [size]="size"
         [color]="color"
         [disabled]="disabled"

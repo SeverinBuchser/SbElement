@@ -33,7 +33,6 @@ export class CheckboxComponent extends ControlValueAccessorSizeThemeColorInputDi
     let classes = super.getClasses();
     classes.push(this.label ? 'is-label' : '');
     classes.push(this.label ? 'label-is-' + this.labelPosition : '');
-    classes.push(this.disabled ? 'disabled' : '');
     classes.push(this.value ? 'is-checked' : 'is-unchecked');
     return classes;
   }

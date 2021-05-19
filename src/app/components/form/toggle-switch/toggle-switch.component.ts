@@ -26,7 +26,6 @@ export class ToggleSwitchComponent extends ControlValueAccessorSizeThemeColorInp
   public getClasses(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.value ? 'is-on' : 'is-off');
-    classes.push(this.disabled ? 'disabled' : '');
     return classes;
   }
 
