@@ -6,3 +6,13 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+
+.hi {
+  .sb-el-form-group__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
