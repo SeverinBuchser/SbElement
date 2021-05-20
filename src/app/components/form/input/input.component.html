@@ -1,4 +1,10 @@
-<input
-  [ngClass]="getClasses()"
-  [type]="type"
-  [(ngModel)]="value">
+<div [ngClass]="getClasses()">
+  <input
+    [ngClass]="rootClass + '__input'"
+    [placeholder]="placeholder"
+    [type]="type"
+    [(ngModel)]="value">
+  <div [ngClass]="rootClass + '__placeholder'">
+    {{ placeholder }}
+  </div>
+</div>

@@ -25,7 +25,7 @@ export class AppComponent {
     checkboxes: {'Option 1': true, 'Option 2': false, 'Option 3': true},
     radios: 'Option 1',
     slider: 0,
-    input: ''
+    input: 'This is the input component'
   };
 
   constructor(themeService: ThemeService) {
