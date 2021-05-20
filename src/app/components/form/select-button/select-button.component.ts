@@ -59,6 +59,7 @@ export class SelectButtonComponent extends SelectionOptionsDirective<string> {
   public getClasses(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.pill ? 'is-pill' : '');
+    classes.push(this.plain ? 'is-plain': '');
     classes.push(this.showOptions ? 'is-open' : 'is-closed');
     return classes;
   }

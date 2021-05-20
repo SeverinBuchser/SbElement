@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { BaseModule } from '../base/base.module';
 import { IconComponent } from '../icon/icon.component';
 import { FormGroupComponent } from './group/form-group.component';
+import { InputComponent } from './input/input.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormGroupComponent } from './group/form-group.component';
     SelectButtonComponent,
     SliderComponent,
     IconComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { FormGroupComponent } from './group/form-group.component';
     SelectButtonComponent,
     SliderComponent,
     IconComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    InputComponent
   ]
 })
 export class FormModule { }

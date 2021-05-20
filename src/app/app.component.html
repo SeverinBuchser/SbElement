@@ -57,6 +57,18 @@
           #slider="ngModel">
         </sb-el-slider>
       </sb-el-form-group>
+      <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
+      <sb-el-form-group
+        groupTitle="Input"
+        extraClasses="hi">
+        <sb-el-input
+          size="d"
+          [color]="color"
+          [(ngModel)]="model.input"
+          name="input"
+          #input="ngModel">
+        </sb-el-input>
+      </sb-el-form-group>
     </div>
     <div class="sb-el-form__footer is-center">
       <sb-el-button
