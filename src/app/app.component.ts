@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ThemeService } from './services/theme/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,10 @@ export class AppComponent {
     radios: 'Option 1',
     slider: 0
   };
+
+  constructor(themeService: ThemeService) {
+    themeService.commit('light')
+  }
 
   onSubmit(form: NgForm) {
     console.log(form.value)

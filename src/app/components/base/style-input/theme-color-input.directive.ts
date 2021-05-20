@@ -7,8 +7,7 @@ import { ClassNameInputDirective } from './class-name-input.directive';
 })
 export class ThemeColorInputDirective extends ClassNameInputDirective {
 
-  @Input()
-  public theme: string | null = 'light';
+  public theme: string;
 
   @Input()
   public color: string | null = 'primary';
@@ -17,7 +16,7 @@ export class ThemeColorInputDirective extends ClassNameInputDirective {
     private themeService: ThemeService
   ) {
     super();
-    this.theme = themeService.theme;
+    this.theme = themeService.get();
   }
 
   public getClasses(): Array<string> {

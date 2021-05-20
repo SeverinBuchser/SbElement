@@ -14,6 +14,8 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/con
 })
 export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDirective<number> {
 
+  public rootClass = 'sb-el-slider';
+
   @Input()
   public label: string = '';
 
@@ -57,11 +59,6 @@ export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDire
 
   @Input()
   public valueSuffix: string = '';
-
-  constructor() {
-    super();
-    this.rootClass = 'sb-el-slider';
-  }
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();

@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class ThemeService {
 
-  private _theme: string = 'light';
-  get theme(): string { return this._theme }
+  private _theme: string = 'night';
   public commit(theme: string) { this._theme = theme }
-  
+  public get(): string { return this._theme }
+
 }

@@ -14,10 +14,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/con
 })
 export class ToggleSwitchComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
 
-  constructor() {
-    super();
-    this.rootClass = 'sb-el-toggle-switch';
-  }
+  public rootClass = 'sb-el-toggle-switch';
 
   public toggle(): void {
     this.value = !this.value;

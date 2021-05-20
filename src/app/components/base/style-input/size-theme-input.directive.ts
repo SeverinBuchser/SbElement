@@ -10,14 +10,13 @@ export class SizeThemeInputDirective extends ClassNameInputDirective {
   @Input()
   public size: string | null = 'd';
 
-  @Input()
-  public theme: string | null = 'light';
+  public theme: string;
 
   constructor(
     private themeService: ThemeService
   ) {
     super();
-    this.theme = themeService.theme;
+    this.theme = themeService.get();
   }
 
   public getClasses(): Array<string> {

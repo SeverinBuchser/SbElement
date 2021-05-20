@@ -1,5 +1,6 @@
 import { Attribute, Component, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ThemeService } from 'src/app/services/theme/theme.service';
 import { SelectionOptionsDirective } from '../group/base/selection-options.directive';
 
 @Component({
@@ -20,9 +21,10 @@ export class SelectButtonComponent extends SelectionOptionsDirective<string> {
 
   constructor(
     @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any
+    @Optional() @Attribute('plain') plain: any,
+    themeService: ThemeService
   ) {
-    super();
+    super(themeService);
     if (pill === '') this.pill = true;
     if (plain === '') this.plain = true;
     this.rootClass = 'sb-el-select-button';

@@ -7,14 +7,13 @@ import { ClassNameInputDirective } from './class-name-input.directive';
 })
 export class ThemeInputDirective  extends ClassNameInputDirective {
 
-  @Input()
-  public theme: string | null = 'light';
+  public theme: string;
 
   constructor(
     private themeService: ThemeService
   ) {
     super();
-    this.theme = themeService.theme;
+    this.theme = themeService.get();
   }
 
   public getClasses(): Array<string> {

@@ -14,16 +14,12 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/con
 })
 export class CheckboxComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
 
+  public rootClass = 'sb-el-checkbox';
+
   @Input()
   public label: string = '';
   @Input()
   public labelPosition: string = 'right';
-
-
-  constructor() {
-    super();
-    this.rootClass = 'sb-el-checkbox';
-  }
 
   public check(): void {
     this.value = !this.value;
