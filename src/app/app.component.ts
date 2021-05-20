@@ -10,7 +10,7 @@ import { ThemeService } from './services/theme/theme.service';
 export class AppComponent {
   title = 'SbElement';
   public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
-  public theme: 'light' | 'night' = 'light';
+  public theme: string = 'light';
 
   public value: any = 'Switch is turned OFF';
   public valuecheckbox: boolean = false;
@@ -30,6 +30,7 @@ export class AppComponent {
 
   constructor(themeService: ThemeService) {
     themeService.commit('light')
+    this.theme = themeService.get();
   }
 
   onSubmit(form: NgForm) {

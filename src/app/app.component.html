@@ -1,5 +1,5 @@
 <sb-el-container size="l">
-  <form class="sb-el-form sb-el-form--light-success" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <form [ngClass]="'sb-el-form sb-el-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="sb-el-form__header is-left">
       This is a Form
     </div>
@@ -63,7 +63,7 @@
         extraClasses="hi">
         <sb-el-input
           placeholder="Enter your E-Mail"
-          size="d"
+          size="m"
           [color]="color"
           [(ngModel)]="model.input"
           name="input"
