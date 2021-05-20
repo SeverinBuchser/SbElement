@@ -19,12 +19,15 @@ export class EventManagerDirective<ValueType> extends StateManagerDirective {
   public focus: EventEmitter<void> = new EventEmitter<void>();
 
   // events
-  protected emitBlur(): void {
+  public emitBlur(): void {
+    this.setFocusedState(false);
+    this.setTouchedState(true);
     this.onTouchedCallBack();
     this.blur.emit();
   }
 
-  protected emitFocus(): void {
+  public emitFocus(): void {
+    this.setFocusedState(true);
     this.focus.emit();
   }
 
