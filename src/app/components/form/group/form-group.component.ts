@@ -8,6 +8,8 @@ import { SizeThemeColorInputDirective } from '../../base/style-input/size-theme-
 })
 export class FormGroupComponent extends SizeThemeColorInputDirective {
 
+  public rootClass = 'sb-el-form-group';
+
   @Input()
   public groupTitle: string = '';
   get hasGroupTitle(): boolean {
@@ -16,11 +18,6 @@ export class FormGroupComponent extends SizeThemeColorInputDirective {
 
   @Input()
   public groupAlign: string | null = 'left';
-
-  constructor() {
-    super();
-    this.rootClass = 'sb-el-form-group';
-  }
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();

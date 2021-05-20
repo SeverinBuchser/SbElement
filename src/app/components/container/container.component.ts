@@ -8,9 +8,6 @@ import { SizeThemeInputDirective } from '../base/style-input/size-theme-input.di
 })
 export class ContainerComponent extends SizeThemeInputDirective {
 
-  constructor() {
-    super();
-    this.rootClass = 'sb-el-container';
-  }
+  public rootClass = 'sb-el-container';
 
 }

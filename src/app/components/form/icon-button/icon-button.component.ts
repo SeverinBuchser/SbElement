@@ -1,4 +1,5 @@
 import { Attribute, Component, Input, Optional } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../../base/style-input/size-theme-color-input.directive';
 
 @Component({
@@ -24,9 +25,10 @@ export class IconButtonComponent extends SizeThemeColorInputDirective {
   constructor(
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('round') round: any,
-    @Optional() @Attribute('plain') plain: any
+    @Optional() @Attribute('plain') plain: any,
+    themeService: ThemeService
   ) {
-    super();
+    super(themeService);
     if (pill === '') this.pill = true;
     if (round === '') this.round = true;
     if (plain === '') this.plain = true;
