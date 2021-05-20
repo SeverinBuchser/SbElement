@@ -1,10 +1,12 @@
 <div [ngClass]="getClasses()">
   <input
-    [ngClass]="rootClass + '__input'"
-    [placeholder]="placeholder"
+    [ngClass]="getInputClasses()"
     [type]="type"
-    [(ngModel)]="value">
-  <div [ngClass]="rootClass + '__placeholder'">
+    [(ngModel)]="value"
+    (blur)="emitBlur()"
+    (focus)="emitFocus()"
+    [spellcheck]="spellcheck">
+  <div [ngClass]="getPlaceholderClasses()">
     {{ placeholder }}
   </div>
 </div>

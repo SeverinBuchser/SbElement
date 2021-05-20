@@ -23,6 +23,9 @@ export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirec
   @Input()
   public type: string = 'text';
 
+  @Input()
+  public spellcheck: boolean = false;
+
   public plain: boolean = false;
   public pill: boolean = false;
 
@@ -36,6 +39,20 @@ export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirec
     if (pill === '') this.pill = true;
     if (plain === '') this.plain = true;
   }
+
+  public getInputClasses(): Array<string> {
+    let classes = new Array<string>();
+    classes.push(this.rootClass + '__input')
+    return classes;
+  }
+
+  public getPlaceholderClasses(): Array<string> {
+    let classes = new Array<string>();
+    classes.push(this.rootClass + '__placeholder')
+    classes.push(this.value || this.focused ? 'is-top' : '')
+    return classes;
+  }
+
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
