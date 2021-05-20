@@ -20,6 +20,11 @@ export class StateManagerDirective {
   set disabled(isDisabled: boolean) { this._disabled = isDisabled }
   get disabled(): boolean { return this._disabled }
 
+  private _focused: boolean = false;
+  @Input()
+  set focused(isFocused: boolean) { this._focused = isFocused }
+  get focused(): boolean { return this._focused }
+
   public setDisabledState(disabled: boolean): void {
     this.disabled = disabled;
   }
@@ -32,4 +37,7 @@ export class StateManagerDirective {
     this.pristine = pristine;
   }
 
+  public setFocusedState(focused: boolean): void {
+    this.focused = focused
+  }
 }
