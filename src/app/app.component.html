@@ -1,4 +1,7 @@
 <sb-el-container size="l">
+  <sb-el-table [table]="table"></sb-el-table>
+</sb-el-container>
+<sb-el-container size="l">
   <form [ngClass]="'sb-el-form sb-el-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="sb-el-form__header is-left">
       This is a Form

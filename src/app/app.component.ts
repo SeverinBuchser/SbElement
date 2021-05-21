@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Table } from './models/table/table';
 import { ThemeService } from './services/theme/theme.service';
 
 @Component({
@@ -28,8 +29,10 @@ export class AppComponent {
     input: ''
   };
 
+  public table: Table = new Table();
+
   constructor(themeService: ThemeService) {
-    themeService.commit('night')
+    themeService.commit('light')
     this.theme = themeService.get();
   }
 

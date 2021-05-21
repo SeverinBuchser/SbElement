@@ -1,1 +1,20 @@
-<p>table works!</p>
+<table [ngClass]="getClasses()">
+  <tbody [ngClass]="rootClass + '__body'">
+    <tr [ngClass]="getTableHeaderClasses()">
+      <td
+        *ngFor="let columnHeader of table.header"
+        [ngClass]="rootClass + '__data'">
+        {{ columnHeader }}
+      </td>
+    </tr>
+    <tr
+      *ngFor="let rowEntries of table.data"
+      [ngClass]="rootClass + '__row'">
+      <td
+        *ngFor="let columnEntry of rowEntries"
+        [ngClass]="rootClass + '__data'">
+        {{ columnEntry }}
+      </td>
+    </tr>
+  </tbody>
+</table>
