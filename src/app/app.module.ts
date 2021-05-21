@@ -9,6 +9,7 @@ import { BaseModule } from './components/base/base.module';
 import { FormModule } from './components/form/form.module';
 import { ContainerComponent } from './components/container/container.component';
 import { AlertBoxComponent } from './components/alert-box/alert-box.component';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -17,6 +18,7 @@ import { AlertBoxComponent } from './components/alert-box/alert-box.component';
     AppComponent,
     ContainerComponent,
     AlertBoxComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
