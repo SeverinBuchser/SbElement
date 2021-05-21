@@ -21,21 +21,25 @@ export class AlertBoxComponent extends SizeThemeColorInputDirective {
 
   public flipped: boolean = false;
   private pill: boolean = false;
+  private plain: boolean = false;
 
   constructor(
     @Optional() @Attribute('flipped') flipped: any,
     @Optional() @Attribute('pill') pill: any,
+    @Optional() @Attribute('plain') plain: any,
     themeService: ThemeService
   ) {
     super(themeService);
     if (flipped == '') this.flipped = true;
     if (pill == '') this.pill = true;
+    if (plain == '') this.plain = true;
   }
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.flipped ? 'is-flipped' : '');
     classes.push(this.pill ? 'is-pill' : '');
+    classes.push(this.plain ? 'is-plain' : '');
     return classes;
   }
 
