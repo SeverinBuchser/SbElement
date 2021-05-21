@@ -29,7 +29,7 @@ export class AppComponent {
   };
 
   constructor(themeService: ThemeService) {
-    themeService.commit('light')
+    themeService.commit('night')
     this.theme = themeService.get();
   }
 

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Attribute, Component, Input, Optional } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../base/style-input/size-theme-color-input.directive';
 
 @Component({
@@ -17,5 +18,21 @@ export class AlertBoxComponent extends SizeThemeColorInputDirective {
 
   @Input()
   public customIcon: boolean = false;
+
+  private flipped: boolean = false;
+
+  constructor(
+    @Optional() @Attribute('flipped') flipped: any,
+    themeService: ThemeService
+  ) {
+    super(themeService);
+    if (flipped == '') this.flipped = true;
+  }
+
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
+    classes.push(this.flipped ? 'is-flipped' : '');
+    return classes;
+  }
 
 }
