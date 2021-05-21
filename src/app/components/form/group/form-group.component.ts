@@ -3,8 +3,7 @@ import { SizeThemeColorInputDirective } from '../../base/style-input/size-theme-
 
 @Component({
   selector: 'sb-el-form-group',
-  templateUrl: './form-group.component.html',
-  styleUrls: ['./form-group.component.scss']
+  templateUrl: './form-group.component.html'
 })
 export class FormGroupComponent extends SizeThemeColorInputDirective {
 

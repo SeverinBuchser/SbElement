@@ -5,7 +5,6 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/con
 @Component({
   selector: 'sb-el-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SliderComponent,

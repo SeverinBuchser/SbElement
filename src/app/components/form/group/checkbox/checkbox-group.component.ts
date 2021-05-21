@@ -6,7 +6,6 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 @Component({
   selector: 'sb-el-checkbox-group',
   templateUrl: './checkbox-group.component.html',
-  styleUrls: ['./checkbox-group.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: CheckboxGroupComponent,

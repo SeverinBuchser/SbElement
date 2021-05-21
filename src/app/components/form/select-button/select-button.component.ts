@@ -6,7 +6,6 @@ import { SelectionOptionsDirective } from '../group/base/selection-options.direc
 @Component({
   selector: 'sb-el-select-button',
   templateUrl: './select-button.component.html',
-  styleUrls: ['./select-button.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SelectButtonComponent,

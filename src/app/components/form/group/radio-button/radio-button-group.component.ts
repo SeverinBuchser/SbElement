@@ -5,7 +5,6 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 @Component({
   selector: 'sb-el-radio-button-group',
   templateUrl: './radio-button-group.component.html',
-  styleUrls: ['./radio-button-group.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: RadioButtonGroupComponent,

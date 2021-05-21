@@ -5,7 +5,6 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/con
 @Component({
   selector: 'sb-el-toggle-switch',
   templateUrl: './toggle-switch.component.html',
-  styleUrls: ['./toggle-switch.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: ToggleSwitchComponent,

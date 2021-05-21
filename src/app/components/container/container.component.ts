@@ -3,8 +3,7 @@ import { SizeThemeInputDirective } from '../base/style-input/size-theme-input.di
 
 @Component({
   selector: 'sb-el-container',
-  templateUrl: './container.component.html',
-  styleUrls: ['./container.component.scss']
+  templateUrl: './container.component.html'
 })
 export class ContainerComponent extends SizeThemeInputDirective {
 

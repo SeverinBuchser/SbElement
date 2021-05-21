@@ -3,8 +3,7 @@ import { SizeColorInputDirective } from '../base/style-input/size-color-input.di
 
 @Component({
   selector: 'sb-el-icon',
-  templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.scss']
+  templateUrl: './icon.component.html'
 })
 export class IconComponent extends SizeColorInputDirective {
 

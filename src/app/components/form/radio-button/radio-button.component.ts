@@ -5,7 +5,6 @@ import { ControlValueAccessorSizeColorInputDirective } from '../../base/control-
 @Component({
   selector: 'sb-el-radio-button',
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: RadioButtonComponent,

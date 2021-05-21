@@ -5,7 +5,6 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/con
 @Component({
   selector: 'sb-el-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: CheckboxComponent,

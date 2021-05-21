@@ -4,8 +4,7 @@ import { SizeThemeColorInputDirective } from '../../base/style-input/size-theme-
 
 @Component({
   selector: 'sb-el-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  templateUrl: './button.component.html'
 })
 export class ButtonComponent extends SizeThemeColorInputDirective implements OnInit {
 
