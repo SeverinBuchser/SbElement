@@ -19,19 +19,23 @@ export class AlertBoxComponent extends SizeThemeColorInputDirective {
   @Input()
   public customIcon: boolean = false;
 
-  private flipped: boolean = false;
+  public flipped: boolean = false;
+  private pill: boolean = false;
 
   constructor(
     @Optional() @Attribute('flipped') flipped: any,
+    @Optional() @Attribute('pill') pill: any,
     themeService: ThemeService
   ) {
     super(themeService);
     if (flipped == '') this.flipped = true;
+    if (pill == '') this.pill = true;
   }
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.flipped ? 'is-flipped' : '');
+    classes.push(this.pill ? 'is-pill' : '');
     return classes;
   }
 

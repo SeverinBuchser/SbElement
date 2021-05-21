@@ -1,7 +1,8 @@
 <div [ngClass]="getClasses()">
   <div [ngClass]="rootClass + '__alert'">
     <div *ngIf="showArrow" [ngClass]="rootClass + '__arrow'">
-      <sb-el-icon [size]="'s'">&#xf1df;</sb-el-icon>
+      <!-- If flipped use West icon, if not use East icon -->
+      <sb-el-icon *ngIf="!flipped" [size]="'s'">&#xf1df;</sb-el-icon>
     </div>
     <ng-content></ng-content>
   </div>
