@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SizeThemeColorInputDirective } from '../base/style-input/size-theme-color-input.directive';
 
 @Component({
@@ -8,5 +8,14 @@ import { SizeThemeColorInputDirective } from '../base/style-input/size-theme-col
 export class AlertBoxComponent extends SizeThemeColorInputDirective {
 
   public rootClass: string = 'sb-el-alert-box';
+
+  @Input()
+  public showArrow: boolean = true;
+
+  @Input()
+  public showIcon: boolean = true;
+
+  @Input()
+  public customIcon: boolean = false;
 
 }

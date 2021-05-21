@@ -4,7 +4,9 @@
       This is a Form
     </div>
     <div class="sb-el-form__content">
-      <sb-el-alert-box>This is a warning!</sb-el-alert-box>
+      <sb-el-alert-box color="primary" size="d" [showArrow]="true" [showIcon]="true">
+        This is a warning!
+      </sb-el-alert-box>
       <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
       <sb-el-checkbox-group
         groupTitle="Select Checkboxes"
@@ -35,7 +37,7 @@
         extraClasses="hi">
         <sb-el-select-button
           pill
-          size="m"
+          size="d"
           [color]="color"
           [(ngModel)]="model.select"
           name="select"
@@ -64,7 +66,7 @@
         extraClasses="hi">
         <sb-el-input
           placeholder="Enter your E-Mail"
-          size="m"
+          size="d"
           [color]="color"
           [(ngModel)]="model.input"
           name="input"

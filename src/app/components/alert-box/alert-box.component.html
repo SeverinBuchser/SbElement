@@ -1,3 +1,18 @@
 <div [ngClass]="getClasses()">
-  <ng-content></ng-content>
+  <div [ngClass]="rootClass + '__alert'">
+    <div *ngIf="showArrow" [ngClass]="rootClass + '__arrow'">
+      <sb-el-icon [size]="'s'">&#xf1df;</sb-el-icon>
+    </div>
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="showIcon" [ngClass]="rootClass + '__icon'">
+    <ng-content *ngIf="customIcon; else defaultIcon" select="[icon]"></ng-content>
+    <ng-template #defaultIcon>
+      <sb-el-icon *ngIf="color == 'warn'" [size]="size == 's' ? 's' : 'd'">&#xe001;</sb-el-icon>
+      <sb-el-icon *ngIf="color == 'success'" [size]="size == 's' ? 's' : 'd'">&#xe92d;</sb-el-icon>
+      <sb-el-icon *ngIf="color == 'info'" [size]="size == 's' ? 's' : 'd'">&#xe88f;</sb-el-icon>
+      <sb-el-icon *ngIf="color == 'primary'" [size]="size == 's' ? 's' : 'd'">&#xe0f0;</sb-el-icon>
+      <sb-el-icon *ngIf="color == 'secondary'" [size]="size == 's' ? 's' : 'd'">&#xe87e;</sb-el-icon>
+    </ng-template>
+  </div>
 </div>
