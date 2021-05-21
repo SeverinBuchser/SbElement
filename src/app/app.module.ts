@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { BaseModule } from './components/base/base.module';
 import { FormModule } from './components/form/form.module';
 import { ContainerComponent } from './components/container/container.component';
+import { AlertBoxComponent } from './components/alert-box/alert-box.component';
 
 
 
@@ -15,6 +16,7 @@ import { ContainerComponent } from './components/container/container.component';
   declarations: [
     AppComponent,
     ContainerComponent,
+    AlertBoxComponent,
   ],
   imports: [
     BrowserModule,
