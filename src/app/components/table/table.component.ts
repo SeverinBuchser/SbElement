@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TableInterface } from 'src/app/models/table/table-interface';
+import { AbstractTable } from 'src/app/models/table/abstract-table';
 import { ThemeColorInputDirective } from '../base/style-input/theme-color-input.directive';
 
 @Component({
@@ -9,14 +9,31 @@ import { ThemeColorInputDirective } from '../base/style-input/theme-color-input.
 export class TableComponent extends ThemeColorInputDirective {
 
   public rootClass: string = 'sb-el-table';
+  public subRootClass: string = this.rootClass + '__data';
 
   @Input()
-  public table!: TableInterface;
+  public separation: string = 'all';
 
-  public getTableHeaderClasses(): Array<string> {
+  @Input()
+  public table!: AbstractTable;
+
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
+    if (this.separation === 'all') {
+      classes.push('is-border-separation');
+      classes.push('is-color-separation');
+    } else if (this.separation) {
+      classes.push('is-' + this.separation + '-separation');
+    }
+    return classes;
+  }
+
+  public getColumnClasses(columnIndex: number): Array<string> {
     let classes = new Array<string>();
-    classes.push(this.rootClass + '__header');
-    classes.push(this.rootClass + '__row');
+    let columnInformation = this.table.getColumnInformation(columnIndex);
+    classes.push(this.subRootClass);
+    classes.push(this.subRootClass + '--' + columnInformation.color)
+    classes.push('is-' + columnInformation.alignment)
     return classes;
   }
 

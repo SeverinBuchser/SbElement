@@ -1,11 +1,38 @@
-import { TableInterface } from './table-interface';
+import { AbstractTable } from './abstract-table';
 
-export class Table implements TableInterface {
-  header = ['First Name', 'Last Name', 'Address', 'Email'];
+export class Table extends AbstractTable {
+  columnInformation = [
+      {
+        name: 'First Name',
+        color: 'primary',
+        alignment: 'center'
+      },
+      {
+        name: 'Last Name',
+        color: '',
+        alignment: 'center'
+      },
+      {
+        name: 'Address',
+        color: '',
+        alignment: 'center'
+      },
+      {
+        name: 'Email',
+        color: '',
+        alignment: 'center'
+      },
+      {
+        name: 'Email',
+        color: '',
+        alignment: 'center'
+      }
+  ];
   data = [
-    ['Severin', 'Buchser', 'Gumisweg 7', 'severin.buchser@gmx.ch'],
-    ['Rafael', 'Buchser', 'Gumisweg 7', 'rafael.buchser@gmx.ch'],
-    ['Christoph', 'Buchser', 'Gumisweg 7', 'christoph.buchser@gmx.ch'],
-    ['Beatrice', 'Buchser', 'Gumisweg 7', 'beatrice.buchser@gmx.ch'],
+    ['Severin', 'Buchser', 'Gumisweg 7', 'sevn.buer@gmx.ch', 'sth'],
+    ['Rafael', 'Buchser', 'Gumisweg 7', 'rafaeuer@gmx.ch', 'sth'],
+    ['Christoph', 'Buchser', 'Gumisweg 7', 'chtoph.bser@gmx.ch', 'sth'],
+    ['Beatrice', 'Buchser', 'Gumisweg 7', 'beatriucr@gmx.ch', 'sth'],
+    ['Beatrice', 'Buchser', 'Gumisweg 7', 'beatriucr@gmx.ch', 'sth'],
   ];
 }
