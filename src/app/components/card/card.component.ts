@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SizeThemeColorInputDirective } from '../base/style-input/size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-card',
   templateUrl: './card.component.html'
 })
-export class CardComponent implements OnInit {
+export class CardComponent extends SizeThemeColorInputDirective {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  public rootClass: string = 'sb-el-card';
 
 }
