@@ -40,6 +40,7 @@ export class AlertBoxComponent extends SizeThemeColorInputDirective {
     classes.push(this.flipped ? 'is-flipped' : '');
     classes.push(this.pill ? 'is-pill' : '');
     classes.push(this.plain ? 'is-plain' : '');
+    classes.push(!this.showArrow && !this.showIcon ? 'is-center' : '');
     return classes;
   }
 
