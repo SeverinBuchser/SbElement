@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Alert } from 'src/app/models/alert/alert';
 import { AlertServiceSubscriber } from 'src/app/models/alert/alert-service-subscriber';
 import { AlertService } from 'src/app/services/alert/alert.service';
@@ -13,10 +13,17 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
 
   public rootClass: string = 'sb-el-alert';
 
+  @Input()
+  public showArrow: boolean = true;
+
+  @Input()
+  public showIcon: boolean = true;
+
   public alertObject: Alert | null = null;
   public show: boolean = false;
-  private appearTime: number = 1000;
-  private showTime: number = 5000;
+  private appearTime: number = 300;
+  @Input()
+  public waitTime: number = 2000;
   private hideTime: number = 1000;
 
   constructor(
@@ -29,30 +36,42 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
 
   public async alert(alert: Alert): Promise<void> {
     return this.setAlert(alert)
-    .then(() => this.wait())
+    .then(() => this.appears())
+    .then(() => this.waits())
+    .then(() => this.hides())
     .then(() => this.resetAlert())
   }
 
-  private setAlert(alert: Alert): Promise<void> {
+  private async setAlert(alert: Alert): Promise<void> {
+    this.alertObject = alert;
+    this.size = alert.size;
+    this.color = alert.color;
+    return Promise.resolve();
+  }
+
+  private async appears(): Promise<void> {
+    await Promise.resolve(this.show = true);
+    return await this.wait(this.appearTime);
+  }
+
+  private async waits(): Promise<void> {
+    return this.wait(this.waitTime);
+  }
+
+  private async hides(): Promise<void> {
+    await Promise.resolve(this.show = false);
+    return await this.wait(this.hideTime);
+  }
+
+  private async wait(time: number): Promise<void> {
     return new Promise<void>(resolve => {
-      this.alertObject = alert;
-      this.show = true;
-      setTimeout(() => resolve(), this.appearTime);
+      setTimeout(() => resolve(), time);
     });
   }
 
-  private wait(): Promise<void> {
-    return new Promise<void>(resolve => {
-      setTimeout(() => resolve(), this.showTime);
-    });
-  }
-
-  private resetAlert(): Promise<void> {
-    return new Promise<void>(resolve => {
-      this.show = false;
-      this.alertObject = null;
-      setTimeout(() => resolve(), this.hideTime);
-    });
+  private async resetAlert(): Promise<void> {
+    this.alertObject = null;
+    return Promise.resolve();
   }
 
   get message(): string {

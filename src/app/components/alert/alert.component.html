@@ -1,3 +1,11 @@
 <div [ngClass]="getClasses()">
- {{ message }}
+  <div [ngClass]="rootClass + '__wrapper'">
+    <sb-el-alert-box
+      [size]="size"
+      [color]="color"
+      [showArrow]="showArrow"
+      [showIcon]="showIcon">
+      {{ message }}
+    </sb-el-alert-box>
+  </div>
 </div>

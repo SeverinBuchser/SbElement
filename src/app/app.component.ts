@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Table } from './models/table/table';
 import { AlertService } from './services/alert/alert.service';
@@ -9,7 +9,7 @@ import { ThemeService } from './services/theme/theme.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'SbElement';
   public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
   public theme: string = 'light';
@@ -35,15 +35,24 @@ export class AppComponent {
   constructor(themeService: ThemeService, private alertService: AlertService) {
     themeService.commit('night')
     this.theme = themeService.get();
-    setTimeout(() => {
-      this.alertService.alert("This is an alert!");
-    }, 500);
-    setTimeout(() => {
-      this.alertService.alert("This is an alertttt!");
-    }, 500)
   }
 
   onSubmit(form: NgForm) {
     console.log(form.value)
+    this.alert(form.value.input);
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.alert("This is an alert!");
+    }, 0);
+  }
+
+  alert(message: string): void {
+    this.alertService.inform(message, "l");
+    this.alertService.success(message, 's');
+    this.alertService.warn(message, 'm');
+    this.alertService.primary(message, 'd');
+    this.alertService.secondary(message, 'l');
   }
 }

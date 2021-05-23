@@ -19,22 +19,46 @@ export class AlertService {
     this.subscribers.push(subscriber);
   }
 
-  public async alert(message: string): Promise<any> {
+  public warn(message: string, size = 'd'): void {
+    this.alert(message, size, 'warn');
+  }
+
+  public success(message: string, size = 'd'): void {
+    this.alert(message, size, 'success');
+  }
+
+  public inform(message: string, size = 'd'): void {
+    this.alert(message, size, 'info');
+  }
+
+  public primary(message: string, size = 'd'): void {
+    this.alert(message, size, 'primary');
+  }
+
+  public secondary(message: string, size = 'd'): void {
+    this.alert(message, size, 'secondary');
+  }
+
+  public alert(message: string, size = 'd', color = 'warn'): void {
     this.alertQueue.enqueue({
-      message
+      message,
+      size,
+      color
     });
     this.work();
   }
 
-  private work(): void {
+  private async work(): Promise<void> {
     if (!this.alertQueue.isEmpty() && !this.isBusy) {
+      this.isBusy = true;
       let alert = this.alertQueue.dequeue();
       if (alert) {
-        this.isBusy = true;
         this.showAlert(alert).then(() => {
           this.isBusy = false;
           this.work();
         });
+      } else {
+        this.isBusy = false;
       }
     }
   }
