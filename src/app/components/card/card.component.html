@@ -2,9 +2,11 @@
   <div [ngClass]="rootClass + '__title'">
     <ng-content select="[title]"></ng-content>
   </div>
+  <hr>
   <div [ngClass]="rootClass + '__content'">
     <ng-content select="[content]"></ng-content>
   </div>
+  <hr>
   <div [ngClass]="rootClass + '__footer'">
     <ng-content select="[footer]"></ng-content>
   </div>

@@ -1,12 +1,12 @@
 import { Attribute, Component, Optional } from '@angular/core';
 import { ThemeService } from 'src/app/services/theme/theme.service';
-import { SizeThemeColorInputDirective } from '../base/style-input/size-theme-color-input.directive';
+import { SizeThemeInputDirective } from '../base/style-input/size-theme-input.directive';
 
 @Component({
   selector: 'sb-el-card',
   templateUrl: './card.component.html'
 })
-export class CardComponent extends SizeThemeColorInputDirective {
+export class CardComponent extends SizeThemeInputDirective {
 
   public rootClass: string = 'sb-el-card';
 
