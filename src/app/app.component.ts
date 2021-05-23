@@ -43,9 +43,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.alert("This is an alert!");
-    }, 0);
   }
 
   alert(message: string): void {
