@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Table } from './models/table/table';
+import { AlertService } from './services/alert/alert.service';
 import { ThemeService } from './services/theme/theme.service';
 
 @Component({
@@ -31,9 +32,15 @@ export class AppComponent {
 
   public table: Table = new Table();
 
-  constructor(themeService: ThemeService) {
-    themeService.commit('light')
+  constructor(themeService: ThemeService, private alertService: AlertService) {
+    themeService.commit('night')
     this.theme = themeService.get();
+    setTimeout(() => {
+      this.alertService.alert("This is an alert!");
+    }, 500);
+    setTimeout(() => {
+      this.alertService.alert("This is an alertttt!");
+    }, 500)
   }
 
   onSubmit(form: NgForm) {

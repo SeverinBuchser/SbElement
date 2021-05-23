@@ -1,5 +1,5 @@
 <sb-el-container size="l">
-  <sb-el-table [table]="table" separation="all"></sb-el-table>
+  <sb-el-table [table]="table" separation="color"></sb-el-table>
 </sb-el-container>
 <sb-el-container size="l">
   <form [ngClass]="'sb-el-form sb-el-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
@@ -90,3 +90,4 @@
     </div>
   </form>
 </sb-el-container>
+<sb-el-alert></sb-el-alert>

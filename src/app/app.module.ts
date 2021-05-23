@@ -10,6 +10,7 @@ import { FormModule } from './components/form/form.module';
 import { ContainerComponent } from './components/container/container.component';
 import { AlertBoxComponent } from './components/alert-box/alert-box.component';
 import { TableComponent } from './components/table/table.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 
@@ -19,6 +20,7 @@ import { TableComponent } from './components/table/table.component';
     ContainerComponent,
     AlertBoxComponent,
     TableComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
