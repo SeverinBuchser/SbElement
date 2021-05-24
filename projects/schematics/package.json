@@ -1,0 +1,31 @@
+{
+  "name": "schematics",
+  "version": "0.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "build-dist": "tsc -p tsconfig.json",
+    "manage-dist": "node manage-dist",
+    "cleanup-dist": "node cleanup-dist",
+    "build": "nodemon -e . --ignore dist/ --exec 'npm run cleanup-dist && npm run build-dist && npm run manage-dist'",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./dist/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^12.0.1",
+    "@angular-devkit/schematics": "^12.0.1",
+    "typescript": "~4.1.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "~3.5.0",
+    "@types/node": "^12.11.1",
+    "copyfiles": "^2.4.1",
+    "jasmine": "^3.5.0",
+    "nodemon": "^2.0.7",
+    "schematics-utilities": "^2.0.3"
+  }
+}
