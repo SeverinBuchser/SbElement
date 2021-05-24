@@ -16,23 +16,13 @@ export class Table extends AbstractTable {
         name: 'Address',
         color: '',
         alignment: 'center'
-      },
-      {
-        name: 'Email',
-        color: '',
-        alignment: 'center'
-      },
-      {
-        name: 'Email',
-        color: '',
-        alignment: 'center'
       }
   ];
   data = [
-    ['Severin', 'Buchser', 'Gumisweg 7', 'sevn.buer@gmx.ch', 'sth'],
-    ['Rafael', 'Buchser', 'Gumisweg 7', 'rafaeuer@gmx.ch', 'sth'],
-    ['Christoph', 'Buchser', 'Gumisweg 7', 'chtoph.bser@gmx.ch', 'sth'],
-    ['Beatrice', 'Buchser', 'Gumisweg 7', 'beatriucr@gmx.ch', 'sth'],
-    ['Beatrice', 'Buchser', 'Gumisweg 7', 'beatriucr@gmx.ch', 'sth'],
+    ['Severin', 'Buchser', 'Gumisweg 7'],
+    ['Rafael', 'Buchser', 'Gumisweg 7'],
+    ['Christoph', 'Buchser', 'Gumisweg 7'],
+    ['Beatrice', 'Buchser', 'Gumisweg 7'],
+    ['Beatrice', 'Buchser', 'Gumisweg 7'],
   ];
 }
