@@ -14,6 +14,12 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "sb-element": [
+        "dist/sb-element/sb-element",
+        "dist/sb-element"
+      ]
+    },
     "target": "es2015",
     "module": "es2020",
     "lib": [

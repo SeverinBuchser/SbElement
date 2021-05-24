@@ -5,31 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
-import { BaseModule } from './components/base/base.module';
-import { FormModule } from './components/form/form.module';
-import { ContainerComponent } from './components/container/container.component';
-import { AlertBoxComponent } from './components/alert-box/alert-box.component';
-import { TableComponent } from './components/table/table.component';
-import { AlertComponent } from './components/alert/alert.component';
-import { CardComponent } from './components/card/card.component';
+import { SbElementModule } from 'sb-element';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContainerComponent,
-    AlertBoxComponent,
-    TableComponent,
-    AlertComponent,
-    CardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FormModule,
-    BaseModule
+    SbElementModule
   ],
   providers: [],
   bootstrap: [AppComponent]

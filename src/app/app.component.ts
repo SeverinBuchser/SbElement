@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Table } from './models/table/table';
-import { AlertService } from './services/alert/alert.service';
-import { ThemeService } from './services/theme/theme.service';
+import { TableModel } from 'projects/sb-element/src/public-api';
+import { AlertService, ThemeService } from 'sb-element';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +29,7 @@ export class AppComponent implements OnInit {
     input: ''
   };
 
-  public table: Table = new Table();
+  public table: TableModel = new TableModel();
 
   constructor(themeService: ThemeService, private alertService: AlertService) {
     themeService.commit('night')

@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SbElement": {
+    "TestApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/SbElement",
+            "outputPath": "dist/TestApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -77,18 +77,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "SbElement:build"
+            "browserTarget": "TestApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "SbElement:build:production"
+              "browserTarget": "TestApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SbElement:build"
+            "browserTarget": "TestApp:build"
           }
         },
         "test": {
@@ -131,16 +131,56 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "SbElement:serve"
+            "devServerTarget": "TestApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "SbElement:serve:production"
+              "devServerTarget": "TestApp:serve:production"
             }
+          }
+        }
+      }
+    },
+    "SbElement": {
+      "projectType": "library",
+      "root": "projects/sb-element",
+      "sourceRoot": "projects/sb-element/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/sb-element/tsconfig.lib.json",
+            "project": "projects/sb-element/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sb-element/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sb-element/src/test.ts",
+            "tsConfig": "projects/sb-element/tsconfig.spec.json",
+            "karmaConfig": "projects/sb-element/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sb-element/tsconfig.lib.json",
+              "projects/sb-element/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "SbElement"
+  "defaultProject": "TestApp"
 }
