@@ -1,7 +1,6 @@
 {
-  "sourceRoot": "src",
   "compilerOptions": {
-    "baseUrl": "tsconfig",
+    "baseUrl": ".",
     "lib": [
       "es2018",
       "dom"
@@ -15,8 +14,8 @@
     "noImplicitThis": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "rootDir": "src/",
-    "outDir": "dist/",
+    "rootDir": "schematics",
+    "outDir": "../../dist/sb-element/schematics",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
@@ -28,9 +27,9 @@
     ]
   },
   "include": [
-    "src/**/*"
+    "schematics/**/*"
   ],
   "exclude": [
-    "src/*/files/**/*"
+    "schematics/*/files/**/*"
   ]
 }

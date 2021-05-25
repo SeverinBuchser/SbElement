@@ -1,12 +1,12 @@
 const path = require('path');
 const fs = require('fs');
 
-const distDir = path.join(__dirname, 'dist');
-const srcDir = path.join(__dirname, 'src');
+const distDir = path.join(__dirname, '../../dist/sb-element/schematics');
+const srcDir = path.join(__dirname, 'schematics');
 
 /*
  * Gets a list of all files inside a directory. This includes especially files
- * in all subdirectories. 
+ * in all subdirectories.
  */
 function getFilesRecursice(dir) {
   var dirInformation = getDirInformation(dir);
@@ -43,10 +43,13 @@ function getDirInformation(dir) {
  * to be in and copys the file in the correct folders into the dist folder.
  */
 getFilesRecursice(srcDir).forEach(file => {
-  var childPath = file.split(srcDir)[1];
-  var toDir = path.join(distDir, path.parse(childPath).dir);
-  var toPath = path.join(distDir, childPath);
+  let ext = path.parse(file).ext;
+  if (/\.json/.test(ext)) {
+    var childPath = file.split(srcDir)[1];
+    var toDir = path.join(distDir, path.parse(childPath).dir);
+    var toPath = path.join(distDir, childPath);
 
-  fs.mkdirSync(toDir, { recursive: true });
-  fs.copyFileSync(file, toPath);
+    fs.mkdirSync(toDir, { recursive: true });
+    fs.copyFileSync(file, toPath);
+  }
 })
