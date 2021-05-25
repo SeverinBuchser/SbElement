@@ -6,7 +6,7 @@
     "copy:dist": "cp -r schematics/dist/ ../../dist/sb-element/schematics",
     "build": "npm run build --prefix schematics && npm run rm:dist && npm run copy:dist"
   },
-  "schematics": "./schematics/dist/collection.json",
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/common": "^11.2.13",
     "@angular/core": "^11.2.13"
