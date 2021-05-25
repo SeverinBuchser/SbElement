@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "build-schematics": "../../node_modules/.bin/tsc -p tsconfig.schematics.json && npm run copy:json",
-    "remove-schematics-build": "remove-schematics-build",
+    "remove-schematics-build": "node remove-schematics-build",
     "copy:json": "node copy-json",
     "build-schematics:watch": "../../node_modules/.bin/nodemon --watch schematics --exec 'npm run build-schematics'"
   },
