@@ -46,7 +46,6 @@ import { InputComponent } from './input/input.component';
     RadioButtonComponent,
     RadioButtonGroupComponent,
     CheckboxGroupComponent,
-    SelectionOptionsDirective,
     SelectButtonComponent,
     SliderComponent,
     IconComponent,

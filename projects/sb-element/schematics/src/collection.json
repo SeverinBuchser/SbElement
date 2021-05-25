@@ -4,6 +4,6 @@
     "ng-add": {
       "description": "A blank schematic.",
       "factory": "./ng-add/index#ngAdd"
-    }a
+    }
   }
 }

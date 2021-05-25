@@ -1,1 +1,1 @@
-{"version":3,"file":"dependencies.js","sourceRoot":"","sources":["../../../src/ng-add/dependencies/dependencies.ts"],"names":[],"mappings":";;;AAAA,+DAA0E;AAE7D,QAAA,YAAY,GAA0B;IACjD,EAAE,IAAI,EAAE,yCAAkB,CAAC,GAAG,EAAE,OAAO,EAAE,QAAQ,EAAE,IAAI,EAAE,YAAY,EAAE;CACxE,CAAC"}
+{"version":3,"file":"dependencies.js","sourceRoot":"","sources":["../../../src/ng-add/dependencies/dependencies.ts"],"names":[],"mappings":";;;AAAA,+DAA0E;AAE7D,QAAA,YAAY,GAA0B;IACjD,EAAE,IAAI,EAAE,yCAAkB,CAAC,OAAO,EAAE,OAAO,EAAE,OAAO,EAAE,IAAI,EAAE,YAAY,EAAE;CAC3E,CAAC"}
