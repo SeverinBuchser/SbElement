@@ -7,7 +7,7 @@ interface ArchitectStyles {
   content: Buffer | null
 }
 
-export function addDependenciesToAngularJson(options: any) {
+export function addStyles(options: any) {
   return (_tree: Tree, _context: SchematicContext) => {
     try {
       const angularJsonFile = _tree.read('angular.json');
