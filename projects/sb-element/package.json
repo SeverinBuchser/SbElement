@@ -1,6 +1,6 @@
 {
   "name": "sb-element",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "scripts": {
     "build:project": "ng build SbElement",
     "build:project:watch": "ng build SbElement --watch",
@@ -12,9 +12,7 @@
   "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/common": "^11.2.13",
-    "@angular/core": "^11.2.13",
-    "@angular-devkit/schematics": "^12.0.1",
-    "schematics-utilities": "^2.0.3"
+    "@angular/core": "^11.2.13"
   },
   "dependencies": {
     "tslib": "^2.0.0"
@@ -23,5 +21,8 @@
     "type": "git",
     "url": "https://github.com/SeverinBuchser/SbElement.git"
   },
-  "author": "Severin Buchser"
+  "author": "Severin Buchser",
+  "ng-add": {
+    "save": "dependencies"
+  }
 }
