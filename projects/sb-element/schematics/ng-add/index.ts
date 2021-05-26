@@ -6,6 +6,6 @@ export function ngAdd(_options: any): Rule {
   return chain([
     _options && _options.skipPackageJson ? noop() : addDependencies(),
     _options && _options.skipPackageJson ? noop() : installDependencies(),
-    _options && _options.skipPackageJson ? noop() : addStyles(_options)
+    _options && !_options.customize ? noop() : addStyles(_options)
   ]);
 }

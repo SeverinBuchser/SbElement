@@ -7,14 +7,14 @@ interface ArchitectStyles {
   content: Buffer | null
 }
 
-export function addStyles(options: any) {
+export function addStyles(_options: any) {
   return (_tree: Tree, _context: SchematicContext) => {
     try {
       const angularJsonFile = _tree.read('angular.json');
 
       if (angularJsonFile) {
         const angularJsonFileObject = JSON.parse(angularJsonFile.toString('utf-8'));
-        const project = options.project ? options.project : Object.keys(angularJsonFileObject['projects'])[0];
+        const project = _options.project ? _options.project : Object.keys(angularJsonFileObject['projects'])[0];
         const architectObject = angularJsonFileObject.projects[project].architect;
         // let styles = {
         //   "stylePreprocessorOptions": {

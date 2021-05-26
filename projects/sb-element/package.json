@@ -2,10 +2,12 @@
   "name": "sb-element",
   "version": "0.0.1",
   "scripts": {
-    "build-schematics": "../../node_modules/.bin/tsc -p tsconfig.schematics.json && npm run copy:json",
-    "remove-schematics-build": "node remove-schematics-build",
-    "copy:json": "node copy-json",
-    "build-schematics:watch": "../../node_modules/.bin/nodemon -e . --watch schematics --exec 'npm run build-schematics'"
+    "build:project": "ng build SbElement",
+    "build:project:watch": "ng build SbElement --watch",
+    "build:schematics": "../../node_modules/.bin/tsc -p tsconfig.schematics.json && npm run copy:json",
+    "build:schematics:watch": "../../node_modules/.bin/nodemon -e . --watch schematics --exec 'npm run build:schematics'",
+    "remove:schematics-build": "node remove-schematics-build",
+    "copy:json": "node copy-json"
   },
   "schematics": "./schematics/collection.json",
   "peerDependencies": {

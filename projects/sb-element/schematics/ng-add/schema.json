@@ -1,6 +1,17 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "SchematicsNgAdd",
-  "title": "My Service Schema",
-  "type": "object"
+  "$id": "SchematicsNgAdd",
+  "title": "Add SbElement",
+  "type": "object",
+  "properties": {
+    "customize": {
+      "type": "boolean",
+      "default": false,
+      "x-prompt": "Would you like to customize the theme?"
+    },
+    "project": {
+      "tpye": "string"
+    }
+  },
+  "required": ["customize"]
 }
