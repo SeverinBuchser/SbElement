@@ -11,6 +11,9 @@
     },
     "project": {
       "tpye": "string"
+    },
+    "project": {
+      "type": "string"
     }
   },
   "required": ["customize"]
