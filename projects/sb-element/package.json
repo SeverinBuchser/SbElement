@@ -1,6 +1,6 @@
 {
   "name": "sb-element",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "scripts": {
     "build:project": "ng build SbElement",
     "build:project:watch": "ng build SbElement --watch",
