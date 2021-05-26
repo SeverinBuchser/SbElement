@@ -1,25 +1,16 @@
 {
   "name": "sb-element",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Severin Buchser",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SeverinBuchser/SbElement.git"
-  },
-  "schematics": "./schematics/collection.json",
-  "ng-add": {
-    "save": "dependencies"
-  },
   "scripts": {
-    "build:project": "ng build SbElement",
-    "build:project:watch": "ng build SbElement --watch",
-    "build:schematics": "../../node_modules/.bin/tsc -p tsconfig.schematics.json && npm run copy:json",
-    "build:schematics:watch": "../../node_modules/.bin/nodemon -e . --watch schematics --exec 'npm run build:schematics'",
-    "remove:schematics-build": "node remove-schematics-build",
-    "copy:json": "node copy-json"
+    "dev": "ng build SbElement --watch",
+    "build": "ng build SbElement --configuration production"
   },
   "peerDependencies": {
-    "@angular/common": "~12.0.2",
-    "@angular/core": "~12.0.2"
+    "@angular/common": "^12.0.1",
+    "@angular/core": "^12.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
   }
 }

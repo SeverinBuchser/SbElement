@@ -1,6 +1,6 @@
 # SbElement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
 ## Development server
 
@@ -12,7 +12,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
@@ -20,23 +20,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Git
-
-When finished with development on a branch (story marked as DONE), the branch will be merged into develop. After merging, the branch will be archived and deleted:
-
-```shell
-$ git checkout develop
-$ git merge {type}-{type-number}/{branch-name}
-$ git tag archive/{type}-{type-number}/{branch-name} {type}-{type-number}/{branch-name}
-$ git push origin archive/{type}-{type-number}/{branch-name}
-$ git branch -d {type}-{type-number}/{branch-name}
-$ git push origin --delete {type}-{type-number}/{branch-name}
-$ git push
-```
-
-This will merge, archive and delete the branch.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 
