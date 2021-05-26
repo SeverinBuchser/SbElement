@@ -32,6 +32,7 @@ $ git merge {type}-{type-number}/{branch-name}
 $ git tag archive/{type}-{type-number}/{branch-name} {type}-{type-number}/{branch-name}
 $ git push origin archive/{type}-{type-number}/{branch-name}
 $ git branch -d {type}-{type-number}/{branch-name}
+$ git push origin --delete {type}-{type-number}/{branch-name}
 $ git push
 ```
 
