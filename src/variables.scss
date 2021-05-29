@@ -1,3 +1,9 @@
+/*
+  You can customize the variables used in the whole project by tweaking the
+  variables below. All variables used in the project depend upon these
+  variables.
+*/
+
 @import 'sb-theme';
 
 /*****************************************************************************
@@ -16,4 +22,38 @@
   @include defineColorHSL(--night, 208, 13%, 20%);
   @include defineColorHSL(--bright, 0, 0%, 100%);
   @include defineColorHSL(--light, 0, 0%, 95%);
+}
+
+
+/*****************************************************************************
+                        Spacing - Variables
+******************************************************************************/
+
+:root {
+  --spacing-s: 0.7rem;
+  --spacing-d: 1rem;
+  --spacing-m: 1.4rem;
+  --spacing-l: 1.8rem;
+}
+
+
+/*****************************************************************************
+                              Typography - Variables
+******************************************************************************/
+
+:root {
+  // weights
+  --font-weight-regular: normal;
+  --font-weight-bold: bold;
+
+  // families
+  --font-family-default: 'Inter', sans-serif;
+  --font-family-display: 'Abril Fatface', cursive;
+
+  // sizes
+  --font-size-s: 0.85rem;
+  --font-size-d: 1rem;
+  --font-size-m: 1.3rem;
+  --font-size-l: 1.4rem;
+  --font-size-xl: 1.6rem;
 }
