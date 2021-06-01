@@ -1,24 +1,35 @@
 # SbElement
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1. It is a component library constructed around the SCSS library [Sb-Theming](https://github.com/SeverinBuchser/SbTheming) and supports [Angular Schematics](https://angular.io/guide/schematics).
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project SbElement` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project SbElement`.
-> Note: Don't forget to add `--project SbElement` or else it will be added to the default project in your `angular.json` file. 
+### Angular Schematics
 
-## Build
+For the **automatic and way simpler** installation, you can use angular schematics
 
-Run `ng build SbElement` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng add sb-element
+```
 
-## Publishing
+And that's it, angular will take care of the rest and install the necessary packages and update your workspace.
 
-After building your library with `ng build SbElement`, go to the dist folder `cd dist/sb-element` and run `npm publish`.
+### Manual
 
-## Running unit tests
+For the **manual** Installation follow these steps:
 
-Run `ng test SbElement` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Install packages:
 
-## Further help
+   ```bash 
+   npm install --save-dev sb-element
+   npm install --save-dev sb-theming
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2. Include the theming files into your Angular CLI project. For this, follow the installation documentation [here](https://github.com/SeverinBuchser/SbTheming#readme).
+
+3. You are good to go!
+
+## Documentation
+
+Documentation is not yet available for this project.  If you would like to look into the package yourself, checkout the [SbElement GitHub Page](https://github.com/SeverinBuchser/SbElement). There is a `TestApp` application (located in the `src` directory), which is implementing the library.
+
