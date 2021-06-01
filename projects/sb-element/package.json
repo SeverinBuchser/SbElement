@@ -1,6 +1,6 @@
 {
   "name": "sb-element",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Severin Buchser",
   "repository": {
     "type": "git",
@@ -20,5 +20,12 @@
   },
   "dependencies": {
     "tslib": "^2.1.0"
-  }
+  },
+  "keywords": [
+    "library",
+    "angular",
+    "sb",
+    "component",
+    "sb-theming"
+  ]
 }
