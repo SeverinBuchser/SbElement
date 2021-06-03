@@ -39,7 +39,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "../SbTheme/scss"
+                "../SbTheming/scss"
               ]
             },
             "scripts": []
@@ -113,7 +113,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "../SbTheme/scss"
+                "../SbTheming/scss"
               ]
             },
             "scripts": []
