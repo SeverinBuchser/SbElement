@@ -16,6 +16,7 @@ import { BaseModule } from '../base/base.module';
 import { IconComponent } from '../icon/icon.component';
 import { FormGroupComponent } from './group/form-group.component';
 import { InputComponent } from './input/input.component';
+import { FileInputComponent } from './file-input/file-input.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { InputComponent } from './input/input.component';
     SliderComponent,
     IconComponent,
     FormGroupComponent,
-    InputComponent
+    InputComponent,
+    FileInputComponent
   ],
   imports: [
     CommonModule,

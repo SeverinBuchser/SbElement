@@ -31,6 +31,7 @@ export * from './lib/components/table/table.component';
 // form
 export * from './lib/components/form/button/button.component';
 export * from './lib/components/form/checkbox/checkbox.component';
+export * from './lib/components/form/file-input/file-input.component';
 export * from './lib/components/form/icon-button/icon-button.component';
 export * from './lib/components/form/input/input.component';
 export * from './lib/components/form/radio-button/radio-button.component';
