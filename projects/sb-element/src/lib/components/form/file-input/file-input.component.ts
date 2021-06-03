@@ -12,7 +12,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/con
     multi: true
   }]
 })
-export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
+export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputDirective<File> {
 
   public rootClass = 'sb-el-file-input';
 
@@ -22,7 +22,6 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
   public plain: boolean = false;
   public pill: boolean = false;
 
-
   constructor(
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any,
@@ -31,5 +30,14 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
     super(themeService);
     if (pill === '') this.pill = true;
     if (plain === '') this.plain = true;
+  }
+
+  public input(files: FileList | null) {
+    if (files) {
+      let file: File | null = files.item(0);
+      if (file) {
+        this.writeValueInnerChange(file);
+      }
+    }
   }
 }
