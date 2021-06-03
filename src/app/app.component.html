@@ -99,7 +99,13 @@
           name="input"
           #input="ngModel">
         </sb-el-input>
-        <sb-el-file-input>
+        <sb-el-file-input
+          placeholder="This is a file input!"
+          size="d"
+          [color]="color"
+          [(ngModel)]="model.fileinput"
+          name="fileinput"
+          #fileinput="ngModel">
         </sb-el-file-input>
       </sb-el-form-group>
     </div>
