@@ -52,7 +52,8 @@ import { FileInputComponent } from './file-input/file-input.component';
     SliderComponent,
     IconComponent,
     FormGroupComponent,
-    InputComponent
+    InputComponent,
+    FileInputComponent
   ]
 })
 export class FormModule { }
