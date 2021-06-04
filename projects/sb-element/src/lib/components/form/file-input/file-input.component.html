@@ -1,1 +1,14 @@
-<input type="file" name="" (input)="input(inputElement.files)" #inputElement>
+<div [ngClass]="getClasses()">
+  <input
+    [ngClass]="rootClass + '__input'"
+    type="file"
+    (input)="input(inputElement.files)"
+    #inputElement
+    name="file"
+    id="file">
+  <label
+    [ngClass]="rootClass + '__label'"
+    for="file">
+    {{ message }}
+  </label>
+</div>

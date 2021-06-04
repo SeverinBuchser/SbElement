@@ -22,6 +22,10 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
   public plain: boolean = false;
   public pill: boolean = false;
 
+  private static defaultMessage: string = 'Choose a file';
+
+  public message: string = FileInputComponent.defaultMessage;
+
   constructor(
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any,
@@ -36,7 +40,10 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
     if (files) {
       let file: File | null = files.item(0);
       if (file) {
+        this.message = file.name;
         this.writeValueInnerChange(file);
+      } else {
+        this.message = FileInputComponent.defaultMessage;
       }
     }
   }
