@@ -23,7 +23,6 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
   public pill: boolean = false;
 
   private static defaultMessage: string = 'Choose a file';
-
   public message: string = FileInputComponent.defaultMessage;
 
   constructor(
@@ -44,7 +43,15 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
         this.writeValueInnerChange(file);
       } else {
         this.message = FileInputComponent.defaultMessage;
+        this.writeValueInnerChange(undefined);
       }
     }
+  }
+
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
+    classes.push(this.pill ? 'is-pill' : '');
+    classes.push(this.plain ? 'is-plain' : '');
+    return classes;
   }
 }

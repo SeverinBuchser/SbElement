@@ -6,9 +6,14 @@
     #inputElement
     name="file"
     id="file">
-  <label
-    [ngClass]="rootClass + '__label'"
-    for="file">
-    {{ message }}
-  </label>
+  <div [ngClass]="rootClass + '__message-wrapper'">
+    <label
+      [ngClass]="rootClass + '__message'"
+      for="file">
+      {{ message }}
+      <ng-template [ngIf]="!value">
+        <sb-el-icon [extraClasses]="rootClass + '__message-icon'">&#xe2c6;</sb-el-icon>
+      </ng-template>
+    </label>
+  </div>
 </div>
