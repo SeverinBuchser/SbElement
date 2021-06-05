@@ -1,5 +1,6 @@
 import { Attribute, Component, Input, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AlertService } from '../../../services/alert/alert.service';
 import { ThemeService } from '../../../services/theme/theme.service';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
@@ -19,6 +20,10 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
   @Input()
   public placeholder: string = '';
 
+  // the limit is in mega bytes
+  @Input()
+  public limit: number = -1;
+
   public plain: boolean = false;
   public pill: boolean = false;
 
@@ -26,6 +31,7 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
   public message: string = FileInputComponent.defaultMessage;
 
   constructor(
+    private alertService: AlertService,
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any,
     themeService: ThemeService
@@ -38,7 +44,7 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
   public input(files: FileList | null) {
     if (files) {
       let file: File | null = files.item(0);
-      if (file) {
+      if (file && this.checkFileSize(file)) {
         this.message = file.name;
         this.writeValueInnerChange(file);
       } else {
@@ -46,6 +52,16 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
         this.writeValueInnerChange(undefined);
       }
     }
+  }
+
+  private checkFileSize(file: File): boolean {
+    if (this.limit >= 0) {
+      if (file.size <= this.limit * 1000000) return true;
+      else {
+        this.alertService.warn("The file is too big, the maximum file size is " + this.limit + ' MB!');
+        return false
+      }
+    } else return true;
   }
 
   public getClasses(): Array<string> {
