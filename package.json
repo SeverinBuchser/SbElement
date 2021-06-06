@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "dev": "npm run dev --prefix ./projects/sb-element",
+    "doc": "npm run doc --prefix ./projects/sb-element",
     "test": "ng test",
     "copy-schematics": ""
   },
