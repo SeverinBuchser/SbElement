@@ -74,7 +74,7 @@
         </sb-el-select-button>
         <sb-el-slider
           label="Slider"
-          size="s"
+          size="m"
           [color]="color"
           [max]="20"
           [min]="-20"
@@ -93,21 +93,22 @@
         extraClasses="hi">
         <sb-el-input
           placeholder="Enter your E-Mail"
-          size="d"
+          size="m"
           [color]="color"
           [(ngModel)]="model.input"
           name="input"
+          [disabled]="true"
           #input="ngModel">
         </sb-el-input>
         <sb-el-file-input
-          placeholder="This is a file input!"
-          size="d"
+          placeholder="File Input"
+          size="m"
           pill
-          plain
           [limit]="3"
           [color]="color"
           [(ngModel)]="model.fileinput"
           name="fileinput"
+          [disabled]="true"
           #fileinput="ngModel">
         </sb-el-file-input>
       </sb-el-form-group>
