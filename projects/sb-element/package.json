@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "ng build SbElement --watch",
     "build": "ng build SbElement --configuration production",
-    "doc": "compodoc -p tsconfig.doc.json -s"
+    "doc": "compodoc -w -p tsconfig.lib.doc.json -s"
   },
   "peerDependencies": {
     "@angular/common": "^12.0.1",

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BaseModule } from './components/base/base.module';
 import { FormModule } from './components/form/form.module';
 
-/*
+/**
  * Components
  */
 import { ContainerComponent } from './components/container/container.component';
