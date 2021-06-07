@@ -59,6 +59,44 @@
             <code>src/lib/services/alert/alert.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Provides a global service to display alerts.</p>
+<p>The alert service can be used by any component which either whishes to show
+or to create an alert to be shown.</p>
+<p>If a component wants to show alerts, the
+component has to call <a href="#subscribe">subscribe</a> with the component as the
+parameter. The component also needs to implement the
+<a href="../interfaces/AlertServiceSubscriber.html">AlertServiceSubscriber</a> interface so the service can inform the
+subscriber about the incoming alerts.</p>
+<p>If a component wants to create an alert, the service provides different
+methods which have predefined colors. The different methods take a <code>message</code>
+which is a <code>string</code> and an optional <code>size</code> parameter, which is also a
+<code>string</code>. The methods then passes the alert to the
+<a href="../interfaces/AlertServiceSubscriber.html">AlertServiceSubscriber</a> with a predefinded color. There is also a
+method, which lets you customize everything: <a href="#alert">alert</a>. All these
+methods then add the created alert to the <a href="#alertQueue">alertQueue</a>,
+and then call <a href="#work">work</a>. This method times the alerts and then
+informs the subscriber when a alert needs to be shown (when an alert is
+ready to be shown).</p>
+<p>The lifecycle of an <a href="../interfaces/Alert.html">Alert</a> inside the service:</p>
+<ol>
+<li>The <a href="../interfaces/Alert.html">Alert</a> gets created via a create call (like
+<a href="#alert">alert</a>).</li>
+<li>The <a href="../interfaces/Alert.html">Alert</a> gets placed into the <a href="#alertQueue">alertQueue</a>.</li>
+<li>The <a href="#work">work</a> method then removes an <a href="../interfaces/Alert.html">Alert</a> out of the
+queue and tells the subscribers to show the removed <a href="../interfaces/Alert.html">Alert</a>. The
+<a href="../interfaces/Alert.html">Alert</a> gets collected by the garbage collector after the <a href="../interfaces/Alert.html">Alert</a>
+has been shown.</li>
+<li>If all subscribers have finished showing the <a href="../interfaces/Alert.html">Alert</a>, the work
+method checks if the <a href="#alertQueue">alertQueue</a> is empty or not. If the
+queue is empty, the <a href="#work">work</a> method terminates. If not, go to step
+3 again.</li>
+</ol>
+
+            </p>
 
 
 
@@ -159,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/lib/services/alert/alert.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/lib/services/alert/alert.service.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -196,8 +234,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:79</a></div>
                 </td>
             </tr>
 
@@ -301,8 +339,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:67</a></div>
                 </td>
             </tr>
 
@@ -391,8 +429,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:71</a></div>
                 </td>
             </tr>
 
@@ -481,8 +519,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:75</a></div>
                 </td>
             </tr>
 
@@ -572,8 +610,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:103</a></div>
                 </td>
             </tr>
 
@@ -644,8 +682,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:55</a></div>
                 </td>
             </tr>
 
@@ -716,8 +754,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:63</a></div>
                 </td>
             </tr>
 
@@ -806,8 +844,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -897,8 +935,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:88</a></div>
                 </td>
             </tr>
 
@@ -946,7 +984,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/lib/services/alert/alert.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/lib/services/alert/alert.service.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -979,7 +1017,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/lib/services/alert/alert.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/lib/services/alert/alert.service.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -1012,7 +1050,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/lib/services/alert/alert.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/services/alert/alert.service.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -1030,6 +1068,43 @@ import { Alert } from &#x27;../../models/alert/alert&#x27;;
 import { AlertServiceSubscriber } from &#x27;../../models/alert/alert-service-subscriber&#x27;;
 import { Queue } from &#x27;../../models/queue/queue&#x27;;
 
+/**
+ * Provides a global service to display alerts.
+ *
+ * The alert service can be used by any component which either whishes to show
+ * or to create an alert to be shown.
+ *
+ * If a component wants to show alerts, the
+ * component has to call [subscribe]{@link #subscribe} with the component as the
+ * parameter. The component also needs to implement the
+ * {@link AlertServiceSubscriber} interface so the service can inform the
+ * subscriber about the incoming alerts.
+ *
+ * If a component wants to create an alert, the service provides different
+ * methods which have predefined colors. The different methods take a &#x60;message&#x60;
+ * which is a &#x60;string&#x60; and an optional &#x60;size&#x60; parameter, which is also a
+ * &#x60;string&#x60;. The methods then passes the alert to the
+ * {@link AlertServiceSubscriber} with a predefinded color. There is also a
+ * method, which lets you customize everything: [alert]{@link #alert}. All these
+ * methods then add the created alert to the [alertQueue]{@link #alertQueue},
+ * and then call [work]{@link #work}. This method times the alerts and then
+ * informs the subscriber when a alert needs to be shown (when an alert is
+ * ready to be shown).
+ *
+ * The lifecycle of an {@link Alert} inside the service:
+ * 1. The {@link Alert} gets created via a create call (like
+ * [alert]{@link #alert}).
+ * 2. The {@link Alert} gets placed into the [alertQueue]{@link #alertQueue}.
+ * 3. The [work]{@link #work} method then removes an {@link Alert} out of the
+ * queue and tells the subscribers to show the removed {@link Alert}. The
+ * {@link Alert} gets collected by the garbage collector after the {@link Alert}
+ * has been shown.
+ * 4. If all subscribers have finished showing the {@link Alert}, the work
+ * method checks if the [alertQueue]{@link #alertQueue} is empty or not. If the
+ * queue is empty, the [work]{@link #work} method terminates. If not, go to step
+ * 3 again.
+ *
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
