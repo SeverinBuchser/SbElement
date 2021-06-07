@@ -45,37 +45,94 @@ import { Queue } from '../../models/queue/queue';
 })
 export class AlertService {
 
-  private subscribers: Array<AlertServiceSubscriber> = new Array<AlertServiceSubscriber>();
+  /**
+   * An array of all subscribers.
+   */
+  private subscribers: Array<AlertServiceSubscriber>
+    = new Array<AlertServiceSubscriber>();
+
+  /**
+   * The queue of all [Alerts]{@link Alert} which need to be shown.
+   */
   private alertQueue: Queue<Alert> = new Queue<Alert>();
 
+  /**
+   * Flag to inidcate if the service is busy working on the
+   * [alertQueue]{@link #alertQueue} or not.
+   */
   private isBusy: boolean = false;
 
-  constructor() { }
-
-  public subscribe(subscriber: AlertServiceSubscriber) {
+  /**
+   * Adds a new subscriber into [subscribers]{@link #subscribers}.
+   *
+   * @param{AlertServiceSubscriber} subscriber The new subscriber
+   */
+  public subscribe(subscriber: AlertServiceSubscriber): void {
     this.subscribers.push(subscriber);
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color `warn`.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public warn(message: string, size = 'd'): void {
     this.alert(message, size, 'warn');
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color `success`.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public success(message: string, size = 'd'): void {
     this.alert(message, size, 'success');
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color `info`.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public inform(message: string, size = 'd'): void {
     this.alert(message, size, 'info');
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color `primary`.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public primary(message: string, size = 'd'): void {
     this.alert(message, size, 'primary');
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color `secondary`.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public secondary(message: string, size = 'd'): void {
     this.alert(message, size, 'secondary');
   }
 
+  /**
+   * Creates and shows an {@link Alert}.
+   *
+   * The `message`, `size` and `color` of the {@link Alert} can be specified as
+   * parameters. The {@link Alert} gets created with these parameters and
+   * placed into the [alertQueue]{@link #alertQueue}. After that, the
+   * [work]{@link #work} method gets called.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   * @param{string} color The color of the alert
+   */
   public alert(message: string, size = 'd', color = 'warn'): void {
     this.alertQueue.enqueue({
       message,
@@ -85,6 +142,21 @@ export class AlertService {
     this.work();
   }
 
+  /**
+   * Works on the [alertQueue]{@link #alertQueue}.
+   *
+   * If the service is not busy working on the [alertQueue]{@link #alertQueue}
+   * and the [alertQueue]{@link #alertQueue} is not empty, meaning that there
+   * are still [Alerts]{@link Alert} to process, the method will set the
+   * [isBusy]{@link #isBusy} flag, remove the next {@link Alert} from the queue
+   * and show the {@link Alert} by calling [showAlert]{@link #showAlert}.
+   *
+   * Once the show call has finished, the [isBusy]{@link #isBusy} flag is unset
+   * and the [work]{@link #work} method gets called again.
+   *
+   * If a current work call is still in progress, meaning the
+   * [isBusy]{@link #isBusy} flag is set, a new work call will do nothing.
+   */
   private async work(): Promise<void> {
     if (!this.alertQueue.isEmpty() && !this.isBusy) {
       this.isBusy = true;
@@ -100,7 +172,17 @@ export class AlertService {
     }
   }
 
+
+  /**
+   * Notifies all subscibers to show an {@link Alert}.
+   *
+   * @param{Alert} alert The `Alert` to show
+   * @returns{Promise<any>} A promise, which is resolved when all subscribers
+   * have finished showing the `alert`
+   */
   private async showAlert(alert: Alert): Promise<any> {
-    return Promise.all(this.subscribers.map(subscriber => subscriber.alert(alert)));
+    return Promise.all(this.subscribers.map(subscriber =>
+      subscriber.alert(alert)
+    ));
   }
 }

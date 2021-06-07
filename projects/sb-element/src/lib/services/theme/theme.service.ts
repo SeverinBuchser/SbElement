@@ -24,7 +24,7 @@ export class ThemeService {
   /**
    * Sets the theme to the service.
    *
-   * @param{string} The theme to commit
+   * @param{string} theme The theme to commit
    */
   public commit(theme: string): void { this._theme = theme }
 

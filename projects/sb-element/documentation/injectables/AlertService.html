@@ -186,24 +186,6 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/lib/services/alert/alert.service.ts:51</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -234,14 +216,20 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:136</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates and shows an <a href="../interfaces/Alert.html">Alert</a>.</p>
+<p>The <code>message</code>, <code>size</code> and <code>color</code> of the <a href="../interfaces/Alert.html">Alert</a> can be specified as
+parameters. The <a href="../interfaces/Alert.html">Alert</a> gets created with these parameters and
+placed into the <a href="#alertQueue">alertQueue</a>. After that, the
+<a href="#work">work</a> method gets called.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -252,6 +240,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -268,6 +257,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The message of the alert</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>size</td>
@@ -283,6 +276,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                         <code>&#x27;d&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>The size of the alert</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>color</td>
@@ -298,6 +295,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                         <code>&#x27;warn&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>The color of the alert</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -339,14 +340,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:100</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates and shows an <a href="../interfaces/Alert.html">Alert</a> with color <code>info</code>.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -357,6 +360,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -373,6 +377,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The message of the alert</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>size</td>
@@ -388,6 +396,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                         <code>&#x27;d&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>The size of the alert</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -429,14 +441,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:110</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates and shows an <a href="../interfaces/Alert.html">Alert</a> with color <code>primary</code>.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -447,6 +461,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -463,6 +478,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The message of the alert</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>size</td>
@@ -478,6 +497,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                         <code>&#x27;d&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>The size of the alert</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -519,14 +542,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:120</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates and shows an <a href="../interfaces/Alert.html">Alert</a> with color <code>secondary</code>.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -537,6 +562,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -553,6 +579,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The message of the alert</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>size</td>
@@ -568,6 +598,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                         <code>&#x27;d&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>The size of the alert</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -610,14 +644,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:183</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Notifies all subscibers to show an <a href="../interfaces/Alert.html">Alert</a>.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -627,6 +663,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -641,6 +678,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     </td>
 
 
+                                    <td>
+                                        <p>The <code>Alert</code> to show</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -652,7 +693,9 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A promise, which is resolved when all subscribers
+have finished showing the <code>alert</code></p>
+
                     </div>
                 </td>
             </tr>
@@ -682,14 +725,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:70</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Adds a new subscriber into <a href="#subscribers">subscribers</a>.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -699,6 +744,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -713,6 +759,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     </td>
 
 
+                                    <td>
+                                        <p>The new subscriber</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -754,14 +804,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:90</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates and shows an <a href="../interfaces/Alert.html">Alert</a> with color <code>success</code>.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -772,6 +824,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -788,6 +841,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The message of the alert</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>size</td>
@@ -803,6 +860,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                         <code>&#x27;d&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>The size of the alert</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -844,14 +905,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:80</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates and shows an <a href="../interfaces/Alert.html">Alert</a> with color <code>warn</code>.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -862,6 +925,7 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -878,6 +942,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The message of the alert</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>size</td>
@@ -893,6 +961,10 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                                         <code>&#x27;d&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>The size of the alert</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -935,14 +1007,25 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">src/lib/services/alert/alert.service.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/lib/services/alert/alert.service.ts:160</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Works on the <a href="#alertQueue">alertQueue</a>.</p>
+<p>If the service is not busy working on the <a href="#alertQueue">alertQueue</a>
+and the <a href="#alertQueue">alertQueue</a> is not empty, meaning that there
+are still <a href="../interfaces/Alert.html">Alerts</a> to process, the method will set the
+<a href="#isBusy">isBusy</a> flag, remove the next <a href="../interfaces/Alert.html">Alert</a> from the queue
+and show the <a href="../interfaces/Alert.html">Alert</a> by calling <a href="#showAlert">showAlert</a>.</p>
+<p>Once the show call has finished, the <a href="#isBusy">isBusy</a> flag is unset
+and the <a href="#work">work</a> method gets called again.</p>
+<p>If a current work call is still in progress, meaning the
+<a href="#isBusy">isBusy</a> flag is set, a new work call will do nothing.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
@@ -984,10 +1067,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/lib/services/alert/alert.service.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/lib/services/alert/alert.service.ts:57</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The queue of all <a href="../interfaces/Alert.html">Alerts</a> which need to be shown.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1017,10 +1106,17 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/lib/services/alert/alert.service.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/lib/services/alert/alert.service.ts:63</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Flag to inidcate if the service is busy working on the
+<a href="#alertQueue">alertQueue</a> or not.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1050,10 +1146,16 @@ queue is empty, the <a href="#work">work</a> method terminates. If not, go to st
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/services/alert/alert.service.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/lib/services/alert/alert.service.ts:51</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>An array of all subscribers.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1110,37 +1212,94 @@ import { Queue } from &#x27;../../models/queue/queue&#x27;;
 })
 export class AlertService {
 
-  private subscribers: Array&lt;AlertServiceSubscriber&gt; &#x3D; new Array&lt;AlertServiceSubscriber&gt;();
+  /**
+   * An array of all subscribers.
+   */
+  private subscribers: Array&lt;AlertServiceSubscriber&gt;
+    &#x3D; new Array&lt;AlertServiceSubscriber&gt;();
+
+  /**
+   * The queue of all [Alerts]{@link Alert} which need to be shown.
+   */
   private alertQueue: Queue&lt;Alert&gt; &#x3D; new Queue&lt;Alert&gt;();
 
+  /**
+   * Flag to inidcate if the service is busy working on the
+   * [alertQueue]{@link #alertQueue} or not.
+   */
   private isBusy: boolean &#x3D; false;
 
-  constructor() { }
-
-  public subscribe(subscriber: AlertServiceSubscriber) {
+  /**
+   * Adds a new subscriber into [subscribers]{@link #subscribers}.
+   *
+   * @param{AlertServiceSubscriber} subscriber The new subscriber
+   */
+  public subscribe(subscriber: AlertServiceSubscriber): void {
     this.subscribers.push(subscriber);
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color &#x60;warn&#x60;.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public warn(message: string, size &#x3D; &#x27;d&#x27;): void {
     this.alert(message, size, &#x27;warn&#x27;);
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color &#x60;success&#x60;.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public success(message: string, size &#x3D; &#x27;d&#x27;): void {
     this.alert(message, size, &#x27;success&#x27;);
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color &#x60;info&#x60;.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public inform(message: string, size &#x3D; &#x27;d&#x27;): void {
     this.alert(message, size, &#x27;info&#x27;);
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color &#x60;primary&#x60;.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public primary(message: string, size &#x3D; &#x27;d&#x27;): void {
     this.alert(message, size, &#x27;primary&#x27;);
   }
 
+  /**
+   * Creates and shows an {@link Alert} with color &#x60;secondary&#x60;.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   */
   public secondary(message: string, size &#x3D; &#x27;d&#x27;): void {
     this.alert(message, size, &#x27;secondary&#x27;);
   }
 
+  /**
+   * Creates and shows an {@link Alert}.
+   *
+   * The &#x60;message&#x60;, &#x60;size&#x60; and &#x60;color&#x60; of the {@link Alert} can be specified as
+   * parameters. The {@link Alert} gets created with these parameters and
+   * placed into the [alertQueue]{@link #alertQueue}. After that, the
+   * [work]{@link #work} method gets called.
+   *
+   * @param{string} message The message of the alert
+   * @param{string} size The size of the alert
+   * @param{string} color The color of the alert
+   */
   public alert(message: string, size &#x3D; &#x27;d&#x27;, color &#x3D; &#x27;warn&#x27;): void {
     this.alertQueue.enqueue({
       message,
@@ -1150,6 +1309,21 @@ export class AlertService {
     this.work();
   }
 
+  /**
+   * Works on the [alertQueue]{@link #alertQueue}.
+   *
+   * If the service is not busy working on the [alertQueue]{@link #alertQueue}
+   * and the [alertQueue]{@link #alertQueue} is not empty, meaning that there
+   * are still [Alerts]{@link Alert} to process, the method will set the
+   * [isBusy]{@link #isBusy} flag, remove the next {@link Alert} from the queue
+   * and show the {@link Alert} by calling [showAlert]{@link #showAlert}.
+   *
+   * Once the show call has finished, the [isBusy]{@link #isBusy} flag is unset
+   * and the [work]{@link #work} method gets called again.
+   *
+   * If a current work call is still in progress, meaning the
+   * [isBusy]{@link #isBusy} flag is set, a new work call will do nothing.
+   */
   private async work(): Promise&lt;void&gt; {
     if (!this.alertQueue.isEmpty() &amp;&amp; !this.isBusy) {
       this.isBusy &#x3D; true;
@@ -1165,8 +1339,18 @@ export class AlertService {
     }
   }
 
+
+  /**
+   * Notifies all subscibers to show an {@link Alert}.
+   *
+   * @param{Alert} alert The &#x60;Alert&#x60; to show
+   * @returns{Promise&lt;any&gt;} A promise, which is resolved when all subscribers
+   * have finished showing the &#x60;alert&#x60;
+   */
   private async showAlert(alert: Alert): Promise&lt;any&gt; {
-    return Promise.all(this.subscribers.map(subscriber &#x3D;&gt; subscriber.alert(alert)));
+    return Promise.all(this.subscribers.map(subscriber &#x3D;&gt;
+      subscriber.alert(alert)
+    ));
   }
 }
 </code></pre>

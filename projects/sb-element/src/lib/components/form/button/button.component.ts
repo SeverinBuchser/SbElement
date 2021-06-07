@@ -59,29 +59,31 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   /**
    *  Sets the [round]{@link #round} property of the component.
    *
-   * @param {boolean} The new value of [round]{@link #round}
+   * @param {boolean} isRound The new value of the `round` state
    */
   @Input()
   set isRound(isRound: boolean) {
     if (!this.pill) this.round = isRound;
-    else if (isRound && this.pill) throw new Error('Cannot use pill and round attribute simultaneously!');
+    else if (isRound && this.pill) throw new Error('Cannot use pill and round'
+      + ' attribute simultaneously!');
   }
 
   /**
    *  Sets the [pill]{@link #pill} property of the component.
    *
-   * @param {boolean} The new value of [pill]{@link #pill}
+   * @param {boolean} isPill The new value of `pill`
    */
   @Input()
   set isPill(isPill: boolean) {
     if (!this.round) this.pill = isPill;
-    else if (isPill && this.round) throw new Error('Cannot use pill and round attribute simultaneously!');
+    else if (isPill && this.round) throw new Error('Cannot use pill and round'
+      + ' attribute simultaneously!');
   }
 
   /**
    *  Sets the [plain]{@link #plain} property of the component.
    *
-   * @param {boolean} The new value of [plain]{@link #plain}
+   * @param {boolean} isPlain The new value of the `plain` state
    */
   @Input()
   set isPlain(isPlain: boolean) {
@@ -91,14 +93,15 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   /**
    *  Sets the [disabled]{@link disabled} state of the component.
    *
-   * @param {boolean} The new [disabled]{@link disabled} state value
+   * @param {boolean} isDisabled The new value of the `disabled` state
    */
   @Input()
   set disabled(isDisabled: boolean) { this._disabled = isDisabled; }
   /**
    * Gets the [disabled]{@link disabled} state of the component.
    *
-   * @returns {boolean} The current [disabled]{@link disabled} state of the component
+   * @returns {boolean} The current [disabled]{@link disabled} state of the
+   * component
    */
   get disabled(): boolean { return this._disabled; }
 
@@ -144,6 +147,12 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
    * Creates a new ButtonComponent.
    *
    * Sets the different class states according to the attribute inputs.
+   *
+   * @param{any} round Any value can be set and the `is-round` class will be set
+   * @param{any} pill Any value can be set and the `is-pill` class will be set
+   * @param{any} plain Any value can be set and the `is-plain` class will be set
+   * @param{ThemeService} themeService Injectable for the
+   * `SizeThemeColorInputDirective`
    */
   constructor(
     @Optional() @Attribute('round') round: any,
@@ -159,6 +168,8 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
 
   /**
    *  Provides access for a `FormGroup` to set the disabled state.
+   *
+   * @param{boolean} isDisabled The new disabled state
    */
   public setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
