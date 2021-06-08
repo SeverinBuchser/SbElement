@@ -64,6 +64,15 @@
             <code>src/lib/models/alert/alert.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This interface describes an alert.</p>
+<p>The interface is used by the <a href="../injectables/AlertService.html">AlertService</a> to create alerts and work
+with the <a href="../interfaces/AlertServiceSubscriber.html">AlertServiceSubscriber</a> which use/show the alerts.</p>
+
+            </p>
 
 
         <section>
@@ -125,6 +134,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The color of the alert.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -154,6 +169,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The message of the alert.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -183,6 +204,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The size of the alert.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -191,8 +218,19 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Alert {
+  /**
+   * The message of the alert.
+   */
   message: string;
+
+  /**
+   * The size of the alert.
+   */
   size: string;
+
+  /**
+   * The color of the alert.
+   */
   color: string;
 }
 </code></pre>
