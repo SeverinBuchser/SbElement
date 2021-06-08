@@ -64,6 +64,18 @@
             <code>src/lib/models/alert/alert-service-subscriber.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface for a subscriber of the <a href="../injectables/AlertService.html">AlertService</a>. The Interface has to
+be implemented by a subscriber. The subscriber then has to register itself to
+the <a href="../injectables/AlertService.html">AlertService</a> in order to receive alerts. The <a href="../injectables/AlertService.html">AlertService</a>
+then calls the <a href="#alert">alert</a> method of the subscriber with the given
+<a href="../interfaces/Alert.html">Alert</a>. The subscriber is then free to do anything with the given
+<a href="../interfaces/Alert.html">Alert</a>.</p>
+
+            </p>
 
 
         <section>
@@ -115,14 +127,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="4"
-                            class="link-to-prism">src/lib/models/alert/alert-service-subscriber.ts:4</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">src/lib/models/alert/alert-service-subscriber.ts:21</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method is called, when the subscriber has registered itself by the
+<a href="../injectables/AlertService.html">AlertService</a>. When an <a href="../interfaces/Alert.html">Alert</a> is created, the
+<a href="../injectables/AlertService.html">AlertService</a> calles the subscribers <a href="#alert">alert</a> method.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -132,6 +148,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -146,6 +163,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The alert to show.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -157,7 +178,9 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The subscriber has to return a <code>Promise&lt;void&gt;</code>
+which will resolve upon finishing the process of showing the alert.</p>
+
                     </div>
                 </td>
             </tr>
@@ -171,7 +194,24 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Alert } from &#x27;./alert&#x27;;
 
+/**
+ * Interface for a subscriber of the {@link AlertService}. The Interface has to
+ * be implemented by a subscriber. The subscriber then has to register itself to
+ * the {@link AlertService} in order to receive alerts. The {@link AlertService}
+ * then calls the [alert]{@link #alert} method of the subscriber with the given
+ * {@link Alert}. The subscriber is then free to do anything with the given
+ * {@link Alert}.
+ */
 export interface AlertServiceSubscriber {
+  /**
+   * This method is called, when the subscriber has registered itself by the
+   * {@link AlertService}. When an {@link Alert} is created, the
+   * {@link AlertService} calles the subscribers [alert]{@link #alert} method.
+   *
+   * @param{Alert} alert The alert to show.
+   * @returns{Promise&lt;void&gt;} The subscriber has to return a &#x60;Promise&lt;void&gt;&#x60;
+   * which will resolve upon finishing the process of showing the alert.
+   */
   alert(alert: Alert): Promise&lt;void&gt;;
 }
 </code></pre>
