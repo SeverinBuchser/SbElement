@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./doc",
     "include": [
       "src/lib/**/*.ts"
     ],

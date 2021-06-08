@@ -24,359 +24,359 @@
 <title>cluster_FormModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 2392,-268 2392,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_FormModule_declarations</title>
-<polygon fill="none" stroke="black" points="126,-78 126,-130 2384,-130 2384,-78 126,-78"/>
-</g>
 <g id="clust17" class="cluster">
 <title>cluster_FormModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 118,-130 118,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="2282,-78 2282,-130 2384,-130 2384,-78 2282,-78"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_FormModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 2274,-130 2274,-78 16,-78"/>
 </g>
 <g id="clust18" class="cluster">
 <title>cluster_FormModule_exports</title>
-<polygon fill="none" stroke="black" points="159,-208 159,-260 2279,-260 2279,-208 159,-208"/>
+<polygon fill="none" stroke="black" points="176,-208 176,-260 2296,-260 2296,-208 176,-208"/>
 </g>
 <!-- ButtonComponent -->
 <g id="node1" class="node">
 <title>ButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="2375.95,-122 2256.05,-122 2256.05,-86 2375.95,-86 2375.95,-122"/>
-<text text-anchor="middle" x="2316" y="-99.8" font-family="Times,serif" font-size="14.00">ButtonComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="2265.95,-122 2146.05,-122 2146.05,-86 2265.95,-86 2265.95,-122"/>
+<text text-anchor="middle" x="2206" y="-99.8" font-family="Times,serif" font-size="14.00">ButtonComponent</text>
 </g>
 <!-- FormModule -->
 <g id="node15" class="node">
 <title>FormModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="1276.88,-187 1273.88,-191 1252.88,-191 1249.88,-187 1187.12,-187 1187.12,-151 1276.88,-151 1276.88,-187"/>
-<text text-anchor="middle" x="1232" y="-164.8" font-family="Times,serif" font-size="14.00">FormModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="1293.88,-187 1290.88,-191 1269.88,-191 1266.88,-187 1204.12,-187 1204.12,-151 1293.88,-151 1293.88,-187"/>
+<text text-anchor="middle" x="1249" y="-164.8" font-family="Times,serif" font-size="14.00">FormModule</text>
 </g>
 <!-- ButtonComponent&#45;&gt;FormModule -->
 <g id="edge1" class="edge">
 <title>ButtonComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M2263.88,-122.11C2263.88,-141.34 2263.88,-169 2263.88,-169 2263.88,-169 1287,-169 1287,-169"/>
-<polygon fill="black" stroke="black" points="1287,-165.5 1277,-169 1287,-172.5 1287,-165.5"/>
+<path fill="none" stroke="black" d="M2156.66,-122.22C2156.66,-140.83 2156.66,-167 2156.66,-167 2156.66,-167 1304.01,-167 1304.01,-167"/>
+<polygon fill="black" stroke="black" points="1304.01,-163.5 1294.01,-167 1304.01,-170.5 1304.01,-163.5"/>
 </g>
 <!-- CheckboxComponent -->
 <g id="node2" class="node">
 <title>CheckboxComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="2238.1,-122 2099.9,-122 2099.9,-86 2238.1,-86 2238.1,-122"/>
-<text text-anchor="middle" x="2169" y="-99.8" font-family="Times,serif" font-size="14.00">CheckboxComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="2128.1,-122 1989.9,-122 1989.9,-86 2128.1,-86 2128.1,-122"/>
+<text text-anchor="middle" x="2059" y="-99.8" font-family="Times,serif" font-size="14.00">CheckboxComponent</text>
 </g>
 <!-- CheckboxComponent&#45;&gt;FormModule -->
 <g id="edge2" class="edge">
 <title>CheckboxComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M2115.38,-122.22C2115.38,-140.83 2115.38,-167 2115.38,-167 2115.38,-167 1287.02,-167 1287.02,-167"/>
-<polygon fill="black" stroke="black" points="1287.02,-163.5 1277.02,-167 1287.02,-170.5 1287.02,-163.5"/>
+<path fill="none" stroke="black" d="M1998.08,-122C1998.08,-139.68 1998.08,-164 1998.08,-164 1998.08,-164 1303.89,-164 1303.89,-164"/>
+<polygon fill="black" stroke="black" points="1303.89,-160.5 1293.89,-164 1303.89,-167.5 1303.89,-160.5"/>
 </g>
 <!-- CheckboxGroupComponent -->
 <g id="node3" class="node">
 <title>CheckboxGroupComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="2081.87,-122 1908.13,-122 1908.13,-86 2081.87,-86 2081.87,-122"/>
-<text text-anchor="middle" x="1995" y="-99.8" font-family="Times,serif" font-size="14.00">CheckboxGroupComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1971.87,-122 1798.13,-122 1798.13,-86 1971.87,-86 1971.87,-122"/>
+<text text-anchor="middle" x="1885" y="-99.8" font-family="Times,serif" font-size="14.00">CheckboxGroupComponent</text>
 </g>
 <!-- CheckboxGroupComponent&#45;&gt;FormModule -->
 <g id="edge3" class="edge">
 <title>CheckboxGroupComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M1939.88,-122C1939.88,-139.68 1939.88,-164 1939.88,-164 1939.88,-164 1287.09,-164 1287.09,-164"/>
-<polygon fill="black" stroke="black" points="1287.09,-160.5 1277.09,-164 1287.09,-167.5 1287.09,-160.5"/>
+<path fill="none" stroke="black" d="M1804.69,-122.03C1804.69,-139.06 1804.69,-162 1804.69,-162 1804.69,-162 1304,-162 1304,-162"/>
+<polygon fill="black" stroke="black" points="1304,-158.5 1294,-162 1304,-165.5 1304,-158.5"/>
 </g>
 <!-- FileInputComponent -->
 <g id="node4" class="node">
 <title>FileInputComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1890.16,-122 1757.84,-122 1757.84,-86 1890.16,-86 1890.16,-122"/>
-<text text-anchor="middle" x="1824" y="-99.8" font-family="Times,serif" font-size="14.00">FileInputComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1780.16,-122 1647.84,-122 1647.84,-86 1780.16,-86 1780.16,-122"/>
+<text text-anchor="middle" x="1714" y="-99.8" font-family="Times,serif" font-size="14.00">FileInputComponent</text>
 </g>
 <!-- FileInputComponent&#45;&gt;FormModule -->
 <g id="edge4" class="edge">
 <title>FileInputComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M1766.88,-122.03C1766.88,-139.06 1766.88,-162 1766.88,-162 1766.88,-162 1287.14,-162 1287.14,-162"/>
-<polygon fill="black" stroke="black" points="1287.14,-158.5 1277.14,-162 1287.14,-165.5 1287.14,-158.5"/>
+<path fill="none" stroke="black" d="M1652.29,-122.01C1652.29,-138.05 1652.29,-159 1652.29,-159 1652.29,-159 1304.09,-159 1304.09,-159"/>
+<polygon fill="black" stroke="black" points="1304.09,-155.5 1294.09,-159 1304.09,-162.5 1304.09,-155.5"/>
 </g>
 <!-- FormGroupComponent -->
 <g id="node5" class="node">
 <title>FormGroupComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1739.93,-122 1592.07,-122 1592.07,-86 1739.93,-86 1739.93,-122"/>
-<text text-anchor="middle" x="1666" y="-99.8" font-family="Times,serif" font-size="14.00">FormGroupComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1629.93,-122 1482.07,-122 1482.07,-86 1629.93,-86 1629.93,-122"/>
+<text text-anchor="middle" x="1556" y="-99.8" font-family="Times,serif" font-size="14.00">FormGroupComponent</text>
 </g>
 <!-- FormGroupComponent&#45;&gt;FormModule -->
 <g id="edge5" class="edge">
 <title>FormGroupComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M1606.88,-122.01C1606.88,-138.05 1606.88,-159 1606.88,-159 1606.88,-159 1287.22,-159 1287.22,-159"/>
-<polygon fill="black" stroke="black" points="1287.22,-155.5 1277.22,-159 1287.22,-162.5 1287.22,-155.5"/>
+<path fill="none" stroke="black" d="M1582.32,-122.24C1582.32,-137.57 1582.32,-157 1582.32,-157 1582.32,-157 1303.95,-157 1303.95,-157"/>
+<polygon fill="black" stroke="black" points="1303.95,-153.5 1293.95,-157 1303.95,-160.5 1303.95,-153.5"/>
 </g>
 <!-- IconButtonComponent -->
 <g id="node6" class="node">
 <title>IconButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1574.33,-122 1429.67,-122 1429.67,-86 1574.33,-86 1574.33,-122"/>
-<text text-anchor="middle" x="1502" y="-99.8" font-family="Times,serif" font-size="14.00">IconButtonComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1464.33,-122 1319.67,-122 1319.67,-86 1464.33,-86 1464.33,-122"/>
+<text text-anchor="middle" x="1392" y="-99.8" font-family="Times,serif" font-size="14.00">IconButtonComponent</text>
 </g>
 <!-- IconButtonComponent&#45;&gt;FormModule -->
 <g id="edge6" class="edge">
 <title>IconButtonComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M1441.38,-122.24C1441.38,-137.57 1441.38,-157 1441.38,-157 1441.38,-157 1286.92,-157 1286.92,-157"/>
-<polygon fill="black" stroke="black" points="1286.92,-153.5 1276.92,-157 1286.92,-160.5 1286.92,-153.5"/>
+<path fill="none" stroke="black" d="M1416.8,-122.05C1416.8,-136.37 1416.8,-154 1416.8,-154 1416.8,-154 1303.97,-154 1303.97,-154"/>
+<polygon fill="black" stroke="black" points="1303.97,-150.5 1293.97,-154 1303.97,-157.5 1303.97,-150.5"/>
 </g>
 <!-- IconComponent -->
 <g id="node7" class="node">
 <title>IconComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1412.21,-122 1305.79,-122 1305.79,-86 1412.21,-86 1412.21,-122"/>
-<text text-anchor="middle" x="1359" y="-99.8" font-family="Times,serif" font-size="14.00">IconComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1302.21,-122 1195.79,-122 1195.79,-86 1302.21,-86 1302.21,-122"/>
+<text text-anchor="middle" x="1249" y="-99.8" font-family="Times,serif" font-size="14.00">IconComponent</text>
 </g>
 <!-- IconComponent&#45;&gt;FormModule -->
 <g id="edge7" class="edge">
 <title>IconComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M1376.7,-122.05C1376.7,-136.37 1376.7,-154 1376.7,-154 1376.7,-154 1286.99,-154 1286.99,-154"/>
-<polygon fill="black" stroke="black" points="1286.99,-150.5 1276.99,-154 1286.99,-157.5 1286.99,-150.5"/>
+<path fill="none" stroke="black" d="M1249,-122.11C1249,-122.11 1249,-140.99 1249,-140.99"/>
+<polygon fill="black" stroke="black" points="1245.5,-140.99 1249,-150.99 1252.5,-140.99 1245.5,-140.99"/>
 </g>
 <!-- InputComponent -->
 <g id="node8" class="node">
 <title>InputComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1287.38,-122 1176.62,-122 1176.62,-86 1287.38,-86 1287.38,-122"/>
-<text text-anchor="middle" x="1232" y="-99.8" font-family="Times,serif" font-size="14.00">InputComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1177.38,-122 1066.62,-122 1066.62,-86 1177.38,-86 1177.38,-122"/>
+<text text-anchor="middle" x="1122" y="-99.8" font-family="Times,serif" font-size="14.00">InputComponent</text>
 </g>
 <!-- InputComponent&#45;&gt;FormModule -->
 <g id="edge8" class="edge">
 <title>InputComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M1232,-122.11C1232,-122.11 1232,-140.99 1232,-140.99"/>
-<polygon fill="black" stroke="black" points="1228.5,-140.99 1232,-150.99 1235.5,-140.99 1228.5,-140.99"/>
+<path fill="none" stroke="black" d="M1139.65,-122.05C1139.65,-136.37 1139.65,-154 1139.65,-154 1139.65,-154 1193.89,-154 1193.89,-154"/>
+<polygon fill="black" stroke="black" points="1193.89,-157.5 1203.89,-154 1193.89,-150.5 1193.89,-157.5"/>
 </g>
 <!-- RadioButtonComponent -->
 <g id="node9" class="node">
 <title>RadioButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1158.39,-122 1005.61,-122 1005.61,-86 1158.39,-86 1158.39,-122"/>
-<text text-anchor="middle" x="1082" y="-99.8" font-family="Times,serif" font-size="14.00">RadioButtonComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1048.39,-122 895.61,-122 895.61,-86 1048.39,-86 1048.39,-122"/>
+<text text-anchor="middle" x="972" y="-99.8" font-family="Times,serif" font-size="14.00">RadioButtonComponent</text>
 </g>
 <!-- RadioButtonComponent&#45;&gt;FormModule -->
 <g id="edge9" class="edge">
 <title>RadioButtonComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M1082.69,-122.05C1082.69,-136.37 1082.69,-154 1082.69,-154 1082.69,-154 1176.8,-154 1176.8,-154"/>
-<polygon fill="black" stroke="black" points="1176.8,-157.5 1186.8,-154 1176.8,-150.5 1176.8,-157.5"/>
+<path fill="none" stroke="black" d="M994.65,-122.24C994.65,-137.57 994.65,-157 994.65,-157 994.65,-157 1194.11,-157 1194.11,-157"/>
+<polygon fill="black" stroke="black" points="1194.11,-160.5 1204.11,-157 1194.11,-153.5 1194.11,-160.5"/>
 </g>
 <!-- RadioButtonGroupComponent -->
 <g id="node10" class="node">
 <title>RadioButtonGroupComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="987.16,-122 798.84,-122 798.84,-86 987.16,-86 987.16,-122"/>
-<text text-anchor="middle" x="893" y="-99.8" font-family="Times,serif" font-size="14.00">RadioButtonGroupComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="877.16,-122 688.84,-122 688.84,-86 877.16,-86 877.16,-122"/>
+<text text-anchor="middle" x="783" y="-99.8" font-family="Times,serif" font-size="14.00">RadioButtonGroupComponent</text>
 </g>
 <!-- RadioButtonGroupComponent&#45;&gt;FormModule -->
 <g id="edge10" class="edge">
 <title>RadioButtonGroupComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M929.07,-122.24C929.07,-137.57 929.07,-157 929.07,-157 929.07,-157 1176.97,-157 1176.97,-157"/>
-<polygon fill="black" stroke="black" points="1176.97,-160.5 1186.97,-157 1176.97,-153.5 1176.97,-160.5"/>
+<path fill="none" stroke="black" d="M873.7,-122.01C873.7,-138.05 873.7,-159 873.7,-159 873.7,-159 1194.1,-159 1194.1,-159"/>
+<polygon fill="black" stroke="black" points="1194.1,-162.5 1204.1,-159 1194.1,-155.5 1194.1,-162.5"/>
 </g>
 <!-- SelectButtonComponent -->
 <g id="node11" class="node">
 <title>SelectButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="780.66,-122 627.34,-122 627.34,-86 780.66,-86 780.66,-122"/>
-<text text-anchor="middle" x="704" y="-99.8" font-family="Times,serif" font-size="14.00">SelectButtonComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="670.66,-122 517.34,-122 517.34,-86 670.66,-86 670.66,-122"/>
+<text text-anchor="middle" x="594" y="-99.8" font-family="Times,serif" font-size="14.00">SelectButtonComponent</text>
 </g>
 <!-- SelectButtonComponent&#45;&gt;FormModule -->
 <g id="edge11" class="edge">
 <title>SelectButtonComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M720.87,-122.01C720.87,-138.05 720.87,-159 720.87,-159 720.87,-159 1177.09,-159 1177.09,-159"/>
-<polygon fill="black" stroke="black" points="1177.09,-162.5 1187.09,-159 1177.09,-155.5 1177.09,-162.5"/>
+<path fill="none" stroke="black" d="M665.2,-122.03C665.2,-139.06 665.2,-162 665.2,-162 665.2,-162 1193.68,-162 1193.68,-162"/>
+<polygon fill="black" stroke="black" points="1193.68,-165.5 1203.68,-162 1193.68,-158.5 1193.68,-165.5"/>
 </g>
 <!-- SelectionOptionsDirective -->
 <g id="node12" class="node">
 <title>SelectionOptionsDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="609.01,-122 444.99,-122 444.99,-86 609.01,-86 609.01,-122"/>
-<text text-anchor="middle" x="527" y="-99.8" font-family="Times,serif" font-size="14.00">SelectionOptionsDirective</text>
+<polygon fill="#ffffb3" stroke="black" points="499.01,-122 334.99,-122 334.99,-86 499.01,-86 499.01,-122"/>
+<text text-anchor="middle" x="417" y="-99.8" font-family="Times,serif" font-size="14.00">SelectionOptionsDirective</text>
 </g>
 <!-- SelectionOptionsDirective&#45;&gt;FormModule -->
 <g id="edge12" class="edge">
 <title>SelectionOptionsDirective&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M547.34,-122.03C547.34,-139.06 547.34,-162 547.34,-162 547.34,-162 1177.08,-162 1177.08,-162"/>
-<polygon fill="black" stroke="black" points="1177.08,-165.5 1187.08,-162 1177.08,-158.5 1177.08,-165.5"/>
+<path fill="none" stroke="black" d="M491.7,-122C491.7,-139.68 491.7,-164 491.7,-164 491.7,-164 1193.9,-164 1193.9,-164"/>
+<polygon fill="black" stroke="black" points="1193.9,-167.5 1203.9,-164 1193.9,-160.5 1193.9,-167.5"/>
 </g>
 <!-- SliderComponent -->
 <g id="node13" class="node">
 <title>SliderComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="426.27,-122 311.73,-122 311.73,-86 426.27,-86 426.27,-122"/>
-<text text-anchor="middle" x="369" y="-99.8" font-family="Times,serif" font-size="14.00">SliderComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="316.27,-122 201.73,-122 201.73,-86 316.27,-86 316.27,-122"/>
+<text text-anchor="middle" x="259" y="-99.8" font-family="Times,serif" font-size="14.00">SliderComponent</text>
 </g>
 <!-- SliderComponent&#45;&gt;FormModule -->
 <g id="edge13" class="edge">
 <title>SliderComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M387.62,-122C387.62,-139.68 387.62,-164 387.62,-164 387.62,-164 1176.9,-164 1176.9,-164"/>
-<polygon fill="black" stroke="black" points="1176.9,-167.5 1186.9,-164 1176.9,-160.5 1176.9,-167.5"/>
+<path fill="none" stroke="black" d="M259,-122.22C259,-140.83 259,-167 259,-167 259,-167 1193.89,-167 1193.89,-167"/>
+<polygon fill="black" stroke="black" points="1193.89,-170.5 1203.89,-167 1193.89,-163.5 1193.89,-170.5"/>
 </g>
 <!-- ToggleSwitchComponent -->
 <g id="node14" class="node">
 <title>ToggleSwitchComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="293.88,-122 134.12,-122 134.12,-86 293.88,-86 293.88,-122"/>
-<text text-anchor="middle" x="214" y="-99.8" font-family="Times,serif" font-size="14.00">ToggleSwitchComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="183.88,-122 24.12,-122 24.12,-86 183.88,-86 183.88,-122"/>
+<text text-anchor="middle" x="104" y="-99.8" font-family="Times,serif" font-size="14.00">ToggleSwitchComponent</text>
 </g>
 <!-- ToggleSwitchComponent&#45;&gt;FormModule -->
 <g id="edge14" class="edge">
 <title>ToggleSwitchComponent&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M230.62,-122.22C230.62,-140.83 230.62,-167 230.62,-167 230.62,-167 1177.03,-167 1177.03,-167"/>
-<polygon fill="black" stroke="black" points="1177.03,-170.5 1187.03,-167 1177.03,-163.5 1177.03,-170.5"/>
+<path fill="none" stroke="black" d="M104,-122.11C104,-141.34 104,-169 104,-169 104,-169 1194.11,-169 1194.11,-169"/>
+<polygon fill="black" stroke="black" points="1194.11,-172.5 1204.11,-169 1194.11,-165.5 1194.11,-172.5"/>
 </g>
 <!-- ButtonComponent  -->
 <g id="node17" class="node">
 <title>ButtonComponent </title>
-<polygon fill="#fb8072" stroke="black" points="2271.45,-252 2148.55,-252 2148.55,-216 2271.45,-216 2271.45,-252"/>
-<text text-anchor="middle" x="2210" y="-229.8" font-family="Times,serif" font-size="14.00">ButtonComponent </text>
+<polygon fill="#fb8072" stroke="black" points="2288.45,-252 2165.55,-252 2165.55,-216 2288.45,-216 2288.45,-252"/>
+<text text-anchor="middle" x="2227" y="-229.8" font-family="Times,serif" font-size="14.00">ButtonComponent </text>
 </g>
 <!-- FormModule&#45;&gt;ButtonComponent  -->
 <g id="edge16" class="edge">
 <title>FormModule&#45;&gt;ButtonComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1277.08,-172C1467.13,-172 2193.29,-172 2193.29,-172 2193.29,-172 2193.29,-205.73 2193.29,-205.73"/>
-<polygon fill="black" stroke="black" points="2189.79,-205.73 2193.29,-215.73 2196.79,-205.73 2189.79,-205.73"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1294,-172C1484.61,-172 2215.62,-172 2215.62,-172 2215.62,-172 2215.62,-205.73 2215.62,-205.73"/>
+<polygon fill="black" stroke="black" points="2212.13,-205.73 2215.62,-215.73 2219.13,-205.73 2212.13,-205.73"/>
 </g>
 <!-- CheckboxComponent  -->
 <g id="node18" class="node">
 <title>CheckboxComponent </title>
-<polygon fill="#fb8072" stroke="black" points="2130.6,-252 1989.4,-252 1989.4,-216 2130.6,-216 2130.6,-252"/>
-<text text-anchor="middle" x="2060" y="-229.8" font-family="Times,serif" font-size="14.00">CheckboxComponent </text>
+<polygon fill="#fb8072" stroke="black" points="2147.6,-252 2006.4,-252 2006.4,-216 2147.6,-216 2147.6,-252"/>
+<text text-anchor="middle" x="2077" y="-229.8" font-family="Times,serif" font-size="14.00">CheckboxComponent </text>
 </g>
 <!-- FormModule&#45;&gt;CheckboxComponent  -->
 <g id="edge17" class="edge">
 <title>FormModule&#45;&gt;CheckboxComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1276.93,-175C1446.15,-175 2035.57,-175 2035.57,-175 2035.57,-175 2035.57,-205.98 2035.57,-205.98"/>
-<polygon fill="black" stroke="black" points="2032.07,-205.98 2035.57,-215.98 2039.07,-205.98 2032.07,-205.98"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1294.15,-175C1465.66,-175 2067.12,-175 2067.12,-175 2067.12,-175 2067.12,-205.98 2067.12,-205.98"/>
+<polygon fill="black" stroke="black" points="2063.63,-205.98 2067.12,-215.98 2070.63,-205.98 2063.63,-205.98"/>
 </g>
 <!-- CheckboxGroupComponent  -->
 <g id="node19" class="node">
 <title>CheckboxGroupComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1971.87,-252 1794.13,-252 1794.13,-216 1971.87,-216 1971.87,-252"/>
-<text text-anchor="middle" x="1883" y="-229.8" font-family="Times,serif" font-size="14.00">CheckboxGroupComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1988.87,-252 1811.13,-252 1811.13,-216 1988.87,-216 1988.87,-252"/>
+<text text-anchor="middle" x="1900" y="-229.8" font-family="Times,serif" font-size="14.00">CheckboxGroupComponent </text>
 </g>
 <!-- FormModule&#45;&gt;CheckboxGroupComponent  -->
 <g id="edge18" class="edge">
 <title>FormModule&#45;&gt;CheckboxGroupComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1277.37,-177C1418.82,-177 1842.32,-177 1842.32,-177 1842.32,-177 1842.32,-205.96 1842.32,-205.96"/>
-<polygon fill="black" stroke="black" points="1838.82,-205.96 1842.32,-215.96 1845.82,-205.96 1838.82,-205.96"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1293.93,-177C1439.94,-177 1891.62,-177 1891.62,-177 1891.62,-177 1891.62,-205.96 1891.62,-205.96"/>
+<polygon fill="black" stroke="black" points="1888.13,-205.96 1891.62,-215.96 1895.13,-205.96 1888.13,-205.96"/>
 </g>
 <!-- FileInputComponent  -->
 <g id="node20" class="node">
 <title>FileInputComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1776.16,-252 1639.84,-252 1639.84,-216 1776.16,-216 1776.16,-252"/>
-<text text-anchor="middle" x="1708" y="-229.8" font-family="Times,serif" font-size="14.00">FileInputComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1793.16,-252 1656.84,-252 1656.84,-216 1793.16,-216 1793.16,-252"/>
+<text text-anchor="middle" x="1725" y="-229.8" font-family="Times,serif" font-size="14.00">FileInputComponent </text>
 </g>
 <!-- FormModule&#45;&gt;FileInputComponent  -->
 <g id="edge19" class="edge">
 <title>FormModule&#45;&gt;FileInputComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1277.15,-180C1392.65,-180 1689.82,-180 1689.82,-180 1689.82,-180 1689.82,-205.72 1689.82,-205.72"/>
-<polygon fill="black" stroke="black" points="1686.32,-205.72 1689.82,-215.72 1693.32,-205.72 1686.32,-205.72"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1294.03,-180C1411.57,-180 1718.62,-180 1718.62,-180 1718.62,-180 1718.62,-205.72 1718.62,-205.72"/>
+<polygon fill="black" stroke="black" points="1715.13,-205.72 1718.62,-215.72 1722.13,-205.72 1715.13,-205.72"/>
 </g>
 <!-- FormGroupComponent  -->
 <g id="node21" class="node">
 <title>FormGroupComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1621.43,-252 1470.57,-252 1470.57,-216 1621.43,-216 1621.43,-252"/>
-<text text-anchor="middle" x="1546" y="-229.8" font-family="Times,serif" font-size="14.00">FormGroupComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1638.43,-252 1487.57,-252 1487.57,-216 1638.43,-216 1638.43,-252"/>
+<text text-anchor="middle" x="1563" y="-229.8" font-family="Times,serif" font-size="14.00">FormGroupComponent </text>
 </g>
 <!-- FormModule&#45;&gt;FormGroupComponent  -->
 <g id="edge20" class="edge">
 <title>FormModule&#45;&gt;FormGroupComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1277.05,-182C1358.6,-182 1522.35,-182 1522.35,-182 1522.35,-182 1522.35,-205.81 1522.35,-205.81"/>
-<polygon fill="black" stroke="black" points="1518.85,-205.81 1522.35,-215.81 1525.85,-205.81 1518.85,-205.81"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1293.99,-182C1374.51,-182 1534.93,-182 1534.93,-182 1534.93,-182 1534.93,-205.81 1534.93,-205.81"/>
+<polygon fill="black" stroke="black" points="1531.43,-205.81 1534.93,-215.81 1538.43,-205.81 1531.43,-205.81"/>
 </g>
 <!-- IconButtonComponent  -->
 <g id="node22" class="node">
 <title>IconButtonComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1452.83,-252 1305.17,-252 1305.17,-216 1452.83,-216 1452.83,-252"/>
-<text text-anchor="middle" x="1379" y="-229.8" font-family="Times,serif" font-size="14.00">IconButtonComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1469.83,-252 1322.17,-252 1322.17,-216 1469.83,-216 1469.83,-252"/>
+<text text-anchor="middle" x="1396" y="-229.8" font-family="Times,serif" font-size="14.00">IconButtonComponent </text>
 </g>
 <!-- FormModule&#45;&gt;IconButtonComponent  -->
 <g id="edge21" class="edge">
 <title>FormModule&#45;&gt;IconButtonComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1277.09,-185C1307.19,-185 1341.3,-185 1341.3,-185 1341.3,-185 1341.3,-205.75 1341.3,-205.75"/>
-<polygon fill="black" stroke="black" points="1337.8,-205.75 1341.3,-215.75 1344.8,-205.75 1337.8,-205.75"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1294.19,-185C1328.37,-185 1369.45,-185 1369.45,-185 1369.45,-185 1369.45,-205.75 1369.45,-205.75"/>
+<polygon fill="black" stroke="black" points="1365.95,-205.75 1369.45,-215.75 1372.95,-205.75 1365.95,-205.75"/>
 </g>
 <!-- IconComponent  -->
 <g id="node23" class="node">
 <title>IconComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1286.71,-252 1177.29,-252 1177.29,-216 1286.71,-216 1286.71,-252"/>
-<text text-anchor="middle" x="1232" y="-229.8" font-family="Times,serif" font-size="14.00">IconComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1303.71,-252 1194.29,-252 1194.29,-216 1303.71,-216 1303.71,-252"/>
+<text text-anchor="middle" x="1249" y="-229.8" font-family="Times,serif" font-size="14.00">IconComponent </text>
 </g>
 <!-- FormModule&#45;&gt;IconComponent  -->
 <g id="edge22" class="edge">
 <title>FormModule&#45;&gt;IconComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1232,-187.11C1232,-187.11 1232,-205.99 1232,-205.99"/>
-<polygon fill="black" stroke="black" points="1228.5,-205.99 1232,-215.99 1235.5,-205.99 1228.5,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1249,-187.11C1249,-187.11 1249,-205.99 1249,-205.99"/>
+<polygon fill="black" stroke="black" points="1245.5,-205.99 1249,-215.99 1252.5,-205.99 1245.5,-205.99"/>
 </g>
 <!-- InputComponent  -->
 <g id="node24" class="node">
 <title>InputComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1159.38,-252 1044.62,-252 1044.62,-216 1159.38,-216 1159.38,-252"/>
-<text text-anchor="middle" x="1102" y="-229.8" font-family="Times,serif" font-size="14.00">InputComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1176.38,-252 1061.62,-252 1061.62,-216 1176.38,-216 1176.38,-252"/>
+<text text-anchor="middle" x="1119" y="-229.8" font-family="Times,serif" font-size="14.00">InputComponent </text>
 </g>
 <!-- FormModule&#45;&gt;InputComponent  -->
 <g id="edge23" class="edge">
 <title>FormModule&#45;&gt;InputComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1187,-185C1156.07,-185 1120.57,-185 1120.57,-185 1120.57,-185 1120.57,-205.75 1120.57,-205.75"/>
-<polygon fill="black" stroke="black" points="1117.07,-205.75 1120.57,-215.75 1124.07,-205.75 1117.07,-205.75"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1204.04,-185C1161.17,-185 1103.1,-185 1103.1,-185 1103.1,-185 1103.1,-205.75 1103.1,-205.75"/>
+<polygon fill="black" stroke="black" points="1099.6,-205.75 1103.1,-215.75 1106.6,-205.75 1099.6,-205.75"/>
 </g>
 <!-- RadioButtonComponent  -->
 <g id="node25" class="node">
 <title>RadioButtonComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1027.39,-252 870.61,-252 870.61,-216 1027.39,-216 1027.39,-252"/>
-<text text-anchor="middle" x="949" y="-229.8" font-family="Times,serif" font-size="14.00">RadioButtonComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1044.39,-252 887.61,-252 887.61,-216 1044.39,-216 1044.39,-252"/>
+<text text-anchor="middle" x="966" y="-229.8" font-family="Times,serif" font-size="14.00">RadioButtonComponent </text>
 </g>
 <!-- FormModule&#45;&gt;RadioButtonComponent  -->
 <g id="edge24" class="edge">
 <title>FormModule&#45;&gt;RadioButtonComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1187.06,-182C1123.87,-182 1016.38,-182 1016.38,-182 1016.38,-182 1016.38,-205.81 1016.38,-205.81"/>
-<polygon fill="black" stroke="black" points="1012.88,-205.81 1016.38,-215.81 1019.88,-205.81 1012.88,-205.81"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1203.83,-182C1119.17,-182 945.1,-182 945.1,-182 945.1,-182 945.1,-205.81 945.1,-205.81"/>
+<polygon fill="black" stroke="black" points="941.6,-205.81 945.1,-215.81 948.6,-205.81 941.6,-205.81"/>
 </g>
 <!-- RadioButtonGroupComponent  -->
 <g id="node26" class="node">
 <title>RadioButtonGroupComponent </title>
-<polygon fill="#fb8072" stroke="black" points="853.16,-252 660.84,-252 660.84,-216 853.16,-216 853.16,-252"/>
-<text text-anchor="middle" x="757" y="-229.8" font-family="Times,serif" font-size="14.00">RadioButtonGroupComponent </text>
+<polygon fill="#fb8072" stroke="black" points="870.16,-252 677.84,-252 677.84,-216 870.16,-216 870.16,-252"/>
+<text text-anchor="middle" x="774" y="-229.8" font-family="Times,serif" font-size="14.00">RadioButtonGroupComponent </text>
 </g>
 <!-- FormModule&#45;&gt;RadioButtonGroupComponent  -->
 <g id="edge25" class="edge">
 <title>FormModule&#45;&gt;RadioButtonGroupComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1186.99,-180C1081.25,-180 825.88,-180 825.88,-180 825.88,-180 825.88,-205.72 825.88,-205.72"/>
-<polygon fill="black" stroke="black" points="822.38,-205.72 825.88,-215.72 829.38,-205.72 822.38,-205.72"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1203.97,-180C1086.43,-180 779.38,-180 779.38,-180 779.38,-180 779.38,-205.72 779.38,-205.72"/>
+<polygon fill="black" stroke="black" points="775.88,-205.72 779.38,-215.72 782.88,-205.72 775.88,-205.72"/>
 </g>
 <!-- SelectButtonComponent  -->
 <g id="node27" class="node">
 <title>SelectButtonComponent </title>
-<polygon fill="#fb8072" stroke="black" points="642.66,-252 485.34,-252 485.34,-216 642.66,-216 642.66,-252"/>
-<text text-anchor="middle" x="564" y="-229.8" font-family="Times,serif" font-size="14.00">SelectButtonComponent </text>
+<polygon fill="#fb8072" stroke="black" points="659.66,-252 502.34,-252 502.34,-216 659.66,-216 659.66,-252"/>
+<text text-anchor="middle" x="581" y="-229.8" font-family="Times,serif" font-size="14.00">SelectButtonComponent </text>
 </g>
 <!-- FormModule&#45;&gt;SelectButtonComponent  -->
 <g id="edge26" class="edge">
 <title>FormModule&#45;&gt;SelectButtonComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1186.63,-177C1047.28,-177 634.88,-177 634.88,-177 634.88,-177 634.88,-205.96 634.88,-205.96"/>
-<polygon fill="black" stroke="black" points="631.38,-205.96 634.88,-215.96 638.38,-205.96 631.38,-205.96"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1204.11,-177C1055.42,-177 588.38,-177 588.38,-177 588.38,-177 588.38,-205.96 588.38,-205.96"/>
+<polygon fill="black" stroke="black" points="584.88,-205.96 588.38,-215.96 591.88,-205.96 584.88,-205.96"/>
 </g>
 <!-- SliderComponent  -->
 <g id="node28" class="node">
 <title>SliderComponent </title>
-<polygon fill="#fb8072" stroke="black" points="467.27,-252 348.73,-252 348.73,-216 467.27,-216 467.27,-252"/>
-<text text-anchor="middle" x="408" y="-229.8" font-family="Times,serif" font-size="14.00">SliderComponent </text>
+<polygon fill="#fb8072" stroke="black" points="484.27,-252 365.73,-252 365.73,-216 484.27,-216 484.27,-252"/>
+<text text-anchor="middle" x="425" y="-229.8" font-family="Times,serif" font-size="14.00">SliderComponent </text>
 </g>
 <!-- FormModule&#45;&gt;SliderComponent  -->
 <g id="edge27" class="edge">
 <title>FormModule&#45;&gt;SliderComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1186.92,-175C1021.29,-175 455.94,-175 455.94,-175 455.94,-175 455.94,-205.98 455.94,-205.98"/>
-<polygon fill="black" stroke="black" points="452.44,-205.98 455.94,-215.98 459.44,-205.98 452.44,-205.98"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1204.11,-175C1032.16,-175 425,-175 425,-175 425,-175 425,-205.98 425,-205.98"/>
+<polygon fill="black" stroke="black" points="421.5,-205.98 425,-215.98 428.5,-205.98 421.5,-205.98"/>
 </g>
 <!-- ToggleSwitchComponent  -->
 <g id="node29" class="node">
 <title>ToggleSwitchComponent </title>
-<polygon fill="#fb8072" stroke="black" points="330.88,-252 167.12,-252 167.12,-216 330.88,-216 330.88,-252"/>
-<text text-anchor="middle" x="249" y="-229.8" font-family="Times,serif" font-size="14.00">ToggleSwitchComponent </text>
+<polygon fill="#fb8072" stroke="black" points="347.88,-252 184.12,-252 184.12,-216 347.88,-216 347.88,-252"/>
+<text text-anchor="middle" x="266" y="-229.8" font-family="Times,serif" font-size="14.00">ToggleSwitchComponent </text>
 </g>
 <!-- FormModule&#45;&gt;ToggleSwitchComponent  -->
 <g id="edge28" class="edge">
 <title>FormModule&#45;&gt;ToggleSwitchComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1186.83,-172C1003.04,-172 321.15,-172 321.15,-172 321.15,-172 321.15,-205.73 321.15,-205.73"/>
-<polygon fill="black" stroke="black" points="317.65,-205.73 321.15,-215.73 324.65,-205.73 317.65,-205.73"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1203.98,-172C1020.81,-172 341.22,-172 341.22,-172 341.22,-172 341.22,-205.73 341.22,-205.73"/>
+<polygon fill="black" stroke="black" points="337.72,-205.73 341.22,-215.73 344.72,-205.73 337.72,-205.73"/>
 </g>
 <!-- BaseModule -->
 <g id="node16" class="node">
 <title>BaseModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="110.26,-122 107.26,-126 86.26,-126 83.26,-122 23.74,-122 23.74,-86 110.26,-86 110.26,-122"/>
-<text text-anchor="middle" x="67" y="-99.8" font-family="Times,serif" font-size="14.00">BaseModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="2376.26,-122 2373.26,-126 2352.26,-126 2349.26,-122 2289.74,-122 2289.74,-86 2376.26,-86 2376.26,-122"/>
+<text text-anchor="middle" x="2333" y="-99.8" font-family="Times,serif" font-size="14.00">BaseModule</text>
 </g>
 <!-- BaseModule&#45;&gt;FormModule -->
 <g id="edge15" class="edge">
 <title>BaseModule&#45;&gt;FormModule</title>
-<path fill="none" stroke="black" d="M67,-122.11C67,-141.34 67,-169 67,-169 67,-169 1177.04,-169 1177.04,-169"/>
-<polygon fill="black" stroke="black" points="1177.04,-172.5 1187.04,-169 1177.04,-165.5 1177.04,-172.5"/>
+<path fill="none" stroke="black" d="M2333,-122.11C2333,-141.34 2333,-169 2333,-169 2333,-169 1304.2,-169 1304.2,-169"/>
+<polygon fill="black" stroke="black" points="1304.2,-165.5 1294.2,-169 1304.2,-172.5 1304.2,-165.5"/>
 </g>
 </g>
 </svg>

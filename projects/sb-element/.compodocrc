@@ -1,0 +1,7 @@
+{
+    "output": "./documentation",
+    "serve": true,
+    "tsconfig": "tsconfig.lib.doc.json",
+    "watch": true,
+    "theme": "gitbook"
+}
