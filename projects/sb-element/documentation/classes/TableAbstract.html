@@ -63,6 +63,15 @@
             <code>src/lib/models/table/table.abstract.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>An abstract class holding information about a table. The table consists of
+columns of different data types. Each column has different styling options
+in the form of <a href="../interfaces/ColumnInformationInterface.html">ColumnInformationInterface</a>.</p>
+
+            </p>
 
 
 
@@ -142,10 +151,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/lib/models/table/table.abstract.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/lib/models/table/table.abstract.ts:13</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Information about the columns.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -170,10 +185,17 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/lib/models/table/table.abstract.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/lib/models/table/table.abstract.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The data of the table. The data is stored as an array of data for each row.
+The each row contains the data for each column.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -208,14 +230,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">src/lib/models/table/table.abstract.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/lib/models/table/table.abstract.ts:29</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Returns the column information by column index or name.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -225,6 +249,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -239,6 +264,11 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The column index or the name of the
+column</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -250,7 +280,9 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The information about the column of
+either the column with the specified index or name</p>
+
                     </div>
                 </td>
             </tr>
@@ -268,10 +300,35 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnInformationInterface } from &#x27;./column-information.interface&#x27;;
 
+/**
+ * An abstract class holding information about a table. The table consists of
+ * columns of different data types. Each column has different styling options
+ * in the form of {@link ColumnInformationInterface}.
+ */
 export abstract class TableAbstract {
+
+  /**
+   * Information about the columns.
+   */
   abstract columnInformation: Array&lt;ColumnInformationInterface&gt;;
+
+  /**
+   * The data of the table. The data is stored as an array of data for each row.
+   * The each row contains the data for each column.
+   */
   abstract data: Array&lt;Array&lt;any&gt;&gt;
-  public getColumnInformation(nameOrIndex: string | number): ColumnInformationInterface {
+
+  /**
+   * Returns the column information by column index or name.
+   *
+   * @param{string | number} nameOrIndex The column index or the name of the
+   * column
+   * @returns{ColumnInformationInterface} The information about the column of
+   * either the column with the specified index or name
+   */
+  public getColumnInformation(
+    nameOrIndex: string | number
+  ): ColumnInformationInterface {
     if (typeof nameOrIndex &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
       return this.columnInformation[nameOrIndex]
     } else {
@@ -279,7 +336,8 @@ export abstract class TableAbstract {
         return columnInformation.name &#x3D;&#x3D;&#x3D; nameOrIndex
       })
       if (info) return info;
-      else throw new Error(&#x27;Column Information with name&#x27; + nameOrIndex + &#x27;does not exist!&#x27;)
+      else throw new Error(&#x27;Column Information with name&#x27; + nameOrIndex +
+        &#x27;does not exist!&#x27;)
     }
   }
 }
