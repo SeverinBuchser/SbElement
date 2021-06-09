@@ -8,9 +8,8 @@ export * from './lib/components/form/form.module';
 /*
  *  Models
  */
-export * from './lib/models/table/table.abstract';
+export * from './lib/models/table/table';
 export * from './lib/models/table/column-information.interface';
-export * from './lib/models/table/table.model';
 
 /*
  * Services

@@ -5,18 +5,19 @@ import { ColumnInformationInterface } from './column-information.interface';
  * columns of different data types. Each column has different styling options
  * in the form of {@link ColumnInformationInterface}.
  */
-export abstract class TableAbstract {
+export class Table {
 
   /**
    * Information about the columns.
    */
-  abstract columnInformation: Array<ColumnInformationInterface>;
+  public columnInformation: Array<ColumnInformationInterface>
+    = new Array<ColumnInformationInterface>();
 
   /**
    * The data of the table. The data is stored as an array of data for each row.
    * The each row contains the data for each column.
    */
-  abstract data: Array<Array<any>>
+  public data: Array<Array<any>> = new Array<Array<any>>();
 
   /**
    * Returns the column information by column index or name.
@@ -39,5 +40,9 @@ export abstract class TableAbstract {
       else throw new Error('Column Information with name' + nameOrIndex +
         'does not exist!')
     }
+  }
+
+  public static fromJSON(): void {
+
   }
 }

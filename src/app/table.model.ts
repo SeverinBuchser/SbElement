@@ -1,6 +1,6 @@
-import { TableAbstract } from './table.abstract';
+import { Table } from "sb-element";
 
-export class TableModel extends TableAbstract {
+export class TableModel extends Table {
   columnInformation = [
       {
         name: 'First Name',

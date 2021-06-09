@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TableModel } from 'projects/sb-element/src/public-api';
 import { AlertService, ThemeService } from 'sb-element';
+import { TableModel } from "./table.model";
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TableAbstract } from '../../models/table/table.abstract';
+import { Table } from "../../models/table/table";
 import { ThemeColorInputDirective } from '../base/style-input/theme-color-input.directive';
 
 @Component({
@@ -15,7 +15,7 @@ export class TableComponent extends ThemeColorInputDirective {
   public separation: string = 'all';
 
   @Input()
-  public table!: TableAbstract;
+  public table!: Table;
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
