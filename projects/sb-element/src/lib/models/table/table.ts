@@ -1,4 +1,4 @@
-import { Csv, Delimiter } from "../csv/csv";
+import { Csv } from "../csv/csv";
 import { ColumnInformation } from "./column-information";
 import { ColumnInformationInterface, ColumnInformationOptionsInterface } from './column-information.interface';
 
@@ -65,7 +65,7 @@ export class Table {
       csv.forEachColumnName(columnName => {
         columnInformation.push(ColumnInformation.defaults.set({name: columnName}))
       });
-      
+
       return new Table(csv.data, columnInformation);
     });
   }
