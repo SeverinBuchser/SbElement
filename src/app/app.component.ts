@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService } from 'sb-element';
+import { AlertService, ThemeService, Table } from 'sb-element';
 import { TableModel } from "./table.model";
 
 @Component({
@@ -35,11 +35,36 @@ export class AppComponent implements OnInit {
   constructor(themeService: ThemeService, private alertService: AlertService) {
     themeService.commit('night')
     this.theme = themeService.get();
+    this.table = Table.fromJSON({
+      "Name" : [
+        "Severin",
+        "Rafael"
+      ],
+      "Nachname": [
+        "Buchser",
+        "Buchser",
+        "Buchser"
+      ]
+    })
+
+    this.table = Table.fromRows([
+      ["Severin", "Buchser"],
+      ["Rafael", "Buchser"]
+    ], [
+      {
+        name: "Name",
+        color: "primary"
+      },
+      {
+        name: "Nachname"
+      }
+    ])
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value)
-    this.alert(form.value.input);
+    // console.log(form.value)
+    // this.alert(form.value.input);
+    Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
   }
 
   ngOnInit() {

@@ -17,7 +17,7 @@ import { SbElementModule } from 'sb-element';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SbElementModule
+    SbElementModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
