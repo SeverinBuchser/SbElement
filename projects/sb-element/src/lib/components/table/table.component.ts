@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Table } from "../../models/table/table";
+import { TableInterface } from "../../models/table/table.interface";
 import { ThemeColorInputDirective } from '../base/style-input/theme-color-input.directive';
 
 @Component({
@@ -15,7 +15,7 @@ export class TableComponent extends ThemeColorInputDirective {
   public separation: string = 'all';
 
   @Input()
-  public table!: Table;
+  public table!: TableInterface;
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
@@ -30,7 +30,7 @@ export class TableComponent extends ThemeColorInputDirective {
 
   public getColumnClasses(columnIndex: number): Array<string> {
     let classes = new Array<string>();
-    let columnInformation = this.table.getColumnInformation(columnIndex);
+    let columnInformation = this.table.columnInformation[columnIndex];
     classes.push(this.subRootClass);
     classes.push(this.subRootClass + '--' + columnInformation.color)
     classes.push('is-' + columnInformation.alignment)

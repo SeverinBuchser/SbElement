@@ -1,5 +1,6 @@
 import { Csv } from "../csv/csv";
 import { ColumnInformation } from "./column-information";
+import { TableInterface } from "./table.interface";
 import { ColumnInformationInterface, ColumnInformationOptionsInterface } from './column-information.interface';
 
 /**
@@ -7,7 +8,7 @@ import { ColumnInformationInterface, ColumnInformationOptionsInterface } from '.
  * columns of different data types. Each column has different styling options
  * in the form of {@link ColumnInformationInterface}.
  */
-export class Table {
+export class Table implements TableInterface {
 
   /**
    * Information about the columns.
@@ -17,7 +18,7 @@ export class Table {
 
   /**
    * The data of the table. The data is stored as an array of data for each row.
-   * The each row contains the data for each column.
+   * Each row contains the data for each column.
    */
   public data: Array<Array<any>> = new Array<Array<any>>();
 
@@ -36,34 +37,13 @@ export class Table {
     }
   }
 
-  /**
-   * Returns the column information by column index or name.
-   *
-   * @param{string | number} nameOrIndex The column index or the name of the
-   * column
-   * @returns{ColumnInformationInterface} The information about the column of
-   * either the column with the specified index or name
-   */
-  public getColumnInformation(
-    nameOrIndex: string | number
-  ): ColumnInformationInterface {
-    if (typeof nameOrIndex === 'number') {
-      return this.columnInformation[nameOrIndex]
-    } else {
-      let info = this.columnInformation.find(columnInformation => {
-        return columnInformation.name === nameOrIndex
-      })
-      if (info) return info;
-      else throw new Error('Column Information with name' + nameOrIndex +
-        'does not exist!')
-    }
-  }
-
   public static async fromCSV(csvFile: File): Promise<Table> {
     return Csv.parseFile(csvFile).then(csv => {
       let columnInformation = new Array<ColumnInformation>();
       csv.forEachColumnName(columnName => {
-        columnInformation.push(ColumnInformation.defaults.set({name: columnName}))
+        columnInformation.push(ColumnInformation.defaults.set({
+          name: columnName
+        }))
       });
 
       return new Table(csv.data, columnInformation);

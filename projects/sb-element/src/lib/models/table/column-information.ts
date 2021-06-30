@@ -13,6 +13,14 @@ export class ColumnInformation extends ColumnInformationDefaults {
     return new ColumnInformation();
   }
 
+  private clone(): ColumnInformation {
+    let clone = new ColumnInformation();
+    clone.name = this.name;
+    clone.color = this.color;
+    clone.alignment = this.alignment;
+    return clone;
+  }
+
   public set(
     information: ColumnInformationOptionsInterface
   ): ColumnInformation {
