@@ -12,6 +12,7 @@ import { AlertBoxComponent } from './components/alert-box/alert-box.component';
 import { TableComponent } from './components/table/table.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
+import { GridComponent } from './components/grid/grid.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { CardComponent } from './components/card/card.component';
     TableComponent,
     AlertComponent,
     CardComponent,
+    GridComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { CardComponent } from './components/card/card.component';
     TableComponent,
     AlertComponent,
     CardComponent,
+    GridComponent,
     // modules
     FormModule
   ]
