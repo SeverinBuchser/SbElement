@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { SbElementModule } from 'sb-element';
+import { SBComponent } from './sb/sb.component';
+import { DefaultComponent } from './default/default.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    SBComponent,
+    DefaultComponent,
   ],
   imports: [
     BrowserModule,
