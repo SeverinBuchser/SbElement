@@ -6,7 +6,8 @@
     [(ngModel)]="value"
     (blur)="emitBlur()"
     (focus)="emitFocus()"
-    [spellcheck]="spellcheck">
+    [spellcheck]="spellcheck"
+    [disabled]="disabled">
   <div [ngClass]="getPlaceholderClasses()">
     {{ placeholder }}
   </div>
