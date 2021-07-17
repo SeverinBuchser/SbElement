@@ -25,6 +25,7 @@ export * from './lib/components/alert/alert.component';
 export * from './lib/components/alert-box/alert-box.component';
 export * from './lib/components/card/card.component';
 export * from './lib/components/container/container.component';
+export * from './lib/components/grid/grid.component';
 export * from './lib/components/icon/icon.component';
 export * from './lib/components/table/table.component';
 
