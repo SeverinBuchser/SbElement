@@ -1,1 +1,69 @@
-<p>sb works!</p>
+<div [ngClass]="getClasses()">
+  <img [src]="'assets/sb-' + theme + '.svg'" class="logo">
+  <div class="catch">
+    <p class="sb-font-regular sb-font-weight-bold sb-font-size-m">Severin Buchser</p>
+    <p class="sb-font-regular sb-font-weight-thin sb-font-size-m">Webdevelopment & Photography</p>
+  </div>
+  <div class="style-wrapper">
+    <div class="style">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+    </div>
+  </div>
+  <div class="writing" [ngClass]="'writing--' + theme">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+    <div class="line line-4"></div>
+  </div>
+</div>
+<sb-el-container [extraClasses]="'center'" size="s">
+  <h1 class="sb-family-default sb-font-weight-regular sb-font-size-xl">Severin Buchser</h1>
+</sb-el-container>
+
+<sb-el-grid dim="2x2" gap="s" [extraClasses]="'grid'">
+  <sb-el-card>
+      <div title>
+        Photography
+      </div>
+      <div content>
+        I'm a hobby photographer. Go look at some pictures I took.
+      </div>
+      <div footer>
+        <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+      </div>
+  </sb-el-card>
+  <sb-el-card>
+    <div title>
+      Coding
+    </div>
+    <div content>
+      Coding is another one of my passions. Go take a look.
+    </div>
+    <div footer>
+      <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+    </div>
+  </sb-el-card>
+  <sb-el-card>
+    <div title>
+      Floorball
+    </div>
+    <div content>
+      This is the sport you play with a ball with holes in it and sticks.
+    </div>
+    <div footer>
+      <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+    </div>
+  </sb-el-card>
+  <sb-el-card>
+    <div title>
+      Life
+    </div>
+    <div content>
+      Read about my story so far.
+    </div>
+    <div footer>
+      <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+    </div>
+  </sb-el-card>
+</sb-el-grid>

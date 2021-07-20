@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ThemeInputDirective } from "sb-element";
 
 @Component({
   selector: 'sb',
   templateUrl: './sb.component.html',
   styleUrls: ['./sb.component.scss']
 })
-export class SBComponent implements OnInit {
+export class SBComponent extends ThemeInputDirective {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  public rootClass: string = 'home-logo';
 
 }

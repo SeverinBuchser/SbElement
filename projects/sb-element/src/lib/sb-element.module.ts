@@ -13,6 +13,7 @@ import { TableComponent } from './components/table/table.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
+import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { GridComponent } from './components/grid/grid.component';
     CardComponent,
     GridComponent,
     // modules
-    FormModule
+    FormModule,
+    // directives
+    ThemeInputDirective
   ]
 })
 export class SbElementModule { }

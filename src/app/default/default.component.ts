@@ -30,7 +30,7 @@ export class DefaultComponent implements OnInit {
   public table: TableModel = new TableModel();
 
   constructor(themeService: ThemeService, private alertService: AlertService) {
-    themeService.commit('night')
+    themeService.commit('light')
     this.theme = themeService.get();
     this.table = Table.fromJSON({
       "Name" : [

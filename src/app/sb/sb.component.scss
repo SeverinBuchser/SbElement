@@ -1,0 +1,93 @@
+@import 'sb-theming';
+
+.home-logo {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  &--light {
+    background: $bright;
+    color: $dark;
+  }
+  &--night {
+    background: $dark;
+    color: $bright;
+  }
+
+  .logo {
+    height: 100px;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+  }
+
+  .catch {
+    position: absolute;
+    left: 10%;
+    bottom: 15%;
+    p {
+      margin: 0;
+      letter-spacing: 3px;
+    }
+  }
+
+  .style-wrapper {
+    position: absolute;
+    right: 20vw;
+    top: 50%;
+
+    .style {
+      position: relative;
+      .circle {
+        @include radius(50%);
+        position: absolute;
+
+        &-1 {
+          height: getSize('l');
+          width: getSize('l');
+          background: $primary;
+        }
+
+        &-2 {
+          top: -10px;
+          left: getSize('s');
+          height: getSize('m');
+          width: getSize('m');
+          background: $secondary;
+        }
+      }
+    }
+  }
+
+  .writing {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+
+    &--light .line {
+      background: $dark;
+    }
+
+    &--night .line {
+      background: $bright;
+    }
+
+    .line {
+      margin: 20px 0;
+      height: 5px;
+      border: 0;
+
+      &-1 {
+        width: 200px;
+      }
+      &-2 {
+        width: 210px;
+      }
+      &-3 {
+        width: 205px;
+      }
+      &-4 {
+        width: 215px;
+      }
+    }
+  }
+}

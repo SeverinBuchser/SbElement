@@ -16,3 +16,17 @@ html, body {
     align-items: flex-end;
   }
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  @include padding('s');
+
+  > * > div {
+    height: 100%;
+  }
+}

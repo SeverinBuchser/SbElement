@@ -43,3 +43,8 @@ export * from './lib/components/form/toggle-switch/toggle-switch.component';
 export * from './lib/components/form/group/checkbox/checkbox-group.component';
 export * from './lib/components/form/group/radio-button/radio-button-group.component';
 export * from './lib/components/form/group/form-group.component';
+
+/*
+ *  Directives
+ */
+ export * from './lib/components/base/style-input/theme-input.directive';
