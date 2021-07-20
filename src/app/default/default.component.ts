@@ -30,7 +30,6 @@ export class DefaultComponent implements OnInit {
   public table: TableModel = new TableModel();
 
   constructor(themeService: ThemeService, private alertService: AlertService) {
-    themeService.commit('light')
     this.theme = themeService.get();
     this.table = Table.fromJSON({
       "Name" : [
@@ -44,18 +43,18 @@ export class DefaultComponent implements OnInit {
       ]
     })
 
-    this.table = Table.fromRows([
-      ["Severin", "Buchser"],
-      ["Rafael", "Buchser"]
-    ], [
-      {
-        name: "Name",
-        color: "primary"
-      },
-      {
-        name: "Nachname"
-      }
-    ])
+    // this.table = Table.fromRows([
+    //   ["Severin", "Buchser"],
+    //   ["Rafael", "Buchser"]
+    // ], [
+    //   {
+    //     name: "Name",
+    //     color: "primary"
+    //   },
+    //   {
+    //     name: "Nachname"
+    //   }
+    // ])
   }
 
   onSubmit(form: NgForm) {

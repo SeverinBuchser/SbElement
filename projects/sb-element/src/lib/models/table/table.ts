@@ -37,13 +37,20 @@ export class Table implements TableInterface {
     }
   }
 
-  public static async fromCSV(csvFile: File): Promise<Table> {
+  public static async fromCSV(
+    csvFile: File,
+    columnInformationOptions?: Array<ColumnInformationOptionsInterface>
+  ): Promise<Table> {
     return Csv.parseFile(csvFile).then(csv => {
       let columnInformation = new Array<ColumnInformation>();
-      csv.forEachColumnName(columnName => {
-        columnInformation.push(ColumnInformation.defaults.set({
-          name: columnName
-        }))
+
+      csv.forEachColumnName((columnName: string, index: number) => {
+        let info = ColumnInformation.defaults.set({name: columnName});
+        if (columnInformationOptions && columnInformationOptions[index]) {
+          info = ColumnInformation.merge(info, columnInformationOptions[index])
+        }
+
+        columnInformation.push(info)
       });
 
       return new Table(csv.data, columnInformation);
@@ -59,15 +66,22 @@ export class Table implements TableInterface {
     ));
   }
 
-  public static fromJSON(table: Object): Table {
+  public static fromJSON(
+    table: Object,
+    columnInformationOptions?: Array<ColumnInformationOptionsInterface>
+  ): Table {
     let entries = Object.entries(table);
     let columns = new Array<Array<any>>();
-    let columnInformation = new Array<ColumnInformationInterface>();
+    let columnInformation = new Array<ColumnInformation>();
 
-    entries.forEach(entry => {
+    entries.forEach((entry: any, index: number) => {
       if (Array.isArray(entry[1])) {
         columns.push(entry[1])
-        columnInformation.push(ColumnInformation.defaults.set({name: entry[0]}))
+        let info = ColumnInformation.defaults.set({name: entry[0]});
+        if (columnInformationOptions && columnInformationOptions[index]) {
+          info = ColumnInformation.merge(info, columnInformationOptions[index])
+        }
+        columnInformation.push(info)
       }
     })
 

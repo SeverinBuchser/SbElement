@@ -28,4 +28,27 @@ export class ColumnInformation extends ColumnInformationDefaults {
     return Object.assign(clone, information);
   }
 
+  public static merge(
+    overwrite: ColumnInformationOptionsInterface,
+    persistent: ColumnInformationOptionsInterface
+  ): ColumnInformation {
+    let info = new ColumnInformation();
+
+    info.name = this.mergeValues(overwrite.name, persistent.name,
+      this.defaults.name);
+    info.color = this.mergeValues(overwrite.color, persistent.color,
+      this.defaults.color);
+    info.alignment = this.mergeValues(overwrite.alignment, persistent.alignment,
+      this.defaults.alignment);
+
+    return info;
+  }
+
+  private static mergeValues(overwrite: string | undefined, persistent: string | undefined, defaultValue: string): string {
+    let value = defaultValue;
+    if (overwrite && defaultValue !== overwrite) value = overwrite;
+    if (persistent && defaultValue !== persistent) value = persistent;
+    return value;
+  }
+
 }
