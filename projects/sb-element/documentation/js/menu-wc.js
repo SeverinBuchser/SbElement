@@ -218,13 +218,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SbElementModule.html" data-type="entity-link">SbElementModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SbElementModule-ade3a5ac0851ae996f5b14137c4b8552"' : 'data-target="#xs-components-links-module-SbElementModule-ade3a5ac0851ae996f5b14137c4b8552"' }>
+                                            'data-target="#components-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' : 'data-target="#xs-components-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SbElementModule-ade3a5ac0851ae996f5b14137c4b8552"' :
-                                            'id="xs-components-links-module-SbElementModule-ade3a5ac0851ae996f5b14137c4b8552"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' :
+                                            'id="xs-components-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' }>
                                             <li class="link">
                                                 <a href="components/AlertBoxComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AlertBoxComponent</a>
@@ -242,11 +242,30 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ContainerComponent</a>
                                             </li>
                                             <li class="link">
+                                                <a href="components/GridComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">GridComponent</a>
+                                            </li>
+                                            <li class="link">
                                                 <a href="components/TableComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">TableComponent</a>
                                             </li>
                                         </ul>
                                     </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#directives-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' : 'data-target="#xs-directives-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' :
+                                        'id="xs-directives-links-module-SbElementModule-6a93fe465a7c8a3099a6c28e99253fd4"' }>
+                                        <li class="link">
+                                            <a href="directives/ThemeInputDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ThemeInputDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                 </ul>
                 </li>
@@ -259,13 +278,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/ColumnInformation.html" data-type="entity-link">ColumnInformation</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ColumnInformationDefaults.html" data-type="entity-link">ColumnInformationDefaults</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Csv.html" data-type="entity-link">Csv</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Queue.html" data-type="entity-link">Queue</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TableAbstract.html" data-type="entity-link">TableAbstract</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/TableModel.html" data-type="entity-link">TableModel</a>
+                                <a href="classes/Table.html" data-type="entity-link">Table</a>
                             </li>
                         </ul>
                     </li>
@@ -303,7 +328,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ColumnInformationInterface.html" data-type="entity-link">ColumnInformationInterface</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ColumnInformationOptionsInterface.html" data-type="entity-link">ColumnInformationOptionsInterface</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/SelectedOptions.html" data-type="entity-link">SelectedOptions</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/TableInterface.html" data-type="entity-link">TableInterface</a>
                             </li>
                         </ul>
                     </li>
@@ -315,6 +346,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                            <li class="link">
+                                <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                            </li>
                             <li class="link">
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>

@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>ColumnInformationInterface</li>
+  <li>TableInterface</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,16 +61,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/models/table/column-information.interface.ts</code>
+            <code>src/lib/models/table/table.interface.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="../interfaces/ColumnInformationOptionsInterface.html" target="_self" >ColumnInformationOptionsInterface</a></code>
-            </p>
 
         <section>
             <h3 id="index">Index</h3>
@@ -85,13 +79,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#alignment">alignment</a>
+                                        <a href="#columnInformation">columnInformation</a>
                                 </li>
                                 <li>
-                                        <a href="#color">color</a>
-                                </li>
-                                <li>
-                                        <a href="#name">name</a>
+                                        <a href="#data">data</a>
                                 </li>
                             </ul>
                         </td>
@@ -108,13 +99,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="alignment"></a>
-                                        <span class="name"><b>alignment</b><a href="#alignment"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="columnInformation"></a>
+                                        <span class="name"><b>columnInformation</b><a href="#columnInformation"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>alignment:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>columnInformation:         <code><a href="../interfaces/ColumnInformationInterface.html" target="_self" >Array&lt;ColumnInformationInterface&gt;</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -122,7 +113,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="../interfaces/ColumnInformationInterface.html" target="_self" >Array&lt;ColumnInformationInterface&gt;</a></code>
 
                                         </td>
                                     </tr>
@@ -131,19 +122,25 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Information about the columns.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="color"></a>
-                                        <span class="name"><b>color</b><a href="#color"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="data"></a>
+                                        <span class="name"><b>data</b><a href="#data"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>color:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>data:     <code>Array&lt;Array&lt;any&gt;&gt;</code>
 </code>
                                     </td>
                                 </tr>
@@ -151,7 +148,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>Array&lt;Array&lt;any&gt;&gt;</code>
 
                                         </td>
                                     </tr>
@@ -160,35 +157,13 @@
 
 
 
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="name"></a>
-                                        <span class="name"><b>name</b><a href="#name"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The data of the table. The data is stored as an array of data for each row.
+Each row contains the data for each column.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -196,17 +171,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ColumnInformationOptionsInterface {
-  name?: string;
-  color?: string;
-  alignment?: string;
-}
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnInformationInterface } from &quot;./column-information.interface&quot;;
 
-export interface ColumnInformationInterface
-  extends ColumnInformationOptionsInterface {
-  name: string;
-  color: string;
-  alignment: string;
+export interface TableInterface {
+
+  /**
+   * Information about the columns.
+   */
+  columnInformation: Array&lt;ColumnInformationInterface&gt;;
+
+  /**
+   * The data of the table. The data is stored as an array of data for each row.
+   * Each row contains the data for each column.
+   */
+  data: Array&lt;Array&lt;any&gt;&gt;;
 }
 </code></pre>
     </div>
@@ -235,7 +213,7 @@ export interface ColumnInformationInterface
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'ColumnInformationInterface.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TableInterface.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

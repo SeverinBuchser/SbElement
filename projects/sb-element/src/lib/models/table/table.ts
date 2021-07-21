@@ -4,9 +4,11 @@ import { TableInterface } from "./table.interface";
 import { ColumnInformationInterface, ColumnInformationOptionsInterface } from './column-information.interface';
 
 /**
- * An abstract class holding information about a table. The table consists of
+ * Datastructure, holding information about a table. The table consists of
  * columns of different data types. Each column has different styling options
- * in the form of {@link ColumnInformationInterface}.
+ * in the form of {@link ColumnInformationInterface}. The data can be accessed
+ * via tha [data]{@link #data} field. The styling options are stored in the
+ * [columnInformation]{@link #columnInformation} array.
  */
 export class Table implements TableInterface {
 
@@ -22,11 +24,22 @@ export class Table implements TableInterface {
    */
   public data: Array<Array<any>> = new Array<Array<any>>();
 
+
   constructor();
   constructor(
     data: Array<Array<any>>,
     columnInformation: Array<ColumnInformationInterface>
   );
+  /**
+	 * Initiates a new {@link Table}. The table can be initiated with or without
+   * data and style. If one or the other is missing, the initiation will create
+   * an empty {@link Table}.
+   *
+   * @param{Array<Array<any>>} data The data of the `Table` stored as an
+   * `Array` of columns
+   * @param{Array<ColumnInformation>} columnInformation The styling information
+   * for each column
+	 */
   constructor(
     data?: Array<Array<any>>,
     columnInformation?: Array<ColumnInformationInterface>
@@ -36,6 +49,7 @@ export class Table implements TableInterface {
       this.columnInformation = columnInformation;
     }
   }
+
 
   public static async fromCSV(
     csvFile: File,
