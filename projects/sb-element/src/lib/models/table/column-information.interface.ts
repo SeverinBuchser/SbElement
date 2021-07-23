@@ -1,8 +1,4 @@
-export interface ColumnInformationOptionsInterface {
-  name?: string;
-  color?: string;
-  alignment?: string;
-}
+import { ColumnInformationOptionsInterface } from "./column-information-options.interface";
 
 export interface ColumnInformationInterface
   extends ColumnInformationOptionsInterface {

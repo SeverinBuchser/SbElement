@@ -1,7 +1,8 @@
 import { Csv } from "../csv/csv";
 import { ColumnInformation } from "./column-information";
 import { TableInterface } from "./table.interface";
-import { ColumnInformationInterface, ColumnInformationOptionsInterface } from './column-information.interface';
+import { ColumnInformationInterface } from './column-information.interface';
+import { ColumnInformationOptionsInterface } from "./column-information-options.interface";
 
 /**
  * Datastructure, holding information about a table. The table consists of

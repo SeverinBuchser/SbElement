@@ -60,9 +60,16 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/models/table/column-information.ts</code>
+            <code>src/lib/models/table/column-information-defaults.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The default column information. Holds default entries for the information.</p>
+
+            </p>
 
 
             <p class="comment">
@@ -142,10 +149,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/lib/models/table/column-information.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/lib/models/table/column-information-defaults.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The default <code>alignment</code> for each column.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -175,10 +188,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/lib/models/table/column-information.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/lib/models/table/column-information-defaults.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The default <code>color</code> for each column.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -208,10 +227,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/lib/models/table/column-information.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/lib/models/table/column-information-defaults.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The default <code>name</code> for each column.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -227,59 +252,27 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnInformationInterface, ColumnInformationOptionsInterface } from &quot;./column-information.interface&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnInformationInterface } from &quot;./column-information.interface&quot;;
 
+/**
+ * The default column information. Holds default entries for the information.
+ */
 export class ColumnInformationDefaults implements ColumnInformationInterface {
+
+  /**
+   * The default &#x60;name&#x60; for each column.
+   */
   public name: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * The default &#x60;color&#x60; for each column.
+   */
   public color: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * The default &#x60;alignment&#x60; for each column.
+   */
   public alignment: string &#x3D; &#x27;center&#x27;;
-}
-
-
-export class ColumnInformation extends ColumnInformationDefaults {
-
-  public static get defaults(): ColumnInformation {
-    return new ColumnInformation();
-  }
-
-  private clone(): ColumnInformation {
-    let clone &#x3D; new ColumnInformation();
-    clone.name &#x3D; this.name;
-    clone.color &#x3D; this.color;
-    clone.alignment &#x3D; this.alignment;
-    return clone;
-  }
-
-  public set(
-    information: ColumnInformationOptionsInterface
-  ): ColumnInformation {
-    let clone &#x3D; Object.assign({}, this);
-    return Object.assign(clone, information);
-  }
-
-  public static merge(
-    overwrite: ColumnInformationOptionsInterface,
-    persistent: ColumnInformationOptionsInterface
-  ): ColumnInformation {
-    let info &#x3D; new ColumnInformation();
-
-    info.name &#x3D; this.mergeValues(overwrite.name, persistent.name,
-      this.defaults.name);
-    info.color &#x3D; this.mergeValues(overwrite.color, persistent.color,
-      this.defaults.color);
-    info.alignment &#x3D; this.mergeValues(overwrite.alignment, persistent.alignment,
-      this.defaults.alignment);
-
-    return info;
-  }
-
-  private static mergeValues(overwrite: string | undefined, persistent: string | undefined, defaultValue: string): string {
-    let value &#x3D; defaultValue;
-    if (overwrite &amp;&amp; defaultValue !&#x3D;&#x3D; overwrite) value &#x3D; overwrite;
-    if (persistent &amp;&amp; defaultValue !&#x3D;&#x3D; persistent) value &#x3D; persistent;
-    return value;
-  }
-
 }
 </code></pre>
     </div>

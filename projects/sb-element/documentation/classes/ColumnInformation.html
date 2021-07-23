@@ -190,11 +190,17 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/ColumnInformationDefaults.html#source" target="_self" >ColumnInformationDefaults:6</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/ColumnInformationDefaults.html#source" target="_self" >ColumnInformationDefaults:21</a></code>
 </div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The default <code>alignment</code> for each column.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -230,11 +236,17 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/ColumnInformationDefaults.html#source" target="_self" >ColumnInformationDefaults:5</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/ColumnInformationDefaults.html#source" target="_self" >ColumnInformationDefaults:16</a></code>
 </div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The default <code>color</code> for each column.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -270,11 +282,17 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/ColumnInformationDefaults.html#source" target="_self" >ColumnInformationDefaults:4</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/ColumnInformationDefaults.html#source" target="_self" >ColumnInformationDefaults:11</a></code>
 </div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The default <code>name</code> for each column.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -309,8 +327,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:10</a></div>
                 </td>
             </tr>
 
@@ -350,8 +368,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:25</a></div>
                 </td>
             </tr>
 
@@ -435,8 +453,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:41</a></div>
                 </td>
             </tr>
 
@@ -531,8 +549,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:18</a></div>
                 </td>
             </tr>
 
@@ -605,7 +623,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/lib/models/table/column-information.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/lib/models/table/column-information.ts:6</a></div>
                                 </td>
                             </tr>
 
@@ -616,14 +634,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnInformationInterface, ColumnInformationOptionsInterface } from &quot;./column-information.interface&quot;;
-
-export class ColumnInformationDefaults implements ColumnInformationInterface {
-  public name: string &#x3D; &#x27;&#x27;;
-  public color: string &#x3D; &#x27;&#x27;;
-  public alignment: string &#x3D; &#x27;center&#x27;;
-}
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnInformationDefaults } from &quot;./column-information-defaults&quot;;
+import { ColumnInformationOptionsInterface } from &quot;./column-information-options.interface&quot;;
 
 export class ColumnInformation extends ColumnInformationDefaults {
 

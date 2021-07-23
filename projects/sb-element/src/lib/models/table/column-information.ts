@@ -1,11 +1,5 @@
-import { ColumnInformationInterface, ColumnInformationOptionsInterface } from "./column-information.interface";
-
-export class ColumnInformationDefaults implements ColumnInformationInterface {
-  public name: string = '';
-  public color: string = '';
-  public alignment: string = 'center';
-}
-
+import { ColumnInformationDefaults } from "./column-information-defaults";
+import { ColumnInformationOptionsInterface } from "./column-information-options.interface";
 
 export class ColumnInformation extends ColumnInformationDefaults {
 
