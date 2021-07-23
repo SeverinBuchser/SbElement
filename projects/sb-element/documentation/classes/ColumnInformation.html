@@ -63,6 +63,20 @@
             <code>src/lib/models/table/column-information.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>A class providing different methods for handling column information. The
+class provides a default version of itself via the
+<a href="../classes/ColumnInformationDefaults.html">ColumnInformationDefaults</a> class as well as options to merge
+information and clone the information.</p>
+<p>All the interfaces and classes surrounding this class are needed for the case
+that a user of the library wants to create new column information objects but
+does not care about the methods. A simple object can be created and passed on
+to the different methods, without caring about the details.</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -114,6 +128,10 @@
                                 <a href="#clone">clone</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#cloneAndSet">cloneAndSet</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Static</span>
                                 <a href="#merge">merge</a>
                             </li>
@@ -121,10 +139,6 @@
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Static</span>
                                 <a href="#mergeValues">mergeValues</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#set">set</a>
                             </li>
                         </ul>
                     </td>
@@ -327,17 +341,109 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Clones the current object into a new one.</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/ColumnInformation.html" target="_self" >ColumnInformation</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>A clone of the current object</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cloneAndSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            cloneAndSet
+                        </b>
+                        <a href="#cloneAndSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cloneAndSet(information: <a href="../interfaces/ColumnInformationOptionsInterface.html">ColumnInformationOptionsInterface</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Clones the current object and sets the new information to the clone.</p>
+<p>The method uses the <a href="#merge">merge</a> method to clone and merge the
+new values into the clone, so that the new values always get written to the
+clone.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>information</td>
+                                    <td>
+                                                <code><a href="../interfaces/ColumnInformationOptionsInterface.html" target="_self" >ColumnInformationOptionsInterface</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The new information
+to write to the clone</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ColumnInformation.html" target="_self" >ColumnInformation</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>A clone with the updated values</p>
 
                     </div>
                 </td>
@@ -368,14 +474,20 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:69</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Merges two column information objects into a new one.</p>
+<p>Since the two input object do not have to contain any information, the new
+object defaults to the default values, if no value is available for the new
+object. If values are available, the <code>persistent</code> values always overwrite
+the <code>overwrite</code> values.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -385,6 +497,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -399,6 +512,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The object to overwrite</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>persistent</td>
@@ -411,6 +528,11 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The object not to
+overwrite</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -422,7 +544,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A merged version of the two input objects</p>
+
                     </div>
                 </td>
             </tr>
@@ -453,14 +576,21 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/lib/models/table/column-information.ts:99</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Merges two values into one, with the option of a fallback.</p>
+<p>The default value must always be supplied and not <code>null</code>. If both values,
+<code>overwrite</code> and <code>persistent</code> are <code>undefined</code>, the default value will be the
+output of the method. If only one of the input values is <code>defined</code>, the
+<code>defined</code> value will be the output. If both of the inputs are <code>defined</code>,
+the <code>persistent</code> value will be the output.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -470,6 +600,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -484,6 +615,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The value to be overwritten</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>persistent</td>
@@ -496,6 +631,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The value not to overwrite</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>defaultValue</td>
@@ -508,6 +647,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The fallback value</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -519,79 +662,8 @@
 
                     </div>
                     <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="set"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            set
-                        </b>
-                        <a href="#set"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>set(information: <a href="../interfaces/ColumnInformationOptionsInterface.html">ColumnInformationOptionsInterface</a>)</code>
-                </td>
-            </tr>
+                        <p>A merged value of the three input values</p>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/lib/models/table/column-information.ts:18</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>information</td>
-                                    <td>
-                                                <code><a href="../interfaces/ColumnInformationOptionsInterface.html" target="_self" >ColumnInformationOptionsInterface</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ColumnInformation.html" target="_self" >ColumnInformation</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -623,9 +695,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/lib/models/table/column-information.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/lib/models/table/column-information.ts:22</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Creates and returns a new default <a href="../classes/ColumnInformation.html">ColumnInformation</a> object.</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../classes/ColumnInformation.html" target="_self" >ColumnInformation</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -637,12 +722,33 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnInformationDefaults } from &quot;./column-information-defaults&quot;;
 import { ColumnInformationOptionsInterface } from &quot;./column-information-options.interface&quot;;
 
+/**
+ * A class providing different methods for handling column information. The
+ * class provides a default version of itself via the
+ * {@link ColumnInformationDefaults} class as well as options to merge
+ * information and clone the information.
+ *
+ * All the interfaces and classes surrounding this class are needed for the case
+ * that a user of the library wants to create new column information objects but
+ * does not care about the methods. A simple object can be created and passed on
+ * to the different methods, without caring about the details.
+ */
 export class ColumnInformation extends ColumnInformationDefaults {
 
+  /**
+   * Creates and returns a new default {@link ColumnInformation} object.
+   *
+   * @returns A new &#x60;ColumnInformation&#x60; object
+   */
   public static get defaults(): ColumnInformation {
     return new ColumnInformation();
   }
 
+  /**
+   * Clones the current object into a new one.
+   *
+   * @returns A clone of the current object
+   */
   private clone(): ColumnInformation {
     let clone &#x3D; new ColumnInformation();
     clone.name &#x3D; this.name;
@@ -651,13 +757,36 @@ export class ColumnInformation extends ColumnInformationDefaults {
     return clone;
   }
 
-  public set(
+  /**
+   * Clones the current object and sets the new information to the clone.
+   *
+   * The method uses the [merge]{@link #merge} method to clone and merge the
+   * new values into the clone, so that the new values always get written to the
+   * clone.
+   *
+   * @param{ColumnInformationOptionsInterface} information The new information
+   * to write to the clone
+   * @returns A clone with the updated values
+   */
+  public cloneAndSet(
     information: ColumnInformationOptionsInterface
   ): ColumnInformation {
-    let clone &#x3D; Object.assign({}, this);
-    return Object.assign(clone, information);
+    return ColumnInformation.merge(this, information);
   }
 
+  /**
+   * Merges two column information objects into a new one.
+   *
+   * Since the two input object do not have to contain any information, the new
+   * object defaults to the default values, if no value is available for the new
+   * object. If values are available, the &#x60;persistent&#x60; values always overwrite
+   * the &#x60;overwrite&#x60; values.
+   *
+   * @param{ColumnInformationOptionsInterface} overwrite The object to overwrite
+   * @param{ColumnInformationOptionsInterface} persistent The object not to
+   * overwrite
+   * @returns A merged version of the two input objects
+   */
   public static merge(
     overwrite: ColumnInformationOptionsInterface,
     persistent: ColumnInformationOptionsInterface
@@ -674,7 +803,25 @@ export class ColumnInformation extends ColumnInformationDefaults {
     return info;
   }
 
-  private static mergeValues(overwrite: string | undefined, persistent: string | undefined, defaultValue: string): string {
+  /**
+   * Merges two values into one, with the option of a fallback.
+   *
+   * The default value must always be supplied and not &#x60;null&#x60;. If both values,
+   * &#x60;overwrite&#x60; and &#x60;persistent&#x60; are &#x60;undefined&#x60;, the default value will be the
+   * output of the method. If only one of the input values is &#x60;defined&#x60;, the
+   * &#x60;defined&#x60; value will be the output. If both of the inputs are &#x60;defined&#x60;,
+   * the &#x60;persistent&#x60; value will be the output.
+   *
+   * @param{string | undefined} overwrite The value to be overwritten
+   * @param{string | undefined} persistent The value not to overwrite
+   * @param{string} defaultValue The fallback value
+   * @returns A merged value of the three input values
+   */
+  private static mergeValues(
+    overwrite: string | undefined,
+    persistent: string | undefined,
+    defaultValue: string
+  ): string {
     let value &#x3D; defaultValue;
     if (overwrite &amp;&amp; defaultValue !&#x3D;&#x3D; overwrite) value &#x3D; overwrite;
     if (persistent &amp;&amp; defaultValue !&#x3D;&#x3D; persistent) value &#x3D; persistent;

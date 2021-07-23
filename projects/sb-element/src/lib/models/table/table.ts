@@ -73,7 +73,7 @@ export class Table implements TableInterface {
       let columnInformation = new Array<ColumnInformation>();
 
       csv.forEachColumnName((columnName: string, index: number) => {
-        let info = ColumnInformation.defaults.set({name: columnName});
+        let info = ColumnInformation.defaults.cloneAndSet({name: columnName});
         if (columnInformationOptions && columnInformationOptions[index]) {
           info = ColumnInformation.merge(info, columnInformationOptions[index])
         }
@@ -101,7 +101,7 @@ export class Table implements TableInterface {
     columnInformation: Array<ColumnInformationOptionsInterface>
   ): Table {
     return new Table(rows, columnInformation.map(
-      info => ColumnInformation.defaults.set(info)
+      info => ColumnInformation.defaults.cloneAndSet(info)
     ));
   }
 
@@ -132,7 +132,7 @@ export class Table implements TableInterface {
     entries.forEach((entry: any, index: number) => {
       if (Array.isArray(entry[1])) {
         columns.push(entry[1])
-        let info = ColumnInformation.defaults.set({name: entry[0]});
+        let info = ColumnInformation.defaults.cloneAndSet({name: entry[0]});
         if (columnInformationOptions && columnInformationOptions[index]) {
           info = ColumnInformation.merge(info, columnInformationOptions[index])
         }

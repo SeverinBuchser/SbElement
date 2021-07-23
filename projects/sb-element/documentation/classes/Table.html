@@ -870,7 +870,7 @@ export class Table implements TableInterface {
       let columnInformation &#x3D; new Array&lt;ColumnInformation&gt;();
 
       csv.forEachColumnName((columnName: string, index: number) &#x3D;&gt; {
-        let info &#x3D; ColumnInformation.defaults.set({name: columnName});
+        let info &#x3D; ColumnInformation.defaults.cloneAndSet({name: columnName});
         if (columnInformationOptions &amp;&amp; columnInformationOptions[index]) {
           info &#x3D; ColumnInformation.merge(info, columnInformationOptions[index])
         }
@@ -898,7 +898,7 @@ export class Table implements TableInterface {
     columnInformation: Array&lt;ColumnInformationOptionsInterface&gt;
   ): Table {
     return new Table(rows, columnInformation.map(
-      info &#x3D;&gt; ColumnInformation.defaults.set(info)
+      info &#x3D;&gt; ColumnInformation.defaults.cloneAndSet(info)
     ));
   }
 
@@ -929,7 +929,7 @@ export class Table implements TableInterface {
     entries.forEach((entry: any, index: number) &#x3D;&gt; {
       if (Array.isArray(entry[1])) {
         columns.push(entry[1])
-        let info &#x3D; ColumnInformation.defaults.set({name: entry[0]});
+        let info &#x3D; ColumnInformation.defaults.cloneAndSet({name: entry[0]});
         if (columnInformationOptions &amp;&amp; columnInformationOptions[index]) {
           info &#x3D; ColumnInformation.merge(info, columnInformationOptions[index])
         }
