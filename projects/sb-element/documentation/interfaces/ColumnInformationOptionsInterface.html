@@ -64,6 +64,15 @@
             <code>src/lib/models/table/column-information-options.interface.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Defines an interface for the column information. These are fields every
+object regarding the column information can poesess. The fields are all
+optional, for easier definition of the information.</p>
+
+            </p>
 
 
         <section>
@@ -133,6 +142,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The <code>alignment</code> of the column.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -167,6 +182,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The <code>color</code> of the column.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -201,6 +222,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The name of the column.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -209,8 +236,20 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ColumnInformationOptionsInterface {
+
+  /**
+   * The name of the column.
+   */
   name?: string;
+
+  /**
+   * The &#x60;color&#x60; of the column.
+   */
   color?: string;
+
+  /**
+   * The &#x60;alignment&#x60; of the column.
+   */
   alignment?: string;
 }
 </code></pre>
