@@ -50,7 +50,20 @@ export class Table implements TableInterface {
     }
   }
 
-
+  /**
+   * Creates a {@link Table} from a `CSV` file.
+   *
+   * The Function returns a promise, since the {@link Csv} class has to access
+   * the filesystem. The [parseFile]{@link Csv#parseFile} method is a static
+   * method, which is iterable over the column names of the table. The columns
+   * then get set to the new table and the column names get set to the
+   * `columnInformation` of the `Table`.
+   *
+   * @param{File} csvFile The CSV file
+   * @param{Array<ColumnInformationOptionsInterface>} columnInformationOptions
+   * The additional options for the columns
+   * @returns The new Table in form of a `Promise`
+   */
   public static async fromCSV(
     csvFile: File,
     columnInformationOptions?: Array<ColumnInformationOptionsInterface>
@@ -71,6 +84,17 @@ export class Table implements TableInterface {
     });
   }
 
+  /**
+   * Creates a {@link Table} from an `Array` of rows.
+   *
+   * The `Array` has to contain arrays of the data of the rows. The data then
+   * gets set to the {@link Table} as well as the `columnInformation`.
+   *
+   * @param{Array<Array<any>>} rows The rows of the `Table`
+   * @param{Array<ColumnInformationOptionsInterface>} columnInformation The
+   * additional column information
+   * @returns The new Table
+   */
   public static fromRows(
     rows: Array<Array<any>>,
     columnInformation: Array<ColumnInformationOptionsInterface>
@@ -80,6 +104,22 @@ export class Table implements TableInterface {
     ));
   }
 
+  /**
+   * Creates a {@link Table} from a `JSON` object.
+   *
+   * The `JSON` object contains entries with column name as the key and the data
+   * of the column as the entry to the correspronding key. The column data has
+   * to be stored in an `Array`.
+   *
+   * The method maps each column to rows. Meaning, that it extracts each row
+   * from the columns. This is necessary for the {@link Table} to properly store
+   * the data.
+   *
+   * @param{Object} table The `JSON` object
+   * @param{Array<ColumnInformationOptionsInterface>} columnInformationOptions
+   * The additional column information
+   * @returns The new Table
+   */
   public static fromJSON(
     table: Object,
     columnInformationOptions?: Array<ColumnInformationOptionsInterface>
@@ -102,12 +142,26 @@ export class Table implements TableInterface {
     return new Table(this.columnsToRows(columns), columnInformation);
   }
 
+  /**
+   * Returns the maximum length of all the columns.
+   *
+   * @param{Array<Array<any>>} columns The columns$
+   * @returns The maximum length of all the columns
+   */
   private static getMaxColumnLength(columns: Array<Array<any>>): number {
     let max = 0;
     columns.forEach(column => max = column.length > max ? column.length : max);
     return max;
   }
 
+  /**
+   * Transforms the columns into rows. This is necessary, when data is received
+   * in form of columns instead of rows. The missing entries get filled up with
+   * the character '-'.
+   *
+   * @param{Array<Array<any>>} columns The columns to transform
+   * @returns The data in form of rows
+   */
   private static columnsToRows(columns: Array<Array<any>>): Array<Array<any>> {
     let rows = new Array<Array<any>>();
     for (let i = 0 ; i < this.getMaxColumnLength(columns) ; i++) {

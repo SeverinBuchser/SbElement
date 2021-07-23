@@ -48,13 +48,13 @@
 <title>cluster_SbElementModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="6053,-138 6053,-339 7017,-339 7017,-138 6053,-138"/>
 </g>
-<g id="clust45" class="cluster">
-<title>cluster_SbElementModule_declarations</title>
-<polygon fill="none" stroke="black" points="6071,-146 6071,-198 6887,-198 6887,-146 6071,-146"/>
-</g>
 <g id="clust53" class="cluster">
 <title>cluster_SbElementModule_exports</title>
 <polygon fill="none" stroke="black" points="6061,-279 6061,-331 7009,-331 7009,-279 6061,-279"/>
+</g>
+<g id="clust45" class="cluster">
+<title>cluster_SbElementModule_declarations</title>
+<polygon fill="none" stroke="black" points="6071,-146 6071,-198 6887,-198 6887,-146 6071,-146"/>
 </g>
 <!-- ClassNameInputDirective -->
 <g id="node1" class="node">

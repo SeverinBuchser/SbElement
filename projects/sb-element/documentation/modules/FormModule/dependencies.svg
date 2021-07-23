@@ -28,13 +28,13 @@
 <title>cluster_FormModule_declarations</title>
 <polygon fill="none" stroke="black" points="126,-78 126,-130 2384,-130 2384,-78 126,-78"/>
 </g>
-<g id="clust17" class="cluster">
-<title>cluster_FormModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 118,-130 118,-78 16,-78"/>
-</g>
 <g id="clust18" class="cluster">
 <title>cluster_FormModule_exports</title>
 <polygon fill="none" stroke="black" points="159,-208 159,-260 2279,-260 2279,-208 159,-208"/>
+</g>
+<g id="clust17" class="cluster">
+<title>cluster_FormModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 118,-130 118,-78 16,-78"/>
 </g>
 <!-- ButtonComponent -->
 <g id="node1" class="node">
