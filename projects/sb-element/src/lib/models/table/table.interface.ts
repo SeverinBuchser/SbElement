@@ -1,5 +1,9 @@
 import { ColumnInformationInterface } from "./column-information.interface";
 
+/**
+ * An interface necessary for the {@link TableComponent} to be able to render
+ * a table.
+ */
 export interface TableInterface {
 
   /**

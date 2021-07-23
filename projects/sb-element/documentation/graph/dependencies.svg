@@ -24,25 +24,25 @@
 <title>cluster_BaseModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-271 3763,-271 3763,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_BaseModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 3755,-130 3755,-78 16,-78"/>
-</g>
 <g id="clust21" class="cluster">
 <title>cluster_BaseModule_exports</title>
 <polygon fill="none" stroke="black" points="128,-211 128,-263 3587,-263 3587,-211 128,-211"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_BaseModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 3755,-130 3755,-78 16,-78"/>
 </g>
 <g id="clust24" class="cluster">
 <title>cluster_FormModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="3771,-138 3771,-339 6045,-339 6045,-138 3771,-138"/>
 </g>
-<g id="clust25" class="cluster">
-<title>cluster_FormModule_declarations</title>
-<polygon fill="none" stroke="black" points="3779,-146 3779,-198 6037,-198 6037,-146 3779,-146"/>
-</g>
 <g id="clust41" class="cluster">
 <title>cluster_FormModule_exports</title>
 <polygon fill="none" stroke="black" points="3882,-279 3882,-331 6002,-331 6002,-279 3882,-279"/>
+</g>
+<g id="clust25" class="cluster">
+<title>cluster_FormModule_declarations</title>
+<polygon fill="none" stroke="black" points="3779,-146 3779,-198 6037,-198 6037,-146 3779,-146"/>
 </g>
 <g id="clust44" class="cluster">
 <title>cluster_SbElementModule</title>
