@@ -61,6 +61,7 @@ export class DefaultComponent implements OnInit {
     // console.log(form.value)
     // this.alert(form.value.input);
     Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
+    .catch((err: Error) => this.alertService.warn(err.message))
   }
 
   ngOnInit() {

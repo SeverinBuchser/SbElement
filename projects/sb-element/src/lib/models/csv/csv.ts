@@ -101,7 +101,7 @@ export class Csv {
     delimiter?: Delimiter
   ): Promise<Csv> {
     if (file.type != 'text/csv') {
-      return Promise.reject("File is not a CSV file!");
+      return Promise.reject(new Error("File is not a CSV file!"));
     }
     let content = await file.text();
     return this.parseString(content, delimiter);
