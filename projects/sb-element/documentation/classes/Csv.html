@@ -63,6 +63,17 @@
             <code>src/lib/models/csv/csv.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>CSV can be parsed with this class. There are two methods for parsing CSV.
+Either a File or a string can be parsed into iterable data. The data is
+then eiher available as a whole or acessible over each column or column-name.
+The data as a whole is acessible via the <a href="#data">data</a> field. This
+field holds the rows of the table/csv.</p>
+
+            </p>
 
 
 
@@ -173,12 +184,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/lib/models/csv/csv.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/models/csv/csv.ts:33</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Instantiates a new <a href="../classes/Csv.html">Csv</a> object. The object has header data as well
+as the actual data.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -187,6 +201,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -201,6 +216,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>The header data</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>data</td>
@@ -213,6 +232,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>The data of the csv</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -249,10 +272,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/lib/models/csv/csv.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/lib/models/csv/csv.ts:44</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">The data of the csv</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -283,10 +311,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/lib/models/csv/csv.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/models/csv/csv.ts:33</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Regex for the delimiter inbetween columns.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -317,10 +351,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/lib/models/csv/csv.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/models/csv/csv.ts:28</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Regex for the start delimiter. Used to regognize the end of the csv string.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -345,10 +385,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/lib/models/csv/csv.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/lib/models/csv/csv.ts:43</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">The header data</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -379,10 +424,17 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/lib/models/csv/csv.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/lib/models/csv/csv.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Regex for the start delimiter. Used to regognize the start of the csv
+string.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -417,14 +469,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:69</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Allows iterating over each column of the csv. The parameter function
+takes a <code>columnName</code>, the <code>columnData</code> and the <code>index</code> of the column.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -434,6 +489,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -448,6 +504,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The function to execute when iterating</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -489,14 +549,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:54</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Allows iterating over each columnname of the csv. The parameter function
+takes a <code>columnName</code> and the <code>index</code> of the column.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -506,6 +569,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -520,6 +584,11 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The function to
+execute when iterating</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -561,14 +630,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:82</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Returns the columndata of the column with the corresponding index.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -578,6 +649,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -592,6 +664,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The index of the column</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -634,15 +710,21 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:99</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Static Members</p>
+                    <div class="io-description"><p>Parses a <code>File</code> into a <a href="../classes/Csv.html">Csv</a> object. The parser takes the <code>File</code> and
+extracts the headers and the data of the csv file. If the file is not of
+type csv, the method will reject the promise and otherwise will parse the
+file. If the delimiter is not provided, the method tries to figure the
+delimiter out on its own. The delimiters can either be: &#39;,&#39;, &#39;:&#39; or &#39;;&#39;.</p>
+<p>The method takes the content out of the file and passes it on to the string
+parser.</p>
 </div>
 
                     <div class="io-description">
@@ -653,6 +735,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -667,6 +750,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The csv file blob to parse</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>delimiter</td>
@@ -679,6 +766,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The delimiter of the data</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -720,14 +811,21 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:122</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The method parses a string in form of a csv into a <a href="../classes/Csv.html">Csv</a> object. The
+method takes the csv string and an optional delimiter as parameter. If the
+delimiter is not provided, the method tries to figure the delimiter out on
+its own. The delimiters can either be: &#39;,&#39;, &#39;:&#39; or &#39;;&#39;.</p>
+<p>After the extraction of the rows, which takes place in the beginning, the
+rows will be split and the new <a href="../classes/Csv.html">Csv</a> object will be created.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -737,6 +835,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -751,6 +850,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The csv string to parse</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>delimiter</td>
@@ -763,6 +866,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The delimiter of the data</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -805,14 +912,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:138</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Extracts the rows from the csv string. The rows are separated by a newline
+character.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -822,6 +932,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -836,6 +947,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The csv string to parse</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -878,14 +993,20 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:155</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Splits up a row, in form of a string, into data. If the delimiter is
+provided, the provided delimiter is used.</p>
+<p>The row will first be split with the determied delimiter. After that, the
+first and last element of the row will be parsed seperately, since these
+are special cases of data. The data will then be returned.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -895,6 +1016,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -909,6 +1031,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The row to split up</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>delimiter</td>
@@ -921,6 +1047,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The delimiter of the data</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -963,14 +1093,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">src/lib/models/csv/csv.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">src/lib/models/csv/csv.ts:175</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Determies which delimiter to use when the delimiter is not provied.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -980,6 +1112,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -994,6 +1127,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The delimiter of the data</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1027,17 +1164,50 @@
   SEMICOLON &#x3D; &#x27;;&#x27;
 }
 
+/**
+ * CSV can be parsed with this class. There are two methods for parsing CSV.
+ * Either a File or a string can be parsed into iterable data. The data is
+ * then eiher available as a whole or acessible over each column or column-name.
+ * The data as a whole is acessible via the [data]{@link #data} field. This
+ * field holds the rows of the table/csv.
+ */
 export class Csv {
 
+  /**
+   * Regex for the start delimiter. Used to regognize the start of the csv
+   * string.
+   */
   private static START_DELIMITER: RegExp &#x3D; /(?:&#x27;|&quot;|)(?:\s*)/;
+
+  /**
+   * Regex for the start delimiter. Used to regognize the end of the csv string.
+   */
   private static END_DELIMITER: RegExp &#x3D; /(?:\s*)(?:&#x27;|&quot;|)/;
+
+  /**
+   * Regex for the delimiter inbetween columns.
+   */
   private static DELIMITER: RegExp &#x3D; /(?:&#x27;|&quot;|)(?:\s*)(?:,|;|$)(?:\s*)(?:&#x27;|&quot;|)/;
 
+  /**
+   * Instantiates a new {@link Csv} object. The object has header data as well
+   * as the actual data.
+   *
+   * @param{Array&lt;string&gt;} header The header data
+   * @param{Array&lt;Array&lt;string&gt;&gt;} data The data of the csv
+   */
   constructor(
     public header: Array&lt;string&gt;,
     public data: Array&lt;Array&lt;string&gt;&gt;
   ) {}
 
+  /**
+   * Allows iterating over each columnname of the csv. The parameter function
+   * takes a &#x60;columnName&#x60; and the &#x60;index&#x60; of the column.
+   *
+   * @param{(columnName: string, index: number) &#x3D;&gt; void} fn The function to
+   * execute when iterating
+   */
   public forEachColumnName(
     fn: (columnName: string, index: number) &#x3D;&gt; void
   ): void {
@@ -1046,6 +1216,13 @@ export class Csv {
     });
   }
 
+  /**
+   * Allows iterating over each column of the csv. The parameter function
+   * takes a &#x60;columnName&#x60;, the &#x60;columnData&#x60; and the &#x60;index&#x60; of the column.
+   *
+   * @param{(columnName: string, columnData: Array&lt;string&gt;, index: number) &#x3D;&gt; void} fn
+   * The function to execute when iterating
+   */
   public forEachColumn(
     fn: (columnName: string, columnData: Array&lt;string&gt;, index: number) &#x3D;&gt; void
   ): void {
@@ -1054,14 +1231,28 @@ export class Csv {
     });
   }
 
+  /**
+   * Returns the columndata of the column with the corresponding index.
+   *
+   * @param{number} index The index of the column
+   */
   public getColumnData(index: number): Array&lt;string&gt; {
     return this.data.map(row &#x3D;&gt; row[index]);
   }
 
   /**
-   * Static Members
+   * Parses a &#x60;File&#x60; into a {@link Csv} object. The parser takes the &#x60;File&#x60; and
+   * extracts the headers and the data of the csv file. If the file is not of
+   * type csv, the method will reject the promise and otherwise will parse the
+   * file. If the delimiter is not provided, the method tries to figure the
+   * delimiter out on its own. The delimiters can either be: &#x27;,&#x27;, &#x27;:&#x27; or &#x27;;&#x27;.
+   *
+   * The method takes the content out of the file and passes it on to the string
+   * parser.
+   *
+   * @param{File} file The csv file blob to parse
+   * @param{Delimiter} delimiter The delimiter of the data
    */
-
   public static async parseFile(
     file: File,
     delimiter?: Delimiter
@@ -1073,6 +1264,18 @@ export class Csv {
     return this.parseString(content, delimiter);
   }
 
+  /**
+   * The method parses a string in form of a csv into a {@link Csv} object. The
+   * method takes the csv string and an optional delimiter as parameter. If the
+   * delimiter is not provided, the method tries to figure the delimiter out on
+   * its own. The delimiters can either be: &#x27;,&#x27;, &#x27;:&#x27; or &#x27;;&#x27;.
+   *
+   * After the extraction of the rows, which takes place in the beginning, the
+   * rows will be split and the new {@link Csv} object will be created.
+   *
+   * @param{string} string The csv string to parse
+   * @param{Delimiter} delimiter The delimiter of the data
+   */
   public static parseString(string: string, delimiter?: Delimiter): Csv {
     let rows &#x3D; this.rows(string);
     let splitRows &#x3D; new Array&lt;Array&lt;string&gt;&gt;();
@@ -1083,12 +1286,29 @@ export class Csv {
     )
   }
 
+  /**
+   * Extracts the rows from the csv string. The rows are separated by a newline
+   * character.
+   *
+   * @param{string} string The csv string to parse
+   */
   private static rows(string: string): Array&lt;string&gt; {
     let rows &#x3D; string.split(&#x27;\n&#x27;);
     if (rows[rows.length - 1] &#x3D;&#x3D;&#x3D; &quot;&quot;) rows.splice(rows.length - 1, rows.length);
     return rows;
   }
 
+  /**
+   * Splits up a row, in form of a string, into data. If the delimiter is
+   * provided, the provided delimiter is used.
+   *
+   * The row will first be split with the determied delimiter. After that, the
+   * first and last element of the row will be parsed seperately, since these
+   * are special cases of data. The data will then be returned.
+   *
+   * @param{string} row The row to split up
+   * @param{Delimiter} delimiter The delimiter of the data
+   */
   private static split(row: string, delimiter?: Delimiter): Array&lt;string&gt; {
     let split &#x3D; row.split(this.useDelimiter(delimiter));
 
@@ -1104,6 +1324,11 @@ export class Csv {
     return split;
   }
 
+  /**
+   * Determies which delimiter to use when the delimiter is not provied.
+   *
+   * @param{Delimiter} delimiter The delimiter of the data
+   */
   private static useDelimiter(delimiter?: Delimiter): RegExp {
     if (delimiter) {
       return new RegExp(
