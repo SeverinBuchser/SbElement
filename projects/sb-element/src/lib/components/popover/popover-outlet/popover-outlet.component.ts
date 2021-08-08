@@ -1,5 +1,6 @@
 import { Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { PopoverService } from "../../../services/popover/popover.service";
+import { PopoverInletDirective } from "../popover-inlet.directive";
 import { PopoverOutletDirective } from "../popover-outlet.directive";
 
 @Component({
@@ -24,10 +25,10 @@ export class PopoverOutletComponent {
 
   public load<ComponentType>(
     component: any,
-    position: DOMRect
+    inlet: PopoverInletDirective
   ): ComponentRef<ComponentType> {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory<ComponentType>(component)
-    this.setPosition(position);
+    this.setPosition(inlet.getPosition());
     return this.viewContainerRef.createComponent<ComponentType>(componentFactory);
   }
 

@@ -1,4 +1,5 @@
 import { ComponentRef, Injectable } from '@angular/core';
+import { PopoverInletDirective } from "../../components/popover/popover-inlet.directive";
 import { PopoverOutletComponent } from "../../components/popover/popover-outlet/popover-outlet.component";
 
 @Injectable({
@@ -16,9 +17,9 @@ export class PopoverService {
 
   public pop<ComponentType>(
     component: any,
-    position: DOMRect
+    inlet: PopoverInletDirective
   ): ComponentRef<ComponentType> {
-    if (this.outlet) return this.outlet.load<ComponentType>(component, position);
+    if (this.outlet) return this.outlet.load<ComponentType>(component, inlet);
     else throw new Error("No outlet available!");
   }
 

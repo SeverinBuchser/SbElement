@@ -1,6 +1,6 @@
-import { Component, ComponentRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopoverService, PopoverInletDirective, ButtonComponent } from 'sb-element';
+import { AlertService, ThemeService, Table, PopoverService, PopoverInletDirective, ContainerComponent } from 'sb-element';
 import { TableModel } from "./../table.model";
 
 @Component({
@@ -62,16 +62,13 @@ export class DefaultComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    // console.log(form.value)
     // this.alert(form.value.input);
     Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
     .catch((err: Error) => this.alertService.warn(err.message))
   }
 
   pop() {
-    let componentRef: ComponentRef<ButtonComponent> = this.popoverService
-      .pop<ButtonComponent>(ButtonComponent, this.tableone.getPosition());
-    componentRef.instance.text = "This is a popoup button!"
+    this.popoverService.pop<ContainerComponent>(ContainerComponent, this.tableone);
   }
 
   unpop() {
