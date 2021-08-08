@@ -11,13 +11,14 @@ export * from './lib/components/form/form.module';
 export * from './lib/models/table/column-information-options.interface';
 export * from './lib/models/table/column-information.interface';
 export * from './lib/models/table/column-information-defaults';
-export * from './lib/models/table/column-information';
+export * from './lib/models/table/column-information'
 export * from './lib/models/table/table';
 
 /*
  * Services
  */
 export * from './lib/services/alert/alert.service';
+export * from './lib/services/popover/popover.service';
 export * from './lib/services/theme/theme.service';
 
 /*
@@ -29,6 +30,7 @@ export * from './lib/components/card/card.component';
 export * from './lib/components/container/container.component';
 export * from './lib/components/grid/grid.component';
 export * from './lib/components/icon/icon.component';
+export * from './lib/components/popover/popover-outlet/popover-outlet.component';
 export * from './lib/components/table/table.component';
 
 // form

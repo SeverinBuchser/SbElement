@@ -14,6 +14,8 @@ import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
+import { PopoverOutletComponent } from './components/popover/popover-outlet/popover-outlet.component';
+import { PopoverOutletDirective } from './components/popover/popover-outlet.directive';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { ThemeInputDirective } from "./components/base/style-input/theme-input.d
     AlertComponent,
     CardComponent,
     GridComponent,
+    PopoverOutletComponent,
+    PopoverOutletDirective,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { ThemeInputDirective } from "./components/base/style-input/theme-input.d
     AlertComponent,
     CardComponent,
     GridComponent,
+    PopoverOutletComponent,
     // modules
     FormModule,
     // directives
