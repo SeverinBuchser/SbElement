@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentRef, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertService, ThemeService, Table, PopoverService, ButtonComponent } from 'sb-element';
 import { TableModel } from "./../table.model";
@@ -64,8 +64,11 @@ export class DefaultComponent implements OnInit {
     Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
     .catch((err: Error) => this.alertService.warn(err.message))
 
-    this.popoverService.pop(ButtonComponent);
-    setTimeout(() => {this.popoverService.unpop()}, 1000)
+    let componentRef: ComponentRef<ButtonComponent> | null = this.popoverService.pop<ButtonComponent>(ButtonComponent);
+    if (componentRef) {
+      componentRef.instance.text = "This is a popoup button!"
+    }
+    //setTimeout(() => {this.popoverService.unpop()}, 1000)
   }
 
   ngOnInit() {

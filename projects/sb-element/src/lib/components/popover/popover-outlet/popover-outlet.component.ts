@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { PopoverService } from "../../../services/popover/popover.service";
 import { PopoverOutletDirective } from "../popover-outlet.directive";
 
@@ -22,11 +22,11 @@ export class PopoverOutletComponent {
     this.popoverService.subscribe(this);
   }
 
-  public load(component: any): void {
+  public load<ComponentType>(component: any): ComponentRef<ComponentType> | null{
     if (this.viewContainerRef) {
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component)
-      this.viewContainerRef.createComponent<any>(componentFactory);
-    }
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory<ComponentType>(component)
+      return this.viewContainerRef.createComponent<ComponentType>(componentFactory);
+    } else return null;
   }
 
   public unload(): void {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ComponentRef, Injectable } from '@angular/core';
 import { PopoverOutletComponent } from "../../components/popover/popover-outlet/popover-outlet.component";
 
 @Injectable({
@@ -6,23 +6,20 @@ import { PopoverOutletComponent } from "../../components/popover/popover-outlet/
 })
 export class PopoverService {
 
-  private outlets: Array<PopoverOutletComponent> = new Array<PopoverOutletComponent>();
+  private outlet?: PopoverOutletComponent;
 
   constructor() { }
 
   public subscribe(outlet: PopoverOutletComponent): void {
-    this.outlets.push(outlet)
+    this.outlet = outlet;
   }
 
-  public pop(component: any): void {
-    this.outlets.forEach((outlet: PopoverOutletComponent) => {
-      outlet.load(component);
-    })
+  public pop<ComponentType>(component: any): ComponentRef<ComponentType> | null {
+    if (this.outlet) return this.outlet.load<ComponentType>(component);
+    else return null;
   }
 
   public unpop(): void {
-    this.outlets.forEach((outlet: PopoverOutletComponent) => {
-      outlet.unload();
-    })
+    if (this.outlet) this.outlet.unload();
   }
 }

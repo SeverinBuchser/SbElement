@@ -112,6 +112,13 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   public type: string = 'button';
 
   /**
+   * Defines the text which the button shows, this can either be set via the
+   * text input or the content of the button.
+   */
+  @Input()
+  public text: string = '';
+
+  /**
    * Round state of the component.
    *
    * If `true`, the `is-round` class gets added to the classes of the HTML
