@@ -52,3 +52,5 @@ export * from './lib/components/form/group/form-group.component';
  *  Directives
  */
  export * from './lib/components/base/style-input/theme-input.directive';
+ export * from './lib/components/popover/popover-outlet.directive';
+ export * from './lib/components/popover/popover-inlet.directive';

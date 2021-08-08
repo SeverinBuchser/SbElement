@@ -1,7 +1,7 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[sb-el-popover-outlet-directive]'
+  selector: '[sbElPopoverOutlet]'
 })
 export class PopoverOutletDirective {
 

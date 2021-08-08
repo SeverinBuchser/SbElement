@@ -16,10 +16,12 @@ import { GridComponent } from './components/grid/grid.component';
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 import { PopoverOutletComponent } from './components/popover/popover-outlet/popover-outlet.component';
 import { PopoverOutletDirective } from './components/popover/popover-outlet.directive';
+import { PopoverInletDirective } from './components/popover/popover-inlet.directive';
 
 
 @NgModule({
   declarations: [
+    // components
     ContainerComponent,
     AlertBoxComponent,
     TableComponent,
@@ -27,7 +29,9 @@ import { PopoverOutletDirective } from './components/popover/popover-outlet.dire
     CardComponent,
     GridComponent,
     PopoverOutletComponent,
-    PopoverOutletDirective,
+    // directives
+    PopoverInletDirective,
+    PopoverOutletDirective
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { PopoverOutletDirective } from './components/popover/popover-outlet.dire
     BaseModule,
   ],
   exports: [
+    // components
     ContainerComponent,
     AlertBoxComponent,
     TableComponent,
@@ -46,6 +51,8 @@ import { PopoverOutletDirective } from './components/popover/popover-outlet.dire
     // modules
     FormModule,
     // directives
+    PopoverInletDirective,
+    PopoverOutletDirective,
     ThemeInputDirective
   ]
 })

@@ -14,9 +14,12 @@ export class PopoverService {
     this.outlet = outlet;
   }
 
-  public pop<ComponentType>(component: any): ComponentRef<ComponentType> | null {
-    if (this.outlet) return this.outlet.load<ComponentType>(component);
-    else return null;
+  public pop<ComponentType>(
+    component: any,
+    position: DOMRect
+  ): ComponentRef<ComponentType> {
+    if (this.outlet) return this.outlet.load<ComponentType>(component, position);
+    else throw new Error("No outlet available!");
   }
 
   public unpop(): void {
