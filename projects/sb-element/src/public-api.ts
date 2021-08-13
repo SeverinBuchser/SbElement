@@ -30,7 +30,7 @@ export * from './lib/components/card/card.component';
 export * from './lib/components/container/container.component';
 export * from './lib/components/grid/grid.component';
 export * from './lib/components/icon/icon.component';
-export * from './lib/components/popover/popover-outlet/popover-outlet.component';
+export * from './lib/components/popover/popover.component';
 export * from './lib/components/table/table.component';
 
 // form

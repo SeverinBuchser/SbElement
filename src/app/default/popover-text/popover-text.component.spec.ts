@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopoverOutletComponent } from './popover-outlet.component';
+import { PopoverTextComponent } from './popover-text.component';
 
-describe('PopoverOutletComponent', () => {
-  let component: PopoverOutletComponent;
-  let fixture: ComponentFixture<PopoverOutletComponent>;
+describe('PopoverTextComponent', () => {
+  let component: PopoverTextComponent;
+  let fixture: ComponentFixture<PopoverTextComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopoverOutletComponent ]
+      declarations: [ PopoverTextComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopoverOutletComponent);
+    fixture = TestBed.createComponent(PopoverTextComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,25 +1,34 @@
 import { Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { PopoverService } from "../../../services/popover/popover.service";
-import { PopoverInletDirective } from "../popover-inlet.directive";
-import { PopoverOutletDirective } from "../popover-outlet.directive";
+import { ThemeService } from "../../services/theme/theme.service";
+import { PopoverService } from "../../services/popover/popover.service";
+import { SizeThemeColorInputDirective } from "../base/style-input/size-theme-color-input.directive";
+import { PopoverInletDirective } from "./popover-inlet.directive";
+import { PopoverOutletDirective } from "./popover-outlet.directive";
 
 @Component({
-  selector: 'sb-el-popover-outlet',
-  templateUrl: './popover-outlet.component.html'
+  selector: 'sb-el-popover',
+  templateUrl: './popover.component.html'
 })
-export class PopoverOutletComponent {
+export class PopoverComponent extends SizeThemeColorInputDirective {
+
+  public rootClass: string = "sb-el-popover"
+
+  public mouseenter: (event: MouseEvent) => void = (event: MouseEvent) => {};
+  public mouseleave: (event: MouseEvent) => void = (event: MouseEvent) => {};
 
   @ViewChild(PopoverOutletDirective, {static: true})
-  set outlet(outlet: PopoverOutletComponent) {
+  set outlet(outlet: PopoverOutletDirective) {
     this.viewContainerRef = outlet.viewContainerRef;
   }
 
   private viewContainerRef!: ViewContainerRef;
 
   constructor(
+    themeService: ThemeService,
     private componentFactoryResolver: ComponentFactoryResolver,
     private popoverService: PopoverService
   ) {
+    super(themeService);
     this.popoverService.subscribe(this);
   }
 
@@ -30,6 +39,10 @@ export class PopoverOutletComponent {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory<ComponentType>(component)
     this.setPosition(inlet.getPosition());
     return this.viewContainerRef.createComponent<ComponentType>(componentFactory);
+  }
+
+  get popoverElement(): HTMLElement {
+    return this.viewContainerRef.element.nativeElement.parentElement;
   }
 
   public unload(): void {

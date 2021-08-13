@@ -14,7 +14,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
-import { PopoverOutletComponent } from './components/popover/popover-outlet/popover-outlet.component';
+import { PopoverComponent } from './components/popover/popover.component';
 import { PopoverOutletDirective } from './components/popover/popover-outlet.directive';
 import { PopoverInletDirective } from './components/popover/popover-inlet.directive';
 
@@ -28,7 +28,7 @@ import { PopoverInletDirective } from './components/popover/popover-inlet.direct
     AlertComponent,
     CardComponent,
     GridComponent,
-    PopoverOutletComponent,
+    PopoverComponent,
     // directives
     PopoverInletDirective,
     PopoverOutletDirective
@@ -47,7 +47,7 @@ import { PopoverInletDirective } from './components/popover/popover-inlet.direct
     AlertComponent,
     CardComponent,
     GridComponent,
-    PopoverOutletComponent,
+    PopoverComponent,
     // modules
     FormModule,
     // directives

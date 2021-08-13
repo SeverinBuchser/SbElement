@@ -1,0 +1,5 @@
+<div [ngClass]="getClasses()" (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)">
+  <div [ngClass]="rootClass + '__wrapper'">
+    <div sbElPopoverOutlet></div>
+  </div>
+</div>

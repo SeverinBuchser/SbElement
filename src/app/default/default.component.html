@@ -25,7 +25,7 @@
   </sb-el-grid>
 </sb-el-container>
 <sb-el-container size="l">
-  <sb-el-table [table]="table" separation="color" sbElPopoverInlet (mouseenter)="pop()" (mouseleave)="unpop()"></sb-el-table>
+  <sb-el-table [table]="table" separation="color" sbElPopoverInlet (mouseenter)="pop()" (mouseleave)="unpop($event)"></sb-el-table>
 </sb-el-container>
 <sb-el-container size="l">
   <form [ngClass]="'sb-el-form sb-el-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { SbElementModule } from 'sb-element';
 import { SBComponent } from './sb/sb.component';
 import { DefaultComponent } from './default/default.component';
+import { PopoverTextComponent } from './default/popover-text/popover-text.component';
 
 
 
@@ -16,6 +17,7 @@ import { DefaultComponent } from './default/default.component';
     AppComponent,
     SBComponent,
     DefaultComponent,
+    PopoverTextComponent,
   ],
   imports: [
     BrowserModule,

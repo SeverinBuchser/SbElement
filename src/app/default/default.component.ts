@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopoverService, PopoverInletDirective, ContainerComponent } from 'sb-element';
+import { AlertService, ThemeService, Table, PopoverService, PopoverInletDirective } from 'sb-element';
 import { TableModel } from "./../table.model";
+import { PopoverTextComponent } from "./popover-text/popover-text.component";
 
 @Component({
   selector: 'app-default',
@@ -47,18 +48,7 @@ export class DefaultComponent implements OnInit {
       ]
     })
 
-    // this.table = Table.fromRows([
-    //   ["Severin", "Buchser"],
-    //   ["Rafael", "Buchser"]
-    // ], [
-    //   {
-    //     name: "Name",
-    //     color: "primary"
-    //   },
-    //   {
-    //     name: "Nachname"
-    //   }
-    // ])
+    this.popoverService.allowMouseover = true;
   }
 
   onSubmit(form: NgForm) {
@@ -68,10 +58,10 @@ export class DefaultComponent implements OnInit {
   }
 
   pop() {
-    this.popoverService.pop<ContainerComponent>(ContainerComponent, this.tableone);
+    this.popoverService.pop<PopoverTextComponent>(PopoverTextComponent, this.tableone);
   }
 
-  unpop() {
+  unpop(event: MouseEvent) {
     this.popoverService.unpop();
   }
 
