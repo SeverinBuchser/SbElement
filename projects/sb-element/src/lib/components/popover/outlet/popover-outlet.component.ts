@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ComponentRef, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, Input, ViewChild } from '@angular/core';
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopoverService } from "../../../services/popover/popover.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
@@ -23,6 +23,9 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   @ViewChild(PopoverOutletDirective, {static: true})
   public outlet!: PopoverOutletDirective;
 
+  @Input()
+  public arrow: boolean = true;
+
   constructor(
     themeService: ThemeService,
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -40,7 +43,7 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
 
     this.direction = direction;
     let componentRef = this.createComponent<ComponentType>(component);
-    componentRef.instance.ngAfterViewInitFn = () => {
+    componentRef.instance.afterViewInit = () => {
       this.outlet.move(inlet, direction);
     }
 
@@ -63,6 +66,7 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   public getClasses(): Array<string> {
     let classes: Array<string> = super.getClasses();
     classes.push(this.direction);
+    classes.push(this.arrow ? 'arrow' : '');
     return classes;
   }
 

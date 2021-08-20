@@ -1,16 +1,14 @@
 import { AfterViewInit, Directive } from '@angular/core';
 
 @Directive({
-  selector: '[sbElPopover]'
+  selector: '[selector]'
 })
 export class PopoverDirective implements AfterViewInit {
 
-  constructor() { }
+  public afterViewInit: () => void = () => {};
 
-  public ngAfterViewInitFn: () => void = () => {};
-
-  ngAfterViewInit(): void {
-    this.ngAfterViewInitFn();
+  public ngAfterViewInit(): void {
+    this.afterViewInit();
   }
 
 }

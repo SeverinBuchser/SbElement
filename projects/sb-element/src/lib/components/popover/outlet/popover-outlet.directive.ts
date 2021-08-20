@@ -10,7 +10,7 @@ export class PopoverOutletDirective {
   constructor(public viewContainerRef: ViewContainerRef) { }
 
   get parentElement(): HTMLElement {
-    return this.viewContainerRef.element.nativeElement.parentElement;
+    return this.viewContainerRef.element.nativeElement.parentElement.parentElement;
   }
 
   get boundingRect(): DOMRect {
@@ -24,7 +24,7 @@ export class PopoverOutletDirective {
 
   public move(inlet: PopoverInletDirective, direction: PopoverDirection): void {
     let position = this.getPosition(inlet);
-    let offset = this.getOffset(inlet)
+    let offset = this.getOffset(inlet, direction)
     this.translate(position.x + offset.x, position.y + offset.y);
   }
 
@@ -46,48 +46,50 @@ export class PopoverOutletDirective {
     let y: number = 0;
 
     switch (direction) {
+
       case PopoverDirection.TOP_LEFT:
-
         y = - this.boundingRect.height;
-
+        x = 0;
         break;
 
       case PopoverDirection.TOP:
-        console.log("hi")
-
+        y = - this.boundingRect.height;
+        x = inlet.boundingRect.width / 2 - this.boundingRect.width / 2;
         break;
 
       case PopoverDirection.TOP_RIGHT:
-        console.log("hi")
-
+        y = - this.boundingRect.height;
+        x = inlet.boundingRect.width - this.boundingRect.width;
         break;
 
       case PopoverDirection.LEFT:
-        console.log("hi")
-
+        y = inlet.boundingRect.height / 2 - this.boundingRect.height / 2;
+        x = - this.boundingRect.width;
         break;
 
       case PopoverDirection.RIGHT:
-        console.log("hi")
-
+        y = inlet.boundingRect.height / 2 - this.boundingRect.height / 2;
+        x = inlet.boundingRect.width;
         break;
 
       case PopoverDirection.BOTTOM_LEFT:
-        console.log("hi")
-
+        y = inlet.boundingRect.height;
+        x = 0;
         break;
 
       case PopoverDirection.BOTTOM:
-        console.log("hi")
-
+        y = inlet.boundingRect.height;
+        x = inlet.boundingRect.width / 2 - this.boundingRect.width / 2;
         break;
 
       case PopoverDirection.BOTTOM_RIGHT:
-        console.log("hi")
-
+        y = inlet.boundingRect.height;
+        x = inlet.boundingRect.width - this.boundingRect.width;
         break;
 
       default:
+        y = - this.boundingRect.height;
+        x = 0;
         break;
     }
 
