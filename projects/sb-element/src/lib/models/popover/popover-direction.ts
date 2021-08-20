@@ -1,4 +1,4 @@
-export enum PopoverPosition {
+export enum PopoverDirection {
   TOP_LEFT = 'top-left',
   TOP = 'top',
   TOP_RIGHT = 'top-right',

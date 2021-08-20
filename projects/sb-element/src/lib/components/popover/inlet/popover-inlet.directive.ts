@@ -7,7 +7,7 @@ export class PopoverInletDirective {
 
   constructor(public viewContainerRef: ViewContainerRef) { }
 
-  public getPosition(): DOMRect {
+  get boundingRect(): DOMRect {
     return this.viewContainerRef.element.nativeElement.getBoundingClientRect();
   }
 

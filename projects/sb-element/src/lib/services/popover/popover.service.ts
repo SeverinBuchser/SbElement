@@ -1,13 +1,15 @@
 import { ComponentRef, Injectable } from '@angular/core';
-import { PopoverInletDirective } from "../../components/popover/popover-inlet.directive";
-import { PopoverComponent } from "../../components/popover/popover.component";
+import { PopoverInletDirective } from "../../components/popover/inlet/popover-inlet.directive";
+import { PopoverOutletComponent } from "../../components/popover/outlet/popover-outlet.component";
+import { PopoverDirective } from "../../components/popover/popover.directive";
+import { PopoverDirection } from "../../models/popover/popover-direction";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PopoverService {
 
-  private outlet?: PopoverComponent;
+  private outlet?: PopoverOutletComponent;
   private isPoped: boolean = false;
 
   public allowMouseover: boolean = true;
@@ -15,7 +17,7 @@ export class PopoverService {
 
   constructor() { }
 
-  public subscribe(outlet: PopoverComponent): void {
+  public subscribe(outlet: PopoverOutletComponent): void {
     this.outlet = outlet;
     if (this.allowMouseover) {
       this.outlet.mouseenter = () => this.mouseIsOver = true;
@@ -29,14 +31,15 @@ export class PopoverService {
     }
   }
 
-  public pop<ComponentType>(
+  public pop<ComponentType extends PopoverDirective>(
     component: any,
-    inlet: PopoverInletDirective
+    inlet: PopoverInletDirective,
+    direction: PopoverDirection = PopoverDirection.TOP_LEFT
   ): ComponentRef<ComponentType> {
     if (this.outlet) {
       if (!this.isPoped) {
         this.isPoped = true;
-        return this.outlet.load<ComponentType>(component, inlet);
+        return this.outlet.load<ComponentType>(component, inlet, direction);
       } else throw new Error("Popover is already poped!");
     }
     else throw new Error("No outlet available!");
