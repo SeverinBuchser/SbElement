@@ -4,6 +4,7 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
+
   &--light {
     background: $bright;
     color: $dark;
@@ -12,6 +13,29 @@
     background: $dark;
     color: $bright;
   }
+
+  .envelope, .to-animate, .to-animate-backside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .to-animate {
+    @include ease(0.1s);
+    transform-origin: center 5%;
+    transform-style: preserve-3d;
+  }
+
+  .to-animate-backside {
+    @include ease(0.1s);
+    transform-origin: center 5%;
+    transform-style: preserve-3d;
+    transform: translateZ(-10px);
+    z-index: -1;
+  }
+
 
   .logo {
     height: 100px;

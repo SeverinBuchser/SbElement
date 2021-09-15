@@ -18,7 +18,10 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   public mouseenter: (event: MouseEvent) => void = () => {};
   public mouseleave: (event: MouseEvent) => void = () => {};
 
-  private direction: PopoverDirection = PopoverDirection.TOP_LEFT;
+  public direction: PopoverDirection = PopoverDirection.TOP_LEFT;
+  public corner: boolean = false;
+
+  private popped: boolean = false;
 
   @ViewChild(PopoverOutletDirective, {static: true})
   public outlet!: PopoverOutletDirective;
@@ -42,12 +45,23 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   ): ComponentRef<ComponentType> {
 
     this.direction = direction;
+    this.checkDirection();
     let componentRef = this.createComponent<ComponentType>(component);
     componentRef.instance.afterViewInit = () => {
       this.outlet.move(inlet, direction);
     }
+    this.popped = true;
 
     return componentRef
+  }
+
+  private checkDirection(): void {
+    if (this.direction === PopoverDirection.TOP_LEFT ||
+        this.direction === PopoverDirection.TOP_RIGHT ||
+        this.direction === PopoverDirection.BOTTOM_LEFT ||
+        this.direction === PopoverDirection.BOTTOM_RIGHT )
+      this.corner = true;
+    else this.corner = false;
   }
 
   private createComponent<ComponentType extends PopoverDirective>(
@@ -60,6 +74,7 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   }
 
   public unload(): void {
+    this.popped = false;
     this.outlet.reset();
   }
 
@@ -67,6 +82,7 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
     let classes: Array<string> = super.getClasses();
     classes.push(this.direction);
     classes.push(this.arrow ? 'arrow' : '');
+    classes.push(this.popped ? 'popped' : '');
     return classes;
   }
 

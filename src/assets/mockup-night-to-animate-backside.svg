@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1920"
+   height="1080"
+   viewBox="0 0 507.99999 285.75001"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="mockup-night-to-animate-backside.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="734.22341"
+     inkscape:cy="745.8036"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg8"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="2488"
+     inkscape:window-height="1376"
+     inkscape:window-x="1992"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-page="true"
+     showguides="false"
+     inkscape:guide-bbox="true"
+     inkscape:snap-global="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-others="true"
+     inkscape:pagecheckerboard="false">
+    <sodipodi:guide
+       position="38.553572,263.82738"
+       orientation="1,0"
+       id="guide4579"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="25.4,258.30851"
+       orientation="0,1"
+       id="guide4607"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="477.10045,27.441499"
+       orientation="0,1"
+       id="guide853"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="469.44643,16.819943"
+       orientation="1,0"
+       id="guide857"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="46.838984,271.46251"
+       orientation="0,1"
+       id="guide1012"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="51.516202,14.287512"
+       orientation="0,1"
+       id="guide1014"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="25.400001,246.44048"
+       orientation="1,0"
+       id="guide1037"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="482.6,255.84376"
+       orientation="1,0"
+       id="guide1045"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="elements"
+     style="display:inline" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-11.249983)"
+     style="display:inline" />
+  <path
+     style="fill:#000000;stroke:#ffffff;stroke-width:1.05833333;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0"
+     d="M 38.553572,14.287492 231.38039,127.3449 c 22.23359,13.0359 24.48733,12.16683 45.24553,-0.004 L 469.44642,14.287492 Z"
+     id="path1020"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="csscc" />
+</svg>

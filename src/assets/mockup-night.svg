@@ -25,17 +25,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="744.40826"
-     inkscape:cy="688.65277"
+     inkscape:zoom="0.7"
+     inkscape:cx="668.07831"
+     inkscape:cy="599.25686"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="svg8"
      showgrid="false"
      units="px"
-     inkscape:window-width="1848"
-     inkscape:window-height="1043"
-     inkscape:window-x="72"
-     inkscape:window-y="0"
+     inkscape:window-width="2488"
+     inkscape:window-height="1376"
+     inkscape:window-x="1992"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="true"
@@ -48,21 +48,52 @@
      inkscape:snap-midpoints="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-center="true"
-     inkscape:snap-page="false"
-     showguides="true"
+     inkscape:snap-page="true"
+     showguides="false"
      inkscape:guide-bbox="true"
      inkscape:snap-global="true"
-     inkscape:snap-nodes="false"
-     inkscape:snap-others="true">
+     inkscape:snap-nodes="true"
+     inkscape:snap-others="true"
+     inkscape:pagecheckerboard="false">
     <sodipodi:guide
        position="38.553572,263.82738"
        orientation="1,0"
        id="guide4579"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="38.175596,252.11013"
+       position="25.4,258.30851"
        orientation="0,1"
        id="guide4607"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="477.10045,27.441499"
+       orientation="0,1"
+       id="guide853"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="469.44643,16.819943"
+       orientation="1,0"
+       id="guide857"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="46.838984,271.46251"
+       orientation="0,1"
+       id="guide1012"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="51.516202,14.287512"
+       orientation="0,1"
+       id="guide1014"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="25.400001,246.44048"
+       orientation="1,0"
+       id="guide1037"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="482.6,255.84376"
+       orientation="1,0"
+       id="guide1045"
        inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
@@ -80,27 +111,16 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="elements">
-    <circle
-       style="opacity:1;fill:#3a88fd;fill-opacity:0.99267399;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0;paint-order:normal"
-       id="path1006"
-       cx="409.34824"
-       cy="145.52084"
-       r="13.98512" />
-    <circle
-       style="opacity:1;fill:#f75999;fill-opacity:0.99267399;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0;paint-order:normal"
-       id="path1006-8"
-       cx="422.3884"
-       cy="141.93005"
-       r="9.6383934" />
-  </g>
+     inkscape:label="elements"
+     style="display:inline" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-11.249983)">
+     transform="translate(0,-11.249983)"
+     style="display:inline">
     <g
-       transform="matrix(0.23571432,0,0,0.23571432,35.695102,24.775576)"
+       transform="matrix(0.23571432,0,0,0.23571432,409.56084,212.02455)"
        id="layer1-3"
        inkscape:label="Layer 1"
        style="fill:#ffffff">
@@ -122,40 +142,44 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.8777771px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold Italic';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-       x="38.007725"
-       y="229.72023"
+       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.8777771px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold Italic';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="38.3857"
+       y="255.6879"
        id="text1004"><tspan
          sodipodi:role="line"
          id="tspan1002"
-         x="38.007725"
-         y="229.72023"
-         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:7.05555534px;font-family:inter;-inkscape-font-specification:'inter Ultra-Bold';letter-spacing:0px;stroke-width:0.26458332;fill:#ffffff;"
+         x="38.3857"
+         y="255.6879"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:7.05555534px;font-family:inter;-inkscape-font-specification:'inter Ultra-Bold';letter-spacing:0px;fill:#ffffff;stroke-width:0.26458332"
          dy="4.1099992">Severin Buchser</tspan><tspan
          sodipodi:role="line"
-         x="38.007725"
-         y="242.06744"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.05555534px;font-family:inter;-inkscape-font-specification:'inter Light';letter-spacing:0.49477091px;stroke-width:0.26458332;fill:#ffffff;"
+         x="38.3857"
+         y="268.03513"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.05555534px;font-family:inter;-inkscape-font-specification:'inter Light';letter-spacing:0.49477091px;fill:#ffffff;stroke-width:0.26458332"
          id="tspan4609">Webdevelopment &amp; Photography</tspan></text>
     <path
        style="fill:#21262b;stroke:#ffffff;stroke-width:1.36658895;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 360.96725,45.573149 h 60.09822 z"
+       d="M 38.553572,165.50801 H 98.651789 Z"
        id="path4562"
        inkscape:connector-curvature="0" />
     <path
        style="fill:#21262b;stroke:#ffffff;stroke-width:1.40473366;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 360.96725,54.909069 h 63.5 z"
+       d="M 38.553572,174.84393 H 102.05357 Z"
        id="path4562-6"
        inkscape:connector-curvature="0" />
     <path
        style="fill:#21262b;stroke:#ffffff;stroke-width:1.36658895;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 360.96725,64.244989 h 60.09822 z"
+       d="M 38.553572,184.17985 H 98.651789 Z"
        id="path4562-6-1"
        inkscape:connector-curvature="0" />
     <path
        style="fill:#21262b;stroke:#ffffff;stroke-width:1.45403743;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 360.96725,73.580909 h 68.03571 z"
+       d="M 38.553572,193.51577 H 106.58928 Z"
        id="path4562-6-5"
        inkscape:connector-curvature="0" />
   </g>
+  <path
+     style="opacity:1;fill:none;fill-opacity:0.99267399;fill-rule:nonzero;stroke:#ffffff;stroke-width:1.05833328;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="M 38.553581,14.2875 H 469.44643 c 7.28709,0 13.15358,5.866497 13.15358,13.15358 v 230.86783 c 0,7.28708 -5.86649,13.15358 -13.15358,13.15358 H 38.553581 c -7.287083,0 -13.153579,-5.8665 -13.153579,-13.15358 V 27.44108 c 0,-7.287083 5.866496,-13.15358 13.153579,-13.15358 z"
+     id="rect859" />
 </svg>
