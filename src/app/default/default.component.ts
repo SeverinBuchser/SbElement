@@ -59,7 +59,7 @@ export class DefaultComponent implements OnInit {
 
   pop() {
     this.popoverService.pop<PopoverTextComponent>(
-      PopoverTextComponent, this.tableone, PopoverDirection.TOP);
+      PopoverTextComponent, this.tableone, PopoverDirection.TOP_LEFT);
   }
 
   unpop(event: MouseEvent) {

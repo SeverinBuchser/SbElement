@@ -1,4 +1,5 @@
-<div [ngClass]="getClasses()" (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)">
+<div [ngClass]="getClasses()"
+  (mouseleave)="handleMouseleave($event)">
   <div [ngClass]="rootClass + '__wrapper-wrapper'">
     <div [ngClass]="rootClass + '__wrapper'">
       <div sbElPopoverOutlet></div>
@@ -12,7 +13,6 @@
         <g
           transform="translate(0,-32.41665)">
           <path
-             style="opacity:1;stroke:none;stroke-width:7.55905533;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.90842489;paint-order:normal"
              d="M 0,0 V 1000 C 160.61426,730.7429 195.26042,536.99814 382.7968,349.46176 570.33318,161.92538 735.79366,111.11678 1000,0 Z"
              transform="matrix(0.26458333,0,0,0.26458333,0,32.41665)"/>
         </g>
@@ -28,7 +28,6 @@
            transform="translate(0,-32.41665)"
            style="display:inline">
           <path
-             style="opacity:1;stroke:none;stroke-width:21.31413651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.90842489;paint-order:normal"
              d="M 0 0 C 89.069559 346.99689 137.61594 436.68135 211.61914 601.99414 C 285.62234 767.30693 418.84863 1000 500 1000 C 581.15137 1000 714.37763 767.30693 788.38086 601.99414 C 862.38405 436.68135 910.93044 346.99691 1000 0 L 0 0 z "
              transform="matrix(0.26458333,0,0,0.26458333,0,32.41665)"/>
         </g>

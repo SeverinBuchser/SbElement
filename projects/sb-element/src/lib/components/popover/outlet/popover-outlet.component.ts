@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ComponentRef, Input, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, EventEmitter, Input, ViewChild } from '@angular/core';
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopoverService } from "../../../services/popover/popover.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
@@ -15,13 +15,15 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
 
   public rootClass: string = "sb-el-popover"
 
-  public mouseenter: (event: MouseEvent) => void = () => {};
-  public mouseleave: (event: MouseEvent) => void = () => {};
+  private isPopped: boolean = false;
+  public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  public handleMouseleave(event: MouseEvent): void {
+    this.mouseleave.emit(event);
+  }
+  get boundingRect(): DOMRect {return this.outlet.boundingRect};
 
   public direction: PopoverDirection = PopoverDirection.TOP_LEFT;
   public corner: boolean = false;
-
-  private popped: boolean = false;
 
   @ViewChild(PopoverOutletDirective, {static: true})
   public outlet!: PopoverOutletDirective;
@@ -46,11 +48,12 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
 
     this.direction = direction;
     this.checkDirection();
+
     let componentRef = this.createComponent<ComponentType>(component);
     componentRef.instance.afterViewInit = () => {
       this.outlet.move(inlet, direction);
     }
-    this.popped = true;
+    this.isPopped = true;
 
     return componentRef
   }
@@ -74,7 +77,7 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   }
 
   public unload(): void {
-    this.popped = false;
+    this.isPopped = false;
     this.outlet.reset();
   }
 
@@ -82,7 +85,7 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
     let classes: Array<string> = super.getClasses();
     classes.push(this.direction);
     classes.push(this.arrow ? 'arrow' : '');
-    classes.push(this.popped ? 'popped' : '');
+    classes.push(this.isPopped ? 'popped' : '');
     return classes;
   }
 

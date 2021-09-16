@@ -10,25 +10,18 @@ import { PopoverDirection } from "../../models/popover/popover-direction";
 export class PopoverService {
 
   private outlet?: PopoverOutletComponent;
-  private isPoped: boolean = false;
-
+  private inlet?: PopoverInletDirective;
+  private isMouseover: boolean = false;
+  private isPopped: boolean = false;
   public allowMouseover: boolean = true;
-  public mouseIsOver: boolean = false;
+
+  private poppedComponent!: ComponentRef<any>;
 
   constructor() { }
 
   public subscribe(outlet: PopoverOutletComponent): void {
     this.outlet = outlet;
-    if (this.allowMouseover) {
-      this.outlet.mouseenter = () => this.mouseIsOver = true;
-      this.outlet.mouseleave = () => {
-        this.mouseIsOver = false;
-        if (this.outlet && this.isPoped) {
-          this.outlet.unload();
-          this.isPoped = false;
-        }
-      }
-    }
+    if (this.allowMouseover) this.subscribeToOutlet();
   }
 
   public pop<ComponentType extends PopoverDirective>(
@@ -36,37 +29,72 @@ export class PopoverService {
     inlet: PopoverInletDirective,
     direction: PopoverDirection = PopoverDirection.TOP_LEFT
   ): ComponentRef<ComponentType> {
-    if (this.outlet) {
-      if (!this.isPoped) {
-        this.isPoped = true;
-        return this.outlet.load<ComponentType>(component, inlet, direction);
-      } else throw new Error("Popover is already poped!");
+    if (!this.isPopped) {
+      if (this.outlet) {
+        this.inlet = inlet;
+        this.subscribeToInlet();
+
+        this.poppedComponent = this.outlet.load<ComponentType>(component, inlet, direction);
+        this.isPopped = true;
+      } else throw new Error("No outlet available!");
     }
-    else throw new Error("No outlet available!");
+    return this.poppedComponent;
+  }
+
+  private subscribeToOutlet(): void {
+    if (this.outlet) {
+      this.outlet.mouseleave.subscribe((event: MouseEvent) => {
+        if (!this.isMouseoverInlet(event)) {
+          this.isMouseover = false;
+          this.unpop();
+        }
+      })
+    }
+  }
+
+  private subscribeToInlet(): void {
+    if (this.inlet) {
+      this.inlet.mouseleave.subscribe((event: MouseEvent) => {
+        if (this.allowMouseover) {
+          if (!this.isMouseoverOutlet(event)) {
+            this.isMouseover = false;
+            this.unpop();
+          }
+        } else {
+          this.isMouseover = false;
+          this.unpop();
+        }
+      })
+    }
+  }
+
+  private isMouseoverOutlet(event: MouseEvent): boolean {
+    if (this.outlet) {
+      return this.isMouseoverBoundingRect(event, this.outlet.boundingRect)
+    } else throw new Error('Outlet does not exist!')
+  }
+
+  private isMouseoverInlet(event: MouseEvent): boolean {
+    if (this.inlet) {
+      return this.isMouseoverBoundingRect(event, this.inlet.boundingRect)
+    } else throw new Error('Inlet does not exist!')
+  }
+
+  private isMouseoverBoundingRect(event: MouseEvent, boundingRect: DOMRect): boolean {
+    let mouseX: number = event.clientX;
+    let mouseY: number = event.clientY;
+
+    let xInBounds = mouseX >= boundingRect.left && mouseX <= boundingRect.right;
+    let yInBounds = mouseY >= boundingRect.top && mouseY <= boundingRect.bottom;
+
+    return xInBounds && yInBounds;
   }
 
   public unpop(): void {
-    if (!this.allowMouseover) {
-      this.unpopDisallowMouseover();
-    } else {
-      this.unpopAllowMouseover();
-    }
-  }
-
-  private unpopDisallowMouseover(): void {
-    if (this.outlet && this.isPoped) {
+    if (this.outlet && !this.isMouseover) {
+      this.isPopped = false;
       this.outlet.unload();
-      this.isPoped = false;
     }
-  }
-
-  private unpopAllowMouseover(): void {
-    setTimeout(() => {
-      if (this.outlet && !this.mouseIsOver && this.isPoped) {
-        this.outlet.unload();
-        this.isPoped = false;
-      }
-    }, 0);
   }
 
 }
