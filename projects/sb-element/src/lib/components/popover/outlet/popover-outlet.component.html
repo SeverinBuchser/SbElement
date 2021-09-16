@@ -1,5 +1,5 @@
 <div [ngClass]="getClasses()"
-  (mouseleave)="handleMouseleave($event)">
+  (mouseleave)="handleMouseleave($event)" #transitionElement>
   <div [ngClass]="rootClass + '__wrapper-wrapper'">
     <div [ngClass]="rootClass + '__wrapper'">
       <div sbElPopoverOutlet></div>
@@ -9,27 +9,20 @@
         [ngClass]="rootClass + '__arrow'"
          width="1000"
          height="1000"
-         viewBox="0 0 264.58333 264.58334">
-        <g
-          transform="translate(0,-32.41665)">
-          <path
-             d="M 0,0 V 1000 C 160.61426,730.7429 195.26042,536.99814 382.7968,349.46176 570.33318,161.92538 735.79366,111.11678 1000,0 Z"
-             transform="matrix(0.26458333,0,0,0.26458333,0,32.41665)"/>
+         viewBox="0 0 1000 1000">
+        <g transform="translate(0,703)">
+          <path d="m 1000,-702.99999 -1000,1000 v -1000 z"/>
         </g>
       </svg>
     </ng-template>
     <ng-template #center>
       <svg
         [ngClass]="rootClass + '__arrow'"
-         width="1000"
+         width="2000"
          height="1000"
-         viewBox="0 0 264.58333 264.58334">
-        <g
-           transform="translate(0,-32.41665)"
-           style="display:inline">
-          <path
-             d="M 0 0 C 89.069559 346.99689 137.61594 436.68135 211.61914 601.99414 C 285.62234 767.30693 418.84863 1000 500 1000 C 581.15137 1000 714.37763 767.30693 788.38086 601.99414 C 862.38405 436.68135 910.93044 346.99691 1000 0 L 0 0 z "
-             transform="matrix(0.26458333,0,0,0.26458333,0,32.41665)"/>
+         viewBox="0 0 2000 1000">
+        <g transform="translate(0,703)">
+          <path d="m 2000,-702.99999 -1000,1000 L 0,-703 Z"/>
         </g>
       </svg>
     </ng-template>

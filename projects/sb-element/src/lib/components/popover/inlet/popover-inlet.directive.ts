@@ -20,6 +20,9 @@ export class PopoverInletDirective {
   @Input()
   public arrow: boolean = true;
 
+  @Input()
+  public transitionDuration: number = 100;
+
   constructor(public viewContainerRef: ViewContainerRef) {}
 
   get boundingRect(): DOMRect {

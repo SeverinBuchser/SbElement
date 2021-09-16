@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ComponentRef, EventEmitter, Input, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, Input, ViewChild } from '@angular/core';
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopoverService } from "../../../services/popover/popover.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
@@ -28,6 +28,11 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   public outlet!: PopoverOutletDirective;
 
   public arrow: boolean = true;
+  public show: boolean = false;
+
+  @ViewChild('transitionElement')
+  private transitionElement!: ElementRef;
+  private currentTransitionDuration?: number;
 
   constructor(
     themeService: ThemeService,
@@ -51,6 +56,9 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
     componentRef.instance.afterViewInit = () => {
       this.outlet.move(inlet);
     }
+    this.currentTransitionDuration = inlet.transitionDuration;
+    this.transitionElement.nativeElement.style.transitionDuration = inlet.transitionDuration + 'ms';
+    this.show = true;
 
     return componentRef
   }
@@ -74,13 +82,17 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   }
 
   public unload(): void {
-    this.outlet.reset();
+    this.show = false;
+    new Promise<void>((resolve) => {
+      setTimeout(() => resolve(), this.currentTransitionDuration)
+    }).then(() => this.outlet.reset());
   }
 
   public getClasses(): Array<string> {
     let classes: Array<string> = super.getClasses();
     classes.push(this.direction);
     classes.push(this.arrow ? 'arrow' : '');
+    classes.push(this.show ? 'show' : '');
     return classes;
   }
 

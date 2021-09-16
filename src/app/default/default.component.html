@@ -25,11 +25,8 @@
   </sb-el-grid>
 </sb-el-container>
 <sb-el-container size="l"
-  sbElPopoverInlet
-  popoverPosition="top-right"
-  [allowMouseover]="true"
-  (mouseenter)="pop()"
-  [arrow]="false">
+  sbElTooltip="This is a tooltip"
+  [delay]="300">
   <sb-el-table [table]="table" separation="color"></sb-el-table>
 </sb-el-container>
 <sb-el-container size="l">

@@ -10,15 +10,20 @@ import { FormModule } from './components/form/form.module';
 import { ContainerComponent } from './components/container/container.component';
 import { AlertBoxComponent } from './components/alert-box/alert-box.component';
 import { TableComponent } from './components/table/table.component';
-import { TooltipComponent } from './components/popover/tooltip/tooltip.component';
+import { TooltipComponent } from './components/popover/inlet/tooltip/tooltip.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
-import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
-import { PopoverDirective } from './components/popover/popover.directive';
 import { PopoverOutletComponent } from './components/popover/outlet/popover-outlet.component';
+
+/**
+ * Directives
+ */
+import { PopoverDirective } from './components/popover/popover.directive';
 import { PopoverOutletDirective } from './components/popover/outlet/popover-outlet.directive';
 import { PopoverInletDirective } from './components/popover/inlet/popover-inlet.directive';
+import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
+import { TooltipDirective } from './components/popover/inlet/tooltip/tooltip.directive';
 
 
 @NgModule({
@@ -36,6 +41,7 @@ import { PopoverInletDirective } from './components/popover/inlet/popover-inlet.
     PopoverDirective,
     PopoverInletDirective,
     PopoverOutletDirective,
+    TooltipDirective,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,8 @@ import { PopoverInletDirective } from './components/popover/inlet/popover-inlet.
     PopoverDirective,
     PopoverInletDirective,
     PopoverOutletDirective,
-    ThemeInputDirective
+    ThemeInputDirective,
+    TooltipDirective,
   ]
 })
 export class SbElementModule { }

@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1000"
-   height="1000"
-   viewBox="0 0 264.58333 264.58334"
+   width="2000mm"
+   height="1000mm"
+   viewBox="0 0 2000 1000"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="arrow.svg">
+   sodipodi:docname="arrow.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,15 +25,13 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="117.57843"
-     inkscape:cy="465.49495"
+     inkscape:zoom="0.12374369"
+     inkscape:cx="6353.0016"
+     inkscape:cy="1881.0503"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     units="px"
      inkscape:snap-bbox="true"
-     inkscape:snap-global="true"
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="true"
@@ -42,14 +40,17 @@
      inkscape:snap-intersection-paths="true"
      inkscape:snap-smooth-nodes="true"
      inkscape:snap-midpoints="true"
-     inkscape:snap-object-midpoints="true"
-     inkscape:snap-center="true"
+     inkscape:snap-object-midpoints="false"
+     inkscape:snap-center="false"
+     inkscape:snap-text-baseline="true"
      inkscape:snap-page="true"
      inkscape:window-width="2488"
      inkscape:window-height="1376"
      inkscape:window-x="1992"
      inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:snap-nodes="true"
+     inkscape:snap-others="false" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -58,7 +59,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -66,17 +67,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-32.41665)"
-     style="display:inline">
+     transform="translate(0,703)">
     <path
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:21.31413651;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.90842489;paint-order:normal"
-       d="M 0 0 C 89.069559 346.99689 137.61594 436.68135 211.61914 601.99414 C 285.62234 767.30693 418.84863 1000 500 1000 C 581.15137 1000 714.37763 767.30693 788.38086 601.99414 C 862.38405 436.68135 910.93044 346.99691 1000 0 L 0 0 z "
-       transform="matrix(0.26458333,0,0,0.26458333,0,32.41665)"
-       id="path821" />
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2000,-702.99999 -1000,1000 L 0,-703 Z"
+       id="path815"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="Layer 2"
-     style="display:inline" />
 </svg>

@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopoverService, PopoverInletDirective } from 'sb-element';
+import { AlertService, ThemeService, Table, PopoverService, TooltipDirective } from 'sb-element';
 import { TableModel } from "./../table.model";
-import { PopoverTextComponent } from "./popover-text/popover-text.component";
 
 @Component({
   selector: 'app-default',
@@ -30,11 +29,10 @@ export class DefaultComponent implements OnInit {
 
   public table: TableModel = new TableModel();
 
-  @ViewChild(PopoverInletDirective)
-  public tableone!: PopoverInletDirective;
+  @ViewChild(TooltipDirective)
+  public tableone!: TooltipDirective;
 
-  constructor(themeService: ThemeService, private alertService: AlertService,
-    private popoverService: PopoverService) {
+  constructor(themeService: ThemeService, private alertService: AlertService) {
     this.theme = themeService.get();
     this.table = Table.fromJSON({
       "Name" : [
@@ -53,15 +51,6 @@ export class DefaultComponent implements OnInit {
     // this.alert(form.value.input);
     Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
     .catch((err: Error) => this.alertService.warn(err.message))
-  }
-
-  pop() {
-    this.popoverService.pop<PopoverTextComponent>(
-      PopoverTextComponent, this.tableone);
-  }
-
-  unpop(event: MouseEvent) {
-    this.popoverService.unpop();
   }
 
   ngOnInit() {

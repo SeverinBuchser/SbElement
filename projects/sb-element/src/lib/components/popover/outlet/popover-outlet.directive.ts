@@ -1,4 +1,4 @@
-import { Directive, ViewContainerRef } from '@angular/core';
+import { Directive, HostBinding, ViewContainerRef } from '@angular/core';
 import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopoverInletDirective } from "./../inlet/popover-inlet.directive";
 
@@ -95,9 +95,10 @@ export class PopoverOutletDirective {
     return {x, y}
   }
 
-  public reset(): void {
+  public reset(): Promise<void> {
     this.viewContainerRef.clear();
     this.translate(0, 0);
+    return Promise.resolve();
   }
 
 }

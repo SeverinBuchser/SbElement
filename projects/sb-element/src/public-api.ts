@@ -32,7 +32,7 @@ export * from './lib/components/container/container.component';
 export * from './lib/components/grid/grid.component';
 export * from './lib/components/icon/icon.component';
 export * from './lib/components/popover/outlet/popover-outlet.component';
-export * from './lib/components/popover/tooltip/tooltip.component';
+export * from './lib/components/popover/inlet/tooltip/tooltip.component';
 export * from './lib/components/table/table.component';
 
 // form
@@ -57,3 +57,4 @@ export * from './lib/components/form/group/form-group.component';
  export * from './lib/components/popover/popover.directive';
  export * from './lib/components/popover/outlet/popover-outlet.directive';
  export * from './lib/components/popover/inlet/popover-inlet.directive';
+ export * from './lib/components/popover/inlet/tooltip/tooltip.directive';
