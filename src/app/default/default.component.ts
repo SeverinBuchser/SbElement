@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopoverService, PopoverInletDirective, PopoverDirection } from 'sb-element';
+import { AlertService, ThemeService, Table, PopoverService, PopoverInletDirective } from 'sb-element';
 import { TableModel } from "./../table.model";
 import { PopoverTextComponent } from "./popover-text/popover-text.component";
 
@@ -47,8 +47,6 @@ export class DefaultComponent implements OnInit {
         "Buchser"
       ]
     })
-
-    this.popoverService.allowMouseover = true;
   }
 
   onSubmit(form: NgForm) {
@@ -59,7 +57,7 @@ export class DefaultComponent implements OnInit {
 
   pop() {
     this.popoverService.pop<PopoverTextComponent>(
-      PopoverTextComponent, this.tableone, PopoverDirection.TOP_LEFT);
+      PopoverTextComponent, this.tableone);
   }
 
   unpop(event: MouseEvent) {

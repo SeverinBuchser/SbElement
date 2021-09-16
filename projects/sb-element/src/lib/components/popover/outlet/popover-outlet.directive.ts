@@ -1,5 +1,5 @@
 import { Directive, ViewContainerRef } from '@angular/core';
-import { PopoverDirection } from "../../../models/popover/popover-direction";
+import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopoverInletDirective } from "./../inlet/popover-inlet.directive";
 
 @Directive({
@@ -22,9 +22,9 @@ export class PopoverOutletDirective {
       + x + "px, " + y + "px" + ")";
   }
 
-  public move(inlet: PopoverInletDirective, direction: PopoverDirection): void {
+  public move(inlet: PopoverInletDirective): void {
     let position = this.getPosition(inlet);
-    let offset = this.getOffset(inlet, direction)
+    let offset = this.getOffset(inlet)
     this.translate(position.x + offset.x, position.y + offset.y);
   }
 
@@ -38,51 +38,50 @@ export class PopoverOutletDirective {
   }
 
   private getOffset(
-    inlet: PopoverInletDirective,
-    direction: PopoverDirection = PopoverDirection.TOP_LEFT
+    inlet: PopoverInletDirective
   ): {x: number, y: number} {
 
     let x: number = 0;
     let y: number = 0;
 
-    switch (direction) {
+    switch (inlet.popoverPosition) {
 
-      case PopoverDirection.TOP_LEFT:
+      case PopoverPosition.TOP_LEFT:
         y = - this.boundingRect.height;
         x = 0;
         break;
 
-      case PopoverDirection.TOP:
+      case PopoverPosition.TOP:
         y = - this.boundingRect.height;
         x = inlet.boundingRect.width / 2 - this.boundingRect.width / 2;
         break;
 
-      case PopoverDirection.TOP_RIGHT:
+      case PopoverPosition.TOP_RIGHT:
         y = - this.boundingRect.height;
         x = inlet.boundingRect.width - this.boundingRect.width;
         break;
 
-      case PopoverDirection.LEFT:
+      case PopoverPosition.LEFT:
         y = inlet.boundingRect.height / 2 - this.boundingRect.height / 2;
         x = - this.boundingRect.width;
         break;
 
-      case PopoverDirection.RIGHT:
+      case PopoverPosition.RIGHT:
         y = inlet.boundingRect.height / 2 - this.boundingRect.height / 2;
         x = inlet.boundingRect.width;
         break;
 
-      case PopoverDirection.BOTTOM_LEFT:
+      case PopoverPosition.BOTTOM_LEFT:
         y = inlet.boundingRect.height;
         x = 0;
         break;
 
-      case PopoverDirection.BOTTOM:
+      case PopoverPosition.BOTTOM:
         y = inlet.boundingRect.height;
         x = inlet.boundingRect.width / 2 - this.boundingRect.width / 2;
         break;
 
-      case PopoverDirection.BOTTOM_RIGHT:
+      case PopoverPosition.BOTTOM_RIGHT:
         y = inlet.boundingRect.height;
         x = inlet.boundingRect.width - this.boundingRect.width;
         break;

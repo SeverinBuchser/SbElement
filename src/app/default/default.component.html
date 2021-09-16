@@ -24,8 +24,13 @@
     </sb-el-card>
   </sb-el-grid>
 </sb-el-container>
-<sb-el-container size="l" >
-  <sb-el-table sbElPopoverInlet (click)="pop()" [table]="table" separation="color"></sb-el-table>
+<sb-el-container size="l"
+  sbElPopoverInlet
+  popoverPosition="top-right"
+  [allowMouseover]="true"
+  (mouseenter)="pop()"
+  [arrow]="false">
+  <sb-el-table [table]="table" separation="color"></sb-el-table>
 </sb-el-container>
 <sb-el-container size="l">
   <form [ngClass]="'sb-el-form sb-el-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">

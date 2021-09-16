@@ -2,7 +2,6 @@ import { ComponentRef, Injectable } from '@angular/core';
 import { PopoverInletDirective } from "../../components/popover/inlet/popover-inlet.directive";
 import { PopoverOutletComponent } from "../../components/popover/outlet/popover-outlet.component";
 import { PopoverDirective } from "../../components/popover/popover.directive";
-import { PopoverDirection } from "../../models/popover/popover-direction";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,6 @@ export class PopoverService {
   private inlet?: PopoverInletDirective;
   private isMouseover: boolean = false;
   private isPopped: boolean = false;
-  public allowMouseover: boolean = true;
 
   private poppedComponent!: ComponentRef<any>;
 
@@ -21,20 +19,19 @@ export class PopoverService {
 
   public subscribe(outlet: PopoverOutletComponent): void {
     this.outlet = outlet;
-    if (this.allowMouseover) this.subscribeToOutlet();
+    this.subscribeToOutlet();
   }
 
   public pop<ComponentType extends PopoverDirective>(
     component: any,
-    inlet: PopoverInletDirective,
-    direction: PopoverDirection = PopoverDirection.TOP_LEFT
+    inlet: PopoverInletDirective
   ): ComponentRef<ComponentType> {
     if (!this.isPopped) {
       if (this.outlet) {
         this.inlet = inlet;
         this.subscribeToInlet();
 
-        this.poppedComponent = this.outlet.load<ComponentType>(component, inlet, direction);
+        this.poppedComponent = this.outlet.load<ComponentType>(component, inlet);
         this.isPopped = true;
       } else throw new Error("No outlet available!");
     }
@@ -55,7 +52,7 @@ export class PopoverService {
   private subscribeToInlet(): void {
     if (this.inlet) {
       this.inlet.mouseleave.subscribe((event: MouseEvent) => {
-        if (this.allowMouseover) {
+        if (this.inlet && this.inlet.allowMouseover) {
           if (!this.isMouseoverOutlet(event)) {
             this.isMouseover = false;
             this.unpop();

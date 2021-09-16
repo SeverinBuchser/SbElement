@@ -8,7 +8,7 @@ export * from './lib/components/form/form.module';
 /*
  *  Models
  */
-export * from './lib/models/popover/popover-direction';
+export * from './lib/models/popover/popover-position';
 export * from './lib/models/table/column-information-options.interface';
 export * from './lib/models/table/column-information.interface';
 export * from './lib/models/table/column-information-defaults';
@@ -32,6 +32,7 @@ export * from './lib/components/container/container.component';
 export * from './lib/components/grid/grid.component';
 export * from './lib/components/icon/icon.component';
 export * from './lib/components/popover/outlet/popover-outlet.component';
+export * from './lib/components/popover/tooltip/tooltip.component';
 export * from './lib/components/table/table.component';
 
 // form

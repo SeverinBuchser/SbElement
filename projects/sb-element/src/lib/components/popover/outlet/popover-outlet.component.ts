@@ -4,7 +4,7 @@ import { PopoverService } from "../../../services/popover/popover.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
 import { PopoverInletDirective } from "./../inlet/popover-inlet.directive";
 import { PopoverOutletDirective } from "./popover-outlet.directive";
-import { PopoverDirection } from "../../../models/popover/popover-direction";
+import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopoverDirective } from "../popover.directive";
 
 @Component({
@@ -15,20 +15,18 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
 
   public rootClass: string = "sb-el-popover"
 
-  private isPopped: boolean = false;
   public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   public handleMouseleave(event: MouseEvent): void {
     this.mouseleave.emit(event);
   }
   get boundingRect(): DOMRect {return this.outlet.boundingRect};
 
-  public direction: PopoverDirection = PopoverDirection.TOP_LEFT;
+  public direction: string = PopoverPosition.TOP_LEFT;
   public corner: boolean = false;
 
   @ViewChild(PopoverOutletDirective, {static: true})
   public outlet!: PopoverOutletDirective;
 
-  @Input()
   public arrow: boolean = true;
 
   constructor(
@@ -42,27 +40,26 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
 
   public load<ComponentType extends PopoverDirective>(
     component: any,
-    inlet: PopoverInletDirective,
-    direction: PopoverDirection = PopoverDirection.TOP_LEFT
+    inlet: PopoverInletDirective
   ): ComponentRef<ComponentType> {
 
-    this.direction = direction;
+    this.direction = inlet.popoverPosition;
+    this.arrow = inlet.arrow;
     this.checkDirection();
 
     let componentRef = this.createComponent<ComponentType>(component);
     componentRef.instance.afterViewInit = () => {
-      this.outlet.move(inlet, direction);
+      this.outlet.move(inlet);
     }
-    this.isPopped = true;
 
     return componentRef
   }
 
   private checkDirection(): void {
-    if (this.direction === PopoverDirection.TOP_LEFT ||
-        this.direction === PopoverDirection.TOP_RIGHT ||
-        this.direction === PopoverDirection.BOTTOM_LEFT ||
-        this.direction === PopoverDirection.BOTTOM_RIGHT )
+    if (this.direction === PopoverPosition.TOP_LEFT ||
+        this.direction === PopoverPosition.TOP_RIGHT ||
+        this.direction === PopoverPosition.BOTTOM_LEFT ||
+        this.direction === PopoverPosition.BOTTOM_RIGHT )
       this.corner = true;
     else this.corner = false;
   }
@@ -77,7 +74,6 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   }
 
   public unload(): void {
-    this.isPopped = false;
     this.outlet.reset();
   }
 
@@ -85,7 +81,6 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
     let classes: Array<string> = super.getClasses();
     classes.push(this.direction);
     classes.push(this.arrow ? 'arrow' : '');
-    classes.push(this.isPopped ? 'popped' : '');
     return classes;
   }
 
