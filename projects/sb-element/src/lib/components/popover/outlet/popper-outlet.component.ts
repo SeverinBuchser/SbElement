@@ -8,12 +8,12 @@ import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopoverDirective } from "../popover.directive";
 
 @Component({
-  selector: 'sb-el-popover-outlet',
-  templateUrl: './popover-outlet.component.html'
+  selector: 'sb-el-popper-outlet',
+  templateUrl: './popper-outlet.component.html'
 })
-export class PopoverOutletComponent extends SizeThemeColorInputDirective {
+export class PopperOutletComponent extends SizeThemeColorInputDirective {
 
-  public rootClass: string = "sb-el-popover"
+  public rootClass: string = "sb-el-popper"
 
   public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   public handleMouseleave(event: MouseEvent): void {

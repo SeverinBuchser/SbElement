@@ -31,7 +31,7 @@ export * from './lib/components/card/card.component';
 export * from './lib/components/container/container.component';
 export * from './lib/components/grid/grid.component';
 export * from './lib/components/icon/icon.component';
-export * from './lib/components/popover/outlet/popover-outlet.component';
+export * from './lib/components/popover/outlet/popper-outlet.component';
 export * from './lib/components/popover/inlet/tooltip/tooltip.component';
 export * from './lib/components/table/table.component';
 

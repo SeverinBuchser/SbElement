@@ -1,6 +1,6 @@
 import { ComponentRef, Injectable } from '@angular/core';
 import { PopperTriggerDirective } from "../../components/popover/inlet/popper-trigger.directive";
-import { PopoverOutletComponent } from "../../components/popover/outlet/popover-outlet.component";
+import { PopperOutletComponent } from "../../components/popover/outlet/popper-outlet.component";
 import { PopoverDirective } from "../../components/popover/popover.directive";
 
 @Injectable({
@@ -8,7 +8,7 @@ import { PopoverDirective } from "../../components/popover/popover.directive";
 })
 export class PopperService {
 
-  private outlet?: PopoverOutletComponent;
+  private outlet?: PopperOutletComponent;
   private trigger?: PopperTriggerDirective;
   private isMouseover: boolean = false;
   private isPopped: boolean = false;
@@ -17,7 +17,7 @@ export class PopperService {
 
   constructor() { }
 
-  public subscribe(outlet: PopoverOutletComponent): void {
+  public subscribe(outlet: PopperOutletComponent): void {
     this.outlet = outlet;
     this.subscribeToOutlet();
   }

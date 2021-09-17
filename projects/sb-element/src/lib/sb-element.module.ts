@@ -14,7 +14,7 @@ import { TooltipComponent } from './components/popover/inlet/tooltip/tooltip.com
 import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
-import { PopoverOutletComponent } from './components/popover/outlet/popover-outlet.component';
+import { PopperOutletComponent } from './components/popover/outlet/popper-outlet.component';
 
 /**
  * Directives
@@ -36,7 +36,7 @@ import { TooltipDirective } from './components/popover/inlet/tooltip/tooltip.dir
     AlertComponent,
     CardComponent,
     GridComponent,
-    PopoverOutletComponent,
+    PopperOutletComponent,
     // directives
     PopoverDirective,
     PopperOutletDirective,
@@ -58,7 +58,7 @@ import { TooltipDirective } from './components/popover/inlet/tooltip/tooltip.dir
     AlertComponent,
     CardComponent,
     GridComponent,
-    PopoverOutletComponent,
+    PopperOutletComponent,
     // modules
     FormModule,
     // directives
