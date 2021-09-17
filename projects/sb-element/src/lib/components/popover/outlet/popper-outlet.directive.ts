@@ -3,9 +3,9 @@ import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopperTriggerDirective } from "./../inlet/popper-trigger.directive";
 
 @Directive({
-  selector: '[sbElPopoverOutlet]'
+  selector: '[sbElPopperOutlet]'
 })
-export class PopoverOutletDirective {
+export class PopperOutletDirective {
 
   constructor(public viewContainerRef: ViewContainerRef) { }
 

@@ -3,7 +3,7 @@ import { ThemeService } from "../../../services/theme/theme.service";
 import { PopperService } from "../../../services/popper/popper.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
 import { PopperTriggerDirective } from "./../inlet/popper-trigger.directive";
-import { PopoverOutletDirective } from "./popover-outlet.directive";
+import { PopperOutletDirective } from "./popper-outlet.directive";
 import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopoverDirective } from "../popover.directive";
 
@@ -24,8 +24,8 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   public direction: string = PopoverPosition.TOP_LEFT;
   public corner: boolean = false;
 
-  @ViewChild(PopoverOutletDirective, {static: true})
-  public outlet!: PopoverOutletDirective;
+  @ViewChild(PopperOutletDirective, {static: true})
+  public outlet!: PopperOutletDirective;
 
   public arrow: boolean = true;
   public show: boolean = false;

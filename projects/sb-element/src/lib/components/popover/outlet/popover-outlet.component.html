@@ -2,7 +2,7 @@
   (mouseleave)="handleMouseleave($event)" #transitionElement>
   <div [ngClass]="rootClass + '__wrapper-wrapper'">
     <div [ngClass]="rootClass + '__wrapper'">
-      <div sbElPopoverOutlet></div>
+      <div sbElPopperOutlet></div>
     </div>
     <ng-template [ngIf]="corner" [ngIfElse]="center">
       <svg

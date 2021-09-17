@@ -55,6 +55,6 @@ export * from './lib/components/form/group/form-group.component';
  */
  export * from './lib/components/base/style-input/theme-input.directive';
  export * from './lib/components/popover/popover.directive';
- export * from './lib/components/popover/outlet/popover-outlet.directive';
+ export * from './lib/components/popover/outlet/popper-outlet.directive';
  export * from './lib/components/popover/inlet/popper-trigger.directive';
  export * from './lib/components/popover/inlet/tooltip/tooltip.directive';

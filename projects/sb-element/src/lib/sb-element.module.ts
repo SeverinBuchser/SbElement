@@ -20,7 +20,7 @@ import { PopoverOutletComponent } from './components/popover/outlet/popover-outl
  * Directives
  */
 import { PopoverDirective } from './components/popover/popover.directive';
-import { PopoverOutletDirective } from './components/popover/outlet/popover-outlet.directive';
+import { PopperOutletDirective } from './components/popover/outlet/popper-outlet.directive';
 import { PopperTriggerDirective } from './components/popover/inlet/popper-trigger.directive';
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 import { TooltipDirective } from './components/popover/inlet/tooltip/tooltip.directive';
@@ -39,7 +39,7 @@ import { TooltipDirective } from './components/popover/inlet/tooltip/tooltip.dir
     PopoverOutletComponent,
     // directives
     PopoverDirective,
-    PopoverOutletDirective,
+    PopperOutletDirective,
     PopperTriggerDirective,
     TooltipDirective,
   ],
@@ -63,7 +63,7 @@ import { TooltipDirective } from './components/popover/inlet/tooltip/tooltip.dir
     FormModule,
     // directives
     PopoverDirective,
-    PopoverOutletDirective,
+    PopperOutletDirective,
     PopperTriggerDirective,
     ThemeInputDirective,
     TooltipDirective,
