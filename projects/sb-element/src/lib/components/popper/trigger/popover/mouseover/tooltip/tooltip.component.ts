@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopperDirective } from '../../popper.directive';
+import { PopperDirective } from '../../../../popper.directive';
 
 @Component({
   selector: 'sb-el-tooltip',

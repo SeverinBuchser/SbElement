@@ -32,7 +32,7 @@ export * from './lib/components/container/container.component';
 export * from './lib/components/grid/grid.component';
 export * from './lib/components/icon/icon.component';
 export * from './lib/components/popper/outlet/popper-outlet.component';
-export * from './lib/components/popper/trigger/tooltip/tooltip.component';
+export * from './lib/components/popper/trigger/popover/mouseover/tooltip/tooltip.component';
 export * from './lib/components/table/table.component';
 
 // form
@@ -59,4 +59,4 @@ export * from './lib/components/form/group/form-group.component';
  export * from './lib/components/popper/trigger/popover/popover-trigger.directive';
  export * from './lib/components/popper/trigger/popper-trigger.directive';
  export * from './lib/components/popper/trigger/popover/mouseover/popover-trigger-mouseover.directive';
- export * from './lib/components/popper/trigger/tooltip/tooltip.directive';
+ export * from './lib/components/popper/trigger/popover/mouseover/tooltip/tooltip.directive';
