@@ -6,6 +6,7 @@ import { PopperTriggerDirective } from "./../trigger/popper-trigger.directive";
 import { PopperOutletDirective } from "./popper-outlet.directive";
 import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopperDirective } from "../popper.directive";
+import { PopoverTriggerDirective } from "../trigger/popover/popover-trigger.directive";
 
 @Component({
   selector: 'sb-el-popper-outlet',
@@ -14,6 +15,8 @@ import { PopperDirective } from "../popper.directive";
 export class PopperOutletComponent extends SizeThemeColorInputDirective {
 
   public rootClass: string = "sb-el-popper"
+
+  private isPopover: boolean = false;
 
   public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   public handleMouseleave(event: MouseEvent): void {
@@ -45,16 +48,16 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
 
   public popover<ComponentType extends PopperDirective>(
     component: any,
-    trigger: PopperTriggerDirective
+    trigger: PopoverTriggerDirective
   ): ComponentRef<ComponentType> {
-
+    this.isPopover = true;
     this.direction = trigger.popoverPosition;
     this.arrow = trigger.arrow;
     this.checkDirection();
 
     let componentRef = this.createComponent<ComponentType>(component);
     componentRef.instance.afterViewInit = () => {
-      this.outlet.move(trigger);
+      this.outlet.alignToTrigger(trigger.boundingRect, trigger.popoverPosition);
     }
     this.currentTransitionDuration = trigger.transitionDuration;
     this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
@@ -67,11 +70,9 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     component: any,
     trigger: PopperTriggerDirective
   ): ComponentRef<ComponentType> {
+    this.isPopover = false;
     let componentRef = this.createComponent<ComponentType>(component);
-    componentRef.instance.afterViewInit = () => {
-      this.outlet.move(trigger);
-    }
-    
+
     this.currentTransitionDuration = trigger.transitionDuration;
     this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
     this.show = true;
@@ -106,9 +107,16 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
 
   public getClasses(): Array<string> {
     let classes: Array<string> = super.getClasses();
-    classes.push(this.direction);
-    classes.push(this.arrow ? 'arrow' : '');
-    classes.push(this.show ? 'show' : '');
+    if (this.show) {
+      classes.push('show')
+      if (this.isPopover) {
+        classes.push('popover')
+        classes.push(this.direction);
+        classes.push(this.arrow ? 'arrow' : '');
+      } else {
+        classes.push('popper')
+      }
+    }
     return classes;
   }
 

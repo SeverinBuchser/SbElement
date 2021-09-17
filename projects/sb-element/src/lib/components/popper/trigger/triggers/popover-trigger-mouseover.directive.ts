@@ -1,0 +1,75 @@
+import { Directive, EventEmitter, HostListener, Input, ViewContainerRef } from '@angular/core';
+import { PopperOutletComponent } from "../../outlet/popper-outlet.component";
+import { PopperService } from "../../../../services/popper/popper.service";
+import { PopoverTriggerDirective } from "../popover/popover-trigger.directive";
+
+
+@Directive({
+  selector: '[sbElPopperTriggerMouseover]'
+})
+export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
+
+  @Input()
+  public allowMouseover: boolean = false;
+
+  public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent) {
+    this.mouseleave.emit(event);
+  }
+
+  constructor(
+    viewContainerRef: ViewContainerRef,
+    popperService: PopperService
+  ) {
+    super(viewContainerRef, popperService);
+  }
+
+  public prepareTrigger(outlet: PopperOutletComponent): void {
+    this.unsubscribe();
+    this.subscribe(outlet);
+  }
+
+  private unsubscribe(): void {
+    this.triggerSubscription?.unsubscribe();
+    this.outletSubscription?.unsubscribe();
+  }
+
+  private subscribe(outlet: PopperOutletComponent): void {
+    this.triggerSubscription = this.mouseleave.subscribe(
+      (event: MouseEvent) => {
+        if (this.checkUnpop(event, outlet)) this.popperService.unpop();
+      }
+    )
+
+    this.outletSubscription = outlet.mouseleave.subscribe(
+      (event: MouseEvent) => {
+        if (this.checkUnpop(event, outlet)) this.popperService.unpop();
+      }
+    )
+  }
+
+  private checkUnpop(event: MouseEvent, outlet: PopperOutletComponent) {
+    let isMouseoverOutlet = this.isMouseoverOutlet(event, outlet);
+    let isMouseoverInlet = this.isMouseoverInlet(event);
+    return (this.allowMouseover && !isMouseoverInlet && !isMouseoverOutlet) ||
+      (!this.allowMouseover && !isMouseoverInlet);
+  }
+
+  private isMouseoverOutlet(event: MouseEvent, outlet: PopperOutletComponent): boolean {
+    return this.isMouseoverBoundingRect(event, outlet.boundingRect)
+  }
+
+  private isMouseoverInlet(event: MouseEvent): boolean {
+    return this.isMouseoverBoundingRect(event, this.boundingRect)
+  }
+
+  private isMouseoverBoundingRect(event: MouseEvent, boundingRect: DOMRect): boolean {
+    let mouseX: number = event.clientX;
+    let mouseY: number = event.clientY;
+
+    let xInBounds = mouseX >= boundingRect.left && mouseX <= boundingRect.right;
+    let yInBounds = mouseY >= boundingRect.top && mouseY <= boundingRect.bottom;
+
+    return xInBounds && yInBounds;
+  }
+}

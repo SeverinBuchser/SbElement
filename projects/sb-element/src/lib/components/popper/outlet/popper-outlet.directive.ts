@@ -1,6 +1,5 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 import { PopoverPosition } from "../../../models/popover/popover-position";
-import { PopperTriggerDirective } from "./../trigger/popper-trigger.directive";
 
 @Directive({
   selector: '[sbElPopperOutlet]'
@@ -22,29 +21,33 @@ export class PopperOutletDirective {
       + x + "px, " + y + "px" + ")";
   }
 
-  public move(trigger: PopperTriggerDirective): void {
-    let position = this.getPosition(trigger);
-    let offset = this.getOffset(trigger)
-    this.translate(position.x + offset.x, position.y + offset.y);
+  public alignToTrigger(
+    triggerDimensions: DOMRect,
+    popoverPosition: string
+  ): void {
+    let offset = this.getOffset(triggerDimensions);
+    let adjustment = this.getAdjustment(triggerDimensions, popoverPosition)
+    this.translate(offset.x + adjustment.x, offset.y + adjustment.y);
   }
 
-  private getPosition(trigger: PopperTriggerDirective): {x: number; y: number} {
-    let positionToSet: DOMRect = this.boundingRect
+  private getOffset(triggerDimensions: DOMRect): {x: number; y: number} {
+    let outletDimensions: DOMRect = this.boundingRect
 
-    let x = trigger.boundingRect.left - positionToSet.left;
-    let y = trigger.boundingRect.top - positionToSet.top;
+    let x = triggerDimensions.left - outletDimensions.left;
+    let y = triggerDimensions.top - outletDimensions.top;
 
     return {x, y};
   }
 
-  private getOffset(
-    trigger: PopperTriggerDirective
+  private getAdjustment(
+    triggerDimensions: DOMRect,
+    popoverPosition: string
   ): {x: number, y: number} {
 
     let x: number = 0;
     let y: number = 0;
 
-    switch (trigger.popoverPosition) {
+    switch (popoverPosition) {
 
       case PopoverPosition.TOP_LEFT:
         y = - this.boundingRect.height;
@@ -53,37 +56,37 @@ export class PopperOutletDirective {
 
       case PopoverPosition.TOP:
         y = - this.boundingRect.height;
-        x = trigger.boundingRect.width / 2 - this.boundingRect.width / 2;
+        x = triggerDimensions.width / 2 - this.boundingRect.width / 2;
         break;
 
       case PopoverPosition.TOP_RIGHT:
         y = - this.boundingRect.height;
-        x = trigger.boundingRect.width - this.boundingRect.width;
+        x = triggerDimensions.width - this.boundingRect.width;
         break;
 
       case PopoverPosition.LEFT:
-        y = trigger.boundingRect.height / 2 - this.boundingRect.height / 2;
+        y = triggerDimensions.height / 2 - this.boundingRect.height / 2;
         x = - this.boundingRect.width;
         break;
 
       case PopoverPosition.RIGHT:
-        y = trigger.boundingRect.height / 2 - this.boundingRect.height / 2;
-        x = trigger.boundingRect.width;
+        y = triggerDimensions.height / 2 - this.boundingRect.height / 2;
+        x = triggerDimensions.width;
         break;
 
       case PopoverPosition.BOTTOM_LEFT:
-        y = trigger.boundingRect.height;
+        y = triggerDimensions.height;
         x = 0;
         break;
 
       case PopoverPosition.BOTTOM:
-        y = trigger.boundingRect.height;
-        x = trigger.boundingRect.width / 2 - this.boundingRect.width / 2;
+        y = triggerDimensions.height;
+        x = triggerDimensions.width / 2 - this.boundingRect.width / 2;
         break;
 
       case PopoverPosition.BOTTOM_RIGHT:
-        y = trigger.boundingRect.height;
-        x = trigger.boundingRect.width - this.boundingRect.width;
+        y = triggerDimensions.height;
+        x = triggerDimensions.width - this.boundingRect.width;
         break;
 
       default:

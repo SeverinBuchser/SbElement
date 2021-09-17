@@ -1,6 +1,7 @@
 import { Directive, Input, ViewContainerRef } from '@angular/core';
 import { PopperTriggerDirective } from "../popper-trigger.directive";
 import { PopoverPosition } from "../../../../models/popover/popover-position";
+import { PopperService } from "../../../../services/popper/popper.service";
 
 @Directive({
   selector: '[sbElPopoverTrigger]'
@@ -14,9 +15,10 @@ export class PopoverTriggerDirective extends PopperTriggerDirective {
   public arrow: boolean = true;
 
   constructor(
-    viewContainerRef: ViewContainerRef
+    viewContainerRef: ViewContainerRef,
+    popperService: PopperService
   ) {
-    super(viewContainerRef);
+    super(viewContainerRef, popperService);
   }
 
 }

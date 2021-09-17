@@ -1,32 +1,30 @@
-import { Directive, EventEmitter, HostListener, Input, ViewContainerRef } from '@angular/core';
-import { PopoverPosition } from "../../../models/popover/popover-position";
+import { Directive, Input, ViewContainerRef } from '@angular/core';
+import { PopperOutletComponent } from "../outlet/popper-outlet.component";
+import { PopperService } from "../../../services/popper/popper.service";
+import { Subscription } from "rxjs";
 
 @Directive({
   selector: '[sbElPopperTrigger]'
 })
 export class PopperTriggerDirective {
 
-  public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-  @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent) {
-    this.mouseleave.emit(event)
-  }
-
-  @Input()
-  public popoverPosition: string = PopoverPosition.TOP_LEFT;
-
-  @Input()
-  public allowMouseover: boolean = false;
-
-  @Input()
-  public arrow: boolean = true;
+  protected triggerSubscription?: Subscription;
+  protected outletSubscription?: Subscription;
 
   @Input()
   public transitionDuration: number = 100;
 
-  constructor(public viewContainerRef: ViewContainerRef) {}
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    protected popperService: PopperService
+  ) {
+
+  }
 
   get boundingRect(): DOMRect {
     return this.viewContainerRef.element.nativeElement.getBoundingClientRect();
   }
+
+  public prepareTrigger(outlet: PopperOutletComponent): void {}
 
 }
