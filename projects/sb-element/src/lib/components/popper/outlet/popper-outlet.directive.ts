@@ -1,6 +1,6 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 import { PopoverPosition } from "../../../models/popover/popover-position";
-import { PopperTriggerDirective } from "./../inlet/popper-trigger.directive";
+import { PopperTriggerDirective } from "./../trigger/popper-trigger.directive";
 
 @Directive({
   selector: '[sbElPopperOutlet]'

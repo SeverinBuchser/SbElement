@@ -2,10 +2,10 @@ import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmi
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopperService } from "../../../services/popper/popper.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
-import { PopperTriggerDirective } from "./../inlet/popper-trigger.directive";
+import { PopperTriggerDirective } from "./../trigger/popper-trigger.directive";
 import { PopperOutletDirective } from "./popper-outlet.directive";
 import { PopoverPosition } from "../../../models/popover/popover-position";
-import { PopoverDirective } from "../popover.directive";
+import { PopperDirective } from "../popper.directive";
 
 @Component({
   selector: 'sb-el-popper-outlet',
@@ -43,7 +43,7 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     this.popperService.subscribe(this);
   }
 
-  public load<ComponentType extends PopoverDirective>(
+  public popover<ComponentType extends PopperDirective>(
     component: any,
     trigger: PopperTriggerDirective
   ): ComponentRef<ComponentType> {
@@ -63,6 +63,22 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     return componentRef
   }
 
+  public pop<ComponentType extends PopperDirective>(
+    component: any,
+    trigger: PopperTriggerDirective
+  ): ComponentRef<ComponentType> {
+    let componentRef = this.createComponent<ComponentType>(component);
+    componentRef.instance.afterViewInit = () => {
+      this.outlet.move(trigger);
+    }
+    
+    this.currentTransitionDuration = trigger.transitionDuration;
+    this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
+    this.show = true;
+
+    return componentRef
+  }
+
   private checkDirection(): void {
     if (this.direction === PopoverPosition.TOP_LEFT ||
         this.direction === PopoverPosition.TOP_RIGHT ||
@@ -72,7 +88,7 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     else this.corner = false;
   }
 
-  private createComponent<ComponentType extends PopoverDirective>(
+  private createComponent<ComponentType extends PopperDirective>(
     component: any
   ): ComponentRef<ComponentType> {
     let componentFactory = this.componentFactoryResolver

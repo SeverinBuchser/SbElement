@@ -3,7 +3,7 @@ import { AfterViewInit, Directive } from '@angular/core';
 @Directive({
   selector: '[selector]'
 })
-export class PopoverDirective implements AfterViewInit {
+export class PopperDirective implements AfterViewInit {
 
   public afterViewInit: () => void = () => {};
 

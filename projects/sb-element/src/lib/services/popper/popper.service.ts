@@ -1,7 +1,7 @@
 import { ComponentRef, Injectable } from '@angular/core';
-import { PopperTriggerDirective } from "../../components/popover/inlet/popper-trigger.directive";
-import { PopperOutletComponent } from "../../components/popover/outlet/popper-outlet.component";
-import { PopoverDirective } from "../../components/popover/popover.directive";
+import { PopperTriggerDirective } from "../../components/popper/trigger/popper-trigger.directive";
+import { PopperOutletComponent } from "../../components/popper/outlet/popper-outlet.component";
+import { PopperDirective } from "../../components/popper/popper.directive";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class PopperService {
     this.subscribeToOutlet();
   }
 
-  public popover<ComponentType extends PopoverDirective>(
+  public popover<ComponentType extends PopperDirective>(
     component: any,
     trigger: PopperTriggerDirective
   ): ComponentRef<ComponentType> {
@@ -31,17 +31,26 @@ export class PopperService {
         this.trigger = trigger;
         this.subscribeToInlet();
 
-        this.poppedComponent = this.outlet.load<ComponentType>(component, trigger);
+        this.poppedComponent = this.outlet.popover<ComponentType>(component, trigger);
         this.isPopped = true;
       } else throw new Error("No outlet available!");
     }
     return this.poppedComponent;
   }
 
-  public pop<ComponentType extends PopoverDirective>(
-    component: any
-  ): void {
-    return;
+  public pop<ComponentType extends PopperDirective>(
+    component: any,
+    trigger: PopperTriggerDirective
+  ): ComponentRef<ComponentType> {
+    if (!this.isPopped) {
+      if (this.outlet) {
+        this.trigger = trigger;
+
+        this.poppedComponent = this.outlet.pop<ComponentType>(component, trigger);
+        this.isPopped = true;
+      } else throw new Error("No outlet available!");
+    }
+    return this.poppedComponent;
   }
 
   private subscribeToOutlet(): void {
