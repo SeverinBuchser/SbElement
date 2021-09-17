@@ -19,7 +19,7 @@ export * from './lib/models/table/table';
  * Services
  */
 export * from './lib/services/alert/alert.service';
-export * from './lib/services/popover/popover.service';
+export * from './lib/services/popper/popper.service';
 export * from './lib/services/theme/theme.service';
 
 /*
@@ -56,5 +56,5 @@ export * from './lib/components/form/group/form-group.component';
  export * from './lib/components/base/style-input/theme-input.directive';
  export * from './lib/components/popover/popover.directive';
  export * from './lib/components/popover/outlet/popover-outlet.directive';
- export * from './lib/components/popover/inlet/popover-inlet.directive';
+ export * from './lib/components/popover/inlet/popper-trigger.directive';
  export * from './lib/components/popover/inlet/tooltip/tooltip.directive';

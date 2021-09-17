@@ -1,13 +1,13 @@
 import { Directive, HostListener, Input, ViewContainerRef } from '@angular/core';
 import { TooltipComponent } from "./tooltip.component";
-import { PopoverInletDirective } from "../popover-inlet.directive";
-import { PopoverService } from "../../../../services/popover/popover.service";
+import { PopperTriggerDirective } from "../popper-trigger.directive";
+import { PopperService} from "../../../../services/popper/popper.service";
 import { PopoverPosition } from "../../../../models/popover/popover-position";
 
 @Directive({
   selector: '[sbElTooltip]'
 })
-export class TooltipDirective extends PopoverInletDirective {
+export class TooltipDirective extends PopperTriggerDirective {
 
   @Input()
   public sbElTooltip: string = '';
@@ -22,7 +22,7 @@ export class TooltipDirective extends PopoverInletDirective {
     this.triggered = true;
     setTimeout(() => {
       if (this.triggered) {
-        this.popoverService.pop<TooltipComponent>(
+        this.popperService.popover<TooltipComponent>(
           TooltipComponent, this).instance.text = this.sbElTooltip;
       }
     }, this.delay)
@@ -35,7 +35,7 @@ export class TooltipDirective extends PopoverInletDirective {
   }
 
   constructor(
-    private popoverService: PopoverService,
+    private popperService: PopperService,
     viewContainerRef: ViewContainerRef
   ) {
     super(viewContainerRef);

@@ -2,9 +2,9 @@ import { Directive, EventEmitter, HostListener, Input, ViewContainerRef } from '
 import { PopoverPosition } from "../../../models/popover/popover-position";
 
 @Directive({
-  selector: '[sbElPopoverInlet]'
+  selector: '[sbElPopperTrigger]'
 })
-export class PopoverInletDirective {
+export class PopperTriggerDirective {
 
   public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent) {

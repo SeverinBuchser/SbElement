@@ -1,15 +1,15 @@
 import { ComponentRef, Injectable } from '@angular/core';
-import { PopoverInletDirective } from "../../components/popover/inlet/popover-inlet.directive";
+import { PopperTriggerDirective } from "../../components/popover/inlet/popper-trigger.directive";
 import { PopoverOutletComponent } from "../../components/popover/outlet/popover-outlet.component";
 import { PopoverDirective } from "../../components/popover/popover.directive";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PopoverService {
+export class PopperService {
 
   private outlet?: PopoverOutletComponent;
-  private inlet?: PopoverInletDirective;
+  private trigger?: PopperTriggerDirective;
   private isMouseover: boolean = false;
   private isPopped: boolean = false;
 
@@ -22,20 +22,26 @@ export class PopoverService {
     this.subscribeToOutlet();
   }
 
-  public pop<ComponentType extends PopoverDirective>(
+  public popover<ComponentType extends PopoverDirective>(
     component: any,
-    inlet: PopoverInletDirective
+    trigger: PopperTriggerDirective
   ): ComponentRef<ComponentType> {
     if (!this.isPopped) {
       if (this.outlet) {
-        this.inlet = inlet;
+        this.trigger = trigger;
         this.subscribeToInlet();
 
-        this.poppedComponent = this.outlet.load<ComponentType>(component, inlet);
+        this.poppedComponent = this.outlet.load<ComponentType>(component, trigger);
         this.isPopped = true;
       } else throw new Error("No outlet available!");
     }
     return this.poppedComponent;
+  }
+
+  public pop<ComponentType extends PopoverDirective>(
+    component: any
+  ): void {
+    return;
   }
 
   private subscribeToOutlet(): void {
@@ -50,9 +56,9 @@ export class PopoverService {
   }
 
   private subscribeToInlet(): void {
-    if (this.inlet) {
-      this.inlet.mouseleave.subscribe((event: MouseEvent) => {
-        if (this.inlet && this.inlet.allowMouseover) {
+    if (this.trigger) {
+      this.trigger.mouseleave.subscribe((event: MouseEvent) => {
+        if (this.trigger && this.trigger.allowMouseover) {
           if (!this.isMouseoverOutlet(event)) {
             this.isMouseover = false;
             this.unpop();
@@ -72,8 +78,8 @@ export class PopoverService {
   }
 
   private isMouseoverInlet(event: MouseEvent): boolean {
-    if (this.inlet) {
-      return this.isMouseoverBoundingRect(event, this.inlet.boundingRect)
+    if (this.trigger) {
+      return this.isMouseoverBoundingRect(event, this.trigger.boundingRect)
     } else throw new Error('Inlet does not exist!')
   }
 

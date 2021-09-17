@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopoverService, TooltipDirective } from 'sb-element';
+import { AlertService, ThemeService, Table, PopperService, PopperTriggerDirective } from 'sb-element';
 import { TableModel } from "./../table.model";
+import { PopoverTextComponent } from "./popover-text/popover-text.component";
 
 @Component({
   selector: 'app-default',
@@ -29,10 +30,14 @@ export class DefaultComponent implements OnInit {
 
   public table: TableModel = new TableModel();
 
-  @ViewChild(TooltipDirective)
-  public tableone!: TooltipDirective;
+  @ViewChild(PopperTriggerDirective)
+  public tableone!: PopperTriggerDirective;
 
-  constructor(themeService: ThemeService, private alertService: AlertService) {
+  constructor(
+    themeService: ThemeService,
+    private alertService: AlertService,
+    private popperService: PopperService
+  ) {
     this.theme = themeService.get();
     this.table = Table.fromJSON({
       "Name" : [
@@ -45,6 +50,10 @@ export class DefaultComponent implements OnInit {
         "Buchser"
       ]
     })
+  }
+
+  pop() {
+    this.popperService.popover<PopoverTextComponent>(PopoverTextComponent, this.tableone);
   }
 
   onSubmit(form: NgForm) {

@@ -1,8 +1,8 @@
-import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, Input, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, ViewChild } from '@angular/core';
 import { ThemeService } from "../../../services/theme/theme.service";
-import { PopoverService } from "../../../services/popover/popover.service";
+import { PopperService } from "../../../services/popper/popper.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
-import { PopoverInletDirective } from "./../inlet/popover-inlet.directive";
+import { PopperTriggerDirective } from "./../inlet/popper-trigger.directive";
 import { PopoverOutletDirective } from "./popover-outlet.directive";
 import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopoverDirective } from "../popover.directive";
@@ -37,27 +37,27 @@ export class PopoverOutletComponent extends SizeThemeColorInputDirective {
   constructor(
     themeService: ThemeService,
     private componentFactoryResolver: ComponentFactoryResolver,
-    private popoverService: PopoverService
+    private popperService: PopperService
   ) {
     super(themeService);
-    this.popoverService.subscribe(this);
+    this.popperService.subscribe(this);
   }
 
   public load<ComponentType extends PopoverDirective>(
     component: any,
-    inlet: PopoverInletDirective
+    trigger: PopperTriggerDirective
   ): ComponentRef<ComponentType> {
 
-    this.direction = inlet.popoverPosition;
-    this.arrow = inlet.arrow;
+    this.direction = trigger.popoverPosition;
+    this.arrow = trigger.arrow;
     this.checkDirection();
 
     let componentRef = this.createComponent<ComponentType>(component);
     componentRef.instance.afterViewInit = () => {
-      this.outlet.move(inlet);
+      this.outlet.move(trigger);
     }
-    this.currentTransitionDuration = inlet.transitionDuration;
-    this.transitionElement.nativeElement.style.transitionDuration = inlet.transitionDuration + 'ms';
+    this.currentTransitionDuration = trigger.transitionDuration;
+    this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
     this.show = true;
 
     return componentRef
