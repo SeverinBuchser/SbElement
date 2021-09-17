@@ -1,6 +1,6 @@
 import { Directive, HostListener, Input, ViewContainerRef } from '@angular/core';
 import { TooltipComponent } from "./tooltip.component";
-import { PopoverTriggerMouseoverDirective } from "../triggers/popover-trigger-mouseover.directive";
+import { PopoverTriggerMouseoverDirective } from "../popover/mouseover/popover-trigger-mouseover.directive";
 import { PopperService} from "../../../../services/popper/popper.service";
 import { PopoverPosition } from "../../../../models/popover/popover-position";
 

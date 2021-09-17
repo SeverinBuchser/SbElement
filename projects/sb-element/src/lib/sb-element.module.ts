@@ -23,7 +23,7 @@ import { PopoverTriggerDirective } from './components/popper/trigger/popover/pop
 import { PopperDirective } from './components/popper/popper.directive';
 import { PopperOutletDirective } from './components/popper/outlet/popper-outlet.directive';
 import { PopperTriggerDirective } from './components/popper/trigger/popper-trigger.directive';
-import { PopoverTriggerMouseoverDirective } from './components/popper/trigger/triggers/popover-trigger-mouseover.directive';
+import { PopoverTriggerMouseoverDirective } from './components/popper/trigger/popover/mouseover/popover-trigger-mouseover.directive';
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 import { TooltipDirective } from './components/popper/trigger/tooltip/tooltip.directive';
 

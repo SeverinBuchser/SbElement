@@ -58,5 +58,5 @@ export * from './lib/components/form/group/form-group.component';
  export * from './lib/components/popper/outlet/popper-outlet.directive';
  export * from './lib/components/popper/trigger/popover/popover-trigger.directive';
  export * from './lib/components/popper/trigger/popper-trigger.directive';
- export * from './lib/components/popper/trigger/triggers/popover-trigger-mouseover.directive';
+ export * from './lib/components/popper/trigger/popover/mouseover/popover-trigger-mouseover.directive';
  export * from './lib/components/popper/trigger/tooltip/tooltip.directive';

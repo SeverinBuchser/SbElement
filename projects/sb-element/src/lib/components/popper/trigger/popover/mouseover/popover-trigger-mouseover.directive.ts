@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, HostListener, Input, ViewContainerRef } from '@angular/core';
-import { PopperOutletComponent } from "../../outlet/popper-outlet.component";
-import { PopperService } from "../../../../services/popper/popper.service";
-import { PopoverTriggerDirective } from "../popover/popover-trigger.directive";
+import { PopperOutletComponent } from "../../../outlet/popper-outlet.component";
+import { PopperService } from "../../../../../services/popper/popper.service";
+import { PopoverTriggerDirective } from "../../popover/popover-trigger.directive";
 
 
 @Directive({
