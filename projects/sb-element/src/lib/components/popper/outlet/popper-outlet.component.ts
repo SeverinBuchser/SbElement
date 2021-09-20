@@ -7,6 +7,7 @@ import { PopperOutletDirective } from "./popper-outlet.directive";
 import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopperDirective } from "../popper.directive";
 import { PopoverTriggerDirective } from "../trigger/popover/popover-trigger.directive";
+import { PopupTriggerDirective } from "../trigger/popup/popup-trigger.directive";
 
 @Component({
   selector: 'sb-el-popper-outlet',
@@ -16,26 +17,32 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
 
   public rootClass: string = "sb-el-popper"
 
-  private isPopover: boolean = false;
+  public isPopover: boolean = false;
 
   public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   public handleMouseleave(event: MouseEvent): void {
     this.mouseleave.emit(event);
   }
+
+  public click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  public handleClick(event: MouseEvent): void {
+    this.click.emit(event);
+  }
   get boundingRect(): DOMRect {return this.outlet.boundingRect};
 
-  public direction: string = PopoverPosition.TOP_LEFT;
-  public corner: boolean = false;
 
   @ViewChild(PopperOutletDirective, {static: true})
   public outlet!: PopperOutletDirective;
 
+  public position: string = PopoverPosition.TOP_LEFT;
+  public corner: boolean = false;
   public arrow: boolean = true;
-  public show: boolean = false;
+
 
   @ViewChild('transitionElement')
   private transitionElement!: ElementRef;
   private currentTransitionDuration?: number;
+  public show: boolean = false;
 
   constructor(
     themeService: ThemeService,
@@ -47,49 +54,43 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
   }
 
   public popover<ComponentType extends PopperDirective>(
-    component: any,
+    componentRef: ComponentRef<ComponentType>,
     trigger: PopoverTriggerDirective
-  ): ComponentRef<ComponentType> {
+  ): void {
     this.isPopover = true;
-    this.direction = trigger.popoverPosition;
+    this.position = trigger.popoverPosition;
+    this.checkPosition();
     this.arrow = trigger.arrow;
-    this.checkDirection();
+    this.setTransition(trigger);
 
-    let componentRef = this.createComponent<ComponentType>(component);
     componentRef.instance.afterViewInit = () => {
-      this.outlet.alignToTrigger(trigger.boundingRect, trigger.popoverPosition);
+      this.outlet.alignToTrigger(trigger.boundingRect, trigger.popoverPosition)
     }
-    this.currentTransitionDuration = trigger.transitionDuration;
-    this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
-    this.show = true;
 
-    return componentRef
+    this.show = true;
   }
 
-  public pop<ComponentType extends PopperDirective>(
-    component: any,
-    trigger: PopperTriggerDirective
-  ): ComponentRef<ComponentType> {
+  public popup(trigger: PopupTriggerDirective): void {
     this.isPopover = false;
-    let componentRef = this.createComponent<ComponentType>(component);
-
-    this.currentTransitionDuration = trigger.transitionDuration;
-    this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
+    this.setTransition(trigger);
     this.show = true;
-
-    return componentRef
   }
 
-  private checkDirection(): void {
-    if (this.direction === PopoverPosition.TOP_LEFT ||
-        this.direction === PopoverPosition.TOP_RIGHT ||
-        this.direction === PopoverPosition.BOTTOM_LEFT ||
-        this.direction === PopoverPosition.BOTTOM_RIGHT )
+  private setTransition(trigger: PopperTriggerDirective): void {
+    this.currentTransitionDuration = trigger.transitionDuration;
+    this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
+  }
+
+  private checkPosition(): void {
+    if (this.position === PopoverPosition.TOP_LEFT ||
+        this.position === PopoverPosition.TOP_RIGHT ||
+        this.position === PopoverPosition.BOTTOM_LEFT ||
+        this.position === PopoverPosition.BOTTOM_RIGHT )
       this.corner = true;
     else this.corner = false;
   }
 
-  private createComponent<ComponentType extends PopperDirective>(
+  public createComponent<ComponentType extends PopperDirective>(
     component: any
   ): ComponentRef<ComponentType> {
     let componentFactory = this.componentFactoryResolver
@@ -111,7 +112,7 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
       classes.push('show')
       if (this.isPopover) {
         classes.push('popover')
-        classes.push(this.direction);
+        classes.push(this.position);
         classes.push(this.arrow ? 'arrow' : '');
       } else {
         classes.push('popper')

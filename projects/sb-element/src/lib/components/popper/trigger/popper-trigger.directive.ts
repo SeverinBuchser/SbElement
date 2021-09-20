@@ -1,10 +1,10 @@
-import { Directive, Input, ViewContainerRef } from '@angular/core';
-import { PopperOutletComponent } from "../outlet/popper-outlet.component";
-import { PopperService } from "../../../services/popper/popper.service";
+import { ComponentRef, Directive, Input } from '@angular/core';
 import { Subscription } from "rxjs";
+import { PopperOutletComponent } from "../outlet/popper-outlet.component";
+import { PopperDirective } from "../popper.directive";
 
 @Directive({
-  selector: '[sbElPopperTrigger]'
+  selector: '[selector]'
 })
 export class PopperTriggerDirective {
 
@@ -14,17 +14,21 @@ export class PopperTriggerDirective {
   @Input()
   public transitionDuration: number = 100;
 
-  constructor(
-    private viewContainerRef: ViewContainerRef,
-    protected popperService: PopperService
-  ) {
+  public prepareTrigger(outlet: PopperOutletComponent): void {
+    this.unsubscribe();
+    this.subscribe(outlet);
+  };
 
+  private unsubscribe(): void {
+    this.triggerSubscription?.unsubscribe();
+    this.outletSubscription?.unsubscribe();
   }
 
-  get boundingRect(): DOMRect {
-    return this.viewContainerRef.element.nativeElement.getBoundingClientRect();
-  }
+  protected subscribe(outlet: PopperOutletComponent): void {}
 
-  public prepareTrigger(outlet: PopperOutletComponent): void {}
+  public afterCreation<ComponentType extends PopperDirective>(
+    componentRef: ComponentRef<ComponentType>,
+    outlet: PopperOutletComponent
+  ): void {}
 
 }

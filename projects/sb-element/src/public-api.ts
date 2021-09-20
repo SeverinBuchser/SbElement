@@ -59,4 +59,6 @@ export * from './lib/components/form/group/form-group.component';
  export * from './lib/components/popper/trigger/popover/popover-trigger.directive';
  export * from './lib/components/popper/trigger/popper-trigger.directive';
  export * from './lib/components/popper/trigger/popover/mouseover/popover-trigger-mouseover.directive';
+ export * from './lib/components/popper/trigger/popup/popup-trigger.directive';
+ export * from './lib/components/popper/trigger/popup/click/popup-trigger-click.directive';
  export * from './lib/components/popper/trigger/popover/mouseover/tooltip/tooltip.directive';

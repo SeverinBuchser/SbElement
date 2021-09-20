@@ -1,6 +1,5 @@
 import { ComponentRef, Injectable } from '@angular/core';
 import { PopperTriggerDirective } from "../../components/popper/trigger/popper-trigger.directive";
-import { PopoverTriggerDirective } from "../../components/popper/trigger/popover/popover-trigger.directive";
 import { PopperOutletComponent } from "../../components/popper/outlet/popper-outlet.component";
 import { PopperDirective } from "../../components/popper/popper.directive";
 
@@ -10,45 +9,33 @@ import { PopperDirective } from "../../components/popper/popper.directive";
 export class PopperService {
 
   private outlet?: PopperOutletComponent;
-  private isPopped: boolean = false;
+  private _isPopped: boolean = false;
+  get isPopped(): boolean {return this._isPopped;}
 
-  private poppedComponent!: ComponentRef<any>;
+  private componentRef!: ComponentRef<any>;
 
   public subscribe(outlet: PopperOutletComponent): void {
     this.outlet = outlet;
-  }
-
-  public popover<ComponentType extends PopperDirective>(
-    component: any,
-    trigger: PopoverTriggerDirective
-  ): ComponentRef<ComponentType> {
-    if (!this.isPopped) {
-      if (this.outlet) {
-        trigger.prepareTrigger(this.outlet);
-
-        this.poppedComponent = this.outlet.popover<ComponentType>(component, trigger);
-        this.isPopped = true;
-      } else throw new Error("No outlet available!");
-    }
-    return this.poppedComponent;
   }
 
   public pop<ComponentType extends PopperDirective>(
     component: any,
     trigger: PopperTriggerDirective
   ): ComponentRef<ComponentType> {
-    if (!this.isPopped) {
+    if (!this._isPopped) {
       if (this.outlet) {
-        this.poppedComponent = this.outlet.pop<ComponentType>(component, trigger);
-        this.isPopped = true;
+        trigger.prepareTrigger(this.outlet);
+        this.componentRef = this.outlet.createComponent(component);
+        trigger.afterCreation(this.componentRef, this.outlet);
+        this._isPopped = true;
       } else throw new Error("No outlet available!");
     }
-    return this.poppedComponent;
+    return this.componentRef;
   }
 
   public unpop(): void {
     if (this.outlet) {
-      this.isPopped = false;
+      this._isPopped = false;
       this.outlet.unload();
     }
   }

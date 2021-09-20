@@ -3,7 +3,6 @@ import { PopperOutletComponent } from "../../../outlet/popper-outlet.component";
 import { PopperService } from "../../../../../services/popper/popper.service";
 import { PopoverTriggerDirective } from "../../popover/popover-trigger.directive";
 
-
 @Directive({
   selector: '[sbElPopperTriggerMouseover]'
 })
@@ -13,28 +12,18 @@ export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
   public allowMouseover: boolean = false;
 
   public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-  @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent) {
+  @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent): void {
     this.mouseleave.emit(event);
   }
 
   constructor(
-    viewContainerRef: ViewContainerRef,
-    popperService: PopperService
+    protected popperService: PopperService,
+    viewContainerRef: ViewContainerRef
   ) {
-    super(viewContainerRef, popperService);
+    super(viewContainerRef);
   }
 
-  public prepareTrigger(outlet: PopperOutletComponent): void {
-    this.unsubscribe();
-    this.subscribe(outlet);
-  }
-
-  private unsubscribe(): void {
-    this.triggerSubscription?.unsubscribe();
-    this.outletSubscription?.unsubscribe();
-  }
-
-  private subscribe(outlet: PopperOutletComponent): void {
+  protected subscribe(outlet: PopperOutletComponent): void {
     this.triggerSubscription = this.mouseleave.subscribe(
       (event: MouseEvent) => {
         if (this.checkUnpop(event, outlet)) this.popperService.unpop();

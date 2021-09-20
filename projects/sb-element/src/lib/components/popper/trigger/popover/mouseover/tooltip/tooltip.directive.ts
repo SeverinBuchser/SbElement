@@ -22,13 +22,12 @@ export class TooltipDirective extends PopoverTriggerMouseoverDirective {
     this.triggered = true;
     setTimeout(() => {
       if (this.triggered) {
-        this.popperService.popover<TooltipComponent>(
+        this.popperService.pop<TooltipComponent>(
           TooltipComponent, this).instance.text = this.sbElTooltip;
       }
     }, this.delay)
   }
 
-  @HostListener('mouseleave', ['$event'])
   handleMouseleave(event: MouseEvent) {
     super.handleMouseleave(event);
     this.triggered = false;
@@ -38,7 +37,7 @@ export class TooltipDirective extends PopoverTriggerMouseoverDirective {
     popperService: PopperService,
     viewContainerRef: ViewContainerRef
   ) {
-    super(viewContainerRef, popperService);
+    super(popperService, viewContainerRef);
     this.popoverPosition = PopoverPosition.TOP;
   }
 

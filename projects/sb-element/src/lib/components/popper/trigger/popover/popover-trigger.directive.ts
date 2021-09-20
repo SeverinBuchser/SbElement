@@ -1,10 +1,11 @@
-import { Directive, Input, ViewContainerRef } from '@angular/core';
+import { ComponentRef, Directive, Input, ViewContainerRef } from '@angular/core';
 import { PopperTriggerDirective } from "../popper-trigger.directive";
 import { PopoverPosition } from "../../../../models/popover/popover-position";
-import { PopperService } from "../../../../services/popper/popper.service";
+import { PopperDirective } from "../../popper.directive";
+import { PopperOutletComponent } from "../../outlet/popper-outlet.component";
 
 @Directive({
-  selector: '[sbElPopoverTrigger]'
+  selector: '[selector]'
 })
 export class PopoverTriggerDirective extends PopperTriggerDirective {
 
@@ -14,11 +15,19 @@ export class PopoverTriggerDirective extends PopperTriggerDirective {
   @Input()
   public arrow: boolean = true;
 
-  constructor(
-    viewContainerRef: ViewContainerRef,
-    popperService: PopperService
-  ) {
-    super(viewContainerRef, popperService);
+  get boundingRect(): DOMRect {
+    return this.viewContainerRef.element.nativeElement.getBoundingClientRect();
+  }
+
+  constructor(private viewContainerRef: ViewContainerRef) {
+    super();
+  }
+
+  public afterCreation<ComponentType extends PopperDirective>(
+    componentRef: ComponentRef<ComponentType>,
+    outlet: PopperOutletComponent
+  ): void {
+    outlet.popover(componentRef, this);
   }
 
 }

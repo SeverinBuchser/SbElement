@@ -1,5 +1,7 @@
 <div [ngClass]="getClasses()"
-  (mouseleave)="handleMouseleave($event)" #transitionElement>
+  (mouseleave)="handleMouseleave($event)"
+  (click)="handleClick($event)"
+  #transitionElement>
   <div [ngClass]="rootClass + '__wrapper-wrapper'">
     <div [ngClass]="rootClass + '__wrapper'">
       <div sbElPopperOutlet></div>
