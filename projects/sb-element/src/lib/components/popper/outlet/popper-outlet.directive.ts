@@ -6,7 +6,7 @@ import { PopoverPosition } from "../../../models/popover/popover-position";
 })
 export class PopperOutletDirective {
 
-  constructor(public viewContainerRef: ViewContainerRef) { }
+  constructor(public viewContainerRef: ViewContainerRef) {}
 
   get parentElement(): HTMLElement {
     return this.viewContainerRef.element.nativeElement.parentElement.parentElement;

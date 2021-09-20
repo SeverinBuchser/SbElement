@@ -4,14 +4,14 @@ import { PopperService } from "../../../../../services/popper/popper.service";
 import { PopoverTriggerDirective } from "../../popover/popover-trigger.directive";
 
 @Directive({
-  selector: '[sbElPopperTriggerMouseover]'
+  selector: '[sbElPopoverTriggerMouseover]'
 })
 export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
 
   @Input()
   public allowMouseover: boolean = false;
 
-  public mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  private mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent): void {
     this.mouseleave.emit(event);
   }

@@ -36,6 +36,7 @@ export class PopperService {
   public unpop(): void {
     if (this.outlet) {
       this._isPopped = false;
+      console.log("hi")
       this.outlet.unload();
     }
   }
