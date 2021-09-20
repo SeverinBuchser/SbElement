@@ -28,6 +28,7 @@ import { PopupTriggerDirective } from './components/popper/trigger/popup/popup-t
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 import { TooltipDirective } from './components/popper/trigger/popover/mouseover/tooltip/tooltip.directive';
 import { PopupTriggerClickDirective } from './components/popper/trigger/popup/click/popup-trigger-click.directive';
+import { PopoverTriggerClickDirective } from './components/popper/trigger/popover/click/popover-trigger-click.directive';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { PopupTriggerClickDirective } from './components/popper/trigger/popup/cl
     PopperOutletComponent,
     // directives
     PopoverTriggerDirective,
+    PopoverTriggerClickDirective,
     PopoverTriggerMouseoverDirective,
     PopperDirective,
     PopperOutletDirective,
@@ -71,6 +73,7 @@ import { PopupTriggerClickDirective } from './components/popper/trigger/popup/cl
     FormModule,
     // directives
     PopoverTriggerDirective,
+    PopoverTriggerClickDirective,
     PopoverTriggerMouseoverDirective,
     PopperDirective,
     PopperOutletDirective,
