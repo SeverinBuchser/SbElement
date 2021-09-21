@@ -8,27 +8,38 @@ import { PopperDirective } from "../popper.directive";
 })
 export class PopperTriggerDirective {
 
-  protected triggerSubscription?: Subscription;
-  protected outletSubscription?: Subscription;
+  protected componentRef!: ComponentRef<PopperDirective>;
+  protected outlet!: PopperOutletComponent;
+
+  protected subscriptions: Array<Subscription> = new Array<Subscription>();
 
   @Input()
   public transitionDuration: number = 100;
 
-  public prepareTrigger(outlet: PopperOutletComponent): void {
-    this.unsubscribe();
-    this.subscribe(outlet);
-  };
+  public prepare<ComponentType extends PopperDirective>(
+    outlet: PopperOutletComponent,
+    componentRef: ComponentRef<ComponentType>
+  ): void {
+    this.outlet = outlet;
+    this.componentRef = componentRef;
 
-  private unsubscribe(): void {
-    this.triggerSubscription?.unsubscribe();
-    this.outletSubscription?.unsubscribe();
+    this.unsubscribe();
+    this.subscribe();
+    this.afterComponentViewInit();
   }
 
-  protected subscribe(outlet: PopperOutletComponent): void {}
+  private unsubscribe(): void {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
+    this.subscriptions = new Array<Subscription>();
+  }
 
-  public afterCreation<ComponentType extends PopperDirective>(
-    componentRef: ComponentRef<ComponentType>,
-    outlet: PopperOutletComponent
-  ): void {}
+  protected subscribe(): void {}
 
+  public afterComponentViewInit(): void {}
+
+  public unprepare(): void {
+    this.unsubscribe();
+  }
 }

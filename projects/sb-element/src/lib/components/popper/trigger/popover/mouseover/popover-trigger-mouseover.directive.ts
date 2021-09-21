@@ -23,18 +23,18 @@ export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
     super(viewContainerRef);
   }
 
-  protected subscribe(outlet: PopperOutletComponent): void {
-    this.triggerSubscription = this.mouseleave.subscribe(
+  protected subscribe(): void {
+    this.subscriptions.push(this.mouseleave.subscribe(
       (event: MouseEvent) => {
-        if (this.checkUnpop(event, outlet)) this.popperService.unpop();
+        if (this.checkUnpop(event, this.outlet)) this.popperService.unpop();
       }
-    )
+    ))
 
-    this.outletSubscription = outlet.mouseleave.subscribe(
+    this.subscriptions.push(this.outlet.mouseleave.subscribe(
       (event: MouseEvent) => {
-        if (this.checkUnpop(event, outlet)) this.popperService.unpop();
+        if (this.checkUnpop(event, this.outlet)) this.popperService.unpop();
       }
-    )
+    ))
   }
 
   private checkUnpop(event: MouseEvent, outlet: PopperOutletComponent) {

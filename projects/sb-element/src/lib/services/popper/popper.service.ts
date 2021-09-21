@@ -9,6 +9,8 @@ import { PopperDirective } from "../../components/popper/popper.directive";
 export class PopperService {
 
   private outlet?: PopperOutletComponent;
+  private currentTrigger?: PopperTriggerDirective;
+
   private _isPopped: boolean = false;
   get isPopped(): boolean {return this._isPopped;}
 
@@ -24,9 +26,9 @@ export class PopperService {
   ): ComponentRef<ComponentType> {
     if (!this._isPopped) {
       if (this.outlet) {
-        trigger.prepareTrigger(this.outlet);
+        this.currentTrigger = trigger;
         this.componentRef = this.outlet.createComponent(component);
-        trigger.afterCreation(this.componentRef, this.outlet);
+        trigger.prepare(this.outlet, this.componentRef);
         this._isPopped = true;
       } else throw new Error("No outlet available!");
     }
@@ -34,9 +36,9 @@ export class PopperService {
   }
 
   public unpop(): void {
-    if (this.outlet) {
+    if (this.outlet && this.currentTrigger) {
+      this.currentTrigger.unprepare();
       this._isPopped = false;
-      console.log("hi")
       this.outlet.unload();
     }
   }

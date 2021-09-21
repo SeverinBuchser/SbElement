@@ -30,8 +30,8 @@ export class DefaultComponent implements OnInit {
 
   public table: TableModel = new TableModel();
 
-  @ViewChild(PopupTriggerClickDirective)
-  public tableone!: PopupTriggerClickDirective;
+  @ViewChild(PopoverTriggerClickDirective)
+  public tableone!: PopoverTriggerClickDirective;
 
   constructor(
     themeService: ThemeService,

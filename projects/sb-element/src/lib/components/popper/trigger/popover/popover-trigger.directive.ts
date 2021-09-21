@@ -1,8 +1,6 @@
-import { ComponentRef, Directive, Input, ViewContainerRef } from '@angular/core';
+import { Directive, Input, ViewContainerRef } from '@angular/core';
 import { PopperTriggerDirective } from "../popper-trigger.directive";
 import { PopoverPosition } from "../../../../models/popover/popover-position";
-import { PopperDirective } from "../../popper.directive";
-import { PopperOutletComponent } from "../../outlet/popper-outlet.component";
 
 @Directive({
   selector: '[selector]'
@@ -23,11 +21,8 @@ export class PopoverTriggerDirective extends PopperTriggerDirective {
     super();
   }
 
-  public afterCreation<ComponentType extends PopperDirective>(
-    componentRef: ComponentRef<ComponentType>,
-    outlet: PopperOutletComponent
-  ): void {
-    outlet.popover(componentRef, this);
+  public afterComponentViewInit(): void {
+    this.outlet.popover(this.componentRef, this);
   }
 
 }

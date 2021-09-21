@@ -12,10 +12,10 @@ export class PopupTriggerClickDirective extends PopupTriggerDirective {
     super();
   }
 
-  protected subscribe(outlet: PopperOutletComponent): void {
-    this.outletSubscription = outlet.click.subscribe((event: MouseEvent) => {
-      if (this.checkUnpop(event, outlet)) this.popperService.unpop();
-    })
+  protected subscribe(): void {
+    this.subscriptions.push(this.outlet.click.subscribe((event: MouseEvent) => {
+      if (this.checkUnpop(event, this.outlet)) this.popperService.unpop();
+    }))
   }
 
   private checkUnpop(event: MouseEvent, outlet: PopperOutletComponent) {

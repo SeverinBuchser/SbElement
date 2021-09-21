@@ -22,14 +22,14 @@ export class PopoverTriggerClickDirective extends PopoverTriggerDirective {
     super(viewContainerRef);
   }
 
-  protected subscribe(outlet: PopperOutletComponent): void {
-    this.triggerSubscription = this.click.subscribe((event: MouseEvent) => {
+  protected subscribe(): void {
+    this.subscriptions.push(this.click.subscribe((event: MouseEvent) => {
       if (this.isFirstClick) this.isFirstClick = false;
-      else if (this.checkUnpop(event, outlet)) {
+      else if (this.checkUnpop(event, this.outlet)) {
         this.popperService.unpop();
         this.isFirstClick = true;
       }
-    })
+    }))
   }
 
   private checkUnpop(event: MouseEvent, outlet: PopperOutletComponent) {

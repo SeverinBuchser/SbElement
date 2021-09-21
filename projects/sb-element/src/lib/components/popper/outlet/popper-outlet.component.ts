@@ -63,7 +63,7 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     this.arrow = trigger.arrow;
     this.setTransition(trigger);
 
-    componentRef.instance.afterViewInit = () => {
+    componentRef.instance.align = () => {
       this.outlet.alignToTrigger(trigger.boundingRect, trigger.popoverPosition)
     }
 
