@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, HostListener, ViewContainerRef } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Output, ViewContainerRef } from '@angular/core';
 import { PopperOutletComponent } from "../../../outlet/popper-outlet.component";
 import { PopoverTriggerDirective } from "../popover-trigger.directive";
 import { PopperService } from "../../../../../services/popper/popper.service";
@@ -9,8 +9,15 @@ import { PopperService } from "../../../../../services/popper/popper.service";
 export class PopoverTriggerClickDirective extends PopoverTriggerDirective {
 
   private click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-  @HostListener('document: click', ['$event']) handleClick(event: MouseEvent): void {
+  @HostListener('document: click', ['$event'])
+  handleDocumentClick(event: MouseEvent): void {
     this.click.emit(event)
+  }
+
+  @Output() public trigger: EventEmitter<void> = new EventEmitter<void>();
+  @HostListener('click', ['$event']) handleClick(event: MouseEvent): void {
+    if (!this.popperService.isPopped) event.stopPropagation();
+    this.trigger.emit();
   }
 
   constructor(

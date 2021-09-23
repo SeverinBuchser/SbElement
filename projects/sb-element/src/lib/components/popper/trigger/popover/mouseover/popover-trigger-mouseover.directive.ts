@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, HostListener, Input, ViewContainerRef } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Input, Output, ViewContainerRef } from '@angular/core';
 import { PopperOutletComponent } from "../../../outlet/popper-outlet.component";
 import { PopperService } from "../../../../../services/popper/popper.service";
 import { PopoverTriggerDirective } from "../../popover/popover-trigger.directive";
@@ -14,6 +14,11 @@ export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
   private mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent): void {
     this.mouseleave.emit(event);
+  }
+
+  @Output() public trigger: EventEmitter<void> = new EventEmitter<void>();
+  @HostListener('mouseenter') handleMouseenter(): void {
+    this.trigger.emit();
   }
 
   constructor(
@@ -61,4 +66,7 @@ export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
 
     return xInBounds && yInBounds;
   }
+}
+function Outlet() {
+  throw new Error("Function not implemented.");
 }

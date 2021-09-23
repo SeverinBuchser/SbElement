@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopperService, PopupTriggerClickDirective, PopoverTriggerClickDirective } from 'sb-element';
+import { AlertService, ThemeService, Table, PopperService, PopoverTriggerMouseoverDirective } from 'sb-element';
 import { TableModel } from "./../table.model";
 import { PopoverTextComponent } from "./popover-text/popover-text.component";
 
@@ -30,8 +30,8 @@ export class DefaultComponent implements OnInit {
 
   public table: TableModel = new TableModel();
 
-  @ViewChild(PopoverTriggerClickDirective)
-  public tableone!: PopoverTriggerClickDirective;
+  @ViewChild(PopoverTriggerMouseoverDirective)
+  public tableone!: PopoverTriggerMouseoverDirective;
 
   constructor(
     themeService: ThemeService,
@@ -52,8 +52,7 @@ export class DefaultComponent implements OnInit {
     })
   }
 
-  pop(event: MouseEvent) {
-    if (!this.popperService.isPopped) event.stopPropagation();
+  pop() {
     this.popperService.pop<PopoverTextComponent>(PopoverTextComponent, this.tableone);
   }
 

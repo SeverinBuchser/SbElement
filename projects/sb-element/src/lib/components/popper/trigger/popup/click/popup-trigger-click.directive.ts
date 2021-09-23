@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 import { PopperService } from "../../../../../services/popper/popper.service";
 import { PopperOutletComponent } from "../../../outlet/popper-outlet.component";
 import { PopupTriggerDirective } from "../popup-trigger.directive";
@@ -7,6 +7,12 @@ import { PopupTriggerDirective } from "../popup-trigger.directive";
   selector: '[sbElPopupTriggerClick]'
 })
 export class PopupTriggerClickDirective extends PopupTriggerDirective {
+
+  @Output() public trigger: EventEmitter<void> = new EventEmitter<void>();
+  @HostListener('click', ['$event']) handleClick(event: MouseEvent): void {
+    if (!this.popperService.isPopped) event.stopPropagation();
+    this.trigger.emit();
+  }
 
   constructor(protected popperService: PopperService) {
     super();

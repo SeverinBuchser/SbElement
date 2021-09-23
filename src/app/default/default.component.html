@@ -25,9 +25,10 @@
   </sb-el-grid>
 </sb-el-container>
 <sb-el-container size="l"
-  sbElPopoverTriggerClick
-  popoverPosition="top-left"
-  (click)="pop($event)">
+  sbElPopoverTriggerMouseover
+  [allowMouseover]="true"
+  popoverPosition="bottom"
+  (trigger)="pop()">
   <sb-el-table [table]="table" separation="color"></sb-el-table>
 </sb-el-container>
 <sb-el-container size="l">
