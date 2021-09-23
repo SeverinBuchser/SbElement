@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver, ComponentRef, Directive, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, ComponentRef, Directive, Type, ViewContainerRef } from '@angular/core';
 import { PopperDirective } from "../popper.directive";
 
 @Directive({
@@ -16,7 +16,7 @@ export class PopperOutletDirective {
   }
 
   public createComponent<ComponentType extends PopperDirective>(
-    component: any
+    component: Type<ComponentType>
   ): ComponentRef<ComponentType> {
     let componentFactory = this.componentFactoryResolver
       .resolveComponentFactory<ComponentType>(component);

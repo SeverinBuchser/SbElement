@@ -1,4 +1,4 @@
-import { Component, ComponentRef, ElementRef, EventEmitter, ViewChild } from '@angular/core';
+import { Component, ComponentRef, ElementRef, EventEmitter, Type, ViewChild } from '@angular/core';
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopperService } from "../../../services/popper/popper.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
@@ -93,7 +93,7 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
   }
 
   public createComponent<ComponentType extends PopperDirective>(
-    component: any
+    component: Type<ComponentType>
   ): ComponentRef<ComponentType> {
     return this.outlet.createComponent<ComponentType>(component);
   }

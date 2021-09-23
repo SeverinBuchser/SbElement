@@ -1,4 +1,4 @@
-import { ComponentRef, Injectable } from '@angular/core';
+import { ComponentRef, Injectable, Type } from '@angular/core';
 import { PopperTriggerDirective } from "../../components/popper/trigger/popper-trigger.directive";
 import { PopperOutletComponent } from "../../components/popper/outlet/popper-outlet.component";
 import { PopperDirective } from "../../components/popper/popper.directive";
@@ -21,13 +21,13 @@ export class PopperService {
   }
 
   public pop<ComponentType extends PopperDirective>(
-    component: any,
+    component: Type<ComponentType>,
     trigger: PopperTriggerDirective
   ): ComponentRef<ComponentType> {
     if (!this._isPopped) {
       if (this.outlet) {
         this.currentTrigger = trigger;
-        this.componentRef = this.outlet.createComponent(component);
+        this.componentRef = this.outlet.createComponent<ComponentType>(component);
         trigger.prepare(this.outlet, this.componentRef);
         this._isPopped = true;
       } else throw new Error("No outlet available!");
