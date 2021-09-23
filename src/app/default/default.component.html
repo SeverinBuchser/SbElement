@@ -26,7 +26,8 @@
 </sb-el-container>
 <sb-el-container size="l"
   sbElPopoverTriggerClick
-  (click)="pop()">
+  popoverPosition="top-left"
+  (click)="pop($event)">
   <sb-el-table [table]="table" separation="color"></sb-el-table>
 </sb-el-container>
 <sb-el-container size="l">

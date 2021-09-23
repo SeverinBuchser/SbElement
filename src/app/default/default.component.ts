@@ -52,7 +52,8 @@ export class DefaultComponent implements OnInit {
     })
   }
 
-  pop() {
+  pop(event: MouseEvent) {
+    if (!this.popperService.isPopped) event.stopPropagation();
     this.popperService.pop<PopoverTextComponent>(PopoverTextComponent, this.tableone);
   }
 

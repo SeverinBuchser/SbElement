@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, ViewChild } from '@angular/core';
+import { Component, ComponentRef, ElementRef, EventEmitter, ViewChild } from '@angular/core';
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopperService } from "../../../services/popper/popper.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
@@ -8,6 +8,7 @@ import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopperDirective } from "../popper.directive";
 import { PopoverTriggerDirective } from "../trigger/popover/popover-trigger.directive";
 import { PopupTriggerDirective } from "../trigger/popup/popup-trigger.directive";
+import { PopperOutletMoveDirective } from "./popper-outlet-move.directive";
 
 @Component({
   selector: 'sb-el-popper-outlet',
@@ -28,25 +29,26 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
   public handleClick(event: MouseEvent): void {
     this.click.emit(event);
   }
-  get boundingRect(): DOMRect {return this.outlet.boundingRect};
+  get boundingRect(): DOMRect {return this.toMove.boundingRect};
 
 
   @ViewChild(PopperOutletDirective, {static: true})
   public outlet!: PopperOutletDirective;
 
-  public position: string = PopoverPosition.TOP_LEFT;
+  @ViewChild(PopperOutletMoveDirective, {static: true})
+  private toMove!: PopperOutletMoveDirective;
+
+  private position: string = PopoverPosition.TOP_LEFT;
   public corner: boolean = false;
   public arrow: boolean = true;
 
-
-  @ViewChild('transitionElement')
+  @ViewChild('outletRoot')
   private transitionElement!: ElementRef;
   private currentTransitionDuration?: number;
   public show: boolean = false;
 
   constructor(
     themeService: ThemeService,
-    private componentFactoryResolver: ComponentFactoryResolver,
     private popperService: PopperService
   ) {
     super(themeService);
@@ -58,13 +60,12 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     trigger: PopoverTriggerDirective
   ): void {
     this.isPopover = true;
-    this.position = trigger.popoverPosition;
-    this.checkPosition();
+    this.setPosition(trigger.popoverPosition);
     this.arrow = trigger.arrow;
     this.setTransition(trigger);
 
     componentRef.instance.align = () => {
-      this.outlet.alignToTrigger(trigger.boundingRect, trigger.popoverPosition)
+      this.toMove.moveTo(trigger.boundingRect, trigger.popoverPosition)
     }
 
     this.show = true;
@@ -81,11 +82,12 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
   }
 
-  private checkPosition(): void {
-    if (this.position === PopoverPosition.TOP_LEFT ||
-        this.position === PopoverPosition.TOP_RIGHT ||
-        this.position === PopoverPosition.BOTTOM_LEFT ||
-        this.position === PopoverPosition.BOTTOM_RIGHT )
+  private setPosition(position: string) {
+    this.position = position;
+    if (position === PopoverPosition.TOP_LEFT ||
+        position === PopoverPosition.TOP_RIGHT ||
+        position === PopoverPosition.BOTTOM_LEFT ||
+        position === PopoverPosition.BOTTOM_RIGHT )
       this.corner = true;
     else this.corner = false;
   }
@@ -93,17 +95,15 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
   public createComponent<ComponentType extends PopperDirective>(
     component: any
   ): ComponentRef<ComponentType> {
-    let componentFactory = this.componentFactoryResolver
-      .resolveComponentFactory<ComponentType>(component);
-    return this.outlet.viewContainerRef
-      .createComponent<ComponentType>(componentFactory);
+    return this.outlet.createComponent<ComponentType>(component);
   }
 
   public unload(): void {
-    this.show = false;
-    new Promise<void>((resolve) => {
-      setTimeout(() => resolve(), this.currentTransitionDuration)
-    }).then(() => this.outlet.reset());
+  this.show = false;
+    setTimeout(() => {
+      this.outlet.clear()
+      this.toMove.moveBack();
+    }, this.currentTransitionDuration)
   }
 
   public getClasses(): Array<string> {

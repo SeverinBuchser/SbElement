@@ -8,8 +8,6 @@ import { PopperService } from "../../../../../services/popper/popper.service";
 })
 export class PopoverTriggerClickDirective extends PopoverTriggerDirective {
 
-  private isFirstClick: boolean = true;
-
   private click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
   @HostListener('document: click', ['$event']) handleClick(event: MouseEvent): void {
     this.click.emit(event)
@@ -24,10 +22,8 @@ export class PopoverTriggerClickDirective extends PopoverTriggerDirective {
 
   protected subscribe(): void {
     this.subscriptions.push(this.click.subscribe((event: MouseEvent) => {
-      if (this.isFirstClick) this.isFirstClick = false;
-      else if (this.checkUnpop(event, this.outlet)) {
+      if (this.checkUnpop(event, this.outlet)) {
         this.popperService.unpop();
-        this.isFirstClick = true;
       }
     }))
   }

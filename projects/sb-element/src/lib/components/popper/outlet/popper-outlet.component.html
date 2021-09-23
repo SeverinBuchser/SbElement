@@ -1,32 +1,17 @@
 <div [ngClass]="getClasses()"
   (mouseleave)="handleMouseleave($event)"
   (click)="handleClick($event)"
-  #transitionElement>
-  <div [ngClass]="rootClass + '__wrapper-wrapper'">
-    <div [ngClass]="rootClass + '__wrapper'">
-      <div sbElPopperOutlet></div>
+  #outletRoot>
+  <div [ngClass]="rootClass + '__wrapper'" sbElPopperOutletMove>
+    <div [ngClass]="rootClass + '__content'">
+      <ng-template sbElPopperOutlet></ng-template>
     </div>
-    <ng-template [ngIf]="corner" [ngIfElse]="center">
-      <svg
-        [ngClass]="rootClass + '__arrow'"
-         width="1000"
-         height="1000"
-         viewBox="0 0 1000 1000">
-        <g transform="translate(0,703)">
-          <path d="m 1000,-702.99999 -1000,1000 v -1000 z"/>
-        </g>
-      </svg>
-    </ng-template>
-    <ng-template #center>
-      <svg
-        [ngClass]="rootClass + '__arrow'"
-         width="2000"
-         height="1000"
-         viewBox="0 0 2000 1000">
-        <g transform="translate(0,703)">
-          <path d="m 2000,-702.99999 -1000,1000 L 0,-703 Z"/>
-        </g>
-      </svg>
-    </ng-template>
+    <svg
+      [ngClass]="rootClass + '__arrow'"
+      [attr.width]="corner ? 1000 : 2000"
+      height="1000"
+      [attr.viewBox]="corner ? '0 0 1000 1000' : '0 0 2000 1000'">
+      <path [attr.d]="corner ? 'M 0,0 V 1000 L 1000, 0 Z' : 'M 0,0 L 1000, 1000 L 2000, 0 Z'"/>
+    </svg>
   </div>
 </div>
