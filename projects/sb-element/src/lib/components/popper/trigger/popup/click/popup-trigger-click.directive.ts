@@ -28,7 +28,9 @@ export class PopupTriggerClickDirective extends PopupTriggerDirective {
     return !this.isMouseoverBoundingRect(event, outlet.boundingRect);
   }
 
-  private isMouseoverBoundingRect(event: MouseEvent, boundingRect: DOMRect): boolean {
+  private isMouseoverBoundingRect(
+    event: MouseEvent, boundingRect: DOMRect
+  ): boolean {
     let mouseX: number = event.clientX;
     let mouseY: number = event.clientY;
 

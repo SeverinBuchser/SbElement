@@ -12,7 +12,8 @@ export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
   public allowMouseover: boolean = false;
 
   private mouseleave: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-  @HostListener('mouseleave', ['$event']) handleMouseleave(event: MouseEvent): void {
+  @HostListener('mouseleave', ['$event'])
+  handleMouseleave(event: MouseEvent): void {
     this.mouseleave.emit(event);
   }
 
@@ -43,21 +44,15 @@ export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
   }
 
   private checkUnpop(event: MouseEvent, outlet: PopperOutletComponent) {
-    let isMouseoverOutlet = this.isMouseoverOutlet(event, outlet);
-    let isMouseoverInlet = this.isMouseoverInlet(event);
-    return (this.allowMouseover && !isMouseoverInlet && !isMouseoverOutlet) ||
-      (!this.allowMouseover && !isMouseoverInlet);
+    let overOutlet = this.isMouseoverBoundingRect(event, outlet.boundingRect);
+    let overInlet = this.isMouseoverBoundingRect(event, this.boundingRect);
+    return (this.allowMouseover && !overInlet && !overOutlet) ||
+      (!this.allowMouseover && !overInlet);
   }
 
-  private isMouseoverOutlet(event: MouseEvent, outlet: PopperOutletComponent): boolean {
-    return this.isMouseoverBoundingRect(event, outlet.boundingRect)
-  }
-
-  private isMouseoverInlet(event: MouseEvent): boolean {
-    return this.isMouseoverBoundingRect(event, this.boundingRect)
-  }
-
-  private isMouseoverBoundingRect(event: MouseEvent, boundingRect: DOMRect): boolean {
+  private isMouseoverBoundingRect(
+    event: MouseEvent, boundingRect: DOMRect
+  ): boolean {
     let mouseX: number = event.clientX;
     let mouseY: number = event.clientY;
 
@@ -66,7 +61,4 @@ export class PopoverTriggerMouseoverDirective extends PopoverTriggerDirective {
 
     return xInBounds && yInBounds;
   }
-}
-function Outlet() {
-  throw new Error("Function not implemented.");
 }

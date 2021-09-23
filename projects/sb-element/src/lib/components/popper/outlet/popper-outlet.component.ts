@@ -2,7 +2,6 @@ import { Component, ComponentRef, ElementRef, EventEmitter, Type, ViewChild } fr
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopperService } from "../../../services/popper/popper.service";
 import { SizeThemeColorInputDirective } from "../../base/style-input/size-theme-color-input.directive";
-import { PopperTriggerDirective } from "./../trigger/popper-trigger.directive";
 import { PopperOutletDirective } from "./popper-outlet.directive";
 import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopperDirective } from "../popper.directive";
@@ -43,9 +42,10 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
   public arrow: boolean = true;
 
   @ViewChild('outletRoot')
-  private transitionElement!: ElementRef;
-  private currentTransitionDuration?: number;
-  public show: boolean = false;
+  private outletRoot!: ElementRef;
+  private transitionDuration?: number;
+
+  private show: boolean = false;
 
   constructor(
     themeService: ThemeService,
@@ -62,7 +62,7 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     this.isPopover = true;
     this.setPosition(trigger.popoverPosition);
     this.arrow = trigger.arrow;
-    this.setTransition(trigger);
+    this.setTransition(trigger.transitionDuration);
 
     componentRef.instance.align = () => {
       this.toMove.moveTo(trigger.boundingRect, trigger.popoverPosition)
@@ -73,13 +73,14 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
 
   public popup(trigger: PopupTriggerDirective): void {
     this.isPopover = false;
-    this.setTransition(trigger);
+    this.setTransition(trigger.transitionDuration);
     this.show = true;
   }
 
-  private setTransition(trigger: PopperTriggerDirective): void {
-    this.currentTransitionDuration = trigger.transitionDuration;
-    this.transitionElement.nativeElement.style.transitionDuration = trigger.transitionDuration + 'ms';
+  private setTransition(transitionDuration: number): void {
+    this.transitionDuration = transitionDuration;
+    this.outletRoot.nativeElement.style.transitionDuration = transitionDuration
+      + 'ms';
   }
 
   private setPosition(position: string) {
@@ -103,7 +104,7 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     setTimeout(() => {
       this.outlet.clear()
       this.toMove.moveBack();
-    }, this.currentTransitionDuration)
+    }, this.transitionDuration)
   }
 
   public getClasses(): Array<string> {
@@ -120,9 +121,5 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     }
     return classes;
   }
-
-  /**
-  * Fade method with visibility and animations, position (top left, top center etc)
-   */
 
 }
