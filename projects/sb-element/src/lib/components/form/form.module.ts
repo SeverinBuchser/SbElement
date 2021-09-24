@@ -19,6 +19,7 @@ import { FormGroupComponent } from './group/form-group.component';
 import { InputComponent } from './input/input.component';
 import { FileInputComponent } from './file-input/file-input.component';
 import { DatePickerPopperComponent } from './date-picker/date-picker-popper.component';
+import { PopperModule } from "../popper/popper.module";
 
 @NgModule({
   declarations: [
@@ -40,9 +41,10 @@ import { DatePickerPopperComponent } from './date-picker/date-picker-popper.comp
     FileInputComponent,
   ],
   imports: [
+    BaseModule,
     CommonModule,
     FormsModule,
-    BaseModule
+    PopperModule
   ],
   exports: [
     ButtonComponent,

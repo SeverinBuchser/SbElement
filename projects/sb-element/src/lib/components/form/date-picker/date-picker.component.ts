@@ -8,4 +8,8 @@ export class DatePickerComponent {
 
   constructor() { }
 
+  open(): void {
+    console.log("hi")
+  }
+
 }
