@@ -18,11 +18,13 @@ import { IconComponent } from '../icon/icon.component';
 import { FormGroupComponent } from './group/form-group.component';
 import { InputComponent } from './input/input.component';
 import { FileInputComponent } from './file-input/file-input.component';
+import { DatePickerPopperComponent } from './date-picker/date-picker-popper.component';
 
 @NgModule({
   declarations: [
     ButtonComponent,
     DatePickerComponent,
+    DatePickerPopperComponent,
     IconButtonComponent,
     ToggleSwitchComponent,
     CheckboxComponent,
@@ -35,7 +37,7 @@ import { FileInputComponent } from './file-input/file-input.component';
     IconComponent,
     FormGroupComponent,
     InputComponent,
-    FileInputComponent
+    FileInputComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +47,7 @@ import { FileInputComponent } from './file-input/file-input.component';
   exports: [
     ButtonComponent,
     DatePickerComponent,
+    DatePickerPopperComponent,
     IconButtonComponent,
     ToggleSwitchComponent,
     CheckboxComponent,
