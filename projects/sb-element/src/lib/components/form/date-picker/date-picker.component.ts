@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-date-picker',
-  templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.css']
+  selector: 'sb-el-date-picker',
+  templateUrl: './date-picker.component.html'
 })
-export class DatePickerComponent implements OnInit {
+export class DatePickerComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
