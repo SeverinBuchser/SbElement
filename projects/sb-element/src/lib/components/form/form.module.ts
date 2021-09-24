@@ -17,6 +17,7 @@ import { IconComponent } from '../icon/icon.component';
 import { FormGroupComponent } from './group/form-group.component';
 import { InputComponent } from './input/input.component';
 import { FileInputComponent } from './file-input/file-input.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FileInputComponent } from './file-input/file-input.component';
     IconComponent,
     FormGroupComponent,
     InputComponent,
-    FileInputComponent
+    FileInputComponent,
+    DatePickerComponent
   ],
   imports: [
     CommonModule,
