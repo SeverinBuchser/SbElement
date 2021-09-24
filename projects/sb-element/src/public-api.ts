@@ -54,12 +54,12 @@ export * from './lib/components/form/group/form-group.component';
  *  Directives
  */
  export * from './lib/components/base/style-input/theme-input.directive';
- export * from './lib/components/popper/popper.directive';
  export * from './lib/components/popper/outlet/popper-outlet.directive';
- export * from './lib/components/popper/trigger/popover/popover-trigger.directive';
+ export * from './lib/components/popper/popper.directive';
  export * from './lib/components/popper/trigger/popper-trigger.directive';
+ export * from './lib/components/popper/trigger/popover/popover-trigger.directive';
  export * from './lib/components/popper/trigger/popover/click/popover-trigger-click.directive';
  export * from './lib/components/popper/trigger/popover/mouseover/popover-trigger-mouseover.directive';
+ export * from './lib/components/popper/trigger/popover/mouseover/tooltip/tooltip.directive';
  export * from './lib/components/popper/trigger/popup/popup-trigger.directive';
  export * from './lib/components/popper/trigger/popup/click/popup-trigger-click.directive';
- export * from './lib/components/popper/trigger/popover/mouseover/tooltip/tooltip.directive';
