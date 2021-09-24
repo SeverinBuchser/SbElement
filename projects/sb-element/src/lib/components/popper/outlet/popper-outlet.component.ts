@@ -30,6 +30,8 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
   }
   get boundingRect(): DOMRect {return this.toMove.boundingRect};
 
+  @ViewChild('outletRoot')
+  private outletRoot!: ElementRef;
 
   @ViewChild(PopperOutletDirective, {static: true})
   public outlet!: PopperOutletDirective;
@@ -39,13 +41,9 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
 
   private position: string = PopoverPosition.TOP_LEFT;
   public corner: boolean = false;
-  public arrow: boolean = true;
-
-  @ViewChild('outletRoot')
-  private outletRoot!: ElementRef;
+  private arrow: boolean = true;
   private transitionDuration?: number;
-
-  private show: boolean = false;
+  private state: 'open' | 'closing' | 'closed' = 'closed';
 
   constructor(
     themeService: ThemeService,
@@ -67,14 +65,13 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
     componentRef.instance.align = () => {
       this.toMove.moveTo(trigger.boundingRect, trigger.popoverPosition)
     }
-
-    this.show = true;
+    this.state = 'open';
   }
 
   public popup(trigger: PopupTriggerDirective): void {
     this.isPopover = false;
     this.setTransition(trigger.transitionDuration);
-    this.show = true;
+    this.state = 'open';
   }
 
   private setTransition(transitionDuration: number): void {
@@ -100,17 +97,18 @@ export class PopperOutletComponent extends SizeThemeColorInputDirective {
   }
 
   public unload(): void {
-  this.show = false;
+    this.state = 'closing';
     setTimeout(() => {
       this.outlet.clear()
       this.toMove.moveBack();
+      this.state = 'closed';
     }, this.transitionDuration)
   }
 
   public getClasses(): Array<string> {
     let classes: Array<string> = super.getClasses();
-    if (this.show) {
-      classes.push('show')
+    classes.push(this.state);
+    if (this.state !== 'closed') {
       if (this.isPopover) {
         classes.push('popover')
         classes.push(this.position);
