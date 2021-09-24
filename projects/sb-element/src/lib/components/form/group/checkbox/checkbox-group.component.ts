@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SelectedOptions } from '../base/selected-options';
+import { SelectedOptions } from '../../../../models/selected-options';
 import { SelectionOptionsDirective } from '../base/selection-options.directive';
 
 @Component({
