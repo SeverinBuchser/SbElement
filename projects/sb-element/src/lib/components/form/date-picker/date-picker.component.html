@@ -1,2 +1,8 @@
-<p sbElPopoverTriggerClick
-  (trigger)="open()">date-picker works!</p>
+<sb-el-input
+  [ngModel]="value"
+  (ngModelChange)="handleSelect($event)"
+  placeholder="Pick a Date"
+  sbElPopoverTriggerClick
+  popoverPosition="bottom"
+  (trigger)="open()">
+</sb-el-input>

@@ -25,7 +25,8 @@ export class DefaultComponent implements OnInit {
     radios: 'Option 1',
     slider: 0,
     input: 'asdf',
-    fileinput: ''
+    fileinput: '',
+    date: ''
   };
 
   public table: TableModel = new TableModel();
@@ -57,6 +58,7 @@ export class DefaultComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    console.log(this.model.date)
     // this.alert(form.value.input);
     Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
     .catch((err: Error) => this.alertService.warn(err.message))
