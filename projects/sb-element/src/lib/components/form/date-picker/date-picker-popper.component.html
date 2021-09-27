@@ -1,2 +1,14 @@
-<p (click)="handleSelect()">Pick a Date!</p>
-{{ this.date }}
+<div [ngClass]="rootClass">
+  <div [ngClass]="rootClass + '__current-date'">
+    {{ this.dateFormat }}
+  </div>
+  <div [ngClass]="rootClass + '__calendar-month'">
+    <div *ngFor="let calendarWeek of calendarMonth"
+      [ngClass]="rootClass + '__calendar-week'">
+      <div *ngFor="let date of calendarWeek" (click)="handleSelect(date)"
+        [ngClass]="rootClass + '__calendar-date'">
+        {{ format(date) }}
+      </div>
+    </div>
+  </div>
+</div>
