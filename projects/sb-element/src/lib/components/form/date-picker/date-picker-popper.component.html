@@ -1,6 +1,12 @@
 <div [ngClass]="rootClass">
-  <div [ngClass]="rootClass + '__current-date'">
-    {{ this.dateFormat }}
+  <div [ngClass]="rootClass + '__navigation'">
+    <sb-el-icon (click)="previousYear()">&#xeac3;</sb-el-icon>
+    <sb-el-icon (click)="previousMonth()">&#xe314;</sb-el-icon>
+    <div [ngClass]="rootClass + '__current-date'">
+      {{ this.dateFormat }}
+    </div>
+    <sb-el-icon (click)="nextMonth()">&#xe315;</sb-el-icon>
+    <sb-el-icon (click)="nextYear()">&#xeac9;</sb-el-icon>
   </div>
   <div [ngClass]="rootClass + '__calendar-month'">
     <div *ngFor="let calendarWeek of calendarMonth"

@@ -24,9 +24,13 @@ export class DatePickerPopperComponent extends PopperDirective {
 
 
   @Input()
-  set date(dateString: string | undefined) {
-    if (dateString) {
-      this.dateObject = fns.parseISO(dateString);
+  set date(date: string | undefined | Date) {
+    if (date) {
+      if (typeof date === 'string') {
+        this.dateObject = fns.parseISO(date);
+      } else {
+        this.dateObject = date
+      }
       this.updateCalendar();
     }
   };
@@ -54,6 +58,20 @@ export class DatePickerPopperComponent extends PopperDirective {
 
   public format(date: Date): string {
     return fns.format(date, 'dd');
+  }
+
+  public previousYear(): void {
+    this.date = fns.subYears(this.dateObject, 1);
+  }
+  public nextYear(): void {
+    this.date = fns.addYears(this.dateObject, 1);
+  }
+
+  public previousMonth(): void {
+    this.date = fns.subMonths(this.dateObject, 1);
+  }
+  public nextMonth(): void {
+    this.date = fns.addMonths(this.dateObject, 1);
   }
 
 }
