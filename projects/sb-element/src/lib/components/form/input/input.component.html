@@ -1,14 +1,22 @@
 <div [ngClass]="getClasses()">
   <div [ngClass]="rootClass + '__border'"></div>
-  <input
-    [ngClass]="getInputClasses()"
-    [type]="type"
-    [(ngModel)]="value"
-    (blur)="emitBlur()"
-    (focus)="emitFocus()"
-    [spellcheck]="spellcheck"
-    [disabled]="disabled">
-  <div [ngClass]="getPlaceholderClasses()">
-    {{ placeholder }}
+  <div [ngClass]="rootClass + '__prefix'">
+    <ng-content select="[prefix]"></ng-content>
+  </div>
+  <div [ngClass]="rootClass + '__input-wrapper'">
+    <input
+      [ngClass]="getInputClasses()"
+      [type]="type"
+      [(ngModel)]="value"
+      (blur)="emitBlur()"
+      (focus)="emitFocus()"
+      [spellcheck]="spellcheck"
+      [disabled]="disabled">
+    <div [ngClass]="getPlaceholderClasses()">
+      {{ placeholder }}
+    </div>
+  </div>
+  <div [ngClass]="rootClass + '__suffix'">
+    <ng-content select="[suffix]"></ng-content>
   </div>
 </div>

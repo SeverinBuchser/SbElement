@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SizeColorInputDirective } from '../base/style-input/size-color-input.directive';
 
 @Component({
@@ -11,5 +11,8 @@ export class IconComponent extends SizeColorInputDirective {
     super();
     this.rootClass = 'sb-el-icon';
   }
+
+  @Input()
+  public icon: string = '';
 
 }
