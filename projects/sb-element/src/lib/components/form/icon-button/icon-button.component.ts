@@ -21,6 +21,9 @@ export class IconButtonComponent extends SizeThemeColorInputDirective {
     return this._disabled;
   }
 
+  @Input()
+  public icon: string = '';
+
   constructor(
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('round') round: any,

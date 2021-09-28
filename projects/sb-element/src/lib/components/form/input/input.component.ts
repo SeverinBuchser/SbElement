@@ -28,6 +28,11 @@ export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirec
   public plain: boolean = false;
   public pill: boolean = false;
 
+  @Input()
+  public prefixIcon: string = '';
+  @Input()
+  public suffixIcon: string = '';
+
 
   constructor(
     @Optional() @Attribute('pill') pill: any,
