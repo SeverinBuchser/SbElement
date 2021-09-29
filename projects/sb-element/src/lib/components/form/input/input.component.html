@@ -1,7 +1,7 @@
 <div [ngClass]="getClasses()">
   <div [ngClass]="rootClass + '__border'"></div>
   <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
-    <sb-el-icon [icon]="prefixIcon"></sb-el-icon>
+    <sb-el-icon [icon]="prefixIcon" [color]="null" size="d"></sb-el-icon>
   </div>
   <div [ngClass]="rootClass + '__input-wrapper'">
     <input
@@ -17,6 +17,6 @@
     </div>
   </div>
   <div *ngIf="suffixIcon" [ngClass]="rootClass + '__suffix'">
-    <sb-el-icon [icon]="suffixIcon"></sb-el-icon>
+    <sb-el-icon [icon]="suffixIcon" [color]="null" size="d"></sb-el-icon>
   </div>
 </div>

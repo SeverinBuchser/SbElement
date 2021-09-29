@@ -81,7 +81,9 @@
         <sb-el-date-picker
           [(ngModel)]="model.date"
           name="date"
-          date="ngModel">
+          size="m"
+          [color]="color"
+          #date="ngModel">
         </sb-el-date-picker>
         <sb-el-slider
           label="Slider"

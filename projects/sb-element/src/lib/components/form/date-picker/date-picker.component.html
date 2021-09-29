@@ -2,8 +2,10 @@
   [ngModel]="value"
   (ngModelChange)="handleSelect($event)"
   placeholder="Pick a Date"
+  [size]="size"
+  [color]="color"
+  [prefixIcon]="'\ue878'"
   sbElPopoverTriggerClick
   popoverPosition="bottom"
-  [prefixIcon]="'\ue878'"
   (trigger)="open()">
 </sb-el-input>
