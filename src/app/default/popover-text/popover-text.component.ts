@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopperDirective, PopperService } from "sb-element";
+import { PopperDirective, PopperService, ThemeService } from "sb-element";
 
 @Component({
   selector: 'app-popover-text',
@@ -7,8 +7,11 @@ import { PopperDirective, PopperService } from "sb-element";
   styleUrls: ['./popover-text.component.scss']
 })
 export class PopoverTextComponent extends PopperDirective {
-  constructor(private popperService: PopperService) {
-    super();
+  constructor(
+    themeService: ThemeService,
+    private popperService: PopperService
+  ) {
+    super(themeService);
   }
 
   close() {

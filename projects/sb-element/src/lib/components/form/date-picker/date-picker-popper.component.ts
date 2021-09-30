@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as fns from "date-fns";
+import { PopperService } from "../../../services/popper/popper.service";
+import { ThemeService } from "../../../services/theme/theme.service";
 import { PopperDirective } from "../../popper/popper.directive";
 
 
@@ -14,38 +16,42 @@ export class DatePickerPopperComponent extends PopperDirective {
   @Output()
   public select: EventEmitter<string> = new EventEmitter<string>();
   public handleSelect(date: Date): void {
-    if (fns.isSameMonth(date, this.dateObject)) {
+    if (fns.isSameMonth(date, this.showingMonthStart)) {
       this.select.emit(fns.format(date, 'yyyy-MM-dd'));
+      this.popperService.unpop();
     }
   }
 
-  private dateObject: Date = new Date();
+  private selectedDate?: Date;
+  private showingMonthStart: Date = fns.startOfMonth(new Date());
   public calendarMonth!: Array<Array<Date>>;
 
 
   @Input()
   set date(date: string | undefined | Date) {
-    if (date) {
-      if (typeof date === 'string') {
-        this.dateObject = fns.parseISO(date);
-      } else {
-        this.dateObject = date
-      }
+    if (date && typeof date === 'string') {
+      this.selectedDate = fns.parseISO(date);
+      this.showingMonthStart = fns.startOfMonth(fns.parseISO(date));
+
       this.updateCalendar();
     }
   };
 
-  get dateFormat(): string {return fns.format(this.dateObject, 'dd MMM. yyyy');}
+  get showingFormat(): string {
+    return fns.format(this.showingMonthStart, 'MMM. yyyy');
+  }
 
-  constructor() {
-    super();
+  constructor(
+    private popperService: PopperService,
+    themeService: ThemeService
+  ) {
+    super(themeService);
     this.updateCalendar();
   }
 
   private updateCalendar(): void {
     this.calendarMonth = new Array<Array<Date>>();
-    let calendarMonthStart = fns.addDays(fns.startOfWeek(fns.startOfMonth(
-      this.dateObject)), 1);
+    let calendarMonthStart = fns.startOfWeek(this.showingMonthStart, { weekStartsOn : 1 });
 
     for (let week = 0 ; week < 6 ; week++) {
       let calendarWeek = new Array<Date>();
@@ -61,17 +67,40 @@ export class DatePickerPopperComponent extends PopperDirective {
   }
 
   public previousYear(): void {
-    this.date = fns.subYears(this.dateObject, 1);
+    this.showingMonthStart = fns.subYears(this.showingMonthStart, 1);
+    this.updateCalendar();
   }
   public nextYear(): void {
-    this.date = fns.addYears(this.dateObject, 1);
+    this.showingMonthStart = fns.addYears(this.showingMonthStart, 1);
+    this.updateCalendar();
   }
 
   public previousMonth(): void {
-    this.date = fns.subMonths(this.dateObject, 1);
+    this.showingMonthStart = fns.subMonths(this.showingMonthStart, 1);
+    this.updateCalendar();
   }
   public nextMonth(): void {
-    this.date = fns.addMonths(this.dateObject, 1);
+    this.showingMonthStart = fns.addMonths(this.showingMonthStart, 1);
+    this.updateCalendar();
+  }
+
+
+  public getClaendarMonthClasses(): Array<string> {
+    let classes = new Array<string>();
+    classes.push(this.rootClass + '__calendar-month');
+    return classes;
+  }
+
+  public getClaendarDateClasses(date: Date): Array<string> {
+    let classes = new Array<string>();
+    classes.push(this.rootClass + '__calendar-date');
+    if (this.selectedDate && fns.isEqual(this.selectedDate, date)) {
+      classes.push('selected');
+    }
+    if (!fns.isSameMonth(this.showingMonthStart, date)) {
+      classes.push('not-in-month')
+    }
+    return classes;
   }
 
 }

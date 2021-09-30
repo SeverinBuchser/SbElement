@@ -16,7 +16,13 @@
         Card without Hover
       </div>
       <div content>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        <sb-el-date-picker
+          [(ngModel)]="model.date"
+          name="date"
+          size="m"
+          [color]="'success'"
+          #date="ngModel">
+        </sb-el-date-picker>
       </div>
       <div footer>
         <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
@@ -78,13 +84,6 @@
           [options]="['Option 1', 'Option 2', 'Option 3']">
           Select
         </sb-el-select-button>
-        <sb-el-date-picker
-          [(ngModel)]="model.date"
-          name="date"
-          size="m"
-          [color]="color"
-          #date="ngModel">
-        </sb-el-date-picker>
         <sb-el-slider
           label="Slider"
           size="m"
