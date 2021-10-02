@@ -8,15 +8,11 @@
     <sb-el-icon [extraClasses]="rootClass + '__nav-icon'"  (click)="nextMonth()" [color]="color">&#xe315;</sb-el-icon>
     <sb-el-icon [extraClasses]="rootClass + '__nav-icon'"  (click)="nextYear()" [color]="color">&#xeac9;</sb-el-icon>
   </div>
-  <div [ngClass]="getClaendarMonthClasses()">
-    <div *ngFor="let calendarWeek of calendarMonth"
-      [ngClass]="rootClass + '__calendar-week'">
-      <div *ngFor="let date of calendarWeek" (click)="handleSelect(date)"
-        [ngClass]="getClaendarDateClasses(date)">
-        <div [ngClass]="rootClass + '__date-wrapper'">
-          <span>{{ format(date) }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <sb-el-calendar-month
+    [color]="color"
+    [size]="size"
+    [selectedDate]="selectedDate"
+    [showingMonthStart]="showingMonthStart"
+    (select)="handleSelect($event)">
+  </sb-el-calendar-month>
 </div>

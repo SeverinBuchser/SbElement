@@ -9,7 +9,7 @@ import { ThemeService } from "sb-element";
 export class AppComponent {
 
   constructor(themeService: ThemeService) {
-    themeService.commit('night');
+    themeService.commit('light');
   }
 
 }

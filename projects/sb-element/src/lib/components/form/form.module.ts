@@ -20,6 +20,7 @@ import { InputComponent } from './input/input.component';
 import { FileInputComponent } from './file-input/file-input.component';
 import { DatePickerPopperComponent } from './date-picker/date-picker-popper.component';
 import { PopperModule } from "../popper/popper.module";
+import { CalendarMonthComponent } from "./date-picker/calendar-month/calendar-month.component"
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PopperModule } from "../popper/popper.module";
     FormGroupComponent,
     InputComponent,
     FileInputComponent,
+    CalendarMonthComponent,
   ],
   imports: [
     BaseModule,
@@ -61,7 +63,8 @@ import { PopperModule } from "../popper/popper.module";
     IconComponent,
     FormGroupComponent,
     InputComponent,
-    FileInputComponent
+    FileInputComponent,
+    CalendarMonthComponent,
   ]
 })
 export class FormModule { }
