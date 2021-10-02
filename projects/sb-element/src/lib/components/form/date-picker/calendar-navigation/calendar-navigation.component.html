@@ -1,0 +1,9 @@
+<div [ngClass]="getClasses()">
+  <sb-el-icon [extraClasses]="rootClass + '__icon'" (click)="previousYear()" [color]="color">&#xeac3;</sb-el-icon>
+  <sb-el-icon [extraClasses]="rootClass + '__icon'"  (click)="previousMonth()" [color]="color">&#xe314;</sb-el-icon>
+  <div [ngClass]="rootClass + '__current-month'">
+    {{ format }}
+  </div>
+  <sb-el-icon [extraClasses]="rootClass + '__icon'"  (click)="nextMonth()" [color]="color">&#xe315;</sb-el-icon>
+  <sb-el-icon [extraClasses]="rootClass + '__icon'"  (click)="nextYear()" [color]="color">&#xeac9;</sb-el-icon>
+</div>

@@ -34,10 +34,6 @@ export class DatePickerPopperComponent extends PopperDirective {
     }
   };
 
-  get showingFormat(): string {
-    return fns.format(this.showingMonthStart, 'MMM. yyyy');
-  }
-
   constructor(
     private popperService: PopperService,
     themeService: ThemeService

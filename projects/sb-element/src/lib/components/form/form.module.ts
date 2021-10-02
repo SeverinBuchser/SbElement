@@ -20,7 +20,8 @@ import { InputComponent } from './input/input.component';
 import { FileInputComponent } from './file-input/file-input.component';
 import { DatePickerPopperComponent } from './date-picker/date-picker-popper.component';
 import { PopperModule } from "../popper/popper.module";
-import { CalendarMonthComponent } from "./date-picker/calendar-month/calendar-month.component"
+import { CalendarMonthComponent } from "./date-picker/calendar-month/calendar-month.component";
+import { CalendarNavigationComponent } from './date-picker/calendar-navigation/calendar-navigation.component'
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CalendarMonthComponent } from "./date-picker/calendar-month/calendar-mo
     InputComponent,
     FileInputComponent,
     CalendarMonthComponent,
+    CalendarNavigationComponent,
   ],
   imports: [
     BaseModule,
@@ -65,6 +67,7 @@ import { CalendarMonthComponent } from "./date-picker/calendar-month/calendar-mo
     InputComponent,
     FileInputComponent,
     CalendarMonthComponent,
+    CalendarNavigationComponent,
   ]
 })
 export class FormModule { }

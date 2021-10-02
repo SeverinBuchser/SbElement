@@ -1,13 +1,9 @@
 <div [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__navigation'">
-    <sb-el-icon [extraClasses]="rootClass + '__nav-icon'" (click)="previousYear()" [color]="color">&#xeac3;</sb-el-icon>
-    <sb-el-icon [extraClasses]="rootClass + '__nav-icon'"  (click)="previousMonth()" [color]="color">&#xe314;</sb-el-icon>
-    <div [ngClass]="rootClass + '__current-date'">
-      {{ showingFormat }}
-    </div>
-    <sb-el-icon [extraClasses]="rootClass + '__nav-icon'"  (click)="nextMonth()" [color]="color">&#xe315;</sb-el-icon>
-    <sb-el-icon [extraClasses]="rootClass + '__nav-icon'"  (click)="nextYear()" [color]="color">&#xeac9;</sb-el-icon>
-  </div>
+  <sb-el-calendar-navigation
+    [color]="color"
+    [size]="size"
+    [(ngModel)]="showingMonthStart">
+  </sb-el-calendar-navigation>
   <sb-el-calendar-month
     [color]="color"
     [size]="size"
