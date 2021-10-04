@@ -21,10 +21,16 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
 
   @Input()
   set showingMonthStart(date: Date) {
+    // if (fns.compareAsc(date, this._showingMonthStart) < 0) {
+    //   this.compareDate = this._showingMonthStart;
+    // } else {
+    //   this.compareDate = fns.startOfMonth(date);
+    // }
     this._showingMonthStart = fns.startOfMonth(date);
     this.updateCalendarMonth()
   }
   private _showingMonthStart: Date = fns.startOfMonth(new Date());
+  // private compareDate: Date = this._showingMonthStart;
   public calendarMonth!: Array<Array<Date>>;
   public weekDays: Array<string> = new Array<string>();
 
@@ -40,14 +46,30 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
       this.weekDays.push(fns.format(date, 'EEEEEE'))
       date = fns.addDays(date, 1);
     }
-    console.log(this.weekDays)
   }
 
   private updateCalendarMonth(): void {
-    this.calendarMonth = new Array<Array<Date>>();
-    let calendarMonthStart = this._showingMonthStart;
-    if (fns.isMonday(this._showingMonthStart)) {
-      calendarMonthStart = fns.subWeeks(this._showingMonthStart, 1);
+    // if (this.calendarMonth) {
+    //   let weekIndexOld = this.findWeekIndexOfDate(this.calendarMonth);
+    //   let weekIndexNew = this.findWeekIndexOfDate(this.generateCalendarMonth(this._showingMonthStart));
+    //   let translateWeeks = weekIndexNew - weekIndexOld;
+    // }
+    this.calendarMonth = this.generateCalendarMonth(this._showingMonthStart);
+  }
+
+  // private findWeekIndexOfDate(calendarMonth: Array<Array<Date>>): number {
+  //   return calendarMonth.findIndex((calendarWeek: Array<Date>, index: number) => {
+  //     return calendarWeek.findIndex((weekDay: Date) => {
+  //       return fns.isEqual(weekDay, this.compareDate)
+  //     }) >= 0;
+  //   })
+  // }
+
+  private generateCalendarMonth(showingMonthStart: Date): Array<Array<Date>> {
+    let calendarMonth = new Array<Array<Date>>();
+    let calendarMonthStart = showingMonthStart;
+    if (fns.isMonday(showingMonthStart)) {
+      calendarMonthStart = fns.subWeeks(showingMonthStart, 1);
     }
     calendarMonthStart = fns.startOfWeek(calendarMonthStart, { weekStartsOn : 1 });
 
@@ -56,8 +78,9 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
       for (let day = 0 ; day < 7 ; day++) {
         calendarWeek.push(fns.addDays(calendarMonthStart, week * 7 + day));
       }
-      this.calendarMonth.push(calendarWeek);
+      calendarMonth.push(calendarWeek);
     }
+    return calendarMonth;
   }
 
   public format(date: Date): string {
