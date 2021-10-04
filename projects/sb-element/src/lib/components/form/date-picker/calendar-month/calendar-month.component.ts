@@ -26,10 +26,21 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
   }
   private _showingMonthStart: Date = fns.startOfMonth(new Date());
   public calendarMonth!: Array<Array<Date>>;
+  public weekDays: Array<string> = new Array<string>();
 
   constructor(themeService: ThemeService) {
     super(themeService);
     this.updateCalendarMonth();
+    this.createWeekDays();
+  }
+
+  private createWeekDays(): void {
+    let date = fns.setDay(new Date(), 1);
+    for (let weekDay = 1 ; weekDay <= 7 ; weekDay++) {
+      this.weekDays.push(fns.format(date, 'EEEEEE'))
+      date = fns.addDays(date, 1);
+    }
+    console.log(this.weekDays)
   }
 
   private updateCalendarMonth(): void {

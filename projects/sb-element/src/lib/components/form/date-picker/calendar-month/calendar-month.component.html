@@ -1,4 +1,10 @@
 <div [ngClass]="getClasses()">
+  <div [ngClass]="rootClass + '__week-days'">
+    <div *ngFor="let weekDay of weekDays"
+      [ngClass]="rootClass + '__week-day'">
+      {{ weekDay }}
+    </div>
+  </div>
   <div *ngFor="let calendarWeek of calendarMonth"
     [ngClass]="rootClass + '__week'">
     <div *ngFor="let date of calendarWeek" (click)="handleSelect(date)"
