@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BaseModule } from './components/base/base.module';
 import { FormModule } from './components/form/form.module';
@@ -35,7 +34,6 @@ import { PopperModule } from "./components/popper/popper.module";
   imports: [
     BrowserModule,
     BaseModule,
-    FormsModule,
     FormModule,
     PopperModule
   ],
