@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'sb-theming';
+@use 'sb-theming';
 
 html, body {
-  background: $bright;
+  background: sb-theming.$bright;
   margin: 0;
   padding: 0;
 }
@@ -24,7 +24,7 @@ html, body {
 }
 
 .grid {
-  @include padding('s');
+  @include sb-theming.padding('s');
 
   > * > div {
     height: 100%;

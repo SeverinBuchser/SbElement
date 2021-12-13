@@ -1,4 +1,8 @@
-@import 'sb-theming';
+@use 'core/theming';
+@use 'core/spacing';
+@use 'global/mixins/transition';
+@use 'global/mixins/border';
+
 
 .home-logo {
   height: 100vh;
@@ -6,12 +10,12 @@
   overflow: hidden;
 
   &--light {
-    background: $bright;
-    color: $dark;
+    background: theming.get-background(dark);
+    color: var(--dark);
   }
   &--night {
-    background: $dark;
-    color: $bright;
+    background: var(--dark);
+    color: var(--bright);
   }
 
   .envelope, .to-animate, .to-animate-backside {
@@ -23,13 +27,13 @@
   }
 
   .to-animate {
-    @include ease(0.1s);
+    @include transition.ease(0.1s);
     transform-origin: center 5%;
     transform-style: preserve-3d;
   }
 
   .to-animate-backside {
-    @include ease(0.1s);
+    @include transition.ease(0.1s);
     transform-origin: center 5%;
     transform-style: preserve-3d;
     transform: translateZ(-10px);
@@ -62,21 +66,21 @@
     .style {
       position: relative;
       .circle {
-        @include radius(50%);
+        @include border.radius(50%);
         position: absolute;
 
         &-1 {
-          height: getSize('l');
-          width: getSize('l');
-          background: $primary;
+          height: spacing.get-size('l');
+          width: spacing.get-size('l');
+          background: var(--primary);
         }
 
         &-2 {
           top: -10px;
-          left: getSize('s');
-          height: getSize('m');
-          width: getSize('m');
-          background: $secondary;
+          left: spacing.get-size('s');
+          height: spacing.get-size('m');
+          width: spacing.get-size('m');
+          background: var(--secondary);
         }
       }
     }
@@ -88,11 +92,11 @@
     right: 10%;
 
     &--light .line {
-      background: $dark;
+      background: var(--dark);
     }
 
     &--night .line {
-      background: $bright;
+      background: var(--bright);
     }
 
     .line {
