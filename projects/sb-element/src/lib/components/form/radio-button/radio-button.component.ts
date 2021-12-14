@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-color-input.directive';
+import { ThemeService } from "../../../services/theme/theme.service";
+import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-radio-button',
@@ -11,15 +12,15 @@ import { ControlValueAccessorSizeColorInputDirective } from '../../base/control-
     multi: true
   }]
 })
-export class RadioButtonComponent extends ControlValueAccessorSizeColorInputDirective<boolean> {
+export class RadioButtonComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
 
   @Input()
   public label: string = '';
   @Input()
   public labelPosition: string = 'right';
 
-  constructor() {
-    super();
+  constructor(themeService: ThemeService) {
+    super(themeService);
     this.rootClass = 'sb-el-radio-button';
   }
 

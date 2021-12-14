@@ -43,7 +43,7 @@
       This is a Form
     </div>
     <div class="sb-el-form__content">
-      <sb-el-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" pill>
+      <sb-el-alert-box color="warn" size="d" [showArrow]="true" [showIcon]="true" pill>
         This is a warning!
       </sb-el-alert-box>
       <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
@@ -112,6 +112,11 @@
           [disabled]="false"
           #input="ngModel">
         </sb-el-input>
+        <sb-el-toggle-switch
+          size="s"
+          pill
+          [color]="color">
+        </sb-el-toggle-switch>
         <sb-el-file-input
           placeholder="File Input"
           size="m"
