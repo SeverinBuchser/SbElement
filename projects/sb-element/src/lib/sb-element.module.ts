@@ -19,6 +19,7 @@ import { GridComponent } from './components/grid/grid.component';
 import { PopperDirective } from './components/popper/popper.directive';
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 import { PopperModule } from "./components/popper/popper.module";
+import { GridDirective } from './components/grid/grid.directive';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { PopperModule } from "./components/popper/popper.module";
     AlertComponent,
     CardComponent,
     GridComponent,
+    GridDirective,
   ],
   imports: [
     BrowserModule,

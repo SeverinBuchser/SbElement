@@ -13,11 +13,10 @@ export class GridComponent extends ClassNameInputDirective {
   public gap: string | null = null
 
   @Input()
-  public dim: string | null = '2x2';
+  public dim: string = '2x2';
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.dim ? 'dim' + '--' + this.dim : '');
     classes.push(this.gap ? 'gap' + '--' + this.gap : '');
     return classes;
   }
