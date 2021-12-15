@@ -7,28 +7,48 @@
 @import 'sb-theming';
 
 /*****************************************************************************
-                        Color - Variables
+Variables
 ******************************************************************************/
 
+// Color variables. The different colors are used to define palettes, which are
+// used in either the light or dark theme or both.
 :root {
-  @include defineColorHSL(--success, 157, 74%, 52%);
-  @include defineColorHSL(--warn, 351, 100%, 66%);
-  @include defineColorHSL(--info, 45, 100%, 64%);
+	--white-default: #FFF7F5;
+	--white-light: #FFFFFF;
+	--white-dark: #E0D9D7;
 
-  @include defineColorHSL(--primary, 216, 98%, 62%);
-  @include defineColorHSL(--secondary, 336, 91%, 66%);
 
-  @include defineColorHSL(--dark, 210, 13%, 3%);
-  @include defineColorHSL(--night, 208, 13%, 20%);
-  @include defineColorHSL(--bright, 0, 0%, 100%);
-  @include defineColorHSL(--light, 0, 0%, 95%);
+	--black-default: #070809;
+	--black-light: #252B31;
+	--black-dark: #010202;
+
+
+	--green-default: #2ADF9A;
+	--green-light: #BFEFD9;
+	--green-dark: #114834;
+
+
+	--red-default: #FF526C;
+	--red-light: #FFC5CB;
+	--red-dark: #511E26;
+
+
+	--yellow-default: #FFD147;
+	--yellow-light: #FFE7AF;
+	--yellow-dark: #383015;
+
+
+	--blue-default: #3F8BFD;
+	--blue-light: #C5D6F7;
+	--blue-dark: #172F52;
+
+
+	--pink-default: #F75999;
+	--pink-light: #FCC7D9;
+	--pink-dark: #4F2034;
 }
 
-
-/*****************************************************************************
-                        Spacing - Variables
-******************************************************************************/
-
+// Spacing variables used for spacing or sizing.
 :root {
   --spacing-s: 0.7rem;
   --spacing-d: 1rem;
@@ -36,19 +56,47 @@
   --spacing-l: 1.8rem;
 }
 
+// Border width variables.
+:root {
+  --border-s: 1px;
+  --border-d: 2px;
+  --border-m: 3px;
+  --border-l: 4px;
+}
 
-/*****************************************************************************
-                              Typography - Variables
-******************************************************************************/
+/*
+  Imports the following font faces from goolge fonts api (https://fonts.google.com/):
 
+  - Inter (https://fonts.google.com/specimen/Inter)
+    - Light 300
+    - Regular 400
+    - Bold 700
+    - Extra-bold 800
+
+  - Abril Fatface (https://fonts.google.com/specimen/Abril+Fatface)
+    - Regular 400
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Roboto+Mono:ital,wght@1,700&display=swap');
+
+/*
+  Imports material icons form the google fonts api (https://fonts.google.com/).
+
+  The icons can be found under 'https://fonts.google.com/icons'.
+*/
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+// Typography vairables
 :root {
   // weights
-  --font-weight-regular: normal;
+  --font-weight-lighter: lighter;
+  --font-weight-normal: normal;
   --font-weight-bold: bold;
+  --font-weight-bolder: bolder;
 
   // families
   --font-family-default: 'Inter', sans-serif;
-  --font-family-display: 'Abril Fatface', cursive;
+  --font-family-display: 'Roboto Mono', monospace;
 
   // sizes
   --font-size-s: 0.85rem;

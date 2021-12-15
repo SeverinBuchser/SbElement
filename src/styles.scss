@@ -2,7 +2,7 @@
 @use 'sb-theming';
 
 html, body {
-  background: sb-theming.$bright;
+  background: var(--black-dark);
   margin: 0;
   padding: 0;
 }
