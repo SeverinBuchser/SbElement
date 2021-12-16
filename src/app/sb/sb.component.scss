@@ -1,7 +1,7 @@
 @use 'core/theming';
 @use 'core/spacing';
 @use 'core/border';
-@use 'global/mixins/transition';
+@use 'core/transitioning';
 
 
 .home-logo {
@@ -27,13 +27,13 @@
   }
 
   .to-animate {
-    @include transition.ease(0.1s);
+    @include transitioning.ease(0.1s);
     transform-origin: center 5%;
     transform-style: preserve-3d;
   }
 
   .to-animate-backside {
-    @include transition.ease(0.1s);
+    @include transitioning.ease(0.1s);
     transform-origin: center 5%;
     transform-style: preserve-3d;
     transform: translateZ(-10px);
