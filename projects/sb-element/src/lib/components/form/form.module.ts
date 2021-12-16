@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ButtonComponent } from './button/button.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
+import { DatePickerComponent } from './date/single/date-picker.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
 import { ToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
@@ -18,15 +18,17 @@ import { IconComponent } from '../icon/icon.component';
 import { FormGroupComponent } from './group/form-group.component';
 import { InputComponent } from './input/input.component';
 import { FileInputComponent } from './file-input/file-input.component';
-import { DatePickerPopperComponent } from './date-picker/date-picker-popper.component';
 import { PopperModule } from "../popper/popper.module";
-import { CalendarMonthComponent } from "./date-picker/calendar-month/calendar-month.component";
-import { CalendarNavigationComponent } from './date-picker/calendar-navigation/calendar-navigation.component'
+import { CalendarMonthComponent } from "./date/calendar-month/calendar-month.component";
+import { CalendarNavigationComponent } from './date/calendar-navigation/calendar-navigation.component';
+import { DatePickerPopperComponent } from './date/single/date-picker-popper.component';
+import { DateRangePickerComponent } from './date/range/date-range-picker.component';
 
 @NgModule({
   declarations: [
     ButtonComponent,
     DatePickerComponent,
+    DateRangePickerComponent,
     DatePickerPopperComponent,
     IconButtonComponent,
     ToggleSwitchComponent,
@@ -53,6 +55,7 @@ import { CalendarNavigationComponent } from './date-picker/calendar-navigation/c
   exports: [
     ButtonComponent,
     DatePickerComponent,
+    DateRangePickerComponent,
     DatePickerPopperComponent,
     IconButtonComponent,
     ToggleSwitchComponent,

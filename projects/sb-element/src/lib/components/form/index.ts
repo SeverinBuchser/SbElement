@@ -1,6 +1,6 @@
 export * from './button';
 export * from './checkbox';
-export * from './date-picker';
+export * from './date';
 export * from './file-input';
 export * from './group';
 export * from './icon-button';

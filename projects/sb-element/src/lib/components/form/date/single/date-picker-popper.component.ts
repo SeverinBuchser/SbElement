@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import * as fns from "date-fns";
-import { PopperService } from "../../../services/popper/popper.service";
-import { ThemeService } from "../../../services/theme/theme.service";
-import { PopperDirective } from "../../popper/popper.directive";
+import { PopperService } from "../../../../services/popper/popper.service";
+import { ThemeService } from "../../../../services/theme/theme.service";
+import { PopperDirective } from "../../../popper/popper.directive";
 
 
 @Component({
