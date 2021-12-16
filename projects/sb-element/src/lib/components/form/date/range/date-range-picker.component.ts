@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-date-range-picker',
-  templateUrl: './date-range-picker.component.html',
-  styleUrls: ['./date-range-picker.component.css']
+  selector: 'sb-el-date-range-picker',
+  templateUrl: './date-range-picker.component.html'
 })
 export class DateRangePickerComponent implements OnInit {
 

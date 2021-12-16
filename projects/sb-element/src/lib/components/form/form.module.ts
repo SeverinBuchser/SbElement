@@ -21,7 +21,7 @@ import { FileInputComponent } from './file-input/file-input.component';
 import { PopperModule } from "../popper/popper.module";
 import { CalendarMonthComponent } from "./date/calendar-month/calendar-month.component";
 import { CalendarNavigationComponent } from './date/calendar-navigation/calendar-navigation.component';
-import { DatePickerPopperComponent } from './date/single/date-picker-popper.component';
+import { DatePickerPopperComponent } from './date/popper/date-picker-popper.component';
 import { DateRangePickerComponent } from './date/range/date-range-picker.component';
 
 @NgModule({
