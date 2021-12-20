@@ -1,1 +1,11 @@
-<p>date-range-picker works!</p>
+<sb-el-input
+  [ngModel]="value"
+  (ngModelChange)="handleSelect($event)"
+  placeholder="Pick a two Dates"
+  [size]="size"
+  [color]="color"
+  [prefixIcon]="'\ue878'"
+  sbElPopoverTriggerClick
+  popoverPosition="bottom"
+  (trigger)="open()">
+</sb-el-input>

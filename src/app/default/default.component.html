@@ -23,7 +23,12 @@
           [color]="'success'"
           #date="ngModel">
         </sb-el-date-picker>
-        <sb-el-date-range-picker>
+        <sb-el-date-range-picker
+          [(ngModel)]="model.date"
+          name="date"
+          size="m"
+          [color]="'success'"
+          #date="ngModel">
         </sb-el-date-range-picker>
       </div>
       <div footer>

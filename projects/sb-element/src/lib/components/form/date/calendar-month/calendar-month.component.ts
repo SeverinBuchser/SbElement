@@ -3,7 +3,6 @@ import * as fns from "date-fns";
 import { ThemeService } from "../../../../services/theme/theme.service";
 import { SizeThemeColorInputDirective } from "../../../base/style-input";
 
-
 @Component({
   selector: 'sb-el-calendar-month',
   templateUrl: './calendar-month.component.html'
@@ -14,23 +13,21 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();
-  public handleSelect(date: Date): void {this.select.emit(date);}
+  public handleSelect(date: Date): void {
+    if (fns.isSameMonth(this._showingMonthStart, date)) {
+      this.select.emit(date);
+    }
+  }
 
   @Input()
-  public selectedDate?: Date;
+  public markedDates: Array<Date> = new Array<Date>();
 
   @Input()
   set showingMonthStart(date: Date) {
-    // if (fns.compareAsc(date, this._showingMonthStart) < 0) {
-    //   this.compareDate = this._showingMonthStart;
-    // } else {
-    //   this.compareDate = fns.startOfMonth(date);
-    // }
     this._showingMonthStart = fns.startOfMonth(date);
     this.updateCalendarMonth()
   }
   private _showingMonthStart: Date = fns.startOfMonth(new Date());
-  // private compareDate: Date = this._showingMonthStart;
   public calendarMonth!: Array<Array<Date>>;
   public weekDays: Array<string> = new Array<string>();
 
@@ -49,21 +46,8 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
   }
 
   private updateCalendarMonth(): void {
-    // if (this.calendarMonth) {
-    //   let weekIndexOld = this.findWeekIndexOfDate(this.calendarMonth);
-    //   let weekIndexNew = this.findWeekIndexOfDate(this.generateCalendarMonth(this._showingMonthStart));
-    //   let translateWeeks = weekIndexNew - weekIndexOld;
-    // }
     this.calendarMonth = this.generateCalendarMonth(this._showingMonthStart);
   }
-
-  // private findWeekIndexOfDate(calendarMonth: Array<Array<Date>>): number {
-  //   return calendarMonth.findIndex((calendarWeek: Array<Date>, index: number) => {
-  //     return calendarWeek.findIndex((weekDay: Date) => {
-  //       return fns.isEqual(weekDay, this.compareDate)
-  //     }) >= 0;
-  //   })
-  // }
 
   private generateCalendarMonth(showingMonthStart: Date): Array<Array<Date>> {
     let calendarMonth = new Array<Array<Date>>();
@@ -90,9 +74,26 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
   public getClaendarDateClasses(date: Date): Array<string> {
     let classes = new Array<string>();
     classes.push(this.rootClass + '__date');
-    if (this.selectedDate && fns.isEqual(this.selectedDate, date)) {
-      classes.push('selected');
+
+    if (this.markedDates.length == 2) {
+      let start = this.markedDates[0];
+      let end = this.markedDates[1];
+      if (fns.isAfter(date, start) && fns.isBefore(date, end)) {
+        classes.push('between');
+        classes.push('marked');
+      } else if (fns.isEqual(date, start)) {
+        classes.push('start');
+        classes.push('marked');
+      } else if (fns.isEqual(date, end)) {
+        classes.push('end');
+        classes.push('marked');
+      }
+    } else if (this.markedDates.length == 1) {
+      if (fns.isEqual(date, this.markedDates[0])) {
+        classes.push('marked');
+      }
     }
+
     if (!fns.isSameMonth(this._showingMonthStart, date)) {
       classes.push('not-in-month')
     }

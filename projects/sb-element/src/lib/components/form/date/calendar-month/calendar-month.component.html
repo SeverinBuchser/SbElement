@@ -10,6 +10,7 @@
     <div *ngFor="let date of calendarWeek" (click)="handleSelect(date)"
       [ngClass]="getClaendarDateClasses(date)">
       <div [ngClass]="rootClass + '__date-wrapper'">
+        <div class="mark"></div>
         <span>{{ format(date) }}</span>
       </div>
     </div>

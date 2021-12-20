@@ -1,5 +1,5 @@
 export * from './calendar-month';
 export * from './calendar-navigation';
-export * from './popper';
+export * from './picker';
 export * from './single';
 export * from './range';
