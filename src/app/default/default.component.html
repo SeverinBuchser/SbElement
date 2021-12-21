@@ -16,20 +16,22 @@
         Card without Hover
       </div>
       <div content>
-        <sb-el-date-picker
-          [(ngModel)]="model.date"
-          name="date"
-          size="m"
-          [color]="'success'"
-          #date="ngModel">
-        </sb-el-date-picker>
-        <sb-el-date-range-picker
-          [(ngModel)]="model.date"
-          name="date"
-          size="m"
-          [color]="'success'"
-          #date="ngModel">
-        </sb-el-date-range-picker>
+        <div class="pickers">
+          <sb-el-date-picker
+            [(ngModel)]="model.date"
+            name="date"
+            size="m"
+            [color]="'success'"
+            #date="ngModel">
+          </sb-el-date-picker>
+          <sb-el-date-range-picker
+            [(ngModel)]="model.date"
+            name="date"
+            size="m"
+            [color]="'success'"
+            #date="ngModel">
+          </sb-el-date-range-picker>
+        </div>
       </div>
       <div footer>
         <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>

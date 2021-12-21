@@ -28,7 +28,7 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
     this.updateCalendarMonth()
   }
   private _showingMonthStart: Date = fns.startOfMonth(new Date());
-  public calendarMonth!: Array<Array<Date>>;
+  public calendarMonth!: Array<Date>;
   public weekDays: Array<string> = new Array<string>();
 
   constructor(themeService: ThemeService) {
@@ -46,25 +46,16 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
   }
 
   private updateCalendarMonth(): void {
-    this.calendarMonth = this.generateCalendarMonth(this._showingMonthStart);
-  }
-
-  private generateCalendarMonth(showingMonthStart: Date): Array<Array<Date>> {
-    let calendarMonth = new Array<Array<Date>>();
-    let calendarMonthStart = showingMonthStart;
-    if (fns.isMonday(showingMonthStart)) {
-      calendarMonthStart = fns.subWeeks(showingMonthStart, 1);
+    this.calendarMonth = new Array<Date>();
+    let calendarMonthStart = this._showingMonthStart;
+    if (fns.isMonday(this._showingMonthStart)) {
+      calendarMonthStart = fns.subWeeks(this._showingMonthStart, 1);
     }
-    calendarMonthStart = fns.startOfWeek(calendarMonthStart, { weekStartsOn : 1 });
+    calendarMonthStart = fns.startOfWeek(calendarMonthStart, {weekStartsOn : 1});
 
-    for (let week = 0 ; week < 6 ; week++) {
-      let calendarWeek = new Array<Date>();
-      for (let day = 0 ; day < 7 ; day++) {
-        calendarWeek.push(fns.addDays(calendarMonthStart, week * 7 + day));
-      }
-      calendarMonth.push(calendarWeek);
+    for (let day = 0 ; day < 42 ; day++) {
+      this.calendarMonth.push(fns.addDays(calendarMonthStart, day));
     }
-    return calendarMonth;
   }
 
   public format(date: Date): string {
