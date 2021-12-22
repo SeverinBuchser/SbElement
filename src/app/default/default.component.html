@@ -1,5 +1,5 @@
 <sb-el-container size="l">
-  <sb-el-grid dim="1x2">
+  <sb-el-grid dim="1x3">
     <sb-el-card size="s" color="primary" hover>
       <div title>
         Card with Hover
@@ -9,6 +9,27 @@
       </div>
       <div footer>
         Go checkout something else!
+      </div>
+    </sb-el-card>
+    <sb-el-card size="s" color="primary">
+      <div title>
+        Card without Hover
+      </div>
+      <div content>
+        <sb-el-timeline
+          #timeline
+          [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
+        </sb-el-timeline>
+        <div class="timeline-control">
+          <sb-el-button (click)="timeline.previousDone()" plain size="s">Previous Done</sb-el-button>
+          <sb-el-button (click)="timeline.previousPending()" plain size="s">Previous Pending</sb-el-button>
+          <sb-el-button (click)="timeline.previous()" plain size="s">Previous</sb-el-button>
+          <sb-el-button (click)="timeline.nextDone()" plain size="s">Next Done</sb-el-button>
+          <sb-el-button (click)="timeline.nextPending()" plain size="s">Next Pending</sb-el-button>
+        </div>
+      </div>
+      <div footer>
+        <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
       </div>
     </sb-el-card>
     <sb-el-card size="s" color="primary">

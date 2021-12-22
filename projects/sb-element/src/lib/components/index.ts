@@ -8,3 +8,4 @@ export * from './grid';
 export * from './icon';
 export * from './popper';
 export * from './table';
+export * from './timeline';

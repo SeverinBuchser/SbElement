@@ -10,12 +10,15 @@
 Variables
 ******************************************************************************/
 
+/*****************************************************************************
+Color
+******************************************************************************/
 // Color variables. The different colors are used to define palettes, which are
 // used in either the light or dark theme or both.
 :root {
-	--white-default: #FFF7F5;
+	--white-default: #FAF3F0;
 	--white-light: #FFFFFF;
-	--white-dark: #E0D9D7;
+	--white-dark: #D9D2D0;
 
 
 	--black-default: #070809;
@@ -24,30 +27,33 @@ Variables
 
 
 	--green-default: #2ADF9A;
-	--green-light: #BFEFD9;
+	--green-light: #BBEDD6;
 	--green-dark: #114834;
 
 
 	--red-default: #FF526C;
-	--red-light: #FFC5CB;
+	--red-light: #FBC2C8;
 	--red-dark: #511E26;
 
 
 	--yellow-default: #FFD147;
-	--yellow-light: #FFE7AF;
+	--yellow-light: #FCE5AC;
 	--yellow-dark: #383015;
 
 
 	--blue-default: #3F8BFD;
-	--blue-light: #C5D6F7;
+	--blue-light: #C1D3F3;
 	--blue-dark: #172F52;
 
 
 	--pink-default: #F75999;
-	--pink-light: #FCC7D9;
+	--pink-light: #F9C4D5;
 	--pink-dark: #4F2034;
 }
 
+/*****************************************************************************
+Spacing
+******************************************************************************/
 // Spacing variables used for spacing or sizing.
 :root {
   --spacing-s: 0.7rem;
@@ -56,6 +62,9 @@ Variables
   --spacing-l: 1.8rem;
 }
 
+/*****************************************************************************
+Border
+******************************************************************************/
 // Border width variables.
 :root {
   --border-s: 1px;
@@ -64,26 +73,25 @@ Variables
   --border-l: 4px;
 }
 
-/*
-  Imports the following font faces from goolge fonts api (https://fonts.google.com/):
+/*****************************************************************************
+Typography
+******************************************************************************/
+// Imports the following font faces from goolge fonts api
+// (https://fonts.google.com/):
+//  - Inter (https://fonts.google.com/specimen/Inter)
+//    - Light 300
+//    - Regular 400
+//    - Bold 700
+//    - Extra-bold 800
+// - Roboto Mono (https://fonts.google.com/specimen/Roboto+Mono)
+//    - Bold 700
+//    - Bold 700 italic
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Roboto+Mono:ital,wght@0,700;1,700&display=swap');
 
-  - Inter (https://fonts.google.com/specimen/Inter)
-    - Light 300
-    - Regular 400
-    - Bold 700
-    - Extra-bold 800
-
-  - Abril Fatface (https://fonts.google.com/specimen/Abril+Fatface)
-    - Regular 400
-*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Roboto+Mono:ital,wght@1,700&display=swap');
-
-/*
-  Imports material icons form the google fonts api (https://fonts.google.com/).
-
-  The icons can be found under 'https://fonts.google.com/icons'.
-*/
+// Imports material icons form the google fonts api (https://fonts.google.com/).
+// The icons can be found under 'https://fonts.google.com/icons'.
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
 
 
 // Typography vairables
@@ -97,6 +105,8 @@ Variables
   // families
   --font-family-default: 'Inter', sans-serif;
   --font-family-display: 'Roboto Mono', monospace;
+	--font-family-icon: 'Material Icons';
+	--font-family-icon-outlined: 'Material Icons Outlined';
 
   // sizes
   --font-size-s: 0.85rem;

@@ -1,0 +1,38 @@
+<div [ngClass]="getClasses()">
+  <sb-el-grid [dim]="gridDim" [extraClasses]="rootClass + '__grid'">
+    <div *ngFor="let step of steps" [ngClass]="rootClass + '__name'">
+      <span>{{ step.name }}</span>
+    </div>
+    <div *ngFor="let step of steps; index as i" [ngClass]="rootClass + '__indicator'">
+      <div [ngClass]="rootClass + '__icon'">
+        <sb-el-icon *ngIf="step.state == 'current'"
+          size="s"
+          [color]="color">
+          &#xe39e;
+        </sb-el-icon>
+
+        <sb-el-icon *ngIf="step.state == 'awaiting'"
+          size="s"
+          outline
+          color="none"
+          extraClasses="awaiting">
+          &#xef4a;
+        </sb-el-icon>
+
+        <sb-el-icon *ngIf="step.state == 'done'"
+          size="s"
+          [color]="color">
+          &#xef4a;
+        </sb-el-icon>
+
+        <sb-el-icon *ngIf="step.state == 'pending'"
+          size="s"
+          [color]="color"
+          outline>
+          &#xef64;
+        </sb-el-icon>
+      </div>
+      <div *ngIf="step.line" [ngClass]="getLineClasses(i)"></div>
+    </div>
+  </sb-el-grid>
+</div>

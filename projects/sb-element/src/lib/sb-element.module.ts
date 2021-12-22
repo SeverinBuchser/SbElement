@@ -20,6 +20,7 @@ import { PopperDirective } from './components/popper/popper.directive';
 import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 import { PopperModule } from "./components/popper/popper.module";
 import { GridDirective } from './components/grid/grid.directive';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { GridDirective } from './components/grid/grid.directive';
     CardComponent,
     GridComponent,
     GridDirective,
+    TimelineComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { GridDirective } from './components/grid/grid.directive';
     BaseModule,
     FormModule,
     PopperModule,
+    TimelineComponent,
   ]
 })
 export class SbElementModule { }
