@@ -14,49 +14,78 @@ export class TimelineComponent extends ThemeColorInputDirective {
 
   public rootClass = 'sb-el-timeline';
 
-  private current?: ListItem<Step>;
-
   private _steps: LinkedList<Step> = new LinkedList<Step>();
   get steps(): LinkedList<Step> {
     return this._steps;
   }
 
+  private current: ListItem<Step> = this._steps.start;
+
   @Input()
   set stepNames(stepNames: Array<string>) {
-    this._steps = new LinkedList(stepNames.map(
-      (stepName: string, index: number) => {
-        return {name: stepName, state: 'awaiting', line: index < stepNames.length - 1 ? true : false};
-      }
-    ))
+    let steps: Array<Step> = stepNames.map(
+      (stepName: string, index: number) => { return {
+        name: stepName,
+        state: 'awaiting',
+        line: index < stepNames.length - 1 ? true : false
+      }}
+    );
+    this._steps = new LinkedList(steps);
     this.current = this._steps.start;
-    this.current.value.state = 'current';
   }
 
   get gridDim(): string {
     return this._steps.length + "x2";
   }
 
-  public start(): void {
+  private updateNext(state: State) {
+    if (this.current.next) {
+      if (!this.steps.isStart(this.current)) {
+        this.current.value.state = state;
+      }
+      this.current = this.current.next;
+      if (!this.steps.isEnd(this.current)) {
+        this.current.value.state = 'current';
+      }
+    }
+  }
+
+  private updatePrevious(state: State) {
+    if (this.current.previous) {
+      if (!this.steps.isEnd(this.current)) {
+        this.current.value.state = state;
+      }
+      this.current = this.current.previous;
+      if (!this.steps.isStart(this.current)) {
+        this.current.value.state = 'current';
+      }
+    }
   }
 
   public nextDone(): void {
-    if (this.current) {
-      this.current.value.state = 'done';
-      if (this.current.next) {
-        this.current = this.current.next;
-        this.current.value.state = 'current';
-      }
-    }
+    this.updateNext('done');
   }
 
   public nextPending(): void {
-    if (this.current) {
-      this.current.value.state = 'pending';
-      if (this.current.next) {
-        this.current = this.current.next;
-        this.current.value.state = 'current';
-      }
-    }
+    this.updateNext('pending');
+  }
+
+  public previous(): void {
+    this.updatePrevious('awaiting');
+  }
+
+  public previousDone(): void {
+    this.updatePrevious('done');
+  }
+
+  public previousPending(): void {
+    this.updatePrevious('pending');
+  }
+
+  public setCurrent(index: number): void;
+  public setCurrent(name: string): void;
+  public setCurrent(indexOrName: number | string): void {
+    this.setState(indexOrName, 'current');
   }
 
   public setDone(index: number): void;
@@ -97,49 +126,19 @@ export class TimelineComponent extends ThemeColorInputDirective {
     return index;
   }
 
-  public previous(): void {
-    if (this.current) {
-      if (this.current.previous) {
-        this.current.value.state = 'awaiting';
-        this.current = this.current.previous;
-        this.current.value.state = 'current';
-      }
-    }
-  }
-
-  public previousDone(): void {
-    if (this.current) {
-      if (this.current.previous) {
-        this.current.value.state = 'done';
-        this.current = this.current.previous;
-        this.current.value.state = 'current';
-      }
-    }
-  }
-
-  public previousPending(): void {
-    if (this.current) {
-      if (this.current.previous) {
-        this.current.value.state = 'pending';
-        this.current = this.current.previous;
-        this.current.value.state = 'current';
-      }
-    }
-  }
-
   public getLineClasses(index: number): Array<string> {
     let classes = new Array<string>();
     let state = this._steps.getItem(index).value.state;
     classes.push(this.rootClass + '__line');
 
-    let isBefore = state != 'current';
+    let isBeforeCurrent = state != 'current' && !this._steps.isStart(this.current);
     for (let i = 0 ; i < index ; i++) {
       if (this._steps.getItem(i).value.state == 'current') {
-        isBefore = false;
+        isBeforeCurrent = false;
         break;
       }
     }
-    if (isBefore) {
+    if (isBeforeCurrent) {
       classes.push('active')
     }
     return classes;
