@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ThemeService } from '../../../services/theme/theme.service';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
@@ -29,13 +28,6 @@ export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirec
   public prefixIcon: string = '';
   @Input()
   public suffixIcon: string = '';
-
-
-  constructor(
-    themeService: ThemeService
-  ) {
-    super(themeService);
-  }
 
   public getInputClasses(): Array<string> {
     let classes = new Array<string>();

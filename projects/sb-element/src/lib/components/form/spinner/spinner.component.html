@@ -1,0 +1,31 @@
+<div [ngClass]="getClasses()">
+  <div [ngClass]="rootClass + '__border'"></div>
+  <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
+    <sb-el-icon [icon]="prefixIcon" [color]="null" size="d"></sb-el-icon>
+  </div>
+  <div [ngClass]="rootClass + '__input-wrapper'">
+    <input
+      [ngClass]="getInputClasses()"
+      type="number"
+      [(ngModel)]="value"
+      (blur)="emitBlur()"
+      (focus)="emitFocus()"
+      [disabled]="disabled">
+    <div [ngClass]="getPlaceholderClasses()">
+      {{ placeholder }}
+    </div>
+    <div [ngClass]="rootClass + '__spinner-controls'">
+      <sb-el-icon
+        [extraClasses]="rootClass + '__spinner-control'"
+        (mousedown)="handleMouseDownIncrease()"
+        (mouseup)="handleMouseUp()">&#xe5e1;</sb-el-icon>
+      <sb-el-icon
+        [extraClasses]="rootClass + '__spinner-control'"
+        (mousedown)="handleMouseDownDecrease()"
+        (mouseup)="handleMouseUp()">&#xe2ea;</sb-el-icon>
+    </div>
+  </div>
+  <div *ngIf="suffixIcon" [ngClass]="rootClass + '__suffix'">
+    <sb-el-icon [icon]="suffixIcon" [color]="null" size="d"></sb-el-icon>
+  </div>
+</div>

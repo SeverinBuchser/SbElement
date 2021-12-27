@@ -1,5 +1,5 @@
 <sb-el-container size="l">
-  <sb-el-grid dim="1x3">
+  <sb-el-grid dim="1x4">
     <sb-el-card size="s" color="primary" hover>
       <div title>
         Card with Hover
@@ -52,6 +52,33 @@
             [color]="'success'"
             #date="ngModel">
           </sb-el-date-range-picker>
+        </div>
+      </div>
+      <div footer>
+        <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+      </div>
+    </sb-el-card>
+    <sb-el-card size="s" color="primary">
+      <div title>
+        Card without Hover
+      </div>
+      <div content>
+        <div class="pickers">
+          <sb-el-spinner
+            placeholder="Number Input"
+            [(ngModel)]="model.spinner"
+            name="spinner"
+            size="m"
+            [color]="'success'"
+            #spinner="ngModel">
+          </sb-el-spinner>
+          <sb-el-time-picker
+            [(ngModel)]="model.time"
+            name="time"
+            size="m"
+            [color]="'success'"
+            #time="ngModel">
+          </sb-el-time-picker>
         </div>
       </div>
       <div footer>
@@ -136,6 +163,7 @@
         <sb-el-input
           placeholder="Enter your E-Mail"
           size="m"
+          type="string"
           [color]="color"
           [(ngModel)]="model.input"
           name="input"

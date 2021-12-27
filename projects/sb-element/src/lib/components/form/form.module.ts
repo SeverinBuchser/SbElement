@@ -23,6 +23,8 @@ import { CalendarMonthComponent } from "./date/calendar-month/calendar-month.com
 import { CalendarNavigationComponent } from './date/calendar-navigation/calendar-navigation.component';
 import { DatePickerPopperComponent } from './date/picker/date-picker-popper.component';
 import { DateRangePickerComponent } from './date/range/date-range-picker.component';
+import { TimePickerComponent } from './time/time-picker.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { DateRangePickerComponent } from './date/range/date-range-picker.compone
     FileInputComponent,
     CalendarMonthComponent,
     CalendarNavigationComponent,
+    TimePickerComponent,
+    SpinnerComponent,
   ],
   imports: [
     BaseModule,
@@ -71,6 +75,8 @@ import { DateRangePickerComponent } from './date/range/date-range-picker.compone
     FileInputComponent,
     CalendarMonthComponent,
     CalendarNavigationComponent,
+    TimePickerComponent,
+    SpinnerComponent,
   ]
 })
 export class FormModule { }

@@ -24,9 +24,11 @@ export class DefaultComponent implements OnInit {
     checkboxes: {'Option 1': true, 'Option 2': false, 'Option 3': true},
     radios: 'Option 1',
     slider: 0,
-    input: 'asdf',
+    input: 'severin.buchser@gmx.ch',
     fileinput: '',
-    date: ''
+    date: '',
+    spinner: null,
+    time: 0,
   };
 
   public table: TableModel = new TableModel();

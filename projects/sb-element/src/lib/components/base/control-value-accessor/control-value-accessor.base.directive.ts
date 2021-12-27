@@ -8,6 +8,7 @@ import { EventManagerDirective } from './event-manager.directive';
 export class ControlValueAccessorBaseDirective<ValueType> extends EventManagerDirective<ValueType> implements ControlValueAccessor {
 
   private innerValue: ValueType | undefined;
+  protected allowEmpty: boolean = false;
 
   // writing value
   set value(value: ValueType | undefined) { this.setInnerValue(value, true, false) }
@@ -18,10 +19,17 @@ export class ControlValueAccessorBaseDirective<ValueType> extends EventManagerDi
   }
 
   private setInnerValue(value: ValueType | undefined, emitChange: boolean, innerChange: boolean): void {
-    if (value !== this.innerValue && value !== null && !this.disabled) {
-      this.innerValue = value;
-      if (!innerChange) this.updateValues();
-      if (emitChange) this.emitChange(value);
+    if (value !== this.innerValue && !this.disabled) {
+      if (!this.allowEmpty && value !== null) {
+        this.innerValue = value;
+        if (!innerChange) this.updateValues();
+        if (emitChange) this.emitChange(value);
+      } else if (this.allowEmpty) {
+        value = value == null ? undefined : value;
+        this.innerValue = value;
+        if (!innerChange) this.updateValues();
+        if (emitChange) this.emitChange(value);
+      }
     }
   }
 
