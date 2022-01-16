@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ClassNameInputDirective } from "../base/style-input/class-name-input.directive";
+import { ClassNameInputDirective } from "../../core/style-input/class-name-input.directive";
 
 @Component({
   selector: 'sb-el-grid',

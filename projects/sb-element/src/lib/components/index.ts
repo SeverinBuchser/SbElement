@@ -1,6 +1,5 @@
 export * from './alert';
 export * from './alert-box';
-export * from './base';
 export * from './card';
 export * from './container';
 export * from './form';

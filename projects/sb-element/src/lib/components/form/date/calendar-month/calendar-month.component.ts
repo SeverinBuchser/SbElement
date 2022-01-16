@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as fns from "date-fns";
 import { ThemeService } from "../../../../services/theme/theme.service";
-import { SizeThemeColorInputDirective } from "../../../base/style-input";
+import { SizeThemeColorInputDirective } from "../../../../core/style-input";
 
 @Component({
   selector: 'sb-el-calendar-month',

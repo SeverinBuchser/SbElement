@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
-import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../base/control-value-accessor-style-input";
+import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../core/control-value-accessor-style-input";
 
 @Component({
   selector: 'sb-el-calendar-navigation',

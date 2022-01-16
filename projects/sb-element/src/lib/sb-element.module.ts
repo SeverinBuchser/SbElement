@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BaseModule } from './components/base/base.module';
+import { CoreModule } from './core/core.module';
 import { FormModule } from './components/form/form.module';
 
 /**
@@ -37,7 +37,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
   ],
   imports: [
     BrowserModule,
-    BaseModule,
+    CoreModule,
     FormModule,
     PopperModule
   ],
@@ -50,7 +50,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     CardComponent,
     GridComponent,
     // modules
-    BaseModule,
+    CoreModule,
     FormModule,
     PopperModule,
     TimelineComponent,

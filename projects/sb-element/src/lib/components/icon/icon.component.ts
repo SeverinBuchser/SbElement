@@ -1,5 +1,5 @@
 import { Attribute, Component, Input, Optional } from '@angular/core';
-import { SizeColorInputDirective } from '../base/style-input/size-color-input.directive';
+import { SizeColorInputDirective } from '../../core/style-input/size-color-input.directive';
 
 @Component({
   selector: 'sb-el-icon',

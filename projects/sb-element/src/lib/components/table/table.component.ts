@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TableInterface } from "../../models/table/table.interface";
-import { ThemeColorInputDirective } from '../base/style-input/theme-color-input.directive';
+import { ThemeColorInputDirective } from '../../core/style-input/theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-table',

@@ -1,7 +1,7 @@
 import { Component, ComponentRef, ElementRef, EventEmitter, Type, ViewChild } from '@angular/core';
 import { ThemeService } from "../../../services/theme/theme.service";
 import { PopperService } from "../../../services/popper/popper.service";
-import { SizeThemeInputDirective } from "../../base/style-input/size-theme-input.directive";
+import { SizeThemeInputDirective } from "../../../core/style-input/size-theme-input.directive";
 import { PopperOutletDirective } from "./popper-outlet.directive";
 import { PopoverPosition } from "../../../models/popover/popover-position";
 import { PopperDirective } from "../popper.directive";

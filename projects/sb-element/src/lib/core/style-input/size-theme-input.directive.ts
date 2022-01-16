@@ -1,16 +1,16 @@
 import { Directive, Input } from '@angular/core';
-import { ThemeService } from '../../../services/theme/theme.service';
+import { ThemeService } from '../../services/theme/theme.service';
 import { ClassNameInputDirective } from './class-name-input.directive';
 
 @Directive({
   selector: '[selector]'
 })
-export class ThemeColorInputDirective extends ClassNameInputDirective {
-
-  public theme: string;
+export class SizeThemeInputDirective extends ClassNameInputDirective {
 
   @Input()
-  public color: string | null = 'primary';
+  public size: string | null = 'd';
+
+  public theme: string;
 
   constructor(
     private themeService: ThemeService
@@ -21,8 +21,8 @@ export class ThemeColorInputDirective extends ClassNameInputDirective {
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.theme && this.color ?
-      this.rootClass + '--' + this.theme + '-' + this.color : '');
+    classes.push(this.size ? this.rootClass + '--' + this.size : '');
+    classes.push(this.theme ? this.rootClass + '--' + this.theme : '');
     return classes;
   }
 

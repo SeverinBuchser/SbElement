@@ -1,6 +1,6 @@
 import { AfterViewInit, Directive } from '@angular/core';
 import { ThemeService } from "../../services/theme/theme.service";
-import { SizeThemeColorInputDirective } from "../../components/base/style-input/size-theme-color-input.directive";
+import { SizeThemeColorInputDirective } from "../../core/style-input/size-theme-color-input.directive";
 
 @Directive({
   selector: '[selector]'

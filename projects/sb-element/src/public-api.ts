@@ -3,6 +3,7 @@
  */
 
 export * from './lib/sb-element.module';
+export * from './lib/core';
 
 /*
  *  Models

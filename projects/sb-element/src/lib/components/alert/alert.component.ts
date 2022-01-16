@@ -3,7 +3,7 @@ import { Alert } from '../../models/alert/alert';
 import { AlertServiceSubscriber } from '../../models/alert/alert-service-subscriber';
 import { AlertService } from '../../services/alert/alert.service';
 import { ThemeService } from '../../services/theme/theme.service';
-import { SizeThemeColorInputDirective } from '../base/style-input/size-theme-color-input.directive';
+import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-alert',

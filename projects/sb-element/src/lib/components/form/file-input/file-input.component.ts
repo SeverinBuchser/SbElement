@@ -2,7 +2,7 @@ import { Attribute, Component, Input, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AlertService } from '../../../services/alert/alert.service';
 import { ThemeService } from '../../../services/theme/theme.service';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-file-input',

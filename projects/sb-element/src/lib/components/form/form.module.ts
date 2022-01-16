@@ -13,7 +13,7 @@ import { SelectionOptionsDirective } from './group/base/selection-options.direct
 import { SelectButtonComponent } from './select-button/select-button.component';
 import { SliderComponent } from './slider/slider.component';
 import { FormsModule } from '@angular/forms';
-import { BaseModule } from '../base/base.module';
+import { CoreModule } from '../../core/core.module';
 import { IconComponent } from '../icon/icon.component';
 import { FormGroupComponent } from './group/form-group.component';
 import { InputComponent } from './input/input.component';
@@ -51,7 +51,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     SpinnerComponent,
   ],
   imports: [
-    BaseModule,
+    CoreModule,
     CommonModule,
     FormsModule,
     PopperModule

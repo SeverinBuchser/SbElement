@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ControlValueAccessorSizeThemeColorInputDirective } from "../../base/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive";
+import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive";
 import { ThemeService } from "../../../services/theme/theme.service";
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 

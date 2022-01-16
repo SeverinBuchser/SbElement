@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SizeThemeColorInputDirective } from '../../base/style-input/size-theme-color-input.directive';
+import { SizeThemeColorInputDirective } from '../../../core/style-input/size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-form-group',

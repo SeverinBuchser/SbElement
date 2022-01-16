@@ -1,6 +1,6 @@
 import { Attribute, Component, Input, Optional } from '@angular/core';
 import { ThemeService } from '../../../services/theme/theme.service';
-import { SizeThemeColorInputDirective } from '../../base/style-input/size-theme-color-input.directive';
+import { SizeThemeColorInputDirective } from '../../../core/style-input/size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-icon-button',

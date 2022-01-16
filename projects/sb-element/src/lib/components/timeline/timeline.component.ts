@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { LinkedList } from "../../models/linked-list/linked-list";
 import { ListItem } from "../../models/linked-list/list-item";
-import { ThemeColorInputDirective } from '../base/style-input/theme-color-input.directive';
+import { ThemeColorInputDirective } from '../../core/style-input/theme-color-input.directive';
 
 type State = 'current' | 'awaiting' | 'done' | 'pending';
 type Step = {name: string, state: State, line: boolean};

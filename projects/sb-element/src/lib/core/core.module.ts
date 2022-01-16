@@ -65,4 +65,4 @@ import { EventManagerDirective } from './control-value-accessor/event-manager.di
     ControlValueAccessorClassNameInputDirective,
   ]
 })
-export class BaseModule { }
+export class CoreModule { }

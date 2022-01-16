@@ -1,11 +1,11 @@
 import { Directive, Input } from '@angular/core';
-import { ThemeService } from '../../../services/theme/theme.service';
-import { ControlValueAccessorClassNameInputDirective } from './control-value-accessor-class-name-input.directive';
+import { ThemeService } from '../../services/theme/theme.service';
+import { ClassNameInputDirective } from './class-name-input.directive';
 
 @Directive({
   selector: '[selector]'
 })
-export class ControlValueAccessorSizeThemeColorInputDirective<ValueType> extends ControlValueAccessorClassNameInputDirective<ValueType> {
+export class SizeThemeColorInputDirective extends ClassNameInputDirective {
 
   @Input()
   public size: string | null = 'd';
