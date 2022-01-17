@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
@@ -28,6 +28,11 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
   public prefixIcon: string = '';
   @Input()
   public suffixIcon: string = '';
+
+  @Output()
+  public overflow: EventEmitter<void> = new EventEmitter<void>();
+  @Output()
+  public underflow: EventEmitter<void> = new EventEmitter<void>();
 
   private intervals: Array<number> = new Array<number>();
   private isMouseDown: boolean = false;
@@ -79,6 +84,7 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
     }
     if (newValue > this.max) {
       newValue = this.min;
+      this.overflow.emit();
     }
     this.steps++;
     this.writeValueInnerChange(newValue);
@@ -95,6 +101,7 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
     }
     if (newValue < this.min) {
       newValue = this.max;
+      this.underflow.emit();
     }
     this.steps++;
     this.writeValueInnerChange(newValue);
