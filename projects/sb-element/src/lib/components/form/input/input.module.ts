@@ -6,16 +6,16 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../../../core/core.module';
 import { IconModule } from '../../icon/icon.module';
 
-import { CoreInputComponent } from './core/core-input/core-input.component';
-import { CoreInputWrapperComponent } from './core/core-input-wrapper/core-input-wrapper.component';
+import { InputCoreComponent } from './core/input-core/input-core.component';
+import { InputCoreWrapperComponent } from './core/input-core-wrapper/input-core-wrapper.component';
 
 import { InputComponent } from './simple/input.component';
 import { DoubleInputComponent } from './double/double-input.component';
 
 @NgModule({
   declarations: [
-    CoreInputComponent,
-    CoreInputWrapperComponent,
+    InputCoreComponent,
+    InputCoreWrapperComponent,
     InputComponent,
     DoubleInputComponent
   ],
