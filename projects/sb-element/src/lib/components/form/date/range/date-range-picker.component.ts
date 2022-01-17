@@ -16,7 +16,7 @@ import * as fns from "date-fns";
     multi: true
   }]
 })
-export class DateRangePickerComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
+export class DateRangePickerComponent extends ControlValueAccessorSizeThemeColorInputDirective<Array<string>> {
 
   @ViewChild(PopoverTriggerClickDirective)
   private trigger!: PopoverTriggerClickDirective
@@ -31,18 +31,20 @@ export class DateRangePickerComponent extends ControlValueAccessorSizeThemeColor
 
   open(): void {
     this.popper = this.popperService.pop(DatePickerPopperComponent, this.trigger);
-    this.popper.instance.select.subscribe((date: string) => this.handleSelect(date));
+    this.popper.instance.select.subscribe((dates: Array<string>) => this.handleSelect(dates));
     this.popper.instance.date = this.value;
     this.popper.instance.size = this.size;
     this.popper.instance.color = this.color;
     this.popper.instance.isRange = true;
   }
 
-  public handleSelect(date: string): void {
-    const parsedDate = fns.parseISO(date);
-    const isValidDate = fns.isValid(parsedDate);
-    if (isValidDate) {
-      this.writeValueInnerChange(date);
+  public handleSelect(dates: Array<string>): void {
+    const areValidDates = dates.map((date: string) => fns.parseISO(date))
+      .reduce((valid: boolean, parsedDate: Date) => {
+        return valid && fns.isValid(parsedDate)
+      }, true);
+    if (areValidDates) {
+      this.writeValueInnerChange(dates);
       this.updateValues();
     }
   }

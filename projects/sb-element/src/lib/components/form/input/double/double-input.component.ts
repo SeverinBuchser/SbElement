@@ -42,4 +42,11 @@ export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInpu
     this.writeValueInnerChange([this.firstValue, this.secondValue])
   }
 
+  public updateValues(): void {
+    if (this.value) {
+      if (this.value.length > 0) this.firstValue = this.value[0];
+      if (this.value.length > 1) this.secondValue = this.value[1];
+    }
+  }
+
 }

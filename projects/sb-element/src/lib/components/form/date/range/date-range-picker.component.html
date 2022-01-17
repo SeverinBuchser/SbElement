@@ -1,11 +1,12 @@
-<sb-el-input
+<sb-el-double-input
   [ngModel]="value"
   (ngModelChange)="handleSelect($event)"
-  placeholder="Pick a two Dates"
+  firstPlaceholder="Start"
+  secondPlaceholder="End"
   [size]="size"
   [color]="color"
   [prefixIcon]="'\ue878'"
   sbElPopoverTriggerClick
   popoverPosition="bottom"
   (trigger)="open()">
-</sb-el-input>
+</sb-el-double-input>

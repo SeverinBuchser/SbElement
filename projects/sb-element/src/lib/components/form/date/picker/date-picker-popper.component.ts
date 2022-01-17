@@ -19,18 +19,14 @@ export class DatePickerPopperComponent extends PopperDirective {
   public format: string = 'yyyy-MM-dd';
 
   @Output()
-  public select: EventEmitter<string> = new EventEmitter<string>();
+  public select: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
 
   public markedDates: Array<Date> = new Array<Date>();
   public showingMonthStart: Date = fns.startOfMonth(new Date());
 
-  set date(date: string | undefined) {
-    if (date && typeof date === 'string') {
-      if (date.split(' ').length == 2) {
-        this.markedDates = date.split(' ').map((date: string) => fns.parseISO(date));
-      } else {
-        this.markedDates.push(fns.parseISO(date));
-      }
+  set date(dates: Array<string> | undefined) {
+    if (dates && Array.isArray(dates) && dates.length > 0) {
+      this.markedDates = dates.map((date: string) => fns.parseISO(date));
 
       if (!fns.isEqual(this.showingMonthStart, fns.startOfMonth(this.markedDates[0]))) {
         this.showingMonthStart = fns.startOfMonth(this.markedDates[0]);
@@ -64,7 +60,9 @@ export class DatePickerPopperComponent extends PopperDirective {
   }
 
   private emit(): void {
-    this.select.emit(this.toString());
+    this.select.emit(this.markedDates.map((date: Date) => {
+      return fns.format(date, this.format);
+    }));
     this.popperService.unpop();
   }
 

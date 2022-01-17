@@ -31,8 +31,10 @@ export class DatePickerComponent extends ControlValueAccessorSizeThemeColorInput
 
   open(): void {
     this.popper = this.popperService.pop(DatePickerPopperComponent, this.trigger);
-    this.popper.instance.select.subscribe((date: string) => this.handleSelect(date));
-    this.popper.instance.date = this.value;
+    this.popper.instance.select.subscribe((dates: Array<string>) => {
+      if (dates.length == 1) {this.handleSelect(dates[0])}
+    });
+    this.popper.instance.date = this.value ? [this.value] : undefined;
     this.popper.instance.size = this.size;
     this.popper.instance.color = this.color;
   }
@@ -47,7 +49,7 @@ export class DatePickerComponent extends ControlValueAccessorSizeThemeColorInput
   }
 
   protected updateValues(): void {
-    if (this.popper) this.popper.instance.date = this.value;
+    if (this.popper) this.popper.instance.date = this.value ? [this.value] : undefined;
   }
 
 }
