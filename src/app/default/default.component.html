@@ -53,6 +53,10 @@
             #date="ngModel">
           </sb-el-date-range-picker>
           <sb-el-double-input
+            [(ngModel)]="model.double"
+            name="double"
+            #double="ngModel"
+            [prefixIcon]="'\ue8b5'"
             firstPlaceholder="hour"
             secondPlaceholder="minute"
             size="m"

@@ -25,7 +25,6 @@ import { CalendarNavigationComponent } from './date/calendar-navigation/calendar
 import { DatePickerPopperComponent } from './date/picker/date-picker-popper.component';
 import { DateRangePickerComponent } from './date/range/date-range-picker.component';
 import { TimePickerComponent } from './time/time-picker.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CalendarMonthComponent,
     CalendarNavigationComponent,
     TimePickerComponent,
-    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -76,7 +74,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CalendarMonthComponent,
     CalendarNavigationComponent,
     TimePickerComponent,
-    SpinnerComponent
   ]
 })
 export class FormModule { }

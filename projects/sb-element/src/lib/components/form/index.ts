@@ -10,5 +10,4 @@ export * from './select-button';
 export * from './slider';
 export * from './toggle-switch';
 export * from './time';
-export * from './spinner';
 export * from './form.module';

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CoreInputWrapperComponent } from './core-input-wrapper.component';
+import { SpinnerCoreComponent } from './spinner-core.component';
 
-describe('CoreInputWrapperComponent', () => {
-  let component: CoreInputWrapperComponent;
-  let fixture: ComponentFixture<CoreInputWrapperComponent>;
+describe('SpinnerCoreComponent', () => {
+  let component: SpinnerCoreComponent;
+  let fixture: ComponentFixture<SpinnerCoreComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoreInputWrapperComponent ]
+      declarations: [ SpinnerCoreComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CoreInputWrapperComponent);
+    fixture = TestBed.createComponent(SpinnerCoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

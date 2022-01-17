@@ -1,0 +1,22 @@
+<div [ngClass]="getClasses()">
+  <input
+    [ngClass]="getInputClasses()"
+    type="number"
+    [(ngModel)]="value"
+    (blur)="emitBlur()"
+    (focus)="emitFocus()"
+    [disabled]="disabled">
+  <div [ngClass]="getPlaceholderClasses()">
+    {{ placeholder }}
+  </div>
+  <div [ngClass]="rootClass + '__spinner-controls'">
+    <sb-el-icon
+      [extraClasses]="rootClass + '__spinner-control'"
+      (mousedown)="handleMouseDownIncrease()"
+      (mouseup)="handleMouseUp()">&#xe5e1;</sb-el-icon>
+    <sb-el-icon
+      [extraClasses]="rootClass + '__spinner-control'"
+      (mousedown)="handleMouseDownDecrease()"
+      (mouseup)="handleMouseUp()">&#xe2ea;</sb-el-icon>
+  </div>
+</div>

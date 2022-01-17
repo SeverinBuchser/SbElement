@@ -3,29 +3,26 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-input',
-  templateUrl: './input.component.html',
+  selector: 'sb-el-spinner',
+  templateUrl: './spinner.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: InputComponent,
+    useExisting: SpinnerComponent,
     multi: true
   }]
 })
-export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
+export class SpinnerComponent extends ControlValueAccessorSizeThemeColorInputDirective<number> {
 
   public rootClass = 'sb-el-input';
-
-  @Input()
-  public border: boolean = true;
+  protected allowEmpty = true;
 
   @Input()
   public placeholder: string = '';
 
   @Input()
-  public type: string = 'text';
-
+  public min: number = Number.MIN_SAFE_INTEGER;
   @Input()
-  public spellcheck: boolean = false;
+  public max: number = Number.MAX_SAFE_INTEGER;
 
   @Input()
   public prefixIcon: string = '';

@@ -7,17 +7,19 @@ import { CoreModule } from '../../../core/core.module';
 import { IconModule } from '../../icon/icon.module';
 
 import { InputCoreComponent } from './core/input-core/input-core.component';
-import { InputCoreWrapperComponent } from './core/input-core-wrapper/input-core-wrapper.component';
 
 import { InputComponent } from './simple/input.component';
 import { DoubleInputComponent } from './double/double-input.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerCoreComponent } from './core/spinner-core/spinner-core.component';
 
 @NgModule({
   declarations: [
     InputCoreComponent,
-    InputCoreWrapperComponent,
     InputComponent,
-    DoubleInputComponent
+    DoubleInputComponent,
+    SpinnerComponent,
+    SpinnerCoreComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { DoubleInputComponent } from './double/double-input.component';
   ],
   exports: [
     InputComponent,
-    DoubleInputComponent
+    DoubleInputComponent,
+    SpinnerComponent
   ]
 })
 export class InputModule { }

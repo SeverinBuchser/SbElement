@@ -11,9 +11,9 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../co
     multi: true
   }]
 })
-export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
+export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInputDirective<Array<string>> {
 
-  public rootClass = 'sb-el-double-input';
+  public rootClass = 'sb-el-input';
 
   @Input()
   public firstPlaceholder: string = '';
@@ -31,18 +31,15 @@ export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInpu
   public spellcheck: boolean = false;
 
   @Input()
-  public firstPrefixIcon: string = '';
+  public prefixIcon: string = '';
   @Input()
-  public secondPrefixIcon: string = '';
-  @Input()
-  public firstSuffixIcon: string = '';
-  @Input()
-  public secondSuffixIcon: string = '';
+  public suffixIcon: string = '';
 
-  public getInputClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push(this.rootClass + '__input')
-    return classes;
+  public firstValue: string = '';
+  public secondValue: string = '';
+
+  public handleInput(): void {
+    this.writeValueInnerChange([this.firstValue, this.secondValue])
   }
 
 }

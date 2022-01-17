@@ -1,19 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-spinner',
-  templateUrl: './spinner.component.html',
+  selector: 'sb-el-spinner-core',
+  templateUrl: './spinner-core.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: SpinnerComponent,
+    useExisting: SpinnerCoreComponent,
     multi: true
   }]
 })
-export class SpinnerComponent extends ControlValueAccessorSizeThemeColorInputDirective<number> {
+export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInputDirective<number> {
 
-  public rootClass = 'sb-el-input';
+  public rootClass = 'sb-el-input-core';
   protected allowEmpty = true;
 
   @Input()
@@ -33,7 +33,7 @@ export class SpinnerComponent extends ControlValueAccessorSizeThemeColorInputDir
   private isMouseDown: boolean = false;
   private static SPEED_FACTOR: number = 2;
   private static MAX_SPEED: number = 10;
-  private static MAX_STEP: number =  Math.pow(SpinnerComponent.SPEED_FACTOR, 7);
+  private static MAX_STEP: number =  Math.pow(SpinnerCoreComponent.SPEED_FACTOR, 7);
   private steps: number = 0;
   private speed: number = 0;
   private delta: number = 1;
@@ -60,10 +60,10 @@ export class SpinnerComponent extends ControlValueAccessorSizeThemeColorInputDir
   }
 
   private updateSpeed(): void {
-    if (this.speed < SpinnerComponent.MAX_SPEED &&
-      this.steps == SpinnerComponent.MAX_STEP) {
+    if (this.speed < SpinnerCoreComponent.MAX_SPEED &&
+      this.steps == SpinnerCoreComponent.MAX_STEP) {
       this.speed += 1;
-      this.delta = Math.pow(SpinnerComponent.SPEED_FACTOR, this.speed)
+      this.delta = Math.pow(SpinnerCoreComponent.SPEED_FACTOR, this.speed)
       this.steps = 0;
     }
   }

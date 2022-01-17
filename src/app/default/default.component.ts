@@ -29,6 +29,7 @@ export class DefaultComponent implements OnInit {
     date: '',
     spinner: null,
     time: 0,
+    double: ''
   };
 
   public table: TableModel = new TableModel();
@@ -63,7 +64,7 @@ export class DefaultComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(this.model.date)
+    console.log(this.model)
     // this.alert(form.value.input);
     Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
     .catch((err: Error) => this.alertService.warn(err.message))
