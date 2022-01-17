@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from '@angular/forms';
+import { CoreModule } from '../../core/core.module';
+import { IconModule } from '../icon/icon.module';
+import { InputModule } from './input/input.module';
+
 import { ButtonComponent } from './button/button.component';
 import { DatePickerComponent } from './date/single/date-picker.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
@@ -12,11 +17,7 @@ import { CheckboxGroupComponent } from './group/checkbox/checkbox-group.componen
 import { SelectionOptionsDirective } from './group/base/selection-options.directive';
 import { SelectButtonComponent } from './select-button/select-button.component';
 import { SliderComponent } from './slider/slider.component';
-import { FormsModule } from '@angular/forms';
-import { CoreModule } from '../../core/core.module';
-import { IconComponent } from '../icon/icon.component';
 import { FormGroupComponent } from './group/form-group.component';
-import { InputComponent } from './input/input.component';
 import { FileInputComponent } from './file-input/file-input.component';
 import { PopperModule } from "../popper/popper.module";
 import { CalendarMonthComponent } from "./date/calendar-month/calendar-month.component";
@@ -41,22 +42,23 @@ import { SpinnerComponent } from './spinner/spinner.component';
     SelectionOptionsDirective,
     SelectButtonComponent,
     SliderComponent,
-    IconComponent,
     FormGroupComponent,
-    InputComponent,
     FileInputComponent,
     CalendarMonthComponent,
     CalendarNavigationComponent,
     TimePickerComponent,
-    SpinnerComponent,
+    SpinnerComponent
   ],
   imports: [
-    CoreModule,
     CommonModule,
     FormsModule,
-    PopperModule
+    CoreModule,
+    IconModule,
+    InputModule,
+    PopperModule,
   ],
   exports: [
+    InputModule,
     ButtonComponent,
     DatePickerComponent,
     DateRangePickerComponent,
@@ -69,14 +71,12 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CheckboxGroupComponent,
     SelectButtonComponent,
     SliderComponent,
-    IconComponent,
     FormGroupComponent,
-    InputComponent,
     FileInputComponent,
     CalendarMonthComponent,
     CalendarNavigationComponent,
     TimePickerComponent,
-    SpinnerComponent,
+    SpinnerComponent
   ]
 })
 export class FormModule { }

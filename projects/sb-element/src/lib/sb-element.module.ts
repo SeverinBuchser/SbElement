@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './core/core.module';
 import { FormModule } from './components/form/form.module';
+import { IconModule } from './components/icon/icon.module';
 
 /**
  * Components
@@ -16,8 +17,6 @@ import { GridComponent } from './components/grid/grid.component';
 /**
  * Directives
  */
-import { PopperDirective } from './components/popper/popper.directive';
-import { ThemeInputDirective } from "./components/base/style-input/theme-input.directive";
 import { PopperModule } from "./components/popper/popper.module";
 import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
@@ -39,6 +38,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     BrowserModule,
     CoreModule,
     FormModule,
+    IconModule,
     PopperModule
   ],
   exports: [
@@ -54,6 +54,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     FormModule,
     PopperModule,
     TimelineComponent,
+    IconModule
   ]
 })
 export class SbElementModule { }

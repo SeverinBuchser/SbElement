@@ -1,5 +1,5 @@
 <div [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__border'"></div>
+  <div *ngIf="border" [ngClass]="rootClass + '__border'"></div>
   <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
     <sb-el-icon [icon]="prefixIcon" [color]="null" size="d"></sb-el-icon>
   </div>

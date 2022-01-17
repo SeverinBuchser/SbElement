@@ -1,0 +1,28 @@
+<div [ngClass]="getClasses()">
+  <div [ngClass]="rootClass + '__border'"></div>
+  <sb-el-input
+    [extraClasses]="rootClass + '__input'"
+    [placeholder]="firstPlaceholder"
+    [type]="type"
+    [spellcheck]="spellcheck"
+    [prefixIcon]="firstPrefixIcon"
+    [suffixIcon]="firstSuffixIcon"
+    [size]="size"
+    [color]="color"
+    [border]="false">
+  </sb-el-input>
+  <div [ngClass]="rootClass + '__delimiter'">
+    {{ delimiter }}
+  </div>
+  <sb-el-input
+    [extraClasses]="rootClass + '__input'"
+    [placeholder]="secondPlaceholder"
+    [type]="type"
+    [spellcheck]="spellcheck"
+    [prefixIcon]="secondPrefixIcon"
+    [suffixIcon]="secondSuffixIcon"
+    [size]="size"
+    [color]="color"
+    [border]="false">
+  </sb-el-input>
+</div>
