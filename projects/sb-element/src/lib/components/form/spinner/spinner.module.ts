@@ -5,15 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../../../core/core.module';
 import { IconModule } from '../../icon/icon.module';
 
-import { InputCoreComponent } from './core/input-core.component';
-import { InputComponent } from './simple/input.component';
-import { DoubleInputComponent } from './double/double-input.component';
+import { SpinnerCoreComponent } from './core/spinner-core.component';
+import { SpinnerComponent } from './simple/spinner.component';
+import { DoubleSpinnerComponent } from './double/double-spinner.component';
 
 @NgModule({
   declarations: [
-    InputCoreComponent,
-    InputComponent,
-    DoubleInputComponent,
+    SpinnerCoreComponent,
+    SpinnerComponent,
+    DoubleSpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -22,8 +22,8 @@ import { DoubleInputComponent } from './double/double-input.component';
     IconModule
   ],
   exports: [
-    InputComponent,
-    DoubleInputComponent,
+    SpinnerComponent,
+    DoubleSpinnerComponent
   ]
 })
-export class InputModule { }
+export class SpinnerModule { }

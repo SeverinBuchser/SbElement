@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../../core/core.module';
 import { IconModule } from '../icon/icon.module';
 import { InputModule } from './input/input.module';
+import { SpinnerModule } from './spinner/spinner.module';
 
 import { ButtonComponent } from './button/button.component';
 import { DatePickerComponent } from './date/single/date-picker.component';
@@ -53,10 +54,12 @@ import { TimePickerComponent } from './time/time-picker.component';
     CoreModule,
     IconModule,
     InputModule,
+    SpinnerModule,
     PopperModule,
   ],
   exports: [
     InputModule,
+    SpinnerModule,
     ButtonComponent,
     DatePickerComponent,
     DateRangePickerComponent,

@@ -1,0 +1,36 @@
+<div [ngClass]="getClasses()">
+  <div [ngClass]="rootClass + '__border'"></div>
+  <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
+    <sb-el-icon [icon]="prefixIcon" [color]="null" size="d"></sb-el-icon>
+  </div>
+  <sb-el-spinner-core
+    [min]="firstMin"
+    [max]="firstMax"
+    [size]="size"
+    [color]="color"
+    [placeholder]="firstPlaceholder"
+    [(ngModel)]="firstValue"
+    (ngModelChange)="handleInput()"
+    (blur)="emitBlur()"
+    (focus)="emitFocus()"
+    [disabled]="disabled">
+  </sb-el-spinner-core>
+  <div [ngClass]="rootClass + '__delimiter'">
+    {{ delimiter }}
+  </div>
+  <sb-el-spinner-core
+    [min]="secondMin"
+    [max]="secondMax"
+    [size]="size"
+    [color]="color"
+    [placeholder]="secondPlaceholder"
+    [(ngModel)]="secondValue"
+    (ngModelChange)="handleInput()"
+    (blur)="emitBlur()"
+    (focus)="emitFocus()"
+    [disabled]="disabled">
+  </sb-el-spinner-core>
+  <div *ngIf="suffixIcon" [ngClass]="rootClass + '__suffix'">
+    <sb-el-icon [icon]="suffixIcon" [color]="null" size="d"></sb-el-icon>
+  </div>
+</div>

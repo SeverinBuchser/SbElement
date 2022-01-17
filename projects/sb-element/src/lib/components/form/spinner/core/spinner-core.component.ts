@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-el-spinner-core',
@@ -84,6 +84,9 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
     }
     if (newValue > this.max) {
       newValue = this.min;
+      this.steps = 0;
+      this.speed = 0;
+      this.delta = 1;
       this.overflow.emit();
     }
     this.steps++;
@@ -101,6 +104,9 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
     }
     if (newValue < this.min) {
       newValue = this.max;
+      this.steps = 0;
+      this.speed = 0;
+      this.delta = 1;
       this.underflow.emit();
     }
     this.steps++;
