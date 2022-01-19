@@ -54,7 +54,7 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
   private handleMouseDown(stepFunction: () => void): void {
     this.isMouseDown = true;
     stepFunction();
-    this.wait(300).then(() => {
+    this.wait(400).then(() => {
       if (this.isMouseDown) {
         this.intervals.push(setInterval(() => {
           stepFunction();
@@ -123,7 +123,10 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
 
   private async wait(time: number): Promise<void> {
     return new Promise<void>(resolve => {
-      setTimeout(() => resolve(), time);
+      let timeout = setTimeout(() => {
+        resolve();
+        clearTimeout(timeout);
+      }, time);
     });
   }
 

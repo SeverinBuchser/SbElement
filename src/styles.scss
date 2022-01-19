@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'core/theming';
 @use 'core/spacing';
 @use 'sb-theming';
 
 html, body {
-  background: var(--white-light);
+  background: theming.get-background(dark);
   margin: 0;
   padding: 0;
 }
