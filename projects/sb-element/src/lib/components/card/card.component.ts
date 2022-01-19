@@ -1,4 +1,4 @@
-import { Attribute, Component, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { SizeThemeInputDirective } from '../../core/style-input/size-theme-input.directive';
 
@@ -9,6 +9,12 @@ import { SizeThemeInputDirective } from '../../core/style-input/size-theme-input
 export class CardComponent extends SizeThemeInputDirective {
 
   public rootClass: string = 'sb-el-card';
+
+  @Input()
+  public titleSeparator: boolean = true;
+
+  @Input()
+  public footerSeprator: boolean = true;
 
   private hover: boolean = false;
   private shadow: boolean = false;
