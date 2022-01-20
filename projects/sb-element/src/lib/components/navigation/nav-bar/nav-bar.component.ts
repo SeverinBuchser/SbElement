@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SizeThemeInputDirective } from "../../../core";
 
 @Component({
-  selector: 'lib-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  selector: 'sb-el-nav-bar',
+  templateUrl: './nav-bar.component.html'
 })
-export class NavBarComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class NavBarComponent extends SizeThemeInputDirective {
+  public rootClass: string = 'sb-el-nav-bar';
 }
