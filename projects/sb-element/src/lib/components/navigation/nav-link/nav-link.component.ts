@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SizeThemeInputDirective } from "../../../core";
 
 @Component({
-  selector: 'lib-nav-link',
-  templateUrl: './nav-link.component.html',
-  styleUrls: ['./nav-link.component.css']
+  selector: 'sb-el-nav-link',
+  templateUrl: './nav-link.component.html'
 })
-export class NavLinkComponent implements OnInit {
+export class NavLinkComponent extends SizeThemeInputDirective {
+  public rootClass: string = 'sb-el-nav-link';
 
-  constructor() { }
+  @Input()
+  public active: boolean = false;
 
-  ngOnInit(): void {
+  public getClasses(): Array<string> {
+    let classes = super.getClasses();
+    classes.push(this.active ? 'active' : '');
+    return classes;
   }
-
 }

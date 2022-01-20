@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopperService, PopoverTriggerMouseoverDirective, TimelineComponent } from 'sb-element';
+import { AlertService, ThemeService, Table, PopperService, PopoverTriggerMouseoverDirective, TimelineComponent, ThemeInputDirective } from 'sb-element';
 import { TableModel } from "./../table.model";
 import { PopoverTextComponent } from "./popover-text/popover-text.component";
 
@@ -9,10 +9,10 @@ import { PopoverTextComponent } from "./popover-text/popover-text.component";
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.scss']
 })
-export class DefaultComponent implements OnInit {
+export class DefaultComponent extends ThemeInputDirective {
+  public rootClass = 'default';
   title = 'SbElement';
   public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
-  public theme: string = 'light';
 
   public value: any = 'Switch is turned OFF';
   public valuecheckbox: boolean = false;
@@ -45,7 +45,7 @@ export class DefaultComponent implements OnInit {
     private alertService: AlertService,
     private popperService: PopperService
   ) {
-    this.theme = themeService.get();
+    super(themeService)
     this.table = Table.fromJSON({
       "Name" : [
         "Severin",
@@ -79,5 +79,11 @@ export class DefaultComponent implements OnInit {
     this.alertService.warn(message, 'm');
     this.alertService.primary(message, 'd');
     this.alertService.secondary(message, 'l');
+  }
+
+  toggleTheme(isDark: boolean | undefined) {
+    if (isDark) this.themeService.commit('dark');
+    else this.themeService.commit('light');
+    console.log(this.themeService.get())
   }
 }

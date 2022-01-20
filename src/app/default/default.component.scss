@@ -1,3 +1,5 @@
+@use 'core/theming';
+
 .pickers {
   display: flex;
   justify-content: space-around;
@@ -10,4 +12,12 @@
   justify-content: center;
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
+}
+
+.default.default--light {
+  background: theming.get-background(light);
+}
+
+.default.default--dark {
+  background: theming.get-background(dark);
 }

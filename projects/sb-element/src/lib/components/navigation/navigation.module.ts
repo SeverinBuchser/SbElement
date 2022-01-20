@@ -14,7 +14,8 @@ import { NavLinkComponent } from './nav-link/nav-link.component';
     CommonModule
   ],
   exports: [
-    NavBarComponent
+    NavBarComponent,
+    NavLinkComponent
   ]
 })
 export class NavigationModule { }

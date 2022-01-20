@@ -4,7 +4,6 @@
 @use 'sb-theming';
 
 html, body {
-  background: theming.get-background(dark);
   margin: 0;
   padding: 0;
 }
