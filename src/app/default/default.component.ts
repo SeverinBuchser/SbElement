@@ -81,9 +81,11 @@ export class DefaultComponent extends ThemeInputDirective {
     this.alertService.secondary(message, 'l');
   }
 
-  toggleTheme(isDark: boolean | undefined) {
-    if (isDark) this.themeService.commit('dark');
-    else this.themeService.commit('light');
-    console.log(this.themeService.get())
+  toggleTheme(value: any) {
+    if (this.themeService.get() == 'dark') {
+      this.themeService.commit('light');
+    } else {
+      this.themeService.commit('dark');
+    }
   }
 }

@@ -1,3 +1,12 @@
 <div [ngClass]="getClasses()">
-  <ng-content></ng-content>
+  <a *ngIf="href; else noHref" [href]="href">
+    <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+  </a>
+  <ng-template #noHref>
+    <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+  </ng-template>
 </div>
+
+<ng-template #contentTpl>
+  <ng-content></ng-content>
+</ng-template>

@@ -11,6 +11,9 @@ export class NavLinkComponent extends SizeThemeInputDirective {
   @Input()
   public active: boolean = false;
 
+  @Input()
+  public href: string = '';
+
   public getClasses(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.active ? 'active' : '');
