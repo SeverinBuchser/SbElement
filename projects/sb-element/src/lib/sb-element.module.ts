@@ -19,6 +19,7 @@ import { GridComponent } from './components/grid/grid.component';
 // Directives
 import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     GridComponent,
     GridDirective,
     TimelineComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     CardComponent,
     GridComponent,
     TimelineComponent,
+    SidebarComponent,
     // Modules
     CoreModule,
     FormModule,

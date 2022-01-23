@@ -9,3 +9,4 @@ export * from './navigation';
 export * from './popper';
 export * from './table';
 export * from './timeline';
+export * from './sidebar';
