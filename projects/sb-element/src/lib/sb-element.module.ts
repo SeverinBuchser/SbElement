@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // Modules
 import { CoreModule } from './core/core.module';
+import { BarModule } from "./components/bar/bar.module";
 import { FormModule } from './components/form/form.module';
 import { IconModule } from './components/icon/icon.module';
-import { NavigationModule } from './components/navigation/navigation.module';
 import { PopperModule } from './components/popper/popper.module';
 
 // Components
@@ -20,6 +20,8 @@ import { GridComponent } from './components/grid/grid.component';
 import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarTriggerDirective } from './components/sidebar/sidebar-trigger.directive';
+import { LinkComponent } from './components/link/link.component';
 
 
 @NgModule({
@@ -34,13 +36,15 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     GridDirective,
     TimelineComponent,
     SidebarComponent,
+    SidebarTriggerDirective,
+    LinkComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
+    BarModule,
     FormModule,
     IconModule,
-    NavigationModule,
     PopperModule
   ],
   exports: [
@@ -53,11 +57,13 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     GridComponent,
     TimelineComponent,
     SidebarComponent,
+    SidebarTriggerDirective,
+    LinkComponent,
     // Modules
     CoreModule,
+    BarModule,
     FormModule,
     IconModule,
-    NavigationModule,
     PopperModule,
   ]
 })

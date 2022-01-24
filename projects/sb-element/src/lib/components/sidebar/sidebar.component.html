@@ -1,1 +1,11 @@
-<p>sidebar works!</p>
+<div [ngClass]="getClasses()">
+  <div [ngClass]="getSidebarOverlayClasses()" (click)="changeVisibility()"></div>
+  <sb-el-bar [side]="side" [size]="size" [extraClasses]="getSidebarClasses()">
+    <ng-content select="[sidebar]"></ng-content>
+  </sb-el-bar>
+  <div [ngClass]="rootClass + '__content'">
+    <div>
+      <ng-content select="[content]"></ng-content>
+    </div>
+  </div>
+</div>

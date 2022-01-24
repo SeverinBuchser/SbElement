@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { SizeThemeInputDirective } from "../../../core";
+import { SizeThemeInputDirective } from "../../core";
 
 @Component({
-  selector: 'sb-el-nav-link',
-  templateUrl: './nav-link.component.html'
+  selector: 'sb-el-link',
+  templateUrl: './link.component.html'
 })
-export class NavLinkComponent extends SizeThemeInputDirective {
-  public rootClass: string = 'sb-el-nav-link';
+export class LinkComponent extends SizeThemeInputDirective {
+  public rootClass: string = 'sb-el-link';
 
   @Input()
   public active: boolean = false;

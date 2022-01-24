@@ -21,3 +21,9 @@
 .default.default--dark {
   background: theming.get-background(dark);
 }
+
+.sidebar-container {
+  height: 400px;
+  width: 400px;
+  border: 1px solid red;
+}
