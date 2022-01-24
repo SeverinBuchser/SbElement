@@ -1,3 +1,4 @@
-export * from './default/bar.component';
-export * from './navigation/nav-bar.component';
+export * from './default';
+export * from './navigation';
+export * from './side';
 export * from './bar.module';

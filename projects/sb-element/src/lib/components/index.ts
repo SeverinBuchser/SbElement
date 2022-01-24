@@ -9,5 +9,4 @@ export * from './icon';
 export * from './popper';
 export * from './table';
 export * from './timeline';
-export * from './sidebar';
 export * from './link';

@@ -19,8 +19,6 @@ import { GridComponent } from './components/grid/grid.component';
 // Directives
 import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { SidebarTriggerDirective } from './components/sidebar/sidebar-trigger.directive';
 import { LinkComponent } from './components/link/link.component';
 
 
@@ -35,8 +33,6 @@ import { LinkComponent } from './components/link/link.component';
     GridComponent,
     GridDirective,
     TimelineComponent,
-    SidebarComponent,
-    SidebarTriggerDirective,
     LinkComponent,
   ],
   imports: [
@@ -56,8 +52,6 @@ import { LinkComponent } from './components/link/link.component';
     CardComponent,
     GridComponent,
     TimelineComponent,
-    SidebarComponent,
-    SidebarTriggerDirective,
     LinkComponent,
     // Modules
     CoreModule,
