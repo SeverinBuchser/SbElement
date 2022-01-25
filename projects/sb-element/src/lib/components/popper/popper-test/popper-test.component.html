@@ -1,0 +1,42 @@
+<div [ngClass]="getClasses()">
+  <div [ngClass]="getPopperClasses()" #popper sbElAlign>
+    <div [ngClass]="rootClass + '__popper-wrapper'">
+      <ng-content select="[popper]"></ng-content>
+      <ng-template [ngIf]="isTop">
+        <svg
+          [ngClass]="rootClass + '__arrow'"
+          viewBox="0 0 2000 1000"
+          #arrow sbElAlign>
+          <path d="M 0, 0 L 1000, 1000 L 2000, 0 Z"/>
+        </svg>
+      </ng-template>
+      <ng-template [ngIf]="isLeft">
+        <svg
+          [ngClass]="rootClass + '__arrow'"
+          viewBox="0 0 1000 2000"
+          #arrow sbElAlign>
+          <path d="M 0, 0 L 1000, 1000 L 0, 2000 Z"/>
+        </svg>
+      </ng-template>
+      <ng-template [ngIf]="isRight">
+        <svg
+          [ngClass]="rootClass + '__arrow'"
+          viewBox="0 0 1000 2000"
+          #arrow sbElAlign>
+          <path d="M 1000, 0 L 0, 1000 L 1000, 2000 Z"/>
+        </svg>
+      </ng-template>
+      <ng-template [ngIf]="isBottom">
+        <svg
+          [ngClass]="rootClass + '__arrow'"
+          viewBox="0 0 2000 1000"
+          #arrow sbElAlign>
+          <path d="M 0, 1000 L 1000, 0 L 2000, 1000 Z"/>
+        </svg>
+      </ng-template>
+    </div>
+  </div>
+  <div [ngClass]="rootClass + '__content'" #content>
+    <ng-content select="[content]"></ng-content>
+  </div>
+</div>

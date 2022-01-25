@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { SizeThemeInputDirective } from '../../../core/';
+import { SizeThemeInputDirective, Triggerable } from '../../../core/';
 
 @Component({
   selector: 'sb-el-sidebar',
   templateUrl: './sidebar.component.html'
 })
-export class SidebarComponent extends SizeThemeInputDirective {
+export class SidebarComponent extends SizeThemeInputDirective implements Triggerable {
   public rootClass = 'sb-el-sidebar';
 
   @Input()
@@ -14,7 +14,7 @@ export class SidebarComponent extends SizeThemeInputDirective {
   @Input()
   public visible: boolean = false;
 
-  public changeVisibility(): void {
+  public trigger(): void {
     this.visible = !this.visible;
   }
 

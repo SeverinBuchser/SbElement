@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { BarComponent } from './default/bar.component';
 import { NavBarComponent } from './navigation/nav-bar.component';
 import { SidebarComponent } from './side/sidebar.component';
-import { SidebarTriggerDirective } from './side/sidebar-trigger.directive';
 
 
 
@@ -13,16 +12,14 @@ import { SidebarTriggerDirective } from './side/sidebar-trigger.directive';
     BarComponent,
     NavBarComponent,
     SidebarComponent,
-    SidebarTriggerDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     BarComponent,
     NavBarComponent,
     SidebarComponent,
-    SidebarTriggerDirective
   ]
 })
 export class BarModule { }

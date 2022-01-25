@@ -17,6 +17,10 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from './control-valu
 import { SizeThemeInputDirective } from './style-input/size-theme-input.directive';
 import { StateManagerDirective } from './control-value-accessor/state-manager.directive';
 import { EventManagerDirective } from './control-value-accessor/event-manager.directive';
+import { TriggerDirective } from './trigger/trigger.directive';
+import { ClickTriggerDirective } from './trigger/click-trigger.directive';
+import { AlignDirective } from './align/align.directive';
+import { HoverTriggerDirective } from './trigger/hover-trigger.directive';
 
 
 
@@ -41,6 +45,10 @@ import { EventManagerDirective } from './control-value-accessor/event-manager.di
     ControlValueAccessorClassNameInputDirective,
     StateManagerDirective,
     EventManagerDirective,
+    TriggerDirective,
+    ClickTriggerDirective,
+    HoverTriggerDirective,
+    AlignDirective,
   ],
   imports: [
     CommonModule
@@ -63,6 +71,11 @@ import { EventManagerDirective } from './control-value-accessor/event-manager.di
     ControlValueAccessorSizeColorInputDirective,
     ControlValueAccessorSizeThemeColorInputDirective,
     ControlValueAccessorClassNameInputDirective,
+
+    TriggerDirective,
+    ClickTriggerDirective,
+    HoverTriggerDirective,
+    AlignDirective,
   ]
 })
 export class CoreModule { }
