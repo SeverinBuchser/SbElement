@@ -13,7 +13,7 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 })
 export class RadioButtonGroupComponent extends SelectionOptionsDirective<string> {
 
-  public rootClass = 'sb-el-radio-button-group';
+  public rootClass = 'sb-el-form-group-options';
 
   @Input()
   public groupTitle: string = '';

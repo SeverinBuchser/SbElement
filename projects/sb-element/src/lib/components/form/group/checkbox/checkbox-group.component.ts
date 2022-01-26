@@ -14,7 +14,7 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 })
 export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOptions> {
 
-  public rootClass = 'sb-el-checkbox-group';
+  public rootClass = 'sb-el-form-group-options';
 
   @Input()
   public groupTitle: string = '';
