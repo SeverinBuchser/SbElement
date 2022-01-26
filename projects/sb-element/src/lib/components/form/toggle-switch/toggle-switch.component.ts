@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
@@ -21,7 +21,7 @@ export class ToggleSwitchComponent extends ControlValueAccessorSizeThemeColorInp
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.value ? 'is-on' : 'is-off');
+    classes.push(this.value ? 'on' : 'off');
     return classes;
   }
 

@@ -30,9 +30,9 @@ export class RadioButtonComponent extends ControlValueAccessorSizeThemeColorInpu
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.value ? 'is-checked' : 'is-unchecked');
-    classes.push(this.label ? 'is-label' : '');
-    classes.push(this.label ? 'label-is-' + this.labelPosition : '');
+    classes.push(this.value ? 'checked' : 'unchecked');
+    classes.push(this.label ? 'label' : '');
+    classes.push(this.label ? 'label-' + this.labelPosition : '');
     return classes;
   }
 

@@ -121,7 +121,7 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   /**
    * Round state of the component.
    *
-   * If `true`, the `is-round` class gets added to the classes of the HTML
+   * If `true`, the `round` class gets added to the classes of the HTML
    * button element.
    */
   private round: boolean = false;
@@ -129,7 +129,7 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   /**
    * Pill state of the component.
    *
-   * If `true`, the `is-pill` class gets added to the classes of the HTML
+   * If `true`, the `pill` class gets added to the classes of the HTML
    * button element.
    */
   private pill: boolean = false;
@@ -137,7 +137,7 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   /**
    * Plain state of the component.
    *
-   * If `true`, the `is-plain` class gets added to the classes of the HTML
+   * If `true`, the `plain` class gets added to the classes of the HTML
    * button element.
    */
   private plain: boolean = false;
@@ -155,9 +155,9 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
    *
    * Sets the different class states according to the attribute inputs.
    *
-   * @param{any} round Any value can be set and the `is-round` class will be set
-   * @param{any} pill Any value can be set and the `is-pill` class will be set
-   * @param{any} plain Any value can be set and the `is-plain` class will be set
+   * @param{any} round Any value can be set and the `round` class will be set
+   * @param{any} pill Any value can be set and the `pill` class will be set
+   * @param{any} plain Any value can be set and the `plain` class will be set
    * @param{ThemeService} themeService Injectable for the
    * `SizeThemeColorInputDirective`
    */
@@ -187,23 +187,23 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
    * by input or by attributes.
    *
    * Overwrites the [getClasses]{@link SizeThemeColorInputDirective#getClasses}
-   * method of the {@link SizeThemeColorInputDirective} by adding the `is-pill`,
-   * `is-round` and `is-plain` classes if needed.
+   * method of the {@link SizeThemeColorInputDirective} by adding the `pill`,
+   * `round` and `plain` classes if needed.
    *
-   * The `is-pill` class gets included, if the [pill]{@link #pill} property
+   * The `pill` class gets included, if the [pill]{@link #pill} property
    * is `true`.
-   * The `is-round` class gets included, if the [round]{@link #round} property
+   * The `round` class gets included, if the [round]{@link #round} property
    * is `true`.
-   * The `is-plain` class gets included, if the [plain]{@link #plain} property
+   * The `plain` class gets included, if the [plain]{@link #plain} property
    * is `true`.
    *
    * @returns {Array<string>} The classes for the HTML button element
    */
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.round ? 'is-round' : '');
-    classes.push(this.pill ? 'is-pill' : '');
-    classes.push(this.plain ? 'is-plain' : '');
+    classes.push(this.round ? 'round' : '');
+    classes.push(this.pill ? 'pill' : '');
+    classes.push(this.plain ? 'plain' : '');
     return classes;
   }
 

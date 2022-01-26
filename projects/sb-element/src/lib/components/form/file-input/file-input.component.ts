@@ -66,8 +66,8 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.pill ? 'is-pill' : '');
-    classes.push(this.plain ? 'is-plain' : '');
+    classes.push(this.pill ? 'pill' : '');
+    classes.push(this.plain ? 'plain' : '');
     return classes;
   }
 }

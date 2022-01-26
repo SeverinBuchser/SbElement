@@ -61,8 +61,8 @@ export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDire
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.label ? 'is-label' : 'is-not-label');
-    classes.push(this.showValue ? 'is-value' : 'is-not-value');
+    classes.push(this.label ? 'label' : 'not-label');
+    classes.push(this.showValue ? 'value' : 'not-value');
     return classes;
   }
 

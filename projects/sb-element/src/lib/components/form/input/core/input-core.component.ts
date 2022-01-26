@@ -33,7 +33,7 @@ export class InputCoreComponent extends ControlValueAccessorSizeThemeColorInputD
   public getPlaceholderClasses(): Array<string> {
     let classes = new Array<string>();
     classes.push(this.rootClass + '__placeholder')
-    classes.push(this.value || this.focused ? 'is-top' : '')
+    classes.push(this.value || this.focused ? 'top' : '')
     return classes;
   }
 

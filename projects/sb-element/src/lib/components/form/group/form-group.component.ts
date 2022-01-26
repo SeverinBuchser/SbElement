@@ -20,7 +20,7 @@ export class FormGroupComponent extends SizeThemeColorInputDirective {
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.groupAlign ? 'is-' + this.groupAlign : '');
+    classes.push(this.groupAlign ? this.groupAlign : '');
     return classes;
   }
 
