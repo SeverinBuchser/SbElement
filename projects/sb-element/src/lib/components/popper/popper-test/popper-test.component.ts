@@ -105,6 +105,10 @@ export class PopperTestComponent extends ThemeInputDirective implements Poppable
     return this.popperRef;
   }
 
+  public isPopped(): boolean {
+    return this.visible;
+  }
+
   public getClasses(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.position);

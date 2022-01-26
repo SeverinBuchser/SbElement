@@ -24,6 +24,7 @@ export class DatePickerPopperComponent extends PopperDirective {
   public markedDates: Array<Date> = new Array<Date>();
   public showingMonthStart: Date = fns.startOfMonth(new Date());
 
+  @Input()
   set date(dates: Array<string> | undefined) {
     if (dates && Array.isArray(dates) && dates.length > 0) {
       this.markedDates = dates.map((date: string) => fns.parseISO(date));

@@ -1,12 +1,21 @@
-<sb-el-double-input
-  [ngModel]="value"
-  (ngModelChange)="handleSelect($event)"
-  firstPlaceholder="Start"
-  secondPlaceholder="End"
-  [size]="size"
-  [color]="color"
-  [prefixIcon]="'\ue878'"
-  sbElPopoverTriggerClick
-  popoverPosition="bottom"
-  (trigger)="open()">
-</sb-el-double-input>
+<sb-el-popper-test #dateRangePopper position="bottom">
+  <sb-el-date-picker-popper popper
+    (select)="handleSelect($event)"
+    [date]="value"
+    [size]="size"
+    [color]="color"
+    [isRange]="true">
+  </sb-el-date-picker-popper>
+  <sb-el-double-input
+    content
+    [ngModel]="value"
+    (ngModelChange)="handleSelect($event)"
+    firstPlaceholder="Start"
+    secondPlaceholder="End"
+    [size]="size"
+    [color]="color"
+    [prefixIcon]="'\ue878'"
+    sbElClickOutsideTrigger
+    [triggerable]="dateRangePopper">
+  </sb-el-double-input>
+</sb-el-popper-test>

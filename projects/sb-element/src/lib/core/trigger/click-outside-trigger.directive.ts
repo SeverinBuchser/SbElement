@@ -13,7 +13,7 @@ export class ClickOutsideTriggerDirective extends ClickTriggerDirective {
   @HostListener('document: click', ['$event'])
   handleDocumentClick(event: PointerEvent): void {
     let popperBBox = this.triggerable.getPopperRef().nativeElement.getBoundingClientRect()
-    if (!this.isMouseoverBoundingRect(event, popperBBox)) {
+    if (!this.isMouseoverBoundingRect(event, popperBBox) && this.triggerable.isPopped()) {
       this.trigger();
     }
   }
