@@ -23,6 +23,7 @@ import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { LinkComponent } from './components/link/link.component';
 import { TableHeadComponent } from './components/table/head/table-head.component';
+import { TableBodyComponent } from './components/table/table-body/table-body.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { TableHeadComponent } from './components/table/head/table-head.component
     TableRowComponent,
     TableDataComponent,
     TableHeadComponent,
+    TableBodyComponent,
   ],
   imports: [
     BrowserModule,

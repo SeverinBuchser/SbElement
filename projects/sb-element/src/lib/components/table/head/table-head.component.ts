@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { ThemeInputDirective } from '../../../core';
+import { ThemeColorInputDirective } from '../../../core';
 
 @Component({
   selector: '[sb-el-table-head]',
   templateUrl: './table-head.component.html'
 })
-export class TableHeadComponent extends ThemeInputDirective {
+export class TableHeadComponent extends ThemeColorInputDirective {
 
   public rootClass = 'sb-el-table-head';
 

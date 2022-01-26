@@ -1,3 +1,5 @@
 export * from './table.component';
-export * from './row/table-row.component';
-export * from './data/table-data.component';
+export * from './body';
+export * from './head';
+export * from './row';
+export * from './data';

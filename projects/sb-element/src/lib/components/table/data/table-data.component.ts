@@ -7,7 +7,7 @@ import { ThemeInputDirective } from '../../../core';
 })
 export class TableDataComponent extends ThemeInputDirective {
 
-  public rootClass = 'sb-el-td';
+  public rootClass = 'sb-el-table-data';
 
   @Input()
   public data: any = '';
