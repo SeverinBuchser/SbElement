@@ -15,15 +15,11 @@ import { TableComponent } from './components/table/table.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
-import { TableRowComponent } from './components/table/row/table-row.component';
-import { TableDataComponent } from './components/table/data/table-data.component';
 
 // Directives
 import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { LinkComponent } from './components/link/link.component';
-import { TableHeadComponent } from './components/table/head/table-head.component';
-import { TableBodyComponent } from './components/table/table-body/table-body.component';
 
 
 @NgModule({
@@ -38,10 +34,6 @@ import { TableBodyComponent } from './components/table/table-body/table-body.com
     GridDirective,
     TimelineComponent,
     LinkComponent,
-    TableRowComponent,
-    TableDataComponent,
-    TableHeadComponent,
-    TableBodyComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +53,6 @@ import { TableBodyComponent } from './components/table/table-body/table-body.com
     GridComponent,
     TimelineComponent,
     LinkComponent,
-    TableRowComponent,
-    TableDataComponent,
     // Modules
     CoreModule,
     BarModule,
