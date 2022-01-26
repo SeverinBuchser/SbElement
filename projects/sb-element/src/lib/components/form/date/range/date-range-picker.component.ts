@@ -4,7 +4,7 @@ import { NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
 
 @Component({
-  selector: 'sb-el-date-range-picker',
+  selector: 'sb-date-range-picker',
   templateUrl: './date-range-picker.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,

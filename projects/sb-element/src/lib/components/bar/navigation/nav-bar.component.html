@@ -1,8 +1,8 @@
-<sb-el-bar [extraClasses]="getClasses()">
+<sb-bar [extraClasses]="getClasses()">
   <div [ngClass]="rootClass + '__left'">
     <ng-content select="[left]"></ng-content>
   </div>
   <div [ngClass]="rootClass + '__right'">
     <ng-content select="[right]"></ng-content>
   </div>
-</sb-el-bar>
+</sb-bar>

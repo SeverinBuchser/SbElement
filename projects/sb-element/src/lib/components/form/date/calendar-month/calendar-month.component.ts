@@ -4,12 +4,12 @@ import { ThemeService } from "../../../../services/theme/theme.service";
 import { SizeThemeColorInputDirective } from "../../../../core/style-input";
 
 @Component({
-  selector: 'sb-el-calendar-month',
+  selector: 'sb-calendar-month',
   templateUrl: './calendar-month.component.html'
 })
 export class CalendarMonthComponent extends SizeThemeColorInputDirective {
 
-  public rootClass: string = 'sb-el-calendar-month';
+  public rootClass: string = 'sb-calendar-month';
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();

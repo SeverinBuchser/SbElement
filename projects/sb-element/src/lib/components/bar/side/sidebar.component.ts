@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { SizeThemeInputDirective, Triggerable } from '../../../core/';
 
 @Component({
-  selector: 'sb-el-sidebar',
+  selector: 'sb-sidebar',
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent extends SizeThemeInputDirective implements Triggerable {
-  public rootClass = 'sb-el-sidebar';
+  public rootClass = 'sb-sidebar';
 
   @Input()
   public side: 'left' | 'right' | 'top' | 'bottom' = 'left';

@@ -1,39 +1,39 @@
 <div [ngClass]="getClasses()">
-  <sb-el-nav-bar>
-    <sb-el-icon left>&#xeb9b;</sb-el-icon>
+  <sb-nav-bar>
+    <sb-icon left>&#xeb9b;</sb-icon>
     <div left>SB Element Demo</div>
-    <sb-el-link left>Severin Buchser</sb-el-link>
-    <sb-el-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-el-link>
-    <sb-el-link left [active]="true">Example</sb-el-link>
-    <sb-el-toggle-switch right
+    <sb-link left>Severin Buchser</sb-link>
+    <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
+    <sb-link left [active]="true">Example</sb-link>
+    <sb-toggle-switch right
       size="s"
       pill
       (change)="toggleTheme($event)"
       [color]="color">
-    </sb-el-toggle-switch>
-  </sb-el-nav-bar>
-  <sb-el-container extraClasses="container">
+    </sb-toggle-switch>
+  </sb-nav-bar>
+  <sb-container extraClasses="container">
     <div class="sidebar-container">
-      <sb-el-sidebar #sidebarOne>
+      <sb-sidebar #sidebarOne>
         <div sidebar>
-          <sb-el-button sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</sb-el-button>
+          <sb-button sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</sb-button>
         </div>
         <div content>
-          <sb-el-button sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</sb-el-button>
+          <sb-button sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</sb-button>
 
-          <sb-el-popper #popperOne position="bottom">
+          <sb-popper #popperOne position="bottom">
             <div popper>
               Popper
             </div>
-            <sb-el-button content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</sb-el-button>
-          </sb-el-popper>
+            <sb-button content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</sb-button>
+          </sb-popper>
         </div>
-      </sb-el-sidebar>
+      </sb-sidebar>
     </div>
-  </sb-el-container>
-  <sb-el-container size="l">
-    <sb-el-grid dim="1x4" gap="l">
-      <sb-el-card size="s" color="primary" hover>
+  </sb-container>
+  <sb-container size="l">
+    <sb-grid dim="1x4" gap="l">
+      <sb-card size="s" color="primary" hover>
         <div title>
           Card with Hover
         </div>
@@ -43,94 +43,94 @@
         <div footer>
           Go checkout something else!
         </div>
-      </sb-el-card>
-      <sb-el-card size="s" color="primary">
+      </sb-card>
+      <sb-card size="s" color="primary">
         <div title>
           Card without Hover
         </div>
         <div content>
-          <sb-el-timeline
+          <sb-timeline
             #timeline
             [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
-          </sb-el-timeline>
+          </sb-timeline>
           <div class="timeline-control">
-            <sb-el-button (click)="timeline.previousDone()" plain size="s">Previous Done</sb-el-button>
-            <sb-el-button (click)="timeline.previousPending()" plain size="s">Previous Pending</sb-el-button>
-            <sb-el-button (click)="timeline.previous()" plain size="s">Previous</sb-el-button>
-            <sb-el-button (click)="timeline.nextDone()" plain size="s">Next Done</sb-el-button>
-            <sb-el-button (click)="timeline.nextPending()" plain size="s">Next Pending</sb-el-button>
+            <sb-button (click)="timeline.previousDone()" plain size="s">Previous Done</sb-button>
+            <sb-button (click)="timeline.previousPending()" plain size="s">Previous Pending</sb-button>
+            <sb-button (click)="timeline.previous()" plain size="s">Previous</sb-button>
+            <sb-button (click)="timeline.nextDone()" plain size="s">Next Done</sb-button>
+            <sb-button (click)="timeline.nextPending()" plain size="s">Next Pending</sb-button>
           </div>
         </div>
         <div footer>
-          <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+          <sb-icon-button plain round>&#xf1df;</sb-icon-button>
         </div>
-      </sb-el-card>
-      <sb-el-card size="s" color="primary">
+      </sb-card>
+      <sb-card size="s" color="primary">
         <div content>
           <div class="pickers">
-            <sb-el-date-picker
+            <sb-date-picker
               [(ngModel)]="model.date"
               name="date"
               size="m"
               [color]="'success'"
               #date="ngModel">
-            </sb-el-date-picker>
-            <sb-el-date-range-picker
+            </sb-date-picker>
+            <sb-date-range-picker
               [(ngModel)]="model.date"
               name="date"
               size="m"
               [color]="'success'"
               #date="ngModel">
-            </sb-el-date-range-picker>
+            </sb-date-range-picker>
           </div>
         </div>
         <div footer>
-          <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+          <sb-icon-button plain round>&#xf1df;</sb-icon-button>
         </div>
-      </sb-el-card>
-      <sb-el-card size="s" color="primary">
+      </sb-card>
+      <sb-card size="s" color="primary">
         <div title>
           Card without Hover
         </div>
         <div content>
           <div class="pickers">
-            <sb-el-spinner
+            <sb-spinner
               placeholder="Number Input"
               [(ngModel)]="model.spinner"
               name="spinner"
               size="m"
               [color]="'success'"
               #spinner="ngModel">
-            </sb-el-spinner>
-            <sb-el-time-picker
+            </sb-spinner>
+            <sb-time-picker
               [(ngModel)]="model.time"
               name="time"
               size="m"
               [color]="'success'"
               #time="ngModel">
-            </sb-el-time-picker>
+            </sb-time-picker>
           </div>
         </div>
         <div footer>
-          <sb-el-icon-button plain round>&#xf1df;</sb-el-icon-button>
+          <sb-icon-button plain round>&#xf1df;</sb-icon-button>
         </div>
-      </sb-el-card>
-    </sb-el-grid>
-  </sb-el-container>
-  <sb-el-container size="l">
-    <sb-el-table [head]="table.head" [body]="table.data"></sb-el-table>
-  </sb-el-container>
-  <sb-el-container size="l">
-    <form [ngClass]="'sb-el-form sb-el-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
-      <div class="sb-el-form__header is-left">
+      </sb-card>
+    </sb-grid>
+  </sb-container>
+  <sb-container size="l">
+    <sb-table [head]="table.head" [body]="table.data" plain alignment="center"></sb-table>
+  </sb-container>
+  <sb-container size="l">
+    <form [ngClass]="'sb-form sb-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="sb-form__header is-left">
         This is a Form
       </div>
-      <div class="sb-el-form__content">
-        <sb-el-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" pill plain>
+      <div class="sb-form__content">
+        <sb-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" pill plain>
           This is a warning!
-        </sb-el-alert-box>
-        <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-        <sb-el-checkbox-group
+        </sb-alert-box>
+        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+        <sb-checkbox-group
           groupTitle="Select Checkboxes"
           groupAlign="left"
           size="s"
@@ -140,9 +140,9 @@
           #checkboxes="ngModel"
           [options]="['Option 1', 'Option 2', 'Option 3']"
           [disabled]="false">
-        </sb-el-checkbox-group>
-        <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-        <sb-el-radio-button-group
+        </sb-checkbox-group>
+        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+        <sb-radio-button-group
           groupTitle="Select Radio"
           groupAlign="left"
           size="s"
@@ -152,12 +152,12 @@
           #radios="ngModel"
           [options]="['Option 1', 'Option 2', 'Option 3']"
           [disabled]="false">
-        </sb-el-radio-button-group>
-        <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-        <sb-el-form-group
+        </sb-radio-button-group>
+        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+        <sb-form-group
           groupTitle="Select and Slider"
           extraClasses="hi">
-          <sb-el-select-button
+          <sb-select-button
             pill
             size="d"
             [color]="color"
@@ -166,8 +166,8 @@
             #select="ngModel"
             [options]="['Option 1', 'Option 2', 'Option 3']">
             Select
-          </sb-el-select-button>
-          <sb-el-slider
+          </sb-select-button>
+          <sb-slider
             label="Slider"
             size="m"
             [color]="color"
@@ -180,13 +180,13 @@
             [(ngModel)]="model.slider"
             name="slider"
             #slider="ngModel">
-          </sb-el-slider>
-        </sb-el-form-group>
-        <hr class="sb-el-form-group-separator" [ngClass]="'sb-el-form-group-separator--' + theme">
-        <sb-el-form-group
+          </sb-slider>
+        </sb-form-group>
+        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+        <sb-form-group
           groupTitle="Input"
           extraClasses="hi">
-          <sb-el-input
+          <sb-input
             placeholder="Enter your E-Mail"
             size="m"
             type="string"
@@ -195,8 +195,8 @@
             name="input"
             [disabled]="false"
             #input="ngModel">
-          </sb-el-input>
-          <sb-el-file-input
+          </sb-input>
+          <sb-file-input
             placeholder="File Input"
             size="m"
             pill
@@ -206,23 +206,23 @@
             name="fileinput"
             [disabled]="false"
             #fileinput="ngModel">
-          </sb-el-file-input>
-        </sb-el-form-group>
+          </sb-file-input>
+        </sb-form-group>
       </div>
-      <div class="sb-el-form__footer is-center">
-        <sb-el-tooltip text="This is a tooltip!" position="left">
-          <sb-el-button
+      <div class="sb-form__footer is-center">
+        <sb-tooltip text="This is a tooltip!" position="left">
+          <sb-button
             type="submit"
-            extraClasses="sb-el-form__footer-element"
+            extraClasses="sb-form__footer-element"
             pill
             size="d"
             [color]="color"
             [disabled]="!form.valid">
               Submit
-          </sb-el-button>
-        </sb-el-tooltip>
+          </sb-button>
+        </sb-tooltip>
       </div>
     </form>
-  </sb-el-container>
-  <sb-el-alert [showIcon]="true" [showArrow]="true"></sb-el-alert>
+  </sb-container>
+  <sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>
 </div>

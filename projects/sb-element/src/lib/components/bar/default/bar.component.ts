@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { SizeThemeInputDirective } from '../../../core/';
 
 @Component({
-  selector: 'sb-el-bar',
+  selector: 'sb-bar',
   templateUrl: './bar.component.html'
 })
 export class BarComponent extends SizeThemeInputDirective {
-  public rootClass = 'sb-el-bar';
+  public rootClass = 'sb-bar';
 
   @Input()
   public side: 'left' | 'right' | 'top' | 'bottom' = 'left';

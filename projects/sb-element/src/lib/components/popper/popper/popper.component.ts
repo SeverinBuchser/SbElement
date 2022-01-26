@@ -3,12 +3,12 @@ import { AlignDirective, Poppable, ThemeInputDirective } from '../../../core/';
 import { PopperPosition } from "./popper-position";
 
 @Component({
-  selector: 'sb-el-popper',
+  selector: 'sb-popper',
   templateUrl: './popper.component.html'
 })
 export class PopperComponent extends ThemeInputDirective implements Poppable {
 
-  public rootClass = 'sb-el-popper';
+  public rootClass = 'sb-popper';
 
   @Input()
   public position: string = PopperPosition.TOP;

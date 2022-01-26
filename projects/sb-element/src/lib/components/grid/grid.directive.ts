@@ -1,12 +1,12 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
-  selector: '[sbElGrid]'
+  selector: '[sbGrid]'
 })
 export class GridDirective {
 
   @Input()
-  set sbElGrid(dimensions: string) {
+  set sbGrid(dimensions: string) {
     let split = dimensions.split("x");
     this.column = "repeat(" + split[0] + ", auto)";
     this.row = "repeat(" + split[1] + ", auto)";

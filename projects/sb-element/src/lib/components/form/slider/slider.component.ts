@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-slider',
+  selector: 'sb-slider',
   templateUrl: './slider.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -13,7 +13,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/
 })
 export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDirective<number> {
 
-  public rootClass = 'sb-el-slider';
+  public rootClass = 'sb-slider';
 
   @Input()
   public label: string = '';

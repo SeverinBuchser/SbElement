@@ -4,7 +4,7 @@ import { ThemeService } from '../../../services/theme/theme.service';
 import { SelectionOptionsDirective } from '../group/base/selection-options.directive';
 
 @Component({
-  selector: 'sb-el-select-button',
+  selector: 'sb-select-button',
   templateUrl: './select-button.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -26,7 +26,7 @@ export class SelectButtonComponent extends SelectionOptionsDirective<string> {
     super(themeService);
     if (pill === '') this.pill = true;
     if (plain === '') this.plain = true;
-    this.rootClass = 'sb-el-select-button';
+    this.rootClass = 'sb-select-button';
   }
 
   public toggle(): void {
@@ -51,7 +51,7 @@ export class SelectButtonComponent extends SelectionOptionsDirective<string> {
 
   public getButtonClasses(): Array<string> {
     let classes = new Array<string>();
-    classes.push('sb-el-select-button__button');
+    classes.push('sb-select-button__button');
     return classes;
   }
 

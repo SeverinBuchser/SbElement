@@ -2,10 +2,12 @@ import { Attribute, Component, Input, Optional } from '@angular/core';
 import { SizeColorInputDirective } from '../../core/style-input/size-color-input.directive';
 
 @Component({
-  selector: 'sb-el-icon',
+  selector: 'sb-icon',
   templateUrl: './icon.component.html'
 })
 export class IconComponent extends SizeColorInputDirective {
+
+  public rootClass = 'sb-icon';
 
   @Input()
   public icon: string = '';
@@ -19,7 +21,6 @@ export class IconComponent extends SizeColorInputDirective {
 
   constructor(@Optional() @Attribute('outline') outline: any) {
     super();
-    this.rootClass = 'sb-el-icon';
     if (outline === '') this.isOutline = true;
   }
 

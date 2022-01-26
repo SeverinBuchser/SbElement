@@ -21,32 +21,32 @@ import { SizeThemeColorInputDirective } from '../../../core/style-input/size-the
  *
  * @example
  * // Basic usage example where pill is set:
- * <sb-el-button
+ * <sb-button
  *              type="submit"
  *              pill
  *              plain
  *              [disabled]="false">
  *              Button Text
- * </sb-el-button>
+ * </sb-button>
  *
  * @example
  * // Basic usage example where round is set:
- * <sb-el-button
+ * <sb-button
  *               type="submit"
  *               round
  *               [disabled]="false">
  *               Button Text
- * </sb-el-button>
+ * </sb-button>
  *
  * @example
  * // This is a minimal usage example:
- * <sb-el-button>
+ * <sb-button>
  *                Button Text
- * </sb-el-button>
+ * </sb-button>
  *
  */
 @Component({
-  selector: 'sb-el-button',
+  selector: 'sb-button',
   templateUrl: './button.component.html'
 })
 export class ButtonComponent extends SizeThemeColorInputDirective {
@@ -54,7 +54,7 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   /**
    * The root class of the HTML button element.
    */
-  public rootClass: string = 'sb-el-btn';
+  public rootClass: string = 'sb-btn';
 
   /**
    *  Sets the [round]{@link #round} property of the component.

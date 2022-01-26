@@ -7,12 +7,12 @@ type State = 'current' | 'awaiting' | 'done' | 'pending';
 type Step = {name: string, state: State, line: boolean};
 
 @Component({
-  selector: 'sb-el-timeline',
+  selector: 'sb-timeline',
   templateUrl: './timeline.component.html'
 })
 export class TimelineComponent extends ThemeColorInputDirective {
 
-  public rootClass = 'sb-el-timeline';
+  public rootClass = 'sb-timeline';
 
   private _steps: LinkedList<Step> = new LinkedList<Step>();
   get steps(): LinkedList<Step> {

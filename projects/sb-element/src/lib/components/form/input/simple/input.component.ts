@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-input',
+  selector: 'sb-input',
   templateUrl: './input.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -13,7 +13,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../co
 })
 export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
 
-  public rootClass = 'sb-el-input';
+  public rootClass = 'sb-input';
 
   @Input()
   public border: boolean = true;

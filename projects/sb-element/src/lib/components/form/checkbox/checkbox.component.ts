@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-checkbox',
+  selector: 'sb-checkbox',
   templateUrl: './checkbox.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -13,7 +13,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/
 })
 export class CheckboxComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
 
-  public rootClass = 'sb-el-checkbox';
+  public rootClass = 'sb-checkbox';
 
   @Input()
   public label: string = '';

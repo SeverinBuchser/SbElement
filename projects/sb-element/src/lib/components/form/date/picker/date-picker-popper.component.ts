@@ -3,12 +3,12 @@ import { SizeThemeColorInputDirective } from "../../../../core";
 import * as fns from "date-fns";
 
 @Component({
-  selector: 'sb-el-date-picker-popper',
+  selector: 'sb-date-picker-popper',
   templateUrl: './date-picker-popper.component.html'
 })
 export class DatePickerPopperComponent extends SizeThemeColorInputDirective {
 
-  public rootClass = 'sb-el-date-picker-popper';
+  public rootClass = 'sb-date-picker-popper';
 
   @Input()
   public isRange: boolean = false;

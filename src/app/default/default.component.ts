@@ -54,6 +54,7 @@ export class DefaultComponent extends ThemeInputDirective {
 
   onSubmit(form: NgForm) {
     console.log(this.model);
+    this.alertService.inform("Hello", "d");
   }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-<sb-el-form-group
+<sb-form-group
   [groupTitle]="groupTitle"
   [groupAlign]="groupAlign"
   [size]="size"
@@ -7,7 +7,7 @@
     <div
       [ngClass]="rootClass + '__option'"
       *ngFor="let option of options">
-      <sb-el-radio-button
+      <sb-radio-button
         [(ngModel)]="selectedOptions[option]"
         (change)="check(option)"
         [size]="size"
@@ -15,7 +15,7 @@
         [disabled]="disabled"
         [labelPosition]="labelPosition"
         [label]="option">
-      </sb-el-radio-button>
+      </sb-radio-button>
     </div>
   </div>
-</sb-el-form-group>
+</sb-form-group>

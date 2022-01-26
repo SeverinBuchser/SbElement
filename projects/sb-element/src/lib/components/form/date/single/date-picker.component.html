@@ -1,11 +1,11 @@
-<sb-el-popper #datePopper position="bottom">
-  <sb-el-date-picker-popper popper
+<sb-popper #datePopper position="bottom">
+  <sb-date-picker-popper popper
     (select)="handlePickerSelect($event)"
     [date]="this.value ? [this.value] : undefined"
     [size]="size"
     [color]="color">
-  </sb-el-date-picker-popper>
-  <sb-el-input
+  </sb-date-picker-popper>
+  <sb-input
     content
     [ngModel]="value"
     (ngModelChange)="handleSelect($event)"
@@ -15,5 +15,5 @@
     [prefixIcon]="'\ue878'"
     sbElClickOutsideTrigger
     [triggerable]="datePopper">
-  </sb-el-input>
-</sb-el-popper>
+  </sb-input>
+</sb-popper>

@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SelectionOptionsDirective } from '../base/selection-options.directive';
 
 @Component({
-  selector: 'sb-el-radio-button-group',
+  selector: 'sb-radio-button-group',
   templateUrl: './radio-button-group.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -13,7 +13,7 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 })
 export class RadioButtonGroupComponent extends SelectionOptionsDirective<string> {
 
-  public rootClass = 'sb-el-form-group-options';
+  public rootClass = 'sb-form-group-options';
 
   @Input()
   public groupTitle: string = '';

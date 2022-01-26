@@ -1,6 +1,6 @@
 <div [ngClass]="getClasses()">
-  <sb-el-icon [extraClasses]="rootClass + '__icon'" (click)="previousYear()" [color]="color">&#xeac3;</sb-el-icon>
-  <sb-el-icon [extraClasses]="rootClass + '__icon'"  (click)="previousMonth()" [color]="color">&#xe314;</sb-el-icon>
+  <sb-icon [extraClasses]="rootClass + '__icon'" (click)="previousYear()" [color]="color">&#xeac3;</sb-icon>
+  <sb-icon [extraClasses]="rootClass + '__icon'"  (click)="previousMonth()" [color]="color">&#xe314;</sb-icon>
   <div [ngClass]="rootClass + '__month'">
     <div [ngClass]="rootClass + '__month-wrapper'">
       <span [ngClass]="rootClass + '__month-previous'">{{ formatPrevious }}</span>
@@ -8,6 +8,6 @@
       <span [ngClass]="rootClass + '__month-next'">{{ formatNext }}</span>
     </div>
   </div>
-  <sb-el-icon [extraClasses]="rootClass + '__icon'"  (click)="nextMonth()" [color]="color">&#xe315;</sb-el-icon>
-  <sb-el-icon [extraClasses]="rootClass + '__icon'"  (click)="nextYear()" [color]="color">&#xeac9;</sb-el-icon>
+  <sb-icon [extraClasses]="rootClass + '__icon'"  (click)="nextMonth()" [color]="color">&#xe315;</sb-icon>
+  <sb-icon [extraClasses]="rootClass + '__icon'"  (click)="nextYear()" [color]="color">&#xeac9;</sb-icon>
 </div>

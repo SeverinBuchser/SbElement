@@ -1,9 +1,9 @@
 <div [ngClass]="getClasses()">
   <div [ngClass]="rootClass + '__border'"></div>
   <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
-    <sb-el-icon [icon]="prefixIcon" [color]="null" size="d"></sb-el-icon>
+    <sb-icon [icon]="prefixIcon" [color]="null" size="d"></sb-icon>
   </div>
-  <sb-el-spinner-core
+  <sb-spinner-core
     [min]="min"
     [max]="max"
     [size]="size"
@@ -13,8 +13,8 @@
     (blur)="emitBlur()"
     (focus)="emitFocus()"
     [disabled]="disabled">
-  </sb-el-spinner-core>
+  </sb-spinner-core>
   <div *ngIf="suffixIcon" [ngClass]="rootClass + '__suffix'">
-    <sb-el-icon [icon]="suffixIcon" [color]="null" size="d"></sb-el-icon>
+    <sb-icon [icon]="suffixIcon" [color]="null" size="d"></sb-icon>
   </div>
 </div>

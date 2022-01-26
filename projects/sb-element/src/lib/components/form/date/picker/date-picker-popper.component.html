@@ -1,14 +1,14 @@
 <div [ngClass]="getClasses()">
-  <sb-el-calendar-navigation
+  <sb-calendar-navigation
     [color]="color"
     [size]="size"
     [(ngModel)]="showingMonthStart">
-  </sb-el-calendar-navigation>
-  <sb-el-calendar-month
+  </sb-calendar-navigation>
+  <sb-calendar-month
     [color]="color"
     [size]="size"
     [markedDates]="markedDates"
     [showingMonthStart]="showingMonthStart"
     (select)="handleSelect($event)">
-  </sb-el-calendar-month>
+  </sb-calendar-month>
 </div>

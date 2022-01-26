@@ -4,7 +4,7 @@ import { SelectedOptions } from '../../../../models/selected-options';
 import { SelectionOptionsDirective } from '../base/selection-options.directive';
 
 @Component({
-  selector: 'sb-el-checkbox-group',
+  selector: 'sb-checkbox-group',
   templateUrl: './checkbox-group.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -14,7 +14,7 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
 })
 export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOptions> {
 
-  public rootClass = 'sb-el-form-group-options';
+  public rootClass = 'sb-form-group-options';
 
   @Input()
   public groupTitle: string = '';

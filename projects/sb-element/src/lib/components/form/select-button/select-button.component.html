@@ -1,5 +1,5 @@
 <div [ngClass]="getClasses()">
-  <sb-el-button
+  <sb-button
     [color]="color"
     [size]="size"
     [isPlain]="plain"
@@ -9,8 +9,8 @@
     (click)="toggle()">
     {{ value }}
     <ng-content *ngIf="!value"></ng-content>
-    <sb-el-icon>&#xe5cf;</sb-el-icon>
-  </sb-el-button>
+    <sb-icon>&#xe5cf;</sb-icon>
+  </sb-button>
   <div [ngClass]="rootClass + '__options-wrapper'">
     <div [ngClass]="rootClass + '__options'">
       <div

@@ -5,7 +5,7 @@ import { ThemeService } from '../../../services/theme/theme.service';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-file-input',
+  selector: 'sb-file-input',
   templateUrl: './file-input.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -15,7 +15,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/
 })
 export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputDirective<File> {
 
-  public rootClass = 'sb-el-file-input';
+  public rootClass = 'sb-file-input';
 
   @Input()
   public placeholder: string = '';

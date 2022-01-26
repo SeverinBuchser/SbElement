@@ -4,7 +4,7 @@ import * as fns from "date-fns";
 import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../core/control-value-accessor-style-input";
 
 @Component({
-  selector: 'sb-el-calendar-navigation',
+  selector: 'sb-calendar-navigation',
   templateUrl: './calendar-navigation.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -14,7 +14,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../co
 })
 export class CalendarNavigationComponent extends ControlValueAccessorSizeThemeColorInputDirective<Date> {
 
-  public rootClass: string = 'sb-el-calendar-navigation';
+  public rootClass: string = 'sb-calendar-navigation';
 
   public previousValue?: Date;
   public nextValue?: Date;

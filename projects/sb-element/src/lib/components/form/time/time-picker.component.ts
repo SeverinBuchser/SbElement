@@ -4,7 +4,7 @@ import { ThemeService } from "../../../services/theme/theme.service";
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
-  selector: 'sb-el-time-picker',
+  selector: 'sb-time-picker',
   templateUrl: './time-picker.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,

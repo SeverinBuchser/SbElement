@@ -4,7 +4,7 @@ import { ThemeService } from "../../../services/theme/theme.service";
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-radio-button',
+  selector: 'sb-radio-button',
   templateUrl: './radio-button.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -21,7 +21,7 @@ export class RadioButtonComponent extends ControlValueAccessorSizeThemeColorInpu
 
   constructor(themeService: ThemeService) {
     super(themeService);
-    this.rootClass = 'sb-el-radio-button';
+    this.rootClass = 'sb-radio-button';
   }
 
   public check(): void {

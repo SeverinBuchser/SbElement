@@ -3,12 +3,12 @@ import { ThemeService } from '../../services/theme/theme.service';
 import { SizeThemeInputDirective } from '../../core/style-input/size-theme-input.directive';
 
 @Component({
-  selector: 'sb-el-card',
+  selector: 'sb-card',
   templateUrl: './card.component.html'
 })
 export class CardComponent extends SizeThemeInputDirective {
 
-  public rootClass: string = 'sb-el-card';
+  public rootClass: string = 'sb-card';
 
   @Input()
   public titleSeparator: boolean = true;
@@ -31,8 +31,8 @@ export class CardComponent extends SizeThemeInputDirective {
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.hover ? 'is-hover' : '');
-    classes.push(this.shadow ? 'is-shadow' : '');
+    classes.push(this.hover ? 'hover' : '');
+    classes.push(this.shadow ? 'shadow' : '');
     return classes;
   }
 

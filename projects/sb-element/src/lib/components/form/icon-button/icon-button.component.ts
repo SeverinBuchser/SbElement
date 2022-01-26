@@ -3,7 +3,7 @@ import { ThemeService } from '../../../services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../../../core/style-input/size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-icon-button',
+  selector: 'sb-icon-button',
   templateUrl: './icon-button.component.html'
 })
 export class IconButtonComponent extends SizeThemeColorInputDirective {

@@ -1,7 +1,7 @@
 <div [ngClass]="getClasses()">
   <div [ngClass]="getSidebarOverlayClasses()" (click)="trigger()"></div>
-  <sb-el-bar [side]="side" [size]="size" [extraClasses]="getSidebarClasses()">
+  <sb-bar [side]="side" [size]="size" [extraClasses]="getSidebarClasses()">
     <ng-content select="[sidebar]"></ng-content>
-  </sb-el-bar>
+  </sb-bar>
   <ng-content select="[content]"></ng-content>
 </div>

@@ -4,7 +4,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../co
 
 
 @Component({
-  selector: 'sb-el-double-spinner',
+  selector: 'sb-double-spinner',
   templateUrl: './double-spinner.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -13,7 +13,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../co
   }]
 })
 export class DoubleSpinnerComponent extends ControlValueAccessorSizeThemeColorInputDirective<Array<number>> {
-  public rootClass = 'sb-el-input';
+  public rootClass = 'sb-input';
 
   @Input()
   public firstPlaceholder: string = '';

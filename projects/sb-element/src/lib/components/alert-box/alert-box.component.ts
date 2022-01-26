@@ -3,12 +3,12 @@ import { ThemeService } from '../../services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-alert-box',
+  selector: 'sb-alert-box',
   templateUrl: './alert-box.component.html'
 })
 export class AlertBoxComponent extends SizeThemeColorInputDirective {
 
-  public rootClass: string = 'sb-el-alert-box';
+  public rootClass: string = 'sb-alert-box';
 
   @Input()
   public showArrow: boolean = true;
@@ -37,10 +37,10 @@ export class AlertBoxComponent extends SizeThemeColorInputDirective {
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.flipped ? 'is-flipped' : '');
-    classes.push(this.pill ? 'is-pill' : '');
-    classes.push(this.plain ? 'is-plain' : '');
-    classes.push(!this.showArrow && !this.showIcon ? 'is-center' : '');
+    classes.push(this.flipped ? 'flipped' : '');
+    classes.push(this.pill ? 'pill' : '');
+    classes.push(this.plain ? 'plain' : '');
+    classes.push(!this.showArrow && !this.showIcon ? 'center' : '');
     return classes;
   }
 

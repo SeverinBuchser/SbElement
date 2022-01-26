@@ -6,12 +6,12 @@ import { ThemeService } from '../../services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-alert',
+  selector: 'sb-alert',
   templateUrl: './alert.component.html'
 })
 export class AlertComponent extends SizeThemeColorInputDirective implements AlertServiceSubscriber {
 
-  public rootClass: string = 'sb-el-alert';
+  public rootClass: string = 'sb-alert';
 
   @Input()
   public showArrow: boolean = true;
@@ -81,7 +81,7 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.show ? 'is-active' : 'is-inactive');
+    classes.push(this.show ? 'active' : 'inactive');
     return classes;
   }
 

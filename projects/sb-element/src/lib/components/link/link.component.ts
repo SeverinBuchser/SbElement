@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { SizeThemeInputDirective } from "../../core";
 
 @Component({
-  selector: 'sb-el-link',
+  selector: 'sb-link',
   templateUrl: './link.component.html'
 })
 export class LinkComponent extends SizeThemeInputDirective {
-  public rootClass: string = 'sb-el-link';
+  public rootClass: string = 'sb-link';
 
   @Input()
   public active: boolean = false;

@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { SizeThemeColorInputDirective } from '../../../core/style-input/size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-el-form-group',
+  selector: 'sb-form-group',
   templateUrl: './form-group.component.html'
 })
 export class FormGroupComponent extends SizeThemeColorInputDirective {
 
-  public rootClass = 'sb-el-form-group';
+  public rootClass = 'sb-form-group';
 
   @Input()
   public groupTitle: string = '';
