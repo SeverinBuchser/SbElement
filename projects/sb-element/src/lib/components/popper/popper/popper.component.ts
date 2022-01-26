@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { AlignDirective, Poppable, ThemeInputDirective } from '../../../core/';
-import { TestPopoverPosition } from "./popover-position";
+import { PopperPosition } from "./popper-position";
 
 @Component({
   selector: 'sb-el-popper',
@@ -11,7 +11,7 @@ export class PopperComponent extends ThemeInputDirective implements Poppable {
   public rootClass = 'sb-el-popper';
 
   @Input()
-  public position: string = TestPopoverPosition.TOP;
+  public position: string = PopperPosition.TOP;
 
   @Input()
   public visible: boolean = false;
@@ -29,19 +29,19 @@ export class PopperComponent extends ThemeInputDirective implements Poppable {
   public arrow!: AlignDirective;
 
   get isTop(): boolean {
-    return new RegExp(TestPopoverPosition.TOP).test(this.position);
+    return new RegExp(PopperPosition.TOP).test(this.position);
   }
 
   get isLeft(): boolean {
-    return new RegExp(TestPopoverPosition.LEFT).test(this.position);
+    return new RegExp(PopperPosition.LEFT).test(this.position);
   }
 
   get isRight(): boolean {
-    return new RegExp(TestPopoverPosition.RIGHT).test(this.position);
+    return new RegExp(PopperPosition.RIGHT).test(this.position);
   }
 
   get isBottom(): boolean {
-    return new RegExp(TestPopoverPosition.BOTTOM).test(this.position);
+    return new RegExp(PopperPosition.BOTTOM).test(this.position);
   }
 
   get isStart(): boolean {

@@ -1,4 +1,4 @@
-export enum TestPopoverPosition {
+export enum PopperPosition {
   TOP_START = 'top-start',
   TOP = 'top',
   TOP_END = 'top-end',

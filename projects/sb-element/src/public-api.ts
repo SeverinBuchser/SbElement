@@ -8,7 +8,6 @@ export * from './lib/core';
 /*
  *  Models
  */
-export * from './lib/models/popover/popover-position';
 export * from './lib/models/table/column-information-options.interface';
 export * from './lib/models/table/column-information.interface';
 export * from './lib/models/table/column-information-defaults';

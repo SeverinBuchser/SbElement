@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TestPopoverPosition } from "../popper-test/popover-position";
+import { PopperPosition } from "../popper/popper-position";
 import { ClassNameInputDirective } from '../../../core/';
 
 @Component({
@@ -17,6 +17,6 @@ export class TooltipComponent extends ClassNameInputDirective {
   public delay: number = 0;
 
   @Input()
-  public position: string = TestPopoverPosition.TOP;
+  public position: string = PopperPosition.TOP;
 
 }
