@@ -25,8 +25,8 @@ export class CardComponent extends SizeThemeInputDirective {
     themeService: ThemeService
   ) {
     super(themeService);
-    if (hover === '') this.hover = true;
-    if (shadow === '') this.shadow = true;
+    if (hover == '') this.hover = true;
+    if (shadow == '') this.shadow = true;
   }
 
   public getClasses(): Array<string> {

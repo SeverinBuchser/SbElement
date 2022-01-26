@@ -137,7 +137,7 @@ export class Csv {
    */
   private static rows(string: string): Array<string> {
     let rows = string.split('\n');
-    if (rows[rows.length - 1] === "") rows.splice(rows.length - 1, rows.length);
+    if (rows[rows.length - 1] == "") rows.splice(rows.length - 1, rows.length);
     return rows;
   }
 

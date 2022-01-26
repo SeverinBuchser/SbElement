@@ -33,7 +33,7 @@ export class RadioButtonGroupComponent extends SelectionOptionsDirective<string>
 
   protected updateValues(): void {
     this.options.forEach((option: string) => {
-      if (option === this.value) {
+      if (option == this.value) {
         this.selectedOptions[option] = true;
       } else this.selectedOptions[option] = false;
     })

@@ -21,7 +21,7 @@ export class IconComponent extends SizeColorInputDirective {
 
   constructor(@Optional() @Attribute('outline') outline: any) {
     super();
-    if (outline === '') this.isOutline = true;
+    if (outline == '') this.isOutline = true;
   }
 
   public getClasses(): Array<string> {

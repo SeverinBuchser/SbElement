@@ -140,7 +140,7 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
   public getPlaceholderClasses(): Array<string> {
     let classes = new Array<string>();
     classes.push(this.rootClass + '__placeholder');
-    classes.push(this.value != null || this.focused ? 'is-top' : '');
+    classes.push(this.value != null || this.focused ? 'top' : '');
     return classes;
   }
 

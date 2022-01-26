@@ -168,9 +168,9 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
     themeService: ThemeService
   ) {
     super(themeService);
-    if (round === '') this.isRound = true;
-    if (pill === '') this.isPill = true;
-    if (plain === '') this.isPlain = true;
+    if (round == '') this.isRound = true;
+    if (pill == '') this.isPill = true;
+    if (plain == '') this.isPlain = true;
   }
 
   /**

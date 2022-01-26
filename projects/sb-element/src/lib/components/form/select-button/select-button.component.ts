@@ -24,8 +24,8 @@ export class SelectButtonComponent extends SelectionOptionsDirective<string> {
     themeService: ThemeService
   ) {
     super(themeService);
-    if (pill === '') this.pill = true;
-    if (plain === '') this.plain = true;
+    if (pill == '') this.pill = true;
+    if (plain == '') this.plain = true;
     this.rootClass = 'sb-select-button';
   }
 
@@ -43,7 +43,7 @@ export class SelectButtonComponent extends SelectionOptionsDirective<string> {
 
   protected updateValues(): void {
     this.options.forEach((option: string) => {
-      if (option === this.value) {
+      if (option == this.value) {
         this.selectedOptions[option] = true;
       } else this.selectedOptions[option] = false;
     })

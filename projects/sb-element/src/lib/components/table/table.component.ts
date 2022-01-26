@@ -31,7 +31,7 @@ export class TableComponent extends ThemeColorInputDirective {
     themeService: ThemeService
   ) {
     super(themeService);
-    if (plain === '') this.isPlain = true;
+    if (plain == '') this.isPlain = true;
   }
 
   public getClasses(): Array<string> {

@@ -37,8 +37,8 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
     themeService: ThemeService
   ) {
     super(themeService);
-    if (pill === '') this.pill = true;
-    if (plain === '') this.plain = true;
+    if (pill == '') this.pill = true;
+    if (plain == '') this.plain = true;
   }
 
   public input(files: FileList | null) {

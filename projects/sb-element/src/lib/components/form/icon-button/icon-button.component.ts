@@ -31,9 +31,9 @@ export class IconButtonComponent extends SizeThemeColorInputDirective {
     themeService: ThemeService
   ) {
     super(themeService);
-    if (pill === '') this.pill = true;
-    if (round === '') this.round = true;
-    if (plain === '') this.plain = true;
+    if (pill == '') this.pill = true;
+    if (round == '') this.round = true;
+    if (plain == '') this.plain = true;
   }
 
 }
