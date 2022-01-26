@@ -1,14 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SizeThemeColorInputDirective } from "../../../../core";
 import * as fns from "date-fns";
-import { PopperService } from "../../../../services/popper/popper.service";
-import { ThemeService } from "../../../../services/theme/theme.service";
-import { PopperDirective } from "../../../popper/popper.directive";
 
 @Component({
   selector: 'sb-el-date-picker-popper',
   templateUrl: './date-picker-popper.component.html'
 })
-export class DatePickerPopperComponent extends PopperDirective {
+export class DatePickerPopperComponent extends SizeThemeColorInputDirective {
 
   public rootClass = 'sb-el-date-picker-popper';
 
@@ -35,13 +33,6 @@ export class DatePickerPopperComponent extends PopperDirective {
     }
   };
 
-  constructor(
-    private popperService: PopperService,
-    themeService: ThemeService
-  ) {
-    super(themeService);
-  }
-
   private addToMarked(date: Date): boolean {
     if (this.isRange) {
       if (this.markedDates.length == 2) {
@@ -64,7 +55,6 @@ export class DatePickerPopperComponent extends PopperDirective {
     this.select.emit(this.markedDates.map((date: Date) => {
       return fns.format(date, this.format);
     }));
-    this.popperService.unpop();
   }
 
   public handleSelect(date: Date): void {

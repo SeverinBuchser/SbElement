@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, PopperService, TimelineComponent, ThemeInputDirective } from 'sb-element';
+import { AlertService, ThemeService, Table, TimelineComponent, ThemeInputDirective } from 'sb-element';
 import { TableModel } from "./../table.model";
-import { PopoverTextComponent } from "./popover-text/popover-text.component";
 
 @Component({
   selector: 'app-default',
@@ -39,8 +38,7 @@ export class DefaultComponent extends ThemeInputDirective {
 
   constructor(
     themeService: ThemeService,
-    private alertService: AlertService,
-    private popperService: PopperService
+    private alertService: AlertService
   ) {
     super(themeService)
     this.table = Table.fromJSON({
@@ -56,13 +54,8 @@ export class DefaultComponent extends ThemeInputDirective {
     })
   }
 
-  pop() {
-    //this.popperService.pop<PopoverTextComponent>(PopoverTextComponent, this.tableone);
-  }
-
   onSubmit(form: NgForm) {
-    console.log(this.model)
-    // this.alert(form.value.input);
+    console.log(this.model);
     Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
     .catch((err: Error) => this.alertService.warn(err.message))
   }

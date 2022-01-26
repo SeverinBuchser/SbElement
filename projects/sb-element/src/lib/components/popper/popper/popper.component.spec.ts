@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopperTestComponent } from './popper-test.component';
+import { PopperComponent } from './popper.component';
 
 describe('PopperTestComponent', () => {
-  let component: PopperTestComponent;
-  let fixture: ComponentFixture<PopperTestComponent>;
+  let component: PopperComponent;
+  let fixture: ComponentFixture<PopperComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopperTestComponent ]
+      declarations: [ PopperComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopperTestComponent);
+    fixture = TestBed.createComponent(PopperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

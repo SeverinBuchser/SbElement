@@ -19,7 +19,6 @@ export * from './lib/models/table/table';
  * Services
  */
 export * from './lib/services/alert/alert.service';
-export * from './lib/services/popper/popper.service';
 export * from './lib/services/theme/theme.service';
 
 

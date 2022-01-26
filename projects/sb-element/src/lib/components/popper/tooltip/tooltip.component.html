@@ -1,8 +1,8 @@
-<sb-el-popper-test #tooltipPopper [position]="position">
+<sb-el-popper #tooltipPopper [position]="position">
   <div [ngClass]="getClasses()"  popper>
     {{ text }}
   </div>
   <div content sbElClickTrigger [triggerable]="tooltipPopper" [delay]="delay">
     <ng-content></ng-content>
   </div>
-</sb-el-popper-test>
+</sb-el-popper>
