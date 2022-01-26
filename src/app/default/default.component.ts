@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertService, ThemeService, Table, TimelineComponent, ThemeInputDirective } from 'sb-element';
-import { TableModel } from "./../table.model";
+import { AlertService, ThemeService, TimelineComponent, ThemeInputDirective } from 'sb-element';
 
 @Component({
   selector: 'app-default',
@@ -31,7 +30,7 @@ export class DefaultComponent extends ThemeInputDirective {
     double: ''
   };
 
-  public table: TableModel = new TableModel();
+  public table!: {data: Array<Array<any>>, head: Array<any>};
 
   @ViewChild('timeline')
   public timeline!: TimelineComponent;
@@ -41,23 +40,20 @@ export class DefaultComponent extends ThemeInputDirective {
     private alertService: AlertService
   ) {
     super(themeService)
-    this.table = Table.fromJSON({
-      "Name" : [
-        "Severin",
-        "Rafael"
-      ],
-      "Nachname": [
-        "Buchser",
-        "Buchser",
-        "Buchser"
-      ]
-    })
+    this.table = {
+      data: [[
+        "Severin", "Buchser"
+      ], [
+        "Rafael", "Buchser"
+      ],[
+        null, "Buchser"
+      ]],
+      head: ["Vorname", "Nachname"]
+    }
   }
 
   onSubmit(form: NgForm) {
     console.log(this.model);
-    Table.fromCSV(form.value.fileinput).then((table: TableModel) => this.table = table)
-    .catch((err: Error) => this.alertService.warn(err.message))
   }
 
   ngOnInit() {

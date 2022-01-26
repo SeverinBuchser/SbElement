@@ -8,11 +8,6 @@ export * from './lib/core';
 /*
  *  Models
  */
-export * from './lib/models/table/column-information-options.interface';
-export * from './lib/models/table/column-information.interface';
-export * from './lib/models/table/column-information-defaults';
-export * from './lib/models/table/column-information'
-export * from './lib/models/table/table';
 
 /*
  * Services

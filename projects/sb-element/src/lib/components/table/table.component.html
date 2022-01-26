@@ -1,24 +1,13 @@
 <table [ngClass]="getClasses()">
-  <tbody [ngClass]="rootClass + '__body'">
-    <tr [ngClass]="rootClass + '__row'">
-      <th
-        *ngFor="let column of table.columnInformation; index as columnIndex"
-        [ngClass]="getColumnClasses(columnIndex)">
-        <div [ngClass]="subRootClass + '--content'">
-          <span>{{ column.name }}</span>
-        </div>
-      </th>
+  <thead [ngClass]="rootClass + '__head'">
+    <tr sb-el-table-head
+      [head]="head">
     </tr>
-    <tr
-      *ngFor="let rowEntries of table.data"
-      [ngClass]="rootClass + '__row'">
-      <td
-        *ngFor="let columnEntry of rowEntries; index as columnIndex"
-        [ngClass]="getColumnClasses(columnIndex)">
-        <div [ngClass]="subRootClass + '--content'">
-          <span>{{ columnEntry }}</span>
-        </div>
-      </td>
+  </thead>
+  <tbody [ngClass]="rootClass + '__body'">
+    <tr sb-el-table-row
+      *ngFor="let row of data"
+      [row]="row">
     </tr>
   </tbody>
 </table>
