@@ -1,9 +1,5 @@
-import { Component, ComponentRef, ViewChild } from '@angular/core';
-import { PopoverTriggerClickDirective } from "../../../popper/trigger/popover/click";
-import { PopperService } from "../../../../services/popper/popper.service";
-import { DatePickerPopperComponent } from "./../picker/date-picker-popper.component";
+import { Component } from '@angular/core';
 import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive";
-import { ThemeService } from "../../../../services/theme/theme.service";
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
 
@@ -18,25 +14,10 @@ import * as fns from "date-fns";
 })
 export class DatePickerComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
 
-  @ViewChild(PopoverTriggerClickDirective)
-  private trigger!: PopoverTriggerClickDirective
-  private popper?: ComponentRef<DatePickerPopperComponent>;
-
-  constructor(
-    private popperService: PopperService,
-    themeService: ThemeService
-  ) {
-    super(themeService);
-  }
-
-  open(): void {
-    this.popper = this.popperService.pop(DatePickerPopperComponent, this.trigger);
-    this.popper.instance.select.subscribe((dates: Array<string>) => {
-      if (dates.length == 1) {this.handleSelect(dates[0])}
-    });
-    this.popper.instance.date = this.value ? [this.value] : undefined;
-    this.popper.instance.size = this.size;
-    this.popper.instance.color = this.color;
+  public handlePickerSelect(dates: Array<string>): void {
+    if (dates.length == 1) {
+      this.handleSelect(dates[0])
+    }
   }
 
   public handleSelect(date: string): void {
@@ -46,10 +27,6 @@ export class DatePickerComponent extends ControlValueAccessorSizeThemeColorInput
       this.writeValueInnerChange(date);
       this.updateValues();
     }
-  }
-
-  protected updateValues(): void {
-    if (this.popper) this.popper.instance.date = this.value ? [this.value] : undefined;
   }
 
 }

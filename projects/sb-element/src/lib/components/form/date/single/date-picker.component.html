@@ -1,11 +1,19 @@
-<sb-el-input
-  [ngModel]="value"
-  (ngModelChange)="handleSelect($event)"
-  placeholder="Pick a Date"
-  [size]="size"
-  [color]="color"
-  [prefixIcon]="'\ue878'"
-  sbElPopoverTriggerClick
-  popoverPosition="bottom"
-  (trigger)="open()">
-</sb-el-input>
+<sb-el-popper-test #datePopper position="bottom">
+  <sb-el-date-picker-popper popper
+    (select)="handlePickerSelect($event)"
+    [date]="this.value ? [this.value] : undefined"
+    [size]="size"
+    [color]="color">
+  </sb-el-date-picker-popper>
+  <sb-el-input
+    content
+    [ngModel]="value"
+    (ngModelChange)="handleSelect($event)"
+    placeholder="Pick a Date"
+    [size]="size"
+    [color]="color"
+    [prefixIcon]="'\ue878'"
+    sbElClickOutsideTrigger
+    [triggerable]="datePopper">
+  </sb-el-input>
+</sb-el-popper-test>
