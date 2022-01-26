@@ -21,6 +21,7 @@ import { TriggerDirective } from './trigger/trigger.directive';
 import { ClickTriggerDirective } from './trigger/click-trigger.directive';
 import { AlignDirective } from './align/align.directive';
 import { HoverTriggerDirective } from './trigger/hover-trigger.directive';
+import { ClickOutsideTriggerDirective } from './trigger/click-outside-trigger.directive';
 
 
 
@@ -46,6 +47,7 @@ import { HoverTriggerDirective } from './trigger/hover-trigger.directive';
     StateManagerDirective,
     EventManagerDirective,
     TriggerDirective,
+    ClickOutsideTriggerDirective,
     ClickTriggerDirective,
     HoverTriggerDirective,
     AlignDirective,
@@ -73,6 +75,7 @@ import { HoverTriggerDirective } from './trigger/hover-trigger.directive';
     ControlValueAccessorClassNameInputDirective,
 
     TriggerDirective,
+    ClickOutsideTriggerDirective,
     ClickTriggerDirective,
     HoverTriggerDirective,
     AlignDirective,

@@ -1,12 +1,12 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { AlignDirective, ThemeInputDirective, Triggerable } from '../../../core/';
+import { AlignDirective, Poppable, ThemeInputDirective } from '../../../core/';
 import { TestPopoverPosition } from "./popover-position";
 
 @Component({
   selector: 'sb-el-popper-test',
   templateUrl: './popper-test.component.html'
 })
-export class PopperTestComponent extends ThemeInputDirective implements Triggerable {
+export class PopperTestComponent extends ThemeInputDirective implements Poppable {
 
   public rootClass = 'sb-el-popper-test';
 
@@ -20,7 +20,10 @@ export class PopperTestComponent extends ThemeInputDirective implements Triggera
   public content!: ElementRef;
 
   @ViewChild('popper', {read: AlignDirective})
-  public popper!: AlignDirective;
+  public popper!: any;
+
+  @ViewChild('popper', {read: ElementRef})
+  public popperRef!: any;
 
   @ViewChild('arrow', {read: AlignDirective})
   public arrow!: AlignDirective;
@@ -96,6 +99,10 @@ export class PopperTestComponent extends ThemeInputDirective implements Triggera
 
     this.popper.moveBy(pDx, pDy);
     this.arrow.moveBy(aDx, aDy);
+  }
+
+  public getPopperRef(): ElementRef<any> {
+    return this.popperRef;
   }
 
   public getClasses(): Array<string> {

@@ -8,6 +8,7 @@ export class ClickTriggerDirective extends TriggerDirective {
 
   @HostListener('click', ['$event'])
   private handleClick(event: PointerEvent) {
+    event.stopPropagation();
     this.trigger();
   }
 

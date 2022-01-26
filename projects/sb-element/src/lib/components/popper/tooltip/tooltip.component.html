@@ -2,7 +2,7 @@
   <div [ngClass]="getClasses()"  popper>
     {{ text }}
   </div>
-  <div content sbElHoverTrigger [triggerable]="tooltipPopper" [delay]="delay">
+  <div content sbElClickTrigger [triggerable]="tooltipPopper" [delay]="delay">
     <ng-content></ng-content>
   </div>
 </sb-el-popper-test>

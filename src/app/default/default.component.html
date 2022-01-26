@@ -20,6 +20,13 @@
         </div>
         <div content>
           <sb-el-button sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</sb-el-button>
+
+          <sb-el-popper-test #popperOne position="bottom">
+            <div popper>
+              Popper
+            </div>
+            <sb-el-button content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</sb-el-button>
+          </sb-el-popper-test>
         </div>
       </sb-el-sidebar>
     </div>
