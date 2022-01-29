@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { SizeThemeInputDirective } from '../../core/style-input/size-theme-input.directive';
+import { ThemeInputDirective } from '../../core';
 
 @Component({
   selector: 'sb-container',
   templateUrl: './container.component.html'
 })
-export class ContainerComponent extends SizeThemeInputDirective {
+export class ContainerComponent extends ThemeInputDirective {
 
   public rootClass = 'sb-container';
 

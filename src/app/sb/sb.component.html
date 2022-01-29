@@ -1,24 +1,4 @@
-<div [ngClass]="getClasses()" (wheel)="onScroll($event)">
-  <img [src]="'assets/mockup-' + theme + '.svg'" class="envelope">
-  <img [src]="'assets/mockup-' + theme + '-to-animate-backside.svg'" class="to-animate-backside" [ngClass]="toAnimateClass" #toAnimateBackside>
-  <img [src]="'assets/mockup-' + theme + '-to-animate.svg'" class="to-animate" [ngClass]="toAnimateClass" #toAnimate>
-
-  <!-- <img [src]="'assets/sb-' + theme + '.svg'" class="logo">
-
-  <div class="catch">
-    <p class="sb-font-regular sb-font-weight-bold sb-font-size-m">Severin Buchser</p>
-    <p class="sb-font-regular sb-font-weight-thin sb-font-size-m">Webdevelopment & Photography</p>
-  </div>
-  <div class="style-wrapper">
-    <div class="style">
-      <div class="circle circle-1"></div>
-      <div class="circle circle-2"></div>
-    </div>
-  </div>
-  <div class="writing" [ngClass]="'writing--' + theme">
-    <div class="line line-1"></div>
-    <div class="line line-2"></div>
-    <div class="line line-3"></div>
-    <div class="line line-4"></div>
-  </div> -->
+<div [ngClass]="getClasses()">
+  Severin Buchser
+  <sb-link [routerLink]="['/', 'example']">Example</sb-link>
 </div>

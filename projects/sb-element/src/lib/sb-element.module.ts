@@ -20,6 +20,7 @@ import { GridComponent } from './components/grid/grid.component';
 import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { LinkComponent } from './components/link/link.component';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { LinkComponent } from './components/link/link.component';
     GridDirective,
     TimelineComponent,
     LinkComponent,
+    BreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ import { LinkComponent } from './components/link/link.component';
     GridComponent,
     TimelineComponent,
     LinkComponent,
+    BreadcrumbsComponent,
     // Modules
     CoreModule,
     BarModule,

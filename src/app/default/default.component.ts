@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
 import { AlertService, ThemeService, TimelineComponent, ThemeInputDirective } from 'sb-element';
 
 @Component({
@@ -30,6 +31,8 @@ export class DefaultComponent extends ThemeInputDirective {
     double: ''
   };
 
+  public crumbs = ['Home', 'Example'];
+
   public table!: {data: Array<Array<any>>, head: Array<any>};
 
   @ViewChild('timeline')
@@ -37,7 +40,7 @@ export class DefaultComponent extends ThemeInputDirective {
 
   constructor(
     themeService: ThemeService,
-    private alertService: AlertService
+    private alertService: AlertService,
   ) {
     super(themeService)
     this.table = {
@@ -74,5 +77,9 @@ export class DefaultComponent extends ThemeInputDirective {
     } else {
       this.themeService.commit('dark');
     }
+  }
+
+  handleNavigate(crumb: string) {
+    console.log(crumb)
   }
 }

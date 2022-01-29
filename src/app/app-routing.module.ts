@@ -6,6 +6,11 @@ import { SBComponent } from "./sb/sb.component";
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'example',
+    pathMatch: 'full'
+  },
+  {
+    path: 'example',
     component: DefaultComponent
   },
   {

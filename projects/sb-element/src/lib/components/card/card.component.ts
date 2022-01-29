@@ -1,6 +1,6 @@
 import { Attribute, Component, Input, Optional } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
-import { SizeThemeInputDirective } from '../../core/style-input/size-theme-input.directive';
+import { SizeThemeInputDirective } from '../../core';
 
 @Component({
   selector: 'sb-card',

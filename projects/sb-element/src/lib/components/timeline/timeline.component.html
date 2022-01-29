@@ -6,13 +6,13 @@
     <div *ngFor="let step of steps; index as i" [ngClass]="rootClass + '__indicator'">
       <div [ngClass]="rootClass + '__icon'">
         <sb-icon *ngIf="step.state == 'current'"
-          size="s"
+          size="m"
           [color]="color">
           &#xe39e;
         </sb-icon>
 
         <sb-icon *ngIf="step.state == 'awaiting'"
-          size="s"
+          size="m"
           outline
           color="none"
           extraClasses="awaiting">
@@ -20,13 +20,13 @@
         </sb-icon>
 
         <sb-icon *ngIf="step.state == 'done'"
-          size="s"
+          size="m"
           [color]="color">
           &#xef4a;
         </sb-icon>
 
         <sb-icon *ngIf="step.state == 'pending'"
-          size="s"
+          size="m"
           [color]="color"
           outline>
           &#xef64;

@@ -2,7 +2,7 @@
   <sb-nav-bar>
     <sb-icon left>&#xeb9b;</sb-icon>
     <div left>SB Element Demo</div>
-    <sb-link left>Severin Buchser</sb-link>
+    <sb-link [routerLink]="['/', 'sb']" left>Severin Buchser</sb-link>
     <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
     <sb-link left [active]="true">Example</sb-link>
     <sb-toggle-switch right
@@ -12,6 +12,7 @@
       [color]="color">
     </sb-toggle-switch>
   </sb-nav-bar>
+  <sb-breadcrumbs [crumbs]="crumbs" (navigate)="handleNavigate($event)"></sb-breadcrumbs>
   <sb-container extraClasses="container">
     <div class="sidebar-container">
       <sb-sidebar #sidebarOne>
