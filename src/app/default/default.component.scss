@@ -1,5 +1,4 @@
-@use 'core/theming';
-@use 'projects/sb-element/src/scss/test';
+@use 'dist/sb-element/src/style/theming';
 
 .pickers {
   display: flex;

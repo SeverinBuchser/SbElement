@@ -1,0 +1,12 @@
+/*****************************************************************************
+Spacing Definitions
+******************************************************************************/
+// @see 'core/_variables.scss'.
+
+// Define the spacings.
+$spacings: (
+  s: var(--spacing-s),
+  d: var(--spacing-d),
+  m: var(--spacing-m),
+  l: var(--spacing-l),
+);

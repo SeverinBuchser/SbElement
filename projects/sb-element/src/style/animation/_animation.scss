@@ -1,0 +1,34 @@
+@use "sass:list";
+/*****************************************************************************
+Animation
+******************************************************************************/
+
+@mixin animation($animate...) {
+  $max: list.length($animate);
+  $animations: '';
+  @for $i from 1 through $max {
+    $animations: #{$animations + list.nth($animate, $i)};
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}

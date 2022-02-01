@@ -1,0 +1,171 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'themes';
+/*****************************************************************************
+Theming
+******************************************************************************/
+
+// Returns the specified theme. The theme is either a Sb-Theming theme color
+// palette or a string, either 'dark' or 'light'.
+// @param {Map | String} $theme The theme name or color-palette.
+// @returns {Map} A complete Sb-Theming theme color-palette.
+@function get-theme($theme) {
+  @if meta.type-of($theme) == string {
+    @if $theme == light {
+      @return themes.$light-theme;
+    } @else if $theme == dark {
+      @return themes.$dark-theme;
+    } @else {
+      @error 'Theme must either be "light", "dark" or a map.';
+    }
+  } @else {
+    @return themes.validate-theme($theme);
+  }
+}
+
+// Returns the specified scheme color of the theme.
+// @param {Map} $theme The theme.
+// @param {String} $color The scheme-color.
+// @param {String} $hue The hue of the scheme color.
+// @returns {Color} The scheme color of the theme with the specified hue.
+@function get-color($theme, $color: primary, $hue: default) {
+  $theme: get-theme($theme);
+  $scheme: map.get($theme, scheme);
+  $color: map.get($scheme, $color);
+  @return map.get($color, $hue);
+}
+
+// Returns the inverse of the specified scheme color of the theme.
+// @param {Map} $theme The theme.
+// @param {String} $color The scheme-color.
+// @returns {Color} The inverse scheme color of the theme.
+@function get-color-inverted($theme, $color: primary) {
+  $theme: get-theme($theme);
+  @if map.get($theme, is-dark) {
+    @return get-color($theme, $color, dark);
+  } @else {
+    @return get-color($theme, $color, light);
+  }
+}
+
+// Returns the specified text color for a scheme color of the theme.
+// @param {Map} $theme The theme.
+// @param {String} $color The scheme-color.
+// @param {String} $hue The hue of the scheme color.
+// @returns {Color} The text color of the scheme color of the theme with the
+// specified hue.
+@function get-text($theme, $color: primary, $hue: default) {
+  $theme: get-theme($theme);
+  $scheme: map.get($theme, scheme);
+  $color: map.get($scheme, $color);
+  @return map.get(map.get($color, contrast), $hue);
+}
+
+// Returns the text color of the inverse scheme color of the theme.
+// @param {Map} $theme The theme.
+// @param {String} $color The scheme-color.
+// @returns {Color} The text color for the inverse scheme color of the theme.
+@function get-text-inverted($theme, $color: primary) {
+  $theme: get-theme($theme);
+  @if map.get($theme, is-dark) {
+    @return get-text($theme, $color, dark);
+  } @else {
+    @return get-text($theme, $color, light);
+  }
+}
+
+// Returns the background color of the theme.
+// @param {Map} $theme The theme.
+// @returns {Color} The background color of the theme.
+@function get-background($theme) {
+  $theme: get-theme($theme);
+  $background-hue: map.get($theme, background-hue);
+  $base: map.get($theme, base);
+  @return map.get($base, $background-hue);
+}
+
+// Returns the text color of the background of the theme.
+// @param {Map} $theme The theme.
+// @returns {Color} The text color of the background of the theme.
+@function get-background-text($theme) {
+  $theme: get-theme($theme);
+  $background-hue: map.get($theme, background-hue);
+  $base: map.get($theme, base);
+  @return map.get(map.get($base, contrast), $background-hue);
+}
+
+// Returns the foreground color of the theme.
+// @param {Map} $theme The theme.
+// @returns {Color} The foreground color of the theme.
+@function get-foreground($theme) {
+  $theme: get-theme($theme);
+  $foreground-hue: map.get($theme, foreground-hue);
+  $base: map.get($theme, base);
+  @return map.get($base, $foreground-hue);
+}
+
+// Returns the text color of the foreground of the theme.
+// @param {Map} $theme The theme.
+// @returns {Color} The text color of the foreground of the theme.
+@function get-foreground-text($theme) {
+  $theme: get-theme($theme);
+  $foreground-hue: map.get($theme, foreground-hue);
+  $base: map.get($theme, base);
+  @return map.get(map.get($base, contrast), $foreground-hue);
+}
+
+// Returns the accent color of the theme.
+// @param {Map} $theme The theme.
+// @returns {Color} The accent color of the theme.
+@function get-accent($theme) {
+  $theme: get-theme($theme);
+  $accent-hue: map.get($theme, accent-hue);
+  $base: map.get($theme, base);
+  @return map.get($base, $accent-hue);
+}
+
+// Returns the text color of the accent of the theme.
+// @param {Map} $theme The theme.
+// @returns {Color} The text color of the accent of the theme.
+@function get-accent-text($theme) {
+  $theme: get-theme($theme);
+  $accent-hue: map.get($theme, accent-hue);
+  $base: map.get($theme, base);
+  @return map.get(map.get($base, contrast), $accent-hue);
+}
+
+// This mixin can be used to specifically implement properties for the light
+// theme.
+@mixin for-light-theme {
+  @content(light, get-theme(light));
+}
+
+// This mixin can be used to specifically implement properties for the dark
+// theme.
+@mixin for-dark-theme {
+  @content(dark, get-theme(dark));
+}
+
+// A custom for-loop to control visibility of the theme palettes $dark-theme and
+// $light-theme. The loop can be used to iterate over every theme defined in
+// this file.
+@mixin for-each-theme {
+  @include for-light-theme using ($theme, $theme-palette) {
+    @content($theme, $theme-palette);
+  }
+  @include for-dark-theme using ($theme, $theme-palette) {
+    @content($theme, $theme-palette);
+  }
+}
+
+// A custom for-loop to control visibility of the theme palettes $dark-theme and
+// $light-theme. The loop is an addition to the for-each-theme loop and can be
+// used to iterate over every theme and each color in the theme defined in this
+// file.
+@mixin for-each-theme-color {
+  @include for-each-theme using ($theme, $theme-palette) {
+    @each $color, $color-palette in map.get($theme-palette, scheme) {
+      @content($theme, $theme-palette, $color, $color-palette);
+    }
+  }
+}

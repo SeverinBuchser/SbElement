@@ -1,0 +1,97 @@
+@use "sass:list";
+/*****************************************************************************
+Transitions Definitions
+******************************************************************************/
+
+// Checks if there are any targets. If not, then the target "all" is returned.
+// @param {List} $targets The list of all targets.
+// @return {List} $targets or (all).
+@function get-targets($targets) {
+  @if (list.length($targets) == 0) {
+    $targets: (all);
+  }
+  @return $targets;
+}
+
+// Combine the time, timing function and targets into a transition. The function
+// creates a transition for every target. Every target gets the same time and
+// timingfunction.
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition.
+// @returns {String} The final transition for all targets.
+@function combine-targets($time, $timingfunction, $targets) {
+  $targets: get-targets($targets);
+  $transition: '';
+  @each $target in $targets {
+    @if $transition == '' {
+      $transition: $target $time $timingfunction;
+    } @else {
+      $transition: $transition, $target $time $timingfunction;
+    }
+  }
+  @return $transition;
+}
+
+// Creates a transition from a variable list of targets. The transition
+// consideres duration and timingfunction.
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition (a variable list).
+@mixin transition($time, $timingfunction, $targets...) {
+  transition: combine-targets($time, $timingfunction, $targets);
+}
+
+// Creates a transition from a fixed list of targets. The transition
+// consideres duration and timingfunction.
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition (a fixed list).
+@mixin transition-target-list($time, $timingfunction, $targets) {
+  transition: combine-targets($time, $timingfunction, $targets);
+}
+
+// Creates a transition from a variable list of targets. The transition
+// consideres duration and has a fidex timingfunction of "ease-in-out".
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition (a variable list).
+@mixin ease-in-out($time, $targets...) {
+  @include transition-target-list($time, ease-in-out, $targets);
+}
+
+// Creates a transition from a variable list of targets. The transition
+// consideres duration and has a fidex timingfunction of "ease-in".
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition (a variable list).
+@mixin ease-in($time, $targets...) {
+  @include transition-target-list($time, ease-in, $targets);
+}
+
+// Creates a transition from a variable list of targets. The transition
+// consideres duration and has a fidex timingfunction of "ease-out".
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition (a variable list).
+@mixin ease-out($time, $targets...) {
+  @include transition-target-list($time, ease-out, $targets);
+}
+
+// Creates a transition from a variable list of targets. The transition
+// consideres duration and has a fidex timingfunction of "ease".
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition (a variable list).
+@mixin ease($time, $targets...) {
+  @include transition-target-list($time, ease, $targets);
+}
+
+// Creates a transition from a variable list of targets. The transition
+// consideres duration and has a fidex timingfunction of "linear".
+// @param {String} $time The duration of the transition.
+// @param {String} $timingfunction The timingfunction of the transition.
+// @param {List} $targets The targets of the transition (a variable list).
+@mixin linear($time, $targets...) {
+  @include transition-target-list($time, linear, $targets);
+}

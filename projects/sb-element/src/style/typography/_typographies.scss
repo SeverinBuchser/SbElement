@@ -1,0 +1,108 @@
+@use "sass:map";
+/*****************************************************************************
+Typography Definitions
+******************************************************************************/
+
+// Define font families
+$default-font-family: var(--font-family-default);
+$display-font-family: var(--font-family-display);
+$icon-font-family: var(--font-family-icon);
+$icon-outlined-font-family: var(--font-family-icon-outlined);
+
+// Define font weights.
+$default-font-weights: (
+  lighter: var(--font-weight-lighter),
+  normal: var(--font-weight-normal),
+  bold: var(--font-weight-bold),
+  bolder: var(--font-weight-bolder)
+);
+
+$display-font-weights: (
+  normal: var(--font-weight-normal)
+);
+
+$icon-font-weights: (
+  normal: var(--font-weight-normal)
+);
+
+// Define font sizes.
+$font-sizes: (
+  s: var(--font-size-s),
+  d: var(--font-size-d),
+  m: var(--font-size-m),
+  l: var(--font-size-l),
+  xl: var(--font-size-xl)
+);
+
+$icon-font-sizes: (
+  s: var(--font-size-s),
+  d: var(--font-size-d),
+  m: var(--font-size-m),
+  l: var(--font-size-l),
+  xl: var(--font-size-xl)
+);
+
+// Validates the specified font map. The Map must contain a font family, a
+// weights map and a sizes map. The Map structure looks as follows:
+//
+// $font: (
+//   family: {String},
+//   weights: {Map},
+//   sizes: {Map}
+// );
+//
+// @param {Map} $font The font map to validate.
+// @returns {Map} The same font map as the $font parameter.
+@function validate-font($font) {
+  @if not map.has-key($font, family) {
+    @error 'Font does not define a valid "family".';
+  } @else if not map.has-key($font, weights) {
+    @error 'Font does not define a valid "weights" map.';
+  } @else if not map.has-key($font, sizes) {
+    @error 'Font does not define a valid "sizes" map.';
+  }
+  @return $font;
+}
+
+// Defines a font map, which contains a family, different weights and different
+// sizes.
+// @param {String} $family The font family.
+// @param {Map} $weights The available font weights for the family.
+// @param {Map} $sizes The different sizes which can be used with the family.
+// @returns {Map} A complete font map.
+@function define-font($family, $weights, $sizes) {
+  $result: (
+    family: $family,
+    weights: $weights,
+    sizes: $sizes
+  );
+  @return $result;
+}
+
+// Define a default font map.
+$default-font: define-font(
+  $default-font-family,
+  $default-font-weights,
+  $font-sizes
+);
+
+// Define a display font map.
+$display-font: define-font(
+  $display-font-family,
+  $display-font-weights,
+  $font-sizes
+);
+
+// Define an icon font map.
+$icon-font: define-font(
+  $icon-font-family,
+  $icon-font-weights,
+  $icon-font-sizes
+);
+
+// Define an icon font map.
+$icon-outlined-font: define-font(
+  $icon-outlined-font-family,
+  $icon-font-weights,
+  $icon-font-sizes
+);

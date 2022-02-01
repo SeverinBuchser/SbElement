@@ -5,6 +5,44 @@
     "entryFile": "src/public-api.ts"
   },
   "assets": [
-    "./src/scss/test.scss"
+    "./src/style/_index.scss",
+
+    "./src/style/animation/_index.scss",
+    "./src/style/animation/_animation.scss",
+
+    "./src/style/border/_index.scss",
+    "./src/style/border/_border.scss",
+    "./src/style/border/_borders.scss",
+
+    "./src/style/box-shadow/_index.scss",
+    "./src/style/box-shadow/_box-shadow.scss",
+
+    "./src/style/display/_index.scss",
+    "./src/style/display/_flex.scss",
+    "./src/style/display/_grid.scss",
+
+    "./src/style/spacing/_index.scss",
+    "./src/style/spacing/_margin.scss",
+    "./src/style/spacing/_padding.scss",
+    "./src/style/spacing/_size.scss",
+    "./src/style/spacing/_spacing.scss",
+    "./src/style/spacing/_spacings.scss",
+
+    "./src/style/theming/_index.scss",
+    "./src/style/theming/_palettes.scss",
+    "./src/style/theming/_themes.scss",
+    "./src/style/theming/_theming.scss",
+
+    "./src/style/transitioning/_index.scss",
+    "./src/style/transitioning/_transitions.scss",
+
+    "./src/style/typography/_index.scss",
+    "./src/style/typography/_typographies.scss",
+    "./src/style/typography/_typography.scss",
+
+    "./src/style/util/_index.scss",
+    "./src/style/util/_unit.scss",
+
+    "./src/style/_variables.scss",
   ]
 }

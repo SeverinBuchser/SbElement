@@ -1,0 +1,22 @@
+@use 'sass:meta';
+@use '../spacing';
+/*****************************************************************************
+Flex Box
+******************************************************************************/
+
+
+@mixin flex($justify: center, $align: center, $direction: none, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  @if $direction != none {
+    flex-direction:  $direction;
+  }
+  @if $gap != 0 {
+    @if meta.type-of($gap) == number {
+      gap: $gap;
+    } @else if meta.type-of($gap) == string {
+      gap: spacing.get-spacing($gap);
+    }
+  }
+}

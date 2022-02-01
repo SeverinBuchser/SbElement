@@ -1,0 +1,40 @@
+@use "spacing";
+/*****************************************************************************
+Margin
+******************************************************************************/
+
+@mixin margin-left($margin) {
+  margin-left: spacing.get-spacing($margin);
+}
+
+@mixin margin-right($margin) {
+  margin-right: spacing.get-spacing($margin);
+}
+
+@mixin margin-x($margin) {
+  $margin: spacing.get-spacing($margin);
+  margin: 0 $margin 0 $margin;
+}
+
+@mixin margin-top($margin) {
+  margin-top: spacing.get-spacing($margin);
+}
+
+@mixin margin-bottom($margin) {
+  margin-bottom: spacing.get-spacing($margin);
+}
+
+@mixin margin-y($margin) {
+  $margin: spacing.get-spacing($margin);
+  margin: $margin 0 $margin 0;
+}
+
+@mixin margin-x-y($margin-x, $margin-y) {
+  $margin-x: spacing.get-spacing($margin-x);
+  $margin-y: spacing.get-spacing($margin-y);
+  margin: $margin-y $margin-x $margin-y $margin-x;
+}
+
+@mixin margin($margin) {
+  margin: spacing.get-spacing($margin);
+}
