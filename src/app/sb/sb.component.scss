@@ -1,7 +1,7 @@
-@use 'dist/sb-element/src/style/theming';
-@use 'dist/sb-element/src/style/spacing';
-@use 'dist/sb-element/src/style/border';
-@use 'dist/sb-element/src/style/transitioning';
+@use 'dist/sb-element/src/style/core/theming';
+@use 'dist/sb-element/src/style/core/spacing';
+@use 'dist/sb-element/src/style/core/border';
+@use 'dist/sb-element/src/style/core/transitioning';
 
 
 .home-logo {
@@ -29,13 +29,13 @@
   .to-animate {
     @include transitioning.ease(0.1s);
     transform-origin: center 5%;
-    transform-style: preserve-3d;
+    transform-style/core: preserve-3d;
   }
 
   .to-animate-backside {
     @include transitioning.ease(0.1s);
     transform-origin: center 5%;
-    transform-style: preserve-3d;
+    transform-style/core: preserve-3d;
     transform: translateZ(-10px);
     z-index: -1;
   }
@@ -58,12 +58,12 @@
     }
   }
 
-  .style-wrapper {
+  .style/core-wrapper {
     position: absolute;
     right: 20vw;
     top: 50%;
 
-    .style {
+    .style/core {
       position: relative;
       .circle {
         @include border.radius(50%);

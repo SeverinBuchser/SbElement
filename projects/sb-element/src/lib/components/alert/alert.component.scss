@@ -1,7 +1,7 @@
-@use "src/style/spacing";
-@use "src/style/transitioning";
-@use "src/style/display";
-@use "src/style/box-shadow";
+@use "src/style/core/spacing";
+@use "src/style/core/transitioning";
+@use "src/style/core/display";
+@use "src/style/core/box-shadow";
 /*****************************************************************************
 Alert
 ******************************************************************************/

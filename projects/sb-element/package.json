@@ -34,34 +34,34 @@
   ],
   "exports": {
     "./core": {
-      "sass": "./src/style/_index.scss"
+      "sass": "./src/style/core/_index.scss"
     },
     "./core/animation": {
-      "sass": "./src/style/animation/_index.scss"
+      "sass": "./src/style/core/animation/_index.scss"
     },
     "./core/border": {
-      "sass": "./src/style/border/_index.scss"
+      "sass": "./src/style/core/border/_index.scss"
     },
     "./core/box-shadow": {
-      "sass": "./src/style/box-shadow/_index.scss"
+      "sass": "./src/style/core/box-shadow/_index.scss"
     },
     "./core/display": {
-      "sass": "./src/style/display/_index.scss"
+      "sass": "./src/style/core/display/_index.scss"
     },
     "./core/spacing": {
-      "sass": "./src/style/spacing/_index.scss"
+      "sass": "./src/style/core/spacing/_index.scss"
     },
     "./core/theming": {
-      "sass": "./src/style/theming/_index.scss"
+      "sass": "./src/style/core/theming/_index.scss"
     },
     "./core/transitioning": {
-      "sass": "./src/style/transitioning/_index.scss"
+      "sass": "./src/style/core/transitioning/_index.scss"
     },
     "./core/typography": {
-      "sass": "./src/style/typography/_index.scss"
+      "sass": "./src/style/core/typography/_index.scss"
     },
     "./core/util": {
-      "sass": "./src/style/util/_index.scss"
+      "sass": "./src/style/core/util/_index.scss"
     }
   }
 }

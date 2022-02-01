@@ -5,44 +5,44 @@
     "entryFile": "src/public-api.ts"
   },
   "assets": [
-    "./src/style/_index.scss",
+    "./src/style/core/_index.scss",
 
-    "./src/style/animation/_index.scss",
-    "./src/style/animation/_animation.scss",
+    "./src/style/core/animation/_index.scss",
+    "./src/style/core/animation/_animation.scss",
 
-    "./src/style/border/_index.scss",
-    "./src/style/border/_border.scss",
-    "./src/style/border/_borders.scss",
+    "./src/style/core/border/_index.scss",
+    "./src/style/core/border/_border.scss",
+    "./src/style/core/border/_borders.scss",
 
-    "./src/style/box-shadow/_index.scss",
-    "./src/style/box-shadow/_box-shadow.scss",
+    "./src/style/core/box-shadow/_index.scss",
+    "./src/style/core/box-shadow/_box-shadow.scss",
 
-    "./src/style/display/_index.scss",
-    "./src/style/display/_flex.scss",
-    "./src/style/display/_grid.scss",
+    "./src/style/core/display/_index.scss",
+    "./src/style/core/display/_flex.scss",
+    "./src/style/core/display/_grid.scss",
 
-    "./src/style/spacing/_index.scss",
-    "./src/style/spacing/_margin.scss",
-    "./src/style/spacing/_padding.scss",
-    "./src/style/spacing/_size.scss",
-    "./src/style/spacing/_spacing.scss",
-    "./src/style/spacing/_spacings.scss",
+    "./src/style/core/spacing/_index.scss",
+    "./src/style/core/spacing/_margin.scss",
+    "./src/style/core/spacing/_padding.scss",
+    "./src/style/core/spacing/_size.scss",
+    "./src/style/core/spacing/_spacing.scss",
+    "./src/style/core/spacing/_spacings.scss",
 
-    "./src/style/theming/_index.scss",
-    "./src/style/theming/_palettes.scss",
-    "./src/style/theming/_themes.scss",
-    "./src/style/theming/_theming.scss",
+    "./src/style/core/theming/_index.scss",
+    "./src/style/core/theming/_palettes.scss",
+    "./src/style/core/theming/_themes.scss",
+    "./src/style/core/theming/_theming.scss",
 
-    "./src/style/transitioning/_index.scss",
-    "./src/style/transitioning/_transitions.scss",
+    "./src/style/core/transitioning/_index.scss",
+    "./src/style/core/transitioning/_transitions.scss",
 
-    "./src/style/typography/_index.scss",
-    "./src/style/typography/_typographies.scss",
-    "./src/style/typography/_typography.scss",
+    "./src/style/core/typography/_index.scss",
+    "./src/style/core/typography/_typographies.scss",
+    "./src/style/core/typography/_typography.scss",
 
-    "./src/style/util/_index.scss",
-    "./src/style/util/_unit.scss",
+    "./src/style/core/util/_index.scss",
+    "./src/style/core/util/_unit.scss",
 
-    "./src/style/_variables.scss",
+    "./src/style/core/_variables.scss",
   ]
 }

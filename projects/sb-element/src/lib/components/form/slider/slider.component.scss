@@ -1,7 +1,7 @@
-@use "src/style/spacing";
-@use "src/style/theming";
-@use "src/style/display";
-@use "src/style/border";
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/display";
+@use "src/style/core/border";
 /*****************************************************************************
 Slider
 ******************************************************************************/

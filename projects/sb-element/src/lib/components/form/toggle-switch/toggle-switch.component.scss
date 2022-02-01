@@ -1,8 +1,8 @@
 @use "sass:math";
-@use "src/style/spacing";
-@use "src/style/theming";
-@use "src/style/transitioning";
-@use "src/style/border";
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/transitioning";
+@use "src/style/core/border";
 /*****************************************************************************
 Toggle-Switch
 ******************************************************************************/
