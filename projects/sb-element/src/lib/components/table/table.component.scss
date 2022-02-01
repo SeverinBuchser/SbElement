@@ -1,0 +1,86 @@
+@use "src/style/theming";
+@use "src/style/spacing";
+@use "src/style/border";
+/*****************************************************************************
+Table
+******************************************************************************/
+
+// THEME
+@mixin table-theme($theme, $color) {
+
+  &--#{$theme}-#{$color} {
+    @include border.border-accent($theme);
+  }
+
+  &--#{$theme}-#{$color} &__head {
+    background: theming.get-color($theme, $color);
+    color: theming.get-text($theme, $color);
+  }
+
+  &--#{$theme}-#{$color}.plain &__head  {
+    background: theming.get-color-inverted($theme, $color);
+    color: theming.get-text-inverted($theme, $color);
+  }
+
+  &--#{$theme}-#{$color} &__row:nth-child(even) {
+    background: theming.get-background($theme);
+    color: theming.get-background-text($theme);
+  }
+
+  &--#{$theme}-#{$color} &__row:nth-child(odd) {
+    background: theming.get-foreground($theme);
+    color: theming.get-foreground-text($theme);
+  }
+}
+
+// ROOT
+$sb-table-root: 'sb-table';
+.#{$sb-table-root} {
+
+  display: flex;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__th, &__td {
+    @include spacing.padding(s);
+  }
+
+  &.left &__th, &.left &__td {
+    text-align: left;
+  }
+
+  &.center &__th, &.center &__td {
+    text-align: center;
+  }
+
+  &.right &__th, &.right &__td {
+    text-align: right;
+  }
+
+  &__head &__th {
+    &:first-child {
+      @include border.radius-top-left(s);
+    }
+    &:last-child {
+      @include border.radius-top-right(s);
+    }
+  }
+
+  &__row:last-child &__td {
+    &:first-child {
+      @include border.radius-bottom-left(s);
+    }
+    &:last-child {
+      @include border.radius-bottom-right(s);
+    }
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include table-theme($theme, $color);
+  }
+}
