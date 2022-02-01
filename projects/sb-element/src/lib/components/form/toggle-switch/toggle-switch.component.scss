@@ -1,0 +1,86 @@
+@use "sass:math";
+@use "src/style/spacing";
+@use "src/style/theming";
+@use "src/style/transitioning";
+@use "src/style/border";
+/*****************************************************************************
+Toggle-Switch
+******************************************************************************/
+
+// THEME
+@mixin toggle-switch-theme($theme, $color) {
+  &--#{$theme}-#{$color} {
+    @include border.border($theme, $color, d);
+    &.off {
+      .#{$sb-toggle-switch-root}__toggle {
+        background: theming.get-color($theme, $color);
+      }
+    }
+
+    &.on {
+      background: theming.get-color($theme, $color);
+      .#{$sb-toggle-switch-root}__toggle {
+        background: theming.get-text($theme, $color);
+      }
+    }
+  }
+}
+
+// SIZE
+@mixin toggle-switch-size($size, $value) {
+
+  $height: $value;
+  $width: calc(2 * $height);
+  $diameter: calc(math.div(math.round(math.div(2, 3)*100), 100) * $height);
+  $padding: calc(($height - $diameter) / 2);
+  $innerwidth: calc($width - 2 * $padding);
+
+  &--#{$size} {
+    width: $width;
+    height: $height;
+    border-radius: calc($height / 2);
+
+    .#{$sb-toggle-switch-root}__toggle {
+      top: calc($padding - 2px);
+      left: calc($padding - 2px);
+      width: $diameter;
+      height: $diameter;
+      border-radius: calc($diameter / 2);
+    }
+
+    &.off {
+      .#{$sb-toggle-switch-root}__toggle {
+        transform: translateX(0);
+      }
+    }
+    &.on {
+      .#{$sb-toggle-switch-root}__toggle {
+        transform: translateX(calc($innerwidth - $diameter));
+      }
+    }
+  }
+}
+
+// ROOT
+$sb-toggle-switch-root: 'sb-toggle-switch';
+.#{$sb-toggle-switch-root} {
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  @include transitioning.ease(300ms, background);
+  &__toggle {
+    position: absolute;
+    @include transitioning.ease(300ms, transform, background);
+  }
+
+  &.disabled {cursor: not-allowed;}
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include toggle-switch-theme($theme, $color);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include toggle-switch-size($size, $value);
+  }
+}
