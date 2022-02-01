@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { LinkedList } from "../../models/linked-list/linked-list";
 import { ListItem } from "../../models/linked-list/list-item";
 import { ThemeColorInputDirective } from '../../core/style-input/theme-color-input.directive';
@@ -8,7 +8,9 @@ type Step = {name: string, state: State, line: boolean};
 
 @Component({
   selector: 'sb-timeline',
-  templateUrl: './timeline.component.html'
+  templateUrl: './timeline.component.html',
+  styleUrls: ['./timeline.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TimelineComponent extends ThemeColorInputDirective {
 

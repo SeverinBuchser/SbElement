@@ -1,5 +1,5 @@
-@use "src/style";
+@use "src/style/spacing";
 
 p {
-  @include style.padding-x(s);
+  @include spacing.padding-x(l);
 }

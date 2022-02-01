@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@use 'core/theming';
-@use 'core/spacing';
+@use 'dist/sb-element/src/style/theming';
+@use 'dist/sb-element/src/style/spacing';
+@use 'dist/sb-element/src/style';
 @use 'sb-theming';
 
 html, body {
