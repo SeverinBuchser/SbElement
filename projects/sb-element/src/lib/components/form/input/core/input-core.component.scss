@@ -1,0 +1,120 @@
+@use "src/style/spacing";
+@use "src/style/theming";
+@use "src/style/transitioning";
+@use "src/style/typography";
+@use "src/style/display";
+@use "src/style/border";
+/*****************************************************************************
+Input-Core
+******************************************************************************/
+
+// THEME
+@mixin input-core-theme($theme, $color) {
+  &--#{$theme}-#{$color} {
+    color: theming.get-foreground-text($theme);
+    .#{$sb-input-core-root}__input {
+      color: theming.get-foreground-text($theme);
+    }
+    .#{$sb-input-core-root}__placeholder {
+      color: theming.get-foreground-text($theme);
+
+      &.top {
+        background: theming.get-foreground($theme);
+      }
+    }
+
+    .#{$sb-input-core-root}__spinner-control {
+      color: theming.get-foreground-text($theme);
+      &:hover {
+        background: theming.get-accent($theme);
+      }
+
+      &:active {
+        background: theming.get-color-inverted($theme, $color);
+        color: theming.get-text-inverted($theme, $color);
+      }
+    }
+  }
+}
+
+// SIZE
+@mixin input-core-size($size, $value) {
+  &--#{$size} {
+    height: $value;
+    .#{$sb-input-core-root}__placeholder.top {
+      transform:
+        scale(0.75)
+        translateY(calc(
+          ($value / (-2))
+          - 87.5%
+          - border.get-border-width(l)
+        ));
+    }
+    .#{$sb-input-core-root}__spinner-control {
+      border-radius: 4px;
+    }
+  }
+}
+
+// ROOT
+$sb-input-core-root: 'sb-input-core';
+.#{$sb-input-core-root} {
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  &__input {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: 0;
+    @include spacing.padding(0);
+    @include typography.font($size: s);
+  }
+
+  &__spinner {
+    &::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  &__spinner-controls {
+    @include spacing.margin-left(s);
+    @include display.flex($direction: column);
+    height: 100%;
+  }
+
+  &__spinner-control {
+    @include transitioning.ease(200ms, background, color);
+    transform: rotate(-90deg);
+    font-size: 110% !important;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    @include spacing.padding-x(4px);
+    @include typography.font($size: s);
+    pointer-events: none;
+    transform-origin: left center;
+    transform: translateY(-50%);
+
+    @include transitioning.ease(200ms, transform, color);
+  }
+
+  &.disabled &__input {
+    cursor: not-allowed;
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include input-core-theme($theme, $color);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include input-core-size($size, $value);
+  }
+}

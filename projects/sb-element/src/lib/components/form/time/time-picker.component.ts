@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive";
-import { ThemeService } from "../../../services/theme/theme.service";
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
@@ -14,11 +13,4 @@ import { NG_VALUE_ACCESSOR } from "@angular/forms";
 })
 export class TimePickerComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
 
-
-    constructor(
-      themeService: ThemeService
-    ) {
-      super(themeService);
-    }
-
-  }
+}
