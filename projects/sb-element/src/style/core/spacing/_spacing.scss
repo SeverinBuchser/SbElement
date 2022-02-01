@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use 'spacings';
+/*****************************************************************************
+Spacing
+******************************************************************************/
+
+// Returns the specified spacing.
+// @param {String} $size The spacing size.
+// @returns {String} The specified size.
+@function get-spacing($size: d) {
+  @if map.has-key(spacings.$spacings, $size) {
+    @return map.get(spacings.$spacings, $size);
+  } @else {
+    @return $size;
+  }
+}
+
+
+// A custom for-loop to control visibility of the $spacings variable. The loop
+// can be used to iterate over every $spacing defined in spacing.$spacings.
+@mixin for-each-spacing {
+  @each $key, $value in spacings.$spacings {
+    @content($key, $value);
+  }
+}

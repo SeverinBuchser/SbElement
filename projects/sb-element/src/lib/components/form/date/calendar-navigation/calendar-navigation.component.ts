@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
-import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../core/control-value-accessor-style-input";
+import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../core/";
 
 @Component({
   selector: 'sb-calendar-navigation',
   templateUrl: './calendar-navigation.component.html',
+  styleUrls: ['./calendar-navigation.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: CalendarNavigationComponent,

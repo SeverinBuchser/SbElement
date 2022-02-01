@@ -1,0 +1,123 @@
+@use "sass:map";
+@use "../theming";
+@use "../spacing";
+@use "borders";
+/*****************************************************************************
+Border
+******************************************************************************/
+
+
+// Returns the specified border width.
+// @param {String} $width The border width size.
+// @returns {String} The specified border width.
+@function get-border-width($width: s) {
+  @if map.has-key(borders.$border-widths, $width) {
+    @return map.get(borders.$border-widths, $width);
+  } @else {
+    @return $width;
+  }
+}
+
+// Returns the combination for a border with the accent color of the theme,
+// width and stlye.
+// @param {Map | String} $theme The theme name or color-palette.
+// @param {String} $width The border width size.
+// @param {String} $style The border style.
+// @returns {String} The combined color, width and style of the border.
+@function get-border-accent($theme, $width: s, $style: solid) {
+  $color: theming.get-accent($theme);
+  $width: get-border-width($width);
+  @return $color $width $style;
+}
+
+// Returns the combination for a border with the specified color, width and
+// stlye. The border color is decided by the $theme and $color variable.
+// @param {Map | String} $theme The theme name or color-palette.
+// @param {String} $theme The color name.
+// @param {String} $width The border width size.
+// @param {String} $style The border style.
+// @returns {String} The combined color, width and style of the border.
+@function get-border($theme, $color, $width: s, $style: solid) {
+  $color: theming.get-color($theme, $color);
+  $width: get-border-width($width);
+  @return $color $width $style;
+}
+
+// Mixin for a border of any side (top, bottom, left and right). The color of
+// the border is the accent color of the specified theme.
+// @param {String} $side The the side of the border.
+// @param {Map | String} $theme The theme name or color-palette.
+// @param {String} $width The border width size.
+// @param {String} $style The border style.
+@mixin border-side-accent($side, $theme, $width: s, $style: solid) {
+  box-sizing: border-box;
+  border-#{$side}: get-border-accent($theme, $width, $style);
+}
+
+// Mixin for a border of any side (top, bottom, left and right). The color of
+// the border is spefified color of the specified theme.
+// @param {String} $side The the side of the border.
+// @param {Map | String} $theme The theme name or color-palette.
+// @param {String} $theme The color name.
+// @param {String} $width The border width size.
+// @param {String} $style The border style.
+@mixin border-side($side, $theme, $color, $width: s, $style: solid) {
+  box-sizing: border-box;
+  border-#{$side}: get-border($theme, $color, $width, $style);
+}
+
+// Mixin for a border with accent color of the specified theme.
+// @param {Map | String} $theme The theme name or color-palette.
+// @param {String} $width The border width size.
+// @param {String} $radius The border radius.
+// @param {String} $style The border style.
+@mixin border-accent($theme, $width: s, $radius: s, $style: solid) {
+  border: get-border-accent($theme, $width, $style);
+  @include radius($radius);
+}
+
+// Mixin for a border with the specified color of the specified theme.
+// @param {Map | String} $theme The theme name or color-palette.
+// @param {String} $theme The color name.
+// @param {String} $width The border width size.
+// @param {String} $radius The border radius.
+// @param {String} $style The border style.
+@mixin border($theme, $color, $width: s, $radius: s, $style: solid) {
+  border: get-border($theme, $color, $width, $style);
+  @include radius($radius);
+}
+
+// Mixin for adding a border radius on the top left.
+// @param {String} $radius The border radius.
+@mixin radius-top-left($radius: s) {
+  box-sizing: border-box;
+  border-top-left-radius: spacing.get-spacing($radius);
+}
+
+// Mixin for adding a border radius on the top right.
+// @param {String} $radius The border radius.
+@mixin radius-top-right($radius: s) {
+  box-sizing: border-box;
+  border-top-right-radius: spacing.get-spacing($radius);
+}
+
+// Mixin for adding a border radius on the bottom left.
+// @param {String} $radius The border radius.
+@mixin radius-bottom-left($radius: s) {
+  box-sizing: border-box;
+  border-bottom-left-radius: spacing.get-spacing($radius);
+}
+
+// Mixin for adding a border radius on the bottom right.
+// @param {String} $radius The border radius.
+@mixin radius-bottom-right($radius: s) {
+  box-sizing: border-box;
+  border-bottom-right-radius: spacing.get-spacing($radius);
+}
+
+// Mixin for adding a border radius all corners.
+// @param {String} $radius The border radius.
+@mixin radius($radius: s) {
+  box-sizing: border-box;
+  border-radius: spacing.get-spacing($radius);
+}

@@ -1,0 +1,50 @@
+@use "src/style/core/spacing";
+@use "src/style/core/transitioning";
+@use "src/style/core/display";
+@use "src/style/core/box-shadow";
+/*****************************************************************************
+Alert
+******************************************************************************/
+
+// SIZE
+@mixin alert-size($size, $value) {
+  &--#{$size} {
+    top: calc(spacing.get-size(d) * (-10));
+    left: 0;
+    &.active .#{$sb-alert-root}__wrapper {
+      transform: translateY(calc(10.5 * spacing.get-size(d)));
+    }
+
+    &.inactive .#{$sb-alert-root}__wrapper {
+      transform: translateY(0);
+    }
+  }
+}
+
+// ROOT
+$sb-alert-root: 'sb-alert';
+.#{$sb-alert-root} {
+  @include display.flex($align: baseline);
+  position: fixed;
+  width: 100%;
+
+  &__wrapper {
+    min-width: 300px;
+    overflow: visible;
+    .sb-el-alert-box {
+      @include box-shadow.smooth;
+    }
+  }
+
+  &.active &__wrapper {
+    @include transitioning.ease-out(300ms, transform);
+  }
+
+  &.inactive &__wrapper {
+    @include transitioning.ease-in(300ms, transform);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include alert-size($size, $value);
+  }
+}

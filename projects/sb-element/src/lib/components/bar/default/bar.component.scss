@@ -1,0 +1,57 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/border";
+/*****************************************************************************
+Bar
+******************************************************************************/
+
+// THEME
+@mixin bar-theme($theme) {
+  &--#{$theme} {
+    color: theming.get-foreground-text($theme);
+    background: theming.get-foreground($theme);
+  }
+
+  &--#{$theme}.left {
+    @include border.border-side-accent(right, $theme);
+  }
+
+  &--#{$theme}.right {
+    @include border.border-side-accent(left, $theme);
+  }
+
+  &--#{$theme}.top {
+    @include border.border-side-accent(bottom, $theme);
+  }
+
+  &--#{$theme}.bottom {
+    @include border.border-side-accent(top, $theme);
+  }
+}
+
+// SIZE
+@mixin bar-size($size) {
+  &--#{$size} {
+    @include spacing.padding($size);
+  }
+}
+
+// ROOT
+$sb-bar-root: 'sb-bar';
+.#{$sb-bar-root} {
+  &.left, &.right {
+    height: 100%;
+  }
+
+  &.top, &.bottom {
+    width: 100%;
+  }
+
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    @include bar-theme($theme);
+  }
+
+  @include spacing.for-each-spacing using ($size, $value) {
+    @include bar-size($size);
+  }
+}

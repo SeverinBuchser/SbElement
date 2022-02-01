@@ -1,0 +1,60 @@
+@use "sass:map";
+@use "src/style/core/theming";
+@use "src/style/core/typography";
+/*****************************************************************************
+Icon
+******************************************************************************/
+
+// THEME
+@mixin icon-theme($theme, $color) {
+  &--#{$color} {
+    color: theming.get-color($theme, $color);
+  }
+}
+
+// SIZE
+@mixin icon-size($size, $value) {
+  &--#{$size} {
+    font-size: $value !important;
+  }
+}
+
+// ROOT
+$sb-icon-root: 'sb-icon';
+.#{$sb-icon-root} {
+  @include typography.font(icon);
+
+  &.outline {
+    @include typography.font(icon-outlined);
+  }
+
+  font-style: normal;
+  display: block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  caret-color: transparent;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include icon-theme($theme, $color);
+  }
+
+  @include typography.for-each-font-size(icon) using ($size, $value) {
+    @include icon-size($size, $value);
+  }
+
+}

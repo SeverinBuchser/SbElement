@@ -1,10 +1,12 @@
-import { Attribute, Component, Input, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-color-input.directive';
 
 @Component({
   selector: 'sb-alert-box',
-  templateUrl: './alert-box.component.html'
+  templateUrl: './alert-box.component.html',
+  styleUrls: ['./alert-box.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AlertBoxComponent extends SizeThemeColorInputDirective {
 

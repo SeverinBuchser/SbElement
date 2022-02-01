@@ -1,0 +1,89 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/transitioning";
+@use "src/style/core/typography";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Sidebar
+******************************************************************************/
+
+// THEME
+@mixin sidebar-theme($theme) {
+  &--#{$theme} {
+    .#{$sb-sidebar-root}__overlay {
+      background: theming.get-background($theme);
+    }
+  }
+}
+
+// SIZE
+@mixin sidebar-size($size) {
+  &--#{$size} {
+    .#{$sb-sidebar-root}__sidebar {
+      @include spacing.padding($size);
+    }
+  }
+}
+
+// ROOT
+$sb-sidebar-root: 'sb-sidebar';
+.#{$sb-sidebar-root} {
+
+  &__overlay {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 1000;
+    @include transitioning.ease(opacity, 300ms);
+
+    &.visible {
+      pointer-events: all;
+      opacity: 0.6;
+    }
+  }
+
+  &__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    @include transitioning.ease(transform, 300ms);
+
+    &.left {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &.right {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    &.top {
+      top: 0;
+      transform: translateY(-100%);
+    }
+
+    &.bottom {
+      bottom: 0;
+      transform: translateY(100%);
+    }
+
+    &.visible {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    @include sidebar-theme($theme);
+  }
+
+  @include spacing.for-each-spacing using ($size, $value) {
+    @include sidebar-size($size);
+  }
+}

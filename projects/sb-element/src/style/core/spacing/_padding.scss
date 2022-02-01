@@ -1,0 +1,40 @@
+@use "spacing";
+/*****************************************************************************
+Padding
+******************************************************************************/
+
+@mixin padding-left($padding) {
+  padding-left: spacing.get-spacing($padding);
+}
+
+@mixin padding-right($padding) {
+  padding-right: spacing.get-spacing($padding);
+}
+
+@mixin padding-x($padding) {
+  $padding: spacing.get-spacing($padding);
+  padding: 0 $padding 0 $padding;
+}
+
+@mixin padding-top($padding) {
+  padding-top: spacing.get-spacing($padding);
+}
+
+@mixin padding-bottom($padding) {
+  padding-bottom: spacing.get-spacing($padding);
+}
+
+@mixin padding-y($padding) {
+  $padding: spacing.get-spacing($padding);
+  padding: $padding 0 $padding 0;
+}
+
+@mixin padding-x-y($padding-x, $padding-y) {
+  $padding-x: spacing.get-spacing($padding-x);
+  $padding-y: spacing.get-spacing($padding-y);
+  padding: $padding-y $padding-x $padding-y $padding-x;
+}
+
+@mixin padding($padding) {
+  padding: spacing.get-spacing($padding);
+}

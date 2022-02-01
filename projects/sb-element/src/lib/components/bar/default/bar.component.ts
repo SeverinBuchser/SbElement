@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { SizeThemeInputDirective } from '../../../core/';
 
 @Component({
   selector: 'sb-bar',
-  templateUrl: './bar.component.html'
+  templateUrl: './bar.component.html',
+  styleUrls: ['./bar.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BarComponent extends SizeThemeInputDirective {
   public rootClass = 'sb-bar';

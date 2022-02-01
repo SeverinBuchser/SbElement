@@ -1,0 +1,32 @@
+@use 'sass:meta';
+@use '../spacing';
+/*****************************************************************************
+Grid
+******************************************************************************/
+
+
+@mixin grid($columns: none, $rows: none, $gap: s, $align: none,
+  $flow: column) {
+  display: grid;
+  @if $columns != none {
+    @if meta.type-of($columns) == number {
+      grid-template-columns: repeat($columns, 1fr);
+    } @else if meta.type-of($columns) == list or
+      meta.type-of($columns) == string {
+      grid-template-columns: $columns;
+    }
+  }
+  @if $rows != none {
+    @if meta.type-of($rows) == number {
+      grid-template-rows: repeat($rows, 1fr);
+    } @else if meta.type-of($rows) == list or
+      meta.type-of($rows) == string {
+      grid-template-rows: $rows;
+    }
+  }
+  grid-gap: spacing.get-spacing($gap);
+  @if $align != none {
+    align-items: $align;
+  }
+  grid-auto-flow: $flow;
+}

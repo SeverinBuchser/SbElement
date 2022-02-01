@@ -1,10 +1,12 @@
-import { Attribute, Component, Input, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { SizeThemeInputDirective } from '../../core';
 
 @Component({
   selector: 'sb-card',
-  templateUrl: './card.component.html'
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CardComponent extends SizeThemeInputDirective {
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ThemeService } from "../../../services/theme/theme.service";
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
@@ -6,6 +6,8 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/
 @Component({
   selector: 'sb-radio-button',
   templateUrl: './radio-button.component.html',
+  styleUrls: ['./radio-button.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: RadioButtonComponent,

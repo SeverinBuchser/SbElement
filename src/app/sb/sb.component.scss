@@ -1,7 +1,7 @@
-@use 'core/theming';
-@use 'core/spacing';
-@use 'core/border';
-@use 'core/transitioning';
+@use 'dist/sb-element/src/style/core/theming';
+@use 'dist/sb-element/src/style/core/spacing';
+@use 'dist/sb-element/src/style/core/border';
+@use 'dist/sb-element/src/style/core/transitioning';
 
 
 .home-logo {

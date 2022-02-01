@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ClassNameInputDirective } from "../../core/style-input/class-name-input.directive";
 
 @Component({
   selector: 'sb-grid',
-  templateUrl: './grid.component.html'
+  templateUrl: './grid.component.html',
+  styleUrls: ['./grid.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class GridComponent extends ClassNameInputDirective {
 

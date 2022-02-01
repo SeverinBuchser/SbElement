@@ -1,11 +1,13 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
 import { ThemeService } from "../../../../services/theme/theme.service";
-import { SizeThemeColorInputDirective } from "../../../../core/style-input";
+import { SizeThemeColorInputDirective } from "../../../../core";
 
 @Component({
   selector: 'sb-calendar-month',
-  templateUrl: './calendar-month.component.html'
+  templateUrl: './calendar-month.component.html',
+  styleUrls: ['./calendar-month.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CalendarMonthComponent extends SizeThemeColorInputDirective {
 

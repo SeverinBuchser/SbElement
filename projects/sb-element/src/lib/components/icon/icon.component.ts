@@ -1,9 +1,11 @@
-import { Attribute, Component, Input, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { SizeColorInputDirective } from '../../core/style-input/size-color-input.directive';
 
 @Component({
   selector: 'sb-icon',
-  templateUrl: './icon.component.html'
+  templateUrl: './icon.component.html',
+  styleUrls: ['./icon.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IconComponent extends SizeColorInputDirective {
 

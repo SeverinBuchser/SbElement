@@ -1,0 +1,124 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Slider
+******************************************************************************/
+
+// Helper
+@mixin style-thumbs {
+  &::-webkit-slider-thumb {@content;}
+  &::-moz-range-thumb {@content;}
+  &::-ms-thumb {@content;}
+}
+
+// Helper
+@mixin style-tracks {
+  &::-webkit-slider-runnable-track {@content;}
+  &::-moz-range-track {@content;}
+  &::-ms-track {@content;}
+  &::-ms-fill-lower {@content;}
+  &::-ms-fill-upper {@content;}
+}
+
+// THEME
+@mixin slider-theme($theme, $color) {
+  &--#{$theme}-#{$color} {
+    color: theming.get-foreground-text($theme);
+    .#{$sb-slider-root}__slider {
+      @include style-thumbs {
+        background: theming.get-color($theme, $color);
+      }
+
+      @include style-tracks {
+        background: theming.get-color-inverted($theme, $color);
+      }
+    }
+  }
+}
+
+// SIZE
+@mixin slider-size($size, $value) {
+  &--#{$size} {
+    grid-template-rows: auto $value;
+    .#{$sb-slider-root}__slider {
+      width: calc($value * 5);
+    }
+  }
+}
+
+// ROOT
+$sb-slider-root: 'sb-slider';
+.#{$sb-slider-root} {
+  @include display.grid(auto auto);
+
+  &.value.label &__label {
+    grid-column: 1 / 2;
+  }
+
+  &.not-value.not-label &__slider {
+    grid-row: 1 / 2;
+  }
+
+  &__label {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  &__value {
+    vertical-align: middle;
+    text-align: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    min-width: calc(3 * spacing.get-size(d));
+  }
+
+  &__slider {
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    background: transparent;
+    cursor: pointer;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    @include spacing.margin(0);
+
+    &:focus {outline: none;}
+    &::-ms-track {
+      cursor: pointer;
+
+      // Hides the slider so custom styles can be added
+      background: transparent;
+      border: 0;
+      color: transparent;
+    }
+
+    &::-webkit-slider-thumb {-webkit-appearance: none;}
+    &::-moz-range-thumb {cursor: pointer;}
+    &::-ms-thumb {cursor: pointer;}
+    &:active {cursor: grabbing;}
+
+    $height: spacing.get-size(s);
+    @include style-thumbs {
+      height: $height;
+      width: $height;
+      border-radius: calc($height / 2);
+      transform: translateY(calc($height / (-4)));
+    }
+
+    @include style-tracks {
+      @include border.radius(calc($height / 2));
+      height: calc($height / 2);
+    }
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include slider-theme($theme, $color);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include slider-size($size, $value);
+  }
+
+}

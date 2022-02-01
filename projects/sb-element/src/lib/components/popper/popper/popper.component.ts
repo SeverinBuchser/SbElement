@@ -1,10 +1,12 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AlignDirective, Poppable, ThemeInputDirective } from '../../../core/';
 import { PopperPosition } from "./popper-position";
 
 @Component({
   selector: 'sb-popper',
-  templateUrl: './popper.component.html'
+  templateUrl: './popper.component.html',
+  styleUrls: ['./popper.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PopperComponent extends ThemeInputDirective implements Poppable {
 

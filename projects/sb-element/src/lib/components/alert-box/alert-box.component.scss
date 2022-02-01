@@ -1,0 +1,81 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Alert Box
+******************************************************************************/
+
+// THEME
+@mixin alert-box-theme($theme, $color) {
+  &--#{$theme}-#{$color} {
+    @include alert-box-color(
+      theming.get-color($theme, $color),
+      theming.get-text($theme, $color)
+    );
+
+    &.plain {
+      @include alert-box-color(
+        theming.get-color-inverted($theme, $color),
+        theming.get-text-inverted($theme, $color)
+      );
+    }
+  }
+}
+
+// COLOR
+@mixin alert-box-color($bg, $color) {
+  background: $bg;
+  color: $color;
+
+  .#{$sb-alert-box-root}__arrow {
+    .sb-icon {
+      color: $color;
+    }
+  }
+
+  .#{$sb-alert-box-root}__icon {
+    .sb-icon {
+      color: $color;
+    }
+  }
+}
+
+// SIZE
+@mixin alert-box-size($size, $value) {
+  &--#{$size} {
+    height: $value;
+    @include border.radius($size);
+    @include spacing.padding-x($size);
+
+    &.pill {
+      @include border.radius(spacing.get-size($size));
+    }
+  }
+}
+
+// ROOT
+$sb-alert-box-root: 'sb-alert-box';
+.#{$sb-alert-box-root} {
+  @include display.flex(space-between);
+
+  &.center {justify-content: center;}
+  &.flipped {flex-direction: row-reverse;}
+
+  &__alert {
+    @include display.grid($align: center);
+  }
+
+  &__icon .sb-icon {
+    @include spacing.margin-left(s);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include alert-box-size($size, $value);
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include alert-box-theme($theme, $color);
+  }
+}

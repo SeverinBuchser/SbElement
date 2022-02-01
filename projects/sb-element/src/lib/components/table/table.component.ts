@@ -1,10 +1,12 @@
-import { Attribute, Component, Input, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { ThemeColorInputDirective } from '../../core';
 
 @Component({
   selector: 'sb-table',
-  templateUrl: './table.component.html'
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TableComponent extends ThemeColorInputDirective {
 

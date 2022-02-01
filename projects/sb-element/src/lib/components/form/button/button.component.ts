@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from '../../../services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../../../core/style-input/size-theme-color-input.directive';
 
@@ -47,7 +47,9 @@ import { SizeThemeColorInputDirective } from '../../../core/style-input/size-the
  */
 @Component({
   selector: 'sb-button',
-  templateUrl: './button.component.html'
+  templateUrl: './button.component.html',
+  styleUrls: ['./button.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent extends SizeThemeColorInputDirective {
 

@@ -1,4 +1,4 @@
-import { Attribute, Component, Optional } from '@angular/core';
+import { Attribute, Component, Optional, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ThemeService } from '../../../services/theme/theme.service';
 import { SelectionOptionsDirective } from '../group/base/selection-options.directive';
@@ -6,6 +6,8 @@ import { SelectionOptionsDirective } from '../group/base/selection-options.direc
 @Component({
   selector: 'sb-select-button',
   templateUrl: './select-button.component.html',
+  styleUrls: ['./select-button.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SelectButtonComponent,

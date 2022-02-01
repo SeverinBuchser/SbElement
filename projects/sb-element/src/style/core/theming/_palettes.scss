@@ -1,0 +1,93 @@
+/*****************************************************************************
+Palette Definitions
+******************************************************************************/
+// Defining palettes for later use. The below color definitions are all colors,
+// which can be used in the whole library. @see 'core/_variables.scss'.
+
+// Define text colors
+$dark-text-color: var(--black-default);
+$bright-text-color: var(--white-default);
+
+// Define black color palette
+$black-palette: (
+  default: var(--black-default),
+  light: var(--black-light),
+  dark: var(--black-dark),
+  contrast: (
+    default: $bright-text-color,
+    light: $bright-text-color,
+    dark: $bright-text-color,
+  )
+);
+
+// Define white color palette
+$white-palette: (
+  default: var(--white-default),
+  light: var(--white-light),
+  dark: var(--white-dark),
+  contrast: (
+    default: $dark-text-color,
+    light: $dark-text-color,
+    dark: $dark-text-color,
+  )
+);
+
+// Define green color palette
+$green-palette: (
+  default: var(--green-default),
+  light: var(--green-light),
+  dark: var(--green-dark),
+  contrast: (
+    default: $dark-text-color,
+    light: $dark-text-color,
+    dark: $bright-text-color,
+  )
+);
+
+// Define red color palette
+$red-palette: (
+  default: var(--red-default),
+  light: var(--red-light),
+  dark: var(--red-dark),
+  contrast: (
+    default: $dark-text-color,
+    light: $dark-text-color,
+    dark: $bright-text-color,
+  )
+);
+
+// Define yellow color palette
+$yellow-palette: (
+  default: var(--yellow-default),
+  light: var(--yellow-light),
+  dark: var(--yellow-dark),
+  contrast: (
+    default: $dark-text-color,
+    light: $dark-text-color,
+    dark: $bright-text-color,
+  )
+);
+
+// Define blue color palette
+$blue-palette: (
+  default: var(--blue-default),
+  light: var(--blue-light),
+  dark: var(--blue-dark),
+  contrast: (
+    default: $bright-text-color,
+    light: $dark-text-color,
+    dark: $bright-text-color,
+  )
+);
+
+// Define pink color palette
+$pink-palette: (
+  default: var(--pink-default),
+  light: var(--pink-light),
+  dark: var(--pink-dark),
+  contrast: (
+    default: $dark-text-color,
+    light: $dark-text-color,
+    dark: $bright-text-color,
+  )
+);

@@ -1,0 +1,110 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/transitioning";
+@use "src/style/core/typography";
+@use "src/style/core/display";
+@use "src/style/core/border";
+@use "src/style/core/box-shadow";
+/*****************************************************************************
+Card
+******************************************************************************/
+
+// THEME
+@mixin card-theme($theme, $color) {
+  &--#{$theme} {
+    background: theming.get-foreground($theme);
+    color: theming.get-foreground-text($theme);
+    @include border.border-accent($theme, d);
+
+    hr {
+      border: 0;
+      @include border.border-side-accent(top, $theme, s);
+    }
+  }
+}
+
+// SIZE
+@mixin card-size($size, $value) {
+  &--#{$size} {
+    @include border.radius($size);
+
+    .#{$sb-card-root}__title {
+      @include spacing.padding($size);
+    }
+
+    .#{$sb-card-root}__content {
+      @include spacing.padding($size);
+    }
+
+    .#{$sb-card-root}__footer {
+      @include spacing.padding($size);
+    }
+  }
+}
+
+// ROOT
+$sb-card-root: 'sb-card';
+.#{$sb-card-root} {
+  @include transitioning.ease(300ms, box-shadow, transform);
+  @include spacing.margin(0);
+  @include display.grid($gap: 0, $flow: row);
+
+  &.shadow {
+    @include box-shadow.weak;
+  }
+
+  &.shadow.hover:hover {
+    transform: translateY(-2px);
+    @include box-shadow.strong;
+  }
+
+  hr {
+    @include spacing.padding(0);
+    @include spacing.margin(0);
+  }
+
+  &__title {
+    @include display.flex();
+    @include typography.font($size: m);
+    grid-row: 1 / 2;
+  }
+
+  &__title-hr {
+    grid-row: 2 / 3;
+  }
+
+  &__content {
+    @include display.flex();
+    grid-row: 3 / 4;
+  }
+
+  &__content-hr {
+    grid-row: 4 / 5;
+  }
+
+  &__footer {
+    @include display.flex();
+    @include typography.font($size: s);
+    grid-row: 5 / 6;
+  }
+
+  &__title:empty, &__content:empty, &__footer:empty {
+    display: none;
+  }
+
+  &__title:empty ~ &__title-hr, // only title empty
+  &__content:empty ~ &__content-hr, // only content empty
+  &__footer:empty ~ &__content-hr, // only footer empty
+  &__content:empty + &__footer:empty ~ &__title-hr { // conent and footer empty
+    display: none;
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include card-theme($theme, $color);
+  }
+
+  @include spacing.for-each-spacing using ($size, $value) {
+    @include card-size($size, $value);
+  }
+}

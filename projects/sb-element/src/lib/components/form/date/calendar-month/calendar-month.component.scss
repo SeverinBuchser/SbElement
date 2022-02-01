@@ -1,0 +1,113 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/transitioning";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Calendar-Month
+******************************************************************************/
+
+// THEME
+@mixin calendar-month-color-class($theme, $color) {
+  &--#{$theme}-#{$color} {
+
+    .#{$sb-calendar-month-root}__week-days {
+      @include border.border-side(bottom, $theme, $color, d);
+    }
+
+    .#{$sb-calendar-month-root}__date {
+      &.marked, &.marked:hover {
+        .mark {background: theming.get-color($theme, $color);}
+        span {color: theming.get-text($theme, $color);}
+      }
+
+      &:hover {
+        .mark {background: theming.get-foreground($theme);}
+        span {color: theming.get-foreground-text($theme);}
+      }
+
+      &.not-in-month {
+        .mark {background: none;}
+        span {color: theming.get-color-inverted($theme, $color);}
+      }
+
+      &.not-in-month.marked {
+        .mark {background: theming.get-color-inverted($theme, $color);}
+        span {color: theming.get-text-inverted($theme, $color);}
+      }
+    }
+  }
+}
+
+// ROOT
+$sb-calendar-month-root: 'sb-calendar-month';
+.#{$sb-calendar-month-root} {
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+
+  &__week-days {
+    @include display.grid(repeat(7, spacing.get-size(m)), $gap: 0, $flow: row);
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__month {
+    @include display.grid(
+      repeat(7, spacing.get-size(m)),
+      repeat(6, spacing.get-size(m)), 0, $flow: row);
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__date {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 63%;
+    @include display.flex();
+
+    span {
+      z-index: 1;
+      @include transitioning.ease(200ms);
+    }
+
+    .mark {
+      position: absolute;
+      height: 100%;
+      width: 63%;
+      @include display.flex();
+      @include transitioning.ease(200ms);
+      @include border.radius(d)
+    }
+
+    &.marked {
+      &.start .mark {
+        right: -1px;
+        width: 81.5%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &.between .mark {
+        width: calc(100% + 2px);
+        @include border.radius(0);
+      }
+
+      &.end .mark {
+        left: -1px;
+        width: 81.5%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &.not-in-month {
+      cursor: default;
+    }
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include calendar-month-color-class($theme, $color);
+  }
+}
