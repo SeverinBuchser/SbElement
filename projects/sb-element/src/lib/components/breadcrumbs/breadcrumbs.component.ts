@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ThemeInputDirective } from '../../core';
 
 @Component({
   selector: 'sb-breadcrumbs',
-  templateUrl: './breadcrumbs.component.html'
+  templateUrl: './breadcrumbs.component.html',
+  styleUrls: ['./breadcrumbs.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BreadcrumbsComponent extends ThemeInputDirective {
 
