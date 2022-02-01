@@ -31,5 +31,10 @@
     "sb",
     "component",
     "sb-theming"
-  ]
+  ],
+  "exports": {
+    "./test": {
+      "sass": "./src/scss/test.scss"
+    }
+  }
 }
