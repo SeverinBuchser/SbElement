@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional } from '@angular/core';
+import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AlertService } from '../../../services/alert/alert.service';
 import { ThemeService } from '../../../services/theme/theme.service';
@@ -7,6 +7,8 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/
 @Component({
   selector: 'sb-file-input',
   templateUrl: './file-input.component.html',
+  styleUrls: ['./file-input.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: FileInputComponent,
