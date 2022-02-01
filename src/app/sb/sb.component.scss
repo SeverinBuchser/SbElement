@@ -29,13 +29,13 @@
   .to-animate {
     @include transitioning.ease(0.1s);
     transform-origin: center 5%;
-    transform-style/core: preserve-3d;
+    transform-style: preserve-3d;
   }
 
   .to-animate-backside {
     @include transitioning.ease(0.1s);
     transform-origin: center 5%;
-    transform-style/core: preserve-3d;
+    transform-style: preserve-3d;
     transform: translateZ(-10px);
     z-index: -1;
   }
@@ -58,12 +58,12 @@
     }
   }
 
-  .style/core-wrapper {
+  .style-wrapper {
     position: absolute;
     right: 20vw;
     top: 50%;
 
-    .style/core {
+    .style {
       position: relative;
       .circle {
         @include border.radius(50%);

@@ -10,4 +10,3 @@ export * from './popper';
 export * from './table';
 export * from './timeline';
 export * from './link';
-export * from './test';

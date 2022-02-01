@@ -1,5 +1,0 @@
-@use "src/style/core/spacing";
-
-p {
-  @include spacing.padding-x(l);
-}

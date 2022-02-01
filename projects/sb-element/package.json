@@ -33,6 +33,12 @@
     "sb-theming"
   ],
   "exports": {
+    ".": {
+      "sass": "./src/style/_index.scss"
+    },
+    "./global": {
+      "sass": "./src/style/global/_index.scss"
+    },
     "./core": {
       "sass": "./src/style/core/_index.scss"
     },
