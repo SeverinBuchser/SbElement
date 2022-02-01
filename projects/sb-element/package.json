@@ -19,12 +19,11 @@
   },
   "peerDependencies": {
     "@angular/common": "^12.0.1",
-    "@angular/core": "^12.0.1",
-    "@types/date-fns": "^2.6.0",
-    "date-fns": "^2.24.0"
+    "@angular/core": "^12.0.1"
   },
   "dependencies": {
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "date-fns": "^2.24.0"
   },
   "devDependencies": {
     "copyfiles": "file:../../node_modules/copyfiles",
