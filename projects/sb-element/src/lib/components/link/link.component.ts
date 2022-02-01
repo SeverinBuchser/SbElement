@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { SizeThemeInputDirective } from "../../core";
 
 @Component({
   selector: 'sb-link',
-  templateUrl: './link.component.html'
+  templateUrl: './link.component.html',
+  styleUrls: ['./link.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LinkComponent extends SizeThemeInputDirective {
   public rootClass: string = 'sb-link';
