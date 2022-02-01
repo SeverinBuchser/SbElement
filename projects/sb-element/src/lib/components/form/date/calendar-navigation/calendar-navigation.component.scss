@@ -1,0 +1,66 @@
+@use "src/style/theming";
+@use "src/style/transitioning";
+@use "src/style/display";
+@use "src/style/border";
+@use "src/style/animation";
+/*****************************************************************************
+Calendar-Navigation
+******************************************************************************/
+
+// THEME
+@mixin calendar-navigation-theme($theme, $color) {
+  &--#{$theme}-#{$color} &__icon:hover {
+    background: theming.get-foreground($theme);
+  }
+}
+
+// ROOT
+$sb-calendar-navigation-root: 'sb-calendar-navigation';
+.#{$sb-calendar-navigation-root} {
+  @include display.flex(space-between);
+
+  &__icon {
+    @include transitioning.ease(200ms);
+    @include border.radius(50%);
+    cursor: pointer;
+  }
+
+  &__month {
+    width: 100px;
+    overflow: hidden;
+
+    span {
+      width: 100%;
+      @include display.flex();
+    }
+  }
+
+  &__month-wrapper {
+    width: 100%;
+    @include display.grid(100% 100% 100%, $gap: 0);
+    transform: translate(-100%);
+  }
+
+  &.animate-right &__month-wrapper {
+    @include animation.animation(slide-right 200ms ease);
+  }
+
+  &.animate-left &__month-wrapper {
+    @include animation.animation(slide-left 200ms ease);
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include calendar-navigation-theme($theme, $color);
+  }
+}
+
+@include animation.keyframes('slide-right') {
+  from {transform: translateX(-200%);}
+  to {transform: translateX(-100%);}
+}
+
+@include animation.keyframes('slide-left') {
+  from {transform: translateX(0);}
+  to {transform: translateX(-100%);}
+}
