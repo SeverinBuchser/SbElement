@@ -1,0 +1,74 @@
+@use "src/style/spacing";
+@use "src/style/theming";
+@use "src/style/transitioning";
+@use "src/style/typography";
+@use "src/style/display";
+@use "src/style/border";
+/*****************************************************************************
+Input
+******************************************************************************/
+
+// THEME
+@mixin input-theme($theme, $color) {
+  &--#{$theme}-#{$color} {
+    color: theming.get-foreground-text($theme);
+    .#{$sb-input-root}__border {
+      @include border.border($theme, $color, d);
+    }
+    &.focus .#{$sb-input-root}__border {
+      @include border.border($theme, $color, d);
+    }
+  }
+}
+
+// SIZE
+@mixin input-size($size, $value) {
+  &--#{$size} {
+    height: $value;
+  }
+}
+
+// ROOT
+$sb-input-root: 'sb-input';
+.#{$sb-input-root} {
+  width: 200px;
+  position: relative;
+  display: flex;
+  gap: spacing.get-spacing(s);
+  @include spacing.padding-x(s);
+
+  &__prefix {
+    @include display.flex();
+  }
+
+  &__delimiter {
+    @include display.flex();
+    margin: calc(#{spacing.get-spacing(s)} * (-3/4));
+  }
+
+  &__border {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  &__suffix {
+    @include display.flex();
+  }
+
+  &.disabled &__input {
+    cursor: not-allowed;
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include input-theme($theme, $color);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include input-size($size, $value);
+  }
+}
