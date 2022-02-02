@@ -1,0 +1,9 @@
+<sb-popper #<%= classify(name) %>popper position="top">
+  <div popper>
+    <%= dasherize(name) %> popper works!
+  </div>
+  <div content [ngClass]="getClasses()"
+    sbElClickTrigger [triggerable]="<%= classify(name) %>popper" [delay]="0">
+    <%= dasherize(name) %> works!
+  </div>
+</sb-popper>

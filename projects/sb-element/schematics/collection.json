@@ -2,9 +2,13 @@
   "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "ng-add": {
-      "description": "Adds sb-element to an angular project.",
+      "description": "Add sb-element to the project.",
       "factory": "./ng-add/index#ngAdd",
-      "schema": "./ng-add/schema.json"
+    },
+    "popper": {
+      "description": "Generate a popper component.",
+      "factory": "./popper/index#popper",
+      "schema": "./popper/schema.json"
     }
   }
 }
