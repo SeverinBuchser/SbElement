@@ -7,7 +7,7 @@ Icon
 
 // THEME
 @mixin icon-theme($theme, $color) {
-  &--#{$color} {
+  &--#{$theme}-#{$color} {
     color: theming.get-color($theme, $color);
   }
 }

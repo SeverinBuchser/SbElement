@@ -1,5 +1,6 @@
 import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SizeColorInputDirective } from '../../core/style-input/size-color-input.directive';
+import { ThemeService } from "../../services/theme/theme.service";
+import { SizeThemeColorInputDirective } from '../../core';
 
 @Component({
   selector: 'sb-icon',
@@ -7,7 +8,7 @@ import { SizeColorInputDirective } from '../../core/style-input/size-color-input
   styleUrls: ['./icon.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class IconComponent extends SizeColorInputDirective {
+export class IconComponent extends SizeThemeColorInputDirective {
 
   public rootClass = 'sb-icon';
 
@@ -21,8 +22,11 @@ export class IconComponent extends SizeColorInputDirective {
 
   private outline: boolean = false;
 
-  constructor(@Optional() @Attribute('outline') outline: any) {
-    super();
+  constructor(
+    themeService: ThemeService,
+    @Optional() @Attribute('outline') outline: any
+  ) {
+    super(themeService);
     if (outline == '') this.isOutline = true;
   }
 
