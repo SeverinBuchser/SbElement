@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "StyleableComponentSchema",
+  "title": "Styleable Component Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the styleable component.",
+      "type": "string"
+    },
+    "sizing": {
+      "type": "boolean",
+      "x-prompt": "Would you like to use sizing?"
+    },
+    "theming": {
+      "type": "boolean",
+      "x-prompt": "Would you like to use theming?"
+    },
+    "coloring": {
+      "type": "boolean",
+      "x-prompt": "Would you like to use coloring?"
+    }
+   },
+   "path": {
+     "type": "string",
+     "format": "path",
+     "description": "The path to create the styleable component.",
+     "visible": false
+   },
+   "project": {
+     "type": "string",
+     "description": "The name of the project.",
+     "$default": {
+       "$source": "projectName"
+     }
+   },
+  "required": [
+    "name",
+    "sizing",
+    "theming",
+    "coloring"
+  ]
+}

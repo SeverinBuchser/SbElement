@@ -5,10 +5,15 @@
       "description": "Add sb-element to the project.",
       "factory": "./ng-add/index#ngAdd",
     },
-    "popper": {
+    "popper-component": {
       "description": "Generate a popper component.",
-      "factory": "./popper/index#popper",
-      "schema": "./popper/schema.json"
+      "factory": "./popper-component/index#popperComponent",
+      "schema": "./popper-component/schema.json"
+    },
+    "styleable-component": {
+      "description": "Generate a styleable component.",
+      "factory": "./styleable-component/index#styleableComponent",
+      "schema": "./styleable-component/schema.json"
     }
   }
 }

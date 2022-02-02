@@ -1,0 +1,20 @@
+import { Component, OnInit } from '@angular/core';
+import { ThemeService, SizeThemeColorInputDirective } from 'sb-element';
+
+@Component({
+  selector: 'app-<%= dasherize(name) %>',
+	templateUrl: './<%= dasherize(name) %>.component.html',
+	styleUrls: ['./<%= dasherize(name) %>.component.scss'],
+})
+export class <%= classify(name) %>Component extends SizeThemeColorInputDirective implements OnInit {
+
+  public rootClass = 'app-<%= dasherize(name) %>';
+
+  constructor(themeService: ThemeService) {
+    super(themeService);
+  }
+
+  ngOnInit(): void {
+  }
+
+}

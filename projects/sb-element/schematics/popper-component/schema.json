@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "PopperComponentSchema",
-  "title": "Popper component Schema",
+  "title": "Popper Component Schema",
   "type": "object",
   "properties": {
     "name": {
