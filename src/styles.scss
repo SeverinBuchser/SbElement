@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use 'dist/sb-element/src/style';
-//@use 'sb-theming';
+@use 'sb-element';
 
 html, body {
   margin: 0;
@@ -24,7 +23,7 @@ html, body {
 }
 
 .grid {
-  @include style.padding(s);
+  @include sb-element.padding(s);
 
   > * > div {
     height: 100%;
