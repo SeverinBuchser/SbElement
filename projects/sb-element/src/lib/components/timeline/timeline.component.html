@@ -1,4 +1,4 @@
-<sb-grid [dim]="gridDim" [ngClass]="rootClass + '__grid'">
+<sb-grid [dim]="gridDim" justify="even">
   <div *ngFor="let step of steps" [ngClass]="rootClass + '__name'">
     <span>{{ step.name }}</span>
   </div>

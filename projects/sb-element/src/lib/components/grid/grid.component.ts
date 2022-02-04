@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
-import { ClassNameInputDirective } from "../../core/style-input/class-name-input.directive";
+import { ClassNameInputDirective } from "../../core/style-input";
 
 @Component({
   selector: 'sb-grid',
@@ -15,10 +15,14 @@ export class GridComponent extends ClassNameInputDirective {
   public gap: string | null = null
 
   @Input()
+  public justify: 'even' | 'auto' = 'auto';
+
+  @Input()
   set dim(dimensions: string) {
     let split = dimensions.split("x");
-    this.column = "repeat(" + split[0] + ", auto)";
-    this.row = "repeat(" + split[1] + ", auto)";
+    let justify = this.justify == 'even' ? '1fr' : this.justify;
+    this.column = `repeat(${split[0]}, ${justify})`;
+    this.row = `repeat(${split[1]}, ${justify})`;
   }
 
   @HostBinding('style.gridTemplateColumns') column!: string;

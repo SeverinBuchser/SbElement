@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 import { LinkedList } from "../../models/linked-list/linked-list";
 import { ListItem } from "../../models/linked-list/list-item";
-import { ThemeColorInputDirective } from '../../core/style-input/theme-color-input.directive';
+import { SizeThemeColorInputDirective } from '../../core/';
 
 type State = 'current' | 'awaiting' | 'done' | 'pending';
 type Step = {name: string, state: State, line: boolean};
@@ -12,7 +12,7 @@ type Step = {name: string, state: State, line: boolean};
   styleUrls: ['./timeline.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class TimelineComponent extends ThemeColorInputDirective {
+export class TimelineComponent extends SizeThemeColorInputDirective {
 
   public rootClass = 'sb-timeline';
 

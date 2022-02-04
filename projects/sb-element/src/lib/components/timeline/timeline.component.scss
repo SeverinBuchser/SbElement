@@ -24,15 +24,25 @@ Timeline
   }
 }
 
+// SIZE
+@mixin timeline-size($size, $value) {
+  &--#{$size} {
+    .sb-grid {
+      grid-gap: 0 calc(2 * spacing.get-size($size));
+    }
+  }
+
+  &--#{$size} &__line {
+    right: calc(-2 * spacing.get-size($size) - 25%);
+    width: calc(2 * spacing.get-size($size) + 50%);
+  }
+}
+
 // ROOT
 .sb-timeline {
   &__name {
     @include typography.font($size: s);
     @include display.flex();
-  }
-
-  &__grid {
-    grid-gap: 0 calc(2 * spacing.get-size(l));
   }
 
   &__indicator {
@@ -46,13 +56,15 @@ Timeline
 
   &__line {
     position: absolute;
-    right: calc(-2 * spacing.get-size(l) - 25%);
-    width: calc(2 * spacing.get-size(l) + 50%);
     height: 0;
   }
 
   @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
   $color-palette) {
     @include timeline-theme($theme, $color);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include timeline-size($size, $value);
   }
 }
