@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { ControlValueAccessorThemeColorInputDirective } from '../../../core';
 
 @Component({
   selector: 'sb-checkbox',
@@ -13,25 +13,14 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/
     multi: true
   }]
 })
-export class CheckboxComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
+export class CheckboxComponent extends ControlValueAccessorThemeColorInputDirective<boolean> {
 
   public rootClass = 'sb-checkbox';
 
   @Input()
-  public label: string = '';
+  public name: string = '';
+
   @Input()
-  public labelPosition: string = 'right';
-
-  public check(): void {
-    this.value = !this.value;
-  }
-
-  public getClasses(): Array<string> {
-    let classes = super.getClasses();
-    classes.push(this.label ? 'label' : '');
-    classes.push(this.label ? 'label-' + this.labelPosition : '');
-    classes.push(this.value ? 'checked' : 'unchecked');
-    return classes;
-  }
+  public label: string = '';
 
 }

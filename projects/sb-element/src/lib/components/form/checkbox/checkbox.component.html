@@ -1,10 +1,13 @@
-<div [ngClass]="getClasses()" (click)="check()">
-  <label [ngClass]="rootClass + '__label'"><span>{{ label }}</span></label>
-  <div [ngClass]="rootClass + '__checkbox-wrapper'">
-    <div [ngClass]="rootClass + '__checkbox'">
-      <div [ngClass]="rootClass + '__tick'">
-        <sb-icon [color]="null" [size]="null">&#xe876;</sb-icon>
-      </div>
-    </div>
+<label [ngClass]="getClasses()">
+  <div [ngClass]="rootClass + '__checkbox'">
+    <input
+      type="checkbox"
+      [name]="name"
+      [value]="label"
+      [(ngModel)]="value"
+      [disabled]="disabled"/>
+    <sb-icon [color]="null" [size]="null" [extraClasses]="[rootClass + '__mark', value ? 'checked' : '']">&#xe876;</sb-icon>
   </div>
-</div>
+  {{value}}
+  <span>{{ label }}</span>
+</label>

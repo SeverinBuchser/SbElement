@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SelectedOptions } from '../../../../models/selected-options';
-import { SelectionOptionsDirective } from '../base/selection-options.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core';
 
 @Component({
   selector: 'sb-checkbox-group',
@@ -12,25 +11,18 @@ import { SelectionOptionsDirective } from '../base/selection-options.directive';
     multi: true
   }]
 })
-export class CheckboxGroupComponent extends SelectionOptionsDirective<SelectedOptions> {
+export class CheckboxGroupComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
 
-  public rootClass = 'sb-form-group-options';
-
-  @Input()
-  public groupTitle: string = '';
+  public rootClass = 'sb-checkbox-group';
 
   @Input()
-  public groupAlign: string | null = 'left';
+  public name: string = '';
 
-  @Input()
-  public labelPosition: string = 'right';
+  set options(options: Array<string>) {
 
-  check() {
-    this.value = this.selectedOptions;
   }
-
-  protected updateValues(): void {
-    this.selectedOptions = this.value as SelectedOptions;
+  get options(): Array<string> {
+    return new Array<string>();
   }
 
 }

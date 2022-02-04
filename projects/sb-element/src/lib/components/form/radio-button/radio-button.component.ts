@@ -1,7 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ThemeService } from "../../../services/theme/theme.service";
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { ControlValueAccessorThemeColorInputDirective } from '../../../core';
 
 @Component({
   selector: 'sb-radio-button',
@@ -14,28 +13,16 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/
     multi: true
   }]
 })
-export class RadioButtonComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
+export class RadioButtonComponent extends ControlValueAccessorThemeColorInputDirective<string> {
+
+  public rootClass = 'sb-radio';
+
+  private static id: number = 0;
+
+  @Input()
+  public name: string = '';
 
   @Input()
   public label: string = '';
-  @Input()
-  public labelPosition: string = 'right';
-
-  constructor(themeService: ThemeService) {
-    super(themeService);
-    this.rootClass = 'sb-radio-button';
-  }
-
-  public check(): void {
-    this.value = true;
-  }
-
-  public getClasses(): Array<string> {
-    let classes = super.getClasses();
-    classes.push(this.value ? 'checked' : 'unchecked');
-    classes.push(this.label ? 'label' : '');
-    classes.push(this.label ? 'label-' + this.labelPosition : '');
-    return classes;
-  }
 
 }

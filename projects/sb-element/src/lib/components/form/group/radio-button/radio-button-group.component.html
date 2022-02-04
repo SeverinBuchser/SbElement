@@ -1,21 +1,10 @@
-<sb-form-group
-  [groupTitle]="groupTitle"
-  [groupAlign]="groupAlign"
-  [size]="size"
-  [color]="color">
-  <div [ngClass]="getClasses()">
-    <div
-      [ngClass]="rootClass + '__option'"
-      *ngFor="let option of options">
-      <sb-radio-button
-        [(ngModel)]="selectedOptions[option]"
-        (change)="check(option)"
-        [size]="size"
-        [color]="color"
-        [disabled]="disabled"
-        [labelPosition]="labelPosition"
-        [label]="option">
-      </sb-radio-button>
-    </div>
-  </div>
-</sb-form-group>
+<div [ngClass]="getClasses()">
+  <sb-radio-button
+    *ngFor="let option of options"
+    [(ngModel)]="value"
+    [name]="name"
+    [label]="option"
+    [disabled]="disabled"
+    [color]="color">
+  </sb-radio-button>
+</div>

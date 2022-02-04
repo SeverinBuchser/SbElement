@@ -1,7 +1,9 @@
-<div [ngClass]="getClasses()" (click)="check()">
-  <label [ngClass]="rootClass + '__label'"><span>{{ label }}</span></label>
-  <div [ngClass]="rootClass + '__radio-wrapper'">
-    <div [ngClass]="rootClass + '__radio'">
-    </div>
-  </div>
-</div>
+<label [ngClass]="getClasses()">
+  <input
+    type="radio"
+    [name]="name"
+    [value]="label"
+    [(ngModel)]="value"
+    [disabled]="disabled"/>
+  <span>{{ label }}</span>
+</label>
