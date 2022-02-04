@@ -28,23 +28,22 @@ Card
   &--#{$size} {
     @include border.radius($size);
 
-    .#{$sb-card-root}__title {
+    .sb-card__title {
       @include spacing.padding($size);
     }
 
-    .#{$sb-card-root}__content {
+    .sb-card__content {
       @include spacing.padding($size);
     }
 
-    .#{$sb-card-root}__footer {
+    .sb-card__footer {
       @include spacing.padding($size);
     }
   }
 }
 
 // ROOT
-$sb-card-root: 'sb-card';
-.#{$sb-card-root} {
+.sb-card {
   @include transitioning.ease(300ms, box-shadow, transform);
   @include spacing.margin(0);
   @include display.grid($gap: 0, $flow: row);

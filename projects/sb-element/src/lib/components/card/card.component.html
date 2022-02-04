@@ -1,13 +1,11 @@
-<div [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__title'">
-    <ng-content select="[title]"></ng-content>
-  </div>
-  <div [ngClass]="rootClass + '__content'">
-    <ng-content select="[content]"></ng-content>
-  </div>
-  <div [ngClass]="rootClass + '__footer'">
-    <ng-content select="[footer]"></ng-content>
-  </div>
-  <hr *ngIf="titleSeparator" [ngClass]="rootClass + '__title-hr'">
-  <hr *ngIf="footerSeprator"[ngClass]="rootClass + '__content-hr'">
+<div [ngClass]="rootClass + '__title'">
+  <ng-content select="[title]"></ng-content>
 </div>
+<div [ngClass]="rootClass + '__content'">
+  <ng-content select="[content]"></ng-content>
+</div>
+<div [ngClass]="rootClass + '__footer'">
+  <ng-content select="[footer]"></ng-content>
+</div>
+<hr *ngIf="titleSeparator" [ngClass]="rootClass + '__title-hr'">
+<hr *ngIf="footerSeprator"[ngClass]="rootClass + '__content-hr'">

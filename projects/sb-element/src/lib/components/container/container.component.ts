@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { ThemeInputDirective } from '../../core';
 
 @Component({
@@ -10,5 +10,11 @@ import { ThemeInputDirective } from '../../core';
 export class ContainerComponent extends ThemeInputDirective {
 
   public rootClass = 'sb-container';
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
+    return classes;
+  }
 
 }

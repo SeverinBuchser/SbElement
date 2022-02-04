@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { SizeThemeInputDirective } from '../../core';
 
@@ -6,7 +6,11 @@ import { SizeThemeInputDirective } from '../../core';
   selector: 'sb-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.hover]': 'hover',
+    '[class.shadow]': 'shadow'
+  }
 })
 export class CardComponent extends SizeThemeInputDirective {
 
@@ -31,10 +35,9 @@ export class CardComponent extends SizeThemeInputDirective {
     if (shadow == '') this.shadow = true;
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.hover ? 'hover' : '');
-    classes.push(this.shadow ? 'shadow' : '');
     return classes;
   }
 

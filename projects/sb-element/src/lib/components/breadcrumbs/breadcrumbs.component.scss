@@ -15,7 +15,7 @@ Bar
     background: theming.get-background($theme);
   }
 
-  &--#{$theme} &__icon {
+  &--#{$theme} .sb-icon {
     color: theming.get-accent($theme);
   }
 
@@ -28,8 +28,7 @@ Bar
 }
 
 // ROOT
-$sb-breadcrumbs-root: 'sb-breadcrumbs';
-.#{$sb-breadcrumbs-root} {
+.sb-breadcrumbs {
   @include typography.font($size: s);
   @include spacing.padding-x-y(d,s);
   @include display.flex($justify: flex-start, $gap: s);

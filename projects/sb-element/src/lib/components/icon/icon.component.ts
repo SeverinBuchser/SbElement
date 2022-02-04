@@ -37,7 +37,6 @@ export class IconComponent extends SizeThemeColorInputDirective {
   @HostBinding('class')
   get classes(): Array<string> {
     let classes = super.getClasses();
-    console.log(classes)
     return classes;
   }
 

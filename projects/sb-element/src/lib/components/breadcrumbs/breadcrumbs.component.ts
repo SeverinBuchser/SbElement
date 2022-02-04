@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ThemeInputDirective } from '../../core';
 
 @Component({
@@ -32,6 +32,12 @@ export class BreadcrumbsComponent extends ThemeInputDirective {
 
   public handleClick(crumb: string) {
     this.navigate.emit(crumb);
+  }
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
+    return classes;
   }
 
 }

@@ -6,8 +6,8 @@ Container
 ******************************************************************************/
 
 // ROOT
-$sb-container-root: 'sb-container';
-.#{$sb-container-root} {
+.sb-container {
+  display: block;
   @include spacing.margin(d);
   @include spacing.padding(l);
   @include border.radius(l);
