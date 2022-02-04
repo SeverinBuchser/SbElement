@@ -8,10 +8,8 @@ import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-
   styleUrls: ['./alert-box.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
-    'class': 'sb-alert-box',
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
-    '[class.flipped]': 'flipped',
     '[class.center]': '!this.showArrow && !this.showIcon'
   }
 })
@@ -28,18 +26,15 @@ export class AlertBoxComponent extends SizeThemeColorInputDirective {
   @Input()
   public customIcon: boolean = false;
 
-  public flipped: boolean = false;
   private pill: boolean = false;
   private plain: boolean = false;
 
   constructor(
-    @Optional() @Attribute('flipped') flipped: any,
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any,
     themeService: ThemeService
   ) {
     super(themeService);
-    if (flipped == '') this.flipped = true;
     if (pill == '') this.pill = true;
     if (plain == '') this.plain = true;
   }

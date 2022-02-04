@@ -1,11 +1,7 @@
-<div [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__wrapper'">
-    <sb-alert-box
-      [size]="size"
-      [color]="color"
-      [showArrow]="showArrow"
-      [showIcon]="showIcon">
-      {{ message }}
-    </sb-alert-box>
-  </div>
-</div>
+<sb-alert-box
+  [size]="size"
+  [color]="color"
+  [showArrow]="showArrow"
+  [showIcon]="showIcon">
+  {{ message }}
+</sb-alert-box>

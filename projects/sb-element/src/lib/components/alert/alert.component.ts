@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 import { Alert } from '../../models/alert/alert';
 import { AlertServiceSubscriber } from '../../models/alert/alert-service-subscriber';
 import { AlertService } from '../../services/alert/alert.service';
@@ -9,7 +9,11 @@ import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-
   selector: 'sb-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.active]': 'show',
+    '[class.inactive]': '!show'
+  }
 })
 export class AlertComponent extends SizeThemeColorInputDirective implements AlertServiceSubscriber {
 
@@ -81,9 +85,9 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
     else return '';
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.show ? 'active' : 'inactive');
     return classes;
   }
 

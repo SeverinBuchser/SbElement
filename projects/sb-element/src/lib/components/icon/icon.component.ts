@@ -8,7 +8,6 @@ import { SizeThemeColorInputDirective } from '../../core';
   styleUrls: ['./icon.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
-    'class': 'sb-icon',
     '[class.outline]': 'outline'
   }
 

@@ -11,36 +11,33 @@ Alert
   &--#{$size} {
     top: calc(spacing.get-size(d) * (-10));
     left: 0;
-    &.active .#{$sb-alert-root}__wrapper {
+    &.active .sb-alert-box {
       transform: translateY(calc(10.5 * spacing.get-size(d)));
     }
 
-    &.inactive .#{$sb-alert-root}__wrapper {
+    &.inactive .sb-alert-box {
       transform: translateY(0);
     }
   }
 }
 
 // ROOT
-$sb-alert-root: 'sb-alert';
-.#{$sb-alert-root} {
+.sb-alert {
   @include display.flex($align: baseline);
   position: fixed;
   width: 100%;
 
-  &__wrapper {
+  .sb-alert-box {
     min-width: 300px;
     overflow: visible;
-    .sb-el-alert-box {
-      @include box-shadow.smooth;
-    }
+    @include box-shadow.smooth;
   }
 
-  &.active &__wrapper {
+  &.active .sb-alert-box {
     @include transitioning.ease-out(300ms, transform);
   }
 
-  &.inactive &__wrapper {
+  &.inactive .sb-alert-box {
     @include transitioning.ease-in(300ms, transform);
   }
 

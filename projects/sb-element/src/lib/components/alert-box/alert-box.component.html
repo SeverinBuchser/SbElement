@@ -1,5 +1,4 @@
-<!-- If flipped use West icon, if not use East icon -->
-<sb-icon *ngIf="showArrow && !flipped" [size]="size" [ngClass]="rootClass + '__arrow'">&#xf1df;</sb-icon>
+<sb-icon *ngIf="showArrow" [size]="size" [ngClass]="rootClass + '__arrow'">&#xf1df;</sb-icon>
 <ng-content></ng-content>
 <div *ngIf="showIcon" [ngClass]="rootClass + '__icon'">
   <ng-content *ngIf="customIcon; else defaultIcon" select="[icon]"></ng-content>
