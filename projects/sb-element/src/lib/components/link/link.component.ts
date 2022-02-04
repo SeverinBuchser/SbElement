@@ -1,13 +1,17 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 import { SizeThemeInputDirective } from "../../core";
 
 @Component({
   selector: 'sb-link',
   templateUrl: './link.component.html',
   styleUrls: ['./link.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.active]': 'active'
+  }
 })
 export class LinkComponent extends SizeThemeInputDirective {
+  
   public rootClass: string = 'sb-link';
 
   @Input()
@@ -16,9 +20,9 @@ export class LinkComponent extends SizeThemeInputDirective {
   @Input()
   public href: string = '';
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.active ? 'active' : '');
     return classes;
   }
 }

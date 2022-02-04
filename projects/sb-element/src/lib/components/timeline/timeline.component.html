@@ -1,38 +1,36 @@
-<div [ngClass]="getClasses()">
-  <sb-grid [dim]="gridDim" [extraClasses]="rootClass + '__grid'">
-    <div *ngFor="let step of steps" [ngClass]="rootClass + '__name'">
-      <span>{{ step.name }}</span>
+<sb-grid [dim]="gridDim" [ngClass]="rootClass + '__grid'">
+  <div *ngFor="let step of steps" [ngClass]="rootClass + '__name'">
+    <span>{{ step.name }}</span>
+  </div>
+  <div *ngFor="let step of steps; index as i" [ngClass]="rootClass + '__indicator'">
+    <div [ngClass]="rootClass + '__icon'">
+      <sb-icon *ngIf="step.state == 'current'"
+        size="m"
+        [color]="color">
+        &#xe39e;
+      </sb-icon>
+
+      <sb-icon *ngIf="step.state == 'awaiting'"
+        size="m"
+        outline
+        color="none"
+        extraClasses="awaiting">
+        &#xef4a;
+      </sb-icon>
+
+      <sb-icon *ngIf="step.state == 'done'"
+        size="m"
+        [color]="color">
+        &#xef4a;
+      </sb-icon>
+
+      <sb-icon *ngIf="step.state == 'pending'"
+        size="m"
+        [color]="color"
+        outline>
+        &#xef64;
+      </sb-icon>
     </div>
-    <div *ngFor="let step of steps; index as i" [ngClass]="rootClass + '__indicator'">
-      <div [ngClass]="rootClass + '__icon'">
-        <sb-icon *ngIf="step.state == 'current'"
-          size="m"
-          [color]="color">
-          &#xe39e;
-        </sb-icon>
-
-        <sb-icon *ngIf="step.state == 'awaiting'"
-          size="m"
-          outline
-          color="none"
-          extraClasses="awaiting">
-          &#xef4a;
-        </sb-icon>
-
-        <sb-icon *ngIf="step.state == 'done'"
-          size="m"
-          [color]="color">
-          &#xef4a;
-        </sb-icon>
-
-        <sb-icon *ngIf="step.state == 'pending'"
-          size="m"
-          [color]="color"
-          outline>
-          &#xef64;
-        </sb-icon>
-      </div>
-      <div *ngIf="step.line" [ngClass]="getLineClasses(i)"></div>
-    </div>
-  </sb-grid>
-</div>
+    <div *ngIf="step.line" [ngClass]="getLineClasses(i)"></div>
+  </div>
+</sb-grid>

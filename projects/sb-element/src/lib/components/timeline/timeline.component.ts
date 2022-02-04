@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 import { LinkedList } from "../../models/linked-list/linked-list";
 import { ListItem } from "../../models/linked-list/list-item";
 import { ThemeColorInputDirective } from '../../core/style-input/theme-color-input.directive';
@@ -143,6 +143,12 @@ export class TimelineComponent extends ThemeColorInputDirective {
     if (isBeforeCurrent) {
       classes.push('active')
     }
+    return classes;
+  }
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
     return classes;
   }
 

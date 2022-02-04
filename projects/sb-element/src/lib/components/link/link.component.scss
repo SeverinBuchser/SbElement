@@ -35,8 +35,7 @@ Link
 }
 
 // ROOT
-$sb-link-root: 'sb-link';
-.#{$sb-link-root} {
+.sb-link {
   @include display.flex();
   cursor: pointer;
   @include transitioning.ease(background, 300ms);

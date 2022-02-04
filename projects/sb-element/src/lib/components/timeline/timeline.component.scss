@@ -25,8 +25,7 @@ Timeline
 }
 
 // ROOT
-$sb-timeline-root: 'sb-timeline';
-.#{$sb-timeline-root} {
+.sb-timeline {
   &__name {
     @include typography.font($size: s);
     @include display.flex();

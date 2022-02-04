@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { ThemeColorInputDirective } from '../../core';
 
@@ -6,7 +6,10 @@ import { ThemeColorInputDirective } from '../../core';
   selector: 'sb-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.plain]': 'plain'
+  }
 })
 export class TableComponent extends ThemeColorInputDirective {
 
@@ -36,11 +39,9 @@ export class TableComponent extends ThemeColorInputDirective {
     if (plain == '') this.isPlain = true;
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    if (this.plain) {
-      classes.push('plain');
-    }
     classes.push(this.alignment);
     return classes;
   }

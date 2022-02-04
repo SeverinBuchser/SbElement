@@ -17,7 +17,6 @@ import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
 
 // Directives
-import { GridDirective } from './components/grid/grid.directive';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { LinkComponent } from './components/link/link.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
@@ -32,7 +31,6 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     AlertComponent,
     CardComponent,
     GridComponent,
-    GridDirective,
     TimelineComponent,
     LinkComponent,
     BreadcrumbsComponent,
