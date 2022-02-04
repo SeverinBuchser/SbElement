@@ -24,8 +24,13 @@ export class SizeThemeInputDirective extends ClassNameInputDirective implements 
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.size ? this.rootClass + '--' + this.size : '');
-    classes.push(this.rootClass + '--' + this.theme);
+    if (this.size && this.rootClass) {
+      classes.push(this.rootClass + '--' + this.size);
+    }
+
+    if (this.rootClass) {
+      classes.push(this.rootClass + '--' + this.theme);
+    }
     return classes;
   }
 

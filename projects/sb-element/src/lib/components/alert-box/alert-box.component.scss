@@ -26,19 +26,7 @@ Alert Box
 // COLOR
 @mixin alert-box-color($bg, $color) {
   background: $bg;
-  color: $color;
-
-  .#{$sb-alert-box-root}__arrow {
-    .sb-icon {
-      color: $color;
-    }
-  }
-
-  .#{$sb-alert-box-root}__icon {
-    .sb-icon {
-      color: $color;
-    }
-  }
+  color: $color !important;
 }
 
 // SIZE
@@ -57,7 +45,7 @@ Alert Box
 // ROOT
 $sb-alert-box-root: 'sb-alert-box';
 .#{$sb-alert-box-root} {
-  @include display.flex(space-between);
+  @include display.flex(flex-start, $gap: s);
 
   &.center {justify-content: center;}
   &.flipped {flex-direction: row-reverse;}
@@ -66,8 +54,12 @@ $sb-alert-box-root: 'sb-alert-box';
     @include display.grid($align: center);
   }
 
-  &__icon .sb-icon {
-    @include spacing.margin-left(s);
+  &:not(.flipped) &__icon {
+    @include spacing.margin-left(auto);
+  }
+
+  &.flipped &__icon {
+    @include spacing.margin-right(auto);
   }
 
   @include spacing.for-each-size using ($size, $value) {

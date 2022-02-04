@@ -21,7 +21,9 @@ export class ThemeInputDirective extends ClassNameInputDirective implements OnDe
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.rootClass + '--' + this.theme);
+    if (this.rootClass) {
+      classes.push(this.rootClass + '--' + this.theme);
+    }
     return classes;
   }
 

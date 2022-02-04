@@ -20,7 +20,9 @@ export class ClassNameInputDirective {
 
   public getClasses(): Array<string> {
     let classes = new Array<string>();
-    classes.push(this.rootClass);
+    if (this.rootClass) {
+      classes.push(this.rootClass);
+    }
     this._extraClasses.forEach(className => classes.push(className))
     return classes;
   }

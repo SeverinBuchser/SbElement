@@ -1,4 +1,2 @@
-<span [ngClass]="getClasses()">
-  <ng-content *ngIf="icon == ''"></ng-content>
-  {{ icon }}
-</span>
+<ng-content *ngIf="icon == ''"></ng-content>
+{{ icon }}

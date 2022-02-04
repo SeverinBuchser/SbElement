@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from "../../services/theme/theme.service";
 import { SizeThemeColorInputDirective } from '../../core';
 
@@ -6,7 +6,12 @@ import { SizeThemeColorInputDirective } from '../../core';
   selector: 'sb-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    'class': 'sb-icon',
+    '[class.outline]': 'outline'
+  }
+
 })
 export class IconComponent extends SizeThemeColorInputDirective {
 
@@ -30,9 +35,10 @@ export class IconComponent extends SizeThemeColorInputDirective {
     if (outline == '') this.isOutline = true;
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.outline ? 'outline' : '');
+    console.log(classes)
     return classes;
   }
 

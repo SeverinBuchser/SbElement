@@ -14,7 +14,7 @@ export class SizeThemeColorInputDirective extends ClassNameInputDirective implem
   public theme!: string;
 
   @Input()
-  public color: string | null = 'primary';
+  public color: string | null = null;
 
   private subscription: Subscription;
 
@@ -27,9 +27,14 @@ export class SizeThemeColorInputDirective extends ClassNameInputDirective implem
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.size ? this.rootClass + '--' + this.size : '');
-    classes.push(this.color ?
-      this.rootClass + '--' + this.theme + '-' + this.color : '');
+
+    if (this.size && this.rootClass) {
+      classes.push(this.rootClass + '--' + this.size);
+    }
+
+    if (this.color && this.rootClass) {
+      classes.push(this.rootClass + '--' + this.theme + '-' + this.color);
+    }
     return classes;
   }
 

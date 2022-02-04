@@ -11,7 +11,9 @@ export class ControlValueAccessorSizeInputDirective<ValueType> extends ControlVa
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.size ? this.rootClass + '--' + this.size : '');
+    if (this.size && this.rootClass) {
+      classes.push(this.rootClass + '--' + this.size);
+    }
     return classes;
   }
 

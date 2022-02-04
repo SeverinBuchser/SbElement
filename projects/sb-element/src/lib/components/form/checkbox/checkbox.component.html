@@ -6,7 +6,7 @@
       [value]="label"
       [(ngModel)]="value"
       [disabled]="disabled"/>
-    <sb-icon [color]="null" [size]="null" [extraClasses]="[rootClass + '__mark', value ? 'checked' : '']">&#xe876;</sb-icon>
+    <sb-icon [ngClass]="[rootClass + '__mark', value ? 'checked' : '']">&#xe876;</sb-icon>
   </div>
   {{value}}
   <span>{{ label }}</span>

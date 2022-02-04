@@ -1,7 +1,7 @@
 <div [ngClass]="getClasses()">
   <div [ngClass]="rootClass + '__border'"></div>
   <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
-    <sb-icon [icon]="prefixIcon" [color]="null" size="d"></sb-icon>
+    <sb-icon [icon]="prefixIcon" size="d"></sb-icon>
   </div>
   <sb-spinner-core
     [min]="min"
@@ -15,6 +15,6 @@
     [disabled]="disabled">
   </sb-spinner-core>
   <div *ngIf="suffixIcon" [ngClass]="rootClass + '__suffix'">
-    <sb-icon [icon]="suffixIcon" [color]="null" size="d"></sb-icon>
+    <sb-icon [icon]="suffixIcon" size="d"></sb-icon>
   </div>
 </div>

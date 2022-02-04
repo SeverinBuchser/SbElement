@@ -1,6 +1,6 @@
 <div [ngClass]="getClasses()">
   <sb-nav-bar>
-    <sb-icon left>&#xeb9b;</sb-icon>
+    <sb-icon left color="primary">&#xeb9b;</sb-icon>
     <div left>SB Element Demo</div>
     <sb-link [routerLink]="['/', 'sb']" left>Severin Buchser</sb-link>
     <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
@@ -17,16 +17,16 @@
     <div class="sidebar-container">
       <sb-sidebar #sidebarOne>
         <div sidebar>
-          <sb-button sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</sb-button>
+          <sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</sb-button>
         </div>
         <div content>
-          <sb-button sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</sb-button>
+          <sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</sb-button>
 
           <sb-popper #popperOne position="bottom">
             <div popper>
               Popper
             </div>
-            <sb-button content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</sb-button>
+            <sb-button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</sb-button>
           </sb-popper>
         </div>
       </sb-sidebar>
@@ -51,19 +51,20 @@
         </div>
         <div content>
           <sb-timeline
+            color="primary"
             #timeline
             [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
           </sb-timeline>
           <div class="timeline-control">
-            <sb-button (click)="timeline.previousDone()" plain size="s">Previous Done</sb-button>
-            <sb-button (click)="timeline.previousPending()" plain size="s">Previous Pending</sb-button>
-            <sb-button (click)="timeline.previous()" plain size="s">Previous</sb-button>
-            <sb-button (click)="timeline.nextDone()" plain size="s">Next Done</sb-button>
-            <sb-button (click)="timeline.nextPending()" plain size="s">Next Pending</sb-button>
+            <sb-button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</sb-button>
+            <sb-button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</sb-button>
+            <sb-button color="primary" (click)="timeline.previous()" plain size="s">Previous</sb-button>
+            <sb-button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</sb-button>
+            <sb-button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</sb-button>
           </div>
         </div>
         <div footer>
-          <sb-icon-button plain round>&#xf1df;</sb-icon-button>
+          <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
         </div>
       </sb-card>
       <sb-card size="s" color="primary">
@@ -86,7 +87,7 @@
           </div>
         </div>
         <div footer>
-          <sb-icon-button plain round>&#xf1df;</sb-icon-button>
+          <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
         </div>
       </sb-card>
       <sb-card size="s" color="primary">
@@ -113,13 +114,13 @@
           </div>
         </div>
         <div footer>
-          <sb-icon-button plain round>&#xf1df;</sb-icon-button>
+          <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
         </div>
       </sb-card>
     </sb-grid>
   </sb-container>
   <sb-container size="l">
-    <sb-table [head]="table.head" [body]="table.data" plain alignment="center"></sb-table>
+    <sb-table color="primary" [head]="table.head" [body]="table.data" plain alignment="center"></sb-table>
   </sb-container>
   <sb-container size="l">
     <form [ngClass]="'sb-form sb-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">

@@ -11,7 +11,7 @@ export class ThemeColorInputDirective extends ClassNameInputDirective implements
   public theme!: string;
 
   @Input()
-  public color: string | null = 'primary';
+  public color: string | null = null;
 
   private subscription: Subscription;
 
@@ -24,8 +24,9 @@ export class ThemeColorInputDirective extends ClassNameInputDirective implements
 
   public getClasses(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.color ?
-      this.rootClass + '--' + this.theme + '-' + this.color : '');
+    if (this.color && this.rootClass) {
+      classes.push(this.rootClass + '--' + this.theme + '-' + this.color);
+    }
     return classes;
   }
 

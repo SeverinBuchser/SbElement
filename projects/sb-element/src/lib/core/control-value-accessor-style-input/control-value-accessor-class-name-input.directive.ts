@@ -2,7 +2,15 @@ import { Directive, Input } from '@angular/core';
 import { ControlValueAccessorBaseDirective } from '../control-value-accessor/control-value-accessor.base.directive';
 
 @Directive({
-  selector: '[selector]'
+  selector: '[selector]',
+  host: {
+    '[class.disabled]': 'disabled',
+    '[class.pristine]': 'pristine',
+    '[class.dirty]': '!pristine',
+    '[class.touched]': 'touched',
+    '[class.untouched]': '!touched',
+    '[class.focus]': 'focused'
+  }
 })
 export class ControlValueAccessorClassNameInputDirective<ValueType> extends ControlValueAccessorBaseDirective<ValueType> {
 
@@ -21,12 +29,10 @@ export class ControlValueAccessorClassNameInputDirective<ValueType> extends Cont
 
   public getClasses(): Array<string> {
     let classes = new Array<string>();
-    classes.push(this.rootClass);
+    if (this.rootClass) {
+      classes.push(this.rootClass);
+    }
     this._extraClasses.forEach(className => classes.push(className))
-    classes.push(this.disabled ? 'disabled' : '');
-    classes.push(this.pristine ? 'pristine' : 'dirty');
-    classes.push(this.touched ? 'touched' : 'untouched');
-    classes.push(this.focused ? 'focus' : '');
     return classes;
   }
 
