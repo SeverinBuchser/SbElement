@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-double-input',
+  selector: 'sb-input[type=double]',
   templateUrl: './double-input.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -14,7 +14,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../co
 export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInputDirective<Array<string>> {
 
   public rootClass = 'sb-input';
-
+  
   @Input()
   public firstPlaceholder: string = '';
 
@@ -24,8 +24,16 @@ export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInpu
   @Input()
   public delimiter: string = ':';
 
+  public _type: string = 'text';
   @Input()
-  public type: string = 'text';
+  set type(type: string) {
+    if (type != 'double') {
+      this._type = type;
+    }
+  }
+  get type(): string {
+    return this._type;
+  }
 
   @Input()
   public spellcheck: boolean = false;
@@ -47,6 +55,12 @@ export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInpu
       if (this.value.length > 0) this.firstValue = this.value[0];
       if (this.value.length > 1) this.secondValue = this.value[1];
     }
+  }
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
+    return classes;
   }
 
 }

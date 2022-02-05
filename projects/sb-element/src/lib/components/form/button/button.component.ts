@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ThemeService } from '../../../services/theme/theme.service';
 import { SizeThemeColorInputDirective } from '../../../core/style-input/size-theme-color-input.directive';
 
@@ -46,17 +46,22 @@ import { SizeThemeColorInputDirective } from '../../../core/style-input/size-the
  *
  */
 @Component({
-  selector: 'sb-button',
+  selector: '[sb-button]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.pill]': 'pill',
+    '[class.plain]': 'plain',
+    '[class.round]': 'round'
+  }
 })
 export class ButtonComponent extends SizeThemeColorInputDirective {
 
   /**
    * The root class of the HTML button element.
    */
-  public rootClass: string = 'sb-btn';
+  public rootClass: string = 'sb-button';
 
   /**
    *  Sets the [round]{@link #round} property of the component.
@@ -93,32 +98,10 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   }
 
   /**
-   *  Sets the [disabled]{@link disabled} state of the component.
-   *
-   * @param {boolean} isDisabled The new value of the `disabled` state
-   */
-  @Input()
-  set disabled(isDisabled: boolean) { this._disabled = isDisabled; }
-  /**
-   * Gets the [disabled]{@link disabled} state of the component.
-   *
-   * @returns {boolean} The current [disabled]{@link disabled} state of the
-   * component
-   */
-  get disabled(): boolean { return this._disabled; }
-
-  /**
    * Defines the type of the button element.
    */
   @Input()
   public type: string = 'button';
-
-  /**
-   * Defines the text which the button shows, this can either be set via the
-   * text input or the content of the button.
-   */
-  @Input()
-  public text: string = '';
 
   /**
    * Round state of the component.
@@ -145,14 +128,6 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
   private plain: boolean = false;
 
   /**
-   * Round state of the component.
-   *
-   * If `true`, the HTML button element gets disabled and is no longer
-   * clickable.
-   */
-  private _disabled: boolean = false;
-
-  /**
    * Creates a new ButtonComponent.
    *
    * Sets the different class states according to the attribute inputs.
@@ -175,37 +150,9 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
     if (plain == '') this.isPlain = true;
   }
 
-  /**
-   *  Provides access for a `FormGroup` to set the disabled state.
-   *
-   * @param{boolean} isDisabled The new disabled state
-   */
-  public setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
-
-  /**
-   * Adds the needed classes based on the options of the component passed either
-   * by input or by attributes.
-   *
-   * Overwrites the [getClasses]{@link SizeThemeColorInputDirective#getClasses}
-   * method of the {@link SizeThemeColorInputDirective} by adding the `pill`,
-   * `round` and `plain` classes if needed.
-   *
-   * The `pill` class gets included, if the [pill]{@link #pill} property
-   * is `true`.
-   * The `round` class gets included, if the [round]{@link #round} property
-   * is `true`.
-   * The `plain` class gets included, if the [plain]{@link #plain} property
-   * is `true`.
-   *
-   * @returns {Array<string>} The classes for the HTML button element
-   */
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.round ? 'round' : '');
-    classes.push(this.pill ? 'pill' : '');
-    classes.push(this.plain ? 'plain' : '');
     return classes;
   }
 

@@ -17,16 +17,16 @@
     <div class="sidebar-container">
       <sb-sidebar #sidebarOne>
         <div sidebar>
-          <sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</sb-button>
+          <button sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
         </div>
         <div content>
-          <sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</sb-button>
+          <button [disabled]="true" sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
 
           <sb-popper #popperOne position="bottom">
             <div popper>
               Popper
             </div>
-            <sb-button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</sb-button>
+            <button sb-button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
           </sb-popper>
         </div>
       </sb-sidebar>
@@ -57,11 +57,11 @@
             [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
           </sb-timeline>
           <div class="timeline-control">
-            <sb-button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</sb-button>
-            <sb-button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</sb-button>
-            <sb-button color="primary" (click)="timeline.previous()" plain size="s">Previous</sb-button>
-            <sb-button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</sb-button>
-            <sb-button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</sb-button>
+            <button sb-button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</button>
+            <button sb-button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</button>
+            <button sb-button color="primary" (click)="timeline.previous()" plain size="s">Previous</button>
+            <button sb-button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</button>
+            <button sb-button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</button>
           </div>
         </div>
         <div footer>
@@ -97,21 +97,23 @@
         </div>
         <div content>
           <div class="pickers">
-            <sb-spinner
+            <sb-input
+              type="number"
               placeholder="Number Input"
               [(ngModel)]="model.spinner"
               name="spinner"
               size="m"
               [color]="'success'"
               #spinner="ngModel">
-            </sb-spinner>
-            <sb-time-picker
+            </sb-input>
+            <sb-input
+              type="time"
               [(ngModel)]="model.time"
               name="time"
               size="m"
               [color]="'success'"
               #time="ngModel">
-            </sb-time-picker>
+            </sb-input>
           </div>
         </div>
         <div footer>
@@ -133,16 +135,17 @@
           This is a warning!
         </sb-alert-box>
         <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
-        <sb-checkbox-group
-          groupTitle="Select Checkboxes"
-          groupAlign="left"
-          size="s"
-          [color]="color"
-          [(ngModel)]="model.checkboxes"
-          name="checkboxes"
-          #checkboxes="ngModel"
-          [disabled]="false">
-        </sb-checkbox-group>
+        <div>
+          <sb-checkbox
+            *ngFor="let checkbox of model.checkboxes"
+            [(ngModel)]="checkbox.checked"
+            name="checkboxes"
+            #checkboxes="ngModel"
+            [label]="checkbox.name"
+            name="checkboxes"
+            color="primary">
+          </sb-checkbox>
+        </div>
         <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
         <sb-radio-button-group
           groupTitle="Select Radio"
@@ -189,16 +192,17 @@
           groupTitle="Input"
           extraClasses="hi">
           <sb-input
+            type="text"
             placeholder="Enter your E-Mail"
             size="m"
-            type="string"
             [color]="color"
             [(ngModel)]="model.input"
             name="input"
             [disabled]="false"
             #input="ngModel">
           </sb-input>
-          <sb-file-input
+          <sb-input
+            type="file"
             placeholder="File Input"
             size="m"
             pill
@@ -208,12 +212,12 @@
             name="fileinput"
             [disabled]="false"
             #fileinput="ngModel">
-          </sb-file-input>
+          </sb-input>
         </sb-form-group>
       </div>
       <div class="sb-form__footer center">
         <sb-tooltip text="This is a tooltip!" position="left">
-          <sb-button
+          <button sb-button
             type="submit"
             extraClasses="sb-form__footer-element"
             pill
@@ -221,7 +225,7 @@
             [color]="color"
             [disabled]="!form.valid">
               Submit
-          </sb-button>
+          </button>
         </sb-tooltip>
       </div>
     </form>

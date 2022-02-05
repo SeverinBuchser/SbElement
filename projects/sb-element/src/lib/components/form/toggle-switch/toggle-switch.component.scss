@@ -12,14 +12,14 @@ Toggle-Switch
   &--#{$theme}-#{$color} {
     @include border.border($theme, $color, d);
     &.off {
-      .#{$sb-toggle-switch-root}__toggle {
+      .sb-toggle-switch__toggle {
         background: theming.get-color($theme, $color);
       }
     }
 
     &.on {
       background: theming.get-color($theme, $color);
-      .#{$sb-toggle-switch-root}__toggle {
+      .sb-toggle-switch__toggle {
         background: theming.get-text($theme, $color);
       }
     }
@@ -40,7 +40,7 @@ Toggle-Switch
     height: $height;
     border-radius: calc($height / 2);
 
-    .#{$sb-toggle-switch-root}__toggle {
+    .sb-toggle-switch__toggle {
       top: calc($padding - 2px);
       left: calc($padding - 2px);
       width: $diameter;
@@ -49,12 +49,12 @@ Toggle-Switch
     }
 
     &.off {
-      .#{$sb-toggle-switch-root}__toggle {
+      .sb-toggle-switch__toggle {
         transform: translateX(0);
       }
     }
     &.on {
-      .#{$sb-toggle-switch-root}__toggle {
+      .sb-toggle-switch__toggle {
         transform: translateX(calc($innerwidth - $diameter));
       }
     }
@@ -62,8 +62,7 @@ Toggle-Switch
 }
 
 // ROOT
-$sb-toggle-switch-root: 'sb-toggle-switch';
-.#{$sb-toggle-switch-root} {
+.sb-toggle-switch {
   box-sizing: border-box;
   cursor: pointer;
   position: relative;

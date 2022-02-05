@@ -1,9 +1,9 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-input',
+  selector: 'sb-input[type=text], sb-input[type=password], sb-input[type=email]',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -18,9 +18,6 @@ export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirec
   public rootClass = 'sb-input';
 
   @Input()
-  public border: boolean = true;
-
-  @Input()
   public placeholder: string = '';
 
   @Input()
@@ -33,5 +30,11 @@ export class InputComponent extends ControlValueAccessorSizeThemeColorInputDirec
   public prefixIcon: string = '';
   @Input()
   public suffixIcon: string = '';
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
+    return classes;
+  }
 
 }

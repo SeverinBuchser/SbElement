@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, HostListener, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
@@ -17,11 +17,13 @@ export class ToggleSwitchComponent extends ControlValueAccessorSizeThemeColorInp
 
   public rootClass = 'sb-toggle-switch';
 
+  @HostListener('click')
   public toggle(): void {
     this.value = !this.value;
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.value ? 'on' : 'off');
     return classes;

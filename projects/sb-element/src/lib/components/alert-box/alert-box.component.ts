@@ -10,7 +10,7 @@ import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-
   host: {
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
-    '[class.center]': '!this.showArrow && !this.showIcon'
+    '[class.center]': '!showArrow && !showIcon'
   }
 })
 export class AlertBoxComponent extends SizeThemeColorInputDirective {

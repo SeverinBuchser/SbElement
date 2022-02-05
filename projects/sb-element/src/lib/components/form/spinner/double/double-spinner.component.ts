@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 
 @Component({
-  selector: 'sb-double-spinner',
+  selector: 'sb-input[type=double-number]',
   templateUrl: './double-spinner.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -61,6 +61,12 @@ export class DoubleSpinnerComponent extends ControlValueAccessorSizeThemeColorIn
       if (this.value.length > 0) this.firstValue = this.value[0];
       if (this.value.length > 1) this.secondValue = this.value[1];
     }
+  }
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
+    return classes;
   }
 
 }

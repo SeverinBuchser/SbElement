@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-spinner',
+  selector: 'sb-input[type=number]',
   templateUrl: './spinner.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -28,5 +28,11 @@ export class SpinnerComponent extends ControlValueAccessorSizeThemeColorInputDir
   public prefixIcon: string = '';
   @Input()
   public suffixIcon: string = '';
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
+    return classes;
+  }
 
 }

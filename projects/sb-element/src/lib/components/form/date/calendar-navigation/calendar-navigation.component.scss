@@ -9,17 +9,16 @@ Calendar-Navigation
 
 // THEME
 @mixin calendar-navigation-theme($theme, $color) {
-  &--#{$theme}-#{$color} &__icon:hover {
+  &--#{$theme}-#{$color} .sb-icon:hover {
     background: theming.get-foreground($theme);
   }
 }
 
 // ROOT
-$sb-calendar-navigation-root: 'sb-calendar-navigation';
-.#{$sb-calendar-navigation-root} {
+.sb-calendar-navigation {
   @include display.flex(space-between);
 
-  &__icon {
+  .sb-icon {
     @include transitioning.ease(200ms);
     @include border.radius(50%);
     cursor: pointer;

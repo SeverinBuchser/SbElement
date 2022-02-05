@@ -12,10 +12,10 @@ Input-Core
 @mixin input-core-theme($theme, $color) {
   &--#{$theme}-#{$color} {
     color: theming.get-foreground-text($theme);
-    .#{$sb-input-core-root}__input {
+    .sb-input-core__input {
       color: theming.get-foreground-text($theme);
     }
-    .#{$sb-input-core-root}__placeholder {
+    .sb-input-core__placeholder {
       color: theming.get-foreground-text($theme);
 
       &.top {
@@ -23,7 +23,7 @@ Input-Core
       }
     }
 
-    .#{$sb-input-core-root}__spinner-control {
+    .sb-input-core__spinner-control {
       color: theming.get-foreground-text($theme);
       &:hover {
         background: theming.get-accent($theme);
@@ -41,7 +41,7 @@ Input-Core
 @mixin input-core-size($size, $value) {
   &--#{$size} {
     height: $value;
-    .#{$sb-input-core-root}__placeholder.top {
+    .sb-input-core__placeholder.top {
       transform:
         scale(0.75)
         translateY(calc(
@@ -50,15 +50,14 @@ Input-Core
           - border.get-border-width(l)
         ));
     }
-    .#{$sb-input-core-root}__spinner-control {
+    .sb-input-core__spinner-control {
       border-radius: 4px;
     }
   }
 }
 
 // ROOT
-$sb-input-core-root: 'sb-input-core';
-.#{$sb-input-core-root} {
+.sb-input-core {
   width: 100%;
   position: relative;
   display: flex;

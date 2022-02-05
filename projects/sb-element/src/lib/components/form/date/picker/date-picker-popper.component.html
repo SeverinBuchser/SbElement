@@ -1,14 +1,12 @@
-<div [ngClass]="getClasses()">
-  <sb-calendar-navigation
-    [color]="color"
-    [size]="size"
-    [(ngModel)]="showingMonthStart">
-  </sb-calendar-navigation>
-  <sb-calendar-month
-    [color]="color"
-    [size]="size"
-    [markedDates]="markedDates"
-    [showingMonthStart]="showingMonthStart"
-    (select)="handleSelect($event)">
-  </sb-calendar-month>
-</div>
+<sb-calendar-navigation
+  [color]="color"
+  [size]="size"
+  [(ngModel)]="showingMonthStart">
+</sb-calendar-navigation>
+<sb-calendar-month
+  [color]="color"
+  [size]="size"
+  [markedDates]="markedDates"
+  [showingMonthStart]="showingMonthStart"
+  (select)="handleSelect($event)">
+</sb-calendar-month>

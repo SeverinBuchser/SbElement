@@ -8,8 +8,6 @@ import * as fns from "date-fns";
 })
 export class DatePickerPopperComponent extends SizeThemeColorInputDirective {
 
-  public rootClass = 'sb-date-picker-popper';
-
   @Input()
   public isRange: boolean = false;
 

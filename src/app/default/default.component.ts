@@ -20,7 +20,7 @@ export class DefaultComponent extends ThemeInputDirective {
 
   public model = {
     select: 'Option 1',
-    checkboxes: {'Option 1': true, 'Option 2': false, 'Option 3': true},
+    checkboxes: [{name: 'Option 1', checked: false}, {name: 'Option 2', checked: false}, {name: 'Option 3', checked: false}],
     radios: 'Option 1',
     slider: 0,
     input: 'severin.buchser@gmx.ch',

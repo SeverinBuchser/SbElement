@@ -30,26 +30,20 @@ File Input
 
 // COLOR
 @mixin file-input-color($bg, $color, $hover-bg, $hover-color) {
-  .#{$sb-file-input-root}__message {
+  .sb-file-input__message {
     background: $bg;
     color: $color;
     &:hover {
       background: $hover-bg;
       color: $hover-color;
-
-      .#{$sb-file-input-root}__message-icon {color: $hover-color;}
     }
-
-    .#{$sb-file-input-root}__message-icon {color: $color;}
   }
 
   &.disabled {
-    .#{$sb-file-input-root}__message {
+    .sb-file-input__message {
       &:hover {
         background: $bg;
         color: $color;
-
-        .#{$sb-file-input-root}__message-icon {color: $color;}
       }
     }
   }
@@ -58,14 +52,14 @@ File Input
 // SIZE
 @mixin file-input-size($size, $value) {
   &--#{$size} {
-    .#{$sb-file-input-root}__message {
+    .sb-file-input__message {
       height: $value;
       width: calc($value * 5);
       line-height: $value;
     }
 
     &.pill {
-      .#{$sb-file-input-root}__message {
+      .sb-file-input__message {
         @include border.radius(calc($value / 2));
       }
     }
@@ -73,12 +67,11 @@ File Input
 }
 
 // ROOT
-$sb-file-input-root: 'sb-file-input';
-.#{$sb-file-input-root} {
+.sb-file-input {
   position: relative;
   @include display.grid($rows: auto auto);
 
-  &__input {
+  input {
     width: 0;
     height: 0;
   	opacity: 0;
@@ -100,11 +93,10 @@ $sb-file-input-root: 'sb-file-input';
     @include spacing.padding-x(s);
   }
 
-  &__message-icon {
+  .sb-icon {
     display: inline-block;
-    text-align: center;
     vertical-align: middle;
-    @include transitioning.ease(300ms, background, color);
+    @include transitioning.ease(300ms, color);
   }
 
   &.disabled &__message {

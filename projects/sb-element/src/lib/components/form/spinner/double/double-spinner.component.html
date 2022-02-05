@@ -1,36 +1,42 @@
-<div [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__border'"></div>
-  <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
-    <sb-icon [icon]="prefixIcon" size="d"></sb-icon>
-  </div>
-  <sb-spinner-core
-    [min]="firstMin"
-    [max]="firstMax"
-    [size]="size"
-    [color]="color"
-    [placeholder]="firstPlaceholder"
-    [(ngModel)]="firstValue"
-    (ngModelChange)="handleInput()"
-    (blur)="emitBlur()"
-    (focus)="emitFocus()"
-    [disabled]="disabled">
-  </sb-spinner-core>
-  <div [ngClass]="rootClass + '__delimiter'">
-    {{ delimiter }}
-  </div>
-  <sb-spinner-core
-    [min]="secondMin"
-    [max]="secondMax"
-    [size]="size"
-    [color]="color"
-    [placeholder]="secondPlaceholder"
-    [(ngModel)]="secondValue"
-    (ngModelChange)="handleInput()"
-    (blur)="emitBlur()"
-    (focus)="emitFocus()"
-    [disabled]="disabled">
-  </sb-spinner-core>
-  <div *ngIf="suffixIcon" [ngClass]="rootClass + '__suffix'">
-    <sb-icon [icon]="suffixIcon" size="d"></sb-icon>
-  </div>
+<div [ngClass]="rootClass + '__border'"></div>
+<sb-icon
+  *ngIf="prefixIcon"
+  [ngClass]="rootClass + '__prefix'"
+  [icon]="prefixIcon"
+  [size]="size">
+</sb-icon>
+<sb-input-core
+  type="number"
+  [min]="firstMin"
+  [max]="firstMax"
+  [size]="size"
+  [color]="color"
+  [placeholder]="firstPlaceholder"
+  [(ngModel)]="firstValue"
+  (ngModelChange)="handleInput()"
+  (blur)="emitBlur()"
+  (focus)="emitFocus()"
+  [disabled]="disabled">
+</sb-input-core>
+<div [ngClass]="rootClass + '__delimiter'">
+  {{ delimiter }}
 </div>
+<sb-input-core
+  type="number"
+  [min]="secondMin"
+  [max]="secondMax"
+  [size]="size"
+  [color]="color"
+  [placeholder]="secondPlaceholder"
+  [(ngModel)]="secondValue"
+  (ngModelChange)="handleInput()"
+  (blur)="emitBlur()"
+  (focus)="emitFocus()"
+  [disabled]="disabled">
+</sb-input-core>
+<sb-icon
+  *ngIf="suffixIcon"
+  [ngClass]="rootClass + '__suffix'"
+  [icon]="suffixIcon"
+  [size]="size">
+</sb-icon>

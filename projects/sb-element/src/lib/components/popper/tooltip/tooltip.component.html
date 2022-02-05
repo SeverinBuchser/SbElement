@@ -1,7 +1,7 @@
-<sb-popper #tooltipPopper [position]="position">
-  <div [ngClass]="getClasses()"  popper>
+<sb-popper #tooltipPopper [position]="position" [ngClass]="getClasses()">
+  <span popper>
     {{ text }}
-  </div>
+  </span>
   <div content sbElHoverTrigger [triggerable]="tooltipPopper" [delay]="delay">
     <ng-content></ng-content>
   </div>

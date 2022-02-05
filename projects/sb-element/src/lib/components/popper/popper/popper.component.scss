@@ -22,9 +22,8 @@ Popper
 }
 
 // ROOT
-$sb-popper-root: 'sb-popper';
-.#{$sb-popper-root} {
-
+.sb-popper {
+  display: block;
   position: relative;
 
   &[class*="top"] &__popper {
@@ -53,16 +52,12 @@ $sb-popper-root: 'sb-popper';
     opacity: 0;
     z-index: 999;
     @include transitioning.ease(300ms, visibility, opacity);
+    @include spacing.padding(s);
 
     &.visible {
       visibility: visible;
       opacity: 1;
     }
-  }
-
-  &__popper-wrapper {
-    position: relative;
-    @include spacing.padding(s);
   }
 
   &__arrow {

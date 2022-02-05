@@ -12,10 +12,10 @@ Input
 @mixin input-theme($theme, $color) {
   &--#{$theme}-#{$color} {
     color: theming.get-foreground-text($theme);
-    .#{$sb-input-root}__border {
+    .sb-input__border {
       @include border.border($theme, $color, d);
     }
-    &.focus .#{$sb-input-root}__border {
+    &.focus .sb-input__border {
       @include border.border($theme, $color, d);
     }
   }
@@ -29,8 +29,7 @@ Input
 }
 
 // ROOT
-$sb-input-root: 'sb-input';
-.#{$sb-input-root} {
+.sb-input {
   width: 200px;
   position: relative;
   display: flex;

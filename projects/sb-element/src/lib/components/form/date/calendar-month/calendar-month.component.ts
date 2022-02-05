@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
 import { ThemeService } from "../../../../services/theme/theme.service";
 import { SizeThemeColorInputDirective } from "../../../../core";
@@ -90,6 +90,12 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
     if (!fns.isSameMonth(this._showingMonthStart, date)) {
       classes.push('not-in-month')
     }
+    return classes;
+  }
+
+  @HostBinding('class')
+  get classes(): Array<string> {
+    let classes = super.getClasses();
     return classes;
   }
 }

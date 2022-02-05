@@ -1,23 +1,20 @@
-<div [ngClass]="getClasses()">  
-  <div [ngClass]="rootClass + '__placeholder'">
-    {{ placeholder }}
-  </div>
-  <input
-    [ngClass]="rootClass + '__input'"
-    type="file"
-    (input)="input(inputElement.files)"
-    #inputElement
-    name="file"
-    id="file"
-    [disabled]="disabled">
-  <div [ngClass]="rootClass + '__message-wrapper'">
-    <label
-      [ngClass]="rootClass + '__message'"
-      for="file">
-      {{ message }}
-      <ng-template [ngIf]="!value">
-        <sb-icon [extraClasses]="rootClass + '__message-icon'">&#xe2c6;</sb-icon>
-      </ng-template>
-    </label>
-  </div>
+<div [ngClass]="rootClass + '__placeholder'">
+  {{ placeholder }}
+</div>
+<input
+  type="file"
+  (input)="input(inputElement.files)"
+  #inputElement
+  name="file"
+  id="file"
+  [disabled]="disabled">
+<div [ngClass]="rootClass + '__message-wrapper'">
+  <label
+    [ngClass]="rootClass + '__message'"
+    for="file">
+    {{ message }}
+    <ng-template [ngIf]="!value">
+      <sb-icon>&#xe2c6;</sb-icon>
+    </ng-template>
+  </label>
 </div>

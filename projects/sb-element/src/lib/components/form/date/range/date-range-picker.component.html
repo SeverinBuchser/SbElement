@@ -6,8 +6,9 @@
     [color]="color"
     [isRange]="true">
   </sb-date-picker-popper>
-  <sb-double-input
+  <sb-input
     content
+    type="double"
     [ngModel]="value"
     (ngModelChange)="handleSelect($event)"
     firstPlaceholder="Start"
@@ -17,5 +18,5 @@
     [prefixIcon]="'\ue878'"
     sbElClickOutsideTrigger
     [triggerable]="dateRangePopper">
-  </sb-double-input>
+  </sb-input>
 </sb-popper>

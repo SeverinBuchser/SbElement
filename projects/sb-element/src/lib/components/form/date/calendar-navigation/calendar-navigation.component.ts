@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
 import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../core/";
@@ -74,13 +74,13 @@ export class CalendarNavigationComponent extends ControlValueAccessorSizeThemeCo
      }
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
     if (this.animate && this.value) {
       classes.push('animate-' + this.animationDirection);
       setTimeout(() => this.animate = false, 200);
     }
-
     return classes;
   }
 

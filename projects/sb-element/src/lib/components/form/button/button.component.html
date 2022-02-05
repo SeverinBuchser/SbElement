@@ -1,8 +1,1 @@
-<button [ngClass]="getClasses()" [disabled]="disabled" [type]="type">
-  <ng-template [ngIf]="text" [ngIfElse]="content">
-    {{ text }}
-  </ng-template>
-  <ng-template #content>    
-    <ng-content></ng-content>
-  </ng-template>
-</button>
+<ng-content></ng-content>

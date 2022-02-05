@@ -64,8 +64,7 @@ Button
 }
 
 // ROOT
-$sb-button-root: 'sb-btn';
-.#{$sb-button-root} {
+.sb-button {
   border: 0;
   outline: 0;
   cursor: pointer;

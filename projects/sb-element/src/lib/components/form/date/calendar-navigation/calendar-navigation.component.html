@@ -1,13 +1,11 @@
-<div [ngClass]="getClasses()">
-  <sb-icon [extraClasses]="rootClass + '__icon'" (click)="previousYear()" [color]="color">&#xeac3;</sb-icon>
-  <sb-icon [extraClasses]="rootClass + '__icon'"  (click)="previousMonth()" [color]="color">&#xe314;</sb-icon>
-  <div [ngClass]="rootClass + '__month'">
-    <div [ngClass]="rootClass + '__month-wrapper'">
-      <span [ngClass]="rootClass + '__month-previous'">{{ formatPrevious }}</span>
-      <span [ngClass]="rootClass + '__month-current'">{{ format }}</span>
-      <span [ngClass]="rootClass + '__month-next'">{{ formatNext }}</span>
-    </div>
+<sb-icon (click)="previousYear()" [color]="color">&#xeac3;</sb-icon>
+<sb-icon (click)="previousMonth()" [color]="color">&#xe314;</sb-icon>
+<div [ngClass]="rootClass + '__month'">
+  <div [ngClass]="rootClass + '__month-wrapper'">
+    <span [ngClass]="rootClass + '__month-previous'">{{ formatPrevious }}</span>
+    <span [ngClass]="rootClass + '__month-current'">{{ format }}</span>
+    <span [ngClass]="rootClass + '__month-next'">{{ formatNext }}</span>
   </div>
-  <sb-icon [extraClasses]="rootClass + '__icon'"  (click)="nextMonth()" [color]="color">&#xe315;</sb-icon>
-  <sb-icon [extraClasses]="rootClass + '__icon'"  (click)="nextYear()" [color]="color">&#xeac9;</sb-icon>
 </div>
+<sb-icon (click)="nextMonth()" [color]="color">&#xe315;</sb-icon>
+<sb-icon (click)="nextYear()" [color]="color">&#xeac9;</sb-icon>

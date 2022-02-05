@@ -3,7 +3,7 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../core/
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
-  selector: 'sb-time-picker',
+  selector: 'sb-input[type=time]',
   templateUrl: './time-picker.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,

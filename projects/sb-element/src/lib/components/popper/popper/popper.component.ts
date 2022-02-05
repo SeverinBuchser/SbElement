@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AlignDirective, Poppable, ThemeInputDirective } from '../../../core/';
 import { PopperPosition } from "./popper-position";
 
@@ -111,7 +111,8 @@ export class PopperComponent extends ThemeInputDirective implements Poppable {
     return this.visible;
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
     classes.push(this.position);
     return classes;

@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-spinner-core',
+  selector: 'sb-input-core[type=number]',
   templateUrl: './spinner-core.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,

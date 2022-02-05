@@ -1,36 +1,40 @@
-<div [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__border'"></div>
-  <div *ngIf="prefixIcon" [ngClass]="rootClass + '__prefix'">
-    <sb-icon [icon]="prefixIcon" size="d"></sb-icon>
-  </div>
-  <sb-input-core
-    [size]="size"
-    [color]="color"
-    [placeholder]="firstPlaceholder"
-    [type]="type"
-    [(ngModel)]="firstValue"
-    (ngModelChange)="handleInput()"
-    (blur)="emitBlur()"
-    (focus)="emitFocus()"
-    [spellcheck]="spellcheck"
-    [disabled]="disabled">
-  </sb-input-core>
-  <div [ngClass]="rootClass + '__delimiter'">
-    {{ delimiter }}
-  </div>
-  <sb-input-core
-    [size]="size"
-    [color]="color"
-    [placeholder]="secondPlaceholder"
-    [type]="type"
-    [(ngModel)]="secondValue"
-    (ngModelChange)="handleInput()"
-    (blur)="emitBlur()"
-    (focus)="emitFocus()"
-    [spellcheck]="spellcheck"
-    [disabled]="disabled">
-  </sb-input-core>
-  <div *ngIf="suffixIcon" [ngClass]="rootClass + '__suffix'">
-    <sb-icon [icon]="suffixIcon" size="d"></sb-icon>
-  </div>
+<div [ngClass]="rootClass + '__border'"></div>
+<sb-icon
+  *ngIf="prefixIcon"
+  [ngClass]="rootClass + '__prefix'"
+  [icon]="prefixIcon"
+  [size]="size">
+</sb-icon>
+<sb-input-core
+  [size]="size"
+  [color]="color"
+  [placeholder]="firstPlaceholder"
+  [type]="type"
+  [(ngModel)]="firstValue"
+  (ngModelChange)="handleInput()"
+  (blur)="emitBlur()"
+  (focus)="emitFocus()"
+  [spellcheck]="spellcheck"
+  [disabled]="disabled">
+</sb-input-core>
+<div [ngClass]="rootClass + '__delimiter'">
+  {{ delimiter }}
 </div>
+<sb-input-core
+  [size]="size"
+  [color]="color"
+  [placeholder]="secondPlaceholder"
+  [type]="type"
+  [(ngModel)]="secondValue"
+  (ngModelChange)="handleInput()"
+  (blur)="emitBlur()"
+  (focus)="emitFocus()"
+  [spellcheck]="spellcheck"
+  [disabled]="disabled">
+</sb-input-core>
+<sb-icon
+  *ngIf="suffixIcon"
+  [ngClass]="rootClass + '__suffix'"
+  [icon]="suffixIcon"
+  [size]="size">
+</sb-icon>

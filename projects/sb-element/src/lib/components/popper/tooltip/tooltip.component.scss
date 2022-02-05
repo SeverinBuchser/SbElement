@@ -3,7 +3,8 @@ Tooltip
 ******************************************************************************/
 
 // ROOT
-$sb-tooltip-root: 'sb-tooltip';
-.#{$sb-tooltip-root} {
-  white-space: nowrap;
+.sb-tooltip {
+  span {
+    white-space: nowrap;
+  }
 }

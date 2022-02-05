@@ -44,12 +44,7 @@ $sb-radio-button-root: 'sb-radio';
     /* Not removed via appearance */
     @include spacing.margin(0);
     @include border.radius(50%);
-    @include transitioning.ease(200ms, background, border, transform);
-    transform: scale(0.9);
-  }
-
-  input:checked {
-    transform: scale(1);
+    @include transitioning.ease(200ms, background, border);
   }
 
   @include theming.for-each-theme-color using ($theme, $theme-palette, $color,

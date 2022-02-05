@@ -14,7 +14,6 @@ import { ToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { RadioButtonComponent } from './radio-button/radio-button.component';
 import { RadioButtonGroupComponent } from './group/radio-button/radio-button-group.component';
-import { CheckboxGroupComponent } from './group/checkbox/checkbox-group.component';
 import { SelectionOptionsDirective } from './group/base/selection-options.directive';
 import { SelectButtonComponent } from './select-button/select-button.component';
 import { SliderComponent } from './slider/slider.component';
@@ -38,7 +37,6 @@ import { TimePickerComponent } from './time/time-picker.component';
     CheckboxComponent,
     RadioButtonComponent,
     RadioButtonGroupComponent,
-    CheckboxGroupComponent,
     SelectionOptionsDirective,
     SelectButtonComponent,
     SliderComponent,
@@ -69,7 +67,6 @@ import { TimePickerComponent } from './time/time-picker.component';
     CheckboxComponent,
     RadioButtonComponent,
     RadioButtonGroupComponent,
-    CheckboxGroupComponent,
     SelectButtonComponent,
     SliderComponent,
     FormGroupComponent,

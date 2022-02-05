@@ -1,14 +1,18 @@
-import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AlertService } from '../../../services/alert/alert.service';
 import { ThemeService } from '../../../services/theme/theme.service';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
 
 @Component({
-  selector: 'sb-file-input',
+  selector: 'sb-input[type=file]',
   templateUrl: './file-input.component.html',
   styleUrls: ['./file-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.pill]': 'pill',
+    '[class.plain]': 'plain',
+  },
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: FileInputComponent,
@@ -66,10 +70,9 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
     } else return true;
   }
 
-  public getClasses(): Array<string> {
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.pill ? 'pill' : '');
-    classes.push(this.plain ? 'plain' : '');
     return classes;
   }
 }

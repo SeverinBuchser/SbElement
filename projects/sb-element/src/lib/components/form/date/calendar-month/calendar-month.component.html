@@ -1,14 +1,12 @@
-<div [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__week-days'">
-    <div *ngFor="let weekDay of weekDays">
-      {{ weekDay }}
-    </div>
+<div [ngClass]="rootClass + '__week-days'">
+  <div *ngFor="let weekDay of weekDays">
+    {{ weekDay }}
   </div>
-  <div [ngClass]="rootClass + '__month'">
-    <div *ngFor="let date of calendarMonth" (click)="handleSelect(date)"
-      [ngClass]="getClaendarDateClasses(date)">
-      <div class="mark"></div>
-      <span>{{ format(date) }}</span>
-    </div>
+</div>
+<div [ngClass]="rootClass + '__month'">
+  <div *ngFor="let date of calendarMonth" (click)="handleSelect(date)"
+    [ngClass]="getClaendarDateClasses(date)">
+    <div class="mark"></div>
+    <span>{{ format(date) }}</span>
   </div>
 </div>
