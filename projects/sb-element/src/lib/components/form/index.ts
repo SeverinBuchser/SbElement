@@ -2,7 +2,6 @@ export * from './button';
 export * from './checkbox';
 export * from './date';
 export * from './file-input';
-export * from './group';
 export * from './icon-button';
 export * from './input';
 export * from './radio-button';

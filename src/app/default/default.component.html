@@ -159,61 +159,53 @@
           [disabled]="false">
         </sb-radio-button-group>
         <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
-        <sb-form-group
-          groupTitle="Select and Slider"
-          extraClasses="hi">
-          <sb-select-button
-            pill
-            size="d"
-            [color]="color"
-            [(ngModel)]="model.select"
-            name="select"
-            #select="ngModel"
-            [options]="['Option 1', 'Option 2', 'Option 3']">
-            Select
-          </sb-select-button>
-          <sb-slider
-            label="Slider"
-            size="m"
-            [color]="color"
-            [max]="20"
-            [min]="-20"
-            [step]="0.1"
-            [snap]="[0, 3, 6]"
-            [showValue]="true"
-            [valueSuffix]="'kWh'"
-            [(ngModel)]="model.slider"
-            name="slider"
-            #slider="ngModel">
-          </sb-slider>
-        </sb-form-group>
+        <sb-select-button
+          pill
+          size="d"
+          [color]="color"
+          [(ngModel)]="model.select"
+          name="select"
+          #select="ngModel"
+          [options]="['Option 1', 'Option 2', 'Option 3']">
+          Select
+        </sb-select-button>
+        <sb-slider
+          label="Slider"
+          size="m"
+          [color]="color"
+          [max]="20"
+          [min]="-20"
+          [step]="0.1"
+          [snap]="[0, 3, 6]"
+          [showValue]="true"
+          [valueSuffix]="'kWh'"
+          [(ngModel)]="model.slider"
+          name="slider"
+          #slider="ngModel">
+        </sb-slider>
         <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
-        <sb-form-group
-          groupTitle="Input"
-          extraClasses="hi">
-          <sb-input
-            type="text"
-            placeholder="Enter your E-Mail"
-            size="m"
-            [color]="color"
-            [(ngModel)]="model.input"
-            name="input"
-            [disabled]="false"
-            #input="ngModel">
-          </sb-input>
-          <sb-input
-            type="file"
-            placeholder="File Input"
-            size="m"
-            pill
-            [limit]="3"
-            [color]="color"
-            [(ngModel)]="model.fileinput"
-            name="fileinput"
-            [disabled]="false"
-            #fileinput="ngModel">
-          </sb-input>
-        </sb-form-group>
+        <sb-input
+          type="text"
+          placeholder="Enter your E-Mail"
+          size="m"
+          [color]="color"
+          [(ngModel)]="model.input"
+          name="input"
+          [disabled]="false"
+          #input="ngModel">
+        </sb-input>
+        <sb-input
+          type="file"
+          placeholder="File Input"
+          size="m"
+          pill
+          [limit]="3"
+          [color]="color"
+          [(ngModel)]="model.fileinput"
+          name="fileinput"
+          [disabled]="false"
+          #fileinput="ngModel">
+        </sb-input>
       </div>
       <div class="sb-form__footer center">
         <sb-tooltip text="This is a tooltip!" position="left">

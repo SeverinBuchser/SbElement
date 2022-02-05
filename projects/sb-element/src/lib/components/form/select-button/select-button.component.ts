@@ -1,7 +1,7 @@
-import { Attribute, Component, Optional, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ThemeService } from '../../../services/theme/theme.service';
-import { SelectionOptionsDirective } from '../group/base/selection-options.directive';
+import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core';
 
 @Component({
   selector: 'sb-select-button',
@@ -14,11 +14,14 @@ import { SelectionOptionsDirective } from '../group/base/selection-options.direc
     multi: true
   }]
 })
-export class SelectButtonComponent extends SelectionOptionsDirective<string> {
+export class SelectButtonComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
 
   public plain: boolean = false;
   public pill: boolean = false;
   public showOptions: boolean = false;
+
+  @Input()
+  public options: Array<string> = new Array<string>();
 
   constructor(
     @Optional() @Attribute('pill') pill: any,
@@ -37,18 +40,7 @@ export class SelectButtonComponent extends SelectionOptionsDirective<string> {
 
   public select(newOption: string) {
     this.toggle();
-    this.options.forEach((option: string) => {
-      if (option !== newOption) this.selectedOptions[option] = false;
-    })
     this.writeValueInnerChange(newOption);
-  }
-
-  protected updateValues(): void {
-    this.options.forEach((option: string) => {
-      if (option == this.value) {
-        this.selectedOptions[option] = true;
-      } else this.selectedOptions[option] = false;
-    })
   }
 
   public getButtonClasses(): Array<string> {

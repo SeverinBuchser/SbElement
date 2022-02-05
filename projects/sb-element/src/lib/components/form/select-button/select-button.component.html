@@ -1,12 +1,13 @@
 <div [ngClass]="getClasses()">
   <button
     sb-button
+    type="button"
     [color]="color"
     [size]="size"
     [isPlain]="plain"
     [isPill]="pill"
     [disabled]="disabled"
-    [extraClasses]="getButtonClasses()"
+    [ngClass]="getButtonClasses()"
     (click)="toggle()">
     {{ value }}
     <ng-content *ngIf="!value"></ng-content>

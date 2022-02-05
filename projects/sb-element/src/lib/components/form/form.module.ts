@@ -13,11 +13,9 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
 import { ToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { RadioButtonComponent } from './radio-button/radio-button.component';
-import { RadioButtonGroupComponent } from './group/radio-button/radio-button-group.component';
-import { SelectionOptionsDirective } from './group/base/selection-options.directive';
+import { RadioButtonGroupComponent } from './radio-button/radio-button-group.component';
 import { SelectButtonComponent } from './select-button/select-button.component';
 import { SliderComponent } from './slider/slider.component';
-import { FormGroupComponent } from './group/form-group.component';
 import { FileInputComponent } from './file-input/file-input.component';
 import { PopperModule } from "../popper/popper.module";
 import { CalendarMonthComponent } from "./date/calendar-month/calendar-month.component";
@@ -37,10 +35,8 @@ import { TimePickerComponent } from './time/time-picker.component';
     CheckboxComponent,
     RadioButtonComponent,
     RadioButtonGroupComponent,
-    SelectionOptionsDirective,
     SelectButtonComponent,
     SliderComponent,
-    FormGroupComponent,
     FileInputComponent,
     CalendarMonthComponent,
     CalendarNavigationComponent,
@@ -69,7 +65,6 @@ import { TimePickerComponent } from './time/time-picker.component';
     RadioButtonGroupComponent,
     SelectButtonComponent,
     SliderComponent,
-    FormGroupComponent,
     FileInputComponent,
     CalendarMonthComponent,
     CalendarNavigationComponent,
