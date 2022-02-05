@@ -12,19 +12,12 @@ Checkbox-Group
   &--#{$theme}-#{$color} {
     color: theming.get-text($theme, $color);
 
-    .#{$sb-select-button-root}__button {
-      .sb-icon {
-        color: theming.get-text($theme, $color);
-      }
+    button {
       &:hover {
-        .sb-icon {
-          color: theming.get-text-inverted($theme, $color);
-        }
+        color: theming.get-text-inverted($theme, $color);
       }
       &:disabled:hover {
-        .sb-icon {
-          color: theming.get-text($theme, $color);
-        }
+        color: theming.get-text($theme, $color);
       }
     }
   }
@@ -44,7 +37,7 @@ Checkbox-Group
 
 // SIZE
 @mixin select-button-size($size, $value) {
-  &--#{$size} &__button {
+  &--#{$size} button {
     width: calc($value * 5);
   }
 
@@ -65,15 +58,14 @@ Checkbox-Group
 }
 
 // ROOT
-$sb-select-button-root: 'sb-select-button';
-.#{$sb-select-button-root} {
+.sb-select-button {
   position: relative;
   cursor: pointer;
 
   $button-animation-duration: 300ms;
   $options-animation-duration: 100ms;
 
-  &__button {
+  button {
     transition-delay: $options-animation-duration;
     @include transitioning.ease($button-animation-duration,
       background,
@@ -102,7 +94,7 @@ $sb-select-button-root: 'sb-select-button';
     @include transitioning.ease(300ms, background, color);
   }
 
-  &.open &__button {
+  &.open button {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     @include transitioning.ease($button-animation-duration,

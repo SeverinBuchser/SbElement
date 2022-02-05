@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ThemeService } from '../../../services/theme/theme.service';
 import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core';
@@ -8,6 +8,10 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core'
   templateUrl: './select-button.component.html',
   styleUrls: ['./select-button.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.pill]': 'pill',
+    '[class.plain]': 'plain',
+  },
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SelectButtonComponent,
@@ -15,6 +19,8 @@ import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core'
   }]
 })
 export class SelectButtonComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
+
+  public rootClass = 'sb-select-button';
 
   public plain: boolean = false;
   public pill: boolean = false;
@@ -31,7 +37,6 @@ export class SelectButtonComponent extends ControlValueAccessorSizeThemeColorInp
     super(themeService);
     if (pill == '') this.pill = true;
     if (plain == '') this.plain = true;
-    this.rootClass = 'sb-select-button';
   }
 
   public toggle(): void {
@@ -42,17 +47,10 @@ export class SelectButtonComponent extends ControlValueAccessorSizeThemeColorInp
     this.toggle();
     this.writeValueInnerChange(newOption);
   }
-
-  public getButtonClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push('sb-select-button__button');
-    return classes;
-  }
-
-  public getClasses(): Array<string> {
+  
+  @HostBinding('class')
+  get classes(): Array<string> {
     let classes = super.getClasses();
-    classes.push(this.pill ? 'pill' : '');
-    classes.push(this.plain ? 'plain': '');
     classes.push(this.showOptions ? 'open' : 'closed');
     return classes;
   }
