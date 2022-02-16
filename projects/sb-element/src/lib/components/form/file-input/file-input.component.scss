@@ -9,7 +9,7 @@ File Input
 
 // THEME
 @mixin file-input-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     @include file-input-color(
       theming.get-color($theme, $color),
       theming.get-text($theme, $color),
@@ -51,7 +51,7 @@ File Input
 
 // SIZE
 @mixin file-input-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     .sb-file-input__message {
       height: $value;
       width: calc($value * 5);

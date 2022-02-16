@@ -51,8 +51,8 @@ export class InputCoreComponent extends SbInputCoreCore implements ControlValueA
   @Input()
   public spellcheck: boolean = false;
 
-  private onChange: (value: string) => void = () => {};
-  private onTouch: () => void = () => {};
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
 
   private innerValue: string | undefined = undefined;
 
@@ -88,7 +88,7 @@ export class InputCoreComponent extends SbInputCoreCore implements ControlValueA
     }
   }
 
-  public registerOnChange(fn: (value: string) => void): void { this.onChange = fn }
+  public registerOnChange(fn: any): void { this.onChange = fn }
   public registerOnTouched(fn: any): void { this.onTouch = fn }
   public onBlur(): void { this.onTouch() }
 

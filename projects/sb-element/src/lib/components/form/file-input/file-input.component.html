@@ -1,4 +1,4 @@
-<div [ngClass]="rootClass + '__placeholder'">
+<div [ngClass]="className + '__placeholder'">
   {{ placeholder }}
 </div>
 <input
@@ -8,9 +8,9 @@
   name="file"
   id="file"
   [disabled]="disabled">
-<div [ngClass]="rootClass + '__message-wrapper'">
+<div [ngClass]="className + '__message-wrapper'">
   <label
-    [ngClass]="rootClass + '__message'"
+    [ngClass]="className + '__message'"
     for="file">
     {{ message }}
     <ng-template [ngIf]="!value">
