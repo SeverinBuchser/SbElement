@@ -7,17 +7,17 @@
   </sb-date-picker-popper>
   <sb-input
     content
+    [size]="size"
+    [color]="color"
+    firstPlaceholder="Start"
+    secondPlaceholder="End"
+    [prefixIcon]="'\ue878'"
     type="double"
     [ngModel]="doubleInputDates"
     (ngModelChange)="handleInput($event)"
-    firstPlaceholder="Start"
-    secondPlaceholder="End"
-    [size]="size"
-    [color]="color"
-    [prefixIcon]="'\ue878'"
-    [disabled]="disabled"
     (blur)="setFocusedState(false)"
     (focus)="setFocusedState(true)"
+    [disabled]="disabled"
     sbElClickOutsideTrigger
     [triggerable]="dateRangePopper">
   </sb-input>

@@ -1,13 +1,16 @@
 <sb-input
-  type="double-number"
-  [(ngModel)]="value"
+  [size]="size"
+  [color]="color"
   firstPlaceholder="Hour"
   secondPlaceholder="Minute"
+  [prefixIcon]="'\ue8b5'"
+  type="double-number"
+  [(ngModel)]="value"
   [firstMin]="0"
   [firstMax]="23"
   [secondMin]="0"
   [secondMax]="59"
-  [size]="size"
-  [color]="color"
-  [prefixIcon]="'\ue8b5'">
+  (blur)="setFocusedState(false)"
+  (focus)="setFocusedState(true)"
+  [disabled]="disabled">
 </sb-input>
