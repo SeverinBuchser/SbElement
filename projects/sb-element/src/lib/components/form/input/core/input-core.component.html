@@ -1,13 +1,10 @@
-<div [ngClass]="getClasses()">
-  <input
-    [ngClass]="getInputClasses()"
-    [type]="type"
-    [(ngModel)]="value"
-    (blur)="emitBlur()"
-    (focus)="emitFocus()"
-    [spellcheck]="spellcheck"
-    [disabled]="disabled">
-  <div [ngClass]="getPlaceholderClasses()">
-    {{ placeholder }}
-  </div>
+<input
+  [type]="type"
+  [(ngModel)]="value"
+  [spellcheck]="spellcheck"
+  (blur)="setFocusedState(false)"
+  (focus)="setFocusedState(true)"
+  [disabled]="disabled">
+<div [ngClass]="getPlaceholderClasses()">
+  {{ placeholder }}
 </div>

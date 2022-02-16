@@ -1,32 +1,85 @@
-import { Component } from '@angular/core';
-import { ControlValueAccessorSizeThemeColorInputDirective } from "../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive";
-import { NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Component, Input } from '@angular/core';
+import { Color, mixinDisable, mixinFocus, Size } from "../../../../core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
+import { MarkedDates } from "../marked-dates";
+
+const SbDatePickerCore = mixinDisable(mixinFocus(class {}));
 
 @Component({
-  selector: 'sb-date-picker',
+  selector: 'sb-input[type=date]',
   templateUrl: './date-picker.component.html',
+  outputs: [
+    'focus',
+    'blur'
+  ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useClass: DatePickerComponent,
+    useExisting: DatePickerComponent,
     multi: true
   }]
 })
-export class DatePickerComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
+export class DatePickerComponent extends SbDatePickerCore implements ControlValueAccessor {
 
-  public handlePickerSelect(dates: Array<string>): void {
-    if (dates.length == 1) {
-      this.handleSelect(dates[0])
+  @Input()
+  public color: string = Color.PRIMARY;
+
+  @Input()
+  public size: string = Size.DEFAULT;
+
+  @Input()
+  public format: string = 'yyyy-MM-dd';
+
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
+
+  private _markedDates: MarkedDates | undefined;
+
+  set markedDates(markedDates: MarkedDates) {
+    this._markedDates = markedDates
+  }
+  get markedDates(): MarkedDates {
+    if (this._markedDates) {
+      return this._markedDates
+    } else return new MarkedDates();
+  }
+
+  get dateFormatted(): string {
+    if (this.markedDates.date) {
+      return fns.format(this.markedDates.date, this.format);
+    } else return '';
+  }
+
+  set dateFormatted(dateString: string) {
+    let date = fns.parseISO(dateString);
+    if (this.doUpdate(date)) {
+      this.markedDates = new MarkedDates(date);
+      this.onChange(date);
     }
   }
 
-  public handleSelect(date: string): void {
-    const parsedDate = fns.parseISO(date);
-    const isValidDate = fns.isValid(parsedDate);
-    if (isValidDate) {
-      this.writeValueInnerChange(date);
-      this.updateValues();
+  public handlePickerSelect(date: Date): void {
+    if (this.doUpdate(date)) {
+      this.markedDates = new MarkedDates(date);
+      this.onChange(date);
     }
   }
+
+  public writeValue(date: Date): void {
+    if (this.doUpdate(date)) {
+      this.markedDates = new MarkedDates(date);
+    }
+  }
+
+  private doUpdate(date: Date): boolean {
+    if (!fns.isValid(date)) { return false }
+    if (!this.markedDates.date) { return true }
+    if (fns.isEqual(date, this.markedDates.date)) { return false }
+    return true;
+  }
+
+  public registerOnChange(fn: any): void { this.onChange = fn }
+  public registerOnTouched(fn: any): void { this.onTouch = fn }
+  protected onBlur(): void { this.onTouch() }
 
 }

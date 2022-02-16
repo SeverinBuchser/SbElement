@@ -20,7 +20,7 @@
           <button sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
         </div>
         <div content>
-          <button [disabled]="true" sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
+          <button sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
 
           <sb-popper #popperOne position="bottom">
             <div popper>
@@ -71,20 +71,22 @@
       <sb-card size="s" color="primary">
         <div content>
           <div class="pickers">
-            <sb-date-picker
+            <sb-input
+              type="date"
               [(ngModel)]="model.date"
               name="date"
               size="m"
               [color]="'success'"
               #date="ngModel">
-            </sb-date-picker>
-            <sb-date-range-picker
-              [(ngModel)]="model.date"
-              name="date"
+            </sb-input>
+            <sb-input
+              type="date-range"
+              [(ngModel)]="model.dateRange"
+              name="dateRange"
               size="m"
               [color]="'success'"
-              #date="ngModel">
-            </sb-date-range-picker>
+              #dateRange="ngModel">
+            </sb-input>
           </div>
         </div>
         <div footer>

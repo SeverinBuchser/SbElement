@@ -11,7 +11,7 @@ Card
 
 // THEME
 @mixin card-theme($theme, $color) {
-  &--#{$theme} {
+  &.sb--#{$theme} {
     background: theming.get-foreground($theme);
     color: theming.get-foreground-text($theme);
     @include border.border-accent($theme, d);
@@ -25,7 +25,7 @@ Card
 
 // SIZE
 @mixin card-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     @include border.radius($size);
 
     .sb-card__title {

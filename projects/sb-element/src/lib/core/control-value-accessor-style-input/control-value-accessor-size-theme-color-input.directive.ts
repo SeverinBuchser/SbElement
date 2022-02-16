@@ -1,6 +1,6 @@
 import { Directive, Input, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs";
-import { ThemeService } from '../../services/theme/theme.service';
+import { ThemeService } from '../style';
 import { ControlValueAccessorClassNameInputDirective } from './control-value-accessor-class-name-input.directive';
 
 @Directive({

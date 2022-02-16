@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
-import { AlertService, ThemeService, TimelineComponent, ThemeInputDirective } from 'sb-element';
+import { SbAlertService, ThemeService, Size, SbTimelineComponent, ThemeInputDirective, MarkedDates } from 'sb-element';
 
 @Component({
   selector: 'app-default',
@@ -25,7 +25,8 @@ export class DefaultComponent extends ThemeInputDirective {
     slider: 0,
     input: 'severin.buchser@gmx.ch',
     fileinput: '',
-    date: '',
+    date: new Date(),
+    dateRange: new MarkedDates(new Date(), new Date()),
     spinner: null,
     time: 0,
     double: ''
@@ -36,11 +37,11 @@ export class DefaultComponent extends ThemeInputDirective {
   public table!: {data: Array<Array<any>>, head: Array<any>};
 
   @ViewChild('timeline')
-  public timeline!: TimelineComponent;
+  public timeline!: SbTimelineComponent;
 
   constructor(
     themeService: ThemeService,
-    private alertService: AlertService,
+    private alertService: SbAlertService,
   ) {
     super(themeService)
     this.table = {
@@ -57,18 +58,15 @@ export class DefaultComponent extends ThemeInputDirective {
 
   onSubmit(form: NgForm) {
     console.log(this.model);
-    this.alertService.inform("Hello", "d");
+    this.alertService.inform("Hello", Size.DEFAULT);
   }
 
   ngOnInit() {
   }
 
   alert(message: string): void {
-    this.alertService.inform(message, "l");
-    this.alertService.success(message, 's');
-    this.alertService.warn(message, 'm');
-    this.alertService.primary(message, 'd');
-    this.alertService.secondary(message, 'l');
+    this.alertService.inform(message, Size.LARGE);
+    this.alertService.success(message, Size.SMALL);
   }
 
   toggleTheme(value: any) {

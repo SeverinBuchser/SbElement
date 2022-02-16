@@ -9,6 +9,8 @@ Grid
   display: grid;
 
   @include spacing.for-each-spacing using ($size, $value) {
-    &.gap--#{$size} {grid-gap: $value;}
+    &[gap=#{$size}] {
+      grid-gap: $value;
+    }
   }
 }

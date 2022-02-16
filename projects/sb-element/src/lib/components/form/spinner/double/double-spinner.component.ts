@@ -1,18 +1,45 @@
-import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { Component, ElementRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SbDoubleInput } from "../../input";
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../../core';
 
+const SbDoubleSpinnerCore = mixinDisable(
+  mixinFocus(
+    mixinSize(
+      mixinColor(
+        mixinTheme(
+          mixinClassName(
+            class {
+              constructor(
+                public _elementRef: ElementRef,
+                public _themeService: ThemeService) {}
+            }, 'sb-input'
+          )
+        ), Color.PRIMARY
+      ), Size.DEFAULT
+    )
+  )
+);
 
 @Component({
   selector: 'sb-input[type=double-number]',
   templateUrl: './double-spinner.component.html',
+  inputs: [
+    'size',
+    'color',
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
+  ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: DoubleSpinnerComponent,
     multi: true
   }]
 })
-export class DoubleSpinnerComponent extends ControlValueAccessorSizeThemeColorInputDirective<Array<number>> {
+export class DoubleSpinnerComponent extends SbDoubleSpinnerCore implements ControlValueAccessor {
   public rootClass = 'sb-input';
 
   @Input()
@@ -44,29 +71,50 @@ export class DoubleSpinnerComponent extends ControlValueAccessorSizeThemeColorIn
   @Input()
   public suffixIcon: string = '';
 
-  @Input()
-  public connectOverflow: boolean = false;
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
 
-  public firstValue: number | undefined = undefined;
-  public secondValue: number | undefined = undefined;
+  private innerFirstValue: number | undefined = undefined;
+  private innerSecondValue: number | undefined = undefined;
 
-  public handleInput(): void {
-    if (this.firstValue && this.secondValue) {
-      this.writeValueInnerChange([this.firstValue, this.secondValue])
+  set firstValue(firstValue: number | undefined) {
+    let value = new SbDoubleInput(firstValue, this.innerSecondValue);
+    this.writeValue(value);
+    this.onChange(value);
+  }
+  get firstValue(): number | undefined {
+    return this.innerFirstValue
+  }
+
+  set secondValue(secondValue: number | undefined) {
+    let value = new SbDoubleInput(this.innerFirstValue, secondValue);
+    this.writeValue(value);
+    this.onChange(value);
+  }
+  get secondValue(): number | undefined {
+    return this.innerSecondValue
+  }
+
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
+  }
+
+  public writeValue(value: SbDoubleInput<number>): void {
+    if (value && !this.disabled) {
+      if (value.first) {
+        this.innerFirstValue = value.first;
+      }
+      if (value.second) {
+        this.innerSecondValue = value.second;
+      }
     }
   }
 
-  public updateValues(): void {
-    if (this.value) {
-      if (this.value.length > 0) this.firstValue = this.value[0];
-      if (this.value.length > 1) this.secondValue = this.value[1];
-    }
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
-  }
+  public registerOnChange(fn: any): void { this.onChange = fn }
+  public registerOnTouched(fn: any): void { this.onTouch = fn }
+  protected onBlur(): void { this.onTouch() }
 
 }

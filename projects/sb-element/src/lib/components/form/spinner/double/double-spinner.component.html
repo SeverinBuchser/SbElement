@@ -1,42 +1,40 @@
-<div [ngClass]="rootClass + '__border'"></div>
+<div [ngClass]="className + '__border'"></div>
 <sb-icon
   *ngIf="prefixIcon"
-  [ngClass]="rootClass + '__prefix'"
+  [ngClass]="className + '__prefix'"
   [icon]="prefixIcon"
   [size]="size">
 </sb-icon>
 <sb-input-core
-  type="number"
-  [min]="firstMin"
-  [max]="firstMax"
   [size]="size"
   [color]="color"
   [placeholder]="firstPlaceholder"
+  type="number"
+  [min]="firstMin"
+  [max]="firstMax"
   [(ngModel)]="firstValue"
-  (ngModelChange)="handleInput()"
-  (blur)="emitBlur()"
-  (focus)="emitFocus()"
+  (blur)="setFocusedState(false)"
+  (focus)="setFocusedState(true)"
   [disabled]="disabled">
 </sb-input-core>
-<div [ngClass]="rootClass + '__delimiter'">
+<div [ngClass]="className + '__delimiter'">
   {{ delimiter }}
 </div>
 <sb-input-core
-  type="number"
-  [min]="secondMin"
-  [max]="secondMax"
   [size]="size"
   [color]="color"
   [placeholder]="secondPlaceholder"
+  type="number"
+  [min]="secondMin"
+  [max]="secondMax"
   [(ngModel)]="secondValue"
-  (ngModelChange)="handleInput()"
-  (blur)="emitBlur()"
-  (focus)="emitFocus()"
+  (blur)="setFocusedState(false)"
+  (focus)="setFocusedState(true)"
   [disabled]="disabled">
 </sb-input-core>
 <sb-icon
   *ngIf="suffixIcon"
-  [ngClass]="rootClass + '__suffix'"
+  [ngClass]="className + '__suffix'"
   [icon]="suffixIcon"
   [size]="size">
 </sb-icon>

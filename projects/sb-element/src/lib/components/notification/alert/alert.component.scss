@@ -6,26 +6,13 @@
 Alert
 ******************************************************************************/
 
-// SIZE
-@mixin alert-size($size, $value) {
-  &--#{$size} {
-    top: calc(spacing.get-size(d) * (-10));
-    left: 0;
-    &.active .sb-alert-box {
-      transform: translateY(calc(10.5 * spacing.get-size(d)));
-    }
-
-    &.inactive .sb-alert-box {
-      transform: translateY(0);
-    }
-  }
-}
-
 // ROOT
 .sb-alert {
   @include display.flex($align: baseline);
   position: fixed;
   width: 100%;
+  top: calc(spacing.get-size(d) * (-10));
+  left: 0;
 
   .sb-alert-box {
     min-width: 300px;
@@ -34,14 +21,12 @@ Alert
   }
 
   &.active .sb-alert-box {
+    transform: translateY(calc(10.5 * spacing.get-size(d)));
     @include transitioning.ease-out(300ms, transform);
   }
 
   &.inactive .sb-alert-box {
+    transform: translateY(0);
     @include transitioning.ease-in(300ms, transform);
-  }
-
-  @include spacing.for-each-size using ($size, $value) {
-    @include alert-size($size, $value);
   }
 }

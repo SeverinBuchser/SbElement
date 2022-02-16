@@ -1,3 +1,4 @@
+import { Color, Size } from "../../../core";
 
 /**
  * This interface describes an alert.
@@ -5,7 +6,7 @@
  * The interface is used by the {@link AlertService} to create alerts and work
  * with the {@link AlertServiceSubscriber} which use/show the alerts.
  */
-export interface Alert {
+export interface SbAlert {
   /**
    * The message of the alert.
    */
@@ -14,10 +15,10 @@ export interface Alert {
   /**
    * The size of the alert.
    */
-  size: string;
+  size: Size;
 
   /**
    * The color of the alert.
    */
-  color: string;
+  color: Color;
 }

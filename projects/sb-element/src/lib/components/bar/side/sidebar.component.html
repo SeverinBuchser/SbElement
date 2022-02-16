@@ -1,7 +1,5 @@
-<div [ngClass]="getClasses()">
-  <div [ngClass]="getSidebarOverlayClasses()" (click)="trigger()"></div>
-  <sb-bar [side]="side" [size]="size" [extraClasses]="getSidebarClasses()">
-    <ng-content select="[sidebar]"></ng-content>
-  </sb-bar>
-  <ng-content select="[content]"></ng-content>
-</div>
+<div [ngClass]="getSidebarOverlayClasses()" (click)="trigger()"></div>
+<sb-bar [side]="side" [size]="size" [ngClass]="{'visible': visible}">
+  <ng-content select="[sidebar]"></ng-content>
+</sb-bar>
+<ng-content select="[content]"></ng-content>

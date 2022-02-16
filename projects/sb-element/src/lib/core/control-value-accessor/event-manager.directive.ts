@@ -21,7 +21,6 @@ export class EventManagerDirective<ValueType> extends StateManagerDirective {
   // events
   public emitBlur(): void {
     this.setFocusedState(false);
-    this.setTouchedState(true);
     this.onTouchedCallBack();
     this.blur.emit();
   }
@@ -32,7 +31,6 @@ export class EventManagerDirective<ValueType> extends StateManagerDirective {
   }
 
   protected emitChange(value: ValueType | undefined): void {
-    this.setPristineState(false);
     this.onChangeCallback(value);
     this.change.emit(value);
   }

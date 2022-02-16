@@ -1,12 +1,13 @@
-<label [ngClass]="getClasses()">
-  <div [ngClass]="rootClass + '__checkbox'">
+<label>
+  <div [ngClass]="className + '__checkbox'">
     <input
       type="checkbox"
       [name]="name"
       [value]="label"
       [(ngModel)]="value"
-      [disabled]="disabled"/>
-    <sb-icon [ngClass]="rootClass + '__checkmark'">&#xe5ca;</sb-icon>
+      [disabled]="disabled"
+      (blur)="emitTouch()"/>
+    <sb-icon [ngClass]="className + '__checkmark'">&#xe5ca;</sb-icon>
   </div>
   <span>{{ label }}</span>
 </label>

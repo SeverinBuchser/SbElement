@@ -1,36 +1,33 @@
 <sb-grid [dim]="gridDim" justify="even">
-  <div *ngFor="let step of steps" [ngClass]="rootClass + '__name'">
+  <div *ngFor="let step of steps" [ngClass]="className + '__name'">
     <span>{{ step.name }}</span>
   </div>
-  <div *ngFor="let step of steps; index as i" [ngClass]="rootClass + '__indicator'">
-    <div [ngClass]="rootClass + '__icon'">
-      <sb-icon *ngIf="step.state == 'current'"
-        size="m"
-        [color]="color">
-        &#xe39e;
-      </sb-icon>
+  <div *ngFor="let step of steps; index as i" [ngClass]="className + '__indicator'">
+    <sb-icon *ngIf="step.state == 'current'"
+      size="m"
+      [color]="color">
+      &#xe39e;
+    </sb-icon>
 
-      <sb-icon *ngIf="step.state == 'awaiting'"
-        size="m"
-        outline
-        color="none"
-        extraClasses="awaiting">
-        &#xef4a;
-      </sb-icon>
+    <sb-icon *ngIf="step.state == 'awaiting'"
+      size="m"
+      outline
+      ngClass="awaiting">
+      &#xef4a;
+    </sb-icon>
 
-      <sb-icon *ngIf="step.state == 'done'"
-        size="m"
-        [color]="color">
-        &#xef4a;
-      </sb-icon>
+    <sb-icon *ngIf="step.state == 'done'"
+      size="m"
+      [color]="color">
+      &#xef4a;
+    </sb-icon>
 
-      <sb-icon *ngIf="step.state == 'pending'"
-        size="m"
-        [color]="color"
-        outline>
-        &#xef64;
-      </sb-icon>
-    </div>
+    <sb-icon *ngIf="step.state == 'pending'"
+      size="m"
+      [color]="color"
+      outline>
+      &#xef64;
+    </sb-icon>
     <div *ngIf="step.line" [ngClass]="getLineClasses(i)"></div>
   </div>
 </sb-grid>

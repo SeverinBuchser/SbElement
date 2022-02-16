@@ -1,5 +1,12 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { ClassNameInputDirective } from "../../../core";
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { mixinClassName } from "../../../core";
+
+const SbNavBarCore = mixinClassName(
+  class {
+    constructor(
+      public _elementRef: ElementRef) {}
+  }, 'sb-nav-bar'
+);
 
 @Component({
   selector: 'sb-nav-bar',
@@ -7,6 +14,12 @@ import { ClassNameInputDirective } from "../../../core";
   styleUrls: ['./nav-bar.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NavBarComponent extends ClassNameInputDirective {
-  public rootClass: string = 'sb-nav-bar';
+export class SbNavBarComponent extends SbNavBarCore {
+
+  constructor(
+    elementRef: ElementRef
+  ) {
+    super(elementRef);
+  }
+  
 }

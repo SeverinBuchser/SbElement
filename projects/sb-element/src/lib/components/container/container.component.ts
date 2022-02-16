@@ -1,5 +1,15 @@
-import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
-import { ThemeInputDirective } from '../../core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { mixinClassName, mixinTheme, ThemeService } from '../../core';
+
+const SbContainerCore = mixinTheme(
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: ThemeService) {}
+    }, 'sb-container'
+  )
+);
 
 @Component({
   selector: 'sb-container',
@@ -7,14 +17,13 @@ import { ThemeInputDirective } from '../../core';
   styleUrls: ['./container.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ContainerComponent extends ThemeInputDirective {
+export class SbContainerComponent extends SbContainerCore {
 
-  public rootClass = 'sb-container';
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
   }
 
 }

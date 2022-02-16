@@ -1,6 +1,19 @@
-import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ThemeService } from '../../services/theme/theme.service';
-import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-color-input.directive';
+import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { ThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../../core';
+
+const SbAlertBoxCore = mixinSize(
+  mixinColor(
+    mixinTheme(
+      mixinClassName(
+        class {
+          constructor(
+            public _elementRef: ElementRef,
+            public _themeService: ThemeService) {}
+        }, 'sb-alert-box'
+      )
+    )
+  )
+);
 
 @Component({
   selector: 'sb-alert-box',
@@ -11,11 +24,13 @@ import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
     '[class.center]': '!showArrow && !showIcon'
-  }
+  },
+  inputs: [
+    'size',
+    'color'
+  ]
 })
-export class AlertBoxComponent extends SizeThemeColorInputDirective {
-
-  public rootClass = 'sb-alert-box';
+export class SbAlertBoxComponent extends SbAlertBoxCore {
 
   @Input()
   public showArrow: boolean = true;
@@ -30,19 +45,14 @@ export class AlertBoxComponent extends SizeThemeColorInputDirective {
   private plain: boolean = false;
 
   constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService,
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any,
-    themeService: ThemeService
   ) {
-    super(themeService);
+    super(elementRef, themeService);
     if (pill == '') this.pill = true;
     if (plain == '') this.plain = true;
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
   }
 
 }

@@ -8,7 +8,7 @@ Alert Box
 
 // THEME
 @mixin alert-box-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     @include alert-box-color(
       theming.get-color($theme, $color),
       theming.get-text($theme, $color)
@@ -31,7 +31,7 @@ Alert Box
 
 // SIZE
 @mixin alert-box-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     height: $value;
     @include border.radius($size);
     @include spacing.padding-x($size);
@@ -52,7 +52,7 @@ Alert Box
     @include display.grid($align: center);
   }
 
-  &__icon {
+  .sb-icon:last-child {
     @include spacing.margin-left(auto);
   }
 

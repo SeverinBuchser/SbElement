@@ -10,23 +10,26 @@ Checkbox
 
 // THEME
 @mixin checkbox-theme($theme, $color) {
-  &--#{$theme}-#{$color} input {
+  &.sb--#{$theme}.sb--#{$color} input {
     border-color: theming.get-accent($theme);
   }
 
-  &--#{$theme}-#{$color} input:checked {
+  &.sb--#{$theme}.sb--#{$color} input:checked {
     background: theming.get-color($theme, $color);
     border-color: theming.get-color($theme, $color);
   }
 
-  &--#{$theme}-#{$color} input:checked ~ .sb-icon {
+  &.sb--#{$theme}.sb--#{$color} input:checked ~ .sb-icon {
     color: theming.get-text($theme, $color);
   }
 }
 
 // ROOT
 .sb-checkbox {
-  @include display.flex($justify: flex-start, $gap: s);
+
+  label {
+    @include display.flex($justify: flex-start, $gap: s);
+  }
 
   span:empty {
     display: none;

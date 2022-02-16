@@ -1,5 +1,4 @@
-export * from './alert';
-export * from './alert-box';
+export * from './notification';
 export * from './bar';
 export * from './card';
 export * from './container';

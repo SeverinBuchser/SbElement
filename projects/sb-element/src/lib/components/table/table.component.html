@@ -1,8 +1,8 @@
 <table>
 
   <thead>
-    <tr [ngClass]="rootClass + '__head'">
-      <th *ngFor="let data of head" [ngClass]="rootClass + '__th'">
+    <tr [ngClass]="className + '__head'">
+      <th *ngFor="let data of head" [ngClass]="className + '__th'">
         <div>
           <span>{{ data }}</span>
         </div>
@@ -12,8 +12,8 @@
 
   <tbody>
     <tr *ngFor="let row of body"
-      [ngClass]="rootClass + '__row'">
-      <td *ngFor="let data of row" [ngClass]="rootClass + '__td'">
+      [ngClass]="className + '__row'">
+      <td *ngFor="let data of row" [ngClass]="className + '__td'">
         <div>
           <span>{{ data }}</span>
         </div>

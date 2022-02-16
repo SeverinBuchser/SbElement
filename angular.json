@@ -34,11 +34,25 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/sb-dark.scss",
+                "inject": false,
+                "bundleName": "sb-dark"
+              },
+              {
+                "input": "src/sb-neutral.scss",
+                "inject": false,
+                "bundleName": "sb-neutral"
+              },
+              {
+                "input": "src/sb-light.scss",
+                "inject": false,
+                "bundleName": "sb-light"
+              }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "../SbTheming/scss",
                 "src"
               ]
             },

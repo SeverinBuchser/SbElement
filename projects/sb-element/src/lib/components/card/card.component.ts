@@ -1,6 +1,17 @@
-import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ThemeService } from '../../services/theme/theme.service';
-import { SizeThemeInputDirective } from '../../core';
+import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { ThemeService, mixinClassName, mixinSize, mixinTheme, Size } from '../../core';
+
+const SbCardCore = mixinSize(
+  mixinTheme(
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: ThemeService) {}
+      }, 'sb-card'
+    )
+  ), Size.DEFAULT
+);
 
 @Component({
   selector: 'sb-card',
@@ -10,11 +21,12 @@ import { SizeThemeInputDirective } from '../../core';
   host: {
     '[class.hover]': 'hover',
     '[class.shadow]': 'shadow'
-  }
+  },
+  inputs: [
+    'size'
+  ]
 })
-export class CardComponent extends SizeThemeInputDirective {
-
-  public rootClass: string = 'sb-card';
+export class SbCardComponent extends SbCardCore {
 
   @Input()
   public titleSeparator: boolean = true;
@@ -26,19 +38,14 @@ export class CardComponent extends SizeThemeInputDirective {
   private shadow: boolean = false;
 
   constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService,
     @Optional() @Attribute('hover') hover: any,
-    @Optional() @Attribute('shadow') shadow: any,
-    themeService: ThemeService
+    @Optional() @Attribute('shadow') shadow: any
   ) {
-    super(themeService);
+    super(elementRef, themeService);
     if (hover == '') this.hover = true;
     if (shadow == '') this.shadow = true;
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
   }
 
 }

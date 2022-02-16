@@ -18,6 +18,7 @@ import { ClickTriggerDirective } from './trigger/click-trigger.directive';
 import { AlignDirective } from './align/align.directive';
 import { HoverTriggerDirective } from './trigger/hover-trigger.directive';
 import { ClickOutsideTriggerDirective } from './trigger/click-outside-trigger.directive';
+import { StyleModule } from './style';
 
 
 
@@ -67,6 +68,8 @@ import { ClickOutsideTriggerDirective } from './trigger/click-outside-trigger.di
     ClickTriggerDirective,
     HoverTriggerDirective,
     AlignDirective,
+
+    StyleModule
   ]
 })
 export class CoreModule { }

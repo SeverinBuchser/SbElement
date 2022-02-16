@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Alert } from '../../models/alert/alert';
-import { AlertServiceSubscriber } from '../../models/alert/alert-service-subscriber';
-import { Queue } from '../../models/queue/queue';
+import { Color, Size } from "../../../core";
+import { SbAlert } from './alert';
+import { AlertServiceSubscriber } from './alert-service-subscriber';
+import { Queue } from '../../../models/queue/queue';
 
 /**
  * Provides a global service to display alerts.
@@ -43,7 +44,7 @@ import { Queue } from '../../models/queue/queue';
 @Injectable({
   providedIn: 'root'
 })
-export class AlertService {
+export class SbAlertService {
 
   /**
    * An array of all subscribers.
@@ -54,7 +55,7 @@ export class AlertService {
   /**
    * The queue of all [Alerts]{@link Alert} which need to be shown.
    */
-  private alertQueue: Queue<Alert> = new Queue<Alert>();
+  private alertQueue: Queue<SbAlert> = new Queue<SbAlert>();
 
   /**
    * Flag to inidcate if the service is busy working on the
@@ -77,8 +78,8 @@ export class AlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public warn(message: string, size = 'd'): void {
-    this.alert(message, size, 'warn');
+  public warn(message: string, size = Size.DEFAULT): void {
+    this.alert(message, size, Color.WARN);
   }
 
   /**
@@ -87,8 +88,8 @@ export class AlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public success(message: string, size = 'd'): void {
-    this.alert(message, size, 'success');
+  public success(message: string, size = Size.DEFAULT): void {
+    this.alert(message, size, Color.SUCCESS);
   }
 
   /**
@@ -97,8 +98,8 @@ export class AlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public inform(message: string, size = 'd'): void {
-    this.alert(message, size, 'info');
+  public inform(message: string, size = Size.DEFAULT): void {
+    this.alert(message, size, Color.INFO);
   }
 
   /**
@@ -107,8 +108,8 @@ export class AlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public primary(message: string, size = 'd'): void {
-    this.alert(message, size, 'primary');
+  public primary(message: string, size = Size.DEFAULT): void {
+    this.alert(message, size, Color.PRIMARY);
   }
 
   /**
@@ -117,8 +118,8 @@ export class AlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public secondary(message: string, size = 'd'): void {
-    this.alert(message, size, 'secondary');
+  public secondary(message: string, size = Size.DEFAULT): void {
+    this.alert(message, size, Color.SECONDARY);
   }
 
   /**
@@ -133,7 +134,7 @@ export class AlertService {
    * @param{string} size The size of the alert
    * @param{string} color The color of the alert
    */
-  public alert(message: string, size = 'd', color = 'warn'): void {
+  public alert(message: string, size = Size.DEFAULT, color = Color.WARN): void {
     this.alertQueue.enqueue({
       message,
       size,
@@ -180,7 +181,7 @@ export class AlertService {
    * @returns{Promise<any>} A promise, which is resolved when all subscribers
    * have finished showing the `alert`
    */
-  private async showAlert(alert: Alert): Promise<any> {
+  private async showAlert(alert: SbAlert): Promise<any> {
     return Promise.all(this.subscribers.map(subscriber =>
       subscriber.alert(alert)
     ));

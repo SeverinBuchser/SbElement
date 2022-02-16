@@ -1,22 +1,20 @@
-<div [ngClass]="getClasses()">
-  <input
-    [ngClass]="getInputClasses()"
-    type="number"
-    [(ngModel)]="value"
-    (blur)="emitBlur()"
-    (focus)="emitFocus()"
-    [disabled]="disabled">
-  <div [ngClass]="getPlaceholderClasses()">
-    {{ placeholder }}
-  </div>
-  <div [ngClass]="rootClass + '__spinner-controls'">
-    <sb-icon
-      [extraClasses]="rootClass + '__spinner-control'"
-      (mousedown)="handleMouseDownIncrease()"
-      (mouseup)="handleMouseUp()">&#xe5e1;</sb-icon>
-    <sb-icon
-      [extraClasses]="rootClass + '__spinner-control'"
-      (mousedown)="handleMouseDownDecrease()"
-      (mouseup)="handleMouseUp()">&#xe2ea;</sb-icon>
-  </div>
+<input
+  type="number"
+  [(ngModel)]="value"
+  [spellcheck]="false"
+  (blur)="setFocusedState(false)"
+  (focus)="setFocusedState(true)"
+  [disabled]="disabled">
+<div [ngClass]="getPlaceholderClasses()">
+  {{ placeholder }}
+</div>
+<div [ngClass]="className + '__spinner-controls'">
+  <sb-icon
+    [ngClass]="className + '__spinner-control'"
+    (mousedown)="handleMouseDownIncrease()"
+    (mouseup)="handleMouseUp()">&#xe5e1;</sb-icon>
+  <sb-icon
+    [ngClass]="className + '__spinner-control'"
+    (mousedown)="handleMouseDownDecrease()"
+    (mouseup)="handleMouseUp()">&#xe2ea;</sb-icon>
 </div>

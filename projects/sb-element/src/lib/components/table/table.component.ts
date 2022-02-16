@@ -1,6 +1,17 @@
-import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ThemeService } from '../../services/theme/theme.service';
-import { ThemeColorInputDirective } from '../../core';
+import { Attribute, Component, ElementRef, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { ThemeService, mixinColor, mixinTheme, mixinClassName } from '../../core';
+
+const SbTableCore = mixinColor(
+  mixinTheme(
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: ThemeService) {}
+      }, 'sb-table'
+    )
+  )
+);
 
 @Component({
   selector: 'sb-table',
@@ -9,11 +20,13 @@ import { ThemeColorInputDirective } from '../../core';
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.plain]': 'plain'
-  }
+  },
+  inputs: [
+    'size',
+    'color'
+  ]
 })
-export class TableComponent extends ThemeColorInputDirective {
-
-  public rootClass: string = 'sb-table';
+export class SbTableComponent extends SbTableCore {
 
   @Input()
   set isPlain(isPlain: boolean) {
@@ -22,7 +35,7 @@ export class TableComponent extends ThemeColorInputDirective {
 
   private plain: boolean = false;
 
-  @Input()
+  @Input() @HostBinding('class')
   public alignment: 'left' | 'center' | 'right' = 'center';
 
   @Input()
@@ -32,18 +45,12 @@ export class TableComponent extends ThemeColorInputDirective {
   public body: Array<Array<any>> = new Array<Array<any>>();
 
   constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService,
     @Optional() @Attribute('plain') plain: any,
-    themeService: ThemeService
   ) {
-    super(themeService);
+    super(elementRef, themeService);
     if (plain == '') this.isPlain = true;
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    classes.push(this.alignment);
-    return classes;
   }
 
 }

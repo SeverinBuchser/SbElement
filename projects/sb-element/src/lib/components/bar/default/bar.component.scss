@@ -7,38 +7,37 @@ Bar
 
 // THEME
 @mixin bar-theme($theme) {
-  &--#{$theme} {
+  &.sb--#{$theme} {
     color: theming.get-foreground-text($theme);
     background: theming.get-foreground($theme);
   }
 
-  &--#{$theme}.left {
+  &.sb--#{$theme}.left {
     @include border.border-side-accent(right, $theme);
   }
 
-  &--#{$theme}.right {
+  &.sb--#{$theme}.right {
     @include border.border-side-accent(left, $theme);
   }
 
-  &--#{$theme}.top {
+  &.sb--#{$theme}.top {
     @include border.border-side-accent(bottom, $theme);
   }
 
-  &--#{$theme}.bottom {
+  &.sb--#{$theme}.bottom {
     @include border.border-side-accent(top, $theme);
   }
 }
 
 // SIZE
 @mixin bar-size($size) {
-  &--#{$size} {
+  &.sb--#{$size} {
     @include spacing.padding($size);
   }
 }
 
 // ROOT
-$sb-bar-root: 'sb-bar';
-.#{$sb-bar-root} {
+.sb-bar {
   &.left, &.right {
     height: 100%;
   }

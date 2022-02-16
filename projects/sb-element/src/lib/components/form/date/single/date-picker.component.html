@@ -1,19 +1,22 @@
 <sb-popper #datePopper position="bottom">
   <sb-date-picker-popper popper
     (select)="handlePickerSelect($event)"
-    [date]="this.value ? [this.value] : undefined"
+    [markedDates]="markedDates"
     [size]="size"
     [color]="color">
   </sb-date-picker-popper>
   <sb-input
     content
-    type="text" 
-    [ngModel]="value"
-    (ngModelChange)="handleSelect($event)"
+    type="text"
     placeholder="Pick a Date"
+    [(ngModel)]="dateFormatted"
+    [spellcheck]="false"
+    [disabled]="disabled"
+    (blur)="setFocusedState(false)"
+    (focus)="setFocusedState(true)"
+    [prefixIcon]="'\ue878'"
     [size]="size"
     [color]="color"
-    [prefixIcon]="'\ue878'"
     sbElClickOutsideTrigger
     [triggerable]="datePopper">
   </sb-input>

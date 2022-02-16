@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { ThemeService } from "../../../../services/theme/theme.service";
-import { SizeThemeColorInputDirective } from "../../../../core";
+import { ThemeService, SizeThemeColorInputDirective } from "../../../../core";
+import { MarkedDates } from "../marked-dates";
 
 @Component({
   selector: 'sb-calendar-month',
@@ -22,7 +22,7 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
   }
 
   @Input()
-  public markedDates: Array<Date> = new Array<Date>();
+  public markedDates: MarkedDates = new MarkedDates();
 
   @Input()
   set showingMonthStart(date: Date) {
@@ -67,22 +67,19 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
   public getClaendarDateClasses(date: Date): Array<string> {
     let classes = new Array<string>();
     classes.push(this.rootClass + '__date');
-
-    if (this.markedDates.length == 2) {
-      let start = this.markedDates[0];
-      let end = this.markedDates[1];
-      if (fns.isAfter(date, start) && fns.isBefore(date, end)) {
+    if (!this.markedDates.startEqualsEnd) {
+      if (this.markedDates.isBetween(date)) {
         classes.push('between');
         classes.push('marked');
-      } else if (fns.isEqual(date, start)) {
+      } else if (this.markedDates.isStart(date)) {
         classes.push('start');
         classes.push('marked');
-      } else if (fns.isEqual(date, end)) {
+      } else if (this.markedDates.isEnd(date)) {
         classes.push('end');
         classes.push('marked');
       }
-    } else if (this.markedDates.length == 1) {
-      if (fns.isEqual(date, this.markedDates[0])) {
+    } else if (this.markedDates.startEqualsEnd) {
+      if (this.markedDates.isStartSameDay(date) && this.markedDates.isEndSameDay(date)) {
         classes.push('marked');
       }
     }

@@ -1,20 +1,36 @@
-import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { LinkedList } from "../../models/linked-list/linked-list";
 import { ListItem } from "../../models/linked-list/list-item";
-import { SizeThemeColorInputDirective } from '../../core/';
+import { mixinClassName, mixinColor, mixinSize, mixinTheme, ThemeService } from '../../core/';
 
 type State = 'current' | 'awaiting' | 'done' | 'pending';
 type Step = {name: string, state: State, line: boolean};
+
+const SbTimelineCore = mixinSize(
+  mixinColor(
+    mixinTheme(
+      mixinClassName(
+        class {
+          constructor(
+            public _elementRef: ElementRef,
+            public _themeService: ThemeService) {}
+        }, 'sb-timeline'
+      )
+    )
+  )
+);
 
 @Component({
   selector: 'sb-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  inputs: [
+    'size',
+    'color'
+  ]
 })
-export class TimelineComponent extends SizeThemeColorInputDirective {
-
-  public rootClass = 'sb-timeline';
+export class SbTimelineComponent extends SbTimelineCore {
 
   private _steps: LinkedList<Step> = new LinkedList<Step>();
   get steps(): LinkedList<Step> {
@@ -38,6 +54,13 @@ export class TimelineComponent extends SizeThemeColorInputDirective {
 
   get gridDim(): string {
     return this._steps.length + "x2";
+  }
+
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
   }
 
   private updateNext(state: State) {
@@ -131,7 +154,7 @@ export class TimelineComponent extends SizeThemeColorInputDirective {
   public getLineClasses(index: number): Array<string> {
     let classes = new Array<string>();
     let state = this._steps.getItem(index).value.state;
-    classes.push(this.rootClass + '__line');
+    classes.push(this.className + '__line');
 
     let isBeforeCurrent = state != 'current' && !this._steps.isStart(this.current);
     for (let i = 0 ; i < index ; i++) {
@@ -145,11 +168,4 @@ export class TimelineComponent extends SizeThemeColorInputDirective {
     }
     return classes;
   }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
-  }
-
 }

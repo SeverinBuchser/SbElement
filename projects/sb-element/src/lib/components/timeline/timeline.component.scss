@@ -9,13 +9,11 @@ Timeline
 
 // THEME
 @mixin timeline-theme($theme, $color) {
-  &--#{$theme}-#{$color} &__icon {
-    .awaiting {
-      color: theming.get-accent($theme);
-    }
+  &.sb--#{$theme}.sb--#{$color} .sb-icon.awaiting {
+    color: theming.get-accent($theme);
   }
 
-  &--#{$theme}-#{$color} &__line {
+  &.sb--#{$theme}.sb--#{$color} &__line {
     @include border.border-accent($theme);
 
     &.active {
@@ -26,13 +24,13 @@ Timeline
 
 // SIZE
 @mixin timeline-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     .sb-grid {
       grid-gap: 0 calc(2 * spacing.get-size($size));
     }
   }
 
-  &--#{$size} &__line {
+  &.sb--#{$size} &__line {
     right: calc(-2 * spacing.get-size($size) - 25%);
     width: calc(2 * spacing.get-size($size) + 50%);
   }
@@ -47,10 +45,6 @@ Timeline
 
   &__indicator {
     position: relative;
-    @include display.flex();
-  }
-
-  &__icon {
     @include display.flex();
   }
 

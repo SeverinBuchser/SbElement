@@ -7,7 +7,7 @@ import { NG_VALUE_ACCESSOR } from "@angular/forms";
   templateUrl: './time-picker.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useClass: TimePickerComponent,
+    useExisting: TimePickerComponent,
     multi: true
   }]
 })

@@ -12,7 +12,7 @@ Container
   @include spacing.padding(l);
   @include border.radius(l);
   @include theming.for-each-theme using ($theme, $theme-palette) {
-    &--#{$theme} {
+    &.sb--#{$theme} {
       background: theming.get-foreground($theme);
       color: theming.get-foreground-text($theme);
     }

@@ -1,20 +1,44 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../../core';
+
+const SbSpinnerCoreCore = mixinDisable(
+  mixinFocus(
+    mixinSize(
+      mixinColor(
+        mixinTheme(
+          mixinClassName(
+            class {
+              constructor(
+                public _elementRef: ElementRef,
+                public _themeService: ThemeService) {}
+            }, 'sb-input-core'
+          )
+        ), Color.PRIMARY
+      ), Size.DEFAULT
+    )
+  )
+);
 
 @Component({
   selector: 'sb-input-core[type=number]',
   templateUrl: './spinner-core.component.html',
+  inputs: [
+    'size',
+    'color',
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
+  ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SpinnerCoreComponent,
     multi: true
   }]
 })
-export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInputDirective<number> {
-
-  public rootClass = 'sb-input-core';
-  protected allowEmpty = true;
+export class SpinnerCoreComponent extends SbSpinnerCoreCore implements ControlValueAccessor {
 
   @Input()
   public placeholder: string = '';
@@ -42,6 +66,27 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
   private steps: number = 0;
   private speed: number = 0;
   private delta: number = 1;
+
+  private innerValue: number | undefined = undefined;
+
+  set value(value: number | undefined) {
+    this.writeValue(value);
+    this.onChange(value);
+  }
+
+  get value(): number | undefined {
+    return this.innerValue;
+  }
+
+  private onChange: any = () => {};
+  private onTouch: () => void = () => {};
+
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
+  }
 
   public handleMouseDownIncrease(): void {
     this.handleMouseDown(this.increase)
@@ -90,7 +135,7 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
       this.overflow.emit();
     }
     this.steps++;
-    this.writeValueInnerChange(newValue);
+    this.value = newValue;
   }
 
   private decrease = () => {
@@ -110,7 +155,7 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
       this.underflow.emit();
     }
     this.steps++;
-    this.writeValueInnerChange(newValue);
+    this.value = newValue;
   }
 
   public handleMouseUp(): void {
@@ -130,18 +175,21 @@ export class SpinnerCoreComponent extends ControlValueAccessorSizeThemeColorInpu
     });
   }
 
-  public getInputClasses(): Array<string> {
+  public getPlaceholderClasses(): Array<string> {
     let classes = new Array<string>();
-    classes.push(this.rootClass + '__input');
-    classes.push(this.rootClass + '__spinner');
+    classes.push(this.className + '__placeholder')
+    classes.push(this.value || this.value == 0 || this.focused ? 'top' : '')
     return classes;
   }
 
-  public getPlaceholderClasses(): Array<string> {
-    let classes = new Array<string>();
-    classes.push(this.rootClass + '__placeholder');
-    classes.push(this.value != null || this.focused ? 'top' : '');
-    return classes;
+  public writeValue(value: number | undefined): void {
+    if (value !== this.innerValue && !this.disabled) {
+      this.innerValue = value;
+    }
   }
+
+  public registerOnChange(fn: (value: string) => void): void { this.onChange = fn }
+  public registerOnTouched(fn: any): void { this.onTouch = fn }
+  public onBlur(): void { this.onTouch() }
 
 }

@@ -10,7 +10,7 @@ Input
 
 // THEME
 @mixin input-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     color: theming.get-foreground-text($theme);
     .sb-input__border {
       @include border.border($theme, $color, d);
@@ -23,7 +23,7 @@ Input
 
 // SIZE
 @mixin input-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     height: $value;
   }
 }

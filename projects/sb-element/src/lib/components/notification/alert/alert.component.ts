@@ -1,9 +1,22 @@
-import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
-import { Alert } from '../../models/alert/alert';
-import { AlertServiceSubscriber } from '../../models/alert/alert-service-subscriber';
-import { AlertService } from '../../services/alert/alert.service';
-import { ThemeService } from '../../services/theme/theme.service';
-import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-color-input.directive';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { SbAlert } from './alert';
+import { AlertServiceSubscriber } from './alert-service-subscriber';
+import { SbAlertService } from './alert.service';
+import { ThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../../core';
+
+const SbAlertCore = mixinSize(
+  mixinColor(
+    mixinTheme(
+      mixinClassName(
+        class {
+          constructor(
+            public _elementRef: ElementRef,
+            public _themeService: ThemeService) {}
+        }, 'sb-alert'
+      )
+    )
+  )
+);
 
 @Component({
   selector: 'sb-alert',
@@ -13,11 +26,13 @@ import { SizeThemeColorInputDirective } from '../../core/style-input/size-theme-
   host: {
     '[class.active]': 'show',
     '[class.inactive]': '!show'
-  }
+  },
+  inputs: [
+    'size',
+    'color'
+  ]
 })
-export class AlertComponent extends SizeThemeColorInputDirective implements AlertServiceSubscriber {
-
-  public rootClass: string = 'sb-alert';
+export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscriber {
 
   @Input()
   public showArrow: boolean = true;
@@ -25,7 +40,7 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
   @Input()
   public showIcon: boolean = true;
 
-  public alertObject: Alert | null = null;
+  public alertObject: SbAlert | null = null;
   public show: boolean = false;
   private appearTime: number = 300;
   @Input()
@@ -33,14 +48,15 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
   private hideTime: number = 1000;
 
   constructor(
-    private alertService: AlertService,
-    themeService: ThemeService
+    elementRef: ElementRef,
+    themeService: ThemeService,
+    private alertService: SbAlertService,
   ) {
-    super(themeService);
+    super(elementRef, themeService);
     this.alertService.subscribe(this);
   }
 
-  public async alert(alert: Alert): Promise<void> {
+  public async alert(alert: SbAlert): Promise<void> {
     return this.setAlert(alert)
     .then(() => this.appears())
     .then(() => this.waits())
@@ -48,7 +64,7 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
     .then(() => this.resetAlert())
   }
 
-  private async setAlert(alert: Alert): Promise<void> {
+  private async setAlert(alert: SbAlert): Promise<void> {
     this.alertObject = alert;
     this.size = alert.size;
     this.color = alert.color;
@@ -83,12 +99,6 @@ export class AlertComponent extends SizeThemeColorInputDirective implements Aler
   get message(): string {
     if (this.alertObject) return this.alertObject.message;
     else return '';
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
   }
 
 }

@@ -1,6 +1,13 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { PopperPosition } from "../popper/popper-position";
-import { ClassNameInputDirective } from '../../../core/';
+import { mixinClassName } from '../../../core';
+
+const SbTooltipCore = mixinClassName(
+  class {
+    constructor(
+      public _elementRef: ElementRef) {}
+  }, 'sb-tooltip'
+);
 
 @Component({
   selector: 'sb-tooltip',
@@ -8,9 +15,7 @@ import { ClassNameInputDirective } from '../../../core/';
   styleUrls: ['./tooltip.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class TooltipComponent extends ClassNameInputDirective {
-
-  public rootClass = 'sb-tooltip';
+export class SbTooltipComponent extends SbTooltipCore {
 
   @Input()
   public text: string = '';
@@ -20,5 +25,11 @@ export class TooltipComponent extends ClassNameInputDirective {
 
   @Input()
   public position: string = PopperPosition.TOP;
+
+  constructor(
+    elementRef: ElementRef
+  ) {
+    super(elementRef);
+  }
 
 }

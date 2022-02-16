@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BarComponent } from './default/bar.component';
-import { NavBarComponent } from './navigation/nav-bar.component';
-import { SidebarComponent } from './side/sidebar.component';
+import { SbBarComponent } from './default/bar.component';
+import { SbNavBarComponent } from './navigation/nav-bar.component';
+import { SbSidebarComponent } from './side/sidebar.component';
 
 
 
 @NgModule({
   declarations: [
-    BarComponent,
-    NavBarComponent,
-    SidebarComponent,
+    SbBarComponent,
+    SbNavBarComponent,
+    SbSidebarComponent,
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    BarComponent,
-    NavBarComponent,
-    SidebarComponent,
+    SbBarComponent,
+    SbNavBarComponent,
+    SbSidebarComponent,
   ]
 })
 export class BarModule { }

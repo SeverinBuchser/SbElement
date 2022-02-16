@@ -1,5 +1,12 @@
-import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
-import { ClassNameInputDirective } from "../../core/style-input";
+import { Component, ElementRef, HostBinding, Input, ViewEncapsulation } from '@angular/core';
+import { mixinClassName } from '../../core';
+
+const SbGridCore = mixinClassName(
+  class {
+    constructor(
+      public _elementRef: ElementRef) {}
+  }, 'sb-grid'
+);
 
 @Component({
   selector: 'sb-grid',
@@ -7,12 +14,10 @@ import { ClassNameInputDirective } from "../../core/style-input";
   styleUrls: ['./grid.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GridComponent extends ClassNameInputDirective {
-
-  public rootClass = 'sb-grid';
+export class SbGridComponent extends SbGridCore {
 
   @Input()
-  public gap: string | null = null
+  public gap: string | undefined;
 
   @Input()
   public justify: 'even' | 'auto' = 'auto';
@@ -28,13 +33,10 @@ export class GridComponent extends ClassNameInputDirective {
   @HostBinding('style.gridTemplateColumns') column!: string;
   @HostBinding('style.gridTemplateRows') row!: string;
 
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    if (this.gap) {
-      classes.push('gap' + '--' + this.gap);
-    }
-    return classes;
+  constructor(
+    elementRef: ElementRef
+  ) {
+    super(elementRef);
   }
 
 }

@@ -1,6 +1,20 @@
-import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ThemeService } from "../../services/theme/theme.service";
-import { SizeThemeColorInputDirective } from '../../core';
+import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { ThemeService, mixinSize, mixinTheme, mixinClassName, mixinColor } from '../../core';
+
+const SbIconCore = mixinSize(
+  mixinColor(
+    mixinTheme(
+      mixinClassName(
+        class {
+          constructor(
+            public _elementRef: ElementRef,
+            public _themeService: ThemeService) {}
+        }, 'sb-icon'
+      )
+    )
+  )
+);
+
 
 @Component({
   selector: 'sb-icon',
@@ -9,12 +23,13 @@ import { SizeThemeColorInputDirective } from '../../core';
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.outline]': 'outline'
-  }
-
+  },
+  inputs: [
+    'size',
+    'color'
+  ]
 })
-export class IconComponent extends SizeThemeColorInputDirective {
-
-  public rootClass = 'sb-icon';
+export class SbIconComponent extends SbIconCore {
 
   @Input()
   public icon: string = '';
@@ -27,17 +42,12 @@ export class IconComponent extends SizeThemeColorInputDirective {
   private outline: boolean = false;
 
   constructor(
+    elementRef: ElementRef,
     themeService: ThemeService,
     @Optional() @Attribute('outline') outline: any
   ) {
-    super(themeService);
+    super(elementRef, themeService);
     if (outline == '') this.isOutline = true;
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
   }
 
 }

@@ -1,7 +1,6 @@
 import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ThemeService } from '../../../services/theme/theme.service';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core';
+import { ThemeService, ControlValueAccessorSizeThemeColorInputDirective } from '../../../core';
 
 @Component({
   selector: 'sb-select-button',
@@ -47,7 +46,7 @@ export class SelectButtonComponent extends ControlValueAccessorSizeThemeColorInp
     this.toggle();
     this.writeValueInnerChange(newOption);
   }
-  
+
   @HostBinding('class')
   get classes(): Array<string> {
     let classes = super.getClasses();

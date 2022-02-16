@@ -2,20 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from '../../core/core.module';
 
-import { IconComponent } from './icon.component';
-
+import { SbIconComponent } from './icon.component';
 
 
 @NgModule({
-  declarations: [
-    IconComponent
-  ],
-  imports: [
-    CommonModule,
-    CoreModule
-  ],
-  exports: [
-    IconComponent
-  ]
+  declarations: [SbIconComponent],
+  imports: [CommonModule, CoreModule],
+  exports: [SbIconComponent]
 })
 export class IconModule { }

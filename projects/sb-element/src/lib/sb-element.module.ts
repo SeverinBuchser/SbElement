@@ -9,31 +9,28 @@ import { IconModule } from './components/icon/icon.module';
 import { PopperModule } from './components/popper/popper.module';
 
 // Components
-import { ContainerComponent } from './components/container/container.component';
-import { AlertBoxComponent } from './components/alert-box/alert-box.component';
-import { TableComponent } from './components/table/table.component';
-import { AlertComponent } from './components/alert/alert.component';
-import { CardComponent } from './components/card/card.component';
-import { GridComponent } from './components/grid/grid.component';
+import { SbContainerComponent } from './components/container/container.component';
+import { SbTableComponent } from './components/table/table.component';
+import { SbCardComponent } from './components/card/card.component';
+import { SbGridComponent } from './components/grid/grid.component';
 
 // Directives
-import { TimelineComponent } from './components/timeline/timeline.component';
-import { LinkComponent } from './components/link/link.component';
-import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { SbTimelineComponent } from './components/timeline/timeline.component';
+import { SbLinkComponent } from './components/link/link.component';
+import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { NotificationModule } from "./components/notification/notification.module";
 
 
 @NgModule({
   declarations: [
     // Components
-    ContainerComponent,
-    AlertBoxComponent,
-    TableComponent,
-    AlertComponent,
-    CardComponent,
-    GridComponent,
-    TimelineComponent,
-    LinkComponent,
-    BreadcrumbsComponent,
+    SbContainerComponent,
+    SbTableComponent,
+    SbCardComponent,
+    SbGridComponent,
+    SbTimelineComponent,
+    SbLinkComponent,
+    SbBreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,25 +38,25 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     BarModule,
     FormModule,
     IconModule,
-    PopperModule
+    PopperModule,
+    NotificationModule
   ],
   exports: [
     // Components
-    ContainerComponent,
-    AlertBoxComponent,
-    TableComponent,
-    AlertComponent,
-    CardComponent,
-    GridComponent,
-    TimelineComponent,
-    LinkComponent,
-    BreadcrumbsComponent,
+    SbContainerComponent,
+    SbTableComponent,
+    SbCardComponent,
+    SbGridComponent,
+    SbTimelineComponent,
+    SbLinkComponent,
+    SbBreadcrumbsComponent,
     // Modules
     CoreModule,
     BarModule,
     FormModule,
     IconModule,
     PopperModule,
+    NotificationModule
   ]
 })
 export class SbElementModule { }

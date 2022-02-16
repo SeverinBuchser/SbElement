@@ -9,7 +9,7 @@ Button
 
 // THEME
 @mixin button-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     @include button-color(
       theming.get-color($theme, $color),
       theming.get-text($theme, $color),
@@ -44,7 +44,7 @@ Button
 
 // SIZE
 @mixin button-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     min-width: calc($value * 2);
     height: $value;
     @include spacing.padding-x(calc($value / 1.5));

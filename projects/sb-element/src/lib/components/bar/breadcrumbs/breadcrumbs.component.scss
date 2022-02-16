@@ -10,16 +10,16 @@ Bar
 
 // THEME
 @mixin breadcrumbs-theme($theme) {
-  &--#{$theme} {
+  &.sb--#{$theme} {
     color: theming.get-background-text($theme);
     background: theming.get-background($theme);
   }
 
-  &--#{$theme} .sb-icon {
+  &.sb--#{$theme} .sb-icon {
     color: theming.get-accent($theme);
   }
 
-  &--#{$theme} &__crumb {
+  &.sb--#{$theme} &__crumb {
     text-decoration-color: theming.get-accent($theme);
     &:hover {
       text-decoration-color: theming.get-color($theme);

@@ -10,13 +10,13 @@ Popper
 
 // THEME
 @mixin popper-theme($theme) {
-  &--#{$theme} &__popper {
+  &.sb--#{$theme} &__popper {
     background: theming.get-background($theme);
     color: theming.get-background-text($theme);
     @include border.border-accent($theme, $radius: s);
   }
 
-  &--#{$theme} &__arrow {
+  &.sb--#{$theme} &__arrow {
     fill: theming.get-accent($theme);
   }
 }

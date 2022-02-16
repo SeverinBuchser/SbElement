@@ -7,21 +7,20 @@ Icon
 
 // THEME
 @mixin icon-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     color: theming.get-color($theme, $color);
   }
 }
 
 // SIZE
 @mixin icon-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     font-size: $value !important;
   }
 }
 
 // ROOT
-$sb-icon-root: 'sb-icon';
-.#{$sb-icon-root} {
+.sb-icon {
   @include typography.font(icon);
 
   &.outline {

@@ -3,22 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { CoreModule } from '../../core';
 
-import { PopperComponent } from './popper/popper.component';
-import { TooltipComponent } from "./tooltip/tooltip.component";
+import { SbPopperComponent } from './popper/popper.component';
+import { SbTooltipComponent } from "./tooltip/tooltip.component";
 
 
 @NgModule({
-  declarations: [
-    TooltipComponent,
-    PopperComponent,
-  ],
-  imports: [
-    CommonModule,
-    CoreModule
-  ],
-  exports: [
-    TooltipComponent,
-    PopperComponent,
-  ]
+  declarations: [SbPopperComponent, SbTooltipComponent],
+  imports: [CommonModule, CoreModule],
+  exports: [SbPopperComponent, SbTooltipComponent]
 })
 export class PopperModule { }

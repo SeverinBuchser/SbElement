@@ -1,20 +1,65 @@
-import { Component, HostBinding, Input } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { Component, ElementRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../../core';
+
+const SbDoubleInputCore = mixinDisable(
+  mixinFocus(
+    mixinSize(
+      mixinColor(
+        mixinTheme(
+          mixinClassName(
+            class {
+              constructor(
+                public _elementRef: ElementRef,
+                public _themeService: ThemeService) {}
+            }, 'sb-input'
+          )
+        ), Color.PRIMARY
+      ), Size.DEFAULT
+    )
+  )
+);
+
+export class SbDoubleInput<T> {
+  public first?: T;
+  public second?: T;
+
+  constructor();
+  constructor(first: T | undefined, second: T | undefined);
+  constructor(first?: T, second?: T) {
+    if (first) {
+      this.first = first;
+    }
+    if (second) {
+      this.second = second;
+    }
+  }
+
+  public static equals<T>(inputOne: SbDoubleInput<T>, inputTwo: SbDoubleInput<T>): boolean {
+    return inputOne.first == inputTwo.first && inputOne.second == inputTwo.second;
+  }
+}
 
 @Component({
   selector: 'sb-input[type=double]',
   templateUrl: './double-input.component.html',
+  inputs: [
+    'size',
+    'color',
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
+  ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: DoubleInputComponent,
     multi: true
   }]
 })
-export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInputDirective<Array<string>> {
+export class DoubleInputComponent extends SbDoubleInputCore implements ControlValueAccessor {
 
-  public rootClass = 'sb-input';
-  
   @Input()
   public firstPlaceholder: string = '';
 
@@ -43,24 +88,55 @@ export class DoubleInputComponent extends ControlValueAccessorSizeThemeColorInpu
   @Input()
   public suffixIcon: string = '';
 
-  public firstValue: string = '';
-  public secondValue: string = '';
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
 
-  public handleInput(): void {
-    this.writeValueInnerChange([this.firstValue, this.secondValue])
+  private innerFirstValue: string | undefined = undefined;
+  private innerSecondValue: string | undefined = undefined;
+
+  set firstValue(firstValue: string) {
+    let value = new SbDoubleInput(firstValue, this.innerSecondValue);
+    this.writeValue(value);
+    this.onChange(value);
+  }
+  get firstValue(): string {
+    if (this.innerFirstValue) {
+      return this.innerFirstValue;
+    } else return '';
   }
 
-  public updateValues(): void {
-    if (this.value) {
-      if (this.value.length > 0) this.firstValue = this.value[0];
-      if (this.value.length > 1) this.secondValue = this.value[1];
+  set secondValue(secondValue: string) {
+    let value = new SbDoubleInput(this.innerFirstValue, secondValue);
+    this.writeValue(value);
+    this.onChange(value);
+  }
+
+  get secondValue(): string {
+    if (this.innerSecondValue) {
+      return this.innerSecondValue;
+    } else return '';
+  }
+
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
+  }
+
+  public writeValue(value: SbDoubleInput<string>): void {
+    if (value && !this.disabled) {
+      if (value.first) {
+        this.innerFirstValue = value.first;
+      }
+      if (value.second) {
+        this.innerSecondValue = value.second;
+      }
     }
   }
 
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
-  }
+  public registerOnChange(fn: any): void { this.onChange = fn }
+  public registerOnTouched(fn: any): void { this.onTouch = fn }
+  protected onBlur(): void { this.onTouch() }
 
 }

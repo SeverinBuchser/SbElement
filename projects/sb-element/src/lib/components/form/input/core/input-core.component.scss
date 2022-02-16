@@ -10,9 +10,9 @@ Input-Core
 
 // THEME
 @mixin input-core-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     color: theming.get-foreground-text($theme);
-    .sb-input-core__input {
+    input {
       color: theming.get-foreground-text($theme);
     }
     .sb-input-core__placeholder {
@@ -39,20 +39,21 @@ Input-Core
 
 // SIZE
 @mixin input-core-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     height: $value;
-    .sb-input-core__placeholder.top {
-      transform:
-        scale(0.75)
-        translateY(calc(
-          ($value / (-2))
-          - 87.5%
-          - border.get-border-width(l)
-        ));
-    }
     .sb-input-core__spinner-control {
       border-radius: 4px;
     }
+  }
+
+  &.sb--#{$size} .sb-input-core__placeholder.top {
+    transform:
+      scale(0.75)
+      translateY(calc(
+        ($value / (-2))
+        - 87.5%
+        - border.get-border-width(l)
+      ));
   }
 }
 
@@ -62,16 +63,18 @@ Input-Core
   position: relative;
   display: flex;
 
-  &__input {
+  &:focus {
+    outline: 1px solid red;
+  }
+
+  input {
     width: 100%;
     background: transparent;
     outline: none;
     border: 0;
     @include spacing.padding(0);
     @include typography.font($size: s);
-  }
-
-  &__spinner {
+    
     &::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
@@ -104,7 +107,7 @@ Input-Core
     @include transitioning.ease(200ms, transform, color);
   }
 
-  &.disabled &__input {
+  &.disabled input {
     cursor: not-allowed;
   }
 

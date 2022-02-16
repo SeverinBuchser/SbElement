@@ -1,8 +1,6 @@
 import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AlertService } from '../../../services/alert/alert.service';
-import { ThemeService } from '../../../services/theme/theme.service';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { ThemeService, ControlValueAccessorSizeThemeColorInputDirective } from '../../../core';
 
 @Component({
   selector: 'sb-input[type=file]',
@@ -37,7 +35,6 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
   public message: string = FileInputComponent.defaultMessage;
 
   constructor(
-    private alertService: AlertService,
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any,
     themeService: ThemeService
@@ -64,7 +61,7 @@ export class FileInputComponent extends ControlValueAccessorSizeThemeColorInputD
     if (this.limit >= 0) {
       if (file.size <= this.limit * 1000000) return true;
       else {
-        this.alertService.warn("The file is too big, the maximum file size is " + this.limit + ' MB!');
+        //this.alertService.warn("The file is too big, the maximum file size is " + this.limit + ' MB!');
         return false
       }
     } else return true;

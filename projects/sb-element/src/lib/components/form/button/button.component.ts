@@ -1,6 +1,20 @@
-import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ThemeService } from '../../../services/theme/theme.service';
-import { SizeThemeColorInputDirective } from '../../../core/style-input/size-theme-color-input.directive';
+import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { ThemeService, mixinSize, mixinColor, mixinClassName, mixinTheme, Color, Size } from '../../../core';
+
+const SbButtonCore = mixinSize(
+  mixinColor(
+    mixinTheme(
+      mixinClassName(
+        class {
+          constructor(
+            public _elementRef: ElementRef,
+            public _themeService: ThemeService) {}
+        }, 'sb-button'
+      )
+    ), Color.PRIMARY
+  ), Size.DEFAULT
+);
+
 
 /**
  * The button component acts like a normal html button, but provides different
@@ -54,14 +68,13 @@ import { SizeThemeColorInputDirective } from '../../../core/style-input/size-the
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
     '[class.round]': 'round'
-  }
+  },
+  inputs: [
+    'size',
+    'color'
+  ]
 })
-export class ButtonComponent extends SizeThemeColorInputDirective {
-
-  /**
-   * The root class of the HTML button element.
-   */
-  public rootClass: string = 'sb-button';
+export class SbButtonComponent extends SbButtonCore {
 
   /**
    *  Sets the [round]{@link #round} property of the component.
@@ -139,21 +152,16 @@ export class ButtonComponent extends SizeThemeColorInputDirective {
    * `SizeThemeColorInputDirective`
    */
   constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService,
     @Optional() @Attribute('round') round: any,
     @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any,
-    themeService: ThemeService
+    @Optional() @Attribute('plain') plain: any
   ) {
-    super(themeService);
+    super(elementRef, themeService);
     if (round == '') this.isRound = true;
     if (pill == '') this.isPill = true;
     if (plain == '') this.isPlain = true;
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
   }
 
 }

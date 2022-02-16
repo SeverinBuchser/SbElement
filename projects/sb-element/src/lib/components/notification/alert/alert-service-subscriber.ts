@@ -1,4 +1,4 @@
-import { Alert } from './alert';
+import { SbAlert } from './alert';
 
 /**
  * Interface for a subscriber of the {@link AlertService}. The Interface has to
@@ -18,5 +18,5 @@ export interface AlertServiceSubscriber {
    * @returns{Promise<void>} The subscriber has to return a `Promise<void>`
    * which will resolve upon finishing the process of showing the alert.
    */
-  alert(alert: Alert): Promise<void>;
+  alert(alert: SbAlert): Promise<void>;
 }

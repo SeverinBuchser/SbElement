@@ -1,6 +1,6 @@
-<sb-icon *ngIf="showArrow" [size]="size" [ngClass]="rootClass + '__arrow'">&#xf1df;</sb-icon>
+<sb-icon *ngIf="showArrow" [size]="size">&#xf1df;</sb-icon>
 <ng-content></ng-content>
-<div *ngIf="showIcon" [ngClass]="rootClass + '__icon'">
+<ng-template ng-if [ngIf]="showIcon">
   <ng-content *ngIf="customIcon; else defaultIcon" select="[icon]"></ng-content>
   <ng-template #defaultIcon>
     <sb-icon *ngIf="color == 'warn'" [size]="size">&#xe001;</sb-icon>
@@ -9,4 +9,4 @@
     <sb-icon *ngIf="color == 'primary'" [size]="size">&#xe994;</sb-icon>
     <sb-icon *ngIf="color == 'secondary'" [size]="size">&#xe87e;</sb-icon>
   </ng-template>
-</div>
+</ng-template>

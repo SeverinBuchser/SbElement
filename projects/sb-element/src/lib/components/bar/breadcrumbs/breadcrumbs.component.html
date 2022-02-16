@@ -1,4 +1,4 @@
 <ng-template ngFor let-crumb let-index="index" [ngForOf]="crumbs">
   <sb-icon *ngIf="index > 0" size="s">&#xe5e1;</sb-icon>
-  <span [ngClass]="rootClass + '__crumb'" (click)="handleClick(crumb)">{{crumb}}</span>
+  <span [ngClass]="className + '__crumb'" (click)="handleClick(crumb)">{{crumb}}</span>
 </ng-template>

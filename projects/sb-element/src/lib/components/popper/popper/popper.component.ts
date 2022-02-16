@@ -1,6 +1,16 @@
 import { Component, ElementRef, HostBinding, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { AlignDirective, Poppable, ThemeInputDirective } from '../../../core/';
+import { AlignDirective, mixinClassName, mixinTheme, Poppable, ThemeService } from '../../../core/';
 import { PopperPosition } from "./popper-position";
+
+const SbPopperCore = mixinTheme(
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: ThemeService) {}
+    }, 'sb-popper'
+  )
+);
 
 @Component({
   selector: 'sb-popper',
@@ -8,11 +18,11 @@ import { PopperPosition } from "./popper-position";
   styleUrls: ['./popper.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class PopperComponent extends ThemeInputDirective implements Poppable {
+export class SbPopperComponent extends SbPopperCore implements Poppable {
 
   public rootClass = 'sb-popper';
 
-  @Input()
+  @Input() @HostBinding('class')
   public position: string = PopperPosition.TOP;
 
   @Input()
@@ -52,6 +62,13 @@ export class PopperComponent extends ThemeInputDirective implements Poppable {
 
   get isEnd(): boolean {
     return new RegExp('end').test(this.position);
+  }
+
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
   }
 
   public trigger(): void {
@@ -109,13 +126,6 @@ export class PopperComponent extends ThemeInputDirective implements Poppable {
 
   public isPopped(): boolean {
     return this.visible;
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    classes.push(this.position);
-    return classes;
   }
 
   public getPopperClasses(): Array<string> {

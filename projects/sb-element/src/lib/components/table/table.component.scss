@@ -8,26 +8,26 @@ Table
 // THEME
 @mixin table-theme($theme, $color) {
 
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     @include border.border-accent($theme);
   }
 
-  &--#{$theme}-#{$color} &__head {
+  &.sb--#{$theme}.sb--#{$color} &__head {
     background: theming.get-color($theme, $color);
     color: theming.get-text($theme, $color);
   }
 
-  &--#{$theme}-#{$color}.plain &__head  {
+  &.sb--#{$theme}.sb--#{$color}.plain &__head  {
     background: theming.get-color-inverted($theme, $color);
     color: theming.get-text-inverted($theme, $color);
   }
 
-  &--#{$theme}-#{$color} &__row:nth-child(even) {
+  &.sb--#{$theme}.sb--#{$color} &__row:nth-child(even) {
     background: theming.get-background($theme);
     color: theming.get-background-text($theme);
   }
 
-  &--#{$theme}-#{$color} &__row:nth-child(odd) {
+  &.sb--#{$theme}.sb--#{$color} &__row:nth-child(odd) {
     background: theming.get-foreground($theme);
     color: theming.get-foreground-text($theme);
   }

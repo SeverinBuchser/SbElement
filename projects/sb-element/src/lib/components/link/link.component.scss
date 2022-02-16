@@ -10,7 +10,7 @@ Link
 
 // THEME
 @mixin link-theme($theme) {
-  &--#{$theme} {
+  &.sb--#{$theme} {
     background: theming.get-foreground($theme);
     color: theming.get-background-text($theme);
 
@@ -27,7 +27,7 @@ Link
 
 // SIZE
 @mixin link-size($size, $value) {
-  &--#{$size} {
+  &.sb--#{$size} {
     @include spacing.padding-x($size);
     height: spacing.get-size($size);
     @include border.radius($size);
