@@ -13,9 +13,15 @@ Icon
 }
 
 // SIZE
-@mixin icon-size($size, $value) {
-  &.sb--#{$size} {
-    font-size: $value !important;
+@mixin icon-size($font-size, $value) {
+  &.sb--#{$font-size} {
+    @include typography.font-size(icon, $font-size);
+  }
+}
+
+@mixin icon-size-outlined($font-size, $value) {
+  &.sb--#{$font-size}.outline {
+    @include typography.font-size(icon-outlined, $font-size);
   }
 }
 
@@ -29,6 +35,7 @@ Icon
 
   font-style: normal;
   display: block;
+  line-height: 1;
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
@@ -53,6 +60,10 @@ Icon
   }
 
   @include typography.for-each-font-size(icon) using ($size, $value) {
+    @include icon-size($size, $value);
+  }
+
+  @include typography.for-each-font-size(icon-outlined) using ($size, $value) {
     @include icon-size($size, $value);
   }
 

@@ -87,6 +87,13 @@ Typography
   font-weight: get-font-weight($font, $weight);
 }
 
+// A mixin to include a font size for a specific font.
+// @param {String} $font The font type.
+// @param {String} $weight The font weight.
+@mixin font-size($font: default, $size: d) {
+  font-size: get-font-size($font, $size);
+}
+
 // Can be used to loop in every font size for a specific font.
 // @param {String} $font The font from which to get the sizes.
 @mixin for-each-font-size($font) {
