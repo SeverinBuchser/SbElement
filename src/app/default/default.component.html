@@ -17,16 +17,16 @@
     <div class="sidebar-container">
       <sb-sidebar #sidebarOne>
         <div sidebar>
-          <button sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
+          <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
         </div>
         <div content>
-          <button sb-button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
+          <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
 
           <sb-popper #popperOne position="bottom">
             <div popper>
               Popper
             </div>
-            <button sb-button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
+            <button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
           </sb-popper>
         </div>
       </sb-sidebar>
@@ -57,11 +57,11 @@
             [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
           </sb-timeline>
           <div class="timeline-control">
-            <button sb-button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</button>
-            <button sb-button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</button>
-            <button sb-button color="primary" (click)="timeline.previous()" plain size="s">Previous</button>
-            <button sb-button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</button>
-            <button sb-button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</button>
+            <button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</button>
+            <button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</button>
+            <button color="primary" (click)="timeline.previous()" plain size="s">Previous</button>
+            <button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</button>
+            <button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</button>
           </div>
         </div>
         <div footer>
@@ -208,7 +208,7 @@
       </div>
       <div class="sb-form__footer center">
         <sb-tooltip text="This is a tooltip!" position="left">
-          <button sb-button
+          <button
             type="submit"
             class="sb-form__footer-element"
             pill

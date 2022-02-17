@@ -1,9 +1,12 @@
-<button sb-button
+<button
   [color]="color"
   [size]="size"
   [isPlain]="plain"
   [isRound]="round"
   [isPill]="pill"
+  [type]="type"
+  (focus)="setFocusedState(true)"
+  (blur)="setFocusedState(false)"
   [disabled]="disabled">
   <sb-icon [size]="size" [icon]="icon">
     <ng-content></ng-content>
