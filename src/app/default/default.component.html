@@ -172,15 +172,13 @@
           Select
         </sb-select-button>
         <sb-slider
-          label="Slider"
-          size="m"
+          placeholder="Slider"
+          size="d"
           [color]="color"
           [max]="20"
           [min]="-20"
           [step]="0.1"
           [snap]="[0, 3, 6]"
-          [showValue]="true"
-          [valueSuffix]="'kWh'"
           [(ngModel)]="model.slider"
           name="slider"
           #slider="ngModel">
@@ -199,9 +197,8 @@
         <sb-input
           type="file"
           placeholder="File Input"
-          size="m"
+          size="d"
           pill
-          [limit]="3"
           [color]="color"
           [(ngModel)]="model.fileinput"
           name="fileinput"
@@ -213,7 +210,7 @@
         <sb-tooltip text="This is a tooltip!" position="left">
           <button sb-button
             type="submit"
-            extraClasses="sb-form__footer-element"
+            class="sb-form__footer-element"
             pill
             size="d"
             [color]="color"

@@ -1,24 +1,52 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../core';
+
+const SbSliderCore = mixinDisable(
+  mixinFocus(
+    mixinSize(
+      mixinColor(
+        mixinTheme(
+          mixinClassName(
+            class {
+              constructor(
+                public _elementRef: ElementRef,
+                public _themeService: ThemeService) {}
+            }, 'sb-slider'
+          )
+        ), Color.PRIMARY
+      ), Size.DEFAULT
+    )
+  )
+);
 
 @Component({
   selector: 'sb-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  inputs: [
+    'size',
+    'color',
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
+  ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SliderComponent,
     multi: true
   }]
 })
-export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDirective<number> {
+export class SliderComponent extends SbSliderCore implements ControlValueAccessor {
 
-  public rootClass = 'sb-slider';
-
-  @Input()
-  public label: string = '';
+  private static _globalSliderId: number = 0;
+  private _sliderId: number = SliderComponent._globalSliderId ++;
+  get steplistId(): string {
+    return `sb-slider-steplist-${this._sliderId}`;
+  }
 
   @Input()
   public min: number = 0;
@@ -26,15 +54,8 @@ export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDire
   @Input()
   public max: number = 10;
 
-  private _step: number = 1;
   @Input()
-  set step(step: number) {
-    this._step = step;
-    if (Math.floor(step) !== step)
-        this.decimalPlaces = step.toString().split(".")[1].length || 0;
-  }
-  get step(): number { return this._step }
-  private decimalPlaces: number = 0;
+  public step: number = 1;
 
   @Input()
   set snap(snap: Array<number> | boolean) {
@@ -51,21 +72,36 @@ export class SliderComponent extends ControlValueAccessorSizeThemeColorInputDire
   }
   public snapPoints: Array<number> = new Array<number>();
 
-  get numberPipingValue(): string {
-    return '1.' + this.decimalPlaces + '-' + this.decimalPlaces;
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
+
+  private innerValue: number | undefined = undefined;
+
+  set value(value: number | undefined) {
+    this.writeValue(value);
+    this.onChange(value);
   }
 
-  @Input()
-  public showValue: boolean = false;
-
-  @Input()
-  public valueSuffix: string = '';
-
-  public getClasses(): Array<string> {
-    let classes = super.getClasses();
-    classes.push(this.label ? 'label' : 'not-label');
-    classes.push(this.showValue ? 'value' : 'not-value');
-    return classes;
+  get value(): number | undefined {
+    return this.innerValue;
   }
+
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
+  }
+
+
+  public writeValue(value: number | undefined): void {
+    if (value !== this.innerValue && !this.disabled) {
+      this.innerValue = value;
+    }
+  }
+
+  public registerOnChange(fn: any): void { this.onChange = fn }
+  public registerOnTouched(fn: any): void { this.onTouch = fn }
+  public onBlur(): void { this.onTouch() }
 
 }

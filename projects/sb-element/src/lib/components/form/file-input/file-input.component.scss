@@ -30,7 +30,7 @@ File Input
 
 // COLOR
 @mixin file-input-color($bg, $color, $hover-bg, $hover-color) {
-  .sb-file-input__message {
+  label {
     background: $bg;
     color: $color;
     &:hover {
@@ -39,48 +39,38 @@ File Input
     }
   }
 
-  &.disabled {
-    .sb-file-input__message {
-      &:hover {
-        background: $bg;
-        color: $color;
-      }
-    }
+  &.disabled label:hover {
+    background: $bg;
+    color: $color;
   }
 }
 
 // SIZE
 @mixin file-input-size($size, $value) {
   &.sb--#{$size} {
-    .sb-file-input__message {
-      height: $value;
-      width: calc($value * 5);
+    height: $value;
+    width: calc($value * 5);
+    label {
+      height: 100%;
+      width: 100%;
       line-height: $value;
     }
 
-    &.pill {
-      .sb-file-input__message {
-        @include border.radius(calc($value / 2));
-      }
+    &.pill label {
+      @include border.radius(calc($value / 2));
     }
   }
 }
 
 // ROOT
 .sb-file-input {
-  position: relative;
-  @include display.grid($rows: auto auto);
-
+  display: block;
+  
   input {
-    width: 0;
-    height: 0;
-  	opacity: 0;
-  	overflow: hidden;
-  	position: absolute;
-  	z-index: -1;
+    display: none;
   }
 
-  &__message {
+  label {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -99,7 +89,7 @@ File Input
     @include transitioning.ease(300ms, color);
   }
 
-  &.disabled &__message {
+  &.disabled label {
     cursor: not-allowed;
   }
 

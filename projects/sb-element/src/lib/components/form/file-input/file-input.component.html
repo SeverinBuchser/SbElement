@@ -1,20 +1,10 @@
-<div [ngClass]="className + '__placeholder'">
-  {{ placeholder }}
-</div>
-<input
-  type="file"
-  (input)="input(inputElement.files)"
-  #inputElement
-  name="file"
-  id="file"
-  [disabled]="disabled">
-<div [ngClass]="className + '__message-wrapper'">
-  <label
-    [ngClass]="className + '__message'"
-    for="file">
-    {{ message }}
-    <ng-template [ngIf]="!value">
-      <sb-icon>&#xe2c6;</sb-icon>
-    </ng-template>
-  </label>
-</div>
+<label>
+  {{ message }}
+  <sb-icon *ngIf="!value">&#xe2c6;</sb-icon>  
+  <input
+    type="file"
+    (input)="hendleInput($event)"
+    (blur)="setFocusedState(false)"
+    (focus)="setFocusedState(true)"
+    [disabled]="disabled">
+</label>

@@ -37,6 +37,7 @@ const SbFileInputCore = mixinDisable(
   host: {
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
+    '[class.disabled]': 'disabled'
   },
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -49,15 +50,15 @@ export class FileInputComponent extends SbFileInputCore implements ControlValueA
   @Input()
   public placeholder: string = '';
 
-  // the limit is in mega bytes
-  @Input()
-  public limit: number = -1;
-
   public plain: boolean = false;
   public pill: boolean = false;
 
-  private static defaultMessage: string = 'Choose a file';
-  public message: string = FileInputComponent.defaultMessage;
+  get message(): string {
+    if (this.value) {
+      return this.value.name;
+    }
+    return this.placeholder;
+  }
 
   private onChange: any = () => {};
   private onTouch: any = () => {};
@@ -84,26 +85,16 @@ export class FileInputComponent extends SbFileInputCore implements ControlValueA
     if (plain == '') this.plain = true;
   }
 
-  public input(files: FileList | null) {
+  public hendleInput(event: Event) {
+    let files = (event.target! as HTMLInputElement).files;
     if (files) {
       let file: File | null = files.item(0);
-      if (file && this.checkFileSize(file)) {
-        this.message = file.name;
+      if (file) {
         this.value = file;
       } else {
-        this.message = FileInputComponent.defaultMessage;
         this.value = undefined;
       }
     }
-  }
-
-  private checkFileSize(file: File): boolean {
-    if (this.limit >= 0) {
-      if (file.size <= this.limit * 1000000) return true;
-      else {
-        return false
-      }
-    } else return true;
   }
 
   public writeValue(value: File | undefined): void {

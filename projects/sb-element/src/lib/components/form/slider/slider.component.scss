@@ -24,9 +24,8 @@ Slider
 
 // THEME
 @mixin slider-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
-    color: theming.get-foreground-text($theme);
-    .#{$sb-slider-root}__slider {
+  &.sb--#{$theme}.sb--#{$color} {
+    input {
       @include style-thumbs {
         background: theming.get-color($theme, $color);
       }
@@ -38,49 +37,16 @@ Slider
   }
 }
 
-// SIZE
-@mixin slider-size($size, $value) {
-  &--#{$size} {
-    grid-template-rows: auto $value;
-    .#{$sb-slider-root}__slider {
-      width: calc($value * 5);
-    }
-  }
-}
-
 // ROOT
-$sb-slider-root: 'sb-slider';
-.#{$sb-slider-root} {
-  @include display.grid(auto auto);
+.sb-slider {
+  display: flex;
 
-  &.value.label &__label {
-    grid-column: 1 / 2;
-  }
-
-  &.not-value.not-label &__slider {
-    grid-row: 1 / 2;
-  }
-
-  &__label {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-  }
-
-  &__value {
-    vertical-align: middle;
-    text-align: center;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    min-width: calc(3 * spacing.get-size(d));
-  }
-
-  &__slider {
-    -webkit-appearance: none;
+  input {
+    width: 100%;
+    appearance: none;
     box-sizing: border-box;
     background: transparent;
     cursor: pointer;
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
     @include spacing.margin(0);
 
     &:focus {outline: none;}
@@ -116,9 +82,4 @@ $sb-slider-root: 'sb-slider';
   $color-palette) {
     @include slider-theme($theme, $color);
   }
-
-  @include spacing.for-each-size using ($size, $value) {
-    @include slider-size($size, $value);
-  }
-
 }

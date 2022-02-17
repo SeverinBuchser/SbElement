@@ -1,19 +1,13 @@
-<div [ngClass]="getClasses()">
-  <span *ngIf="label" [ngClass]="rootClass + '__label'">{{ label }}</span>
-  <input
-    [ngClass]="rootClass + '__slider'"
-    type="range"
-    [min]="min"
-    [max]="max"
-    [step]="step"
-    list="steplist"
-    [(ngModel)]="value"/>
-  <span
-    *ngIf="showValue"
-    [ngClass]="rootClass + '__value'">
-    {{ value | number: numberPipingValue }} {{ valueSuffix }}
-  </span>
-  <datalist id="steplist">
-    <option *ngFor="let snapPoint of snapPoints" [value]="snapPoint"></option>
-  </datalist>
-</div>
+<input
+  type="range"
+  [min]="min"
+  [max]="max"
+  [step]="step"
+  [attr.list]="steplistId"
+  [(ngModel)]="value"
+  (blur)="setFocusedState(false)"
+  (focus)="setFocusedState(true)"
+  [disabled]="disabled"/>
+<datalist [id]="steplistId">
+  <option *ngFor="let snapPoint of snapPoints" [value]="snapPoint"></option>
+</datalist>
