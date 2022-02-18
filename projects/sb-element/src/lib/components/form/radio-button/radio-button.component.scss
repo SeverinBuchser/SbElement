@@ -9,11 +9,11 @@ Radio
 
 // THEME
 @mixin radio-theme($theme, $color) {
-  &--#{$theme}-#{$color} input {
+  &.sb--#{$theme}.sb--#{$color} input {
     border-color: theming.get-accent($theme);
   }
 
-  &--#{$theme}-#{$color} input:checked {
+  &.sb--#{$theme}.sb--#{$color} input:checked {
     background: theming.get-color($theme, $color);
     border-color: theming.get-color($theme, $color);
   }
@@ -22,29 +22,32 @@ Radio
 // ROOT
 $sb-radio-button-root: 'sb-radio';
 .#{$sb-radio-button-root} {
-  @include display.flex($justify: flex-start, $gap: s);
+  display: block;
+  label {
+    @include display.flex($justify: flex-start, $gap: s);
 
-  span:empty {
-    display: none;
-  }
+    span:empty {
+      display: none;
+    }
 
-  span {
-    @include display.flex();
-    height: 100%;
-  }
+    span {
+      @include display.flex();
+      height: 100%;
+    }
 
-  input {
-    appearance: none;
-    /* For iOS < 15 to remove gradient background */
-    background-color: transparent;
-    height: spacing.get-spacing(d);
-    width: spacing.get-spacing(d);
-    @include border.border($width: d, $style: solid);
-    cursor: pointer;
-    /* Not removed via appearance */
-    @include spacing.margin(0);
-    @include border.radius(50%);
-    @include transitioning.ease(200ms, background, border);
+    input {
+      appearance: none;
+      /* For iOS < 15 to remove gradient background */
+      background-color: transparent;
+      height: spacing.get-spacing(d);
+      width: spacing.get-spacing(d);
+      @include border.border($width: d, $style: solid);
+      cursor: pointer;
+      /* Not removed via appearance */
+      @include spacing.margin(0);
+      @include border.radius(50%);
+      @include transitioning.ease(200ms, background, border);
+    }
   }
 
   @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
