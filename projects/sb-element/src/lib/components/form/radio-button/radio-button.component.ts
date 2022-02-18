@@ -24,7 +24,7 @@ const SbRadioButtonCore = mixinDisable(
   styleUrls: ['./radio-button.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class.disabled]': 'disabeld'
+    '[class.disabled]': 'disabled'
   },
   inputs: [
     'size',

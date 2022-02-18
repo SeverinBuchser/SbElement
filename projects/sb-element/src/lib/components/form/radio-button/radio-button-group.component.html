@@ -1,10 +1,12 @@
-<div [ngClass]="getClasses()">
+<div>
   <sb-radio-button
     *ngFor="let option of options"
+    [color]="color"
     [(ngModel)]="value"
     [name]="name"
     [label]="option"
-    [disabled]="disabled"
-    [color]="color">
+    (focus)="setFocusedState(true)"
+    (blur)="setFocusedState(false)"
+    [disabled]="disabled">
   </sb-radio-button>
 </div>
