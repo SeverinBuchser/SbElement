@@ -1,20 +1,21 @@
 <button
-  sb-button
   type="button"
   [color]="color"
   [size]="size"
   [isPlain]="plain"
   [isPill]="pill"
+  (focus)="setFocusedState(true)"
+  (blur)="setFocusedState(false)"
   [disabled]="disabled"
   (click)="toggle()">
   {{ value }}
   <ng-content *ngIf="!value"></ng-content>
   <sb-icon>&#xe5cf;</sb-icon>
 </button>
-<div [ngClass]="rootClass + '__options-wrapper'">
-  <div [ngClass]="rootClass + '__options'">
+<div [ngClass]="className + '__options-wrapper'">
+  <div [ngClass]="className + '__options'">
     <div
-      [ngClass]="rootClass + '__option'"
+      [ngClass]="className + '__option'"
       *ngFor="let option of options"
       (click)="select(option)">
         {{ option }}

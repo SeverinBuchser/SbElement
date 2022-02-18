@@ -159,7 +159,7 @@
           [(ngModel)]="model.radios"
           name="radios"
           #radios="ngModel"
-          [options]="['Option 1', 'Option 2', 'Option 3']"
+          [options]="options"
           [disabled]="false">
         </sb-radio-button-group>
         <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
@@ -170,7 +170,7 @@
           [(ngModel)]="model.select"
           name="select"
           #select="ngModel"
-          [options]="['Option 1', 'Option 2', 'Option 3']">
+          [options]="options">
           Select
         </sb-select-button>
         <sb-slider

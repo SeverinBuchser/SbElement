@@ -9,7 +9,7 @@ Checkbox-Group
 
 // THEME
 @mixin select-button-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     color: theming.get-text($theme, $color);
 
     button {
@@ -21,7 +21,7 @@ Checkbox-Group
       }
     }
   }
-  &--#{$theme}-#{$color} &__option {
+  &.sb--#{$theme}.sb--#{$color} &__option {
     background: theming.get-color($theme, $color);
     color: theming.get-text($theme, $color);
     &:hover {
@@ -37,21 +37,25 @@ Checkbox-Group
 
 // SIZE
 @mixin select-button-size($size, $value) {
-  &--#{$size} button {
+  &.sb--#{$size} button {
+    height: $value;
     width: calc($value * 5);
   }
 
-  &--#{$size} &__option {
+  &.sb--#{$size} &__options {
+    max-height: calc(3 * $value);
+  }
+
+  &.sb--#{$size} &__option {
+    height: $value;
     width: calc($value * 5);
-    @include spacing.padding-x(s);
-    @include spacing.padding-y(calc(spacing.get-spacing(s) / 2));
   }
   @include select-button-pill($size, $value);
 }
 
 // SIZE
 @mixin select-button-pill($size, $value) {
-  &--#{$size}.pill &__options {
+  &.sb--#{$size}.pill &__options {
     border-bottom-left-radius: calc($value / 2);
     border-bottom-right-radius: calc($value / 2);
   }
@@ -59,6 +63,7 @@ Checkbox-Group
 
 // ROOT
 .sb-select-button {
+  display: block;
   position: relative;
   cursor: pointer;
 
@@ -79,9 +84,9 @@ Checkbox-Group
   }
 
   &__options {
-    overflow: hidden;
-    height: auto;
-    transform-origin:top;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform-origin: top;
     position: absolute;
     transform: scaleY(0);
     z-index: 998;

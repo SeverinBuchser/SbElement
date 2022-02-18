@@ -1,6 +1,24 @@
-import { Attribute, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ThemeService, ControlValueAccessorSizeThemeColorInputDirective } from '../../../core';
+import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ThemeService, mixinDisable, mixinFocus, mixinSize, mixinColor, mixinTheme, mixinClassName, Color, Size } from '../../../core';
+
+const SbSelectButtonCore = mixinDisable(
+  mixinFocus(
+    mixinSize(
+      mixinColor(
+        mixinTheme(
+          mixinClassName(
+            class {
+              constructor(
+                public _elementRef: ElementRef,
+                public _themeService: ThemeService) {}
+            }, 'sb-select-button'
+          )
+        ), Color.PRIMARY
+      ), Size.DEFAULT
+    )
+  )
+);
 
 @Component({
   selector: 'sb-select-button',
@@ -10,47 +28,87 @@ import { ThemeService, ControlValueAccessorSizeThemeColorInputDirective } from '
   host: {
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
+    '[class.open]': 'open'
   },
+  inputs: [
+    'size',
+    'color',
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
+  ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SelectButtonComponent,
     multi: true
   }]
 })
-export class SelectButtonComponent extends ControlValueAccessorSizeThemeColorInputDirective<string> {
+export class SelectButtonComponent extends SbSelectButtonCore implements ControlValueAccessor {
 
-  public rootClass = 'sb-select-button';
+  @Input()
+  set isPill(isPill: boolean) {
+    this.pill = isPill;
+  }
+
+  @Input()
+  set isPlain(isPlain: boolean) {
+    this.plain = isPlain;
+  }
 
   public plain: boolean = false;
   public pill: boolean = false;
-  public showOptions: boolean = false;
+  public open: boolean = false;
 
   @Input()
   public options: Array<string> = new Array<string>();
 
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
+
+  private innerValue: string | undefined = undefined;
+
+  set value(value: string) {
+    if (value !== this.innerValue && !this.disabled) {
+      this.innerValue = value;
+      this.onChange(value);
+    }
+  }
+
+  get value(): string {
+    if (this.innerValue) {
+      return this.innerValue;
+    } else return '';
+  }
+
   constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService,
     @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any,
-    themeService: ThemeService
+    @Optional() @Attribute('plain') plain: any
   ) {
-    super(themeService);
+    super(elementRef, themeService);
     if (pill == '') this.pill = true;
     if (plain == '') this.plain = true;
   }
 
   public toggle(): void {
-    this.showOptions = !this.showOptions;
+    this.open = !this.open;
   }
 
   public select(newOption: string) {
     this.toggle();
-    this.writeValueInnerChange(newOption);
+    this.value = newOption;
   }
 
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    classes.push(this.showOptions ? 'open' : 'closed');
-    return classes;
+  public writeValue(value: string): void {
+    if (value !== this.innerValue && !this.disabled) {
+      this.innerValue = value;
+    }
   }
+
+  public registerOnChange(fn: any): void { this.onChange = fn }
+  public registerOnTouched(fn: any): void { this.onTouch = fn }
+  public onBlur(): void { this.onTouch() }
 }

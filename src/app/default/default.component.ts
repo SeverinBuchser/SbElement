@@ -16,7 +16,7 @@ export class DefaultComponent extends ThemeInputDirective {
   public value: any = 'Switch is turned OFF';
   public valuecheckbox: boolean = false;
 
-  public options = ['Option 1', 'Option 2', 'Option 3'];
+  public options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
 
   public model = {
     select: 'Option 1',
