@@ -13,7 +13,7 @@ Popper
   &.sb--#{$theme} &__popper {
     background: theming.get-background($theme);
     color: theming.get-background-text($theme);
-    @include border.border-accent($theme, $radius: s);
+    @include border.border-accent($theme);
   }
 
   &.sb--#{$theme} &__arrow {
@@ -53,6 +53,7 @@ Popper
     z-index: 999;
     @include transitioning.ease(300ms, visibility, opacity);
     @include spacing.padding(s);
+    @include border.radius(s);
 
     &.visible {
       visibility: visible;

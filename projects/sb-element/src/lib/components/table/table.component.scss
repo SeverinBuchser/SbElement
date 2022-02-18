@@ -37,6 +37,7 @@ Table
 .sb-table {
 
   display: flex;
+  @include border.radius(s);  
 
   table {
     border-collapse: collapse;
