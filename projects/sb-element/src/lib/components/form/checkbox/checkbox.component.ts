@@ -1,26 +1,38 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinTheme, ThemeService } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, ThemeService } from '../../../core';
 
-const SbCheckboxCore = mixinDisable(mixinColor(
-  mixinTheme(
-    mixinClassName(
-      class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: ThemeService) {}
-      }, 'sb-checkbox'
+const SbCheckboxCore = mixinFocus(
+  mixinDisable(
+    mixinColor(
+      mixinTheme(
+        mixinClassName(
+          class {
+            constructor(
+              public _elementRef: ElementRef,
+              public _themeService: ThemeService) {}
+          }, 'sb-checkbox'
+        )
+      ), Color.PRIMARY
     )
-  ), Color.PRIMARY
-));
+  )
+);
 
 @Component({
   selector: 'sb-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.disabled]': 'disabled'
+  },
   inputs: [
-    'color'
+    'color',
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -39,15 +51,17 @@ export class SbCheckboxComponent extends SbCheckboxCore implements ControlValueA
   private checked: boolean = false;
 
   set value(value: boolean) {
-    this.checked = value;
-    this.emitChange(this.checked);
+    if (value !== this.checked && !this.disabled) {
+      this.checked = value;
+      this.onChange(value);
+    }
   }
   get value(): boolean {
     return this.checked;
   }
 
-  private onChange: (checked: boolean) => void = () => {};
-  private onTouch: () => void = () => {};
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
 
   constructor(
     elementRef: ElementRef,
@@ -56,12 +70,14 @@ export class SbCheckboxComponent extends SbCheckboxCore implements ControlValueA
     super(elementRef, themeService);
   }
 
-  public writeValue(value: boolean): void { this.checked = value }
+  public writeValue(value: boolean): void {
+    if (value !== this.checked && !this.disabled) {
+      this.checked = value;
+    }
+  }
 
-  public registerOnChange(fn: (checked: boolean) => void): void { this.onChange = fn }
+  public registerOnChange(fn: any): void { this.onChange = fn }
   public registerOnTouched(fn: any): void { this.onTouch = fn }
-
-  public emitChange(checked: boolean): void { this.onChange(checked) }
-  public emitTouch(): void { this.onTouch() }
+  public onBlur(): void { this.onTouch() }
 
 }

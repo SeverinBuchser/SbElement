@@ -5,8 +5,9 @@
       [name]="name"
       [value]="label"
       [(ngModel)]="value"
-      [disabled]="disabled"
-      (blur)="emitTouch()"/>
+      (focus)="setFocusedState(true)"
+      (blur)="setFocusedState(false)"
+      [disabled]="disabled"/>
     <sb-icon [ngClass]="className + '__checkmark'">&#xe5ca;</sb-icon>
   </div>
   <span>{{ label }}</span>
