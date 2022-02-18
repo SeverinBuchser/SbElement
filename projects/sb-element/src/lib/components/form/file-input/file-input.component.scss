@@ -84,7 +84,6 @@ File Input
   }
 
   .sb-icon {
-    @include transitioning.ease(300ms, color);
     display: inline-block;
     vertical-align: middle;
   }

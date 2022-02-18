@@ -36,6 +36,8 @@ export class DefaultComponent extends ThemeInputDirective {
 
   public table!: {data: Array<Array<any>>, head: Array<any>};
 
+  public toggle: boolean = false;
+
   @ViewChild('timeline')
   public timeline!: SbTimelineComponent;
 
@@ -69,12 +71,16 @@ export class DefaultComponent extends ThemeInputDirective {
     this.alertService.success(message, Size.SMALL);
   }
 
-  toggleTheme(value: any) {
+  toggleTheme() {
     if (this.themeService.get() == 'dark') {
       this.themeService.commit('light');
     } else {
       this.themeService.commit('dark');
     }
+  }
+
+  log(value: any) {
+    console.log(value)
   }
 
   handleNavigate(crumb: string) {

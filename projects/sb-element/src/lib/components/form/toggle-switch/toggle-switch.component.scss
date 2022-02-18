@@ -9,7 +9,7 @@ Toggle-Switch
 
 // THEME
 @mixin toggle-switch-theme($theme, $color) {
-  &--#{$theme}-#{$color} {
+  &.sb--#{$theme}.sb--#{$color} {
     @include border.border($theme, $color, d);
     &.off {
       .sb-toggle-switch__toggle {
@@ -35,17 +35,17 @@ Toggle-Switch
   $padding: calc(($height - $diameter) / 2);
   $innerwidth: calc($width - 2 * $padding);
 
-  &--#{$size} {
+  &.sb--#{$size} {
     width: $width;
     height: $height;
-    border-radius: calc($height / 2);
+    @include border.radius(calc($value / 2));
 
     .sb-toggle-switch__toggle {
       top: calc($padding - 2px);
       left: calc($padding - 2px);
       width: $diameter;
       height: $diameter;
-      border-radius: calc($diameter / 2);
+      @include border.radius(calc($diameter / 2));
     }
 
     &.off {
@@ -63,7 +63,6 @@ Toggle-Switch
 
 // ROOT
 .sb-toggle-switch {
-  box-sizing: border-box;
   cursor: pointer;
   position: relative;
   @include transitioning.ease(300ms, background);

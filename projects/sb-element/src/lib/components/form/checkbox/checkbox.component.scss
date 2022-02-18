@@ -54,7 +54,8 @@ Checkbox
     appearance: none;
     /* For iOS < 15 to remove gradient background */
     background-color: transparent;
-    @include border.border($radius: 2px, $width: d);
+    @include border.border($width: d);
+    @include border.radius(2px);
     /* Not removed via appearance */
     @include spacing.margin(0);
     @include transitioning.ease(200ms, background, border);

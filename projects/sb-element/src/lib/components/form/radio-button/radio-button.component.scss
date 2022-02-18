@@ -39,7 +39,7 @@ $sb-radio-button-root: 'sb-radio';
     background-color: transparent;
     height: spacing.get-spacing(d);
     width: spacing.get-spacing(d);
-    border: 2px solid;
+    @include border.border($width: d, $style: solid);
     cursor: pointer;
     /* Not removed via appearance */
     @include spacing.margin(0);

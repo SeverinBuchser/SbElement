@@ -50,7 +50,7 @@ Button
     @include spacing.padding-x(calc($value / 1.5));
 
     &.pill {
-      @include border.radius(calc(spacing.get-size($size) / 2));
+      @include border.radius($size);
     }
     &.round {
       $height: spacing.get-size($size);

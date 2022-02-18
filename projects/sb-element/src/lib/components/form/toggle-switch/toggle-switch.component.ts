@@ -1,32 +1,87 @@
-import { Component, HostBinding, HostListener, ViewEncapsulation } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ControlValueAccessorSizeThemeColorInputDirective } from '../../../core/control-value-accessor-style-input/control-value-accessor-size-theme-color-input.directive';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTabindex, mixinTheme, Size, ThemeService } from '../../../core';
+
+const SbToggleSwitchCore = mixinFocus(
+  mixinDisable(
+    mixinTabindex(
+      mixinSize(
+        mixinColor(
+          mixinTheme(
+            mixinClassName(
+              class {
+                constructor(
+                  public _elementRef: ElementRef,
+                  public _themeService: ThemeService) {}
+              }, 'sb-toggle-switch'
+            )
+          ), Color.PRIMARY
+        ), Size.DEFAULT
+      ), 0
+    )
+  )
+);
 
 @Component({
   selector: 'sb-toggle-switch',
   templateUrl: './toggle-switch.component.html',
   styleUrls: ['./toggle-switch.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.on]': 'value',
+    '[class.off]': '!value',
+    '[class.disabled]': 'disabled',
+    '(click)': 'toggle()',
+  },
+  inputs: [
+    'size',
+    'color',
+    'disabled'
+  ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: ToggleSwitchComponent,
     multi: true
   }]
 })
-export class ToggleSwitchComponent extends ControlValueAccessorSizeThemeColorInputDirective<boolean> {
+export class ToggleSwitchComponent extends SbToggleSwitchCore implements ControlValueAccessor {
 
-  public rootClass = 'sb-toggle-switch';
-
-  @HostListener('click')
   public toggle(): void {
     this.value = !this.value;
   }
 
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    classes.push(this.value ? 'on' : 'off');
-    return classes;
+  private onChange: any = () => {};
+  private onTouch: any = () => {};
+
+  private innerValue: boolean = false;
+
+  set value(value: boolean) {
+    if (value !== this.innerValue && !this.disabled) {
+      this.innerValue = value;
+      this.onChange(value);
+    }
   }
+
+  get value(): boolean {
+    return this.innerValue;
+  }
+
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
+  }
+
+
+  public writeValue(value: boolean): void {
+    if (value !== this.innerValue && !this.disabled) {
+      this.innerValue = value;
+    }
+  }
+
+  public registerOnChange(fn: any): void { this.onChange = fn }
+  public registerOnTouched(fn: any): void { this.onTouch = fn }
+  public onBlur(): void { this.onTouch() }
 
 }

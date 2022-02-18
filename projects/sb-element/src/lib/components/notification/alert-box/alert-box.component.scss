@@ -33,11 +33,10 @@ Alert Box
 @mixin alert-box-size($size, $value) {
   &.sb--#{$size} {
     height: $value;
-    @include border.radius($size);
     @include spacing.padding-x($size);
 
     &.pill {
-      @include border.radius(spacing.get-size($size));
+      @include border.radius($size);
     }
   }
 }
@@ -45,6 +44,7 @@ Alert Box
 // ROOT
 .sb-alert-box {
   @include display.flex(flex-start, $gap: s);
+  @include border.radius(s);
 
   &.center {justify-content: center;}
 

@@ -77,22 +77,18 @@ Border
 // Mixin for a border with accent color of the specified theme.
 // @param {Map | String} $theme The theme name or color-palette.
 // @param {String} $width The border width size.
-// @param {String} $radius The border radius.
 // @param {String} $style The border style.
-@mixin border-accent($theme: null, $width: s, $radius: s, $style: solid) {
+@mixin border-accent($theme: null, $width: s, $style: solid) {
   border: get-border-accent($theme, $width, $style);
-  @include radius($radius);
 }
 
 // Mixin for a border with the specified color of the specified theme.
 // @param {Map | String} $theme The theme name or color-palette.
 // @param {String} $theme The color name.
 // @param {String} $width The border width size.
-// @param {String} $radius The border radius.
 // @param {String} $style The border style.
-@mixin border($theme: null, $color: null, $width: s, $radius: s, $style: solid) {
+@mixin border($theme: null, $color: null, $width: s, $style: solid) {
   border: get-border($theme, $color, $width, $style);
-  @include radius($radius);
 }
 
 // Mixin for adding a border radius on the top left.

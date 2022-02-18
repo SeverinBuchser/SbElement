@@ -68,7 +68,7 @@ Slider
     @include style-thumbs {
       height: $height;
       width: $height;
-      border-radius: calc($height / 2);
+      @include border.radius(50%);
       transform: translateY(calc($height / (-4)));
     }
 

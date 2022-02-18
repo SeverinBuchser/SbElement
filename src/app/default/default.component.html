@@ -6,9 +6,10 @@
     <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
     <sb-link left [active]="true">Example</sb-link>
     <sb-toggle-switch right
-      size="s"
+      size="d"
       pill
-      (change)="toggleTheme($event)"
+      [ngModel]="toggle"
+      (ngModelChange)="toggleTheme()"
       [color]="color">
     </sb-toggle-switch>
   </sb-nav-bar>
@@ -133,7 +134,7 @@
         This is a Form
       </div>
       <div class="sb-form__content">
-        <sb-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" pill plain>
+        <sb-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" plain>
           This is a warning!
         </sb-alert-box>
         <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">

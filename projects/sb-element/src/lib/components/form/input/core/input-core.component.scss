@@ -42,7 +42,7 @@ Input-Core
   &.sb--#{$size} {
     height: $value;
     .sb-input-core__spinner-control {
-      border-radius: 4px;
+      @include border.radius(4px);
     }
   }
 
@@ -74,7 +74,7 @@ Input-Core
     border: 0;
     @include spacing.padding(0);
     @include typography.font($size: s);
-    
+
     &::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
