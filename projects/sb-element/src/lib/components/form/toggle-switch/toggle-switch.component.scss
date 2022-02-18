@@ -11,15 +11,13 @@ Toggle-Switch
 @mixin toggle-switch-theme($theme, $color) {
   &.sb--#{$theme}.sb--#{$color} {
     @include border.border($theme, $color, d);
-    &.off {
-      .sb-toggle-switch__toggle {
-        background: theming.get-color($theme, $color);
-      }
+    &.off div {
+      background: theming.get-color($theme, $color);
     }
 
     &.on {
       background: theming.get-color($theme, $color);
-      .sb-toggle-switch__toggle {
+      div {
         background: theming.get-text($theme, $color);
       }
     }
@@ -37,10 +35,10 @@ Toggle-Switch
 
   &.sb--#{$size} {
     width: $width;
-    height: $height;
-    @include border.radius(calc($value / 2));
+    height: $value;
+    @include border.radius($size);
 
-    .sb-toggle-switch__toggle {
+    div {
       top: calc($padding - 2px);
       left: calc($padding - 2px);
       width: $diameter;
@@ -48,15 +46,11 @@ Toggle-Switch
       @include border.radius(calc($diameter / 2));
     }
 
-    &.off {
-      .sb-toggle-switch__toggle {
-        transform: translateX(0);
-      }
+    &.off div {
+      transform: translateX(0);
     }
-    &.on {
-      .sb-toggle-switch__toggle {
-        transform: translateX(calc($innerwidth - $diameter));
-      }
+    &.on div {
+      transform: translateX(calc($innerwidth - $diameter));
     }
   }
 }
@@ -66,7 +60,8 @@ Toggle-Switch
   cursor: pointer;
   position: relative;
   @include transitioning.ease(300ms, background);
-  &__toggle {
+  
+  div {
     position: absolute;
     @include transitioning.ease(300ms, transform, background);
   }

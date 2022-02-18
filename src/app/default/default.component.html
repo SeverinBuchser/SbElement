@@ -5,13 +5,14 @@
     <sb-link [routerLink]="['/', 'sb']" left>Severin Buchser</sb-link>
     <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
     <sb-link left [active]="true">Example</sb-link>
-    <sb-toggle-switch right
-      size="d"
-      pill
+    <sb-toggle
+      right
+      type="switch"
+      size="s"
+      [color]="color"
       [ngModel]="toggle"
-      (ngModelChange)="toggleTheme()"
-      [color]="color">
-    </sb-toggle-switch>
+      (ngModelChange)="toggleTheme()">
+    </sb-toggle>
   </sb-nav-bar>
   <sb-breadcrumbs [crumbs]="crumbs" (navigate)="handleNavigate($event)"></sb-breadcrumbs>
   <sb-container ngClass="container">

@@ -23,7 +23,7 @@ const SbToggleSwitchCore = mixinFocus(
 );
 
 @Component({
-  selector: 'sb-toggle-switch',
+  selector: 'sb-toggle[type=switch]',
   templateUrl: './toggle-switch.component.html',
   styleUrls: ['./toggle-switch.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -32,6 +32,8 @@ const SbToggleSwitchCore = mixinFocus(
     '[class.off]': '!value',
     '[class.disabled]': 'disabled',
     '(click)': 'toggle()',
+    '(focus)': 'setFocusedState(true)',
+    '(blur)': 'setFocusedState(false)'
   },
   inputs: [
     'size',
