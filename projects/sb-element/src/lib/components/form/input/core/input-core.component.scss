@@ -89,7 +89,6 @@ Input-Core
   &__spinner-control {
     @include transitioning.ease(200ms, background, color);
     transform: rotate(-90deg);
-    font-size: 110% !important;
     text-decoration: none;
     cursor: pointer;
   }
