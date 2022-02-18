@@ -84,6 +84,7 @@ Checkbox-Group
     transform-origin:top;
     position: absolute;
     transform: scaleY(0);
+    z-index: 998;
     @include border.radius-bottom-left(s);
     @include border.radius-bottom-right(s);
     @include transitioning.ease($options-animation-duration, transform);
@@ -95,14 +96,13 @@ Checkbox-Group
   }
 
   &.open button {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
     @include transitioning.ease($button-animation-duration,
       background,
       color,
       border-radius
     );
-    transition-delay: 0;
     .sb-icon {transform: rotate(180deg);}
   }
 

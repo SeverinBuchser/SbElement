@@ -102,6 +102,7 @@ Input-Core
     pointer-events: none;
     transform-origin: left center;
     transform: translateY(-50%);
+    z-index: 997;
 
     @include transitioning.ease(200ms, transform, color);
   }
