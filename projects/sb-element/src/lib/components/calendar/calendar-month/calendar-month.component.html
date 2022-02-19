@@ -1,0 +1,15 @@
+<div [ngClass]="className + '__week-days'">
+  <div *ngFor="let weekDay of weekDays">
+    {{ weekDay }}
+  </div>
+</div>
+<div [ngClass]="className + '__month'">
+  <sb-calendar-date
+    [color]="color"
+    *ngFor="let date of calendarMonth"
+    [date]="date"
+    (click)="handleSelect(date)"
+    [markedDates]="markedDates"
+    [showingMonthStart]="showingMonthStart">
+  </sb-calendar-date>
+</div>

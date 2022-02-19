@@ -1,4 +1,5 @@
 export * from './notification';
+export * from './calendar';
 export * from './bar';
 export * from './card';
 export * from './container';

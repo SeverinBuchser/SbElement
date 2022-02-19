@@ -1,13 +1,28 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SizeThemeColorInputDirective } from "../../../../core";
+import { Color, mixinDisable, mixinFocus, Size } from "../../core";
 import * as fns from "date-fns";
-import { MarkedDates } from "../marked-dates";
+import { MarkedDates } from "./marked-dates";
+
+const SbCalendarCore = mixinDisable(mixinFocus(class {}));
 
 @Component({
-  selector: 'sb-date-picker-popper',
-  templateUrl: './date-picker-popper.component.html'
+  selector: 'sb-calendar',
+  templateUrl: './calendar.component.html',
+  inputs: [
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
+  ],
 })
-export class DatePickerPopperComponent extends SizeThemeColorInputDirective {
+export class SbCalendarsComponent extends SbCalendarCore {
+
+  @Input()
+  public color: string = Color.PRIMARY;
+
+  @Input()
+  public size: string = Size.DEFAULT;
 
   @Input()
   public format: string = 'yyyy-MM-dd';

@@ -18,18 +18,15 @@ import { SelectButtonComponent } from './select-button/select-button.component';
 import { SliderComponent } from './slider/slider.component';
 import { FileInputComponent } from './file-input/file-input.component';
 import { PopperModule } from "../popper/popper.module";
-import { CalendarMonthComponent } from "./date/calendar-month/calendar-month.component";
-import { CalendarNavigationComponent } from './date/calendar-navigation/calendar-navigation.component';
-import { DatePickerPopperComponent } from './date/popper/date-picker-popper.component';
 import { DateRangePickerComponent } from './date/range/date-range-picker.component';
 import { TimePickerComponent } from './time/time-picker.component';
+import { SbCalendarModule } from "../calendar/calendar.module";
 
 @NgModule({
   declarations: [
     SbButtonComponent,
     DatePickerComponent,
     DateRangePickerComponent,
-    DatePickerPopperComponent,
     IconButtonComponent,
     ToggleSwitchComponent,
     SbCheckboxComponent,
@@ -38,8 +35,6 @@ import { TimePickerComponent } from './time/time-picker.component';
     SelectButtonComponent,
     SliderComponent,
     FileInputComponent,
-    CalendarMonthComponent,
-    CalendarNavigationComponent,
     TimePickerComponent,
   ],
   imports: [
@@ -50,13 +45,13 @@ import { TimePickerComponent } from './time/time-picker.component';
     InputModule,
     SpinnerModule,
     PopperModule,
+    SbCalendarModule
   ],
   exports: [
     // components
     SbButtonComponent,
     DatePickerComponent,
     DateRangePickerComponent,
-    DatePickerPopperComponent,
     IconButtonComponent,
     ToggleSwitchComponent,
     SbCheckboxComponent,
@@ -65,8 +60,6 @@ import { TimePickerComponent } from './time/time-picker.component';
     SelectButtonComponent,
     SliderComponent,
     FileInputComponent,
-    CalendarMonthComponent,
-    CalendarNavigationComponent,
     TimePickerComponent,
 
     // modules

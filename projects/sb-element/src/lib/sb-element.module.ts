@@ -7,6 +7,8 @@ import { BarModule } from "./components/bar/bar.module";
 import { FormModule } from './components/form/form.module';
 import { IconModule } from './components/icon/icon.module';
 import { PopperModule } from './components/popper/popper.module';
+import { NotificationModule } from "./components/notification/notification.module";
+import { SbCalendarModule } from "./components/calendar/calendar.module";
 
 // Components
 import { SbContainerComponent } from './components/container/container.component';
@@ -18,7 +20,6 @@ import { SbGridComponent } from './components/grid/grid.component';
 import { SbTimelineComponent } from './components/timeline/timeline.component';
 import { SbLinkComponent } from './components/link/link.component';
 import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
-import { NotificationModule } from "./components/notification/notification.module";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { NotificationModule } from "./components/notification/notification.modul
     FormModule,
     IconModule,
     PopperModule,
-    NotificationModule
+    NotificationModule,
+    SbCalendarModule
   ],
   exports: [
     // Components
@@ -56,7 +58,8 @@ import { NotificationModule } from "./components/notification/notification.modul
     FormModule,
     IconModule,
     PopperModule,
-    NotificationModule
+    NotificationModule,
+    SbCalendarModule
   ]
 })
 export class SbElementModule { }

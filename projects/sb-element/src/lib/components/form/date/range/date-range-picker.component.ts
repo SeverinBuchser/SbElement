@@ -3,7 +3,7 @@ import { mixinDisable, mixinFocus, Color, Size } from "../../../../core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
 import { SbDoubleInput } from "../../input";
-import { MarkedDates } from "../marked-dates";
+import { MarkedDates } from "../../../calendar";
 
 const SbDateRangePickerCore = mixinDisable(mixinFocus(class {}));
 

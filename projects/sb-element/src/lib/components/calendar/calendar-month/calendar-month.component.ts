@@ -1,17 +1,42 @@
-import { Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { ThemeService, SizeThemeColorInputDirective } from "../../../../core";
+import { ThemeService, mixinDisable, mixinFocus, mixinSize, mixinColor, mixinClassName, mixinTheme, Color, Size } from "../../../core";
 import { MarkedDates } from "../marked-dates";
+
+const SbCalendarMonthCore = mixinDisable(
+  mixinFocus(
+    mixinSize(
+      mixinColor(
+        mixinTheme(
+          mixinClassName(
+            class {
+              constructor(
+                public _elementRef: ElementRef,
+                public _themeService: ThemeService) {}
+            }, 'sb-calendar-month'
+          )
+        ), Color.PRIMARY
+      ), Size.DEFAULT
+    )
+  )
+);
 
 @Component({
   selector: 'sb-calendar-month',
   templateUrl: './calendar-month.component.html',
   styleUrls: ['./calendar-month.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  inputs: [
+    'size',
+    'color',
+    'disabled'
+  ],
+  outputs: [
+    'focus',
+    'blur'
+  ],
 })
-export class CalendarMonthComponent extends SizeThemeColorInputDirective {
-
-  public rootClass: string = 'sb-calendar-month';
+export class SbCalendarMonthComponent extends SbCalendarMonthCore {
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();
@@ -29,12 +54,18 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
     this._showingMonthStart = fns.startOfMonth(date);
     this.updateCalendarMonth()
   }
+  get showingMonthStart(): Date {
+    return this._showingMonthStart;
+  }
   private _showingMonthStart: Date = fns.startOfMonth(new Date());
   public calendarMonth!: Array<Date>;
   public weekDays: Array<string> = new Array<string>();
 
-  constructor(themeService: ThemeService) {
-    super(themeService);
+  constructor(
+    elementRef: ElementRef,
+    themeService: ThemeService
+  ) {
+    super(elementRef, themeService);
     this.updateCalendarMonth();
     this.createWeekDays();
   }
@@ -58,41 +89,5 @@ export class CalendarMonthComponent extends SizeThemeColorInputDirective {
     for (let day = 0 ; day < 42 ; day++) {
       this.calendarMonth.push(fns.addDays(calendarMonthStart, day));
     }
-  }
-
-  public format(date: Date): string {
-    return fns.format(date, 'dd');
-  }
-
-  public getClaendarDateClasses(date: Date): Array<string> {
-    let classes = new Array<string>();
-    classes.push(this.rootClass + '__date');
-    if (!this.markedDates.startEqualsEnd) {
-      if (this.markedDates.isBetween(date)) {
-        classes.push('between');
-        classes.push('marked');
-      } else if (this.markedDates.isStart(date)) {
-        classes.push('start');
-        classes.push('marked');
-      } else if (this.markedDates.isEnd(date)) {
-        classes.push('end');
-        classes.push('marked');
-      }
-    } else if (this.markedDates.startEqualsEnd) {
-      if (this.markedDates.isStartSameDay(date) && this.markedDates.isEndSameDay(date)) {
-        classes.push('marked');
-      }
-    }
-
-    if (!fns.isSameMonth(this._showingMonthStart, date)) {
-      classes.push('not-in-month')
-    }
-    return classes;
-  }
-
-  @HostBinding('class')
-  get classes(): Array<string> {
-    let classes = super.getClasses();
-    return classes;
   }
 }

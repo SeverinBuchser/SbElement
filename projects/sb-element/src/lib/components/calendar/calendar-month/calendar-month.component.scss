@@ -1,0 +1,41 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Calendar-Month
+******************************************************************************/
+
+// THEME
+@mixin calendar-month-color-class($theme, $color) {
+  &.sb--#{$theme}.sb--#{$color} {
+    .sb-calendar-month__week-days {
+      @include border.border-side(bottom, $theme, $color, d);
+    }
+  }
+}
+
+// ROOT
+.sb-calendar-month {
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+
+  &__week-days {
+    @include display.grid(repeat(7, spacing.get-size(m)), $gap: 0, $flow: row);
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__month {
+    @include display.grid(
+      repeat(7, spacing.get-size(m)),
+      repeat(6, spacing.get-size(m)), 0, $flow: row);
+    justify-items: center;
+    align-items: center;
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include calendar-month-color-class($theme, $color);
+  }
+}
