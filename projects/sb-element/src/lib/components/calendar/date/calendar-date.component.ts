@@ -1,20 +1,22 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { ThemeService, mixinColor, mixinClassName, mixinTheme, Color, mixinTabindex } from "../../../core";
+import { ThemeService, mixinColor, mixinClassName, mixinTheme, Color, mixinTabindex, mixinDisable } from "../../../core";
 import { MarkedDates } from "../marked-dates";
 
-const SbCalendarDateCore = mixinTabindex(
-  mixinColor(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: ThemeService) {}
-        }, 'sb-calendar-date'
-      )
-    ), Color.PRIMARY
-  ), 0
+const SbCalendarDateCore = mixinDisable(
+  mixinTabindex(
+    mixinColor(
+      mixinTheme(
+        mixinClassName(
+          class {
+            constructor(
+              public _elementRef: ElementRef,
+              public _themeService: ThemeService) {}
+          }, 'sb-calendar-date'
+        )
+      ), Color.PRIMARY
+    ), 0
+  )
 );
 
 @Component({
@@ -27,13 +29,19 @@ const SbCalendarDateCore = mixinTabindex(
     '[class.start]': 'isStart',
     '[class.end]': 'isEnd',
     '[class.between]': 'isBetween',
-    '[class.not-in-month]': 'isNotInMonth'
+    '[class.not-in-month]': 'isNotInMonth',
+    '[class.disabled]': 'disabled',
+    '(click)': 'handleClick()'
   },
   inputs: [
-    'color'
+    'color',
+    'disabled'
   ],
 })
 export class SbCalendarDateComponent extends SbCalendarDateCore {
+
+  @Output()
+  public select: EventEmitter<Date> = new EventEmitter<Date>();
 
   @Input()
   public date!: Date;
@@ -81,6 +89,12 @@ export class SbCalendarDateComponent extends SbCalendarDateCore {
     themeService: ThemeService
   ) {
     super(elementRef, themeService);
+  }
+
+  public handleClick(): void {
+    if (!this.disabled) {
+      this.select.emit(this.date);
+    }
   }
 
 }

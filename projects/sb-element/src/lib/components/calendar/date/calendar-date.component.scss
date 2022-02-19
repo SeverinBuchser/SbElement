@@ -9,7 +9,7 @@ Calendar-Date
 // THEME
 @mixin calendar-date-color-class($theme, $color) {
   &.sb--#{$theme}.sb--#{$color} {
-    &.marked, &.marked:hover {
+    &.marked, &.marked:hover, &.marked.disabled:hover {
       .mark {background: theming.get-color($theme, $color);}
       span {color: theming.get-text($theme, $color);}
     }
@@ -17,6 +17,11 @@ Calendar-Date
     &:hover {
       .mark {background: theming.get-foreground($theme);}
       span {color: theming.get-foreground-text($theme);}
+    }
+
+    &.disabled:hover {
+      .mark {background: transparent;}
+      span {color: inherit;}
     }
 
     &.not-in-month {
@@ -38,6 +43,10 @@ Calendar-Date
   width: 100%;
   height: 63%;
   @include display.flex();
+
+  &.disabled {
+    cursor: not-allowed;
+  }
 
   span {
     z-index: 1;

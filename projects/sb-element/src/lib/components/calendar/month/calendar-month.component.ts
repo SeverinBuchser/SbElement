@@ -1,22 +1,20 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { ThemeService, mixinDisable, mixinFocus, mixinSize, mixinColor, mixinClassName, mixinTheme, Color, Size } from "../../../core";
+import { ThemeService, mixinFocus, mixinColor, mixinClassName, mixinTheme, Color, mixinDisable } from "../../../core";
 import { MarkedDates } from "../marked-dates";
 
 const SbCalendarMonthCore = mixinDisable(
   mixinFocus(
-    mixinSize(
-      mixinColor(
-        mixinTheme(
-          mixinClassName(
-            class {
-              constructor(
-                public _elementRef: ElementRef,
-                public _themeService: ThemeService) {}
-            }, 'sb-calendar-month'
-          )
-        ), Color.PRIMARY
-      ), Size.DEFAULT
+    mixinColor(
+      mixinTheme(
+        mixinClassName(
+          class {
+            constructor(
+              public _elementRef: ElementRef,
+              public _themeService: ThemeService) {}
+          }, 'sb-calendar-month'
+        )
+      ), Color.PRIMARY
     )
   )
 );
@@ -27,7 +25,6 @@ const SbCalendarMonthCore = mixinDisable(
   styleUrls: ['./calendar-month.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
-    'size',
     'color',
     'disabled'
   ],

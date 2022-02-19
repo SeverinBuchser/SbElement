@@ -9,7 +9,7 @@ Calendar-Navigation
 
 // THEME
 @mixin calendar-navigation-theme($theme, $color) {
-  &--#{$theme}-#{$color} .sb-icon:hover {
+  &.sb--#{$theme}.sb--#{$color} .sb-icon:hover {
     background: theming.get-foreground($theme);
   }
 }
@@ -46,6 +46,10 @@ Calendar-Navigation
 
   &.animate-left &__month-wrapper {
     @include animation.animation(slide-left 200ms ease);
+  }
+
+  &.disabled .sb-icon {
+    cursor: not-allowed;
   }
 
   @include theming.for-each-theme-color using ($theme, $theme-palette, $color,

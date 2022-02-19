@@ -1,0 +1,11 @@
+<sb-icon (click)="goToPreviousYear()" [color]="color">&#xeac3;</sb-icon>
+<sb-icon (click)="goToPreviousMonth()" [color]="color">&#xe314;</sb-icon>
+<div [ngClass]="className + '__month'">
+  <div [ngClass]="className + '__month-wrapper'">
+    <span [ngClass]="className + '__month-previous'">{{ previousMonthFormatted }}</span>
+    <span [ngClass]="className + '__month-current'">{{ monthFormatted }}</span>
+    <span [ngClass]="className + '__month-next'">{{ nextMonthFormatted }}</span>
+  </div>
+</div>
+<sb-icon (click)="goToNextMonth()" [color]="color">&#xe315;</sb-icon>
+<sb-icon (click)="goToNextYear()" [color]="color">&#xeac9;</sb-icon>
