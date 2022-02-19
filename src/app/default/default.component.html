@@ -1,224 +1,222 @@
-<div [ngClass]="getClasses()">
-  <sb-nav-bar>
-    <sb-icon left color="primary">&#xeb9b;</sb-icon>
-    <div left>SB Element Demo</div>
-    <sb-link [routerLink]="['/', 'sb']" left>Severin Buchser</sb-link>
-    <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
-    <sb-link left [active]="true">Example</sb-link>
-    <sb-toggle
-      right
-      type="switch"
-      size="s"
-      [color]="color"
-      [ngModel]="toggle"
-      (ngModelChange)="toggleTheme()">
-    </sb-toggle>
-  </sb-nav-bar>
-  <sb-breadcrumbs [crumbs]="crumbs" (navigate)="handleNavigate($event)"></sb-breadcrumbs>
-  <sb-container ngClass="container">
-    <div class="sidebar-container">
-      <sb-sidebar #sidebarOne>
-        <div sidebar>
-          <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
-        </div>
-        <div content>
-          <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
+<sb-nav-bar>
+  <sb-icon left color="primary">&#xeb9b;</sb-icon>
+  <div left>SB Element Demo</div>
+  <sb-link [routerLink]="['/', 'sb']" left>Severin Buchser</sb-link>
+  <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
+  <sb-link left [active]="true">Example</sb-link>
+  <sb-toggle
+    right
+    type="switch"
+    size="s"
+    [color]="color"
+    [ngModel]="toggle"
+    (ngModelChange)="toggleTheme()">
+  </sb-toggle>
+</sb-nav-bar>
+<sb-breadcrumbs [crumbs]="crumbs" (navigate)="handleNavigate($event)"></sb-breadcrumbs>
+<sb-container ngClass="container">
+  <div class="sidebar-container">
+    <sb-sidebar #sidebarOne>
+      <div sidebar>
+        <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
+      </div>
+      <div content>
+        <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
 
-          <sb-popper #popperOne position="bottom">
-            <div popper>
-              Popper
-            </div>
-            <button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
-          </sb-popper>
+        <sb-popper #popperOne position="bottom">
+          <div popper>
+            Popper
+          </div>
+          <button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
+        </sb-popper>
+      </div>
+    </sb-sidebar>
+  </div>
+</sb-container>
+<sb-container size="l">
+  <sb-grid dim="1x4" gap="l">
+    <sb-card size="s" color="primary" hover>
+      <div title>
+        Card with Hover
+      </div>
+      <div content>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+      </div>
+      <div footer>
+        Go checkout something else!
+      </div>
+    </sb-card>
+    <sb-card size="s" color="primary">
+      <div title>
+        Card without Hover
+      </div>
+      <div content>
+        <sb-timeline
+          color="primary"
+          size="l"
+          #timeline
+          [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
+        </sb-timeline>
+        <div class="timeline-control">
+          <button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</button>
+          <button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</button>
+          <button color="primary" (click)="timeline.previous()" plain size="s">Previous</button>
+          <button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</button>
+          <button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</button>
         </div>
-      </sb-sidebar>
+      </div>
+      <div footer>
+        <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
+      </div>
+    </sb-card>
+    <sb-card size="s" color="primary">
+      <div content>
+        <div class="pickers">
+          <sb-input
+            type="date"
+            [(ngModel)]="model.date"
+            name="date"
+            size="m"
+            [color]="'success'"
+            #date="ngModel">
+          </sb-input>
+          <sb-input
+            type="date-range"
+            [(ngModel)]="model.dateRange"
+            name="dateRange"
+            size="m"
+            [color]="'success'"
+            #dateRange="ngModel">
+          </sb-input>
+        </div>
+      </div>
+      <div footer>
+        <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
+      </div>
+    </sb-card>
+    <sb-card size="s" color="primary">
+      <div title>
+        Card without Hover
+      </div>
+      <div content>
+        <div class="pickers">
+          <sb-input
+            type="number"
+            placeholder="Number Input"
+            [(ngModel)]="model.spinner"
+            name="spinner"
+            size="m"
+            [color]="'success'"
+            #spinner="ngModel">
+          </sb-input>
+          <sb-input
+            type="time"
+            [(ngModel)]="model.time"
+            name="time"
+            size="m"
+            [color]="'success'"
+            #time="ngModel">
+          </sb-input>
+        </div>
+      </div>
+      <div footer>
+        <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
+      </div>
+    </sb-card>
+  </sb-grid>
+</sb-container>
+<sb-container size="l">
+  <sb-table color="primary" [head]="table.head" [body]="table.data" plain alignment="center"></sb-table>
+</sb-container>
+<sb-container size="l">
+  <form [ngClass]="'sb-form sb-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="sb-form__header left">
+      This is a Form
     </div>
-  </sb-container>
-  <sb-container size="l">
-    <sb-grid dim="1x4" gap="l">
-      <sb-card size="s" color="primary" hover>
-        <div title>
-          Card with Hover
-        </div>
-        <div content>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-        </div>
-        <div footer>
-          Go checkout something else!
-        </div>
-      </sb-card>
-      <sb-card size="s" color="primary">
-        <div title>
-          Card without Hover
-        </div>
-        <div content>
-          <sb-timeline
-            color="primary"
-            size="l"
-            #timeline
-            [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
-          </sb-timeline>
-          <div class="timeline-control">
-            <button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</button>
-            <button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</button>
-            <button color="primary" (click)="timeline.previous()" plain size="s">Previous</button>
-            <button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</button>
-            <button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</button>
-          </div>
-        </div>
-        <div footer>
-          <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
-        </div>
-      </sb-card>
-      <sb-card size="s" color="primary">
-        <div content>
-          <div class="pickers">
-            <sb-input
-              type="date"
-              [(ngModel)]="model.date"
-              name="date"
-              size="m"
-              [color]="'success'"
-              #date="ngModel">
-            </sb-input>
-            <sb-input
-              type="date-range"
-              [(ngModel)]="model.dateRange"
-              name="dateRange"
-              size="m"
-              [color]="'success'"
-              #dateRange="ngModel">
-            </sb-input>
-          </div>
-        </div>
-        <div footer>
-          <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
-        </div>
-      </sb-card>
-      <sb-card size="s" color="primary">
-        <div title>
-          Card without Hover
-        </div>
-        <div content>
-          <div class="pickers">
-            <sb-input
-              type="number"
-              placeholder="Number Input"
-              [(ngModel)]="model.spinner"
-              name="spinner"
-              size="m"
-              [color]="'success'"
-              #spinner="ngModel">
-            </sb-input>
-            <sb-input
-              type="time"
-              [(ngModel)]="model.time"
-              name="time"
-              size="m"
-              [color]="'success'"
-              #time="ngModel">
-            </sb-input>
-          </div>
-        </div>
-        <div footer>
-          <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
-        </div>
-      </sb-card>
-    </sb-grid>
-  </sb-container>
-  <sb-container size="l">
-    <sb-table color="primary" [head]="table.head" [body]="table.data" plain alignment="center"></sb-table>
-  </sb-container>
-  <sb-container size="l">
-    <form [ngClass]="'sb-form sb-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
-      <div class="sb-form__header left">
-        This is a Form
-      </div>
-      <div class="sb-form__content">
-        <sb-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" plain>
-          This is a warning!
-        </sb-alert-box>
-        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
-        <div>
-          <sb-checkbox
-            *ngFor="let checkbox of model.checkboxes"
-            [(ngModel)]="checkbox.checked"
-            name="checkboxes"
-            #checkboxes="ngModel"
-            [label]="checkbox.name"
-            name="checkboxes"
-            color="primary"
-            [disabled]="false">
-          </sb-checkbox>
-        </div>
-        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
-        <sb-radio-button-group
-          [(ngModel)]="model.radios"
-          name="radios"
-          #radios="ngModel"
-          [options]="options"
+    <div class="sb-form__content">
+      <sb-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" plain>
+        This is a warning!
+      </sb-alert-box>
+      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <div>
+        <sb-checkbox
+          *ngFor="let checkbox of model.checkboxes"
+          [(ngModel)]="checkbox.checked"
+          name="checkboxes"
+          #checkboxes="ngModel"
+          [label]="checkbox.name"
+          name="checkboxes"
+          color="primary"
           [disabled]="false">
-        </sb-radio-button-group>
-        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
-        <sb-select-button
+        </sb-checkbox>
+      </div>
+      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <sb-radio-button-group
+        [(ngModel)]="model.radios"
+        name="radios"
+        #radios="ngModel"
+        [options]="options"
+        [disabled]="false">
+      </sb-radio-button-group>
+      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <sb-select-button
+        pill
+        size="d"
+        [color]="color"
+        [(ngModel)]="model.select"
+        name="select"
+        #select="ngModel"
+        [options]="options">
+        Select
+      </sb-select-button>
+      <sb-slider
+        placeholder="Slider"
+        size="d"
+        [color]="color"
+        [max]="20"
+        [min]="-20"
+        [step]="0.1"
+        [snap]="[0, 3, 6]"
+        [(ngModel)]="model.slider"
+        name="slider"
+        #slider="ngModel">
+      </sb-slider>
+      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <sb-input
+        type="text"
+        placeholder="Enter your E-Mail"
+        size="m"
+        [color]="color"
+        [(ngModel)]="model.input"
+        name="input"
+        [disabled]="false"
+        #input="ngModel">
+      </sb-input>
+      <sb-input
+        type="file"
+        placeholder="File Input"
+        size="d"
+        pill
+        [color]="color"
+        [(ngModel)]="model.fileinput"
+        name="fileinput"
+        [disabled]="false"
+        #fileinput="ngModel">
+      </sb-input>
+    </div>
+    <div class="sb-form__footer center">
+      <sb-tooltip text="This is a tooltip!" position="left">
+        <button
+          type="submit"
+          class="sb-form__footer-element"
           pill
           size="d"
           [color]="color"
-          [(ngModel)]="model.select"
-          name="select"
-          #select="ngModel"
-          [options]="options">
-          Select
-        </sb-select-button>
-        <sb-slider
-          placeholder="Slider"
-          size="d"
-          [color]="color"
-          [max]="20"
-          [min]="-20"
-          [step]="0.1"
-          [snap]="[0, 3, 6]"
-          [(ngModel)]="model.slider"
-          name="slider"
-          #slider="ngModel">
-        </sb-slider>
-        <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
-        <sb-input
-          type="text"
-          placeholder="Enter your E-Mail"
-          size="m"
-          [color]="color"
-          [(ngModel)]="model.input"
-          name="input"
-          [disabled]="false"
-          #input="ngModel">
-        </sb-input>
-        <sb-input
-          type="file"
-          placeholder="File Input"
-          size="d"
-          pill
-          [color]="color"
-          [(ngModel)]="model.fileinput"
-          name="fileinput"
-          [disabled]="false"
-          #fileinput="ngModel">
-        </sb-input>
-      </div>
-      <div class="sb-form__footer center">
-        <sb-tooltip text="This is a tooltip!" position="left">
-          <button
-            type="submit"
-            class="sb-form__footer-element"
-            pill
-            size="d"
-            [color]="color"
-            [disabled]="!form.valid">
-              Submit
-          </button>
-        </sb-tooltip>
-      </div>
-    </form>
-  </sb-container>
-  <sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>
-</div>
+          [disabled]="!form.valid">
+            Submit
+        </button>
+      </sb-tooltip>
+    </div>
+  </form>
+</sb-container>
+<sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>

@@ -14,11 +14,15 @@
   grid-gap: 10px;
 }
 
-.default.default--light {
+.default {
+  display: block;
+}
+
+.default.sb--light {
   background: theming.get-background(light);
 }
 
-.default.default--dark {
+.default.sb--dark {
   background: theming.get-background(dark);
 }
 

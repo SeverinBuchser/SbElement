@@ -9,6 +9,9 @@ const SbDatePickerCore = mixinDisable(mixinFocus(class {}));
 @Component({
   selector: 'sb-input[type=date]',
   templateUrl: './date-picker.component.html',
+  inputs: [
+    'disabled'
+  ],
   outputs: [
     'focus',
     'blur'

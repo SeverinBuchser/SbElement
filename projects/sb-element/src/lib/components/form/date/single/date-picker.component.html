@@ -1,9 +1,12 @@
 <sb-popper #datePopper position="bottom">
   <sb-calendar popper
-    (select)="handlePickerSelect($event)"
-    [markedDates]="markedDates"
     [size]="size"
-    [color]="color">
+    [color]="color"
+    [markedDates]="markedDates"
+    (select)="handlePickerSelect($event)"
+    (blur)="setFocusedState(false)"
+    (focus)="setFocusedState(true)"
+    [disabled]="disabled">
   </sb-calendar>
   <sb-input
     content

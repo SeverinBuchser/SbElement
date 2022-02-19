@@ -1,17 +1,27 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
-import { SbAlertService, ThemeService, Size, SbTimelineComponent, ThemeInputDirective, MarkedDates } from 'sb-element';
+import { SbAlertService, ThemeService, Size, SbTimelineComponent, MarkedDates, mixinClassName, mixinTheme, mixinColor, Color } from 'sb-element';
 
 @Component({
   selector: 'app-default',
   templateUrl: './default.component.html',
-  styleUrls: ['./default.component.scss']
+  styleUrls: ['./default.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class DefaultComponent extends ThemeInputDirective {
-  public rootClass = 'default';
+export class DefaultComponent extends
+mixinColor(
+  mixinTheme(
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: ThemeService) {}
+      }, 'default'
+    )
+  ), Color.PRIMARY
+) {
   title = 'SbElement';
-  public color: 'warn' | 'success' | 'info' | 'primary' | 'secondary' | null = 'primary';
 
   public value: any = 'Switch is turned OFF';
   public valuecheckbox: boolean = false;
@@ -43,9 +53,10 @@ export class DefaultComponent extends ThemeInputDirective {
 
   constructor(
     themeService: ThemeService,
+    elementRef: ElementRef,
     private alertService: SbAlertService,
   ) {
-    super(themeService)
+    super(elementRef, themeService)
     this.table = {
       data: [[
         "Severin", "Buchser"
@@ -72,10 +83,10 @@ export class DefaultComponent extends ThemeInputDirective {
   }
 
   toggleTheme() {
-    if (this.themeService.get() == 'dark') {
-      this.themeService.commit('light');
+    if (this._themeService.get() == 'dark') {
+      this._themeService.commit('light');
     } else {
-      this.themeService.commit('dark');
+      this._themeService.commit('dark');
     }
   }
 
