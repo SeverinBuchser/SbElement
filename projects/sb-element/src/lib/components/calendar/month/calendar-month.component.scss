@@ -18,9 +18,9 @@ Calendar-Month
     }
 
     &:hover {
-      background: theming.get-foreground($theme);
+      background: theming.get-accent($theme);
       span {
-        color: theming.get-foreground-text($theme);
+        color: theming.get-accent-text($theme);
       }
     }
 
@@ -39,7 +39,7 @@ Calendar-Month
   position: relative;
   width: 100%;
   height: 63%;
-  @include border.radius(calc(0.63 * 6 / 4 * spacing.get-spacing(m)));
+  @include border.radius(calc(0.63 * 7 / 4 * spacing.get-spacing(m)));
   @include transitioning.ease(200ms);
   @include display.flex();
 

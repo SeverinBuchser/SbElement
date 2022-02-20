@@ -1,36 +1,43 @@
-<sb-calendar-navigation
-  [color]="color"
-  [(ngModel)]="showingMonthStart"
-  [monthFormat]="monthFormat"
-  (focus)="setFocusedState(true)"
-  (blur)="setFocusedState(false)"
-  [disabled]="disabled">
-</sb-calendar-navigation>
-<sb-calendar-dates
-  [color]="color"
-  [markedDates]="markedDates"
-  [showingMonthStart]="showingMonthStart"
-  [weekDayFormat]="weekDayFormat"
-  (select)="handleSelect($event)"
-  (focus)="setFocusedState(true)"
-  (blur)="setFocusedState(false)"
-  [disabled]="disabled">
-</sb-calendar-dates>
-<!--<sb-calendar-months
-  [color]="color"
-  [markedDates]="markedDates"
-  [showingYearStart]="showingMonthStart"
-  (select)="handleSelect($event)"
-  (focus)="setFocusedState(true)"
-  (blur)="setFocusedState(false)"
-  [disabled]="disabled">
-</sb-calendar-months>-->
-<!--<sb-calendar-years
-  [color]="color"
-  [markedDates]="markedDates"
-  [showingVicennialStart]="showingMonthStart"
-  (select)="handleSelect($event)"
-  (focus)="setFocusedState(true)"
-  (blur)="setFocusedState(false)"
-  [disabled]="disabled">
-</sb-calendar-years>-->
+<div [ngClass]="className + '__navigation'">
+  <sb-icon (click)="goToPreviousBig()" [color]="color">&#xeac3;</sb-icon>
+  <sb-icon (click)="goToPreviousSmall()" [color]="color">&#xe314;</sb-icon>
+  <div [ngClass]="className + '__navigation-month'" (click)="handleNavigationMode()">{{ navigationFormatted }}</div>
+  <sb-icon (click)="goToNextSmall()" [color]="color">&#xe315;</sb-icon>
+  <sb-icon (click)="goToNextBig()" [color]="color">&#xeac9;</sb-icon>
+</div>
+<ng-template [ngIf]="navigationMode == 'date'">
+  <sb-calendar-dates
+    [color]="color"
+    [markedDates]="markedDates"
+    [showingMonthStart]="showingDate"
+    [weekDayFormat]="weekDayFormat"
+    (select)="handleDateSelect($event)"
+    (focus)="setFocusedState(true)"
+    (blur)="setFocusedState(false)"
+    [disabled]="disabled">
+  </sb-calendar-dates>
+</ng-template>
+<ng-template [ngIf]="navigationMode == 'month'">
+  <sb-calendar-months
+    [color]="color"
+    [markedDates]="markedDates"
+    [showingYearStart]="showingDate"
+    [monthFormat]="monthFormat"
+    (select)="handleMonthSelect($event)"
+    (focus)="setFocusedState(true)"
+    (blur)="setFocusedState(false)"
+    [disabled]="disabled">
+  </sb-calendar-months>
+</ng-template>
+<ng-template [ngIf]="navigationMode == 'year'">
+  <sb-calendar-years
+    [color]="color"
+    [markedDates]="markedDates"
+    [showingVicennialStart]="showingDate"
+    [yearFormat]="yearFormat"
+    (select)="handleYearSelect($event)"
+    (focus)="setFocusedState(true)"
+    (blur)="setFocusedState(false)"
+    [disabled]="disabled">
+  </sb-calendar-years>
+</ng-template>

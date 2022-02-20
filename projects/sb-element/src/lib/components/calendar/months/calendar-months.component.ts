@@ -31,7 +31,7 @@ const SbCalendarMonthsCore = mixinDisable(
 export class SbCalendarMonthsComponent extends SbCalendarMonthsCore {
 
   @Input()
-  public color: string = Color.PRIMARY;
+  public color: string | undefined = Color.PRIMARY;
 
   @Input()
   public monthFormat: string = 'MMMM';

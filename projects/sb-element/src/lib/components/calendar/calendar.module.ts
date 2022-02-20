@@ -12,7 +12,6 @@ import { SbCalendarMonthComponent } from './month/calendar-month.component';
 import { SbCalendarMonthsComponent } from './months/calendar-months.component';
 import { SbCalendarYearComponent } from './year/calendar-year.component';
 import { SbCalendarYearsComponent } from './years/calendar-years.component';
-import { SbCalendarNavigationComponent } from './navigation/calendar-navigation.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { SbCalendarNavigationComponent } from './navigation/calendar-navigation.
     SbCalendarDatesComponent,
     SbCalendarMonthsComponent,
     SbCalendarYearsComponent,
-    SbCalendarNavigationComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +37,6 @@ import { SbCalendarNavigationComponent } from './navigation/calendar-navigation.
     SbCalendarDatesComponent,
     SbCalendarMonthsComponent,
     SbCalendarYearsComponent,
-    SbCalendarNavigationComponent,
   ]
 })
 export class SbCalendarModule { }

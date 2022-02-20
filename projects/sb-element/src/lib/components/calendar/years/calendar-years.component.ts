@@ -30,7 +30,7 @@ const SbCalendarYearsCore = mixinDisable(
 export class SbCalendarYearsComponent extends SbCalendarYearsCore {
 
   @Input()
-  public color: string = Color.PRIMARY;
+  public color: string | undefined = Color.PRIMARY;
 
   @Input()
   public yearFormat: string = 'yyyy';

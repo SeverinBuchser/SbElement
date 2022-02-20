@@ -15,8 +15,8 @@ Calendar-Date
     }
 
     &:hover {
-      .mark {background: theming.get-foreground($theme);}
-      span {color: theming.get-foreground-text($theme);}
+      .mark {background: theming.get-accent($theme);}
+      span {color: theming.get-accent-text($theme);}
     }
 
     &.disabled:hover {
