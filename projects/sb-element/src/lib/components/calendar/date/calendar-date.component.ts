@@ -53,27 +53,27 @@ export class SbCalendarDateComponent extends SbCalendarDateCore {
   public showingMonthStart!: Date;
 
   get isMarked(): boolean {
-    return !this.markedDates.startEqualsEnd && (
-      this.markedDates.isBetween(this.date) ||
+    return this.markedDates.isRange && (
+      this.markedDates.isBetweenDays(this.date) ||
       this.markedDates.isStartSameDay(this.date) ||
       this.markedDates.isEndSameDay(this.date)
     ) ||
-    this.markedDates.startEqualsEnd && (
+    !this.markedDates.isRange && (
       this.markedDates.isStartSameDay(this.date) &&
       this.markedDates.isEndSameDay(this.date)
     );
   }
 
   get isStart(): boolean {
-    return !this.markedDates.startEqualsEnd && this.markedDates.isStartSameDay(this.date);
+    return this.markedDates.isRangeDays && this.markedDates.isStartSameDay(this.date);
   }
 
   get isEnd(): boolean {
-    return !this.markedDates.startEqualsEnd && this.markedDates.isEndSameDay(this.date);
+    return this.markedDates.isRangeDays && this.markedDates.isEndSameDay(this.date);
   }
 
   get isBetween(): boolean {
-    return !this.markedDates.startEqualsEnd && this.markedDates.isBetween(this.date);
+    return this.markedDates.isRangeDays && this.markedDates.isBetweenDays(this.date);
   }
 
   get isNotInMonth(): boolean {

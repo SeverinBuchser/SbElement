@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
 import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, ThemeService } from "../../../core/";
@@ -46,7 +46,8 @@ const SbCalendarNavigationCore = mixinDisable(
 })
 export class SbCalendarNavigationComponent extends SbCalendarNavigationCore {
 
-  public rootClass: string = 'sb-calendar-navigation';
+  @Input()
+  public monthFormat: string = 'MMM. yyyy';
 
   public previousMonth?: Date;
   public nextMonth?: Date;
@@ -81,17 +82,17 @@ export class SbCalendarNavigationComponent extends SbCalendarNavigationCore {
   }
 
   get previousMonthFormatted(): string {
-    if (this.previousMonth) return fns.format(this.previousMonth, 'MMM. yyyy');
+    if (this.previousMonth) return fns.format(this.previousMonth, this.monthFormat);
     else return '';
   }
 
   get monthFormatted(): string {
-    if (this.month) return fns.format(this.month, 'MMM. yyyy');
+    if (this.month) return fns.format(this.month, this.monthFormat);
     else return '';
   }
 
   get nextMonthFormatted(): string {
-    if (this.nextMonth) return fns.format(this.nextMonth, 'MMM. yyyy');
+    if (this.nextMonth) return fns.format(this.nextMonth, this.monthFormat);
     else return '';
   }
 

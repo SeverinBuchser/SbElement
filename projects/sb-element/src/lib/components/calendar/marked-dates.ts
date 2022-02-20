@@ -4,9 +4,25 @@ export class MarkedDates {
   private _start: Date | undefined;
   private _end: Date | undefined;
 
-  get startEqualsEnd(): boolean {
+  get isRange(): boolean {
     if (this.start && this.end) {
-      return fns.isEqual(this.start, this.end);
+      return this.start != this.end;
+    } else return false;
+  }
+
+  get isRangeDays(): boolean {
+    if (this.start && this.end) {
+      if (this.start != this.end) {
+        return !fns.isEqual(fns.startOfDay(this.start), fns.startOfDay(this.end))
+      } else return false;
+    } else return false;
+  }
+
+  get isRangeMonths(): boolean {
+    if (this.start && this.end) {
+      if (this.start != this.end) {
+        return !fns.isEqual(fns.startOfMonth(this.start), fns.startOfMonth(this.end))
+      } else return false;
     } else return false;
   }
 
@@ -36,14 +52,24 @@ export class MarkedDates {
     else return false;
   }
 
+  public isStartSameMonth(date: Date): boolean {
+    if (this.start) return fns.isSameMonth(date, this.start);
+    else return false;
+  }
+
   public isEnd(date: Date): boolean {
     if (this.end) return fns.isEqual(date, this.end);
     else return false;
   }
 
-  isEndSameDay(date: Date): boolean {
+  public isEndSameDay(date: Date): boolean {
     if (this.end) return fns.isSameDay(date, this.end);
     return false;
+  }
+
+  public isEndSameMonth(date: Date): boolean {
+    if (this.end) return fns.isSameMonth(date, this.end);
+    else return false;
   }
 
   public isBetween(date: Date): boolean {
@@ -53,8 +79,30 @@ export class MarkedDates {
     } else return false;
   }
 
+  public isBetweenDays(date: Date): boolean {
+    if (this.start && this.end) {
+      if (fns.isSameDay(this.start, this.end)) return false;
+      let dateStartOfDay = fns.startOfDay(date);
+      let startStartOfDay = fns.startOfDay(this.start);
+      let endStartOfDay = fns.startOfDay(this.end);
+      return fns.isAfter(dateStartOfDay, startStartOfDay) &&
+        fns.isBefore(dateStartOfDay, endStartOfDay);
+    } else return false;
+  }
+
+  public isBetweenMonths(date: Date): boolean {
+    if (this.start && this.end) {
+      if (fns.isSameMonth(this.start, this.end)) return false;
+      let dateStartOfMonth = fns.startOfMonth(date);
+      let startStartOfMonth = fns.startOfMonth(this.start);
+      let endStartOfMonth = fns.startOfMonth(this.end);
+      return fns.isAfter(dateStartOfMonth, startStartOfMonth) &&
+        fns.isBefore(dateStartOfMonth, endStartOfMonth);
+    } else return false;
+  }
+
   public sort(): void {
-    if (!this.startEqualsEnd && this.start && this.end) {
+    if (this.isRange && this.start && this.end) {
       if (fns.isAfter(this.start, this.end)) {
         let startCopy = this.start;
         this.start = this.end;

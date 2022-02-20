@@ -1,18 +1,1 @@
-<div [ngClass]="className + '__week-days'">
-  <div *ngFor="let weekDay of weekDays">
-    {{ weekDay }}
-  </div>
-</div>
-<div [ngClass]="className + '__month'">
-  <sb-calendar-date
-    *ngFor="let date of calendarMonth"
-    [color]="color"
-    [date]="date"
-    [markedDates]="markedDates"
-    [showingMonthStart]="showingMonthStart"
-    (select)="handleSelect($event)"
-    (focus)="setFocusedState(true)"
-    (blur)="setFocusedState(false)"
-    [disabled]="disabled">
-  </sb-calendar-date>
-</div>
+<span>{{ monthFormatted }}</span>

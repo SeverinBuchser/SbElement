@@ -42,7 +42,7 @@ export class DateRangePickerComponent extends SbDateRangePickerCore implements C
   private onTouch: () => void = () => {};
 
   public handlePickerSelect(date: Date): void {
-    if (!this.pickerMarkedDates.startEqualsEnd) {
+    if (this.pickerMarkedDates.isRangeDays || !this.pickerMarkedDates.start) {
       this.pickerMarkedDates = new MarkedDates();
       this.pickerMarkedDates.start = date;
     } else {

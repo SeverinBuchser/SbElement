@@ -14,27 +14,19 @@
   </sb-toggle>
 </sb-nav-bar>
 <sb-breadcrumbs [crumbs]="crumbs" (navigate)="handleNavigate($event)"></sb-breadcrumbs>
-<sb-container ngClass="container">
-  <div class="sidebar-container">
-    <sb-sidebar #sidebarOne>
-      <div sidebar>
-        <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
+<sb-container size="l">
+  <sb-grid dim="1x5" gap="l">
+    <sb-card size="s" color="primary" hover>
+      <div title>
+        Calendar Months
       </div>
       <div content>
-        <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
-
-        <sb-popper #popperOne position="bottom">
-          <div popper>
-            Popper
-          </div>
-          <button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
-        </sb-popper>
+        <sb-calendar-months></sb-calendar-months>
       </div>
-    </sb-sidebar>
-  </div>
-</sb-container>
-<sb-container size="l">
-  <sb-grid dim="1x4" gap="l">
+      <div footer>
+        Go checkout something else!
+      </div>
+    </sb-card>
     <sb-card size="s" color="primary" hover>
       <div title>
         Card with Hover
@@ -48,7 +40,7 @@
     </sb-card>
     <sb-card size="s" color="primary">
       <div title>
-        Card without Hover
+        Timeline
       </div>
       <div content>
         <sb-timeline
@@ -70,6 +62,9 @@
       </div>
     </sb-card>
     <sb-card size="s" color="primary">
+      <div title>
+        Datepicker
+      </div>
       <div content>
         <div class="pickers">
           <sb-input
@@ -96,7 +91,7 @@
     </sb-card>
     <sb-card size="s" color="primary">
       <div title>
-        Card without Hover
+        Number Input
       </div>
       <div content>
         <div class="pickers">
@@ -124,6 +119,23 @@
       </div>
     </sb-card>
   </sb-grid>
+</sb-container>
+<sb-container ngClass="container">
+  <sb-sidebar #sidebarOne>
+    <div sidebar>
+      <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
+    </div>
+    <div content>
+      <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
+
+      <sb-popper #popperOne position="bottom">
+        <div popper>
+          Popper
+        </div>
+        <button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
+      </sb-popper>
+    </div>
+  </sb-sidebar>
 </sb-container>
 <sb-container size="l">
   <sb-table color="primary" [head]="table.head" [body]="table.data" plain alignment="center"></sb-table>

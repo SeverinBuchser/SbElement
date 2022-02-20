@@ -1,10 +1,11 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { ThemeService, mixinColor, mixinClassName, mixinTheme, Color, mixinTabindex, mixinDisable } from "../../../core";
 import * as fns from "date-fns";
-import { ThemeService, mixinFocus, mixinColor, mixinClassName, mixinTheme, Color, mixinDisable } from "../../../core";
 import { MarkedDates } from "../marked-dates";
 
+
 const SbCalendarMonthCore = mixinDisable(
-  mixinFocus(
+  mixinTabindex(
     mixinColor(
       mixinTheme(
         mixinClassName(
@@ -15,7 +16,7 @@ const SbCalendarMonthCore = mixinDisable(
           }, 'sb-calendar-month'
         )
       ), Color.PRIMARY
-    )
+    ), 0
   )
 );
 
@@ -24,67 +25,72 @@ const SbCalendarMonthCore = mixinDisable(
   templateUrl: './calendar-month.component.html',
   styleUrls: ['./calendar-month.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.marked]': 'isMarked',
+    '[class.start]': 'isStart',
+    '[class.end]': 'isEnd',
+    '[class.between]': 'isBetween',
+    '[class.disabled]': 'disabled',
+    '(click)': 'handleClick()'
+  },
   inputs: [
     'color',
     'disabled'
-  ],
-  outputs: [
-    'focus',
-    'blur'
   ],
 })
 export class SbCalendarMonthComponent extends SbCalendarMonthCore {
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();
-  public handleSelect(date: Date): void {
-    if (fns.isSameMonth(this._showingMonthStart, date)) {
-      this.select.emit(date);
-    }
-  }
+
+  @Input()
+  public monthFormat: string = 'MMMM';
+
+  @Input()
+  public month!: Date;
 
   @Input()
   public markedDates: MarkedDates = new MarkedDates();
 
-  @Input()
-  set showingMonthStart(date: Date) {
-    this._showingMonthStart = fns.startOfMonth(date);
-    this.updateCalendarMonth()
+  get isMarked(): boolean {
+    return this.markedDates.isRange && (
+      this.markedDates.isBetweenMonths(this.month) ||
+      this.markedDates.isStartSameMonth(this.month) ||
+      this.markedDates.isEndSameMonth(this.month)
+    ) ||
+    !this.markedDates.isRange && (
+      this.markedDates.isStartSameMonth(this.month) &&
+      this.markedDates.isEndSameMonth(this.month)
+    );
   }
-  get showingMonthStart(): Date {
-    return this._showingMonthStart;
+
+  get isStart(): boolean {
+    return this.markedDates.isRangeMonths && this.markedDates.isStartSameMonth(this.month);
   }
-  private _showingMonthStart: Date = fns.startOfMonth(new Date());
-  public calendarMonth!: Array<Date>;
-  public weekDays: Array<string> = new Array<string>();
+
+  get isEnd(): boolean {
+    return this.markedDates.isRangeMonths && this.markedDates.isEndSameMonth(this.month);
+  }
+
+  get isBetween(): boolean {
+    return this.markedDates.isRangeMonths && this.markedDates.isBetweenMonths(this.month);
+  }
+
+  get monthFormatted(): string {
+    return fns.format(this.month, this.monthFormat);
+  }
 
   constructor(
     elementRef: ElementRef,
     themeService: ThemeService
   ) {
     super(elementRef, themeService);
-    this.updateCalendarMonth();
-    this.createWeekDays();
   }
 
-  private createWeekDays(): void {
-    let date = fns.setDay(new Date(), 1);
-    for (let weekDay = 1 ; weekDay <= 7 ; weekDay++) {
-      this.weekDays.push(fns.format(date, 'EEEEEE'))
-      date = fns.addDays(date, 1);
+  public handleClick(): void {
+    if (!this.disabled) {
+      this.select.emit(this.month);
     }
   }
 
-  private updateCalendarMonth(): void {
-    this.calendarMonth = new Array<Date>();
-    let calendarMonthStart = this._showingMonthStart;
-    if (fns.isMonday(this._showingMonthStart)) {
-      calendarMonthStart = fns.subWeeks(this._showingMonthStart, 1);
-    }
-    calendarMonthStart = fns.startOfWeek(calendarMonthStart, {weekStartsOn : 1});
-
-    for (let day = 0 ; day < 42 ; day++) {
-      this.calendarMonth.push(fns.addDays(calendarMonthStart, day));
-    }
-  }
 }

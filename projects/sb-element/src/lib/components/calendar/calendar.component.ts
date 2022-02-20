@@ -25,7 +25,10 @@ export class SbCalendarsComponent extends SbCalendarCore {
   public size: string = Size.DEFAULT;
 
   @Input()
-  public format: string = 'yyyy-MM-dd';
+  public monthFormat: string = 'MMM. yyyy';
+
+  @Input()
+  public weekDayFormat: string = 'EEEEEE';
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();

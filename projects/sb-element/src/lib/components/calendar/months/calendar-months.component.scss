@@ -1,0 +1,16 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Calendar-Months
+******************************************************************************/
+
+// ROOT
+.sb-calendar-months {
+  @include display.grid(
+    repeat(3, calc(7 / 3 * spacing.get-size(m))),
+    repeat(4, calc(6 / 4 * spacing.get-size(m))), 0, $flow: row);
+  justify-items: center;
+  align-items: center;
+}

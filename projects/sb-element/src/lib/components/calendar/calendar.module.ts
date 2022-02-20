@@ -5,16 +5,20 @@ import { FormsModule } from "@angular/forms";
 import { CoreModule } from "../../core/core.module";
 import { IconModule } from "../icon/icon.module";
 
-import { SbCalendarMonthComponent } from "./month/calendar-month.component";
+import { SbCalendarMonthsComponent } from './months/calendar-months.component';
+import { SbCalendarDatesComponent } from "./dates/calendar-dates.component";
 import { SbCalendarDateComponent } from './date/calendar-date.component';
 import { SbCalendarNavigationComponent } from './navigation/calendar-navigation.component';
 import { SbCalendarsComponent } from './calendar.component';
+import { SbCalendarMonthComponent } from './month/calendar-month.component';
 
 @NgModule({
   declarations: [
     SbCalendarsComponent,
-    SbCalendarMonthComponent,
     SbCalendarDateComponent,
+    SbCalendarMonthComponent,
+    SbCalendarMonthsComponent,
+    SbCalendarDatesComponent,
     SbCalendarNavigationComponent,
   ],
   imports: [
@@ -26,8 +30,10 @@ import { SbCalendarsComponent } from './calendar.component';
   exports: [
     // components
     SbCalendarsComponent,
-    SbCalendarMonthComponent,
     SbCalendarDateComponent,
+    SbCalendarMonthComponent,
+    SbCalendarMonthsComponent,
+    SbCalendarDatesComponent,
     SbCalendarNavigationComponent,
   ]
 })

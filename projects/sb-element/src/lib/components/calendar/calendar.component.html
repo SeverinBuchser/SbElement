@@ -1,16 +1,27 @@
 <sb-calendar-navigation
   [color]="color"
   [(ngModel)]="showingMonthStart"
+  [monthFormat]="monthFormat"
   (focus)="setFocusedState(true)"
   (blur)="setFocusedState(false)"
   [disabled]="disabled">
 </sb-calendar-navigation>
-<sb-calendar-month
+<sb-calendar-dates
   [color]="color"
   [markedDates]="markedDates"
   [showingMonthStart]="showingMonthStart"
+  [weekDayFormat]="weekDayFormat"
   (select)="handleSelect($event)"
   (focus)="setFocusedState(true)"
   (blur)="setFocusedState(false)"
   [disabled]="disabled">
-</sb-calendar-month>
+</sb-calendar-dates>
+<!--<sb-calendar-months
+  [color]="color"
+  [markedDates]="markedDates"
+  [showingYearStart]="showingMonthStart"
+  (select)="handleSelect($event)"
+  (focus)="setFocusedState(true)"
+  (blur)="setFocusedState(false)"
+  [disabled]="disabled">
+</sb-calendar-months>-->
