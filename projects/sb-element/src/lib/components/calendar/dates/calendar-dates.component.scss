@@ -3,11 +3,11 @@
 @use "src/style/core/display";
 @use "src/style/core/border";
 /*****************************************************************************
-Calendar-Month
+Calendar-Dates
 ******************************************************************************/
 
 // THEME
-@mixin calendar-month-color-class($theme, $color) {
+@mixin calendar-dates-theme($theme, $color) {
   &.sb--#{$theme}.sb--#{$color} &__week-days {
     @include border.border-side(bottom, $theme, $color, d);
   }
@@ -34,6 +34,6 @@ Calendar-Month
 
   @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
   $color-palette) {
-    @include calendar-month-color-class($theme, $color);
+    @include calendar-dates-theme($theme, $color);
   }
 }

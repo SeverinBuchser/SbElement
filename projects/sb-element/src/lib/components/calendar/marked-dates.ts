@@ -13,7 +13,7 @@ export class MarkedDates {
   get isRangeDays(): boolean {
     if (this.start && this.end) {
       if (this.start != this.end) {
-        return !fns.isEqual(fns.startOfDay(this.start), fns.startOfDay(this.end))
+        return !fns.isSameDay(this.start, this.end);
       } else return false;
     } else return false;
   }
@@ -21,7 +21,15 @@ export class MarkedDates {
   get isRangeMonths(): boolean {
     if (this.start && this.end) {
       if (this.start != this.end) {
-        return !fns.isEqual(fns.startOfMonth(this.start), fns.startOfMonth(this.end))
+        return !fns.isSameMonth(this.start, this.end);
+      } else return false;
+    } else return false;
+  }
+
+  get isRangeYears(): boolean {
+    if (this.start && this.end) {
+      if (this.start != this.end) {
+        return !fns.isSameYear(this.start, this.end);
       } else return false;
     } else return false;
   }
@@ -57,6 +65,11 @@ export class MarkedDates {
     else return false;
   }
 
+  public isStartSameYear(date: Date): boolean {
+    if (this.start) return fns.isSameYear(date, this.start);
+    else return false;
+  }
+
   public isEnd(date: Date): boolean {
     if (this.end) return fns.isEqual(date, this.end);
     else return false;
@@ -69,6 +82,11 @@ export class MarkedDates {
 
   public isEndSameMonth(date: Date): boolean {
     if (this.end) return fns.isSameMonth(date, this.end);
+    else return false;
+  }
+
+  public isEndSameYear(date: Date): boolean {
+    if (this.end) return fns.isSameYear(date, this.end);
     else return false;
   }
 
@@ -96,6 +114,17 @@ export class MarkedDates {
       let dateStartOfMonth = fns.startOfMonth(date);
       let startStartOfMonth = fns.startOfMonth(this.start);
       let endStartOfMonth = fns.startOfMonth(this.end);
+      return fns.isAfter(dateStartOfMonth, startStartOfMonth) &&
+        fns.isBefore(dateStartOfMonth, endStartOfMonth);
+    } else return false;
+  }
+
+  public isBetweenYears(date: Date): boolean {
+    if (this.start && this.end) {
+      if (fns.isSameYear(this.start, this.end)) return false;
+      let dateStartOfMonth = fns.startOfYear(date);
+      let startStartOfMonth = fns.startOfYear(this.start);
+      let endStartOfMonth = fns.startOfYear(this.end);
       return fns.isAfter(dateStartOfMonth, startStartOfMonth) &&
         fns.isBefore(dateStartOfMonth, endStartOfMonth);
     } else return false;

@@ -4,11 +4,11 @@
 @use "src/style/core/display";
 @use "src/style/core/border";
 /*****************************************************************************
-Calendar-Month
+Calendar-Year
 ******************************************************************************/
 
 // THEME
-@mixin calendar-month-theme($theme, $color) {
+@mixin calendar-year-theme($theme, $color) {
   &.sb--#{$theme}.sb--#{$color} {
     &.marked, &.marked:hover, &.marked.disabled:hover {
       background: theming.get-color($theme, $color);
@@ -34,12 +34,12 @@ Calendar-Month
 }
 
 // ROOT
-.sb-calendar-month {
+.sb-calendar-year{
   cursor: pointer;
   position: relative;
   width: 100%;
   height: 63%;
-  @include border.radius(calc(0.63 * 6 / 4 * spacing.get-spacing(m)));
+  @include border.radius(calc(0.63 * 6 / 5 * spacing.get-spacing(m)));
   @include transitioning.ease(200ms);
   @include display.flex();
 
@@ -72,6 +72,6 @@ Calendar-Month
 
   @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
   $color-palette) {
-    @include calendar-month-theme($theme, $color);
+    @include calendar-year-theme($theme, $color);
   }
 }

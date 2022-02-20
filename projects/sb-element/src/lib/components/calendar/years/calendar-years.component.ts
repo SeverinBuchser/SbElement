@@ -3,22 +3,21 @@ import { mixinFocus, mixinClassName, Color, mixinDisable } from "../../../core";
 import * as fns from "date-fns";
 import { MarkedDates } from "../marked-dates";
 
-
-const SbCalendarMonthsCore = mixinDisable(
+const SbCalendarYearsCore = mixinDisable(
   mixinFocus(
     mixinClassName(
       class {
         constructor(
           public _elementRef: ElementRef) {}
-      }, 'sb-calendar-months'
+      }, 'sb-calendar-years'
     )
   )
 );
 
 @Component({
-  selector: 'sb-calendar-months',
-  templateUrl: './calendar-months.component.html',
-  styleUrls: ['./calendar-months.component.scss'],
+  selector: 'sb-calendar-years',
+  templateUrl: './calendar-years.component.html',
+  styleUrls: ['./calendar-years.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'
@@ -28,13 +27,13 @@ const SbCalendarMonthsCore = mixinDisable(
     'blur'
   ],
 })
-export class SbCalendarMonthsComponent extends SbCalendarMonthsCore {
+export class SbCalendarYearsComponent extends SbCalendarYearsCore {
 
   @Input()
   public color: string = Color.PRIMARY;
 
   @Input()
-  public monthFormat: string = 'MMMM';
+  public yearFormat: string = 'yyyy';
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();
@@ -42,17 +41,17 @@ export class SbCalendarMonthsComponent extends SbCalendarMonthsCore {
     this.select.emit(date);
   }
 
-  private _showingYearStart: Date = fns.startOfYear(new Date())
+  private _showingVicennialStart: Date = fns.startOfYear(new Date())
   @Input()
-  set showingYearStart(date: Date) {
-    this._showingYearStart = fns.startOfYear(date);
-    this.updateCalendarMonths()
+  set showingVicennialStart(date: Date) {
+    this._showingVicennialStart = fns.startOfYear(date);
+    this.updateCalendarYears()
   }
-  get showingYearStart(): Date {
-    return this._showingYearStart;
+  get showingVicennialStart(): Date {
+    return this._showingVicennialStart;
   }
 
-  public calendarMonths!: Array<Date>;
+  public calendarYears!: Array<Date>;
 
   @Input()
   public markedDates: MarkedDates = new MarkedDates();
@@ -61,14 +60,13 @@ export class SbCalendarMonthsComponent extends SbCalendarMonthsCore {
     elementRef: ElementRef
   ) {
     super(elementRef);
-    this.updateCalendarMonths();
+    this.updateCalendarYears();
   }
 
-  private updateCalendarMonths(): void {
-    this.calendarMonths = new Array<Date>();
-    for (let month = 0 ; month < 12 ; month++) {
-      this.calendarMonths.push(fns.addMonths(this.showingYearStart, month));
+  private updateCalendarYears(): void {
+    this.calendarYears = new Array<Date>();
+    for (let year = -10 ; year < 10 ; year++) {
+      this.calendarYears.push(fns.addYears(this.showingVicennialStart, year));
     }
   }
-
 }

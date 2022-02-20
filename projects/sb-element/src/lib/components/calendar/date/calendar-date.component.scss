@@ -7,7 +7,7 @@ Calendar-Date
 ******************************************************************************/
 
 // THEME
-@mixin calendar-date-color-class($theme, $color) {
+@mixin calendar-date-theme($theme, $color) {
   &.sb--#{$theme}.sb--#{$color} {
     &.marked, &.marked:hover, &.marked.disabled:hover {
       .mark {background: theming.get-color($theme, $color);}
@@ -89,6 +89,6 @@ Calendar-Date
 
   @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
   $color-palette) {
-    @include calendar-date-color-class($theme, $color);
+    @include calendar-date-theme($theme, $color);
   }
 }
