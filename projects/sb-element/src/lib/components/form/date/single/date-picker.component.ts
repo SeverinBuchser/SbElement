@@ -18,11 +18,11 @@ const SbDatePickerCore = mixinDisable(mixinFocus(class {}));
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: DatePickerComponent,
+    useExisting: SbDatePickerComponent,
     multi: true
   }]
 })
-export class DatePickerComponent extends SbDatePickerCore implements ControlValueAccessor {
+export class SbDatePickerComponent extends SbDatePickerCore implements ControlValueAccessor {
 
   @Input()
   public color: string = Color.PRIMARY;

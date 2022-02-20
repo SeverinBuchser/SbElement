@@ -1,12 +1,12 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinTheme, ThemeService } from '../../core';
+import { mixinClassName, mixinTheme, SbThemeService } from '../../core';
 
 const SbBreadcrumbsCore = mixinTheme(
   mixinClassName(
     class {
       constructor(
         public _elementRef: ElementRef,
-        public _themeService: ThemeService) {}
+        public _themeService: SbThemeService) {}
     }, 'sb-breadcrumbs'
   )
 );
@@ -40,7 +40,7 @@ export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

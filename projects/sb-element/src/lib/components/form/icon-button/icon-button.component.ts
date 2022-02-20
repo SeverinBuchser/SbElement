@@ -15,7 +15,7 @@ const SbIconButtonCore = mixinDisable(mixinFocus(class {}));
     'blur'
   ],
 })
-export class IconButtonComponent extends SbIconButtonCore {
+export class SbIconButtonComponent extends SbIconButtonCore {
 
   @Input()
   public color: string = Color.PRIMARY;
@@ -29,7 +29,7 @@ export class IconButtonComponent extends SbIconButtonCore {
     else if (isRound && this.pill) throw new Error('Cannot use pill and round'
       + ' attribute simultaneously!');
   }
-  
+
   @Input()
   set isPill(isPill: boolean) {
     if (!this.round) this.pill = isPill;

@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinClassName, mixinTheme, ThemeService, Size } from "../../core";
+import { mixinSize, mixinClassName, mixinTheme, SbThemeService, Size } from "../../core";
 
 
 const SbLinkCore = mixinSize(
@@ -8,7 +8,7 @@ const SbLinkCore = mixinSize(
       class {
         constructor(
           public _elementRef: ElementRef,
-          public _themeService: ThemeService) {}
+          public _themeService: SbThemeService) {}
       }, 'sb-link'
     )
   ), Size.DEFAULT
@@ -36,7 +36,7 @@ export class SbLinkComponent extends SbLinkCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

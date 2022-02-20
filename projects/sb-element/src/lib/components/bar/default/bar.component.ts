@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostBinding, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinColor, mixinSize, mixinTheme, Size, ThemeService } from '../../../core/';
+import { mixinClassName, mixinColor, mixinSize, mixinTheme, Size, SbThemeService } from '../../../core/';
 
 const SbBarCore = mixinSize(
   mixinColor(
@@ -8,7 +8,7 @@ const SbBarCore = mixinSize(
         class {
           constructor(
             public _elementRef: ElementRef,
-            public _themeService: ThemeService) {}
+            public _themeService: SbThemeService) {}
         }, 'sb-bar'
       )
     )
@@ -33,7 +33,7 @@ export class SbBarComponent extends SbBarCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

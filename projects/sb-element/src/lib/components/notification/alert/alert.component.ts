@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { SbAlert } from './alert';
 import { AlertServiceSubscriber } from './alert-service-subscriber';
 import { SbAlertService } from './alert.service';
-import { ThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../../core';
+import { SbThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../../core';
 
 const SbAlertCore = mixinSize(
   mixinColor(
@@ -11,7 +11,7 @@ const SbAlertCore = mixinSize(
         class {
           constructor(
             public _elementRef: ElementRef,
-            public _themeService: ThemeService) {}
+            public _themeService: SbThemeService) {}
         }, 'sb-alert'
       )
     )
@@ -49,7 +49,7 @@ export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscri
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService,
+    themeService: SbThemeService,
     private alertService: SbAlertService,
   ) {
     super(elementRef, themeService);

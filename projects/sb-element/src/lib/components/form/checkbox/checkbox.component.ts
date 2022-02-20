@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, ThemeService } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, SbThemeService } from '../../../core';
 
 const SbCheckboxCore = mixinFocus(
   mixinDisable(
@@ -10,7 +10,7 @@ const SbCheckboxCore = mixinFocus(
           class {
             constructor(
               public _elementRef: ElementRef,
-              public _themeService: ThemeService) {}
+              public _themeService: SbThemeService) {}
           }, 'sb-checkbox'
         )
       ), Color.PRIMARY
@@ -65,7 +65,7 @@ export class SbCheckboxComponent extends SbCheckboxCore implements ControlValueA
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

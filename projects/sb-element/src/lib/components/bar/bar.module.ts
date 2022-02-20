@@ -22,4 +22,4 @@ import { SbSidebarComponent } from './side/sidebar.component';
     SbSidebarComponent,
   ]
 })
-export class BarModule { }
+export class SbBarModule { }

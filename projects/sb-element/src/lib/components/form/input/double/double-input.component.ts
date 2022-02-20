@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, SbThemeService } from '../../../../core';
 
 const SbDoubleInputCore = mixinDisable(
   mixinFocus(
@@ -11,7 +11,7 @@ const SbDoubleInputCore = mixinDisable(
             class {
               constructor(
                 public _elementRef: ElementRef,
-                public _themeService: ThemeService) {}
+                public _themeService: SbThemeService) {}
             }, 'sb-input'
           )
         ), Color.PRIMARY
@@ -54,11 +54,11 @@ export class SbDoubleInput<T> {
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: DoubleInputComponent,
+    useExisting: SbDoubleInputComponent,
     multi: true
   }]
 })
-export class DoubleInputComponent extends SbDoubleInputCore implements ControlValueAccessor {
+export class SbDoubleInputComponent extends SbDoubleInputCore implements ControlValueAccessor {
 
   @Input()
   public firstPlaceholder: string = '';
@@ -119,7 +119,7 @@ export class DoubleInputComponent extends SbDoubleInputCore implements ControlVa
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

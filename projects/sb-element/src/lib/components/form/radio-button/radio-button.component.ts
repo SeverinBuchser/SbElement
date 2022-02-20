@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, ThemeService } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, SbThemeService } from '../../../core';
 
 const SbRadioButtonCore = mixinDisable(
   mixinFocus(
@@ -10,7 +10,7 @@ const SbRadioButtonCore = mixinDisable(
           class {
             constructor(
               public _elementRef: ElementRef,
-              public _themeService: ThemeService) {}
+              public _themeService: SbThemeService) {}
           }, 'sb-radio'
         )
       ), Color.PRIMARY
@@ -37,11 +37,11 @@ const SbRadioButtonCore = mixinDisable(
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: RadioButtonComponent,
+    useExisting: SbRadioButtonComponent,
     multi: true
   }]
 })
-export class RadioButtonComponent extends SbRadioButtonCore implements ControlValueAccessor {
+export class SbRadioButtonComponent extends SbRadioButtonCore implements ControlValueAccessor {
 
   @Input()
   public name: string = '';
@@ -69,7 +69,7 @@ export class RadioButtonComponent extends SbRadioButtonCore implements ControlVa
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

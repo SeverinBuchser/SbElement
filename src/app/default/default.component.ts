@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
-import { SbAlertService, ThemeService, Size, SbTimelineComponent, MarkedDates, mixinClassName, mixinTheme, mixinColor, Color } from 'sb-element';
+import { SbAlertService, SbThemeService, Size, SbTimelineComponent, MarkedDates, mixinClassName, mixinTheme, mixinColor, Color } from 'sb-element';
 
 @Component({
   selector: 'app-default',
@@ -16,7 +16,7 @@ mixinColor(
       class {
         constructor(
           public _elementRef: ElementRef,
-          public _themeService: ThemeService) {}
+          public _themeService: SbThemeService) {}
       }, 'default'
     )
   ), Color.PRIMARY
@@ -52,7 +52,7 @@ mixinColor(
   public timeline!: SbTimelineComponent;
 
   constructor(
-    themeService: ThemeService,
+    themeService: SbThemeService,
     elementRef: ElementRef,
     private alertService: SbAlertService,
   ) {

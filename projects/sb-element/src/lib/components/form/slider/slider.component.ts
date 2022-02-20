@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, SbThemeService } from '../../../core';
 
 const SbSliderCore = mixinDisable(
   mixinFocus(
@@ -11,7 +11,7 @@ const SbSliderCore = mixinDisable(
             class {
               constructor(
                 public _elementRef: ElementRef,
-                public _themeService: ThemeService) {}
+                public _themeService: SbThemeService) {}
             }, 'sb-slider'
           )
         ), Color.PRIMARY
@@ -36,14 +36,14 @@ const SbSliderCore = mixinDisable(
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: SliderComponent,
+    useExisting: SbSliderComponent,
     multi: true
   }]
 })
-export class SliderComponent extends SbSliderCore implements ControlValueAccessor {
+export class SbSliderComponent extends SbSliderCore implements ControlValueAccessor {
 
   private static _globalSliderId: number = 0;
-  private _sliderId: number = SliderComponent._globalSliderId ++;
+  private _sliderId: number = SbSliderComponent._globalSliderId ++;
   get steplistId(): string {
     return `sb-slider-steplist-${this._sliderId}`;
   }
@@ -88,7 +88,7 @@ export class SliderComponent extends SbSliderCore implements ControlValueAccesso
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

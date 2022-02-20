@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, ThemeService } from "../../core";
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, SbThemeService } from "../../core";
 import * as fns from "date-fns";
 import { MarkedDates } from "./marked-dates";
 
@@ -11,7 +11,7 @@ const SbCalendarCore = mixinDisable(
           class {
             constructor(
               public _elementRef: ElementRef,
-              public _themeService: ThemeService) {}
+              public _themeService: SbThemeService) {}
           }, 'sb-calendar'
         )
       ), Color.PRIMARY
@@ -100,7 +100,7 @@ export class SbCalendarsComponent extends SbCalendarCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

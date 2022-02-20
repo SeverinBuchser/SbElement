@@ -2,69 +2,69 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
-import { CoreModule } from '../../core/core.module';
-import { IconModule } from '../icon/icon.module';
-import { InputModule } from './input/input.module';
-import { SpinnerModule } from './spinner/spinner.module';
+import { SbCoreModule } from '../../core/core.module';
+import { SbIconModule } from '../icon/icon.module';
+import { SbInputModule } from './input/input.module';
+import { SbSpinnerModule } from './spinner/spinner.module';
 
 import { SbButtonComponent } from './button/button.component';
-import { DatePickerComponent } from './date/single/date-picker.component';
-import { IconButtonComponent } from './icon-button/icon-button.component';
-import { ToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
+import { SbDatePickerComponent } from './date/single/date-picker.component';
+import { SbIconButtonComponent } from './icon-button/icon-button.component';
+import { SbToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
 import { SbCheckboxComponent } from './checkbox/checkbox.component';
-import { RadioButtonComponent } from './radio-button/radio-button.component';
-import { RadioButtonGroupComponent } from './radio-button/radio-button-group.component';
-import { SelectButtonComponent } from './select-button/select-button.component';
-import { SliderComponent } from './slider/slider.component';
-import { FileInputComponent } from './file-input/file-input.component';
-import { PopperModule } from "../popper/popper.module";
-import { DateRangePickerComponent } from './date/range/date-range-picker.component';
-import { TimePickerComponent } from './time/time-picker.component';
+import { SbRadioButtonComponent } from './radio-button/radio-button.component';
+import { SbRadioButtonGroupComponent } from './radio-button/radio-button-group.component';
+import { SbSelectButtonComponent } from './select-button/select-button.component';
+import { SbSliderComponent } from './slider/slider.component';
+import { SbFileInputComponent } from './file-input/file-input.component';
+import { SbPopperModule } from "../popper/popper.module";
+import { SbDateRangePickerComponent } from './date/range/date-range-picker.component';
+import { SbTimePickerComponent } from './time/time-picker.component';
 import { SbCalendarModule } from "../calendar/calendar.module";
 
 @NgModule({
   declarations: [
     SbButtonComponent,
-    DatePickerComponent,
-    DateRangePickerComponent,
-    IconButtonComponent,
-    ToggleSwitchComponent,
+    SbDatePickerComponent,
+    SbDateRangePickerComponent,
+    SbIconButtonComponent,
+    SbToggleSwitchComponent,
     SbCheckboxComponent,
-    RadioButtonComponent,
-    RadioButtonGroupComponent,
-    SelectButtonComponent,
-    SliderComponent,
-    FileInputComponent,
-    TimePickerComponent,
+    SbRadioButtonComponent,
+    SbRadioButtonGroupComponent,
+    SbSelectButtonComponent,
+    SbSliderComponent,
+    SbFileInputComponent,
+    SbTimePickerComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    CoreModule,
-    IconModule,
-    InputModule,
-    SpinnerModule,
-    PopperModule,
+    SbCoreModule,
+    SbIconModule,
+    SbInputModule,
+    SbSpinnerModule,
+    SbPopperModule,
     SbCalendarModule
   ],
   exports: [
     // components
     SbButtonComponent,
-    DatePickerComponent,
-    DateRangePickerComponent,
-    IconButtonComponent,
-    ToggleSwitchComponent,
+    SbDatePickerComponent,
+    SbDateRangePickerComponent,
+    SbIconButtonComponent,
+    SbToggleSwitchComponent,
     SbCheckboxComponent,
-    RadioButtonComponent,
-    RadioButtonGroupComponent,
-    SelectButtonComponent,
-    SliderComponent,
-    FileInputComponent,
-    TimePickerComponent,
+    SbRadioButtonComponent,
+    SbRadioButtonGroupComponent,
+    SbSelectButtonComponent,
+    SbSliderComponent,
+    SbFileInputComponent,
+    SbTimePickerComponent,
 
     // modules
-    InputModule,
-    SpinnerModule,
+    SbInputModule,
+    SbSpinnerModule,
   ]
 })
-export class FormModule { }
+export class SbFormModule { }

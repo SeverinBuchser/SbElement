@@ -1,5 +1,5 @@
-import { ThemeService } from '../style';
+import { SbThemeService } from '../style';
 
-export interface HasThemeService {
-  _themeService: ThemeService;
+export interface HasSbThemeService {
+  _themeService: SbThemeService;
 }

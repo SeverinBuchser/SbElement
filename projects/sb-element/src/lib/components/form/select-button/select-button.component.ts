@@ -1,6 +1,6 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ThemeService, mixinDisable, mixinFocus, mixinSize, mixinColor, mixinTheme, mixinClassName, Color, Size } from '../../../core';
+import { SbThemeService, mixinDisable, mixinFocus, mixinSize, mixinColor, mixinTheme, mixinClassName, Color, Size } from '../../../core';
 
 const SbSelectButtonCore = mixinDisable(
   mixinFocus(
@@ -11,7 +11,7 @@ const SbSelectButtonCore = mixinDisable(
             class {
               constructor(
                 public _elementRef: ElementRef,
-                public _themeService: ThemeService) {}
+                public _themeService: SbThemeService) {}
             }, 'sb-select-button'
           )
         ), Color.PRIMARY
@@ -41,11 +41,11 @@ const SbSelectButtonCore = mixinDisable(
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: SelectButtonComponent,
+    useExisting: SbSelectButtonComponent,
     multi: true
   }]
 })
-export class SelectButtonComponent extends SbSelectButtonCore implements ControlValueAccessor {
+export class SbSelectButtonComponent extends SbSelectButtonCore implements ControlValueAccessor {
 
   @Input()
   set isPill(isPill: boolean) {
@@ -84,7 +84,7 @@ export class SelectButtonComponent extends SbSelectButtonCore implements Control
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService,
+    themeService: SbThemeService,
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any
   ) {

@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, SbThemeService } from '../../../../core';
 
 const SbSpinnerCoreCore = mixinDisable(
   mixinFocus(
@@ -11,7 +11,7 @@ const SbSpinnerCoreCore = mixinDisable(
             class {
               constructor(
                 public _elementRef: ElementRef,
-                public _themeService: ThemeService) {}
+                public _themeService: SbThemeService) {}
             }, 'sb-input-core'
           )
         ), Color.PRIMARY
@@ -34,11 +34,11 @@ const SbSpinnerCoreCore = mixinDisable(
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: SpinnerCoreComponent,
+    useExisting: SbSpinnerCoreComponent,
     multi: true
   }]
 })
-export class SpinnerCoreComponent extends SbSpinnerCoreCore implements ControlValueAccessor {
+export class SbSpinnerCoreComponent extends SbSpinnerCoreCore implements ControlValueAccessor {
 
   @Input()
   public placeholder: string = '';
@@ -62,7 +62,7 @@ export class SpinnerCoreComponent extends SbSpinnerCoreCore implements ControlVa
   private isMouseDown: boolean = false;
   private static SPEED_FACTOR: number = 2;
   private static MAX_SPEED: number = 10;
-  private static MAX_STEP: number =  Math.pow(SpinnerCoreComponent.SPEED_FACTOR, 7);
+  private static MAX_STEP: number =  Math.pow(SbSpinnerCoreComponent.SPEED_FACTOR, 7);
   private steps: number = 0;
   private speed: number = 0;
   private delta: number = 1;
@@ -83,7 +83,7 @@ export class SpinnerCoreComponent extends SbSpinnerCoreCore implements ControlVa
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }
@@ -110,10 +110,10 @@ export class SpinnerCoreComponent extends SbSpinnerCoreCore implements ControlVa
   }
 
   private updateSpeed(): void {
-    if (this.speed < SpinnerCoreComponent.MAX_SPEED &&
-      this.steps == SpinnerCoreComponent.MAX_STEP) {
+    if (this.speed < SbSpinnerCoreComponent.MAX_SPEED &&
+      this.steps == SbSpinnerCoreComponent.MAX_STEP) {
       this.speed += 1;
-      this.delta = Math.pow(SpinnerCoreComponent.SPEED_FACTOR, this.speed)
+      this.delta = Math.pow(SbSpinnerCoreComponent.SPEED_FACTOR, this.speed)
       this.steps = 0;
     }
   }

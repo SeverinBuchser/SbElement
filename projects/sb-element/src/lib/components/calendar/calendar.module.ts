@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 
-import { CoreModule } from "../../core/core.module";
-import { IconModule } from "../icon/icon.module";
+import { SbIconModule } from "../icon/icon.module";
 
 import { SbCalendarsComponent } from './calendar.component';
 import { SbCalendarDateComponent } from './date/calendar-date.component';
@@ -26,8 +25,7 @@ import { SbCalendarYearsComponent } from './years/calendar-years.component';
   imports: [
     CommonModule,
     FormsModule,
-    CoreModule,
-    IconModule,
+    SbIconModule,
   ],
   exports: [
     SbCalendarsComponent,

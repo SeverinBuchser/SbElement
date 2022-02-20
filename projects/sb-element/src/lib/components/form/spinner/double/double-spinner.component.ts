@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SbDoubleInput } from "../../input";
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, SbThemeService } from '../../../../core';
 
 const SbDoubleSpinnerCore = mixinDisable(
   mixinFocus(
@@ -12,7 +12,7 @@ const SbDoubleSpinnerCore = mixinDisable(
             class {
               constructor(
                 public _elementRef: ElementRef,
-                public _themeService: ThemeService) {}
+                public _themeService: SbThemeService) {}
             }, 'sb-input'
           )
         ), Color.PRIMARY
@@ -35,11 +35,11 @@ const SbDoubleSpinnerCore = mixinDisable(
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: DoubleSpinnerComponent,
+    useExisting: SbDoubleSpinnerComponent,
     multi: true
   }]
 })
-export class DoubleSpinnerComponent extends SbDoubleSpinnerCore implements ControlValueAccessor {
+export class SbDoubleSpinnerComponent extends SbDoubleSpinnerCore implements ControlValueAccessor {
   public rootClass = 'sb-input';
 
   @Input()
@@ -97,7 +97,7 @@ export class DoubleSpinnerComponent extends SbDoubleSpinnerCore implements Contr
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

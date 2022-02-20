@@ -2,28 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { CoreModule } from '../../../core/core.module';
-import { IconModule } from '../../icon/icon.module';
+import { SbIconModule } from '../../icon/icon.module';
 
-import { InputCoreComponent } from './core/input-core.component';
-import { InputComponent } from './simple/input.component';
-import { DoubleInputComponent } from './double/double-input.component';
+import { SbInputCoreComponent } from './core/input-core.component';
+import { SbInputComponent } from './simple/input.component';
+import { SbDoubleInputComponent } from './double/double-input.component';
 
 @NgModule({
   declarations: [
-    InputCoreComponent,
-    InputComponent,
-    DoubleInputComponent,
+    SbInputCoreComponent,
+    SbInputComponent,
+    SbDoubleInputComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    CoreModule,
-    IconModule
+    SbIconModule
   ],
   exports: [
-    InputComponent,
-    DoubleInputComponent,
+    SbInputComponent,
+    SbDoubleInputComponent,
   ]
 })
-export class InputModule { }
+export class SbInputModule { }

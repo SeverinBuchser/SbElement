@@ -16,11 +16,11 @@ const SbRadioButtonGroupCore = mixinDisable(mixinFocus(class {}));
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: RadioButtonGroupComponent,
+    useExisting: SbRadioButtonGroupComponent,
     multi: true
   }]
 })
-export class RadioButtonGroupComponent extends SbRadioButtonGroupCore implements ControlValueAccessor {
+export class SbRadioButtonGroupComponent extends SbRadioButtonGroupCore implements ControlValueAccessor {
 
   @Input()
   public color: string = Color.PRIMARY;

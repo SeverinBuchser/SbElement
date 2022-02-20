@@ -1,11 +1,11 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { Poppable } from './poppable';
-import { ClickTriggerDirective } from './click-trigger.directive';
+import { SbClickTriggerDirective } from './click-trigger.directive';
 
 @Directive({
   selector: '[sbElClickOutsideTrigger]'
 })
-export class ClickOutsideTriggerDirective extends ClickTriggerDirective {
+export class SbClickOutsideTriggerDirective extends SbClickTriggerDirective {
 
   @Input()
   public triggerable!: Poppable

@@ -1,5 +1,5 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ThemeService, mixinSize, mixinTheme, mixinClassName, mixinColor } from '../../core';
+import { SbThemeService, mixinSize, mixinTheme, mixinClassName, mixinColor } from '../../core';
 
 const SbIconCore = mixinSize(
   mixinColor(
@@ -8,7 +8,7 @@ const SbIconCore = mixinSize(
         class {
           constructor(
             public _elementRef: ElementRef,
-            public _themeService: ThemeService) {}
+            public _themeService: SbThemeService) {}
         }, 'sb-icon'
       )
     )
@@ -43,7 +43,7 @@ export class SbIconComponent extends SbIconCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService,
+    themeService: SbThemeService,
     @Optional() @Attribute('outline') outline: any
   ) {
     super(elementRef, themeService);

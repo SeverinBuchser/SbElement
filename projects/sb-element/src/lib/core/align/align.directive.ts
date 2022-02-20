@@ -3,7 +3,7 @@ import { Directive, ElementRef } from '@angular/core';
 @Directive({
   selector: '[sbElAlign]'
 })
-export class AlignDirective {
+export class SbAlignDirective {
 
   get nativeElement(): HTMLElement {
     return this.host.nativeElement;

@@ -4,7 +4,7 @@ import { Triggerable } from "./triggerable";
 @Directive({
   selector: '[sbElTrigger]'
 })
-export class TriggerDirective {
+export class SbTriggerDirective {
 
   @Input()
   public triggerable!: Triggerable;

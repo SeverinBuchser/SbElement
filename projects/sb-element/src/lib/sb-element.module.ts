@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 // Modules
-import { CoreModule } from './core/core.module';
-import { BarModule } from "./components/bar/bar.module";
-import { FormModule } from './components/form/form.module';
-import { IconModule } from './components/icon/icon.module';
-import { PopperModule } from './components/popper/popper.module';
-import { NotificationModule } from "./components/notification/notification.module";
+import { SbCoreModule } from './core/core.module';
+import { SbBarModule } from "./components/bar/bar.module";
+import { SbFormModule } from './components/form/form.module';
+import { SbIconModule } from './components/icon/icon.module';
+import { SbPopperModule } from './components/popper/popper.module';
+import { SbNotificationModule } from "./components/notification/notification.module";
 import { SbCalendarModule } from "./components/calendar/calendar.module";
 
 // Components
@@ -35,12 +35,12 @@ import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.com
   ],
   imports: [
     BrowserModule,
-    CoreModule,
-    BarModule,
-    FormModule,
-    IconModule,
-    PopperModule,
-    NotificationModule,
+    SbCoreModule,
+    SbBarModule,
+    SbFormModule,
+    SbIconModule,
+    SbPopperModule,
+    SbNotificationModule,
     SbCalendarModule
   ],
   exports: [
@@ -53,12 +53,12 @@ import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.com
     SbLinkComponent,
     SbBreadcrumbsComponent,
     // Modules
-    CoreModule,
-    BarModule,
-    FormModule,
-    IconModule,
-    PopperModule,
-    NotificationModule,
+    SbCoreModule,
+    SbBarModule,
+    SbFormModule,
+    SbIconModule,
+    SbPopperModule,
+    SbNotificationModule,
     SbCalendarModule
   ]
 })

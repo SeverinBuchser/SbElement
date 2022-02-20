@@ -17,11 +17,11 @@ const SbTimePickerCore = mixinDisable(mixinFocus(class {}));
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: TimePickerComponent,
+    useExisting: SbTimePickerComponent,
     multi: true
   }]
 })
-export class TimePickerComponent extends SbTimePickerCore implements ControlValueAccessor {
+export class SbTimePickerComponent extends SbTimePickerCore implements ControlValueAccessor {
 
   @Input()
   public color: string = Color.PRIMARY;

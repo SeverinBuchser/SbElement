@@ -1,5 +1,5 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../../core';
+import { SbThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../../core';
 
 const SbAlertBoxCore = mixinSize(
   mixinColor(
@@ -8,7 +8,7 @@ const SbAlertBoxCore = mixinSize(
         class {
           constructor(
             public _elementRef: ElementRef,
-            public _themeService: ThemeService) {}
+            public _themeService: SbThemeService) {}
         }, 'sb-alert-box'
       )
     )
@@ -46,7 +46,7 @@ export class SbAlertBoxComponent extends SbAlertBoxCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService,
+    themeService: SbThemeService,
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any,
   ) {

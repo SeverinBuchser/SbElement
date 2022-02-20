@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, ThemeService } from '../../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, SbThemeService } from '../../../../core';
 
 const SbInputCoreCore = mixinDisable(
   mixinFocus(
@@ -11,7 +11,7 @@ const SbInputCoreCore = mixinDisable(
             class {
               constructor(
                 public _elementRef: ElementRef,
-                public _themeService: ThemeService) {}
+                public _themeService: SbThemeService) {}
             }, 'sb-input-core'
           )
         ), Color.PRIMARY
@@ -36,11 +36,11 @@ const SbInputCoreCore = mixinDisable(
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: InputCoreComponent,
+    useExisting: SbInputCoreComponent,
     multi: true
   }]
 })
-export class InputCoreComponent extends SbInputCoreCore implements ControlValueAccessor {
+export class SbInputCoreComponent extends SbInputCoreCore implements ControlValueAccessor {
 
   @Input()
   public placeholder: string = '';
@@ -76,7 +76,7 @@ export class InputCoreComponent extends SbInputCoreCore implements ControlValueA
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

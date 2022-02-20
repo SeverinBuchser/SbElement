@@ -8,17 +8,17 @@ import { ThemesConfig } from "./theme";
     CommonModule
   ]
 })
-export class StyleModule {
-  constructor(@Optional() @SkipSelf() parentModule?: StyleModule) {
+export class SbStyleModule {
+  constructor(@Optional() @SkipSelf() parentModule?: SbStyleModule) {
     if (parentModule) {
       throw new Error(
         'StyleModule is already loaded. Import it in the AppModule only');
     }
   }
 
-  public static forRoot(themesConfig: ThemesConfig): ModuleWithProviders<StyleModule> {
+  public static forRoot(themesConfig: ThemesConfig): ModuleWithProviders<SbStyleModule> {
     return {
-      ngModule: StyleModule,
+      ngModule: SbStyleModule,
       providers: [
         {provide: ThemesConfig, useValue: themesConfig}
       ]

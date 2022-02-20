@@ -2,28 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { CoreModule } from '../../../core/core.module';
-import { IconModule } from '../../icon/icon.module';
+import { SbIconModule } from '../../icon/icon.module';
 
-import { SpinnerCoreComponent } from './core/spinner-core.component';
-import { SpinnerComponent } from './simple/spinner.component';
-import { DoubleSpinnerComponent } from './double/double-spinner.component';
+import { SbSpinnerCoreComponent } from './core/spinner-core.component';
+import { SbSpinnerComponent } from './simple/spinner.component';
+import { SbDoubleSpinnerComponent } from './double/double-spinner.component';
 
 @NgModule({
   declarations: [
-    SpinnerCoreComponent,
-    SpinnerComponent,
-    DoubleSpinnerComponent
+    SbSpinnerCoreComponent,
+    SbSpinnerComponent,
+    SbDoubleSpinnerComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    CoreModule,
-    IconModule
+    SbIconModule
   ],
   exports: [
-    SpinnerComponent,
-    DoubleSpinnerComponent
+    SbSpinnerComponent,
+    SbDoubleSpinnerComponent
   ]
 })
-export class SpinnerModule { }
+export class SbSpinnerModule { }

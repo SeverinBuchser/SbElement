@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostBinding, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { AlignDirective, mixinClassName, mixinTheme, Poppable, ThemeService } from '../../../core/';
+import { SbAlignDirective, mixinClassName, mixinTheme, Poppable, SbThemeService } from '../../../core/';
 import { PopperPosition } from "./popper-position";
 
 const SbPopperCore = mixinTheme(
@@ -7,7 +7,7 @@ const SbPopperCore = mixinTheme(
     class {
       constructor(
         public _elementRef: ElementRef,
-        public _themeService: ThemeService) {}
+        public _themeService: SbThemeService) {}
     }, 'sb-popper'
   )
 );
@@ -31,14 +31,14 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
   @ViewChild('content')
   public content!: ElementRef;
 
-  @ViewChild('popper', {read: AlignDirective})
+  @ViewChild('popper', {read: SbAlignDirective})
   public popper!: any;
 
   @ViewChild('popper', {read: ElementRef})
   public popperRef!: any;
 
-  @ViewChild('arrow', {read: AlignDirective})
-  public arrow!: AlignDirective;
+  @ViewChild('arrow', {read: SbAlignDirective})
+  public arrow!: SbAlignDirective;
 
   get isTop(): boolean {
     return new RegExp(PopperPosition.TOP).test(this.position);
@@ -66,7 +66,7 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
 
   constructor(
     elementRef: ElementRef,
-    themeService: ThemeService
+    themeService: SbThemeService
   ) {
     super(elementRef, themeService);
   }

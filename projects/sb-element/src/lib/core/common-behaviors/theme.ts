@@ -1,7 +1,7 @@
 import { Subscription } from "rxjs";
 import { AbstractConstructor, Constructor } from "./constructor";
 import { HasElementRef } from "./has-element-ref";
-import { HasThemeService } from "./has-theme-service";
+import { HasSbThemeService } from "./has-theme-service";
 
 export interface CanTheme {
   theme: string | undefined;
@@ -9,10 +9,10 @@ export interface CanTheme {
 
 type CanThemeCtor = Constructor<CanTheme> & AbstractConstructor<CanTheme>;
 
-export function mixinTheme<T extends AbstractConstructor<HasElementRef & HasThemeService>>(
+export function mixinTheme<T extends AbstractConstructor<HasElementRef & HasSbThemeService>>(
   core: T
 ): CanThemeCtor & T;
-export function mixinTheme<T extends Constructor<HasElementRef & HasThemeService>>(
+export function mixinTheme<T extends Constructor<HasElementRef & HasSbThemeService>>(
   core: T
 ): CanThemeCtor & T {
   return class extends core {

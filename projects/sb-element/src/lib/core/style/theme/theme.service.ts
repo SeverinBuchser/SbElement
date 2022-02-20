@@ -12,7 +12,7 @@ export interface ThemeConfig {
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService extends BehaviorSubject<string> {
+export class SbThemeService extends BehaviorSubject<string> {
 
   private _themeConfig!: ThemeConfig;
 

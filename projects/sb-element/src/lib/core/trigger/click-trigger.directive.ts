@@ -1,10 +1,10 @@
 import { Directive, HostListener } from '@angular/core';
-import { TriggerDirective } from "./trigger.directive";
+import { SbTriggerDirective } from "./trigger.directive";
 
 @Directive({
   selector: '[sbElClickTrigger]'
 })
-export class ClickTriggerDirective extends TriggerDirective {
+export class SbClickTriggerDirective extends SbTriggerDirective {
 
   @HostListener('click', ['$event'])
   private handleClick(event: PointerEvent) {

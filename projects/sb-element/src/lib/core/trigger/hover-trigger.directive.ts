@@ -1,10 +1,10 @@
 import { Directive, HostListener } from '@angular/core';
-import { TriggerDirective } from './trigger.directive';
+import { SbTriggerDirective } from './trigger.directive';
 
 @Directive({
   selector: '[sbElHoverTrigger]'
 })
-export class HoverTriggerDirective extends TriggerDirective {
+export class SbHoverTriggerDirective extends SbTriggerDirective {
 
   @HostListener('mouseenter', ['$event'])
   private handleMouseEnter(event: PointerEvent) {

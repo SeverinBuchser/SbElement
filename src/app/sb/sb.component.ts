@@ -1,5 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
-import { mixinClassName, mixinTheme, ThemeService } from "sb-element";
+import { mixinClassName, mixinTheme, SbThemeService } from "sb-element";
 
 @Component({
   selector: 'sb',
@@ -12,7 +12,7 @@ mixinTheme(
     class {
       constructor(
         public _elementRef: ElementRef,
-        public _themeService: ThemeService) {}
+        public _themeService: SbThemeService) {}
     }, 'home-logo'
   )
 ) {
