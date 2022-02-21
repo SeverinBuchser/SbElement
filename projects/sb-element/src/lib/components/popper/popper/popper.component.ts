@@ -68,7 +68,6 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
     themeService: SbThemeService
   ) {
     super(elementRef, themeService);
-    console.log(this)
   }
 
   public trigger(): void {

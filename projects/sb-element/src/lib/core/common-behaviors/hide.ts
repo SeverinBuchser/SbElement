@@ -29,8 +29,8 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
     }
     set visible(isVisible: boolean) {
       if (isVisible !== this._visible) {
-        if (isVisible) this.show(this._visible !== undefined);
-        else this.hide(this._visible !== undefined);
+        if (isVisible) this.show(this._visible);
+        else this.hide(this._visible);
         this._visible = isVisible;
       }
     }
@@ -41,24 +41,28 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
       })
     }
 
-    private async show(transition: boolean): Promise<void> {
+    private async show(wasVisible: boolean | undefined): Promise<void> {
       this._elementRef.nativeElement.classList.remove(`sb--hide`);
-      if (transition) {
+      if (wasVisible !== undefined) {
         this._elementRef.nativeElement.classList.add(`sb--showing`);
         await this.wait();
         this._elementRef.nativeElement.classList.remove(`sb--showing`);
       }
-      this._elementRef.nativeElement.classList.add(`sb--show`);
+      if (wasVisible == undefined || this._visible == true) {
+        this._elementRef.nativeElement.classList.add(`sb--show`);
+      }
     }
 
-    private async hide(transition: boolean): Promise<void> {
+    private async hide(wasVisible: boolean | undefined): Promise<void> {
       this._elementRef.nativeElement.classList.remove(`sb--show`);
-      if (transition) {
+      if (wasVisible !== undefined) {
         this._elementRef.nativeElement.classList.add(`sb--hiding`);
         await this.wait();
         this._elementRef.nativeElement.classList.remove(`sb--hiding`);
       }
-      this._elementRef.nativeElement.classList.add(`sb--hide`);
+      if (wasVisible == undefined || this._visible == false) {
+        this._elementRef.nativeElement.classList.add(`sb--hide`);
+      }
 
     }
 
