@@ -8,8 +8,8 @@ Calendar
 ******************************************************************************/
 
 // THEME
-@mixin calendar-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} &__navigation .sb-icon:hover {
+@mixin calendar-theme($theme) {
+  &.sb--#{$theme} &__navigation .sb-icon:hover {
     background: theming.get-accent($theme);
   }
 }
@@ -40,8 +40,7 @@ Calendar
     }
   }
 
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include calendar-theme($theme, $color);
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    @include calendar-theme($theme);
   }
 }

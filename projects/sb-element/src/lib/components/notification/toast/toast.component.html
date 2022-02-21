@@ -1,0 +1,7 @@
+<div [ngClass]="className + '__header'">
+  <ng-content select="[header]"></ng-content>
+  <sb-icon *ngIf="allowWithinClose" [ngClass]="className + '__close'" (click)="handleClose()">&#xe5cd;</sb-icon>
+</div>
+<div [ngClass]="className + '__body'">
+  <ng-content select="[body]"></ng-content>
+</div>

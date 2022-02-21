@@ -5,10 +5,11 @@ import { SbIconModule } from "../icon";
 
 import { SbAlertBoxComponent } from './alert-box';
 import { SbAlertComponent } from './alert';
+import { SbToastComponent } from './toast/toast.component';
 
 @NgModule({
-  declarations: [SbAlertBoxComponent, SbAlertComponent],
+  declarations: [SbAlertBoxComponent, SbAlertComponent, SbToastComponent],
   imports: [CommonModule, SbCoreModule, SbIconModule],
-  exports: [SbAlertBoxComponent, SbAlertComponent]
+  exports: [SbAlertBoxComponent, SbAlertComponent, SbToastComponent]
 })
 export class SbNotificationModule { }

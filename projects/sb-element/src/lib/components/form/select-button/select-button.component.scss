@@ -77,7 +77,7 @@ Checkbox-Group
       color,
       border-radius
     );
-    @include display.flex(space-around);
+    @include display.flex($justify: space-evenly);
     .sb-icon {
       @include transitioning.ease($button-animation-duration, color, transform);
     }

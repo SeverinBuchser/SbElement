@@ -18,6 +18,26 @@
   <sb-grid dim="1x5" gap="l">
     <sb-card size="s" color="primary" hover>
       <div title>
+        Toast
+      </div>
+      <div content>
+        <sb-toast #toast>
+          <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
+            <div>
+              <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">pets</sb-icon>
+              SbToast
+            </div>
+            <span>5 min. ago</span>
+          </div>
+          <div body>
+            This is a rather long toast notification!
+          </div>
+        </sb-toast>
+        <button color="primary" sbElClickTrigger [triggerable]="toast">Trigger Toast</button>
+      </div>
+    </sb-card>
+    <sb-card size="s" color="primary" hover>
+      <div title>
         Calendar Days
       </div>
       <div content>

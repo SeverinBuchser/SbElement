@@ -53,7 +53,6 @@ File Input
     label {
       height: 100%;
       width: 100%;
-      line-height: $value;
     }
 
     &.pill label {
@@ -74,18 +73,11 @@ File Input
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
     cursor: pointer;
+    @include display.flex($justify: space-evenly);
     @include transitioning.ease(300ms, background, color);
     @include border.radius(s);
     @include spacing.padding-x(s);
-  }
-
-  .sb-icon {
-    display: inline-block;
-    vertical-align: middle;
   }
 
   &.disabled label {

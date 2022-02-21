@@ -7,3 +7,4 @@ export * from './color';
 export * from './disable';
 export * from './tabindex';
 export * from './focus';
+export * from './hide';
