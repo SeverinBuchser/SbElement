@@ -1,4 +1,4 @@
-<div [ngClass]="getPopperClasses()" #popper sbElAlign>
+<div [ngClass]="rootClass + '__popper'" #popper sbElAlign>
   <ng-content select="[popper]"></ng-content>
   <ng-template [ngIf]="isTop">
     <svg

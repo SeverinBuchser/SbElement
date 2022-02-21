@@ -1,15 +1,17 @@
 import { Component, ElementRef, HostBinding, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SbAlignDirective, mixinClassName, mixinTheme, Poppable, SbThemeService } from '../../../core/';
+import { SbAlignDirective, mixinClassName, mixinTheme, Poppable, SbThemeService, mixinHide } from '../../../core/';
 import { PopperPosition } from "./popper-position";
 
-const SbPopperCore = mixinTheme(
-  mixinClassName(
-    class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
-    }, 'sb-popper'
-  )
+const SbPopperCore = mixinHide(
+  mixinTheme(
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-popper'
+    )
+  ), 200, false
 );
 
 @Component({
@@ -24,9 +26,6 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
 
   @Input() @HostBinding('class')
   public position: string = PopperPosition.TOP;
-
-  @Input()
-  public visible: boolean = false;
 
   @ViewChild('content')
   public content!: ElementRef;
@@ -69,6 +68,7 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
     themeService: SbThemeService
   ) {
     super(elementRef, themeService);
+    console.log(this)
   }
 
   public trigger(): void {
@@ -126,15 +126,6 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
 
   public isPopped(): boolean {
     return this.visible;
-  }
-
-  public getPopperClasses(): Array<string> {
-    let classes: Array<string> = new Array<string>();
-    classes.push(this.rootClass + '__popper');
-    if (this.visible) {
-      classes.push('visible');
-    }
-    return classes;
   }
 
 }

@@ -51,14 +51,31 @@ Popper
     visibility: hidden;
     opacity: 0;
     z-index: 999;
-    @include transitioning.ease(300ms, visibility, opacity);
+    @include transitioning.ease(200ms, visibility, opacity);
     @include spacing.padding(s);
     @include border.radius(s);
+  }
 
-    &.visible {
-      visibility: visible;
-      opacity: 1;
-    }
+  &.sb--hide &__popper {
+    display: none;
+  }
+
+  &.sb--hiding &__popper {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &.sb--showing &__popper {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &.sb--show &__popper {
+    display: block;
+    visibility: visible;
+    opacity: 1;
   }
 
   &__arrow {

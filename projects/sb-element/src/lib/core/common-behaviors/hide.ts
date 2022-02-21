@@ -65,7 +65,7 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
     constructor(...args: Array<any>) {
       super(...args);
 
-      this.visible = defaultVisiblity || true;
+      this.visible = defaultVisiblity || false;
     }
   }
 }
