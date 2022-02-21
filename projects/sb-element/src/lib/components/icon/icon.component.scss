@@ -34,13 +34,14 @@ Icon
   }
 
   font-style: normal;
-  display: block;
+  display: inline-block;
   line-height: 1;
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  vertical-align: bottom;
   caret-color: transparent;
 
   /* Support for all WebKit browsers. */

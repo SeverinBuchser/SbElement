@@ -34,6 +34,14 @@ $font-sizes: (
   xl: var(--font-size-xl)
 );
 
+$icon-font-sizes: (
+  s: var(--icon-font-size-s),
+  d: var(--icon-font-size-d),
+  m: var(--icon-font-size-m),
+  l: var(--icon-font-size-l),
+  xl: var(--icon-font-size-xl)
+);
+
 // Validates the specified font map. The Map must contain a font family, a
 // weights map and a sizes map. The Map structure looks as follows:
 //
@@ -89,12 +97,12 @@ $display-font: define-font(
 $icon-font: define-font(
   $icon-font-family,
   $icon-font-weights,
-  $font-sizes
+  $icon-font-sizes
 );
 
-// Define an icon font map.
+// Define an icon outlined font map.
 $icon-outlined-font: define-font(
   $icon-outlined-font-family,
   $icon-font-weights,
-  $font-sizes
+  $icon-font-sizes
 );

@@ -12,7 +12,7 @@ const SbToastCore = mixinHide(
         }, 'sb-toast'
       )
     )
-  ), 200
+  ), 200, true
 );
 
 @Component({
