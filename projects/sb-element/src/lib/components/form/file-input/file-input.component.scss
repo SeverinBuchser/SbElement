@@ -53,6 +53,7 @@ File Input
     label {
       height: 100%;
       width: 100%;
+      line-height: $value;
     }
 
     &.pill label {
@@ -74,7 +75,9 @@ File Input
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
-    @include display.flex($justify: space-evenly);
+    display: inline-block;
+    text-align: center;
+
     @include transitioning.ease(300ms, background, color);
     @include border.radius(s);
     @include spacing.padding-x(s);

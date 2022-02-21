@@ -2,15 +2,13 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation }
 import { mixinClassName, mixinFocus, mixinHide, mixinTheme, SbThemeService, Triggerable } from "../../../core";
 
 const SbToastCore = mixinHide(
-  mixinFocus(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
-        }, 'sb-toast'
-      )
+  mixinTheme(
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-toast'
     )
   ), 200, true
 );
@@ -22,11 +20,7 @@ const SbToastCore = mixinHide(
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'visible'
-  ],
-  outputs: [
-    'focus',
-    'blur'
-  ],
+  ]
 })
 export class SbToastComponent extends SbToastCore implements Triggerable {
 

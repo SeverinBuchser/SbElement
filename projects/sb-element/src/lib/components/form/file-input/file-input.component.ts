@@ -66,8 +66,10 @@ export class SbFileInputComponent extends SbFileInputCore implements ControlValu
   private innerValue: File | undefined = undefined;
 
   set value(value: File | undefined) {
-    this.writeValue(value);
-    this.onChange(value);
+    if (value !== this.innerValue && !this.disabled) {
+      this.innerValue = value;
+      this.onChange(value);
+    }
   }
 
   get value(): File | undefined {
@@ -98,7 +100,7 @@ export class SbFileInputComponent extends SbFileInputCore implements ControlValu
   }
 
   public writeValue(value: File | undefined): void {
-    if (value && value !== this.innerValue && !this.disabled) {
+    if (value !== this.innerValue && !this.disabled) {
       this.innerValue = value;
     }
   }
