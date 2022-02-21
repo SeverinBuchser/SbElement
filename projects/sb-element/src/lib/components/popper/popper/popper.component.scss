@@ -48,8 +48,6 @@ Popper
 
   &__popper {
     position: absolute;
-    visibility: hidden;
-    opacity: 0;
     z-index: 999;
     @include transitioning.ease(200ms, visibility, opacity);
     @include spacing.padding(s);
@@ -61,20 +59,10 @@ Popper
   }
 
   &.sb--hiding &__popper {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  &.sb--showing &__popper {
-    display: block;
-    visibility: hidden;
     opacity: 0;
   }
 
   &.sb--show &__popper {
-    display: block;
-    visibility: visible;
     opacity: 1;
   }
 

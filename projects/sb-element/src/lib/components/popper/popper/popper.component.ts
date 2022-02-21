@@ -11,7 +11,7 @@ const SbPopperCore = mixinHide(
           public _themeService: SbThemeService) {}
       }, 'sb-popper'
     )
-  ), 200, false
+  ), false
 );
 
 @Component({
@@ -31,10 +31,13 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
   public content!: ElementRef;
 
   @ViewChild('popper', {read: SbAlignDirective})
-  public popper!: any;
+  public popper!: SbAlignDirective;
 
   @ViewChild('popper', {read: ElementRef})
-  public popperRef!: any;
+  private popperRef!: ElementRef;
+
+  @ViewChild('popper', {read: ElementRef})
+  public transitionElement?: ElementRef;
 
   @ViewChild('arrow', {read: SbAlignDirective})
   public arrow!: SbAlignDirective;
@@ -65,7 +68,7 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
 
   constructor(
     elementRef: ElementRef,
-    themeService: SbThemeService
+    themeService: SbThemeService,
   ) {
     super(elementRef, themeService);
   }

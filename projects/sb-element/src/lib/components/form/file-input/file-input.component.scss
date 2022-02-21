@@ -71,12 +71,12 @@ File Input
   }
 
   label {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer;
     display: inline-block;
     text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
 
     @include transitioning.ease(300ms, background, color);
     @include border.radius(s);

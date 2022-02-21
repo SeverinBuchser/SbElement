@@ -1,20 +1,17 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SbAlert } from './alert';
 import { AlertServiceSubscriber } from './alert-service-subscriber';
 import { SbAlertService } from './alert.service';
-import { SbThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../../core';
+import { SbThemeService, mixinClassName, mixinHide } from '../../../core';
+import { SbAlertBoxComponent } from "../alert-box";
 
-const SbAlertCore = mixinSize(
-  mixinColor(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
-        }, 'sb-alert'
-      )
-    )
+const SbAlertCore = mixinHide(
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: SbThemeService) {}
+    }, 'sb-alert'
   )
 );
 
@@ -23,14 +20,6 @@ const SbAlertCore = mixinSize(
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  host: {
-    '[class.active]': 'show',
-    '[class.inactive]': '!show'
-  },
-  inputs: [
-    'size',
-    'color'
-  ]
 })
 export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscriber {
 
@@ -40,12 +29,19 @@ export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscri
   @Input()
   public showIcon: boolean = true;
 
-  public alertObject: SbAlert | null = null;
-  public show: boolean = false;
-  private appearTime: number = 300;
   @Input()
-  public waitTime: number = 2000;
-  private hideTime: number = 1000;
+  public showTime: number = 2000;
+
+  @Input()
+  private pauseTime: number = 1000;
+
+  @ViewChild(SbAlertBoxComponent)
+  private alertBox!: SbAlertBoxComponent;
+
+  @ViewChild(SbAlertBoxComponent, {read: ElementRef})
+  public transitionElement?: ElementRef;
+
+  public message: string = '';
 
   constructor(
     elementRef: ElementRef,
@@ -57,48 +53,17 @@ export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscri
   }
 
   public async alert(alert: SbAlert): Promise<void> {
-    return this.setAlert(alert)
-    .then(() => this.appears())
-    .then(() => this.waits())
-    .then(() => this.hides())
-    .then(() => this.resetAlert())
+    this.configureAlertBox(alert);
+    this.message = alert.message;
+    this.visible = true;
+    await this.wait(this.showTime);
+    this.visible = false;
+    await this.wait(this.pauseTime);
   }
 
-  private async setAlert(alert: SbAlert): Promise<void> {
-    this.alertObject = alert;
-    this.size = alert.size;
-    this.color = alert.color;
-    return Promise.resolve();
-  }
-
-  private async appears(): Promise<void> {
-    await Promise.resolve(this.show = true);
-    return await this.wait(this.appearTime);
-  }
-
-  private async waits(): Promise<void> {
-    return this.wait(this.waitTime);
-  }
-
-  private async hides(): Promise<void> {
-    await Promise.resolve(this.show = false);
-    return await this.wait(this.hideTime);
-  }
-
-  private async wait(time: number): Promise<void> {
-    return new Promise<void>(resolve => {
-      setTimeout(() => resolve(), time);
-    });
-  }
-
-  private async resetAlert(): Promise<void> {
-    this.alertObject = null;
-    return Promise.resolve();
-  }
-
-  get message(): string {
-    if (this.alertObject) return this.alertObject.message;
-    else return '';
+  private configureAlertBox(alert: SbAlert) {
+    this.alertBox.size = alert.size;
+    this.alertBox.color = alert.color;
   }
 
 }

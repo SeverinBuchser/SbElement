@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinFocus, mixinHide, mixinTheme, SbThemeService, Triggerable } from "../../../core";
+import { mixinClassName, mixinHide, mixinTheme, SbThemeService, Triggerable } from "../../../core";
 
 const SbToastCore = mixinHide(
   mixinTheme(
@@ -10,7 +10,7 @@ const SbToastCore = mixinHide(
           public _themeService: SbThemeService) {}
       }, 'sb-toast'
     )
-  ), 200, true
+  ), true
 );
 
 @Component({
@@ -35,6 +35,7 @@ export class SbToastComponent extends SbToastCore implements Triggerable {
     themeService: SbThemeService
   ) {
     super(elementRef, themeService);
+    this.transitionElement = elementRef;
   }
 
   public handleClose(): void {

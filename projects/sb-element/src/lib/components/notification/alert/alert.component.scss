@@ -18,15 +18,18 @@ Alert
     min-width: 300px;
     overflow: visible;
     @include box-shadow.smooth;
+    @include transitioning.ease(300ms, transform);
   }
 
-  &.active .sb-alert-box {
-    transform: translateY(calc(10.5 * spacing.get-size(d)));
-    @include transitioning.ease-out(300ms, transform);
+  &.sb--hide {
+    display: none;
   }
 
-  &.inactive .sb-alert-box {
+  &.sb--hiding .sb-alert-box {
     transform: translateY(0);
-    @include transitioning.ease-in(300ms, transform);
+  }
+
+  &.sb--show .sb-alert-box {
+    transform: translateY(calc(10.5 * spacing.get-size(d)));
   }
 }

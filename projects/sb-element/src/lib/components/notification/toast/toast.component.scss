@@ -33,6 +33,7 @@ Toast
 
 // ROOT
 .sb-toast {
+  display: block;
   @include border.radius(s);
   @include transitioning.ease(200ms, opacity, visibility);
 
@@ -57,20 +58,10 @@ Toast
   }
 
   &.sb--hiding {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  &.sb--showing {
-    display: block;
-    visibility: hidden;
     opacity: 0;
   }
 
   &.sb--show {
-    display: block;
-    visibility: visible;
     opacity: 1;
   }
 

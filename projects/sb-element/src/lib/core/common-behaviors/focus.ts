@@ -3,11 +3,9 @@ import { EventEmitter } from "@angular/core";
 
 export interface CanFocus {
   focused: boolean;
-  setFocusedState(idFocused: boolean): void;
+  setFocusedState(isFocused: boolean): void;
   focus: EventEmitter<void>;
   blur: EventEmitter<void>;
-  emitFocus(): void;
-  emitBlur(): void;
 }
 
 type CanFocusCtor = Constructor<CanFocus> & AbstractConstructor<CanFocus>;
@@ -31,7 +29,6 @@ export function mixinFocus<T extends Constructor<{}>>(
       if (isFocused !== this._focused) {
         if (isFocused) {
           this.emitFocus();
-          this.focus.emit();
         } else {
           this.emitBlur();
         }
@@ -43,12 +40,12 @@ export function mixinFocus<T extends Constructor<{}>>(
       this.focused = isFocused;
     }
 
-    public emitFocus(): void {
+    private emitFocus(): void {
       this.onFocus();
       this.focus.emit();
     }
 
-    public emitBlur(): void {
+    private emitBlur(): void {
       this.onBlur();
       this.blur.emit();
     }
