@@ -61,4 +61,9 @@ Progress
     @include progress-size($size, $value);
   }
 
+  &.sb--xs {
+    height: 2px;
+    border-radius: 0;
+  }
+
 }

@@ -2,6 +2,7 @@
   <ng-content select="[header]"></ng-content>
   <sb-icon *ngIf="allowWithinClose" [ngClass]="className + '__close'" (click)="handleClose()">&#xe5cd;</sb-icon>
 </div>
+<sb-progress *ngIf="timed > 0" size="xs" color="success"></sb-progress>
 <div [ngClass]="className + '__body'">
   <ng-content select="[body]"></ng-content>
 </div>

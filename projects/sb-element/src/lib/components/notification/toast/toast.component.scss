@@ -16,7 +16,7 @@ Toast
     @include border.border-accent($theme);
   }
 
-  &.sb--#{$theme} &__header {
+  &.sb--#{$theme}:not(.timed) &__header {
     @include border.border-side-accent(bottom, $theme);
   }
 

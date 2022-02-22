@@ -20,8 +20,12 @@
       <div title>
         Indicator
       </div>
-      <div content [ngStyle]="{'width': '100%'}">
-        <sb-progress size="s" color="secondary" [progress]="25"></sb-progress>
+      <div content [ngStyle]="{'width': '100%', 'flex-direction': 'column', 'display': 'flex', 'gap': '20px'}">
+        <sb-progress size="xs" color="secondary" [progress]="20"></sb-progress>
+        <sb-progress size="s" color="primary" [progress]="40"></sb-progress>
+        <sb-progress size="d" color="warn" [progress]="60" pill></sb-progress>
+        <sb-progress size="m" color="info" [progress]="80" outline [showPercentage]="true"></sb-progress>
+        <sb-progress size="l" color="success" [progress]="100"></sb-progress>
       </div>
     </sb-card>
     <sb-card size="s" color="primary" hover>
@@ -29,7 +33,7 @@
         Toast
       </div>
       <div content>
-        <sb-toast (hideEnd)="toastHide()">
+        <sb-toast [visible]="true" [timed]="2000" (hideEnd)="toastHide()">
           <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
             <div>
               <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">pets</sb-icon>
