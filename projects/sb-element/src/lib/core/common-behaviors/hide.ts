@@ -2,7 +2,7 @@ import { AfterViewInit, ElementRef, EventEmitter } from "@angular/core";
 import { AbstractConstructor, Constructor } from "./constructor";
 import { HasElementRef } from "./has-element-ref";
 
-export interface CanHide extends AfterViewInit {
+export interface CanHide {
   visible: boolean;
   setVisibleState(isVisible: boolean): void;
   showStart: EventEmitter<void>;
@@ -125,10 +125,6 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
     protected onShowEnd(): void {};
     protected onHideStart(): void {};
     protected onHideEnd(): void {};
-
-    public ngAfterViewInit(): void {
-
-    }
 
     constructor(...args: Array<any>) {
       super(...args);

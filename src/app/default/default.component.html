@@ -22,8 +22,8 @@
       </div>
       <div content [ngStyle]="{'width': '100%', 'flex-direction': 'column', 'display': 'flex', 'gap': '20px'}">
         <sb-progress size="xs" color="secondary" [progress]="20"></sb-progress>
-        <sb-progress size="s" color="primary" [progress]="40"></sb-progress>
-        <sb-progress size="d" color="warn" [progress]="60" pill></sb-progress>
+        <sb-progress size="s" color="primary" [progress]="40" striped></sb-progress>
+        <sb-progress size="d" color="warn" [progress]="60" pill striped [animateStripes]="true"></sb-progress>
         <sb-progress size="m" color="info" [progress]="80" outline [showPercentage]="true"></sb-progress>
         <sb-progress size="l" color="success" [progress]="100"></sb-progress>
       </div>
@@ -33,10 +33,21 @@
         Toast
       </div>
       <div content>
-        <sb-toast [visible]="true" [timed]="2000" (hideEnd)="toastHide()">
+        <sb-toast #toastOne [visible]="true" [timed]="2000" (hideEnd)="toastHide()">
           <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
             <div>
-              <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">pets</sb-icon>
+              <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">breakfast_dining</sb-icon>
+              SbTimedToast
+            </div>
+          </div>
+          <div body>
+            This is a timed toast!
+          </div>
+        </sb-toast>
+        <sb-toast [visible]="true" (hideEnd)="toastHide()">
+          <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
+            <div>
+              <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">breakfast_dining</sb-icon>
               SbToast
             </div>
             <span>5 min. ago</span>
@@ -45,18 +56,7 @@
             This is a rather long toast notification!
           </div>
         </sb-toast>
-        <sb-toast (hideEnd)="toastHide()">
-          <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
-            <div>
-              <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">pets</sb-icon>
-              SbToast
-            </div>
-            <span>5 min. ago</span>
-          </div>
-          <div body>
-            This is a rather long toast notification!
-          </div>
-        </sb-toast>
+        <button color="primary" sbElClickTrigger [triggerable]="toastOne">Trigger Timed Toast</button>
       </div>
     </sb-card>
     <sb-card size="s" color="primary" hover>

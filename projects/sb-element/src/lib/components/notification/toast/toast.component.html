@@ -2,7 +2,17 @@
   <ng-content select="[header]"></ng-content>
   <sb-icon *ngIf="allowWithinClose" [ngClass]="className + '__close'" (click)="handleClose()">&#xe5cd;</sb-icon>
 </div>
-<sb-progress *ngIf="timed > 0" size="xs" color="success"></sb-progress>
 <div [ngClass]="className + '__body'">
   <ng-content select="[body]"></ng-content>
 </div>
+<ng-template [ngIf]="timed > 0" [ngIfElse]="notTimed">
+  <sb-progress
+    [ngClass]="className + '__header-hr'"
+    size="xs"
+    color="success">
+  </sb-progress>
+</ng-template>
+<ng-template #notTimed>
+  <hr [ngClass]="className + '__header-hr'">
+</ng-template>
+<div [ngClass]="className + '__border'"></div>

@@ -2,6 +2,7 @@
 @use "src/style/core/spacing";
 @use "src/style/core/display";
 @use "src/style/core/border";
+@use "src/style/core/animation";
 /*****************************************************************************
 Progress
 ******************************************************************************/
@@ -19,8 +20,21 @@ Progress
   }
 
   &.sb--#{$theme}.sb--#{$color} &__bar {
-    background: theming.get-color($theme, $color);
+    background-color: theming.get-color($theme, $color);
     color: theming.get-text($theme, $color);
+  }
+
+  &.sb--#{$theme}.sb--#{$color}.striped &__bar {
+    background-image: linear-gradient(45deg,
+      rgba(0,0,0,0) 25%,
+      theming.get-color-inverted($theme, $color) 25%,
+      theming.get-color-inverted($theme, $color) 50%,
+      rgba(0,0,0,0) 50%,
+      rgba(0,0,0,0) 75%,
+      theming.get-color-inverted($theme, $color) 75%,
+      theming.get-color-inverted($theme, $color) 100%,
+      rgba(0,0,0,0) 100%
+    );
   }
 }
 
@@ -36,6 +50,15 @@ Progress
 
   &.sb--#{$size} &__bar {
     font-size: calc(spacing.get-spacing($size) - 2px);
+    background-size: $value $value;
+  }
+
+  @include animation.keyframes(progress-stripes--#{$size}) {
+      0% {background-position-x: $value;}
+  }
+
+  &.sb--#{$size}.animated &__bar {
+    @include animation.animation(progress-stripes--#{$size} 2s infinite linear);
   }
 }
 
@@ -64,6 +87,10 @@ Progress
   &.sb--xs {
     height: 2px;
     border-radius: 0;
+  }
+
+  &.sb--xs &__bar {
+    background-image: none !important;
   }
 
 }

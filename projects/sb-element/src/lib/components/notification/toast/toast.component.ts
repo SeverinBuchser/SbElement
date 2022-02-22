@@ -61,6 +61,14 @@ export class SbToastComponent extends SbToastCore implements Triggerable {
     }
   }
 
+  protected onHideEnd(): void {
+    if (this.timed > 0) {
+      let progressBarChild = this.progressBar.nativeElement.firstChild;
+      progressBarChild.style.transition = '';
+      progressBarChild.style.width = '0';
+    }
+  }
+
   public handleClose(): void {
     this.close.emit();
     if (this.allowWithinClose) {

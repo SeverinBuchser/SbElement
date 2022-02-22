@@ -11,13 +11,17 @@ Toast
 // THEME
 @mixin toast-theme($theme) {
   &.sb--#{$theme} {
-    background: theming.get-background($theme);
     color: theming.get-background-text($theme);
-    @include border.border-accent($theme);
+
+    hr {
+      border: 0;
+      @include border.border-side-accent(top, $theme, s);
+    }
   }
 
-  &.sb--#{$theme}:not(.timed) &__header {
-    @include border.border-side-accent(bottom, $theme);
+  &.sb--#{$theme} &__border {
+    @include border.border-accent($theme, s);
+    background: theming.get-background($theme);
   }
 
   &.sb--#{$theme} &__close:hover {
@@ -35,13 +39,23 @@ Toast
 
 // ROOT
 .sb-toast {
-  display: block;
-  @include border.radius(s);
+  position: relative;
+  @include display.grid($gap: 0, $flow: row);
   @include transitioning.ease(200ms, opacity);
+
+  &__border {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    @include border.radius(s);
+  }
 
   &__header {
     @include display.flex($justify: space-between, $gap: s);
     @include spacing.padding(s);
+    grid-row: 1 / 2;
+    z-index: 1;
   }
 
   &__close {
@@ -53,6 +67,32 @@ Toast
 
   &__body {
     @include spacing.padding(s);
+    grid-row: 3 / 4;
+    z-index: 1;
+  }
+
+  &__header-hr {
+    grid-row: 2 / 3;
+    width: calc(100% - 2 * border.get-border-width(s));
+    transform: translateX(border.get-border-width(s));
+    z-index: 1;
+  }
+
+  &__header:empty,
+  &__body:empty,
+  &:not(.timed) &__header:empty ~ &__header-hr, // only header empty and not timed
+  &:not(.timed) &__body:empty ~ &__header-hr { // only body empty and not timed
+    display: none;
+  }
+
+  &.timed &__body:empty ~ &__border {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.timed &__header:empty ~ &__border {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   &.sb--hidden {
