@@ -10,16 +10,37 @@ Toaster
 
 // ROOT
 .sb-toaster {
-  @include display.flex();
+  display: block;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   pointer-events: none;
   z-index: 998;
+  @include spacing.padding(d);
+
+  &.top-left {
+    top: 0;
+    left: 0;
+  }
+
+  &.top-right {
+    top: 0;
+    right: 0;
+  }
+
+  &.bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+
+  &.bottom-right {
+    bottom: 0;
+    right: 0;
+  }
 
   .sb-toast {
-    height: 50%;
+    pointer-events: all;
+  }
+
+  .sb-toast:not(:last-child) {
+    @include spacing.margin-bottom(d);
   }
 }

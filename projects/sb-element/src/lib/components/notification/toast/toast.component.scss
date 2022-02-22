@@ -12,6 +12,7 @@ Toast
 @mixin toast-theme($theme) {
   &.sb--#{$theme} {
     background: theming.get-background($theme);
+    color: theming.get-background-text($theme);
     @include border.border-accent($theme);
   }
 
@@ -21,6 +22,7 @@ Toast
 
   &.sb--#{$theme} &__close:hover {
     background: theming.get-accent($theme);
+    color: theming.get-accent-text($theme);
   }
 }
 
@@ -35,7 +37,7 @@ Toast
 .sb-toast {
   display: block;
   @include border.radius(s);
-  @include transitioning.ease(200ms, opacity, visibility);
+  @include transitioning.ease(200ms, opacity);
 
   &__header {
     @include display.flex($justify: space-between, $gap: s);

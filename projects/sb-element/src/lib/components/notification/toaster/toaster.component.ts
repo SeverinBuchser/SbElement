@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 import { mixinClassName } from "../../../core";
+import { ToasterPosition } from "./toaster-position";
 
 const SbToasterCore = mixinClassName(
   class {
@@ -12,9 +13,12 @@ const SbToasterCore = mixinClassName(
   selector: 'sb-toaster',
   templateUrl: './toaster.component.html',
   styleUrls: ['./toaster.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SbToasterComponent extends SbToasterCore {
+
+  @Input() @HostBinding('class')
+  public position: string = ToasterPosition.TOP_LEFT;
 
   constructor(
     elementRef: ElementRef
