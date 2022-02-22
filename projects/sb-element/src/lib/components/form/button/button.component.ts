@@ -62,14 +62,14 @@ export class SbButtonComponent extends SbButtonCore {
   constructor(
     elementRef: ElementRef,
     themeService: SbThemeService,
-    @Optional() @Attribute('round') round: any,
-    @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any
+    @Optional() @Attribute('round') isRound: any,
+    @Optional() @Attribute('pill') isPill: any,
+    @Optional() @Attribute('plain') isPlain: any
   ) {
     super(elementRef, themeService);
-    if (round == '') this.isRound = true;
-    if (pill == '') this.isPill = true;
-    if (plain == '') this.isPlain = true;
+    if (isRound == '') this.isRound = true;
+    if (isPill == '') this.isPill = true;
+    if (isPlain == '') this.isPlain = true;
   }
 
 }

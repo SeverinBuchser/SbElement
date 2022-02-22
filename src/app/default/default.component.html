@@ -15,7 +15,15 @@
 </sb-nav-bar>
 <sb-breadcrumbs [crumbs]="crumbs" (navigate)="handleNavigate($event)"></sb-breadcrumbs>
 <sb-container size="l">
-  <sb-grid dim="1x5" gap="l">
+  <sb-grid dim="1x6" gap="l">
+    <sb-card size="s" color="primary" hover>
+      <div title>
+        Indicator
+      </div>
+      <div content [ngStyle]="{'width': '100%'}">
+        <sb-progress size="s" color="secondary" [progress]="25"></sb-progress>
+      </div>
+    </sb-card>
     <sb-card size="s" color="primary" hover>
       <div title>
         Toast
@@ -265,4 +273,4 @@
   </form>
 </sb-container>
 <sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>
-<sb-toaster></sb-toaster>
+<!--<sb-toaster></sb-toaster>-->

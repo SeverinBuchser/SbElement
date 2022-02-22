@@ -1,0 +1,64 @@
+@use "src/style/core/theming";
+@use "src/style/core/spacing";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Progress
+******************************************************************************/
+
+// THEME
+@mixin progress-theme($theme, $color) {
+  &.sb--#{$theme} {
+    &:not(.outline) {
+      background: theming.get-accent($theme);
+    }
+
+    &.outline {
+      @include border.border-accent($theme, d);
+    }
+  }
+
+  &.sb--#{$theme}.sb--#{$color} &__bar {
+    background: theming.get-color($theme, $color);
+    color: theming.get-text($theme, $color);
+  }
+}
+
+// SIZE
+@mixin progress-size($size, $value) {
+  &.sb--#{$size} {
+    height: spacing.get-spacing($size);
+
+    &.pill {
+      @include border.radius($size);
+    }
+  }
+
+  &.sb--#{$size} &__bar {
+    font-size: calc(spacing.get-spacing($size) - 2px);
+  }
+}
+
+// ROOT
+.sb-progress {
+
+  @include display.flex($justify: flex-start);
+  @include border.radius(s);
+  overflow: hidden;
+  width: 100%;
+
+  &__bar {
+    height: 100%;
+    @include display.flex();
+  }
+
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    @include progress-theme($theme, $color);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include progress-size($size, $value);
+  }
+
+}

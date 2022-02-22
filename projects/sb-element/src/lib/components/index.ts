@@ -11,3 +11,4 @@ export * from './table';
 export * from './timeline';
 export * from './link';
 export * from './breadcrumbs';
+export * from './indicator';

@@ -78,9 +78,10 @@ Checkbox-Group
       border-radius
     );
     @include display.flex($justify: space-evenly);
-    .sb-icon {
-      @include transitioning.ease($button-animation-duration, color, transform);
-    }
+  }
+
+  .sb-icon {
+    @include transitioning.ease($button-animation-duration, color, transform);
   }
 
   &__options {
@@ -100,14 +101,17 @@ Checkbox-Group
     @include transitioning.ease(300ms, background, color);
   }
 
-  &.open button {
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    @include transitioning.ease($button-animation-duration,
-      background,
-      color,
-      border-radius
-    );
+  &.open {
+    button {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      @include transitioning.ease($button-animation-duration,
+        background,
+        color,
+        border-radius
+      );
+    }
+
     .sb-icon {transform: rotate(180deg);}
   }
 

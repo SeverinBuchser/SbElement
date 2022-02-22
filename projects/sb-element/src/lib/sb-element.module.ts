@@ -20,6 +20,7 @@ import { SbGridComponent } from './components/grid/grid.component';
 import { SbTimelineComponent } from './components/timeline/timeline.component';
 import { SbLinkComponent } from './components/link/link.component';
 import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { SbIndicatorModule } from "./components/indicator";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.com
     SbIconModule,
     SbPopperModule,
     SbNotificationModule,
-    SbCalendarModule
+    SbCalendarModule,
+    SbIndicatorModule,
   ],
   exports: [
     // Components
@@ -59,7 +61,8 @@ import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.com
     SbIconModule,
     SbPopperModule,
     SbNotificationModule,
-    SbCalendarModule
+    SbCalendarModule,
+    SbIndicatorModule,
   ]
 })
 export class SbElementModule { }
