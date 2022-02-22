@@ -57,7 +57,7 @@ Progress
       0% {background-position-x: $value;}
   }
 
-  &.sb--#{$size}.animated &__bar {
+  &.sb--#{$size}.animate-stripes &__bar {
     @include animation.animation(progress-stripes--#{$size} 2s infinite linear);
   }
 }

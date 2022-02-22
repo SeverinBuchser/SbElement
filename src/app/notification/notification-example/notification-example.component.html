@@ -1,0 +1,49 @@
+<sb-container size="l">
+  <sb-grid dim="1x2" gap="l">
+    <sb-card size="s" color="primary" hover>
+      <div title>
+        Toast
+      </div>
+      <div content>
+        <sb-toast #toastOne [visible]="true" [timed]="2000">
+          <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
+            <div>
+              <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">breakfast_dining</sb-icon>
+              SbTimedToast
+            </div>
+          </div>
+          <div body>
+            This is a timed toast!
+          </div>
+        </sb-toast>
+        <sb-toast [visible]="true">
+          <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
+            <div>
+              <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">breakfast_dining</sb-icon>
+              SbToast
+            </div>
+            <span>5 min. ago</span>
+          </div>
+          <div body>
+            This is a rather long toast notification!
+          </div>
+        </sb-toast>
+        <button color="primary" sbElClickTrigger [triggerable]="toastOne">Trigger Timed Toast</button>
+      </div>
+    </sb-card>
+    <sb-card size="s" color="primary" hover>
+      <div title>
+        Alert
+      </div>
+      <sb-grid content dim="2x2" gap="s">
+        <button color="primary" (click)="alertPrimary()" plain size="s">Primary Notification</button>
+        <button color="secondary" (click)="alertSecondary()" plain size="s">Secondary Notification</button>
+        <button color="success" (click)="alertSuccess()" plain size="s">Success Notification</button>
+        <button color="warn" (click)="alertWarn()" plain size="s">Warn Notification</button>
+        <button color="info" (click)="alertInform()" plain size="s">Info Notification</button>
+      </sb-grid>
+    </sb-card>
+  </sb-grid>
+</sb-container>
+<sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>
+<!--<sb-toaster></sb-toaster>-->

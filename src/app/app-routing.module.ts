@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CalendarExampleComponent } from "./calendar/calendar-example/calendar-example.component";
 import { DefaultComponent } from "./default/default.component";
-import { SBComponent } from "./sb/sb.component";
+import { IndicatorExampleComponent } from "./indicator/indicator-example/indicator-example.component";
+import { NotificationExampleComponent } from "./notification/notification-example/notification-example.component";
+import { TableExampleComponent } from "./table/table-example/table-example.component";
+import { TimelineExampleComponent } from "./timeline/timeline-example/timeline-example.component";
 
 const routes: Routes = [
   {
@@ -11,11 +15,29 @@ const routes: Routes = [
   },
   {
     path: 'example',
-    component: DefaultComponent
-  },
-  {
-    path: 'sb',
-    component: SBComponent
+    component: DefaultComponent,
+    children: [
+      {
+        path: 'indicator',
+        component: IndicatorExampleComponent
+      },
+      {
+        path: 'notification',
+        component: NotificationExampleComponent
+      },
+      {
+        path: 'timeline',
+        component: TimelineExampleComponent
+      },
+      {
+        path: 'calendar',
+        component: CalendarExampleComponent
+      },
+      {
+        path: 'table',
+        component: TableExampleComponent
+      }
+    ]
   }
 ];
 

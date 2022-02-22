@@ -1,0 +1,16 @@
+<sb-container size="l">
+  <sb-grid dim="1x1" gap="l">
+    <sb-card size="s" color="primary" hover>
+      <div title>
+        Progress
+      </div>
+      <div content [ngStyle]="{'width': '100%', 'flex-direction': 'column', 'display': 'flex', 'gap': '20px'}">
+        <sb-progress size="xs" color="secondary" [progress]="20"></sb-progress>
+        <sb-progress size="s" color="primary" [progress]="40" striped></sb-progress>
+        <sb-progress size="d" color="warn" [progress]="60" pill striped [animateStripes]="true"></sb-progress>
+        <sb-progress size="m" color="info" [progress]="80" outline [showPercentage]="true"></sb-progress>
+        <sb-progress size="l" color="success" [progress]="100"></sb-progress>
+      </div>
+    </sb-card>
+  </sb-grid>
+</sb-container>

@@ -1,0 +1,27 @@
+<sb-container size="l">
+  <sb-grid dim="1x1" gap="l">
+    <sb-card size="s" color="primary">
+      <div title>
+        Timeline
+      </div>
+      <div content>
+        <sb-timeline
+          color="primary"
+          size="l"
+          #timeline
+          [stepNames]="['First Step', 'Second Step', 'Third Step', 'Fourth Step']">
+        </sb-timeline>
+        <div class="timeline-control">
+          <button color="primary" (click)="timeline.previousDone()" plain size="s">Previous Done</button>
+          <button color="primary" (click)="timeline.previousPending()" plain size="s">Previous Pending</button>
+          <button color="primary" (click)="timeline.previous()" plain size="s">Previous</button>
+          <button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</button>
+          <button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</button>
+        </div>
+      </div>
+      <div footer>
+        <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
+      </div>
+    </sb-card>
+  </sb-grid>
+</sb-container>

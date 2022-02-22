@@ -6,16 +6,24 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { SbElementModule, SbStyleModule } from 'sb-element';
-import { SBComponent } from './sb/sb.component';
 import { DefaultComponent } from './default/default.component';
+import { IndicatorExampleComponent } from './indicator/indicator-example/indicator-example.component';
+import { NotificationExampleComponent } from './notification/notification-example/notification-example.component';
+import { TimelineExampleComponent } from './timeline/timeline-example/timeline-example.component';
+import { CalendarExampleComponent } from './calendar/calendar-example/calendar-example.component';
+import { TableExampleComponent } from './table/table-example/table-example.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SBComponent,
     DefaultComponent,
+    IndicatorExampleComponent,
+    NotificationExampleComponent,
+    TimelineExampleComponent,
+    CalendarExampleComponent,
+    TableExampleComponent,
   ],
   imports: [
     BrowserModule,

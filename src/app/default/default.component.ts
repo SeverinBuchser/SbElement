@@ -1,7 +1,8 @@
-import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { filter } from "rxjs/operators";
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from "@angular/router";
-import { SbAlertService, SbThemeService, Size, SbTimelineComponent, MarkedDates, mixinClassName, mixinTheme, mixinColor, Color } from 'sb-element';
+import { ActivatedRoute, NavigationEnd, Router, Routes } from "@angular/router";
+import { SbAlertService, SbThemeService, Size, MarkedDates, mixinClassName, mixinTheme, mixinColor, Color } from 'sb-element';
 
 @Component({
   selector: 'app-default',
@@ -21,10 +22,6 @@ mixinColor(
     )
   ), Color.PRIMARY
 ) {
-  title = 'SbElement';
-
-  public value: any = 'Switch is turned OFF';
-  public valuecheckbox: boolean = false;
 
   public options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
 
@@ -44,46 +41,39 @@ mixinColor(
 
   public crumbs = ['Home', 'Example'];
 
-  public table!: {data: Array<Array<any>>, head: Array<any>};
-
   public toggle: boolean = false;
 
-  @ViewChild('timeline')
-  public timeline!: SbTimelineComponent;
+  public routes: Routes = [];
 
   constructor(
     themeService: SbThemeService,
     elementRef: ElementRef,
     private alertService: SbAlertService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     super(elementRef, themeService)
-    this.table = {
-      data: [[
-        "Severin", "Buchser"
-      ], [
-        "Rafael", "Buchser"
-      ],[
-        null, "Buchser"
-      ]],
-      head: ["Vorname", "Nachname"]
+
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => this.updateCrumbs())
+    if (this.route.routeConfig?.children) {
+      this.routes = this.route.routeConfig?.children;
     }
+  }
+
+  private updateCrumbs(): void {
+    this.crumbs = this.router.url.split('/').map((urlSegment: string) => {
+      if (urlSegment == '') return 'HOME';
+      else return urlSegment.toUpperCase();
+    })
   }
 
   onSubmit(form: NgForm) {
     console.log(this.model);
-    this.alertService.inform("Hello", Size.DEFAULT);
+    this.alertService.success("Success Notification", Size.DEFAULT);
   }
 
   ngOnInit() {
-  }
-
-  toastHide(): void {
-    console.log("Toast Hidden!")
-  }
-
-  alert(message: string): void {
-    this.alertService.inform(message, Size.LARGE);
-    this.alertService.success(message, Size.SMALL);
   }
 
   toggleTheme() {
@@ -94,11 +84,10 @@ mixinColor(
     }
   }
 
-  log(value: any) {
-    console.log(value)
-  }
-
-  handleNavigate(crumb: string) {
-    console.log(crumb)
+  handleNavigate(path: Array<string>) {
+    this.router.navigate(path.map((urlSegment: string) => {
+      if (urlSegment == 'HOME') return '';
+      else return urlSegment.toLowerCase();
+    }))
   }
 }

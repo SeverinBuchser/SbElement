@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SbProgressComponent } from "../../indicator";
-import { mixinClassName, mixinHide, mixinTheme, SbThemeService, Triggerable } from "../../../core";
+import { Color, mixinClassName, mixinHide, mixinTheme, SbThemeService, Triggerable } from "../../../core";
 
 const SbToastCore = mixinHide(
   mixinTheme(
@@ -36,13 +36,16 @@ export class SbToastComponent extends SbToastCore implements Triggerable {
   public close: EventEmitter<void> = new EventEmitter<void>();
 
   @Input()
+  public color: string = Color.PRIMARY;
+
+  @Input()
   public allowWithinClose: boolean = true;
 
   @Input()
   public timed: number = 0;
 
-  @ViewChild(SbProgressComponent, {read: ElementRef})
-  public progressBar!: ElementRef;
+  @ViewChild(SbProgressComponent)
+  public progressBar!: SbProgressComponent;
 
   constructor(
     elementRef: ElementRef,
@@ -54,18 +57,16 @@ export class SbToastComponent extends SbToastCore implements Triggerable {
 
   protected onShowEnd(): void {
     if (this.timed > 0) {
-      let progressBarChild = this.progressBar.nativeElement.firstChild;
-      progressBarChild.style.transition = `width ${this.timed}ms linear`;
-      progressBarChild.style.width = '100%';
+      this.progressBar.transition = `width ${this.timed}ms linear`;
+      this.progressBar.progress = 100;
       this.wait(this.timed).then(() => this.setVisibleState(false))
     }
   }
 
   protected onHideEnd(): void {
     if (this.timed > 0) {
-      let progressBarChild = this.progressBar.nativeElement.firstChild;
-      progressBarChild.style.transition = '';
-      progressBarChild.style.width = '0';
+      this.progressBar.transition = '';
+      this.progressBar.progress = 0;
     }
   }
 

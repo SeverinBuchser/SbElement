@@ -20,7 +20,7 @@ const SbBreadcrumbsCore = mixinTheme(
 export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
 
   @Output()
-  public navigate: EventEmitter<string> = new EventEmitter<string>();
+  public navigate: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
 
   private _crumbs: Array<string> = new Array<string>();
 
@@ -45,8 +45,8 @@ export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
     super(elementRef, themeService);
   }
 
-  public handleClick(crumb: string) {
-    this.navigate.emit(crumb);
+  public handleClick(crumbIndex: number) {
+    this.navigate.emit(this.crumbs.slice(0, crumbIndex + 1));
   }
 
 }

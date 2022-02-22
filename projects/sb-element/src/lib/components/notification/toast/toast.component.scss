@@ -4,6 +4,7 @@
 @use "src/style/core/typography";
 @use "src/style/core/display";
 @use "src/style/core/border";
+@use "src/style/core/box-shadow";
 /*****************************************************************************
 Toast
 ******************************************************************************/
@@ -42,6 +43,8 @@ Toast
   position: relative;
   @include display.grid($gap: 0, $flow: row);
   @include transitioning.ease(200ms, opacity);
+  @include box-shadow.weak();
+  @include border.radius(s);
 
   &__border {
     position: absolute;

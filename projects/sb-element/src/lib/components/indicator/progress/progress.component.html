@@ -1,3 +1,3 @@
-<div [ngClass]="className + '__bar'" [ngStyle]="{'width': progressPercentage}">
+<div [ngClass]="className + '__bar'" [ngStyle]="{'width': progressPercentage, 'transition': transition}">
   <ng-template [ngIf]="showPercentage">{{ progressPercentage }}</ng-template>
 </div>

@@ -26,7 +26,7 @@ const SbProgressCore = mixinDisable(
     '[class.pill]': 'pill',
     '[class.outline]': 'outline',
     '[class.striped]': 'striped && size != "xs"',
-    '[class.animated]': 'animateStripes && striped'
+    '[class.animate-stripes]': 'animateStripes && striped'
   },
   inputs: [
     'size',
@@ -38,6 +38,9 @@ export class SbProgressComponent extends SbProgressCore {
 
   @Input()
   public progress: number = 0;
+
+  @Input()
+  public transition: string = '';
 
   get progressPercentage(): string {
     return `${this.progress}%`;
