@@ -49,15 +49,15 @@ Calendar-Date
   }
 
   span {
-    z-index: 1;
     @include transitioning.ease(200ms);
+    z-index: 1;
   }
 
   .mark {
     position: absolute;
+    z-index: 0;
     height: 100%;
     width: 63%;
-    @include display.flex();
     @include transitioning.ease(200ms);
     @include border.radius(d)
   }

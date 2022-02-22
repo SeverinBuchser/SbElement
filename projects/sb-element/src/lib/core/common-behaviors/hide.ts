@@ -1,12 +1,14 @@
-import { ElementRef, EventEmitter } from "@angular/core";
+import { AfterViewInit, ElementRef, EventEmitter } from "@angular/core";
 import { AbstractConstructor, Constructor } from "./constructor";
 import { HasElementRef } from "./has-element-ref";
 
-export interface CanHide {
+export interface CanHide extends AfterViewInit {
   visible: boolean;
   setVisibleState(isVisible: boolean): void;
-  show: EventEmitter<void>;
-  hide: EventEmitter<void>;
+  showStart: EventEmitter<void>;
+  showEnd: EventEmitter<void>;
+  hideStart: EventEmitter<void>;
+  hideEnd: EventEmitter<void>;
   transitionDuration: number;
   transitionElement?: ElementRef;
   defaultVisiblity?: boolean;
@@ -26,8 +28,10 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
   return class extends core {
     private _visible: boolean | undefined;
 
-    public show: EventEmitter<void> = new EventEmitter<void>();
-    public hide: EventEmitter<void> = new EventEmitter<void>();
+    public showStart: EventEmitter<void> = new EventEmitter<void>();
+    public showEnd: EventEmitter<void> = new EventEmitter<void>();
+    public hideStart: EventEmitter<void> = new EventEmitter<void>();
+    public hideEnd: EventEmitter<void> = new EventEmitter<void>();
 
     public defaultVisiblity?: boolean = defaultVisiblity;
     public transitionElement?: ElementRef;
@@ -37,7 +41,7 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
     }
     set visible(isVisible: boolean) {
       if (isVisible !== this._visible) {
-        if (isVisible) this.showElement();
+        if (isVisible) this.showElement(this._visible);
         else this.hideElement(this._visible);
         this._visible = isVisible;
       }
@@ -49,24 +53,30 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
       })
     }
 
-    private async showElement(): Promise<void> {
-      this._elementRef.nativeElement.classList.remove(`sb--hide`);
-      setTimeout(() => {
-        this._elementRef.nativeElement.classList.add(`sb--show`);
-        this.emitShow();
-      }, 0);
+    private async showElement(wasVisible: boolean | undefined): Promise<void> {
+      this._elementRef.nativeElement.classList.remove(`sb--hidden`);
+      if (wasVisible !== undefined) {
+        this._elementRef.nativeElement.classList.add(`sb--visibly-hidden`);
+        await this.wait(0);
+        this._elementRef.nativeElement.classList.remove(`sb--visibly-hidden`);
+      }
+      this.emitShowStart();
+      this._elementRef.nativeElement.classList.add(`sb--visible`);
+      await this.wait(this.transitionDuration + 5);
+      this.emitShowEnd();
     }
 
     private async hideElement(wasVisible: boolean | undefined): Promise<void> {
-      this._elementRef.nativeElement.classList.remove(`sb--show`);
+      this._elementRef.nativeElement.classList.remove(`sb--visible`);
+      this.emitHideStart();
       if (wasVisible !== undefined) {
-        this._elementRef.nativeElement.classList.add(`sb--hiding`);
+        this._elementRef.nativeElement.classList.add(`sb--visibly-hidden`);
         await this.wait(this.transitionDuration + 5);
-        this._elementRef.nativeElement.classList.remove(`sb--hiding`);
+        this._elementRef.nativeElement.classList.remove(`sb--visibly-hidden`);
       }
       if (wasVisible == undefined || this._visible == false) {
-        this._elementRef.nativeElement.classList.add(`sb--hide`);
-        this.emitHide();
+        this._elementRef.nativeElement.classList.add(`sb--hidden`);
+        this.emitHideEnd();
       }
     }
 
@@ -91,18 +101,34 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
       this.visible = isVisible;
     }
 
-    private emitShow(): void {
-      this.onShow();
-      this.show.emit();
+    private emitShowStart(): void {
+      this.onShowStart();
+      this.showStart.emit();
     }
 
-    private emitHide(): void {
-      this.onHide();
-      this.hide.emit();
+    private emitShowEnd(): void {
+      this.onShowEnd();
+      this.showEnd.emit();
     }
 
-    protected onShow(): void {};
-    protected onHide(): void {};
+    private emitHideStart(): void {
+      this.onHideStart();
+      this.hideStart.emit();
+    }
+
+    private emitHideEnd(): void {
+      this.onHideEnd();
+      this.hideEnd.emit();
+    }
+
+    protected onShowStart(): void {};
+    protected onShowEnd(): void {};
+    protected onHideStart(): void {};
+    protected onHideEnd(): void {};
+
+    public ngAfterViewInit(): void {
+
+    }
 
     constructor(...args: Array<any>) {
       super(...args);

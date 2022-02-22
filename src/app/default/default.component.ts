@@ -77,6 +77,10 @@ mixinColor(
   ngOnInit() {
   }
 
+  toastHide(): void {
+    console.log("Toast Hidden!")
+  }
+
   alert(message: string): void {
     this.alertService.inform(message, Size.LARGE);
     this.alertService.success(message, Size.SMALL);

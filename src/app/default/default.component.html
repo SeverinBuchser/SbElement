@@ -21,7 +21,7 @@
         Toast
       </div>
       <div content>
-        <sb-toast>
+        <sb-toast (hideEnd)="toastHide()">
           <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
             <div>
               <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">pets</sb-icon>
@@ -33,7 +33,7 @@
             This is a rather long toast notification!
           </div>
         </sb-toast>
-        <sb-toast>
+        <sb-toast (hideEnd)="toastHide()">
           <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
             <div>
               <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">pets</sb-icon>
@@ -265,3 +265,4 @@
   </form>
 </sb-container>
 <sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>
+<sb-toaster></sb-toaster>

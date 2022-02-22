@@ -1,0 +1,25 @@
+@use "src/style/core/spacing";
+@use "src/style/core/theming";
+@use "src/style/core/transitioning";
+@use "src/style/core/typography";
+@use "src/style/core/display";
+@use "src/style/core/border";
+/*****************************************************************************
+Toaster
+******************************************************************************/
+
+// ROOT
+.sb-toaster {
+  @include display.flex();
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 998;
+
+  .sb-toast {
+    height: 50%;
+  }
+}

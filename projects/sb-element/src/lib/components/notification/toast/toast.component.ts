@@ -20,6 +20,10 @@ const SbToastCore = mixinHide(
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'visible'
+  ],
+  outputs: [
+    'show',
+    'hide'
   ]
 })
 export class SbToastComponent extends SbToastCore implements Triggerable {
@@ -41,7 +45,7 @@ export class SbToastComponent extends SbToastCore implements Triggerable {
   public handleClose(): void {
     this.close.emit();
     if (this.allowWithinClose) {
-      this.visible = false;
+      this.setVisibleState(false);
     }
   }
 

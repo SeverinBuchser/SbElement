@@ -53,15 +53,15 @@ Toast
     @include spacing.padding(s);
   }
 
-  &.sb--hide {
+  &.sb--hidden {
     display: none;
   }
 
-  &.sb--hiding {
+  &.sb--visibly-hidden {
     opacity: 0;
   }
 
-  &.sb--show {
+  &.sb--visible {
     opacity: 1;
   }
 

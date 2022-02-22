@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { PopperPosition } from "../popper/popper-position";
 import { mixinClassName } from '../../../core';
 
@@ -16,6 +16,18 @@ const SbTooltipCore = mixinClassName(
   encapsulation: ViewEncapsulation.None
 })
 export class SbTooltipComponent extends SbTooltipCore {
+
+  @Output()
+  public showStart: EventEmitter<void> = new EventEmitter<void>();
+  @Output()
+  public showEnd: EventEmitter<void> = new EventEmitter<void>();
+  @Output()
+  public hideStart: EventEmitter<void> = new EventEmitter<void>();
+  @Output()
+  public hideEnd: EventEmitter<void> = new EventEmitter<void>();
+
+  @Input()
+  public visible: boolean = false;
 
   @Input()
   public text: string = '';

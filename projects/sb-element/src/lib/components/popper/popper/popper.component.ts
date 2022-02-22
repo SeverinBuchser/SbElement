@@ -18,7 +18,14 @@ const SbPopperCore = mixinHide(
   selector: 'sb-popper',
   templateUrl: './popper.component.html',
   styleUrls: ['./popper.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  inputs: [
+    'visible'
+  ],
+  outputs: [
+    'show',
+    'hide'
+  ]
 })
 export class SbPopperComponent extends SbPopperCore implements Poppable {
 
@@ -75,12 +82,13 @@ export class SbPopperComponent extends SbPopperCore implements Poppable {
 
   public trigger(): void {
     this.visible = !this.visible;
-    if (this.visible) {
-      let contentBBox = this.content.nativeElement.getBoundingClientRect();
-      let popperBBox = this.popper.nativeElement.getBoundingClientRect();
-      let arrowBBox = this.arrow.nativeElement.getBoundingClientRect();
-      this.align(contentBBox, popperBBox, arrowBBox);
-    }
+  }
+
+  protected onShowStart(): void {
+    let contentBBox = this.content.nativeElement.getBoundingClientRect();
+    let popperBBox = this.popper.nativeElement.getBoundingClientRect();
+    let arrowBBox = this.arrow.nativeElement.getBoundingClientRect();
+    this.align(contentBBox, popperBBox, arrowBBox);
   }
 
   public align(contentBBox: DOMRect, popperBBox: DOMRect, arrowBBox: DOMRect): void {

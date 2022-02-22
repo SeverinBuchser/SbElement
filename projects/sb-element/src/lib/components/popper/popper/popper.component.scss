@@ -47,22 +47,23 @@ Popper
   }
 
   &__popper {
+    display: block;
     position: absolute;
-    z-index: 999;
-    @include transitioning.ease(200ms, visibility, opacity);
+    z-index: 997;
+    @include transitioning.ease(200ms, opacity);
     @include spacing.padding(s);
     @include border.radius(s);
   }
 
-  &.sb--hide &__popper {
+  &.sb--hidden &__popper {
     display: none;
   }
 
-  &.sb--hiding &__popper {
+  &.sb--visibly-hidden &__popper {
     opacity: 0;
   }
 
-  &.sb--show &__popper {
+  &.sb--visible &__popper {
     opacity: 1;
   }
 

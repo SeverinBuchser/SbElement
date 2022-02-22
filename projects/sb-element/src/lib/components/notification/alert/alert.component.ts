@@ -20,6 +20,13 @@ const SbAlertCore = mixinHide(
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  inputs: [
+    'visible'
+  ],
+  outputs: [
+    'show',
+    'hide'
+  ]
 })
 export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscriber {
 
@@ -55,9 +62,9 @@ export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscri
   public async alert(alert: SbAlert): Promise<void> {
     this.configureAlertBox(alert);
     this.message = alert.message;
-    this.visible = true;
+    this.setVisibleState(true);
     await this.wait(this.showTime);
-    this.visible = false;
+    this.setVisibleState(false);
     await this.wait(this.pauseTime);
   }
 

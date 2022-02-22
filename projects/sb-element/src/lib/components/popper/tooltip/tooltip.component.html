@@ -1,4 +1,11 @@
-<sb-popper #tooltipPopper [position]="position">
+<sb-popper
+  #tooltipPopper
+  [position]="position"
+  [visible]="visible"
+  (showStart)="showStart.emit()"
+  (showEnd)="showEnd.emit()"
+  (hideStart)="hideStart.emit()"
+  (hideEnd)="hideEnd.emit()">
   <span popper>
     {{ text }}
   </span>

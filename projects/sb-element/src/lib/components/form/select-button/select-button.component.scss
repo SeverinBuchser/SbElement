@@ -89,7 +89,7 @@ Checkbox-Group
     transform-origin: top;
     position: absolute;
     transform: scaleY(0);
-    z-index: 998;
+    z-index: 3;
     @include border.radius-bottom-left(s);
     @include border.radius-bottom-right(s);
     @include transitioning.ease($options-animation-duration, transform);
