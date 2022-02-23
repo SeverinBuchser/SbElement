@@ -16,7 +16,7 @@ const SbDoubleSpinnerCore = mixinDisable(
             }, 'sb-input'
           )
         ), Color.PRIMARY
-      ), Size.DEFAULT
+      ), Size.MEDIUM
     )
   )
 );

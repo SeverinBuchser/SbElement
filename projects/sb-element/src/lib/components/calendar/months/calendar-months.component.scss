@@ -9,8 +9,8 @@ Calendar-Months
 // ROOT
 .sb-calendar-months {
   @include display.grid(
-    repeat(3, calc(7 / 3 * spacing.get-size(m))),
-    repeat(4, calc(7 / 4 * spacing.get-size(m))), 0, $flow: row);
+    repeat(3, calc(7 / 3 * spacing.get-size(l))),
+    repeat(4, calc(7 / 4 * spacing.get-size(l))), 0, $flow: row);
   justify-items: center;
   align-items: center;
 }

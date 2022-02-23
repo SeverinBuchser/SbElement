@@ -15,7 +15,7 @@ const SbFileInputCore = mixinDisable(
             }, 'sb-file-input'
           )
         ), Color.PRIMARY
-      ), Size.DEFAULT
+      ), Size.MEDIUM
     )
   )
 );

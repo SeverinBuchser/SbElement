@@ -21,7 +21,7 @@ export class SbIconButtonComponent extends SbIconButtonCore {
   public color: string = Color.PRIMARY;
 
   @Input()
-  public size: string = Size.DEFAULT;
+  public size: string = Size.MEDIUM;
 
   @Input()
   set isRound(isRound: boolean) {

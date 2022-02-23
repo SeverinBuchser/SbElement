@@ -11,23 +11,23 @@ export class NotificationExampleComponent {
   constructor(private alertService: SbAlertService) { }
 
   alertPrimary() {
-    this.alertService.primary("Primary Notification", Size.DEFAULT);
+    this.alertService.primary("Primary Notification", Size.MEDIUM);
   }
 
   alertSecondary() {
-    this.alertService.secondary("Secondary Notification", Size.DEFAULT);
+    this.alertService.secondary("Secondary Notification", Size.MEDIUM);
   }
 
   alertSuccess() {
-    this.alertService.success("Success Notification", Size.DEFAULT);
+    this.alertService.success("Success Notification", Size.MEDIUM);
   }
 
   alertWarn() {
-    this.alertService.warn("Warn Notification", Size.DEFAULT);
+    this.alertService.warn("Warn Notification", Size.MEDIUM);
   }
 
   alertInform() {
-    this.alertService.inform("Info Notification", Size.DEFAULT);
+    this.alertService.inform("Info Notification", Size.MEDIUM);
   }
 
 }

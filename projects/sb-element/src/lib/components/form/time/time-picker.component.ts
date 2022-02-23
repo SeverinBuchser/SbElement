@@ -27,7 +27,7 @@ export class SbTimePickerComponent extends SbTimePickerCore implements ControlVa
   public color: string = Color.PRIMARY;
 
   @Input()
-  public size: string = Size.DEFAULT;
+  public size: string = Size.MEDIUM;
 
 
   private onChange: any = () => {};

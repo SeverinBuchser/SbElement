@@ -78,7 +78,7 @@ export class SbAlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public warn(message: string, size = Size.DEFAULT): void {
+  public warn(message: string, size = Size.MEDIUM): void {
     this.alert(message, size, Color.WARN);
   }
 
@@ -88,7 +88,7 @@ export class SbAlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public success(message: string, size = Size.DEFAULT): void {
+  public success(message: string, size = Size.MEDIUM): void {
     this.alert(message, size, Color.SUCCESS);
   }
 
@@ -98,7 +98,7 @@ export class SbAlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public inform(message: string, size = Size.DEFAULT): void {
+  public inform(message: string, size = Size.MEDIUM): void {
     this.alert(message, size, Color.INFO);
   }
 
@@ -108,7 +108,7 @@ export class SbAlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public primary(message: string, size = Size.DEFAULT): void {
+  public primary(message: string, size = Size.MEDIUM): void {
     this.alert(message, size, Color.PRIMARY);
   }
 
@@ -118,7 +118,7 @@ export class SbAlertService {
    * @param{string} message The message of the alert
    * @param{string} size The size of the alert
    */
-  public secondary(message: string, size = Size.DEFAULT): void {
+  public secondary(message: string, size = Size.MEDIUM): void {
     this.alert(message, size, Color.SECONDARY);
   }
 
@@ -134,7 +134,7 @@ export class SbAlertService {
    * @param{string} size The size of the alert
    * @param{string} color The color of the alert
    */
-  public alert(message: string, size = Size.DEFAULT, color = Color.WARN): void {
+  public alert(message: string, size = Size.MEDIUM, color = Color.WARN): void {
     this.alertQueue.enqueue({
       message,
       size,

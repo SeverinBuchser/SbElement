@@ -39,7 +39,7 @@ Calendar-Month
   position: relative;
   width: 100%;
   height: 63%;
-  @include border.radius(calc(0.63 * 7 / 4 * spacing.get-spacing(m)));
+  @include border.radius(calc(0.63 * 7 / 4 * spacing.get-spacing(xl)));
   @include transitioning.ease(200ms);
   @include display.flex();
 

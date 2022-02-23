@@ -11,7 +11,7 @@ const SbLinkCore = mixinSize(
           public _themeService: SbThemeService) {}
       }, 'sb-link'
     )
-  ), Size.DEFAULT
+  ), Size.MEDIUM
 );
 
 @Component({

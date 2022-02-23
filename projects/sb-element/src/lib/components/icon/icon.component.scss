@@ -59,13 +59,12 @@ Icon
   $color-palette) {
     @include icon-theme($theme, $color);
   }
-
   @include typography.for-each-font-size(icon) using ($size, $value) {
     @include icon-size($size, $value);
   }
 
   @include typography.for-each-font-size(icon-outlined) using ($size, $value) {
-    @include icon-size($size, $value);
+    @include icon-size-outlined($size, $value);
   }
 
 }

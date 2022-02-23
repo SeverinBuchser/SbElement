@@ -1,0 +1,34 @@
+@use "../core/typography";
+/*****************************************************************************
+Heading
+******************************************************************************/
+
+h6 {
+  @include typography.font($size: xs)
+}
+
+h5 {
+  @include typography.font($size: s)
+}
+
+h4 {
+  @include typography.font($size: m)
+}
+
+h3 {
+  @include typography.font($size: l)
+}
+
+h2 {
+  @include typography.font($size: xl)
+}
+
+h1 {
+  @include typography.font($size: xxl);
+
+  @include typography.for-each-font-size(display) using ($font-size, $value) {
+    &.sb-display--#{$font-size} {
+      @include typography.font(display, $size: $font-size);
+    }
+  }
+}

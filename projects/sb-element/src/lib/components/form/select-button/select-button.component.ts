@@ -15,7 +15,7 @@ const SbSelectButtonCore = mixinDisable(
             }, 'sb-select-button'
           )
         ), Color.PRIMARY
-      ), Size.DEFAULT
+      ), Size.MEDIUM
     )
   )
 );

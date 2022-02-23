@@ -12,7 +12,7 @@ const SbBarCore = mixinSize(
         }, 'sb-bar'
       )
     )
-  ), Size.DEFAULT
+  ), Size.MEDIUM
 );
 
 
@@ -27,7 +27,7 @@ const SbBarCore = mixinSize(
   ]
 })
 export class SbBarComponent extends SbBarCore {
-  
+
   @Input() @HostBinding('class')
   public side: 'left' | 'right' | 'top' | 'bottom' = 'left';
 

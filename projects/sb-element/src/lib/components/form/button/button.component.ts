@@ -12,7 +12,7 @@ const SbButtonCore = mixinSize(
         }, 'sb-button'
       )
     ), Color.PRIMARY
-  ), Size.DEFAULT
+  ), Size.MEDIUM
 );
 
 

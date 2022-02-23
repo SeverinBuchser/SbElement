@@ -29,7 +29,7 @@ export class SbDateRangePickerComponent extends SbDateRangePickerCore implements
   public color: string = Color.PRIMARY;
 
   @Input()
-  public size: string = Size.DEFAULT;
+  public size: string = Size.MEDIUM;
 
   @Input()
   public format: string = 'yyyy-MM-dd';

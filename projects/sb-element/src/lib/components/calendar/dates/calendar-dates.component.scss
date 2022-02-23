@@ -9,7 +9,7 @@ Calendar-Dates
 // THEME
 @mixin calendar-dates-theme($theme, $color) {
   &.sb--#{$theme}.sb--#{$color} &__week-days {
-    @include border.border-side(bottom, $theme, $color, d);
+    @include border.border-side(bottom, $theme, $color, m);
   }
 }
 
@@ -19,15 +19,15 @@ Calendar-Dates
   grid-template-rows: 1fr 6fr;
 
   &__week-days {
-    @include display.grid(repeat(7, spacing.get-size(m)), $gap: 0, $flow: row);
+    @include display.grid(repeat(7, spacing.get-size(l)), $gap: 0, $flow: row);
     justify-items: center;
     align-items: center;
   }
 
   &__dates {
     @include display.grid(
-      repeat(7, spacing.get-size(m)),
-      repeat(6, spacing.get-size(m)), 0, $flow: row);
+      repeat(7, spacing.get-size(l)),
+      repeat(6, spacing.get-size(l)), 0, $flow: row);
     justify-items: center;
     align-items: center;
   }

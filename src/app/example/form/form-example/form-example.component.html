@@ -1,5 +1,5 @@
-<sb-container size="l">
-  <sb-grid dim="1x2" gap="l">
+<sb-container size="xl">
+  <sb-grid dim="1x2" gap="xl">
     <sb-card size="s" color="primary">
       <div title>
         Datepicker
@@ -10,7 +10,7 @@
             type="date"
             [(ngModel)]="model.date"
             name="date"
-            size="m"
+            size="l"
             [color]="'success'"
             #date="ngModel">
           </sb-input>
@@ -18,7 +18,7 @@
             type="date-range"
             [(ngModel)]="model.dateRange"
             name="dateRange"
-            size="m"
+            size="l"
             [color]="'success'"
             #dateRange="ngModel">
           </sb-input>
@@ -39,7 +39,7 @@
             placeholder="Number Input"
             [(ngModel)]="model.spinner"
             name="spinner"
-            size="m"
+            size="l"
             [color]="'success'"
             #spinner="ngModel">
           </sb-input>
@@ -47,7 +47,7 @@
             type="time"
             [(ngModel)]="model.time"
             name="time"
-            size="m"
+            size="l"
             [color]="'success'"
             #time="ngModel">
           </sb-input>
@@ -59,15 +59,12 @@
     </sb-card>
   </sb-grid>
 </sb-container>
-<sb-container size="l">
+<sb-container size="xl">
   <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="sb-form__header left">
       This is a Form
     </div>
     <div class="sb-form__content">
-      <sb-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" plain>
-        This is a warning!
-      </sb-alert-box>
       <hr class="sb-form-group-separator">
       <div>
         <sb-checkbox
@@ -92,7 +89,7 @@
       <hr class="sb-form-group-separator">
       <sb-select-button
         pill
-        size="d"
+        size="m"
         [color]="color"
         [(ngModel)]="model.select"
         name="select"
@@ -102,7 +99,7 @@
       </sb-select-button>
       <sb-slider
         placeholder="Slider"
-        size="d"
+        size="m"
         [color]="color"
         [max]="20"
         [min]="-20"
@@ -116,7 +113,7 @@
       <sb-input
         type="text"
         placeholder="Enter your E-Mail"
-        size="m"
+        size="l"
         [color]="color"
         [(ngModel)]="model.input"
         name="input"
@@ -126,7 +123,7 @@
       <sb-input
         type="file"
         placeholder="File Input"
-        size="d"
+        size="m"
         pill
         [color]="color"
         [(ngModel)]="model.fileinput"
@@ -141,7 +138,7 @@
           type="submit"
           class="sb-form__footer-element"
           pill
-          size="d"
+          size="m"
           [color]="color"
           [disabled]="!form.valid">
             Submit

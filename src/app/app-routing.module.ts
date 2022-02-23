@@ -9,6 +9,7 @@ import { TimelineExampleComponent } from "./example/timeline/timeline-example/ti
 import { ExampleComponent } from "./example/example.component";
 import { FormExampleComponent } from "./example/form/form-example/form-example.component";
 import { PopperExampleComponent } from "./example/popper/popper-example/popper-example.component";
+import { TypographyExampleComponent } from "./example/typography/typography-example/typography-example.component";
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
           {
             path: 'popper',
             component: PopperExampleComponent
+          },
+          {
+            path: 'typography',
+            component: TypographyExampleComponent
           }
         ]
       }

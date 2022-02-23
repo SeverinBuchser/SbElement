@@ -10,7 +10,7 @@ Toggle-Switch
 // THEME
 @mixin toggle-switch-theme($theme, $color) {
   &.sb--#{$theme}.sb--#{$color} {
-    @include border.border($theme, $color, d);
+    @include border.border($theme, $color, m);
     &.off div {
       background: theming.get-color($theme, $color);
     }
@@ -60,7 +60,7 @@ Toggle-Switch
   cursor: pointer;
   position: relative;
   @include transitioning.ease(300ms, background);
-  
+
   div {
     position: absolute;
     @include transitioning.ease(300ms, transform, background);

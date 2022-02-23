@@ -7,8 +7,8 @@ Calendar-Years
 // ROOT
 .sb-calendar-years {
   @include display.grid(
-    repeat(4, calc(7 / 4 * spacing.get-size(m))),
-    repeat(5, calc(7 / 5 * spacing.get-size(m))), 0, $flow: row);
+    repeat(4, calc(7 / 4 * spacing.get-size(l))),
+    repeat(5, calc(7 / 5 * spacing.get-size(l))), 0, $flow: row);
   justify-items: center;
   align-items: center;
 }

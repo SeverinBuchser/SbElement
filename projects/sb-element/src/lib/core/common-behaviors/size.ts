@@ -3,10 +3,12 @@ import { HasElementRef } from "./has-element-ref";
 
 
 export enum Size {
+  EXTRA_SMALL = 'xs',
   SMALL = 's',
-  DEFAULT = 'd',
   MEDIUM = 'm',
-  LARGE = 'l'
+  LARGE = 'l',
+  EXTRA_LARGE = 'xl',
+  EXTRA_EXTRA_LARGE = 'xxl'
 }
 
 export interface CanSize {

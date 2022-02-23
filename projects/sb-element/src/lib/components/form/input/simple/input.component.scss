@@ -13,10 +13,10 @@ Input
   &.sb--#{$theme}.sb--#{$color} {
     color: theming.get-foreground-text($theme);
     .sb-input__border {
-      @include border.border($theme, $color, d);
+      @include border.border($theme, $color, m);
     }
     &.focus .sb-input__border {
-      @include border.border($theme, $color, d);
+      @include border.border($theme, $color, m);
     }
   }
 }

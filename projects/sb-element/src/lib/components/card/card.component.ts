@@ -10,7 +10,7 @@ const SbCardCore = mixinSize(
           public _themeService: SbThemeService) {}
       }, 'sb-card'
     )
-  ), Size.DEFAULT
+  ), Size.MEDIUM
 );
 
 @Component({

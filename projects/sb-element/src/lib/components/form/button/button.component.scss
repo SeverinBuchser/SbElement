@@ -1,5 +1,6 @@
 @use "src/style/core/spacing";
 @use "src/style/core/theming";
+@use "src/style/core/display";
 @use "src/style/core/typography";
 @use "src/style/core/transitioning";
 @use "src/style/core/border";
@@ -58,7 +59,7 @@ Button
       width: $height;
       min-width: 0;
       @include spacing.padding(0);
-      @include border.radius(calc($height / 2));
+      @include border.radius(50%);
     }
   }
 }

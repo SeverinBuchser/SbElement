@@ -28,7 +28,7 @@ export class SbDatePickerComponent extends SbDatePickerCore implements ControlVa
   public color: string = Color.PRIMARY;
 
   @Input()
-  public size: string = Size.DEFAULT;
+  public size: string = Size.MEDIUM;
 
   @Input()
   public format: string = 'yyyy-MM-dd';

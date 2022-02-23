@@ -1,11 +1,21 @@
-@use "../core/spacing";
 @use "../core/typography";
 /*****************************************************************************
 Paragraph
 ******************************************************************************/
 
+@mixin paragraph-size($font-size, $value) {
+  &.sb--#{$font-size} {
+    @include typography.font-size(default, $font-size);
+  }
+}
+
 p {
-  color: white;
-  @include typography.font();
+  @include typography.font-family();
+  @include typography.font-weight();
   line-height: 150%;
+
+  @include typography.for-each-font-size(default) using ($font-size, $value) {
+    @include paragraph-size($font-size, $value);
+  }
+
 }

@@ -1,16 +1,14 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinSize, mixinTheme, Size, SbThemeService, Triggerable } from '../../../core/';
+import { mixinClassName, mixinTheme, Size, SbThemeService, Triggerable } from '../../../core/';
 
-const SbSidebarCore = mixinSize(
-  mixinTheme(
-    mixinClassName(
-      class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: SbThemeService) {}
-      }, 'sb-sidebar'
-    )
-  ), Size.DEFAULT
+const SbSidebarCore = mixinTheme(
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: SbThemeService) {}
+    }, 'sb-sidebar'
+  )
 );
 
 @Component({
@@ -18,11 +16,11 @@ const SbSidebarCore = mixinSize(
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  inputs: [
-    'size'
-  ]
 })
 export class SbSidebarComponent extends SbSidebarCore implements Triggerable {
+
+  @Input()
+  public size: string = Size.MEDIUM;
 
   @Input()
   public side: 'left' | 'right' | 'top' | 'bottom' = 'left';

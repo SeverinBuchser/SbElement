@@ -15,7 +15,7 @@ const SbInputCoreCore = mixinDisable(
             }, 'sb-input-core'
           )
         ), Color.PRIMARY
-      ), Size.DEFAULT
+      ), Size.MEDIUM
     )
   )
 );

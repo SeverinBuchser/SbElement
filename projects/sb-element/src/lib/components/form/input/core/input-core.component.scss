@@ -52,7 +52,7 @@ Input-Core
       translateY(calc(
         ($value / (-2))
         - 87.5%
-        - border.get-border-width(l)
+        - border.get-border-width(xl)
       ));
   }
 }
@@ -98,7 +98,6 @@ Input-Core
     top: 50%;
     left: -4px;
     @include spacing.padding-x(4px);
-    @include typography.font();
     pointer-events: none;
     transform-origin: left center;
     transform: translateY(-50%);

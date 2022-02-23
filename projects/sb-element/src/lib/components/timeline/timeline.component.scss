@@ -39,7 +39,6 @@ Timeline
 // ROOT
 .sb-timeline {
   &__name {
-    @include typography.font($size: s);
     @include display.flex();
   }
 

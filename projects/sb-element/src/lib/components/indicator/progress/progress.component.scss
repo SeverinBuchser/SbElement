@@ -15,7 +15,7 @@ Progress
     }
 
     &.outline {
-      @include border.border-accent($theme, d);
+      @include border.border-accent($theme, m);
     }
   }
 

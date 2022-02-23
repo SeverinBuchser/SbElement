@@ -18,7 +18,8 @@ $default-font-weights: (
 );
 
 $display-font-weights: (
-  normal: var(--font-weight-normal)
+  normal: var(--font-weight-normal),
+  bold: var(--font-weight-bold)
 );
 
 $icon-font-weights: (
@@ -26,20 +27,29 @@ $icon-font-weights: (
 );
 
 // Define font sizes.
-$font-sizes: (
-  s: var(--font-size-s),
-  d: var(--font-size-d),
-  m: var(--font-size-m),
-  l: var(--font-size-l),
-  xl: var(--font-size-xl)
+$default-font-sizes: (
+  xs: var(--font-size-6),
+  s: var(--font-size-5),
+  m: var(--font-size-4),
+  l: var(--font-size-3),
+  xl: var(--font-size-2),
+  xxl: var(--font-size-1)
+);
+
+$display-font-sizes: (
+  xs: var(--display-font-size-4),
+  s: var(--display-font-size-3),
+  m: var(--display-font-size-2),
+  l: var(--display-font-size-1)
 );
 
 $icon-font-sizes: (
-  s: var(--icon-font-size-s),
-  d: var(--icon-font-size-d),
-  m: var(--icon-font-size-m),
-  l: var(--icon-font-size-l),
-  xl: var(--icon-font-size-xl)
+  xs: var(--icon-font-size-6),
+  s: var(--icon-font-size-5),
+  m: var(--icon-font-size-4),
+  l: var(--icon-font-size-3),
+  xl: var(--icon-font-size-2),
+  xxl: var(--icon-font-size-1)
 );
 
 // Validates the specified font map. The Map must contain a font family, a
@@ -58,23 +68,54 @@ $icon-font-sizes: (
     @error 'Font does not define a valid "family".';
   } @else if not map.has-key($font, weights) {
     @error 'Font does not define a valid "weights" map.';
+  } @else if not map.has-key($font, default-weight) {
+    @error 'Font does not define a valid "default-weight".';
   } @else if not map.has-key($font, sizes) {
     @error 'Font does not define a valid "sizes" map.';
+  } @else if not map.has-key($font, default-size) {
+    @error 'Font does not define a valid "default-size".';
   }
+
+  @if map.has-key($font, default-size) and map.has-key($font, sizes) {
+    $default-size: map.get($font, default-size);
+    $sizes: map.get($font, sizes);
+    @if not map.has-key($sizes, $default-size) {
+      @error 'Default font-size does not exist in the "sizes" map.';
+    }
+  }
+
+  @if map.has-key($font, default-weight) and map.has-key($font, weights) {
+    $default-weight: map.get($font, default-weight);
+    $weights: map.get($font, weights);
+    @if not map.has-key($weights, $default-weight) {
+      @error 'Default font-weight does not exist in the "weights" map.';
+    }
+  }
+
   @return $font;
 }
 
-// Defines a font map, which contains a family, different weights and different
-// sizes.
-// @param {String} $family The font family.
-// @param {Map} $weights The available font weights for the family.
-// @param {Map} $sizes The different sizes which can be used with the family.
+// Defines a font map, which contains a family, different weights, a default
+// weight, different sizes and a default size.
+// @param {String} $family The font-family.
+// @param {Map} $weights The available font-weights for the family.
+// @param {String} $default-weight The default font-weight for the family.
+// @param {Map} $sizes The available font-sizes for the family.
+// @param {String} $default-size The default font-size for the family.
 // @returns {Map} A complete font map.
-@function define-font($family, $weights, $sizes) {
+@function define-font(
+  $family,
+  $weights,
+  $default-weight,
+  $sizes,
+  $default-size
+) {
   $result: (
     family: $family,
     weights: $weights,
-    sizes: $sizes
+    default-weight: $default-weight,
+    sizes: $sizes,
+    default-size: $default-size
   );
   @return $result;
 }
@@ -83,26 +124,34 @@ $icon-font-sizes: (
 $default-font: define-font(
   $default-font-family,
   $default-font-weights,
-  $font-sizes
+  normal,
+  $default-font-sizes,
+  xs
 );
 
 // Define a display font map.
 $display-font: define-font(
   $display-font-family,
   $display-font-weights,
-  $font-sizes
+  normal,
+  $display-font-sizes,
+  xs
 );
 
 // Define an icon font map.
 $icon-font: define-font(
   $icon-font-family,
   $icon-font-weights,
-  $icon-font-sizes
+  normal,
+  $icon-font-sizes,
+  xs
 );
 
 // Define an icon outlined font map.
 $icon-outlined-font: define-font(
   $icon-outlined-font-family,
   $icon-font-weights,
-  $icon-font-sizes
+  normal,
+  $icon-font-sizes,
+  xs
 );

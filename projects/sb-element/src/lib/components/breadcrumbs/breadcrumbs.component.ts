@@ -54,13 +54,5 @@ export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
     this.navigate.emit(this.crumbs.slice(0, crumbIndex + 1).join('/'));
   }
 
-  public toCapitalCase(value: string): string {
-    let split = value.split('');
-    if (split.length > 0) {
-      split[0] = split[0].toUpperCase();
-    }
-    return split.join('');
-  }
-
 
 }

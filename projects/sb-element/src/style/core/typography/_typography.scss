@@ -6,8 +6,8 @@ Typography
 ******************************************************************************/
 
 // Returns the specified font. The font is either a font map, as defied in
-// @see "./_typographies.scss" or a string, either 'default', 'display' or
-// 'icon'.
+// @see "./_typographies.scss" or a string, either 'default', 'display', 'icon'
+// or 'icon-outlined'.
 // @param {Map | String} $font The font name or map.
 // @returns {Map} A complete font map.
 @function get-font($font: default) {
@@ -42,9 +42,12 @@ Typography
 // @param {String} $font The font type.
 // @param {String} $weight The font weight.
 // @returns {String} The specified font weight for the specified font type.
-@function get-font-weight($font: default, $weight: normal) {
+@function get-font-weight($font: default, $weight: null) {
   $font: get-font($font);
   $weights: map.get($font, weights);
+  @if not $weight {
+    $weight: map.get($font, default-weight);
+  }
   @if map.has-key($weights, $weight) {
     @return map.get($weights, $weight);
   } @else {
@@ -52,45 +55,59 @@ Typography
   }
 }
 
-// Returns the specified font size for the specified font type. Note that not
-// all font sizes are allowed for different font types. Thus the function throws
-// an error if the size is not available for the spefified type.
+// Returns the specified font size for a specific font tpye. Note that not all
+// font sizes are allowed for different font types. Thus the function throws
+// an error if the size is not available for the spefified type. If the size is
+// not specified, the function defaults to the default font size defined by the
+// font type.
 // @param {String} $font The font type.
 // @param {String} $size The font size.
 // @returns {String} The specified font size for the specified font type.
-@function get-font-size($font: default, $size: d) {
+@function get-font-size($font: default, $size: null) {
   $font: get-font($font);
   $sizes: map.get($font, sizes);
+  @if not $size {
+    $size: map.get($font, default-size);
+  }
   @if map.has-key($sizes, $size) {
     @return map.get($sizes, $size);
   } @else {
-    @error 'The specified font-size "#{$size}" does not exist.';
+    @error 'The spefified font-size "#{$size}" does not exist.';
   }
 }
 
-// A mixin to include font types with the specified type/family, weight and
+// A mixin to include font types with the specified type, weight and
 // size.
 // @param {String} $font The font type.
 // @param {String} $weight The font weight.
 // @param {String} $size The font size.
-@mixin font($font: default, $weight: normal, $size: d) {
+@mixin font($font: default, $weight: null, $size: null) {
   $family: get-font-family($font);
   $weight: get-font-weight($font, $weight);
   $size: get-font-size($font, $size);
   font: $weight $size $family;
 }
 
+// A mixin to include font family with the specified type.
+// @param {String} $font The font type.
+// @param {String} $weight The font weight.
+// @param {String} $size The font size.
+@mixin font-family($font: default) {
+  $family: get-font-family($font);
+  font-family: $family;
+}
+
 // A mixin to include a font weight for a specific font.
 // @param {String} $font The font type.
 // @param {String} $weight The font weight.
-@mixin font-weight($font: default, $weight: normal) {
+@mixin font-weight($font: default, $weight: null) {
   font-weight: get-font-weight($font, $weight);
 }
 
 // A mixin to include a font size for a specific font.
 // @param {String} $font The font type.
 // @param {String} $weight The font weight.
-@mixin font-size($font: default, $size: d) {
+@mixin font-size($font: default, $size: null) {
   font-size: get-font-size($font, $size);
 }
 

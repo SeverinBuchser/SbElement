@@ -14,7 +14,7 @@ Card
   &.sb--#{$theme} {
     background: theming.get-foreground($theme);
     color: theming.get-foreground-text($theme);
-    @include border.border-accent($theme, d);
+    @include border.border-accent($theme, m);
 
     hr {
       border: 0;
@@ -64,7 +64,7 @@ Card
 
   &__title {
     @include display.flex();
-    @include typography.font($size: m);
+    @include typography.font($size: s);
     grid-row: 1 / 2;
   }
 
@@ -83,7 +83,6 @@ Card
 
   &__footer {
     @include display.flex();
-    @include typography.font($size: s);
     grid-row: 5 / 6;
   }
 

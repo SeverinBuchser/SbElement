@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { ExampleComponent } from './example/example.component';
 import { FormExampleComponent } from './example/form/form-example/form-example.component';
 import { PopperExampleComponent } from './example/popper/popper-example/popper-example.component';
+import { TypographyExampleComponent } from './example/typography/typography-example/typography-example.component';
 
 
 
@@ -30,6 +31,7 @@ import { PopperExampleComponent } from './example/popper/popper-example/popper-e
     ExampleComponent,
     FormExampleComponent,
     PopperExampleComponent,
+    TypographyExampleComponent,
   ],
   imports: [
     BrowserModule,

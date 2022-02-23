@@ -14,7 +14,7 @@ Toaster
   position: fixed;
   pointer-events: none;
   z-index: 998;
-  @include spacing.padding(d);
+  @include spacing.padding(m);
 
   &.top-left {
     top: 0;
@@ -41,6 +41,6 @@ Toaster
   }
 
   .sb-toast:not(:last-child) {
-    @include spacing.margin-bottom(d);
+    @include spacing.margin-bottom(m);
   }
 }

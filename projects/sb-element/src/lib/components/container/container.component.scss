@@ -8,9 +8,9 @@ Container
 // ROOT
 .sb-container {
   display: block;
-  @include spacing.margin(d);
-  @include spacing.padding(l);
-  @include border.radius(l);
+  @include spacing.margin(m);
+  @include spacing.padding(xl);
+  @include border.radius(xl);
   @include theming.for-each-theme using ($theme, $theme-palette) {
     &.sb--#{$theme} {
       background: theming.get-foreground($theme);

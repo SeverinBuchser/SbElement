@@ -33,6 +33,26 @@
     </sb-card>
     <sb-card size="s" color="primary" hover>
       <div title>
+        Alert Box
+      </div>
+      <sb-grid content dim="2x1" gap="xl">
+        <sb-grid content dim="1x5" gap="s">
+          <sb-alert-box color="primary" size="m" [showArrow]="true" [showIcon]="true">Primary Notification</sb-alert-box>
+          <sb-alert-box color="secondary" size="m" [showArrow]="true" [showIcon]="true">Secondary Notification</sb-alert-box>
+          <sb-alert-box color="success" size="m" [showArrow]="true" [showIcon]="true">Success Notification</sb-alert-box>
+          <sb-alert-box color="warn" size="m" [showArrow]="true" [showIcon]="true">Warn Notification</sb-alert-box>
+          <sb-alert-box color="info" size="m" [showArrow]="true" [showIcon]="true">Info Notification</sb-alert-box>
+        </sb-grid>
+        <sb-grid content dim="1x4" gap="m">
+          <sb-alert-box color="primary" size="s" [showArrow]="false" [showIcon]="false">Primary Notification</sb-alert-box>
+          <sb-alert-box color="primary" size="m" [showArrow]="false" [showIcon]="false">Primary Notification</sb-alert-box>
+          <sb-alert-box color="primary" size="l" [showArrow]="false" [showIcon]="false">Primary Notification</sb-alert-box>
+          <sb-alert-box color="primary" size="xl" [showArrow]="false" [showIcon]="false">Primary Notification</sb-alert-box>
+        </sb-grid>
+      </sb-grid>
+    </sb-card>
+    <sb-card size="s" color="primary" hover>
+      <div title>
         Alert
       </div>
       <sb-grid content dim="2x2" gap="s">

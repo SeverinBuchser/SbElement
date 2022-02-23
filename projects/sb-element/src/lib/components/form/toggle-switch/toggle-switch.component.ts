@@ -16,7 +16,7 @@ const SbToggleSwitchCore = mixinFocus(
               }, 'sb-toggle-switch'
             )
           ), Color.PRIMARY
-        ), Size.DEFAULT
+        ), Size.MEDIUM
       ), 0
     )
   )

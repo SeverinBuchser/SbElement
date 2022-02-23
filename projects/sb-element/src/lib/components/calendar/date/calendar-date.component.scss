@@ -59,7 +59,7 @@ Calendar-Date
     height: 100%;
     width: 63%;
     @include transitioning.ease(200ms);
-    @include border.radius(d)
+    @include border.radius(m)
   }
 
   &.marked {

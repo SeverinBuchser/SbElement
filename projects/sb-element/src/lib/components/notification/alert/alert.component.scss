@@ -13,7 +13,7 @@ Alert
   left: 0;
   right: 0;
   z-index: 999;
-  top: calc(spacing.get-size(d) * (-10));
+  top: calc(spacing.get-size(m) * (-10));
 
   .sb-alert-box {
     min-width: 300px;
@@ -31,6 +31,6 @@ Alert
   }
 
   &.sb--visible .sb-alert-box {
-    transform: translateY(calc(10.5 * spacing.get-size(d)));
+    transform: translateY(calc(10.5 * spacing.get-size(m)));
   }
 }

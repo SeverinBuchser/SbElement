@@ -13,7 +13,7 @@ const SbProgressCore = mixinDisable(
           }, 'sb-progress'
         )
       ), Color.PRIMARY
-    ), Size.DEFAULT
+    ), Size.MEDIUM
   )
 );
 
