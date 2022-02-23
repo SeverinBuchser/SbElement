@@ -30,7 +30,6 @@ Input
 
 // ROOT
 .sb-input {
-  width: 200px;
   position: relative;
   display: flex;
   gap: spacing.get-spacing(s);
@@ -42,7 +41,6 @@ Input
 
   &__delimiter {
     @include display.flex();
-    margin: calc(#{spacing.get-spacing(s)} * (-3/4));
   }
 
   &__border {

@@ -1,22 +1,3 @@
-<sb-nav-bar>
-  <sb-icon left color="primary">&#xeb9b;</sb-icon>
-  <div left>SB Element Demo</div>
-  <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
-  <sb-link left [active]="true">Example</sb-link>
-  <sb-toggle
-    right
-    type="switch"
-    size="s"
-    [color]="color"
-    [ngModel]="toggle"
-    (ngModelChange)="toggleTheme()">
-  </sb-toggle>
-</sb-nav-bar>
-<sb-nav-bar>
-  <sb-link right *ngFor="let route of routes" [routerLink]="['/', 'example', route.path]">{{ route.path }}</sb-link>
-</sb-nav-bar>
-<sb-breadcrumbs [crumbs]="crumbs" (navigate)="handleNavigate($event)"></sb-breadcrumbs>
-<router-outlet></router-outlet>
 <sb-container size="l">
   <sb-grid dim="1x2" gap="l">
     <sb-card size="s" color="primary">
@@ -78,25 +59,8 @@
     </sb-card>
   </sb-grid>
 </sb-container>
-<sb-container ngClass="container">
-  <sb-sidebar #sidebarOne>
-    <div sidebar>
-      <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
-    </div>
-    <div content>
-      <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
-
-      <sb-popper #popperOne position="bottom">
-        <div popper>
-          Popper
-        </div>
-        <button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
-      </sb-popper>
-    </div>
-  </sb-sidebar>
-</sb-container>
 <sb-container size="l">
-  <form [ngClass]="'sb-form sb-form--' + theme + '-success'" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="sb-form__header left">
       This is a Form
     </div>
@@ -104,7 +68,7 @@
       <sb-alert-box color="secondary" size="d" [showArrow]="true" [showIcon]="true" plain>
         This is a warning!
       </sb-alert-box>
-      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <hr class="sb-form-group-separator">
       <div>
         <sb-checkbox
           *ngFor="let checkbox of model.checkboxes"
@@ -117,7 +81,7 @@
           [disabled]="false">
         </sb-checkbox>
       </div>
-      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <hr class="sb-form-group-separator">
       <sb-radio-button-group
         [(ngModel)]="model.radios"
         name="radios"
@@ -125,7 +89,7 @@
         [options]="options"
         [disabled]="false">
       </sb-radio-button-group>
-      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <hr class="sb-form-group-separator">
       <sb-select-button
         pill
         size="d"
@@ -148,7 +112,7 @@
         name="slider"
         #slider="ngModel">
       </sb-slider>
-      <hr class="sb-form-group-separator" [ngClass]="'sb-form-group-separator--' + theme">
+      <hr class="sb-form-group-separator">
       <sb-input
         type="text"
         placeholder="Enter your E-Mail"
@@ -186,5 +150,3 @@
     </div>
   </form>
 </sb-container>
-<sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>
-<!--<sb-toaster></sb-toaster>-->

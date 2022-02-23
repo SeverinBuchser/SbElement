@@ -73,7 +73,7 @@ Input-Core
     outline: none;
     border: 0;
     @include spacing.padding(0);
-    @include typography.font($size: s);
+    @include typography.font();
 
     &::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
       -webkit-appearance: none;
@@ -98,7 +98,7 @@ Input-Core
     top: 50%;
     left: -4px;
     @include spacing.padding-x(4px);
-    @include typography.font($size: s);
+    @include typography.font();
     pointer-events: none;
     transform-origin: left center;
     transform: translateY(-50%);

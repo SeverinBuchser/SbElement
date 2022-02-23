@@ -14,16 +14,8 @@
   grid-gap: 10px;
 }
 
-.default {
+.example {
   display: block;
-}
-
-.default.sb--light {
-  background: theming.get-background(light);
-}
-
-.default.sb--dark {
-  background: theming.get-background(dark);
 }
 
 .sidebar-container {

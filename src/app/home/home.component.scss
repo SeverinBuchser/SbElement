@@ -1,0 +1,14 @@
+@use 'sb-element/core/theming';
+
+.home {
+  display: block;
+  min-height: 100vh;
+
+  &.sb--dark {
+    background: theming.get-background(dark);
+  }
+
+  &.sb--light {
+    background: theming.get-background(light);
+  }
+}

@@ -20,22 +20,27 @@ const SbBreadcrumbsCore = mixinTheme(
 export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
 
   @Output()
-  public navigate: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
+  public navigate: EventEmitter<string> = new EventEmitter<string>();
 
   private _crumbs: Array<string> = new Array<string>();
-
-  @Input()
-  set crumbs(crumbs: Array<string>) {
-    this._crumbs = crumbs;
-  }
 
   get crumbs(): Array<string> {
     return this._crumbs;
   }
 
   @Input()
+  public homePlaceholder: string = '';
+
+  @Input()
   set url(url: string) {
-    this._crumbs = url.split('/');
+    this._crumbs = url.split('/').reduce((
+      crumbs: Array<string>,
+      crumb: string,
+      index: number
+    ) => {
+      if (index == 0 || crumb != '') crumbs.push(crumb);
+      return crumbs;
+    }, new Array<string>())
   }
 
   constructor(
@@ -46,7 +51,16 @@ export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
   }
 
   public handleClick(crumbIndex: number) {
-    this.navigate.emit(this.crumbs.slice(0, crumbIndex + 1));
+    this.navigate.emit(this.crumbs.slice(0, crumbIndex + 1).join('/'));
   }
+
+  public toCapitalCase(value: string): string {
+    let split = value.split('');
+    if (split.length > 0) {
+      split[0] = split[0].toUpperCase();
+    }
+    return split.join('');
+  }
+
 
 }

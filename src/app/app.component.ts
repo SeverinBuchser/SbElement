@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SbThemeService } from "sb-element";
 
 @Component({
   selector: 'app-root',
@@ -7,9 +6,5 @@ import { SbThemeService } from "sb-element";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  constructor(themeService: SbThemeService) {
-    themeService.commit('dark');
-  }
 
 }

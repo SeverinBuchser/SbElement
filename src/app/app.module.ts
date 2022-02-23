@@ -6,24 +6,30 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { SbElementModule, SbStyleModule } from 'sb-element';
-import { DefaultComponent } from './default/default.component';
-import { IndicatorExampleComponent } from './indicator/indicator-example/indicator-example.component';
-import { NotificationExampleComponent } from './notification/notification-example/notification-example.component';
-import { TimelineExampleComponent } from './timeline/timeline-example/timeline-example.component';
-import { CalendarExampleComponent } from './calendar/calendar-example/calendar-example.component';
-import { TableExampleComponent } from './table/table-example/table-example.component';
+import { IndicatorExampleComponent } from './example/indicator/indicator-example/indicator-example.component';
+import { NotificationExampleComponent } from './example/notification/notification-example/notification-example.component';
+import { TimelineExampleComponent } from './example/timeline/timeline-example/timeline-example.component';
+import { CalendarExampleComponent } from './example/calendar/calendar-example/calendar-example.component';
+import { TableExampleComponent } from './example/table/table-example/table-example.component';
+import { HomeComponent } from './home/home.component';
+import { ExampleComponent } from './example/example.component';
+import { FormExampleComponent } from './example/form/form-example/form-example.component';
+import { PopperExampleComponent } from './example/popper/popper-example/popper-example.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DefaultComponent,
     IndicatorExampleComponent,
     NotificationExampleComponent,
     TimelineExampleComponent,
     CalendarExampleComponent,
     TableExampleComponent,
+    HomeComponent,
+    ExampleComponent,
+    FormExampleComponent,
+    PopperExampleComponent,
   ],
   imports: [
     BrowserModule,
