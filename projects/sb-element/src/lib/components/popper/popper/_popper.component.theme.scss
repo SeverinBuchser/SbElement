@@ -1,0 +1,20 @@
+@use "sb-element/core/theming";
+@use "sb-element/core/border";
+/*****************************************************************************
+Popper / Theme
+******************************************************************************/
+
+// THEME
+.sb-popper {
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    &.sb--#{$theme} &__popper {
+      background: theming.get-background($theme);
+      color: theming.get-background-text($theme);
+      @include border.border-accent($theme);
+    }
+
+    &.sb--#{$theme} &__arrow {
+      fill: theming.get-accent($theme);
+    }
+  }
+}

@@ -12,7 +12,6 @@ const SbTooltipCore = mixinClassName(
 @Component({
   selector: 'sb-tooltip',
   templateUrl: './tooltip.component.html',
-  styleUrls: ['./tooltip.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbTooltipComponent extends SbTooltipCore {

@@ -17,7 +17,6 @@ const SbPopperCore = mixinHide(
 @Component({
   selector: 'sb-popper',
   templateUrl: './popper.component.html',
-  styleUrls: ['./popper.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'visible'
