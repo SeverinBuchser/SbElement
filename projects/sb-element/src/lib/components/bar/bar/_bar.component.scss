@@ -1,0 +1,21 @@
+@use "sb-element/core/spacing";
+/*****************************************************************************
+Bar / Style
+******************************************************************************/
+
+// ROOT
+.sb-bar {
+  &.left, &.right {
+    height: 100%;
+  }
+
+  &.top, &.bottom {
+    width: 100%;
+  }
+
+  @include spacing.for-each-spacing using ($size, $value) {
+    &.sb--#{$size} {
+      @include spacing.padding($size);
+    }
+  }
+}

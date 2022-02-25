@@ -1,0 +1,13 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Calendar / Theme
+******************************************************************************/
+
+// THEME
+.sb-calendar {
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    &.sb--#{$theme} &__navigation .sb-icon:hover {
+      background: theming.get-accent($theme);
+    }
+  }
+}

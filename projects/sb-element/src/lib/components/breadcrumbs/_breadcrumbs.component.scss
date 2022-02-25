@@ -1,0 +1,27 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/typography";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+/*****************************************************************************
+Bar / Style
+******************************************************************************/
+
+// ROOT
+.sb-breadcrumbs {
+  @include spacing.padding-x-y(m,s);
+  @include display.flex($justify: flex-start, $gap: s);
+
+  &__crumb {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-transform: capitalize;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    @include transitioning.ease(300ms, text-decoration-color);
+  }
+
+  .sb-icon {
+    font-size: smaller;
+  }
+}

@@ -1,0 +1,25 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Bar / Theme
+******************************************************************************/
+
+// THEME
+.sb-breadcrumbs {
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    &.sb--#{$theme} {
+      color: theming.get-background-text($theme);
+      background: theming.get-background($theme);
+    }
+
+    &.sb--#{$theme} .sb-icon {
+      color: theming.get-accent($theme);
+    }
+
+    &.sb--#{$theme} &__crumb {
+      text-decoration-color: theming.get-accent($theme);
+      &:hover {
+        text-decoration-color: theming.get-color($theme);
+      }
+    }
+  }
+}

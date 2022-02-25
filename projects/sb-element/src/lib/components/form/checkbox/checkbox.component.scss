@@ -1,9 +1,9 @@
-@use "src/style/core/spacing";
-@use "src/style/core/theming";
-@use "src/style/core/transitioning";
-@use "src/style/core/display";
-@use "src/style/core/border";
-@use "src/style/core/animation";
+@use "src/lib/style/core/spacing";
+@use "src/lib/style/core/theming";
+@use "src/lib/style/core/transitioning";
+@use "src/lib/style/core/display";
+@use "src/lib/style/core/border";
+@use "src/lib/style/core/animation";
 /*****************************************************************************
 Checkbox
 ******************************************************************************/
@@ -66,6 +66,7 @@ Checkbox
     position: absolute;
     opacity: 0;
     @include transitioning.ease(200ms, opacity);
+    font-size: 100%;
   }
 
   input:checked ~ .sb-icon {

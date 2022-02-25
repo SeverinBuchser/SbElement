@@ -1,0 +1,45 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
+/*****************************************************************************
+Calendar-Year / Style
+******************************************************************************/
+
+// ROOT
+.sb-calendar-year{
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 63%;
+  @include border.radius(calc(0.63 * 7 / 5 * spacing.get-spacing(xl)));
+  @include transitioning.ease(200ms);
+  @include display.flex();
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  span {
+    @include transitioning.ease(200ms);
+  }
+
+  &.marked {
+    &.start {
+      right: -1px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.between {
+      width: calc(100% + 2px);
+      @include border.radius(0);
+    }
+
+    &.end {
+      left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

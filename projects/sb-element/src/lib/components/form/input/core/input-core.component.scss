@@ -1,9 +1,9 @@
-@use "src/style/core/spacing";
-@use "src/style/core/theming";
-@use "src/style/core/transitioning";
-@use "src/style/core/typography";
-@use "src/style/core/display";
-@use "src/style/core/border";
+@use "src/lib/style/core/spacing";
+@use "src/lib/style/core/theming";
+@use "src/lib/style/core/transitioning";
+@use "src/lib/style/core/typography";
+@use "src/lib/style/core/display";
+@use "src/lib/style/core/border";
 /*****************************************************************************
 Input-Core
 ******************************************************************************/
@@ -43,6 +43,7 @@ Input-Core
     height: $value;
     .sb-input-core__spinner-control {
       @include border.radius(4px);
+      font-size: calc(($value / 2) - 2px)
     }
   }
 

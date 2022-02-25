@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "src/style/core/theming";
-@use "src/style/core/typography";
+@use "src/lib/style/core/theming";
+@use "src/lib/style/core/typography";
 /*****************************************************************************
 Icon
 ******************************************************************************/
@@ -27,10 +27,13 @@ Icon
 
 // ROOT
 .sb-icon {
-  @include typography.font(icon);
+  @include typography.font-family(icon);
+  @include typography.font-weight(icon, normal);
+  font-size: 121%;
 
   &.outline {
-    @include typography.font(icon-outlined);
+    @include typography.font-family(icon-outlined);
+    @include typography.font-weight(icon-outlined, normal);
   }
 
   font-style: normal;

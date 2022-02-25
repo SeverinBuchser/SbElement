@@ -17,7 +17,6 @@ const SbCalendarYearsCore = mixinDisable(
 @Component({
   selector: 'sb-calendar-years',
   templateUrl: './calendar-years.component.html',
-  styleUrls: ['./calendar-years.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'

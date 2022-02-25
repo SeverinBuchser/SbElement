@@ -1,0 +1,31 @@
+@use "sb-element/core/theming";
+@use "sb-element/core/border";
+/*****************************************************************************
+Bar / Theme
+******************************************************************************/
+
+// THEME
+.sb-bar {
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    &.sb--#{$theme} {
+      color: theming.get-foreground-text($theme);
+      background: theming.get-foreground($theme);
+    }
+
+    &.sb--#{$theme}.left {
+      @include border.border-side-accent(right, $theme);
+    }
+
+    &.sb--#{$theme}.right {
+      @include border.border-side-accent(left, $theme);
+    }
+
+    &.sb--#{$theme}.top {
+      @include border.border-side-accent(bottom, $theme);
+    }
+
+    &.sb--#{$theme}.bottom {
+      @include border.border-side-accent(top, $theme);
+    }
+  }
+}

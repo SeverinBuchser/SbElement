@@ -1,0 +1,25 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/display";
+/*****************************************************************************
+Calendar-Dates / Style
+******************************************************************************/
+
+// ROOT
+.sb-calendar-dates {
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+
+  &__week-days {
+    @include display.grid(repeat(7, spacing.get-size(l)), $gap: 0, $flow: row);
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__dates {
+    @include display.grid(
+      repeat(7, spacing.get-size(l)),
+      repeat(6, spacing.get-size(l)), 0, $flow: row);
+    justify-items: center;
+    align-items: center;
+  }
+}

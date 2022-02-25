@@ -22,7 +22,6 @@ const SbCalendarCore = mixinDisable(
 @Component({
   selector: 'sb-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.disabled]': 'disabled'

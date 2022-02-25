@@ -1,0 +1,60 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/typography";
+@use "sb-element/core/display";
+/*****************************************************************************
+Sidebar / Style
+******************************************************************************/
+
+// ROOT
+.sb-sidebar {
+
+  &__overlay {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 1000;
+    @include transitioning.ease(opacity, 300ms);
+
+    &.visible {
+      pointer-events: all;
+      opacity: 0.6;
+    }
+  }
+
+  .sb-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    @include transitioning.ease(transform, 300ms);
+
+    &.left {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &.right {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    &.top {
+      top: 0;
+      transform: translateY(-100%);
+    }
+
+    &.bottom {
+      bottom: 0;
+      transform: translateY(100%);
+    }
+
+    &.visible {
+      transform: translateX(0) translateY(0);
+    }
+  }
+}

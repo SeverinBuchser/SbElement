@@ -16,7 +16,6 @@ const SbCardCore = mixinSize(
 @Component({
   selector: 'sb-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.hover]': 'hover',

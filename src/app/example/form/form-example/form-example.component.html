@@ -47,7 +47,7 @@
             type="time"
             [(ngModel)]="model.time"
             name="time"
-            size="l"
+            size="s"
             [color]="'success'"
             #time="ngModel">
           </sb-input>
@@ -61,9 +61,9 @@
 </sb-container>
 <sb-container size="xl">
   <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-    <div class="sb-form__header left">
+    <p class="sb-form__header left sb--s">
       This is a Form
-    </div>
+    </p>
     <div class="sb-form__content">
       <hr class="sb-form-group-separator">
       <div>

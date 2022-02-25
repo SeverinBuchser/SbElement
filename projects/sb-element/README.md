@@ -20,7 +20,7 @@ For the **manual** Installation follow these steps:
 
 1. Install packages:
 
-   ```bash 
+   ```bash
    npm install --save-dev sb-element
    npm install --save-dev sb-theming
    ```
@@ -32,4 +32,3 @@ For the **manual** Installation follow these steps:
 ## Documentation
 
 Documentation is not yet available for this project.  If you would like to look into the package yourself, checkout the [SbElement GitHub Page](https://github.com/SeverinBuchser/SbElement). There is a `TestApp` application (located in the `src` directory), which is implementing the library.
-

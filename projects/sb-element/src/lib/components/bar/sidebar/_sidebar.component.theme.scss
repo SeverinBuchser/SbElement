@@ -1,0 +1,13 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Sidebar / Theme
+******************************************************************************/
+
+// THEME
+.sb-sidebar {
+  @include theming.for-each-theme using ($theme, $theme-palette) {
+    &.sb--#{$theme} &__overlay {
+      background: theming.get-background($theme);
+    }
+  }
+}

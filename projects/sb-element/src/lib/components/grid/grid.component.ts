@@ -11,7 +11,6 @@ const SbGridCore = mixinClassName(
 @Component({
   selector: 'sb-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbGridComponent extends SbGridCore {

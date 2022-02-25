@@ -14,7 +14,6 @@ const SbBreadcrumbsCore = mixinTheme(
 @Component({
   selector: 'sb-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {

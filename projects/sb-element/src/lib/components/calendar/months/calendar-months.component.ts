@@ -18,7 +18,6 @@ const SbCalendarMonthsCore = mixinDisable(
 @Component({
   selector: 'sb-calendar-months',
   templateUrl: './calendar-months.component.html',
-  styleUrls: ['./calendar-months.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'

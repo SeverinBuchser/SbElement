@@ -1,0 +1,37 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Calendar-Date / Theme
+******************************************************************************/
+
+// THEME
+.sb-calendar-date {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme}.sb--#{$color} {
+      &.marked, &.marked:hover, &.marked.disabled:hover {
+        .mark {background: theming.get-color($theme, $color);}
+        span {color: theming.get-text($theme, $color);}
+      }
+
+      &:hover {
+        .mark {background: theming.get-accent($theme);}
+        span {color: theming.get-accent-text($theme);}
+      }
+
+      &.disabled:hover {
+        .mark {background: transparent;}
+        span {color: inherit;}
+      }
+
+      &.not-in-month {
+        .mark {background: none;}
+        span {color: theming.get-color-inverted($theme, $color);}
+      }
+
+      &.not-in-month.marked {
+        .mark {background: theming.get-color-inverted($theme, $color);}
+        span {color: theming.get-text-inverted($theme, $color);}
+      }
+    }
+  }
+}

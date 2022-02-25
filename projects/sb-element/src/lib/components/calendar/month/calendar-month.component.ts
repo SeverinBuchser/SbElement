@@ -23,7 +23,6 @@ const SbCalendarMonthCore = mixinDisable(
 @Component({
   selector: 'sb-calendar-month',
   templateUrl: './calendar-month.component.html',
-  styleUrls: ['./calendar-month.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.marked]': 'isMarked',

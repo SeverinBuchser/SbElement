@@ -14,7 +14,6 @@ const SbContainerCore = mixinTheme(
 @Component({
   selector: 'sb-container',
   templateUrl: './container.component.html',
-  styleUrls: ['./container.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbContainerComponent extends SbContainerCore {

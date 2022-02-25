@@ -1,0 +1,88 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/typography";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
+@use "sb-element/core/box-shadow";
+/*****************************************************************************
+Card / Stlye
+******************************************************************************/
+
+// SIZE
+@mixin card-size($size, $value) {
+  &.sb--#{$size} {
+    @include border.radius($size);
+
+    .sb-card__title {
+      @include spacing.padding($size);
+    }
+
+    .sb-card__content {
+      @include spacing.padding($size);
+    }
+
+    .sb-card__footer {
+      @include spacing.padding($size);
+    }
+  }
+}
+
+// ROOT
+.sb-card {
+  @include transitioning.ease(300ms, box-shadow, transform);
+  @include spacing.margin(0);
+  @include display.grid($gap: 0, $flow: row);
+
+  &.shadow {
+    @include box-shadow.weak;
+  }
+
+  &.shadow.hover:hover {
+    transform: translateY(-2px);
+    @include box-shadow.strong;
+  }
+
+  hr {
+    @include spacing.padding(0);
+    @include spacing.margin(0);
+  }
+
+  &__title {
+    @include display.flex();
+    @include typography.font($size: s);
+    grid-row: 1 / 2;
+  }
+
+  &__title-hr {
+    grid-row: 2 / 3;
+  }
+
+  &__content {
+    @include display.flex();
+    grid-row: 3 / 4;
+  }
+
+  &__content-hr {
+    grid-row: 4 / 5;
+  }
+
+  &__footer {
+    @include display.flex();
+    grid-row: 5 / 6;
+  }
+
+  &__title:empty, &__content:empty, &__footer:empty {
+    display: none;
+  }
+
+  &__title:empty ~ &__title-hr, // only title empty
+  &__content:empty ~ &__content-hr, // only content empty
+  &__footer:empty ~ &__content-hr, // only footer empty
+  &__content:empty + &__footer:empty ~ &__title-hr { // conent and footer empty
+    display: none;
+  }
+
+  @include spacing.for-each-spacing using ($size, $value) {
+    @include card-size($size, $value);
+  }
+}

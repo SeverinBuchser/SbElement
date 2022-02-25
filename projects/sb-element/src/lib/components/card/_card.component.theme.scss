@@ -1,0 +1,22 @@
+@use "sb-element/core/theming";
+@use "sb-element/core/border";
+/*****************************************************************************
+Card / Theme
+******************************************************************************/
+
+// THEME
+.sb-card {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme} {
+      background: theming.get-foreground($theme);
+      color: theming.get-foreground-text($theme);
+      @include border.border-accent($theme, m);
+
+      hr {
+        border: 0;
+        @include border.border-side-accent(top, $theme, s);
+      }
+    }
+  }
+}

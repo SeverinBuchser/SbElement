@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "sb-element/core/spacing";
+/*****************************************************************************
+Grid
+******************************************************************************/
+
+// ROOT
+.sb-grid {
+  display: grid;
+
+  @include spacing.for-each-spacing using ($size, $value) {
+    &[gap=#{$size}] {
+      grid-gap: $value;
+    }
+  }
+}
