@@ -1,9 +1,7 @@
-@use "src/lib/style/core/spacing";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/display";
-@use "src/lib/style/core/border";
+@use "sb-element/core/spacing";
+@use "sb-element/core/border";
 /*****************************************************************************
-Slider
+Slider / Style
 ******************************************************************************/
 
 // Helper
@@ -20,21 +18,6 @@ Slider
   &::-ms-track {@content;}
   &::-ms-fill-lower {@content;}
   &::-ms-fill-upper {@content;}
-}
-
-// THEME
-@mixin slider-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} {
-    input {
-      @include style-thumbs {
-        background: theming.get-color($theme, $color);
-      }
-
-      @include style-tracks {
-        background: theming.get-color-inverted($theme, $color);
-      }
-    }
-  }
 }
 
 // ROOT
@@ -76,10 +59,5 @@ Slider
       @include border.radius(calc($height / 2));
       height: calc($height / 2);
     }
-  }
-
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include slider-theme($theme, $color);
   }
 }

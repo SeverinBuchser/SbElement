@@ -1,0 +1,36 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Input-Core / Theme
+******************************************************************************/
+
+// THEME
+.sb-input-core {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme}.sb--#{$color} {
+      color: theming.get-foreground-text($theme);
+      input {
+        color: theming.get-foreground-text($theme);
+      }
+      .sb-input-core__placeholder {
+        color: theming.get-foreground-text($theme);
+
+        &.top {
+          background: theming.get-foreground($theme);
+        }
+      }
+
+      .sb-input-core__spinner-control {
+        color: theming.get-foreground-text($theme);
+        &:hover {
+          background: theming.get-accent($theme);
+        }
+
+        &:active {
+          background: theming.get-color-inverted($theme, $color);
+          color: theming.get-text-inverted($theme, $color);
+        }
+      }
+    }
+  }
+}

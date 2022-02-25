@@ -23,7 +23,6 @@ const SbSelectButtonCore = mixinDisable(
 @Component({
   selector: 'sb-select-button',
   templateUrl: './select-button.component.html',
-  styleUrls: ['./select-button.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.pill]': 'pill',

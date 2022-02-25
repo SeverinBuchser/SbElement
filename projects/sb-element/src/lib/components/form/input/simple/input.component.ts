@@ -23,7 +23,6 @@ const SbInputCore = mixinDisable(
 @Component({
   selector: 'sb-input[type=text], sb-input[type=password], sb-input[type=email]',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'size',

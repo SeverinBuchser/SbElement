@@ -25,7 +25,6 @@ const SbToggleSwitchCore = mixinFocus(
 @Component({
   selector: 'sb-toggle[type=switch]',
   templateUrl: './toggle-switch.component.html',
-  styleUrls: ['./toggle-switch.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.on]': 'value',

@@ -1,39 +1,10 @@
-@use "src/lib/style/core/spacing";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/transitioning";
-@use "src/lib/style/core/display";
-@use "src/lib/style/core/border";
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
 /*****************************************************************************
-Checkbox-Group
+Checkbox-Group / Style
 ******************************************************************************/
-
-// THEME
-@mixin select-button-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} {
-    color: theming.get-text($theme, $color);
-
-    button {
-      &:hover {
-        color: theming.get-text-inverted($theme, $color);
-      }
-      &:disabled:hover {
-        color: theming.get-text($theme, $color);
-      }
-    }
-  }
-  &.sb--#{$theme}.sb--#{$color} &__option {
-    background: theming.get-color($theme, $color);
-    color: theming.get-text($theme, $color);
-    &:hover {
-      background: theming.get-color-inverted($theme, $color);
-      color: theming.get-text-inverted($theme, $color);
-    }
-    &:disabled:hover {
-      background: theming.get-color($theme, $color);
-      color: theming.get-text($theme, $color);
-    }
-  }
-}
 
 // SIZE
 @mixin select-button-size($size, $value) {
@@ -118,11 +89,6 @@ Checkbox-Group
   &.open &__options {
     transition-delay: $button-animation-duration;
     transform: scaleY(1);
-  }
-
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include select-button-theme($theme, $color);
   }
 
   @include spacing.for-each-size using ($size, $value) {

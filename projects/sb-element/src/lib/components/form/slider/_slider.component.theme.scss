@@ -1,0 +1,38 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Slider / Theme
+******************************************************************************/
+
+// Helper
+@mixin style-thumbs {
+  &::-webkit-slider-thumb {@content;}
+  &::-moz-range-thumb {@content;}
+  &::-ms-thumb {@content;}
+}
+
+// Helper
+@mixin style-tracks {
+  &::-webkit-slider-runnable-track {@content;}
+  &::-moz-range-track {@content;}
+  &::-ms-track {@content;}
+  &::-ms-fill-lower {@content;}
+  &::-ms-fill-upper {@content;}
+}
+
+// THEME
+.sb-slider {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme}.sb--#{$color} {
+      input {
+        @include style-thumbs {
+          background: theming.get-color($theme, $color);
+        }
+
+        @include style-tracks {
+          background: theming.get-color-inverted($theme, $color);
+        }
+      }
+    }
+  }
+}

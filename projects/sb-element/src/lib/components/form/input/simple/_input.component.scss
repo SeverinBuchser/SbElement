@@ -1,25 +1,9 @@
-@use "src/lib/style/core/spacing";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/transitioning";
-@use "src/lib/style/core/typography";
-@use "src/lib/style/core/display";
-@use "src/lib/style/core/border";
+@use "sb-element/core/spacing";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
 /*****************************************************************************
-Input
+Input / Style
 ******************************************************************************/
-
-// THEME
-@mixin input-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} {
-    color: theming.get-foreground-text($theme);
-    .sb-input__border {
-      @include border.border($theme, $color, m);
-    }
-    &.focus .sb-input__border {
-      @include border.border($theme, $color, m);
-    }
-  }
-}
 
 // SIZE
 @mixin input-size($size, $value) {
@@ -59,11 +43,6 @@ Input
 
   &.disabled &__input {
     cursor: not-allowed;
-  }
-
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include input-theme($theme, $color);
   }
 
   @include spacing.for-each-size using ($size, $value) {

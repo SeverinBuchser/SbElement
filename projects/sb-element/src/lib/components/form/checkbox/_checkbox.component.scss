@@ -1,28 +1,10 @@
-@use "src/lib/style/core/spacing";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/transitioning";
-@use "src/lib/style/core/display";
-@use "src/lib/style/core/border";
-@use "src/lib/style/core/animation";
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
 /*****************************************************************************
-Checkbox
+Checkbox / Style
 ******************************************************************************/
-
-// THEME
-@mixin checkbox-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} input {
-    border-color: theming.get-accent($theme);
-  }
-
-  &.sb--#{$theme}.sb--#{$color} input:checked {
-    background: theming.get-color($theme, $color);
-    border-color: theming.get-color($theme, $color);
-  }
-
-  &.sb--#{$theme}.sb--#{$color} input:checked ~ .sb-icon {
-    color: theming.get-text($theme, $color);
-  }
-}
 
 // ROOT
 .sb-checkbox {
@@ -76,10 +58,5 @@ Checkbox
   &.disabled label {
     cursor: not-allowed;
     input { cursor: not-allowed; }
-  }
-
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include checkbox-theme($theme, $color);
   }
 }

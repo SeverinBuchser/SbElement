@@ -1,0 +1,47 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/typography";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/border";
+/*****************************************************************************
+Button / Style
+******************************************************************************/
+
+// SIZE
+@mixin button-size($size, $value) {
+  &.sb--#{$size} {
+    min-width: calc($value * 2);
+    height: $value;
+    @include spacing.padding-x(calc($value / 1.5));
+
+    &.pill {
+      @include border.radius($size);
+    }
+    &.round {
+      $height: spacing.get-size($size);
+      height: $height;
+      width: $height;
+      min-width: 0;
+      @include spacing.padding(0);
+      @include border.radius(50%);
+    }
+  }
+}
+
+// ROOT
+.sb-button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  display: block;
+  @include transitioning.ease(300ms, background, color);
+  @include border.radius(s);
+  @include typography.font();
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include button-size($size, $value);
+  }
+}

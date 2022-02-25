@@ -23,7 +23,6 @@ const SbFileInputCore = mixinDisable(
 @Component({
   selector: 'sb-input[type=file]',
   templateUrl: './file-input.component.html',
-  styleUrls: ['./file-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'size',

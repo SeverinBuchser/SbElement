@@ -1,41 +1,11 @@
-@use "src/lib/style/core/spacing";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/transitioning";
-@use "src/lib/style/core/typography";
-@use "src/lib/style/core/display";
-@use "src/lib/style/core/border";
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/typography";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
 /*****************************************************************************
-Input-Core
+Input-Core / Style
 ******************************************************************************/
-
-// THEME
-@mixin input-core-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} {
-    color: theming.get-foreground-text($theme);
-    input {
-      color: theming.get-foreground-text($theme);
-    }
-    .sb-input-core__placeholder {
-      color: theming.get-foreground-text($theme);
-
-      &.top {
-        background: theming.get-foreground($theme);
-      }
-    }
-
-    .sb-input-core__spinner-control {
-      color: theming.get-foreground-text($theme);
-      &:hover {
-        background: theming.get-accent($theme);
-      }
-
-      &:active {
-        background: theming.get-color-inverted($theme, $color);
-        color: theming.get-text-inverted($theme, $color);
-      }
-    }
-  }
-}
 
 // SIZE
 @mixin input-core-size($size, $value) {
@@ -109,11 +79,6 @@ Input-Core
 
   &.disabled input {
     cursor: not-allowed;
-  }
-
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include input-core-theme($theme, $color);
   }
 
   @include spacing.for-each-size using ($size, $value) {

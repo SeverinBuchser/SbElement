@@ -21,7 +21,6 @@ const SbSliderCore = mixinDisable(
 @Component({
   selector: 'sb-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'size',

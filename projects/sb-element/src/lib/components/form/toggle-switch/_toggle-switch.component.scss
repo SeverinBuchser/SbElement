@@ -1,28 +1,10 @@
 @use "sass:math";
-@use "src/lib/style/core/spacing";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/transitioning";
-@use "src/lib/style/core/border";
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/border";
 /*****************************************************************************
-Toggle-Switch
+Toggle-Switch / Style
 ******************************************************************************/
-
-// THEME
-@mixin toggle-switch-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} {
-    @include border.border($theme, $color, m);
-    &.off div {
-      background: theming.get-color($theme, $color);
-    }
-
-    &.on {
-      background: theming.get-color($theme, $color);
-      div {
-        background: theming.get-text($theme, $color);
-      }
-    }
-  }
-}
 
 // SIZE
 @mixin toggle-switch-size($size, $value) {
@@ -67,11 +49,6 @@ Toggle-Switch
   }
 
   &.disabled {cursor: not-allowed;}
-
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include toggle-switch-theme($theme, $color);
-  }
 
   @include spacing.for-each-size using ($size, $value) {
     @include toggle-switch-size($size, $value);

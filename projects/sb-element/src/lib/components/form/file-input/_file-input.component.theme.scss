@@ -1,0 +1,45 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+File Input / Theme
+******************************************************************************/
+
+// COLOR
+@mixin file-input-color($bg, $color, $hover-bg, $hover-color) {
+  label {
+    background: $bg;
+    color: $color;
+    &:hover {
+      background: $hover-bg;
+      color: $hover-color;
+    }
+  }
+
+  &.disabled label:hover {
+    background: $bg;
+    color: $color;
+  }
+}
+
+// THEME
+.sb-file-input {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme}.sb--#{$color} {
+      @include file-input-color(
+        theming.get-color($theme, $color),
+        theming.get-text($theme, $color),
+        theming.get-color-inverted($theme, $color),
+        theming.get-text-inverted($theme, $color)
+      );
+
+      &.plain {
+        @include file-input-color(
+          theming.get-color-inverted($theme, $color),
+          theming.get-text-inverted($theme, $color),
+          theming.get-color($theme, $color),
+          theming.get-text($theme, $color)
+        );
+      }
+    }
+  }
+}

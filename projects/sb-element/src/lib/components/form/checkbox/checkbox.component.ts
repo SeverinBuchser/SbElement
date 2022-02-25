@@ -21,7 +21,6 @@ const SbCheckboxCore = mixinFocus(
 @Component({
   selector: 'sb-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.disabled]': 'disabled'

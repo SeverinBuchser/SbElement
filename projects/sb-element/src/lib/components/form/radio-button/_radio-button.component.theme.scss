@@ -1,0 +1,19 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Radio / Theme
+******************************************************************************/
+
+// THEME
+.sb-radio {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme}.sb--#{$color} input {
+      border-color: theming.get-accent($theme);
+    }
+
+    &.sb--#{$theme}.sb--#{$color} input:checked {
+      background: theming.get-color($theme, $color);
+      border-color: theming.get-color($theme, $color);
+    }
+  }
+}

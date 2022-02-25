@@ -23,7 +23,6 @@ const SbInputCoreCore = mixinDisable(
 @Component({
   selector: 'sb-input-core',
   templateUrl: './input-core.component.html',
-  styleUrls: ['./input-core.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'size',
