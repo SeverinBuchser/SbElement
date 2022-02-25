@@ -17,7 +17,6 @@ const SbToastCore = mixinHide(
 @Component({
   selector: 'sb-toast',
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.timed]': 'timed > 0'

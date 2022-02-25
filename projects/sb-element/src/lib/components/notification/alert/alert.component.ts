@@ -18,7 +18,6 @@ const SbAlertCore = mixinHide(
 @Component({
   selector: 'sb-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'visible'

@@ -18,7 +18,6 @@ const SbAlertBoxCore = mixinSize(
 @Component({
   selector: 'sb-alert-box',
   templateUrl: './alert-box.component.html',
-  styleUrls: ['./alert-box.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.pill]': 'pill',

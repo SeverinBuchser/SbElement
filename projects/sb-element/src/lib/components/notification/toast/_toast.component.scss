@@ -1,35 +1,11 @@
-@use "src/lib/style/core/spacing";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/transitioning";
-@use "src/lib/style/core/typography";
-@use "src/lib/style/core/display";
-@use "src/lib/style/core/border";
-@use "src/lib/style/core/box-shadow";
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
+@use "sb-element/core/box-shadow";
 /*****************************************************************************
-Toast
+Toast / Style
 ******************************************************************************/
-
-// THEME
-@mixin toast-theme($theme) {
-  &.sb--#{$theme} {
-    color: theming.get-background-text($theme);
-
-    hr {
-      border: 0;
-      @include border.border-side-accent(top, $theme, s);
-    }
-  }
-
-  &.sb--#{$theme} &__border {
-    @include border.border-accent($theme, s);
-    background: theming.get-background($theme);
-  }
-
-  &.sb--#{$theme} &__close:hover {
-    background: theming.get-accent($theme);
-    color: theming.get-accent-text($theme);
-  }
-}
 
 // SIZE
 @mixin toast-size($size, $value) {
@@ -108,10 +84,6 @@ Toast
 
   &.sb--visible {
     opacity: 1;
-  }
-
-  @include theming.for-each-theme using ($theme, $theme-palette) {
-    @include toast-theme($theme);
   }
 
   @include spacing.for-each-size using ($size, $value) {

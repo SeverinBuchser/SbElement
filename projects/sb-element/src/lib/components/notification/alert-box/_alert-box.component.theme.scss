@@ -1,0 +1,30 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Alert Box / Theme
+******************************************************************************/
+
+// COLOR
+@mixin alert-box-color($bg, $color) {
+  background: $bg;
+  color: $color !important;
+}
+
+// THEME
+.sb-alert-box {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme}.sb--#{$color} {
+      @include alert-box-color(
+        theming.get-color($theme, $color),
+        theming.get-text($theme, $color)
+      );
+
+      &.plain {
+        @include alert-box-color(
+          theming.get-color-inverted($theme, $color),
+          theming.get-text-inverted($theme, $color)
+        );
+      }
+    }
+  }
+}

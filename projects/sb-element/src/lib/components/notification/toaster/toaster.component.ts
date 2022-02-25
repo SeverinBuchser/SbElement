@@ -12,7 +12,6 @@ const SbToasterCore = mixinClassName(
 @Component({
   selector: 'sb-toaster',
   templateUrl: './toaster.component.html',
-  styleUrls: ['./toaster.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SbToasterComponent extends SbToasterCore {

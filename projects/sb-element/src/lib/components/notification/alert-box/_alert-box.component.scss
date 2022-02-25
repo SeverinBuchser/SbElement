@@ -1,0 +1,38 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
+/*****************************************************************************
+Alert Box / Style
+******************************************************************************/
+
+// SIZE
+@mixin alert-box-size($size, $value) {
+  &.sb--#{$size} {
+    height: $value;
+    @include spacing.padding-x($size);
+
+    &.pill {
+      @include border.radius($size);
+    }
+  }
+}
+
+// ROOT
+.sb-alert-box {
+  @include display.flex(flex-start, $gap: s);
+  @include border.radius(s);
+
+  &.center {justify-content: center;}
+
+  &__alert {
+    @include display.grid($align: center);
+  }
+
+  .sb-icon:last-child {
+    @include spacing.margin-left(auto);
+  }
+
+  @include spacing.for-each-size using ($size, $value) {
+    @include alert-box-size($size, $value);
+  }
+}
