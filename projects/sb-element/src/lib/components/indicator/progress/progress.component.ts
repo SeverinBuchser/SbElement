@@ -20,7 +20,6 @@ const SbProgressCore = mixinDisable(
 @Component({
   selector: 'sb-progress',
   templateUrl: './progress.component.html',
-  styleUrls: ['./progress.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.pill]': 'pill',

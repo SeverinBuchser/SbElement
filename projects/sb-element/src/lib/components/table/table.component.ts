@@ -16,7 +16,6 @@ const SbTableCore = mixinColor(
 @Component({
   selector: 'sb-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.plain]': 'plain'

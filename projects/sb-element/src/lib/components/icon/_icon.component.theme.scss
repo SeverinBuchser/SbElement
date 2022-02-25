@@ -1,0 +1,14 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+Icon / Theme
+******************************************************************************/
+
+// THEME
+.sb-icon {
+  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
+  $color-palette) {
+    &.sb--#{$theme}.sb--#{$color} {
+      color: theming.get-color($theme, $color);
+    }
+  }
+}

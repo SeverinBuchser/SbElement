@@ -1,16 +1,7 @@
-@use "sass:map";
-@use "src/lib/style/core/theming";
-@use "src/lib/style/core/typography";
+@use "sb-element/core/typography";
 /*****************************************************************************
-Icon
+Icon / Style
 ******************************************************************************/
-
-// THEME
-@mixin icon-theme($theme, $color) {
-  &.sb--#{$theme}.sb--#{$color} {
-    color: theming.get-color($theme, $color);
-  }
-}
 
 // SIZE
 @mixin icon-size($font-size, $value) {
@@ -58,10 +49,6 @@ Icon
   /* Support for IE. */
   font-feature-settings: 'liga';
 
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
-    @include icon-theme($theme, $color);
-  }
   @include typography.for-each-font-size(icon) using ($size, $value) {
     @include icon-size($size, $value);
   }

@@ -17,7 +17,6 @@ const SbLinkCore = mixinSize(
 @Component({
   selector: 'sb-link',
   templateUrl: './link.component.html',
-  styleUrls: ['./link.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.active]': 'active'

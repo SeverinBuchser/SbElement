@@ -19,7 +19,6 @@ const SbIconCore = mixinSize(
 @Component({
   selector: 'sb-icon',
   templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.outline]': 'outline'

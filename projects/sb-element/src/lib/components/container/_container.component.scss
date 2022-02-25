@@ -1,8 +1,7 @@
 @use "sb-element/core/spacing";
-@use "sb-element/core/theming";
 @use "sb-element/core/border";
 /*****************************************************************************
-Container
+Container / Style
 ******************************************************************************/
 
 // ROOT
@@ -11,10 +10,4 @@ Container
   @include spacing.margin(m);
   @include spacing.padding(xl);
   @include border.radius(xl);
-  @include theming.for-each-theme using ($theme, $theme-palette) {
-    &.sb--#{$theme} {
-      background: theming.get-foreground($theme);
-      color: theming.get-foreground-text($theme);
-    }
-  }
 }

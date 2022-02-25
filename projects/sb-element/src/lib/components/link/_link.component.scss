@@ -1,0 +1,32 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
+@use "sb-element/core/typography";
+/*****************************************************************************
+Link / Style
+******************************************************************************/
+
+// SIZE
+@mixin link-size($size, $value) {
+  &.sb--#{$size} {
+    @include spacing.padding-x($size);
+    height: spacing.get-size($size);
+    @include border.radius($size);
+  }
+}
+
+// ROOT
+.sb-link {
+  @include display.flex();
+  cursor: pointer;
+
+  &.active {
+    @include typography.font-weight($weight: bold);
+  }
+
+  @include transitioning.ease(background, 300ms);
+  @include spacing.for-each-size using ($size, $value) {
+    @include link-size($size, $value);
+  }
+}
