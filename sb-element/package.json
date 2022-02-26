@@ -8,10 +8,10 @@
   },
   "scripts": {
     "build": "ng build SbElement --configuration production && tsc -p tsconfig.schematics.json",
-    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../../dist/sb-element/",
+    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../dist/sb-element/",
     "dev": "ng build SbElement --watch",
     "doc": "compodoc --config .compodocrc",
-    "copy:doc": "cp -ra ./documentation/. ../../../SeverinBuchser.github.io/sb-element-doc"
+    "copy:doc": "cp -ra ./documentation/. ../../SeverinBuchser.github.io/sb-element-doc"
   },
   "schematics": "./schematics/collection.json",
   "ng-add": {
@@ -26,8 +26,8 @@
     "tslib": "^2.1.0"
   },
   "devDependencies": {
-    "copyfiles": "file:../../node_modules/copyfiles",
-    "typescript": "file:../../node_modules/typescript"
+    "copyfiles": "file:../node_modules/copyfiles",
+    "typescript": "file:../node_modules/typescript"
   },
   "keywords": [
     "library",
