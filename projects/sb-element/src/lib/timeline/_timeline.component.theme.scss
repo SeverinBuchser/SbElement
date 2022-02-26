@@ -6,8 +6,8 @@ Timeline / Theme
 
 // THEME
 .sb-timeline {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} .sb-icon.awaiting {
       color: theming.get-accent($theme);
     }

@@ -6,8 +6,8 @@ Calendar-Dates / Theme
 
 // THEME
 .sb-calendar-dates {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} &__week-days {
       @include border.border-side(bottom, $theme, $color, m);
     }

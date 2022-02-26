@@ -6,7 +6,7 @@ Popper / Theme
 
 // THEME
 .sb-popper {
-  @include theming.for-each-theme using ($theme, $theme-palette) {
+  @include theming.for-each-theme using ($theme) {
     &.sb--#{$theme} &__popper {
       background: theming.get-background($theme);
       color: theming.get-background-text($theme);

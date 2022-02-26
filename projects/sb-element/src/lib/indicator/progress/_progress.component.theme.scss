@@ -6,8 +6,8 @@ Progress / Theme
 
 // THEME
 .sb-progress {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme} {
       &:not(.outline) {
         background: theming.get-accent($theme);

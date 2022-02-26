@@ -5,8 +5,8 @@ Radio / Theme
 
 // THEME
 .sb-radio {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} input {
       border-color: theming.get-accent($theme);
     }

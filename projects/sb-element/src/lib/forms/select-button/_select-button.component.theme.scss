@@ -5,8 +5,8 @@ Checkbox-Group / Theme
 
 // THEME
 .sb-select-button {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} {
       color: theming.get-text($theme, $color);
 

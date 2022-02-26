@@ -11,8 +11,8 @@ Alert Box / Theme
 
 // THEME
 .sb-alert-box {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} {
       @include alert-box-color(
         theming.get-color($theme, $color),

@@ -5,7 +5,7 @@ Calendar / Theme
 
 // THEME
 .sb-calendar {
-  @include theming.for-each-theme using ($theme, $theme-palette) {
+  @include theming.for-each-theme using ($theme) {
     &.sb--#{$theme} &__navigation .sb-icon:hover {
       background: theming.get-accent($theme);
     }

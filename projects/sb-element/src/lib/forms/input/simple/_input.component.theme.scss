@@ -6,8 +6,8 @@ Input / Theme
 
 // THEME
 .sb-input {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} {
       color: theming.get-foreground-text($theme);
       .sb-input__border {

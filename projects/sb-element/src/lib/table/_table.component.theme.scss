@@ -6,8 +6,8 @@ Table / Theme
 
 // THEME
 .sb-table {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} {
       @include border.border-accent($theme);
     }

@@ -5,8 +5,8 @@ Calendar-Year / Theme
 
 // THEME
 .sb-calendar-year{
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} {
       &.marked, &.marked:hover, &.marked.disabled:hover {
         background: theming.get-color($theme, $color);

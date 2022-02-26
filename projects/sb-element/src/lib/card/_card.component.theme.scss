@@ -6,8 +6,8 @@ Card / Theme
 
 // THEME
 .sb-card {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme} {
       background: theming.get-foreground($theme);
       color: theming.get-foreground-text($theme);

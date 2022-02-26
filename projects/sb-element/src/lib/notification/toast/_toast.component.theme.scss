@@ -6,7 +6,7 @@ Toast / Theme
 
 // THEME
 .sb-toast {
-  @include theming.for-each-theme using ($theme, $theme-palette) {
+  @include theming.for-each-theme using ($theme) {
     &.sb--#{$theme} {
       color: theming.get-background-text($theme);
 

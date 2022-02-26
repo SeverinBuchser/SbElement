@@ -22,8 +22,8 @@ File Input / Theme
 
 // THEME
 .sb-file-input {
-  @include theming.for-each-theme-color using ($theme, $theme-palette, $color,
-  $color-palette) {
+  @include theming.for-each-theme-color using ($theme, $color,
+  ) {
     &.sb--#{$theme}.sb--#{$color} {
       @include file-input-color(
         theming.get-color($theme, $color),
