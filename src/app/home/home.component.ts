@@ -22,14 +22,14 @@ export class HomeComponent extends mixinColor(mixinClassName(class {
     public router: Router
   ) {
     super(elementRef, themeService);
-    this._themeService.commit('neutral');
+    this._themeService.commit('dark');
   }
 
   public toggleTheme() {
-    if (this._themeService.get() == 'neutral') {
+    if (this._themeService.get() == 'dark') {
       this._themeService.commit('light');
     } else {
-      this._themeService.commit('neutral');
+      this._themeService.commit('dark');
     }
   }
 }

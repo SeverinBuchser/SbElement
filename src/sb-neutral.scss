@@ -93,7 +93,8 @@ $theme: theming.define-dark-theme(
   $green-palette,
   $red-palette,
   $yellow-palette,
-  $white-palette
+  $white-palette,
+  $black-palette
 );
 
 @include theme.theme($theme);

@@ -99,29 +99,6 @@ Theme Definitions
   @return $scheme;
 }
 
-// Defines the dark theme map from different color palettes and returns a Map of
-// the color scheme and the theme colors.
-// @param {Map} $primary-palette Primary color-palette.
-// @param {Map} $secondary-palette Secondary color-palette.
-// @param {Map} $success-palette Success color-palette.
-// @param {Map} $warn-palette Warn color-palette.
-// @param {Map} $info-palette Info color-palette.
-// @param {Map} $black-palette Palette used for defining theme-dependent colors
-// @returns {Map} A complete Sb-Theming dark theme color-palette.
-@function define-dark-theme($primary-palette, $secondary-palette,
-  $success-palette, $warn-palette, $info-palette, $black-palette) {
-  $result: (
-    scheme: define-color-scheme($primary-palette, $secondary-palette,
-      $success-palette, $warn-palette, $info-palette),
-    base: $black-palette,
-    background-hue: dark,
-    foreground-hue: default,
-    accent-hue: light,
-    is-dark: true
-  );
-  @return $result;
-}
-
 // Defines the light theme map from different color palettes and returns a Map
 // of the color scheme and the theme colors.
 // @param {Map} $primary-palette Primary color-palette.
@@ -132,15 +109,40 @@ Theme Definitions
 // @param {Map} $black-palette Palette used for defining theme-dependent colors
 // @returns {Map} A complete Sb-Theming light theme color-palette.
 @function define-light-theme($primary-palette, $secondary-palette,
-  $success-palette, $warn-palette, $info-palette, $white-palette) {
+  $success-palette, $warn-palette, $info-palette, $white-palette, $black-palette) {
   $result: (
     scheme: define-color-scheme($primary-palette, $secondary-palette,
       $success-palette, $warn-palette, $info-palette),
     base: $white-palette,
+    base-secondary: $black-palette,
     background-hue: light,
     foreground-hue: default,
     accent-hue: dark,
     is-dark: false
+  );
+  @return $result;
+}
+
+// Defines the dark theme map from different color palettes and returns a Map of
+// the color scheme and the theme colors.
+// @param {Map} $primary-palette Primary color-palette.
+// @param {Map} $secondary-palette Secondary color-palette.
+// @param {Map} $success-palette Success color-palette.
+// @param {Map} $warn-palette Warn color-palette.
+// @param {Map} $info-palette Info color-palette.
+// @param {Map} $black-palette Palette used for defining theme-dependent colors
+// @returns {Map} A complete Sb-Theming dark theme color-palette.
+@function define-dark-theme($primary-palette, $secondary-palette,
+$success-palette, $warn-palette, $info-palette, $white-palette, $black-palette) {
+  $result: (
+  scheme: define-color-scheme($primary-palette, $secondary-palette,
+  $success-palette, $warn-palette, $info-palette),
+  base: $black-palette,
+  base-secondary: $white-palette,
+  background-hue: dark,
+  foreground-hue: default,
+  accent-hue: light,
+  is-dark: true
   );
   @return $result;
 }
@@ -152,6 +154,7 @@ Theme Definitions
 // $theme: (
 //   scheme: {Map},
 //   base: {Map},
+//   base-secondary: {Map},
 //   background-hue: {String},
 //   foreground-hue: {String},
 //   accent-hue: {String},
@@ -165,6 +168,8 @@ Theme Definitions
     @error 'Palette does not define a valid "color-scheme".';
   } @else if not map.has-key($theme, base) {
     @error 'Palette does not define a valid "base" color-palette.';
+  } @else if not map.has-key($theme, base-secondary) {
+    @error 'Palette does not define a valid "base-secondary" color-palette.';
   } @else if not map.has-key($theme, background-hue) {
     @error 'Palette does not define a valid "background-hue".';
   } @else if not map.has-key($theme, foreground-hue) {
@@ -177,6 +182,7 @@ Theme Definitions
 
   $scheme: validate-color-scheme(map.get($theme, scheme));
   $base: validate-palette(map.get($theme, base));
+  $base-secondary: validate-palette(map.get($theme, base-secondary));
 
   @return $theme;
 }
@@ -190,7 +196,8 @@ $light-theme: define-light-theme(
   palettes.$green-palette,
   palettes.$red-palette,
   palettes.$yellow-palette,
-  palettes.$white-palette
+  palettes.$white-palette,
+  palettes.$black-palette
 );
 
 $dark-theme: define-dark-theme(
@@ -199,5 +206,6 @@ $dark-theme: define-dark-theme(
   palettes.$green-palette,
   palettes.$red-palette,
   palettes.$yellow-palette,
+  palettes.$white-palette,
   palettes.$black-palette
 );
