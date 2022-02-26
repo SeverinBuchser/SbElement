@@ -1,7 +1,9 @@
-@use 'core/input-core.component.theme';
-@use 'simple/input.component.theme';
+@use 'double-input/double-input.component.theme';
+@use 'input/input.component.theme';
+@use 'input-core/input-core.component.theme';
 
 @mixin theme($theme) {
-  @include input-core.theme($theme);
+  @include double-input.theme($theme);
   @include input.theme($theme);
+  @include input-core.theme($theme);
 }

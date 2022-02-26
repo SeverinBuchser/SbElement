@@ -1,0 +1,9 @@
+@use 'double-number-input/double-number-input.component.theme';
+@use 'number-input/number-input.component.theme';
+@use 'number-input-core/number-input-core.component.theme';
+
+@mixin theme($theme) {
+  @include double-number-input.theme($theme);
+  @include number-input.theme($theme);
+  @include number-input-core.theme($theme);
+}

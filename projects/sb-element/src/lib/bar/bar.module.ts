@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbBarComponent } from './bar/bar.component';
-import { SbNavBarComponent } from './nav-bar/nav-bar.component';
-import { SbSidebarComponent } from './sidebar/sidebar.component';
+import { SbBarComponent } from './bar';
+import { SbNavBarComponent } from './nav-bar';
+import { SbSidebarComponent } from './sidebar';
 
 @NgModule({
   declarations: [

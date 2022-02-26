@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbContainerComponent } from './container.component';
+import { SbContainerComponent } from './container';
 
 @NgModule({
   declarations: [SbContainerComponent],

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbCardComponent } from './card.component';
+import { SbCardComponent } from './card';
 
 @NgModule({
   declarations: [SbCardComponent],

@@ -1,2 +1,2 @@
-export * from './container.component';
+export * from './container';
 export * from './container.module';

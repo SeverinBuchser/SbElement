@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { SbIconModule } from '../../icon/icon.module';
+import { SbIconModule } from '../../icon';
 
-import { SbInputCoreComponent } from './core/input-core.component';
-import { SbInputComponent } from './simple/input.component';
-import { SbDoubleInputComponent } from './double/double-input.component';
+import { SbDoubleInputComponent } from './double-input';
+import { SbInputComponent } from './input';
+import { SbInputCoreComponent } from './input-core';
 
 @NgModule({
   declarations: [
-    SbInputCoreComponent,
-    SbInputComponent,
     SbDoubleInputComponent,
+    SbInputComponent,
+    SbInputCoreComponent,
   ],
   imports: [
     CommonModule,
@@ -20,8 +20,8 @@ import { SbDoubleInputComponent } from './double/double-input.component';
     SbIconModule
   ],
   exports: [
-    SbInputComponent,
     SbDoubleInputComponent,
+    SbInputComponent,
   ]
 })
 export class SbInputModule { }

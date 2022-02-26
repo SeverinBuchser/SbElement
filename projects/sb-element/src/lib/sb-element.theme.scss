@@ -15,17 +15,23 @@
 
 $theme: null !default;
 
-@include bar.theme($theme);
-@include breadcrumbs.theme($theme);
-@include calendar.theme($theme);
-@include card.theme($theme);
-@include container.theme($theme);
-@include forms.theme($theme);
-@include grid.theme($theme);
-@include icon.theme($theme);
-@include indicator.theme($theme);
-@include link.theme($theme);
-@include notification.theme($theme);
-@include popper.theme($theme);
-@include table.theme($theme);
-@include timeline.theme($theme);
+@mixin theme($theme) {
+  @include bar.theme($theme);
+  @include breadcrumbs.theme($theme);
+  @include calendar.theme($theme);
+  @include card.theme($theme);
+  @include container.theme($theme);
+  @include forms.theme($theme);
+  @include grid.theme($theme);
+  @include icon.theme($theme);
+  @include indicator.theme($theme);
+  @include link.theme($theme);
+  @include notification.theme($theme);
+  @include popper.theme($theme);
+  @include table.theme($theme);
+  @include timeline.theme($theme);
+}
+
+@if $theme != null {
+  @include theme($theme);
+}

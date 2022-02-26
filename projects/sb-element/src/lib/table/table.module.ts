@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbTableComponent } from './table.component';
+import { SbTableComponent } from './table';
 
 @NgModule({
   declarations: [SbTableComponent],

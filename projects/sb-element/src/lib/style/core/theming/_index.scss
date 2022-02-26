@@ -1,3 +1,5 @@
+@forward 'themes' show define-dark-theme, define-light-theme;
+
 @forward 'theming' show $light-theme, $dark-theme, get-color,
   get-color, get-color-inverted, get-text, get-text-inverted, get-background,
   get-background-text, get-foreground, get-foreground-text, get-accent,

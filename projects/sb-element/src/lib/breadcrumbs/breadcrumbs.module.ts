@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SbIconModule } from '../icon';
 
-import { SbBreadcrumbsComponent } from './breadcrumbs.component';
+import { SbBreadcrumbsComponent } from './breadcrumbs';
 
 @NgModule({
   declarations: [SbBreadcrumbsComponent],

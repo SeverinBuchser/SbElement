@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FormsModule } from '@angular/forms';
+
 import { SbCalendarModule } from "../calendar";
 import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 import { SbPopperModule } from "../popper";
-import { SbInputModule } from './input/input.module';
-import { SbSpinnerModule } from './spinner/spinner.module';
+
+import { SbDateInputModule } from './date-input';
+import { SbInputModule } from './input';
+import { SbNumberInputModule } from './number-input';
 
 import { SbButtonComponent } from './button';
-import { SbDatePickerComponent, SbDateRangePickerComponent } from './date';
 import { SbIconButtonComponent } from './icon-button';
 import { SbToggleSwitchComponent } from './toggle-switch';
 import { SbCheckboxComponent } from './checkbox';
@@ -18,13 +19,11 @@ import { SbRadioButtonComponent, SbRadioButtonGroupComponent } from './radio-but
 import { SbSelectButtonComponent } from './select-button';
 import { SbSliderComponent } from './slider';
 import { SbFileInputComponent } from './file-input';
-import { SbTimePickerComponent } from './time';
+import { SbTimeInputComponent } from './time-input';
 
 @NgModule({
   declarations: [
     SbButtonComponent,
-    SbDatePickerComponent,
-    SbDateRangePickerComponent,
     SbIconButtonComponent,
     SbToggleSwitchComponent,
     SbCheckboxComponent,
@@ -33,23 +32,22 @@ import { SbTimePickerComponent } from './time';
     SbSelectButtonComponent,
     SbSliderComponent,
     SbFileInputComponent,
-    SbTimePickerComponent,
+    SbTimeInputComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     SbCoreModule,
+    SbDateInputModule,
     SbIconModule,
     SbInputModule,
-    SbSpinnerModule,
+    SbNumberInputModule,
     SbPopperModule,
     SbCalendarModule
   ],
   exports: [
     // components
     SbButtonComponent,
-    SbDatePickerComponent,
-    SbDateRangePickerComponent,
     SbIconButtonComponent,
     SbToggleSwitchComponent,
     SbCheckboxComponent,
@@ -58,11 +56,12 @@ import { SbTimePickerComponent } from './time';
     SbSelectButtonComponent,
     SbSliderComponent,
     SbFileInputComponent,
-    SbTimePickerComponent,
+    SbTimeInputComponent,
 
     // modules
+    SbDateInputModule,
     SbInputModule,
-    SbSpinnerModule,
+    SbNumberInputModule,
   ]
 })
 export class SbFormsModule { }

@@ -1,4 +1,4 @@
-@use 'card.component.theme';
+@use 'card/card.component.theme';
 
 @mixin theme($theme) {
   @include card.theme($theme);

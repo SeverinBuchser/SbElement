@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbIconComponent } from './icon.component';
+import { SbIconComponent } from './icon';
 
 
 @NgModule({

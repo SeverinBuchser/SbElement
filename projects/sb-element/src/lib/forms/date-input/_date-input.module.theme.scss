@@ -1,0 +1,7 @@
+@use 'date-input/date-input.component.theme';
+@use 'date-range-input/date-range-input.component.theme';
+
+@mixin theme($theme) {
+  @include date-input.theme($theme);
+  @include date-range-input.theme($theme);
+}
