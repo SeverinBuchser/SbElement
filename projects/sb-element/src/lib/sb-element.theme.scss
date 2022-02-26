@@ -1,2 +1,16 @@
 @forward 'style';
-@forward 'components/components.theme';
+
+@use 'bar/bar.module.theme';
+@use 'breadcrumbs/breadcrumbs.module.theme';
+@use 'calendar/calendar.module.theme';
+@use 'card/card.module.theme';
+@use 'container/container.module.theme';
+@use 'forms/forms.module.theme';
+@use 'grid/grid.module.theme';
+@use 'icon/icon.module.theme';
+@use 'indicator/indicator.module.theme';
+@use 'link/link.module.theme';
+@use 'notification/notification.module.theme';
+@use 'popper/popper.module.theme';
+@use 'table/table.module.theme';
+@use 'timeline/timeline.module.theme';

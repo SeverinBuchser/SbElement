@@ -2,67 +2,48 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 // Modules
-import { SbCoreModule } from './core/core.module';
-import { SbBarModule } from "./components/bar/bar.module";
-import { SbFormModule } from './components/form/form.module';
-import { SbIconModule } from './components/icon/icon.module';
-import { SbPopperModule } from './components/popper/popper.module';
-import { SbNotificationModule } from "./components/notification/notification.module";
-import { SbCalendarModule } from "./components/calendar/calendar.module";
+import { SbBarModule } from "./bar";
+import { SbBreadcrumbsModule } from './breadcrumbs';
+import { SbCalendarModule } from "./calendar";
+import { SbCardModule } from './card';
+import { SbContainerModule } from './container';
+import { SbCoreModule } from './core';
+import { SbFormsModule } from './forms';
+import { SbGridModule } from './grid';
+import { SbIconModule } from './icon';
+import { SbIndicatorModule } from "./indicator";
+import { SbLinkModule } from './link';
+import { SbNotificationModule } from "./notification";
+import { SbPopperModule } from './popper';
+import { SbTableModule } from './table';
+import { SbTimelineModule } from './timeline';
 
 // Components
-import { SbContainerComponent } from './components/container/container.component';
-import { SbTableComponent } from './components/table/table.component';
-import { SbCardComponent } from './components/card/card.component';
-import { SbGridComponent } from './components/grid/grid.component';
 
 // Directives
-import { SbTimelineComponent } from './components/timeline/timeline.component';
-import { SbLinkComponent } from './components/link/link.component';
-import { SbBreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
-import { SbIndicatorModule } from "./components/indicator";
 
 
 @NgModule({
-  declarations: [
-    // Components
-    SbContainerComponent,
-    SbTableComponent,
-    SbCardComponent,
-    SbGridComponent,
-    SbTimelineComponent,
-    SbLinkComponent,
-    SbBreadcrumbsComponent,
-  ],
+  declarations: [],
   imports: [
-    BrowserModule,
-    SbCoreModule,
-    SbBarModule,
-    SbFormModule,
-    SbIconModule,
-    SbPopperModule,
-    SbNotificationModule,
-    SbCalendarModule,
-    SbIndicatorModule,
+    BrowserModule
   ],
   exports: [
-    // Components
-    SbContainerComponent,
-    SbTableComponent,
-    SbCardComponent,
-    SbGridComponent,
-    SbTimelineComponent,
-    SbLinkComponent,
-    SbBreadcrumbsComponent,
-    // Modules
-    SbCoreModule,
     SbBarModule,
-    SbFormModule,
-    SbIconModule,
-    SbPopperModule,
-    SbNotificationModule,
+    SbBreadcrumbsModule,
     SbCalendarModule,
+    SbCardModule,
+    SbContainerModule,
+    SbCoreModule,
+    SbFormsModule,
+    SbGridModule,
+    SbIconModule,
     SbIndicatorModule,
+    SbLinkModule,
+    SbNotificationModule,
+    SbPopperModule,
+    SbTableModule,
+    SbTimelineModule,
   ]
 })
 export class SbElementModule { }

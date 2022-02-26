@@ -1,2 +1,16 @@
 @forward 'style';
-@forward 'components/components';
+
+@use 'bar/bar.module';
+@use 'breadcrumbs/breadcrumbs.module';
+@use 'calendar/calendar.module';
+@use 'card/card.module';
+@use 'container/container.module';
+@use 'grid/grid.module';
+@use 'icon/icon.module';
+@use 'forms/forms.module';
+@use 'indicator/indicator.module';
+@use 'notification/notification.module';
+@use 'popper/popper.module';
+@use 'link/link.module';
+@use 'table/table.module';
+@use 'timeline/timeline.module';
