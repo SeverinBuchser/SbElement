@@ -18,6 +18,12 @@ Calendar-Year / Style
 
   &.disabled {
     cursor: not-allowed;
+    &:hover {
+      background: transparent;
+      span {
+        color: inherit;
+      }
+    }
   }
 
   span {

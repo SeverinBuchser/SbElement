@@ -4,16 +4,14 @@ Link / Theme
 ******************************************************************************/
 
 // THEME
-.sb-link {
-  @include theming.for-each-theme using ($theme) {
-    &.sb--#{$theme} {
-      background: theming.get-foreground($theme);
-      color: theming.get-background-text($theme);
+@mixin theme($theme) {
+  .sb-link {
+    background: theming.get-foreground($theme);
+    color: theming.get-background-text($theme);
 
-      &:hover {
-        background: theming.get-accent($theme);
-        color: theming.get-accent-text($theme);
-      }
+    &:hover {
+      background: theming.get-accent($theme);
+      color: theming.get-accent-text($theme);
     }
   }
 }

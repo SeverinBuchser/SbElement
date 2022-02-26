@@ -1,1 +1,5 @@
 @use 'grid.component.theme';
+
+@mixin theme($theme) {
+  @include grid.theme($theme);
+}

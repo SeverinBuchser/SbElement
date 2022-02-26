@@ -4,20 +4,19 @@ Checkbox / Theme
 ******************************************************************************/
 
 // THEME
-.sb-checkbox {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} input {
-      border-color: theming.get-accent($theme);
-    }
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-checkbox.sb--#{$color} input {
+        border-color: theming.get-accent($theme);
 
-    &.sb--#{$theme}.sb--#{$color} input:checked {
-      background: theming.get-color($theme, $color);
-      border-color: theming.get-color($theme, $color);
-    }
+        &:checked {
+          background: theming.get-color($theme, $color);
+          border-color: theming.get-color($theme, $color);
 
-    &.sb--#{$theme}.sb--#{$color} input:checked ~ .sb-icon {
-      color: theming.get-text($theme, $color);
+          & ~.sb-icon {
+            color: theming.get-text($theme, $color);
+          }
+        }
     }
   }
 }

@@ -4,21 +4,22 @@ Bar / Theme
 ******************************************************************************/
 
 // THEME
-.sb-breadcrumbs {
-  @include theming.for-each-theme using ($theme) {
-    &.sb--#{$theme} {
-      color: theming.get-background-text($theme);
-      background: theming.get-background($theme);
-    }
+@mixin theme($theme) {
+  .sb-breadcrumbs {
+    color: theming.get-background-text($theme);
+    background: theming.get-background($theme);
 
-    &.sb--#{$theme} .sb-icon {
+    .sb-icon {
       color: theming.get-accent($theme);
     }
 
-    &.sb--#{$theme} &__crumb {
+    &__crumb {
       text-decoration-color: theming.get-accent($theme);
-      &:hover {
-        text-decoration-color: theming.get-color($theme);
+    }
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} &__crumb:hover {
+        text-decoration-color: theming.get-color($theme, $color);
       }
     }
   }

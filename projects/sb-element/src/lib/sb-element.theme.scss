@@ -1,5 +1,3 @@
-@forward 'style/core';
-
 @use 'bar/bar.module.theme';
 @use 'breadcrumbs/breadcrumbs.module.theme';
 @use 'calendar/calendar.module.theme';
@@ -14,3 +12,20 @@
 @use 'popper/popper.module.theme';
 @use 'table/table.module.theme';
 @use 'timeline/timeline.module.theme';
+
+$theme: null !default;
+
+@include bar.theme($theme);
+@include breadcrumbs.theme($theme);
+@include calendar.theme($theme);
+@include card.theme($theme);
+@include container.theme($theme);
+@include forms.theme($theme);
+@include grid.theme($theme);
+@include icon.theme($theme);
+@include indicator.theme($theme);
+@include link.theme($theme);
+@include notification.theme($theme);
+@include popper.theme($theme);
+@include table.theme($theme);
+@include timeline.theme($theme);

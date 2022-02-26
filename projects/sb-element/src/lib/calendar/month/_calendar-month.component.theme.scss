@@ -4,28 +4,23 @@ Calendar-Month / Theme
 ******************************************************************************/
 
 // THEME
-.sb-calendar-month {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} {
-      &.marked, &.marked:hover, &.marked.disabled:hover {
-        background: theming.get-color($theme, $color);
-        span {
-          color: theming.get-text($theme, $color);
-        }
-      }
+@mixin theme($theme) {
+  .sb-calendar-month {
 
-      &:hover {
-        background: theming.get-accent($theme);
-        span {
-          color: theming.get-accent-text($theme);
-        }
+    &:hover {
+      background: theming.get-accent($theme);
+      span {
+        color: theming.get-accent-text($theme);
       }
+    }
 
-      &.disabled:hover {
-        background: transparent;
-        span {
-          color: inherit;
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} {
+        &.marked, &.marked:hover, &.marked.disabled:hover {
+          background: theming.get-color($theme, $color);
+          span {
+            color: theming.get-text($theme, $color);
+          }
         }
       }
     }

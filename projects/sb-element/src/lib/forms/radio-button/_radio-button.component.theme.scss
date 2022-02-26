@@ -1,19 +1,21 @@
 @use "sb-element/core/theming";
+@use "sb-element/core/border";
 /*****************************************************************************
 Radio / Theme
 ******************************************************************************/
 
 // THEME
-.sb-radio {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} input {
-      border-color: theming.get-accent($theme);
+@mixin theme($theme) {
+  .sb-radio {
+    input {
+      @include border.border-accent($theme, m);
     }
 
-    &.sb--#{$theme}.sb--#{$color} input:checked {
-      background: theming.get-color($theme, $color);
-      border-color: theming.get-color($theme, $color);
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} input:checked {
+        background: theming.get-color($theme, $color);
+        @include border.border($theme, $color, m);
+      }
     }
   }
 }

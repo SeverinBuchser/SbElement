@@ -6,3 +6,15 @@
 @use 'select-button/select-button.component.theme';
 @use 'slider/slider.component.theme';
 @use 'toggle-switch/toggle-switch.component.theme';
+
+
+@mixin theme($theme) {
+  @include button.theme($theme);
+  @include checkbox.theme($theme);
+  @include file-input.theme($theme);
+  @include input.theme($theme);
+  @include radio-button.theme($theme);
+  @include select-button.theme($theme);
+  @include slider.theme($theme);
+  @include toggle-switch.theme($theme);
+}

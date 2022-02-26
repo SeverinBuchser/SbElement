@@ -1,3 +1,9 @@
-@forward 'bar/bar.component.theme';
-@forward 'nav-bar/nav-bar.component.theme';
-@forward 'sidebar/sidebar.component.theme';
+@use 'bar/bar.component.theme';
+@use 'nav-bar/nav-bar.component.theme';
+@use 'sidebar/sidebar.component.theme';
+
+@mixin theme($theme) {
+  @include bar.theme($theme);
+  @include nav-bar.theme($theme);
+  @include sidebar.theme($theme);
+}

@@ -5,35 +5,36 @@ Progress / Theme
 ******************************************************************************/
 
 // THEME
-.sb-progress {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme} {
-      &:not(.outline) {
-        background: theming.get-accent($theme);
-      }
+@mixin theme($theme) {
+  .sb-progress {
 
-      &.outline {
-        @include border.border-accent($theme, m);
-      }
+    &:not(.outline) {
+      background: theming.get-accent($theme);
     }
 
-    &.sb--#{$theme}.sb--#{$color} &__bar {
-      background-color: theming.get-color($theme, $color);
-      color: theming.get-text($theme, $color);
+    &.outline {
+      @include border.border-accent($theme, m);
     }
 
-    &.sb--#{$theme}.sb--#{$color}.striped &__bar {
-      background-image: linear-gradient(45deg,
-        rgba(0,0,0,0) 25%,
-        theming.get-color-inverted($theme, $color) 25%,
-        theming.get-color-inverted($theme, $color) 50%,
-        rgba(0,0,0,0) 50%,
-        rgba(0,0,0,0) 75%,
-        theming.get-color-inverted($theme, $color) 75%,
-        theming.get-color-inverted($theme, $color) 100%,
-        rgba(0,0,0,0) 100%
-      );
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} &__bar {
+        background-color: theming.get-color($theme, $color);
+        color: theming.get-text($theme, $color);
+      }
+
+      &.sb--#{$color}.striped &__bar {
+        background-image: linear-gradient(45deg,
+          rgba(0,0,0,0) 25%,
+          theming.get-color-inverted($theme, $color) 25%,
+          theming.get-color-inverted($theme, $color) 50%,
+          rgba(0,0,0,0) 50%,
+          rgba(0,0,0,0) 75%,
+          theming.get-color-inverted($theme, $color) 75%,
+          theming.get-color-inverted($theme, $color) 100%,
+          rgba(0,0,0,0) 100%
+        );
+      }
     }
   }
 }

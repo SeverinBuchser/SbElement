@@ -4,9 +4,9 @@ Calendar / Theme
 ******************************************************************************/
 
 // THEME
-.sb-calendar {
-  @include theming.for-each-theme using ($theme) {
-    &.sb--#{$theme} &__navigation .sb-icon:hover {
+@mixin theme($theme) {
+  .sb-calendar {
+    &__navigation .sb-icon:hover {
       background: theming.get-accent($theme);
     }
   }

@@ -28,7 +28,6 @@ Radio / Style
       background-color: transparent;
       height: spacing.get-spacing(m);
       width: spacing.get-spacing(m);
-      @include border.border($width: m, $style: solid);
       /* Not removed via appearance */
       @include spacing.margin(0);
       @include border.radius(50%);

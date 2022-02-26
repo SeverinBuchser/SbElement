@@ -1,2 +1,7 @@
 @use 'popper/popper.component.theme';
 @use 'tooltip/tooltip.component.theme';
+
+@mixin theme($theme) {
+  @include popper.theme($theme);
+  @include tooltip.theme($theme);
+}

@@ -15,6 +15,11 @@ Calendar-Date / Stlye
 
   &.disabled {
     cursor: not-allowed;
+
+    &:hover {
+      .mark {background: transparent;}
+      span {color: inherit;}
+    }
   }
 
   span {
@@ -54,5 +59,6 @@ Calendar-Date / Stlye
 
   &.not-in-month {
     cursor: default;
+    .mark {background: none;}
   }
 }

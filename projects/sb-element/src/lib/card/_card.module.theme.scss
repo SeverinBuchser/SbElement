@@ -1,1 +1,5 @@
 @use 'card.component.theme';
+
+@mixin theme($theme) {
+  @include card.theme($theme);
+}

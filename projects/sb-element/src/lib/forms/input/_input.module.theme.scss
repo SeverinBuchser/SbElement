@@ -1,2 +1,7 @@
 @use 'core/input-core.component.theme';
 @use 'simple/input.component.theme';
+
+@mixin theme($theme) {
+  @include input-core.theme($theme);
+  @include input.theme($theme);
+}

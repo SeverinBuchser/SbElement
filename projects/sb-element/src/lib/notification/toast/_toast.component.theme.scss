@@ -5,23 +5,21 @@ Toast / Theme
 ******************************************************************************/
 
 // THEME
-.sb-toast {
-  @include theming.for-each-theme using ($theme) {
-    &.sb--#{$theme} {
-      color: theming.get-background-text($theme);
+@mixin theme($theme) {
+  .sb-toast {
+    color: theming.get-background-text($theme);
 
-      hr {
-        border: 0;
-        @include border.border-side-accent(top, $theme, s);
-      }
+    hr {
+      border: 0;
+      @include border.border-side-accent(top, $theme, s);
     }
 
-    &.sb--#{$theme} &__border {
+    &__border {
       @include border.border-accent($theme, s);
       background: theming.get-background($theme);
     }
 
-    &.sb--#{$theme} &__close:hover {
+    &__close:hover {
       background: theming.get-accent($theme);
       color: theming.get-accent-text($theme);
     }

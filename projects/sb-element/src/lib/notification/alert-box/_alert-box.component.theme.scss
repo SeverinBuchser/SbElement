@@ -10,20 +10,21 @@ Alert Box / Theme
 }
 
 // THEME
-.sb-alert-box {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} {
-      @include alert-box-color(
-        theming.get-color($theme, $color),
-        theming.get-text($theme, $color)
-      );
-
-      &.plain {
+@mixin theme($theme) {
+  .sb-alert-box {
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} {
         @include alert-box-color(
-          theming.get-color-inverted($theme, $color),
-          theming.get-text-inverted($theme, $color)
+          theming.get-color($theme, $color),
+          theming.get-text($theme, $color)
         );
+
+        &.plain {
+          @include alert-box-color(
+            theming.get-color-inverted($theme, $color),
+            theming.get-text-inverted($theme, $color)
+          );
+        }
       }
     }
   }

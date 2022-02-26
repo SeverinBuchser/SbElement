@@ -1,1 +1,5 @@
 @use 'timeline.component.theme';
+
+@mixin theme($theme) {
+  @include timeline.theme($theme);
+}

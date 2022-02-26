@@ -169,3 +169,9 @@ Theming
     }
   }
 }
+
+@mixin for-each-color ($theme) {
+  @each $color, $color-palette in map.get(get-theme($theme), scheme) {
+    @content($color);
+  }
+}

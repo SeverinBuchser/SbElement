@@ -1,1 +1,5 @@
 @use 'progress/progress.component.theme';
+
+@mixin theme($theme) {
+  @include progress.theme($theme);
+}

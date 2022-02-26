@@ -21,10 +21,9 @@ File Input / Theme
 }
 
 // THEME
-.sb-file-input {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} {
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-file-input.sb--#{$color} {
       @include file-input-color(
         theming.get-color($theme, $color),
         theming.get-text($theme, $color),

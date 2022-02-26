@@ -5,11 +5,12 @@ Calendar-Dates / Theme
 ******************************************************************************/
 
 // THEME
-.sb-calendar-dates {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} &__week-days {
-      @include border.border-side(bottom, $theme, $color, m);
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-calendar-dates {
+      &.sb--#{$color} &__week-days {
+        @include border.border-side(bottom, $theme, $color, m);
+      }
     }
   }
 }

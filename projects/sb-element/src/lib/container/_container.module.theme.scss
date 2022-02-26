@@ -1,1 +1,5 @@
 @use 'container.component.theme';
+
+@mixin theme($theme) {
+  @include container.theme($theme);
+}

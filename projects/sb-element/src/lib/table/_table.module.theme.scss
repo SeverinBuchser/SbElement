@@ -1,1 +1,5 @@
 @use 'table.component.theme';
+
+@mixin theme($theme) {
+  @include table.theme($theme);
+}

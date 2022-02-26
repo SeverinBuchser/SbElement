@@ -1,20 +1,25 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinTheme, SbThemeService } from '../core';
+import { Color, mixinClassName, mixinColor, mixinTheme, SbThemeService } from '../core';
 
-const SbBreadcrumbsCore = mixinTheme(
-  mixinClassName(
-    class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
-    }, 'sb-breadcrumbs'
-  )
+const SbBreadcrumbsCore = mixinColor(
+  mixinTheme(
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-breadcrumbs'
+    )
+  ), Color.PRIMARY
 );
 
 @Component({
   selector: 'sb-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  inputs: [
+    'color'
+  ]
 })
 export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
 

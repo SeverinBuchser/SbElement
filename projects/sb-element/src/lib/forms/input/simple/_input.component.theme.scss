@@ -5,10 +5,9 @@ Input / Theme
 ******************************************************************************/
 
 // THEME
-.sb-input {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} {
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-input.sb--#{$color} {
       color: theming.get-foreground-text($theme);
       .sb-input__border {
         @include border.border($theme, $color, m);

@@ -3,34 +3,48 @@
 Calendar-Date / Theme
 ******************************************************************************/
 
+@mixin mark($background, $color) {
+  .mark {
+    background: $background
+  }
+  span {
+    color: $color;
+  }
+}
+
 // THEME
-.sb-calendar-date {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} {
-      &.marked, &.marked:hover, &.marked.disabled:hover {
-        .mark {background: theming.get-color($theme, $color);}
-        span {color: theming.get-text($theme, $color);}
-      }
+@mixin theme($theme) {
+  .sb-calendar-date {
 
-      &:hover {
-        .mark {background: theming.get-accent($theme);}
-        span {color: theming.get-accent-text($theme);}
-      }
+    &:hover {
+      @include mark(
+        theming.get-accent($theme),
+        theming.get-accent-text($theme)
+      );
+    }
 
-      &.disabled:hover {
-        .mark {background: transparent;}
-        span {color: inherit;}
-      }
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} {
+        &.marked, &.marked:hover, &.marked.disabled:hover {
+          @include mark(
+            theming.get-color($theme, $color),
+            theming.get-text($theme, $color)
+          );
+        }
 
-      &.not-in-month {
-        .mark {background: none;}
-        span {color: theming.get-color-inverted($theme, $color);}
-      }
+        &.not-in-month {
+          @include mark(
+            none,
+            theming.get-color-inverted($theme, $color)
+          );
 
-      &.not-in-month.marked {
-        .mark {background: theming.get-color-inverted($theme, $color);}
-        span {color: theming.get-text-inverted($theme, $color);}
+          &.marked {
+            @include mark(
+              theming.get-color-inverted($theme, $color),
+              theming.get-text-inverted($theme, $color)
+            );
+          }
+        }
       }
     }
   }

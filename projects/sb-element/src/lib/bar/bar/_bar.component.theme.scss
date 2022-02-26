@@ -5,26 +5,24 @@ Bar / Theme
 ******************************************************************************/
 
 // THEME
-.sb-bar {
-  @include theming.for-each-theme using ($theme) {
-    &.sb--#{$theme} {
-      color: theming.get-foreground-text($theme);
-      background: theming.get-foreground($theme);
-    }
+@mixin theme($theme) {
+  .sb-bar {
+    color: theming.get-foreground-text($theme);
+    background: theming.get-foreground($theme);
 
-    &.sb--#{$theme}.left {
+    &.left {
       @include border.border-side-accent(right, $theme);
     }
 
-    &.sb--#{$theme}.right {
+    &.right {
       @include border.border-side-accent(left, $theme);
     }
 
-    &.sb--#{$theme}.top {
+    &.top {
       @include border.border-side-accent(bottom, $theme);
     }
 
-    &.sb--#{$theme}.bottom {
+    &.bottom {
       @include border.border-side-accent(top, $theme);
     }
   }

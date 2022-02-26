@@ -5,31 +5,30 @@ Table / Theme
 ******************************************************************************/
 
 // THEME
-.sb-table {
-  @include theming.for-each-theme-color using ($theme, $color,
-  ) {
-    &.sb--#{$theme}.sb--#{$color} {
-      @include border.border-accent($theme);
-    }
+@mixin theme($theme) {
+  .sb-table {
+    @include border.border-accent($theme);
 
-    &.sb--#{$theme}.sb--#{$color} &__head {
-      background: theming.get-color($theme, $color);
-      color: theming.get-text($theme, $color);
-    }
-
-    &.sb--#{$theme}.sb--#{$color}.plain &__head  {
-      background: theming.get-color-inverted($theme, $color);
-      color: theming.get-text-inverted($theme, $color);
-    }
-
-    &.sb--#{$theme}.sb--#{$color} &__row:nth-child(even) {
+    &__row:nth-child(even) {
       background: theming.get-background($theme);
       color: theming.get-background-text($theme);
     }
 
-    &.sb--#{$theme}.sb--#{$color} &__row:nth-child(odd) {
+    &__row:nth-child(odd) {
       background: theming.get-foreground($theme);
       color: theming.get-foreground-text($theme);
+    }
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} &__head {
+        background: theming.get-color($theme, $color);
+        color: theming.get-text($theme, $color);
+      }
+
+      &.sb--#{$color}.plain &__head  {
+        background: theming.get-color-inverted($theme, $color);
+        color: theming.get-text-inverted($theme, $color);
+      }
     }
   }
 }
