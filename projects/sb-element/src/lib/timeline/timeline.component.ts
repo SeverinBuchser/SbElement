@@ -1,21 +1,19 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { LinkedList } from "../models/linked-list/linked-list";
 import { ListItem } from "../models/linked-list/list-item";
-import { mixinClassName, mixinColor, mixinSize, mixinTheme, SbThemeService } from '../core/';
+import { mixinClassName, mixinColor, mixinSize, SbThemeService } from '../core/';
 
 type State = 'current' | 'awaiting' | 'done' | 'pending';
 type Step = {name: string, state: State, line: boolean};
 
 const SbTimelineCore = mixinSize(
   mixinColor(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
-        }, 'sb-timeline'
-      )
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-timeline'
     )
   )
 );

@@ -1,16 +1,14 @@
 import { Component, ElementRef, HostBinding, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinColor, mixinSize, mixinTheme, Size, SbThemeService } from '../../core';
+import { mixinClassName, mixinColor, mixinSize, Size, SbThemeService } from '../../core';
 
 const SbBarCore = mixinSize(
   mixinColor(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
-        }, 'sb-bar'
-      )
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-bar'
     )
   ), Size.MEDIUM
 );

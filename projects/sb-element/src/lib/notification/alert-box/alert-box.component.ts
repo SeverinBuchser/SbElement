@@ -1,16 +1,14 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinSize, mixinColor, mixinTheme, mixinClassName } from '../../core';
+import { SbThemeService, mixinSize, mixinColor, mixinClassName } from '../../core';
 
 const SbAlertBoxCore = mixinSize(
   mixinColor(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
-        }, 'sb-alert-box'
-      )
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-alert-box'
     )
   )
 );

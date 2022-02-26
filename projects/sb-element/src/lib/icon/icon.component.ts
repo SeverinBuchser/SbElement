@@ -1,16 +1,14 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinSize, mixinTheme, mixinClassName, mixinColor } from '../core';
+import { SbThemeService, mixinSize, mixinClassName, mixinColor } from '../core';
 
 const SbIconCore = mixinSize(
   mixinColor(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
-        }, 'sb-icon'
-      )
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-icon'
     )
   )
 );

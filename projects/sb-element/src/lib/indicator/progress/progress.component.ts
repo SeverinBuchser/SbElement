@@ -1,17 +1,15 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinSize, mixinTheme, SbThemeService, Size } from "../../core";
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinSize, SbThemeService, Size } from "../../core";
 
 const SbProgressCore = mixinDisable(
   mixinSize(
     mixinColor(
-      mixinTheme(
-        mixinClassName(
-          class {
-            constructor(
-              public _elementRef: ElementRef,
-              public _themeService: SbThemeService) {}
-          }, 'sb-progress'
-        )
+      mixinClassName(
+        class {
+          constructor(
+            public _elementRef: ElementRef,
+            public _themeService: SbThemeService) {}
+        }, 'sb-progress'
       ), Color.PRIMARY
     ), Size.MEDIUM
   )

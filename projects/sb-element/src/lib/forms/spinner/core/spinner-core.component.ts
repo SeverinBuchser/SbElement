@@ -1,19 +1,17 @@
 import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTheme, Size, SbThemeService } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, Size, SbThemeService } from '../../../core';
 
 const SbSpinnerCoreCore = mixinDisable(
   mixinFocus(
     mixinSize(
       mixinColor(
-        mixinTheme(
-          mixinClassName(
-            class {
-              constructor(
-                public _elementRef: ElementRef,
-                public _themeService: SbThemeService) {}
-            }, 'sb-input-core'
-          )
+        mixinClassName(
+          class {
+            constructor(
+              public _elementRef: ElementRef,
+              public _themeService: SbThemeService) {}
+          }, 'sb-input-core'
         ), Color.PRIMARY
       ), Size.MEDIUM
     )

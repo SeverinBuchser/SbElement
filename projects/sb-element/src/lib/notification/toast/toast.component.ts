@@ -1,16 +1,14 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SbProgressComponent } from "../../indicator";
-import { Color, mixinClassName, mixinHide, mixinTheme, SbThemeService, Triggerable } from "../../core";
+import { Color, mixinClassName, mixinHide, SbThemeService, Triggerable } from "../../core";
 
 const SbToastCore = mixinHide(
-  mixinTheme(
-    mixinClassName(
-      class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: SbThemeService) {}
-      }, 'sb-toast'
-    )
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: SbThemeService) {}
+    }, 'sb-toast'
   )
 );
 

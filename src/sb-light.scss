@@ -1,1 +1,6 @@
-@use 'sb-element/theme' with ($theme: light);
+@use 'sb-element/theme/light';
+@use 'sb-element/core/theming';
+
+.home {
+  background: theming.get-background(light);
+}

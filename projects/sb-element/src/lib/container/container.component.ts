@@ -1,14 +1,12 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinTheme, SbThemeService } from '../core';
+import { mixinClassName, SbThemeService } from '../core';
 
-const SbContainerCore = mixinTheme(
-  mixinClassName(
-    class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
-    }, 'sb-container'
-  )
+const SbContainerCore = mixinClassName(
+  class {
+    constructor(
+      public _elementRef: ElementRef,
+      public _themeService: SbThemeService) {}
+  }, 'sb-container'
 );
 
 @Component({

@@ -1,18 +1,16 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinTheme, SbThemeService } from '../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, SbThemeService } from '../../core';
 
 const SbSliderCore = mixinDisable(
   mixinFocus(
     mixinColor(
-      mixinTheme(
-        mixinClassName(
-          class {
-            constructor(
-              public _elementRef: ElementRef,
-              public _themeService: SbThemeService) {}
-          }, 'sb-slider'
-        )
+      mixinClassName(
+        class {
+          constructor(
+            public _elementRef: ElementRef,
+            public _themeService: SbThemeService) {}
+        }, 'sb-slider'
       ), Color.PRIMARY
     )
   )

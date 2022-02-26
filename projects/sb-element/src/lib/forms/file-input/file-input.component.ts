@@ -1,19 +1,17 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SbThemeService, mixinDisable, mixinFocus, mixinColor, mixinSize, mixinTheme, mixinClassName, Color, Size } from '../../core';
+import { SbThemeService, mixinDisable, mixinFocus, mixinColor, mixinSize, mixinClassName, Color, Size } from '../../core';
 
 const SbFileInputCore = mixinDisable(
   mixinFocus(
     mixinSize(
       mixinColor(
-        mixinTheme(
-          mixinClassName(
-            class {
-              constructor(
-                public _elementRef: ElementRef,
-                public _themeService: SbThemeService) {}
-            }, 'sb-file-input'
-          )
+        mixinClassName(
+          class {
+            constructor(
+              public _elementRef: ElementRef,
+              public _themeService: SbThemeService) {}
+          }, 'sb-file-input'
         ), Color.PRIMARY
       ), Size.MEDIUM
     )

@@ -1,15 +1,13 @@
 import { Attribute, Component, ElementRef, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinColor, mixinTheme, mixinClassName } from '../core';
+import { SbThemeService, mixinColor, mixinClassName } from '../core';
 
 const SbTableCore = mixinColor(
-  mixinTheme(
-    mixinClassName(
-      class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: SbThemeService) {}
-      }, 'sb-table'
-    )
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: SbThemeService) {}
+    }, 'sb-table'
   )
 );
 

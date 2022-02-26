@@ -1,15 +1,13 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinClassName, mixinSize, mixinTheme, Size } from '../core';
+import { SbThemeService, mixinClassName, mixinSize, Size } from '../core';
 
 const SbCardCore = mixinSize(
-  mixinTheme(
-    mixinClassName(
-      class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: SbThemeService) {}
-      }, 'sb-card'
-    )
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: SbThemeService) {}
+    }, 'sb-card'
   ), Size.MEDIUM
 );
 

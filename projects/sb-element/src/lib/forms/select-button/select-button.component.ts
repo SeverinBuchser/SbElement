@@ -1,19 +1,17 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SbThemeService, mixinDisable, mixinFocus, mixinSize, mixinColor, mixinTheme, mixinClassName, Color, Size } from '../../core';
+import { SbThemeService, mixinDisable, mixinFocus, mixinSize, mixinColor, mixinClassName, Color, Size } from '../../core';
 
 const SbSelectButtonCore = mixinDisable(
   mixinFocus(
     mixinSize(
       mixinColor(
-        mixinTheme(
-          mixinClassName(
-            class {
-              constructor(
-                public _elementRef: ElementRef,
-                public _themeService: SbThemeService) {}
-            }, 'sb-select-button'
-          )
+        mixinClassName(
+          class {
+            constructor(
+              public _elementRef: ElementRef,
+              public _themeService: SbThemeService) {}
+          }, 'sb-select-button'
         ), Color.PRIMARY
       ), Size.MEDIUM
     )

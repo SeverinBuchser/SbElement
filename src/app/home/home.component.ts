@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Router } from "@angular/router";
-import { Color, mixinClassName, mixinColor, mixinTheme, SbThemeService } from "sb-element";
+import { Color, mixinClassName, mixinColor, SbThemeService } from "sb-element";
 
 @Component({
   selector: 'app-home',
@@ -8,11 +8,11 @@ import { Color, mixinClassName, mixinColor, mixinTheme, SbThemeService } from "s
   styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomeComponent extends mixinColor(mixinTheme(mixinClassName(class {
+export class HomeComponent extends mixinColor(mixinClassName(class {
   constructor(
     public _elementRef: ElementRef,
     public _themeService: SbThemeService) {}
-}, 'home')), Color.PRIMARY) {
+}, 'home'), Color.PRIMARY) {
 
   public toggle: boolean = false;
 

@@ -44,6 +44,12 @@
     "./theme": {
       "sass": "./src/lib/sb-element.theme.scss"
     },
+    "./theme/dark": {
+      "sass": "./src/lib/sb-element.theme.dark.scss"
+    },
+    "./theme/light": {
+      "sass": "./src/lib/sb-element.theme.light.scss"
+    },
     "./global": {
       "sass": "./src/lib/style/global/_index.scss"
     },

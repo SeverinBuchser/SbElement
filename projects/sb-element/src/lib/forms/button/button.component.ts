@@ -1,16 +1,14 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinSize, mixinColor, mixinClassName, mixinTheme, Color, Size } from '../../core';
+import { SbThemeService, mixinSize, mixinColor, mixinClassName, Color, Size } from '../../core';
 
 const SbButtonCore = mixinSize(
   mixinColor(
-    mixinTheme(
-      mixinClassName(
-        class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
-        }, 'sb-button'
-      )
+    mixinClassName(
+      class {
+        constructor(
+          public _elementRef: ElementRef,
+          public _themeService: SbThemeService) {}
+      }, 'sb-button'
     ), Color.PRIMARY
   ), Size.MEDIUM
 );

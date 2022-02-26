@@ -1,16 +1,14 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinClassName, mixinTheme, SbThemeService, Size } from "../core";
+import { mixinSize, mixinClassName, SbThemeService, Size } from "../core";
 
 
 const SbLinkCore = mixinSize(
-  mixinTheme(
-    mixinClassName(
-      class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: SbThemeService) {}
-      }, 'sb-link'
-    )
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: SbThemeService) {}
+    }, 'sb-link'
   ), Size.MEDIUM
 );
 

@@ -1,16 +1,14 @@
 import { Component, ElementRef, HostBinding, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SbAlignDirective, mixinClassName, mixinTheme, Poppable, SbThemeService, mixinHide } from '../../core/';
+import { SbAlignDirective, mixinClassName, Poppable, SbThemeService, mixinHide } from '../../core/';
 import { PopperPosition } from "./popper-position";
 
 const SbPopperCore = mixinHide(
-  mixinTheme(
-    mixinClassName(
-      class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: SbThemeService) {}
-      }, 'sb-popper'
-    )
+  mixinClassName(
+    class {
+      constructor(
+        public _elementRef: ElementRef,
+        public _themeService: SbThemeService) {}
+    }, 'sb-popper'
   ), false
 );
 

@@ -1,14 +1,12 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinTheme, Size, SbThemeService, Triggerable } from '../../core';
+import { mixinClassName, Size, SbThemeService, Triggerable } from '../../core';
 
-const SbSidebarCore = mixinTheme(
-  mixinClassName(
-    class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
-    }, 'sb-sidebar'
-  )
+const SbSidebarCore = mixinClassName(
+  class {
+    constructor(
+      public _elementRef: ElementRef,
+      public _themeService: SbThemeService) {}
+  }, 'sb-sidebar'
 );
 
 @Component({
