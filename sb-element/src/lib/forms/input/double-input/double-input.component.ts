@@ -25,10 +25,10 @@ export class SbDoubleInput<T> {
   constructor();
   constructor(first: T | undefined, second: T | undefined);
   constructor(first?: T, second?: T) {
-    if (first) {
+    if (first !== undefined) {
       this.first = first;
     }
-    if (second) {
+    if (second !== undefined) {
       this.second = second;
     }
   }
