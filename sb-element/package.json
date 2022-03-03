@@ -50,9 +50,6 @@
     "./theme/light": {
       "sass": "./src/lib/sb-element.theme.light.scss"
     },
-    "./global": {
-      "sass": "./src/lib/style/global/_index.scss"
-    },
     "./core": {
       "sass": "./src/lib/style/core/_index.scss"
     },
