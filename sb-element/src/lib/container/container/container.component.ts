@@ -1,11 +1,9 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, SbThemeService } from '../../core';
+import { mixinClassName } from '../../core';
 
 const SbContainerCore = mixinClassName(
   class {
-    constructor(
-      public _elementRef: ElementRef,
-      public _themeService: SbThemeService) {}
+    constructor(public _elementRef: ElementRef) {}
   }, 'sb-container'
 );
 
@@ -17,10 +15,9 @@ const SbContainerCore = mixinClassName(
 export class SbContainerComponent extends SbContainerCore {
 
   constructor(
-    elementRef: ElementRef,
-    themeService: SbThemeService
+    elementRef: ElementRef
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
   }
 
 }

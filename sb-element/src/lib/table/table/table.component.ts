@@ -1,12 +1,10 @@
 import { Attribute, Component, ElementRef, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinColor, mixinClassName } from '../../core';
+import { mixinColor, mixinClassName } from '../../core';
 
 const SbTableCore = mixinColor(
   mixinClassName(
     class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
+      constructor(public _elementRef: ElementRef) {}
     }, 'sb-table'
   )
 );
@@ -43,10 +41,9 @@ export class SbTableComponent extends SbTableCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: SbThemeService,
-    @Optional() @Attribute('plain') plain: any,
+    @Optional() @Attribute('plain') plain: any
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
     if (plain == '') this.isPlain = true;
   }
 

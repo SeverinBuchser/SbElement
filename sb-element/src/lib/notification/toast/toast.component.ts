@@ -1,13 +1,11 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SbProgressComponent } from "../../indicator";
-import { Color, mixinClassName, mixinHide, SbThemeService, Triggerable } from "../../core";
+import { Color, mixinClassName, mixinHide, Triggerable } from "../../core";
 
 const SbToastCore = mixinHide(
   mixinClassName(
     class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
+      constructor(public _elementRef: ElementRef) {}
     }, 'sb-toast'
   )
 );
@@ -45,10 +43,9 @@ export class SbToastComponent extends SbToastCore implements Triggerable {
   public progressBar!: SbProgressComponent;
 
   constructor(
-    elementRef: ElementRef,
-    themeService: SbThemeService
+    elementRef: ElementRef
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
     this.transitionElement = elementRef;
   }
 

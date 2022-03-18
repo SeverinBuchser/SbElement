@@ -2,15 +2,13 @@ import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@ang
 import { SbAlert } from './alert';
 import { AlertServiceSubscriber } from './alert-service-subscriber';
 import { SbAlertService } from './alert.service';
-import { SbThemeService, mixinClassName, mixinHide } from '../../core';
+import { mixinClassName, mixinHide } from '../../core';
 import { SbAlertBoxComponent } from "../alert-box";
 
 const SbAlertCore = mixinHide(
   mixinClassName(
     class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
+      constructor(public _elementRef: ElementRef) {}
     }, 'sb-alert'
   )
 );
@@ -51,10 +49,9 @@ export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscri
 
   constructor(
     elementRef: ElementRef,
-    themeService: SbThemeService,
-    private alertService: SbAlertService,
+    private alertService: SbAlertService
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
     this.alertService.subscribe(this);
   }
 

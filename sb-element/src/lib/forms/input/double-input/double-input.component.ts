@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, Size, SbThemeService } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, Size } from '../../../core';
 
 const SbDoubleInputCore = mixinDisable(
   mixinFocus(
@@ -8,9 +8,7 @@ const SbDoubleInputCore = mixinDisable(
       mixinColor(
         mixinClassName(
           class {
-            constructor(
-              public _elementRef: ElementRef,
-              public _themeService: SbThemeService) {}
+            constructor(public _elementRef: ElementRef) {}
           }, 'sb-input'
         ), Color.PRIMARY
       ), Size.MEDIUM
@@ -116,10 +114,9 @@ export class SbDoubleInputComponent extends SbDoubleInputCore implements Control
   }
 
   constructor(
-    elementRef: ElementRef,
-    themeService: SbThemeService
+    elementRef: ElementRef
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
   }
 
   public writeValue(value: SbDoubleInput<string>): void {

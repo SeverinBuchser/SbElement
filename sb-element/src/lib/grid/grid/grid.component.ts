@@ -3,8 +3,7 @@ import { mixinClassName } from '../../core';
 
 const SbGridCore = mixinClassName(
   class {
-    constructor(
-      public _elementRef: ElementRef) {}
+    constructor(public _elementRef: ElementRef) {}
   }, 'sb-grid'
 );
 

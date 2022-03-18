@@ -1,11 +1,9 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, Size, SbThemeService, Triggerable } from '../../core';
+import { mixinClassName, Size, Triggerable } from '../../core';
 
 const SbSidebarCore = mixinClassName(
   class {
-    constructor(
-      public _elementRef: ElementRef,
-      public _themeService: SbThemeService) {}
+    constructor(public _elementRef: ElementRef) {}
   }, 'sb-sidebar'
 );
 
@@ -26,10 +24,9 @@ export class SbSidebarComponent extends SbSidebarCore implements Triggerable {
   public visible: boolean = false;
 
   constructor(
-    elementRef: ElementRef,
-    themeService: SbThemeService
+    elementRef: ElementRef
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
   }
 
   public trigger(): void {

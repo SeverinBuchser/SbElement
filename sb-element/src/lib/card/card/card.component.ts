@@ -1,12 +1,10 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinClassName, mixinSize, Size } from '../../core';
+import { mixinClassName, mixinSize, Size } from '../../core';
 
 const SbCardCore = mixinSize(
   mixinClassName(
     class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
+      constructor(public _elementRef: ElementRef) {}
     }, 'sb-card'
   ), Size.MEDIUM
 );
@@ -36,11 +34,10 @@ export class SbCardComponent extends SbCardCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: SbThemeService,
     @Optional() @Attribute('hover') hover: any,
     @Optional() @Attribute('shadow') shadow: any
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
     if (hover == '') this.hover = true;
     if (shadow == '') this.shadow = true;
   }

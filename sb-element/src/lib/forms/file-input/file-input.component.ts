@@ -1,6 +1,6 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SbThemeService, mixinDisable, mixinFocus, mixinColor, mixinSize, mixinClassName, Color, Size } from '../../core';
+import { mixinDisable, mixinFocus, mixinColor, mixinSize, mixinClassName, Color, Size } from '../../core';
 
 const SbFileInputCore = mixinDisable(
   mixinFocus(
@@ -8,9 +8,7 @@ const SbFileInputCore = mixinDisable(
       mixinColor(
         mixinClassName(
           class {
-            constructor(
-              public _elementRef: ElementRef,
-              public _themeService: SbThemeService) {}
+            constructor(public _elementRef: ElementRef) {}
           }, 'sb-file-input'
         ), Color.PRIMARY
       ), Size.MEDIUM
@@ -75,11 +73,10 @@ export class SbFileInputComponent extends SbFileInputCore implements ControlValu
 
   constructor(
     elementRef: ElementRef,
-    themeService: SbThemeService,
     @Optional() @Attribute('pill') pill: any,
     @Optional() @Attribute('plain') plain: any
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
     if (pill == '') this.pill = true;
     if (plain == '') this.plain = true;
   }

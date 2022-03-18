@@ -1,4 +1,4 @@
-import { AfterViewInit, ElementRef, EventEmitter } from "@angular/core";
+import { ElementRef, EventEmitter } from "@angular/core";
 import { AbstractConstructor, Constructor } from "./constructor";
 import { HasElementRef } from "./has-element-ref";
 

@@ -1,14 +1,12 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinSize, SbThemeService, Size } from "../../core";
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinSize, Size } from "../../core";
 
 const SbProgressCore = mixinDisable(
   mixinSize(
     mixinColor(
       mixinClassName(
         class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
+          constructor(public _elementRef: ElementRef) {}
         }, 'sb-progress'
       ), Color.PRIMARY
     ), Size.MEDIUM
@@ -62,12 +60,11 @@ export class SbProgressComponent extends SbProgressCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: SbThemeService,
     @Optional() @Attribute('pill') isPill: any,
     @Optional() @Attribute('outline') isOutline: any,
-    @Optional() @Attribute('striped') isStriped: any,
+    @Optional() @Attribute('striped') isStriped: any
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
     if (isPill == '') this.isPill = true;
     if (isOutline == '') this.isOutline = true;
     if (isStriped == '') this.isStriped = true;

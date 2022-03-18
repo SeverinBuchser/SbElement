@@ -1,13 +1,11 @@
 import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { SbThemeService, mixinSize, mixinColor, mixinClassName } from '../../core';
+import { mixinSize, mixinColor, mixinClassName } from '../../core';
 
 const SbAlertBoxCore = mixinSize(
   mixinColor(
     mixinClassName(
       class {
-        constructor(
-          public _elementRef: ElementRef,
-          public _themeService: SbThemeService) {}
+        constructor(public _elementRef: ElementRef) {}
       }, 'sb-alert-box'
     )
   )
@@ -43,11 +41,10 @@ export class SbAlertBoxComponent extends SbAlertBoxCore {
 
   constructor(
     elementRef: ElementRef,
-    themeService: SbThemeService,
     @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any,
+    @Optional() @Attribute('plain') plain: any
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
     if (pill == '') this.pill = true;
     if (plain == '') this.plain = true;
   }

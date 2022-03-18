@@ -1,7 +1,5 @@
 import { DOCUMENT } from "@angular/common";
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
-
 export class ThemesConfig extends Array<ThemeConfig> {}
 
 export interface ThemeConfig {
@@ -12,7 +10,7 @@ export interface ThemeConfig {
 @Injectable({
   providedIn: 'root'
 })
-export class SbThemeService extends BehaviorSubject<string> {
+export class SbThemeService {
 
   private _themeConfig!: ThemeConfig;
 
@@ -20,7 +18,6 @@ export class SbThemeService extends BehaviorSubject<string> {
     @Inject(ThemesConfig) private themesConfig: ThemesConfig,
     @Inject(DOCUMENT) private document: Document
   ) {
-    super('dark');
     this.createNewLinkElement(themesConfig[0])
   }
 
@@ -34,7 +31,6 @@ export class SbThemeService extends BehaviorSubject<string> {
     const themeConfig = this.themesConfig.find(this.findThemeByName(themeName));
     if (themeConfig) {
       this.updateLinkElement(themeConfig);
-      this.next(this._themeConfig.name);
     } else throw new Error(`Theme ${themeName} does not exist!`);
   }
 

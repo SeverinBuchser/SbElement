@@ -4,8 +4,7 @@ import { mixinClassName } from '../../core';
 
 const SbTooltipCore = mixinClassName(
   class {
-    constructor(
-      public _elementRef: ElementRef) {}
+    constructor(public _elementRef: ElementRef) {}
   }, 'sb-tooltip'
 );
 

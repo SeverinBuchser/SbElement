@@ -1,15 +1,13 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, SbThemeService } from '../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus } from '../../core';
 
 const SbRadioButtonCore = mixinDisable(
   mixinFocus(
     mixinColor(
       mixinClassName(
         class {
-          constructor(
-            public _elementRef: ElementRef,
-            public _themeService: SbThemeService) {}
+          constructor(public _elementRef: ElementRef) {}
         }, 'sb-radio'
       ), Color.PRIMARY
     )
@@ -65,10 +63,9 @@ export class SbRadioButtonComponent extends SbRadioButtonCore implements Control
   }
 
   constructor(
-    elementRef: ElementRef,
-    themeService: SbThemeService
+    elementRef: ElementRef
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
   }
 
 

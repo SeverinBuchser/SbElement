@@ -4,8 +4,7 @@ import { ToasterPosition } from "./toaster-position";
 
 const SbToasterCore = mixinClassName(
   class {
-    constructor(
-      public _elementRef: ElementRef) {}
+    constructor(public _elementRef: ElementRef) {}
   }, 'sb-toaster'
 );
 

@@ -3,8 +3,7 @@ import { mixinClassName } from "../../core";
 
 const SbNavBarCore = mixinClassName(
   class {
-    constructor(
-      public _elementRef: ElementRef) {}
+    constructor(public _elementRef: ElementRef) {}
   }, 'sb-nav-bar'
 );
 

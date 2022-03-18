@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTabindex, Size, SbThemeService } from '../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTabindex, Size } from '../../core';
 
 const SbToggleSwitchCore = mixinFocus(
   mixinDisable(
@@ -9,9 +9,7 @@ const SbToggleSwitchCore = mixinFocus(
         mixinColor(
           mixinClassName(
             class {
-              constructor(
-                public _elementRef: ElementRef,
-                public _themeService: SbThemeService) {}
+              constructor(public _elementRef: ElementRef) {}
             }, 'sb-toggle-switch'
           ), Color.PRIMARY
         ), Size.MEDIUM
@@ -66,10 +64,9 @@ export class SbToggleSwitchComponent extends SbToggleSwitchCore implements Contr
   }
 
   constructor(
-    elementRef: ElementRef,
-    themeService: SbThemeService
+    elementRef: ElementRef
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
   }
 
 

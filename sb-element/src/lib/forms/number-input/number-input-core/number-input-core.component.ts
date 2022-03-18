@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, Size, SbThemeService } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, Size } from '../../../core';
 
 const SbNumberInputCoreCore = mixinDisable(
   mixinFocus(
@@ -8,9 +8,7 @@ const SbNumberInputCoreCore = mixinDisable(
       mixinColor(
         mixinClassName(
           class {
-            constructor(
-              public _elementRef: ElementRef,
-              public _themeService: SbThemeService) {}
+            constructor(public _elementRef: ElementRef) {}
           }, 'sb-input-core'
         ), Color.PRIMARY
       ), Size.MEDIUM
@@ -81,10 +79,9 @@ export class SbNumberInputCoreComponent extends SbNumberInputCoreCore implements
   private onTouch: () => void = () => {};
 
   constructor(
-    elementRef: ElementRef,
-    themeService: SbThemeService
+    elementRef: ElementRef
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
   }
 
   public handleMouseDownIncrease(): void {
