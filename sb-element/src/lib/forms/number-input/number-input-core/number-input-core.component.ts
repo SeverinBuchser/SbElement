@@ -56,8 +56,9 @@ export class SbNumberInputCoreComponent extends SbNumberInputCoreCore implements
   @Output()
   public underflow: EventEmitter<void> = new EventEmitter<void>();
 
-  private intervals: Array<number> = new Array<number>();
-  private isMouseDown: boolean = false;
+
+  private timeout?: any;
+  private interval?: any;
   private static SPEED_FACTOR: number = 2;
   private static MAX_SPEED: number = 10;
   private static MAX_STEP: number =  Math.pow(SbNumberInputCoreComponent.SPEED_FACTOR, 7);
@@ -95,16 +96,16 @@ export class SbNumberInputCoreComponent extends SbNumberInputCoreCore implements
   }
 
   private handleMouseDown(stepFunction: () => void): void {
-    this.isMouseDown = true;
     stepFunction();
-    this.wait(400).then(() => {
-      if (this.isMouseDown) {
-        this.intervals.push(setInterval(() => {
-          stepFunction();
-          this.updateSpeed();
-        }, 30));
-      }
-    })
+    clearTimeout(this.timeout);
+    clearInterval(this.interval);
+    this.timeout = setTimeout(() => {
+      clearInterval(this.interval);
+      this.interval = setInterval(() => {
+        stepFunction();
+        this.updateSpeed();
+      }, 30);
+    }, 400);
   }
 
   private updateSpeed(): void {
@@ -157,20 +158,11 @@ export class SbNumberInputCoreComponent extends SbNumberInputCoreCore implements
   }
 
   public handleMouseUp(): void {
-    this.isMouseDown = false;
-    this.intervals.forEach((interval: number) => clearInterval(interval));
+    clearTimeout(this.timeout);
+    clearInterval(this.interval);
     this.steps = 0;
     this.speed = 0;
     this.delta = 1;
-  }
-
-  private async wait(time: number): Promise<void> {
-    return new Promise<void>(resolve => {
-      let timeout = setTimeout(() => {
-        resolve();
-        clearTimeout(timeout);
-      }, time);
-    });
   }
 
   public getPlaceholderClasses(): Array<string> {

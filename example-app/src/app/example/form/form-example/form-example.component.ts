@@ -30,7 +30,7 @@ export class FormExampleComponent implements OnInit {
     fileinput: '',
     date: new Date(),
     dateRange: new MarkedDates(new Date(), new Date()),
-    spinner: null,
+    spinner: undefined,
     time: 0,
     double: ''
   };
