@@ -1,1 +1,14 @@
-<p>expansion-card works!</p>
+<div [ngClass]="className + '__header'">
+  <sb-icon>expand_more</sb-icon>
+  <div [ngClass]="className + '__title'">
+
+  </div>
+</div>
+<div #content [ngClass]="className + '__content'" sbCollapse>
+  <div>
+    This is the normal content!<br>
+    This is the normal content!<br>
+    This is the normal content!<br>
+    This is the normal content!
+  </div>
+</div>

@@ -1,8 +1,41 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/display";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/border";
 /*****************************************************************************
 Expansion Card / Style
 ******************************************************************************/
 
 // ROOT
 .sb-expansion-card {
-  color: blue;
+  @include display.flex($direction: column);
+  background: red;
+  @include spacing.padding(s);
+  @include border.radius(s);
+
+  &__header {
+
+  }
+
+  &__content {
+    @include transitioning.ease(200ms);
+    height: 0;
+    overflow: hidden;
+  }
+
+  &.sb--hidden &__content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &.sb--visibly-hidden &__content {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.sb--visible &__content {
+    opacity: 1;
+    visibility: visible;
+  }
 }

@@ -1,16 +1,16 @@
 <sb-container ngClass="container">
   <sb-sidebar #sidebarOne>
     <div sidebar>
-      <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
+      <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
     </div>
     <div content>
-      <button color="primary" sbElClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
+      <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
 
       <sb-popper #popperOne position="bottom">
         <div popper>
           Popper
         </div>
-        <button color="primary" content sbElClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
+        <button color="primary" content sbClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
       </sb-popper>
     </div>
   </sb-sidebar>

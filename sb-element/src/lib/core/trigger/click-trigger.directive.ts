@@ -2,7 +2,7 @@ import { Directive, HostListener } from '@angular/core';
 import { SbTriggerDirective } from "./trigger.directive";
 
 @Directive({
-  selector: '[sbElClickTrigger]'
+  selector: '[sbClickTrigger]'
 })
 export class SbClickTriggerDirective extends SbTriggerDirective {
 

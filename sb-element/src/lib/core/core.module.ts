@@ -1,32 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SbTriggerDirective } from './trigger/trigger.directive';
-import { SbClickTriggerDirective } from './trigger/click-trigger.directive';
-import { SbAlignDirective } from './align/align.directive';
-import { SbHoverTriggerDirective } from './trigger/hover-trigger.directive';
-import { SbClickOutsideTriggerDirective } from './trigger/click-outside-trigger.directive';
+
+import { SbAlignDirective } from './align';
+import { SbCollapseDirective } from './collapse';
 import { SbStyleModule } from './style';
-
-
+import {
+  SbClickOutsideTriggerDirective,
+  SbClickTriggerDirective,
+  SbHoverTriggerDirective,
+  SbTriggerDirective } from './trigger';
 
 @NgModule({
   declarations: [
-    SbTriggerDirective,
+    SbAlignDirective,
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
+    SbCollapseDirective,
     SbHoverTriggerDirective,
-    SbAlignDirective,
+    SbTriggerDirective,
   ],
   imports: [
     CommonModule
   ],
   exports: [
-
-    SbTriggerDirective,
+    SbAlignDirective,
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
+    SbCollapseDirective,
     SbHoverTriggerDirective,
-    SbAlignDirective,
+    SbTriggerDirective,
 
     SbStyleModule
   ]

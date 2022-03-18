@@ -1,7 +1,7 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[sbElAlign]'
+  selector: '[sbAlign]'
 })
 export class SbAlignDirective {
 

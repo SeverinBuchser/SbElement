@@ -2,7 +2,7 @@ import { Directive, HostListener } from '@angular/core';
 import { SbTriggerDirective } from './trigger.directive';
 
 @Directive({
-  selector: '[sbElHoverTrigger]'
+  selector: '[sbHoverTrigger]'
 })
 export class SbHoverTriggerDirective extends SbTriggerDirective {
 

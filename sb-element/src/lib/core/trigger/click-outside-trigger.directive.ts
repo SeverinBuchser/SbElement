@@ -3,7 +3,7 @@ import { Poppable } from './poppable';
 import { SbClickTriggerDirective } from './click-trigger.directive';
 
 @Directive({
-  selector: '[sbElClickOutsideTrigger]'
+  selector: '[sbClickOutsideTrigger]'
 })
 export class SbClickOutsideTriggerDirective extends SbClickTriggerDirective {
 

@@ -2,7 +2,7 @@ import { Directive, Input } from '@angular/core';
 import { Triggerable } from "./triggerable";
 
 @Directive({
-  selector: '[sbElTrigger]'
+  selector: '[sbTrigger]'
 })
 export class SbTriggerDirective {
 

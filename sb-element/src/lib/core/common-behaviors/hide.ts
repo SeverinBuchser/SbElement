@@ -49,7 +49,10 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
 
     public wait(time: number): Promise<void> {
       return new Promise(resolve => {
-        setTimeout(() => resolve(), time)
+        let timeout = setTimeout(() => {
+          resolve();
+          clearTimeout(timeout);
+        }, time)
       })
     }
 
