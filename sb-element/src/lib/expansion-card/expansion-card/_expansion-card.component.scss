@@ -13,8 +13,12 @@ Expansion Card / Style
   @include spacing.padding(s);
   @include border.radius(s);
 
-  &__header {
+  &__header .sb-icon {
+    @include transitioning.ease(200ms);
+  }
 
+  &__header {
+    width: 100%;
   }
 
   &__content {
@@ -23,19 +27,26 @@ Expansion Card / Style
     overflow: hidden;
   }
 
+  &.sb--visible &__header .sb-icon {
+    transform: rotate(180deg);
+  }
+
   &.sb--hidden &__content {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    margin-top: 0;
   }
 
   &.sb--visibly-hidden &__content {
     opacity: 0;
     visibility: hidden;
+    margin-top: 0;
   }
 
   &.sb--visible &__content {
     opacity: 1;
     visibility: visible;
+    @include spacing.margin-top(s);
   }
 }
