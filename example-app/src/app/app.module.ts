@@ -16,6 +16,7 @@ import { ExampleComponent } from './example/example.component';
 import { FormExampleComponent } from './example/form/form-example/form-example.component';
 import { PopperExampleComponent } from './example/popper/popper-example/popper-example.component';
 import { TypographyExampleComponent } from './example/typography/typography-example/typography-example.component';
+import { ExpansionCardExampleComponent } from './example/expansion-card/expansion-card-example/expansion-card-example.component';
 
 
 
@@ -32,6 +33,7 @@ import { TypographyExampleComponent } from './example/typography/typography-exam
     FormExampleComponent,
     PopperExampleComponent,
     TypographyExampleComponent,
+    ExpansionCardExampleComponent,
   ],
   imports: [
     BrowserModule,
