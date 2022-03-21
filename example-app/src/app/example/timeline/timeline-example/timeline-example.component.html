@@ -1,10 +1,10 @@
 <sb-container size="l">
   <sb-grid dim="1x1" gap="l">
-    <sb-card size="s" color="primary">
-      <div title>
-        Timeline
-      </div>
-      <div content>
+    <sb-card>
+      <sb-card-header>
+        <p class="sb--s">Timeline</p>
+      </sb-card-header>
+      <sb-card-content>
         <sb-timeline
           color="primary"
           size="l"
@@ -18,7 +18,7 @@
           <button color="primary" (click)="timeline.nextDone()" plain size="s">Next Done</button>
           <button color="primary" (click)="timeline.nextPending()" plain size="s">Next Pending</button>
         </div>
-      </div>
+      </sb-card-content>
     </sb-card>
   </sb-grid>
 </sb-container>

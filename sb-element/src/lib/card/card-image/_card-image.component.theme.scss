@@ -1,19 +1,18 @@
 @use "sb-element/core/theming";
 @use "sb-element/core/border";
 /*****************************************************************************
-Card / Theme
+Card-Image / Theme
 ******************************************************************************/
 
 // THEME
 @mixin theme($theme) {
-  .sb-card {
-    background: theming.get-foreground($theme);
-    color: theming.get-foreground-text($theme);
-    @include border.border-accent($theme, m);
-
-    hr {
-      border: 0;
+  .sb-card-image {
+    &.border-top {
       @include border.border-side-accent(top, $theme, m);
+    }
+
+    &.border-bottom {
+      @include border.border-side-accent(bottom, $theme, m);
     }
   }
 }

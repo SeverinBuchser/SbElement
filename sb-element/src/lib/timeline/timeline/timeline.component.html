@@ -6,27 +6,27 @@
     <sb-icon *ngIf="step.state == 'current'"
       size="s"
       [color]="color">
-      &#xe39e;
+      adjust
     </sb-icon>
 
     <sb-icon *ngIf="step.state == 'awaiting'"
       size="s"
       outline
       ngClass="awaiting">
-      &#xef4a;
+      circle
     </sb-icon>
 
     <sb-icon *ngIf="step.state == 'done'"
       size="s"
       [color]="color">
-      &#xef4a;
+      circle
     </sb-icon>
 
     <sb-icon *ngIf="step.state == 'pending'"
       size="s"
       [color]="color"
       outline>
-      &#xef64;
+      pending
     </sb-icon>
     <div *ngIf="step.line" [ngClass]="getLineClasses(i)"></div>
   </div>

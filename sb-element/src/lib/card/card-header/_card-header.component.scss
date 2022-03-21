@@ -1,0 +1,20 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/display";
+@use "sb-element/core/transitioning";
+/*****************************************************************************
+Card-Header / Style
+******************************************************************************/
+
+// ROOT
+.sb-card-header {
+  display: block;
+  @include spacing.padding(s);
+
+  &.has-action {
+    cursor: pointer;
+  }
+
+  .sb-icon {
+    @include transitioning.ease(200ms);
+  }
+}

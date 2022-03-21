@@ -13,6 +13,7 @@ p {
   @include typography.font-family();
   @include typography.font-weight();
   line-height: 150%;
+  margin: 0;
 
   @include typography.for-each-font-size(default) using ($font-size, $value) {
     @include paragraph-size($font-size, $value);

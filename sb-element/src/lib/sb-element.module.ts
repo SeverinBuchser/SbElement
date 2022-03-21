@@ -8,7 +8,6 @@ import { SbCalendarModule } from "./calendar";
 import { SbCardModule } from './card';
 import { SbContainerModule } from './container';
 import { SbCoreModule } from './core';
-import { SbExpansionCardModule } from './expansion-card';
 import { SbFormsModule } from './forms';
 import { SbGridModule } from './grid';
 import { SbIconModule } from './icon';
@@ -36,7 +35,6 @@ import { SbTimelineModule } from './timeline';
     SbCardModule,
     SbContainerModule,
     SbCoreModule,
-    SbExpansionCardModule,
     SbFormsModule,
     SbGridModule,
     SbIconModule,

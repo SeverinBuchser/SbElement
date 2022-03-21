@@ -1,36 +1,36 @@
 <sb-container size="l">
   <sb-grid dim="1x3" gap="l">
-    <sb-card size="s" color="primary" hover>
-      <div title>
-        Calendar Days
-      </div>
-      <div content>
+    <sb-card>
+      <sb-card-header>
+        <p class="sb--s">Calendar Days</p>
+      </sb-card-header>
+      <sb-card-content ngClass="calendar-card">
         <sb-calendar-dates></sb-calendar-dates>
-      </div>
+      </sb-card-content>
     </sb-card>
     <sb-card size="s" color="primary" hover>
-      <div title>
-        Calendar Months
-      </div>
-      <div content>
+      <sb-card-header>
+        <p class="sb--s">Calendar Months</p>
+      </sb-card-header>
+      <sb-card-content ngClass="calendar-card">
         <sb-calendar-months></sb-calendar-months>
-      </div>
+      </sb-card-content>
     </sb-card>
     <sb-card size="s" color="primary" hover>
-      <div title>
-        Calendar Years
-      </div>
-      <div content>
+      <sb-card-header>
+        <p class="sb--s">Calendar Years</p>
+      </sb-card-header>
+      <sb-card-content ngClass="calendar-card">
         <sb-calendar-years></sb-calendar-years>
-      </div>
+      </sb-card-content>
     </sb-card>
     <sb-card size="s" color="primary" hover>
-      <div title>
-        Calendar
-      </div>
-      <div content>
+      <sb-card-header>
+        <p class="sb--s">Calendar</p>
+      </sb-card-header>
+      <sb-card-content ngClass="calendar-card">
         <sb-calendar></sb-calendar>
-      </div>
+      </sb-card-content>
     </sb-card>
   </sb-grid>
 </sb-container>

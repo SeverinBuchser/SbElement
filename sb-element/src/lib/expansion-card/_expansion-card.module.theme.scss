@@ -1,5 +1,0 @@
-@use 'expansion-card/expansion-card.component.theme';
-
-@mixin theme($theme) {
-  @include expansion-card.theme($theme);
-}

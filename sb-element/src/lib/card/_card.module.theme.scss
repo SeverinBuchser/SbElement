@@ -1,5 +1,13 @@
 @use 'card/card.component.theme';
+@use 'expansion-card/expansion-card.component.theme';
+@use 'card-content/card-content.component.theme';
+@use 'card-header/card-header.component.theme';
+@use 'card-image/card-image.component.theme';
 
 @mixin theme($theme) {
   @include card.theme($theme);
+  @include expansion-card.theme($theme);
+  @include card-content.theme($theme);
+  @include card-header.theme($theme);
+  @include card-image.theme($theme);
 }

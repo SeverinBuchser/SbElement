@@ -8,30 +8,11 @@
 Card / Stlye
 ******************************************************************************/
 
-// SIZE
-@mixin card-size($size, $value) {
-  &.sb--#{$size} {
-    @include border.radius($size);
-
-    .sb-card__title {
-      @include spacing.padding($size);
-    }
-
-    .sb-card__content {
-      @include spacing.padding($size);
-    }
-
-    .sb-card__footer {
-      @include spacing.padding($size);
-    }
-  }
-}
-
 // ROOT
 .sb-card {
   @include transitioning.ease(300ms, box-shadow, transform);
-  @include spacing.margin(0);
-  @include display.grid($gap: 0, $flow: row);
+  @include border.radius(s);
+  overflow: hidden;
 
   &.shadow {
     @include box-shadow.weak;
@@ -47,42 +28,29 @@ Card / Stlye
     @include spacing.margin(0);
   }
 
-  &__title {
-    @include display.flex();
-    @include typography.font($size: s);
-    grid-row: 1 / 2;
+  &__expanding-content {
+    @include transitioning.ease(200ms);
+    height: 0;
+    overflow: hidden;
   }
 
-  &__title-hr {
-    grid-row: 2 / 3;
+  &.sb--visible .sb-card-header .sb-icon {
+    transform: rotate(180deg);
   }
 
-  &__content {
-    @include display.flex();
-    grid-row: 3 / 4;
+  &.sb--hidden &__expanding-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
-  &__content-hr {
-    grid-row: 4 / 5;
+  &.sb--visibly-hidden &__expanding-content {
+    opacity: 0;
+    visibility: hidden;
   }
 
-  &__footer {
-    @include display.flex();
-    grid-row: 5 / 6;
-  }
-
-  &__title:empty, &__content:empty, &__footer:empty {
-    display: none;
-  }
-
-  &__title:empty ~ &__title-hr, // only title empty
-  &__content:empty ~ &__content-hr, // only content empty
-  &__footer:empty ~ &__content-hr, // only footer empty
-  &__content:empty + &__footer:empty ~ &__title-hr { // conent and footer empty
-    display: none;
-  }
-
-  @include spacing.for-each-spacing using ($size, $value) {
-    @include card-size($size, $value);
+  &.sb--visible &__expanding-content {
+    opacity: 1;
+    visibility: visible;
   }
 }

@@ -1,0 +1,8 @@
+@use "sb-element/core/spacing";
+
+.sb-grid {
+  @include spacing.padding(s);
+  .sb-card {
+    cursor: pointer;
+  }
+}

@@ -1,61 +1,51 @@
 <sb-container size="xl">
   <sb-grid dim="1x2" gap="xl">
-    <sb-card size="s" color="primary">
-      <div title>
-        Datepicker
-      </div>
-      <div content>
-        <div class="pickers">
-          <sb-input
-            type="date"
-            [(ngModel)]="model.date"
-            name="date"
-            size="l"
-            [color]="'success'"
-            #date="ngModel">
-          </sb-input>
-          <sb-input
-            type="date-range"
-            [(ngModel)]="model.dateRange"
-            name="dateRange"
-            size="l"
-            [color]="'success'"
-            #dateRange="ngModel">
-          </sb-input>
-        </div>
-      </div>
-      <div footer>
-        <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
-      </div>
+    <sb-card>
+      <sb-card-header>
+        <p class="sb--s">Datepicker</p>
+      </sb-card-header>
+      <sb-card-content ngClass="pickers">
+        <sb-input
+          type="date"
+          [(ngModel)]="model.date"
+          name="date"
+          size="l"
+          [color]="'success'"
+          #date="ngModel">
+        </sb-input>
+        <sb-input
+          type="date-range"
+          [(ngModel)]="model.dateRange"
+          name="dateRange"
+          size="l"
+          [color]="'success'"
+          #dateRange="ngModel">
+        </sb-input>
+      </sb-card-content>
     </sb-card>
     <sb-card size="s" color="primary">
-      <div title>
-        Number Input
-      </div>
-      <div content>
-        <div class="pickers">
-          <sb-input
-            type="number"
-            placeholder="Number Input"
-            [(ngModel)]="model.spinner"
-            name="spinner"
-            size="l"
-            [color]="'success'"
-            #spinner="ngModel">
-          </sb-input>
-          <sb-input
-            type="time"
-            [(ngModel)]="model.time"
-            name="time"
-            size="s"
-            [color]="'success'"
-            #time="ngModel">
-          </sb-input>
-        </div>
-      </div>
-      <div footer>
-        <sb-icon-button color="primary" plain round>&#xf1df;</sb-icon-button>
-      </div>
+      <sb-card-header>
+        <p class="sb--s">Number Input</p>
+      </sb-card-header>
+      <sb-card-content ngClass="pickers">
+        <sb-input
+          type="number"
+          placeholder="Number Input"
+          [(ngModel)]="model.spinner"
+          name="spinner"
+          size="l"
+          [color]="'success'"
+          #spinner="ngModel">
+        </sb-input>
+        <sb-input
+          type="time"
+          [(ngModel)]="model.time"
+          name="time"
+          size="s"
+          [color]="'success'"
+          #time="ngModel">
+        </sb-input>
+      </sb-card-content>
     </sb-card>
   </sb-grid>
 </sb-container>

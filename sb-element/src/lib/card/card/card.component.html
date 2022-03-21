@@ -1,11 +1,4 @@
-<div [ngClass]="className + '__title'">
-  <ng-content select="[title]"></ng-content>
-</div>
-<div [ngClass]="className + '__content'">
-  <ng-content select="[content]"></ng-content>
-</div>
-<div [ngClass]="className + '__footer'">
-  <ng-content select="[footer]"></ng-content>
-</div>
-<hr *ngIf="titleSeparator" [ngClass]="className + '__title-hr'">
-<hr *ngIf="footerSeprator"[ngClass]="className + '__content-hr'">
+<ng-content select="sb-card-header"></ng-content>
+<ng-content select="[sbCardImage]"></ng-content>
+<hr *ngIf="showDivider" [ngClass]="className + '__content-hr'">
+<ng-content select="sb-card-content"></ng-content>

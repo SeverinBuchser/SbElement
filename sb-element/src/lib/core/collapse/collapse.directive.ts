@@ -1,12 +1,17 @@
-import { AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[sbCollapse]'
 })
-export class SbCollapseDirective implements AfterViewInit {
+export class SbCollapseDirective {
 
   get expandedHeight() {
-    return this.host.nativeElement.children.item(0).offsetHeight;
+    let children = this.host.nativeElement.children;
+    let sum = 0;
+    for (let i = 0 ; i < children.length ; i++) {
+      sum += children.item(i).offsetHeight;
+    }
+    return sum;
   }
 
   private _collapsed: boolean = false;
@@ -23,12 +28,6 @@ export class SbCollapseDirective implements AfterViewInit {
   constructor(
     private host: ElementRef
   ) { }
-
-  public ngAfterViewInit() {
-    if (this.host.nativeElement.children.length != 1) {
-      throw new Error(`There must be exactly one direct child of ${this.constructor.name}!`);
-    }
-  }
 
   private setHeight(height: number) {
     this.host.nativeElement.style.height = height + 'px';

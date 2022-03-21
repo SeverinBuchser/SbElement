@@ -4,7 +4,6 @@ export * from './calendar';
 export * from './card';
 export * from './container';
 export * from './core';
-export * from './expansion-card';
 export * from './forms';
 export * from './grid';
 export * from './icon';

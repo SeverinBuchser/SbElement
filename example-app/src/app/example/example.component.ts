@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Routes } from "@angular/router";
+import { ActivatedRoute, Route, Routes } from "@angular/router";
 import { SbThemeService, mixinClassName, mixinColor, Color } from 'sb-element';
 
 @Component({
@@ -31,7 +31,12 @@ mixinColor(
     super(elementRef, themeService);
 
     if (this.route.routeConfig?.children) {
-      this.routes = this.route.routeConfig?.children;
+      this.routes = this.route.routeConfig?.children.reduce((routes, route) => {
+        if (route.path != '') {
+          routes.push(route);
+        }
+        return routes;
+      }, new Array<Route>())
     }
   }
 
