@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class TableExampleComponent implements OnInit {
 
   public data: Array<Array<any>> = [[
-    "Severin", "Buchser"
+    "Jhon", "Doe"
   ], [
-    "Rafael", "Buchser"
+    "Any", "Body"
   ],[
-    null, "Buchser"
+    null, "Noone"
   ]];
 
-  public head: Array<any> = ["Vorname", "Nachname"];
+  public head: Array<any> = ["Name", "Surname"];
 
   constructor() { }
 
