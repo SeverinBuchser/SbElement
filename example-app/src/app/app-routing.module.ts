@@ -10,7 +10,7 @@ import { ExampleComponent } from "./example/example.component";
 import { FormExampleComponent } from "./example/form/form-example/form-example.component";
 import { PopperExampleComponent } from "./example/popper/popper-example/popper-example.component";
 import { TypographyExampleComponent } from "./example/typography/typography-example/typography-example.component";
-import { ExpansionCardExampleComponent } from "./example/expansion-card/expansion-card-example/expansion-card-example.component";
+import { CardExampleComponent } from "./example/card/card-example/card-example.component";
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 
 const routes: Routes = [
@@ -59,8 +59,8 @@ const routes: Routes = [
             component: TypographyExampleComponent
           },
           {
-            path: 'expansion-card',
-            component: ExpansionCardExampleComponent
+            path: 'card',
+            component: CardExampleComponent
           }
         ]
       }

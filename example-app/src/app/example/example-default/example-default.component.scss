@@ -4,5 +4,15 @@
   @include spacing.padding(s);
   .sb-card {
     cursor: pointer;
+
+    .content {
+      p {
+        transition: all 200ms;
+      }
+    }
+
+    &:hover .content p {
+      transform: translateX(spacing.get-spacing(s));
+    }
   }
 }
