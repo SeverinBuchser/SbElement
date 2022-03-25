@@ -6,10 +6,10 @@ import { Directive, ElementRef } from '@angular/core';
 export class SbAlignDirective {
 
   get nativeElement(): HTMLElement {
-    return this.host.nativeElement;
+    return this._elementRef.nativeElement;
   }
 
-  constructor(private host: ElementRef) { }
+  constructor(public _elementRef: ElementRef) { }
 
   public moveTo(x: number, y: number): void {
     let hostBBox = this.nativeElement.getBoundingClientRect();

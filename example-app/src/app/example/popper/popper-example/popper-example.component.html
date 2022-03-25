@@ -6,11 +6,13 @@
     <div content>
       <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
 
-      <sb-popper #popperOne position="bottom">
-        <div popper>
+      <sb-popper #popperOne>
+        <sb-popper-overlay position="bottom">
           Popper
-        </div>
-        <button color="primary" content sbClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
+        </sb-popper-overlay>
+        <sb-popper-content>
+          <button color="primary" sbClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
+        </sb-popper-content>
       </sb-popper>
     </div>
   </sb-sidebar>

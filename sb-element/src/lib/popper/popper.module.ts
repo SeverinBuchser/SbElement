@@ -3,12 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { SbCoreModule } from '../core';
 
-import { SbPopperComponent } from './popper/popper.component';
-import { SbTooltipComponent } from "./tooltip/tooltip.component";
+import { SbPopperComponent } from './popper';
+import { SbPopperContentComponent } from './popper-content';
+import { SbPopperOverlayComponent } from './popper-overlay';
+import { SbTooltipComponent } from "./tooltip";
 
 @NgModule({
-  declarations: [SbPopperComponent, SbTooltipComponent],
+  declarations: [
+    SbPopperComponent,
+    SbPopperContentComponent,
+    SbPopperOverlayComponent,
+    SbTooltipComponent
+  ],
   imports: [CommonModule, SbCoreModule],
-  exports: [SbPopperComponent, SbTooltipComponent]
+  exports: [
+    SbPopperComponent,
+    SbPopperContentComponent,
+    SbPopperOverlayComponent,
+    SbTooltipComponent
+  ]
 })
 export class SbPopperModule { }

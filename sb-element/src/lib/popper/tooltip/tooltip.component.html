@@ -1,15 +1,18 @@
 <sb-popper
   #tooltipPopper
-  [position]="position"
   [visible]="visible"
   (showStart)="showStart.emit()"
   (showEnd)="showEnd.emit()"
   (hideStart)="hideStart.emit()"
   (hideEnd)="hideEnd.emit()">
-  <span popper>
-    {{ text }}
-  </span>
-  <div content sbHoverTrigger [triggerable]="tooltipPopper" [delay]="delay">
+  <sb-popper-overlay
+    ngClass="sb-tooltip"
+    [position]="position">
+    <span>
+      {{ text }}
+    </span>
+  </sb-popper-overlay>
+  <sb-popper-content sbHoverTrigger [triggerable]="tooltipPopper" [delay]="delay">
     <ng-content></ng-content>
-  </div>
+  </sb-popper-content>
 </sb-popper>

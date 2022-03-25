@@ -1,7 +1,11 @@
 @use 'popper/popper.component.theme';
+@use 'popper-content/popper-content.component.theme';
+@use 'popper-overlay/popper-overlay.component.theme';
 @use 'tooltip/tooltip.component.theme';
 
 @mixin theme($theme) {
   @include popper.theme($theme);
+  @include popper-content.theme($theme);
+  @include popper-overlay.theme($theme);
   @include tooltip.theme($theme);
 }

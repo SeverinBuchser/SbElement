@@ -1,0 +1,11 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/border";
+/*****************************************************************************
+Popper-Content / Style
+******************************************************************************/
+
+// ROOT
+.sb-popper-content {
+  display: block;
+}

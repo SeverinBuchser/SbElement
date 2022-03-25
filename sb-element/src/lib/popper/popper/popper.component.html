@@ -1,38 +1,8 @@
-<div [ngClass]="rootClass + '__popper'" #popper sbAlign>
-  <ng-content select="[popper]"></ng-content>
-  <ng-template [ngIf]="isTop">
-    <svg
-      [ngClass]="className + '__arrow'"
-      viewBox="0 0 2000 1000"
-      #arrow sbAlign>
-      <path d="M 0, 0 L 1000, 1000 L 2000, 0 Z"/>
-    </svg>
-  </ng-template>
-  <ng-template [ngIf]="isLeft">
-    <svg
-      [ngClass]="className + '__arrow'"
-      viewBox="0 0 1000 2000"
-      #arrow sbAlign>
-      <path d="M 0, 0 L 1000, 1000 L 0, 2000 Z"/>
-    </svg>
-  </ng-template>
-  <ng-template [ngIf]="isRight">
-    <svg
-      [ngClass]="className + '__arrow'"
-      viewBox="0 0 1000 2000"
-      #arrow sbAlign>
-      <path d="M 1000, 0 L 0, 1000 L 1000, 2000 Z"/>
-    </svg>
-  </ng-template>
-  <ng-template [ngIf]="isBottom">
-    <svg
-      [ngClass]="className + '__arrow'"
-      viewBox="0 0 2000 1000"
-      #arrow sbAlign>
-      <path d="M 0, 1000 L 1000, 0 L 2000, 1000 Z"/>
-    </svg>
-  </ng-template>
-</div>
-<div #content>
-  <ng-content select="[content]" #content></ng-content>
-</div>
+<ng-template [ngIf]="true">
+  <ng-container *ngTemplateOutlet="overlayTemplate"></ng-container>
+</ng-template>
+
+<ng-template #overlayTemplate>
+  <ng-content select="sb-popper-overlay"></ng-content>
+</ng-template>
+<ng-content select="sb-popper-content"></ng-content>

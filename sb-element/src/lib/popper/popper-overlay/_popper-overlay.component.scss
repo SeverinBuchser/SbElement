@@ -1,0 +1,77 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/border";
+/*****************************************************************************
+Popper-Overlay / Style
+******************************************************************************/
+
+// ROOT
+.sb-popper-overlay {
+  display: block;
+  position: absolute;
+  pointer-events: all;
+  @include transitioning.ease(200ms, opacity);
+  @include spacing.padding(s);
+  @include border.radius(s);
+
+
+  &[class*="top"] {
+    margin-bottom: calc(#{spacing.get-spacing(s)} / 2);
+    bottom: 100%;
+  }
+
+  &[class*="left"] {
+    margin-right: calc(#{spacing.get-spacing(s)} / 2);
+    right: 100%;
+  }
+
+  &[class*="right"] {
+    margin-left: calc(#{spacing.get-spacing(s)} / 2);
+    left: 100%;
+  }
+
+  &[class*="bottom"] {
+    margin-top: calc(#{spacing.get-spacing(s)} / 2);
+    top: 100%;
+  }
+
+  &.sb--hidden {
+    display: none;
+  }
+
+  &.sb--visibly-hidden {
+    opacity: 0;
+  }
+
+  &.sb--visible {
+    opacity: 1;
+  }
+
+  &__arrow {
+    position: absolute;
+  }
+
+  &[class*="top"] &__arrow {
+    width: spacing.get-spacing(s);
+    left: calc(50% - #{spacing.get-spacing(s)} / 2);
+    top: 100%;
+  }
+
+  &[class*="left"] &__arrow {
+    height: spacing.get-spacing(s);
+    top: calc(50% - #{spacing.get-spacing(s)} / 2);
+    left: 100%;
+  }
+
+  &[class*="right"] &__arrow {
+    height: spacing.get-spacing(s);
+    top: calc(50% - #{spacing.get-spacing(s)} / 2);
+    right: 100%;
+  }
+
+  &[class*="bottom"] &__arrow {
+    width: spacing.get-spacing(s);
+    left: calc(50% - #{spacing.get-spacing(s)} / 2);
+    bottom: 100%;
+  }
+}

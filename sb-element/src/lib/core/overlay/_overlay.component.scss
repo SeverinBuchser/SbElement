@@ -1,0 +1,16 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/border";
+/*****************************************************************************
+Overlay / Style
+******************************************************************************/
+
+// ROOT
+.sb-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 997;
+  pointer-events: none;
+}

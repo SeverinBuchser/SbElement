@@ -2,6 +2,7 @@
 @use 'breadcrumbs/breadcrumbs.module.theme';
 @use 'calendar/calendar.module.theme';
 @use 'card/card.module.theme';
+@use 'core/core.module.theme';
 @use 'container/container.module.theme';
 @use 'forms/forms.module.theme';
 @use 'grid/grid.module.theme';
@@ -20,6 +21,7 @@ $theme: null !default;
   @include breadcrumbs.theme($theme);
   @include calendar.theme($theme);
   @include card.theme($theme);
+  @include core.theme($theme);
   @include container.theme($theme);
   @include forms.theme($theme);
   @include grid.theme($theme);

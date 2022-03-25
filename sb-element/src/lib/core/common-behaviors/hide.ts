@@ -26,6 +26,7 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
   defaultVisiblity?: boolean
 ): CanHideCtor & T {
   return class extends core {
+    private padding: number = 5;
     private _visible: boolean | undefined;
 
     public showStart: EventEmitter<void> = new EventEmitter<void>();
@@ -60,12 +61,12 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
       this._elementRef.nativeElement.classList.remove(`sb--hidden`);
       if (wasVisible !== undefined) {
         this._elementRef.nativeElement.classList.add(`sb--visibly-hidden`);
-        await this.wait(0);
+        await this.wait(this.padding);
         this._elementRef.nativeElement.classList.remove(`sb--visibly-hidden`);
       }
       this.emitShowStart();
       this._elementRef.nativeElement.classList.add(`sb--visible`);
-      await this.wait(this.transitionDuration + 5);
+      await this.wait(this.transitionDuration + this.padding);
       this.emitShowEnd();
     }
 
@@ -74,7 +75,7 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
       this.emitHideStart();
       if (wasVisible !== undefined) {
         this._elementRef.nativeElement.classList.add(`sb--visibly-hidden`);
-        await this.wait(this.transitionDuration + 5);
+        await this.wait(this.transitionDuration + this.padding);
         this._elementRef.nativeElement.classList.remove(`sb--visibly-hidden`);
       }
       if (wasVisible == undefined || this._visible == false) {

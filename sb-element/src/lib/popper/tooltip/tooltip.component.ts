@@ -1,19 +1,12 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { PopperPosition } from "../popper/popper-position";
-import { mixinClassName } from '../../core';
-
-const SbTooltipCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-tooltip'
-);
 
 @Component({
   selector: 'sb-tooltip',
   templateUrl: './tooltip.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class SbTooltipComponent extends SbTooltipCore {
+export class SbTooltipComponent {
 
   @Output()
   public showStart: EventEmitter<void> = new EventEmitter<void>();
@@ -35,11 +28,5 @@ export class SbTooltipComponent extends SbTooltipCore {
 
   @Input()
   public position: string = PopperPosition.TOP;
-
-  constructor(
-    elementRef: ElementRef
-  ) {
-    super(elementRef);
-  }
-
+  
 }

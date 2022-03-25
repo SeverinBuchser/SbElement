@@ -9,6 +9,7 @@ import {
   SbClickTriggerDirective,
   SbHoverTriggerDirective,
   SbTriggerDirective } from './trigger';
+import { SbOverlayModule } from './overlay';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {
     SbHoverTriggerDirective,
     SbTriggerDirective,
 
-    SbStyleModule
+    SbStyleModule,
+    SbOverlayModule
   ]
 })
 export class SbCoreModule { }

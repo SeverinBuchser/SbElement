@@ -1,25 +1,28 @@
-<sb-popper #datePopper position="bottom">
-  <sb-calendar popper
-    [color]="color"
-    [markedDates]="markedDates"
-    (select)="handlePickerSelect($event)"
-    (blur)="setFocusedState(false)"
-    (focus)="setFocusedState(true)"
-    [disabled]="disabled">
-  </sb-calendar>
-  <sb-input
-    content
-    type="text"
-    placeholder="Pick a Date"
-    [(ngModel)]="dateFormatted"
-    [spellcheck]="false"
-    [disabled]="disabled"
-    (blur)="setFocusedState(false)"
-    (focus)="setFocusedState(true)"
-    [prefixIcon]="'\ue878'"
-    [size]="size"
-    [color]="color"
-    sbClickOutsideTrigger
-    [triggerable]="datePopper">
-  </sb-input>
+<sb-popper #datePopper>
+  <sb-popper-overlay position="bottom">
+    <sb-calendar
+      [color]="color"
+      [markedDates]="markedDates"
+      (select)="handlePickerSelect($event)"
+      (blur)="setFocusedState(false)"
+      (focus)="setFocusedState(true)"
+      [disabled]="disabled">
+    </sb-calendar>
+  </sb-popper-overlay>
+  <sb-popper-content>
+    <sb-input
+      type="text"
+      placeholder="Pick a Date"
+      [(ngModel)]="dateFormatted"
+      [spellcheck]="false"
+      [disabled]="disabled"
+      (blur)="setFocusedState(false)"
+      (focus)="setFocusedState(true)"
+      [prefixIcon]="'\ue878'"
+      [size]="size"
+      [color]="color"
+      sbClickOutsideTrigger
+      [triggerable]="datePopper">
+    </sb-input>
+  </sb-popper-content>
 </sb-popper>
