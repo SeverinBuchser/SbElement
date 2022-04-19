@@ -28,10 +28,13 @@ const SbAlertBoxCore = mixinSize(
 export class SbAlertBoxComponent extends SbAlertBoxCore {
 
   @Input()
-  public showArrow: boolean = true;
+  public message: string = '';
 
   @Input()
-  public showIcon: boolean = true;
+  public arrow: boolean = true;
+
+  @Input()
+  public icon: boolean = true;
 
   @Input()
   public customIcon: boolean = false;

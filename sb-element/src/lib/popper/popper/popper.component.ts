@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentRef, ContentChild, ElementRef, HostBinding, Input, OnDestroy, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, ContentChild, ElementRef, OnDestroy, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { mixinClassName, Poppable, SbOverlayService, SbOverlayComponent } from '../../core/';
 import { SbPopperContentComponent } from '../popper-content';
 import { SbPopperOverlayComponent } from '../popper-overlay';
@@ -54,7 +54,7 @@ export class SbPopperComponent extends SbPopperCore implements Poppable, AfterVi
       this.popperOverlay.alignRelative(contentBBox);
     })
     this.popperOverlay.hideEnd.subscribe(() => {
-      this.overlayRef.instance.reset();
+      this.overlayRef.instance.clear();
     })
   }
 

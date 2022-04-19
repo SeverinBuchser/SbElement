@@ -1,6 +1,7 @@
-<sb-icon *ngIf="showArrow">&#xf1df;</sb-icon>
+<sb-icon *ngIf="arrow">&#xf1df;</sb-icon>
+{{ message }}
 <ng-content></ng-content>
-<ng-template ng-if [ngIf]="showIcon">
+<ng-template ng-if [ngIf]="icon">
   <ng-content *ngIf="customIcon; else defaultIcon" select="[icon]"></ng-content>
   <ng-template #defaultIcon>
     <sb-icon *ngIf="color == 'warn'">&#xe001;</sb-icon>

@@ -1,4 +1,4 @@
-import { ApplicationRef, ComponentRef, Injectable, ViewContainerRef } from '@angular/core';
+import { ApplicationRef, ComponentRef, Injectable, Injector, NgModuleRef, Type, ViewContainerRef } from '@angular/core';
 import { SbOverlayComponent } from './overlay.component';
 
 @Injectable({
@@ -15,5 +15,17 @@ export class SbOverlayService {
 
   public create(): ComponentRef<SbOverlayComponent> {
     return this.appView.createComponent(SbOverlayComponent);
+  }
+
+  public createCustom<C extends SbOverlayComponent>(
+    componentType: Type<C>,
+    options?: {
+      index?: number;
+      injector?: Injector;
+      ngModuleRef?: NgModuleRef<unknown>;
+      projectableNodes?: Array<Array<Node>>;
+    }
+  ): ComponentRef<C> {
+    return this.appView.createComponent<C>(componentType, options);
   }
 }

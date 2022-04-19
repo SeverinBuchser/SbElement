@@ -1,16 +1,10 @@
 import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SbAlert } from './alert';
-import { AlertServiceSubscriber } from './alert-service-subscriber';
-import { SbAlertService } from './alert.service';
-import { mixinClassName, mixinHide } from '../../core';
+import { SbAlertOptions } from './alert';
+import { mixinClassName, mixinHide, SbOverlayComponent } from '../../core';
 import { SbAlertBoxComponent } from "../alert-box";
 
 const SbAlertCore = mixinHide(
-  mixinClassName(
-    class {
-      constructor(public _elementRef: ElementRef) {}
-    }, 'sb-alert'
-  )
+  mixinClassName(SbOverlayComponent, 'sb-alert')
 );
 
 @Component({
@@ -25,13 +19,7 @@ const SbAlertCore = mixinHide(
     'hide'
   ]
 })
-export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscriber {
-
-  @Input()
-  public showArrow: boolean = true;
-
-  @Input()
-  public showIcon: boolean = true;
+export class SbAlertComponent extends SbAlertCore {
 
   @Input()
   public showTime: number = 2000;
@@ -39,34 +27,30 @@ export class SbAlertComponent extends SbAlertCore implements AlertServiceSubscri
   @Input()
   private pauseTime: number = 1000;
 
-  @ViewChild(SbAlertBoxComponent)
+  @ViewChild(SbAlertBoxComponent, {static: true})
   private alertBox!: SbAlertBoxComponent;
 
   @ViewChild(SbAlertBoxComponent, {read: ElementRef})
   public transitionElement?: ElementRef;
 
-  public message: string = '';
-
   constructor(
-    elementRef: ElementRef,
-    private alertService: SbAlertService
+    elementRef: ElementRef
   ) {
     super(elementRef);
-    this.alertService.subscribe(this);
   }
 
-  public async alert(alert: SbAlert): Promise<void> {
+  public async alert(alert: SbAlertOptions): Promise<void> {
     this.configureAlertBox(alert);
-    this.message = alert.message;
     this.setVisibleState(true);
     await this.wait(this.showTime);
     this.setVisibleState(false);
     await this.wait(this.pauseTime);
   }
 
-  private configureAlertBox(alert: SbAlert) {
-    this.alertBox.size = alert.size;
-    this.alertBox.color = alert.color;
+  private configureAlertBox(alert: SbAlertOptions) {
+    Object.assign(this.alertBox, alert);
+    this.showTime = alert.showTime;
+    this.pauseTime = alert.pauseTime;
   }
 
 }

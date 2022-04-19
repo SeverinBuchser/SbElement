@@ -2,6 +2,3 @@
   <sb-link right *ngFor="let route of routes" [routerLink]="['/', 'example', route.path]">{{ toCapitalCase(route.path) }}</sb-link>
 </sb-nav-bar>
 <router-outlet></router-outlet>
-
-<sb-alert [showIcon]="true" [showArrow]="true"></sb-alert>
-<!--<sb-toaster></sb-toaster>-->
