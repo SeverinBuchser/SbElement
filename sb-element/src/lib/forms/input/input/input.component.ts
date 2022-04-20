@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, Size } from '../../../core';
 
@@ -20,6 +20,9 @@ const SbInputCore = mixinDisable(
   selector: 'sb-input[type=text], sb-input[type=password], sb-input[type=email]',
   templateUrl: './input.component.html',
   encapsulation: ViewEncapsulation.None,
+  host: {
+    '[class.pill]': 'pill'
+  },
   inputs: [
     'size',
     'color',
@@ -69,10 +72,19 @@ export class SbInputComponent extends SbInputCore implements ControlValueAccesso
     } else return '';
   }
 
+  @Input()
+  set isPill(isPill: boolean) {
+    this.pill = isPill;
+  }
+
+  private pill: boolean = false;
+
   constructor(
-    elementRef: ElementRef
+    elementRef: ElementRef,
+    @Optional() @Attribute('pill') isPill: any
   ) {
     super(elementRef);
+    if (isPill == '') this.isPill = true;
   }
 
 

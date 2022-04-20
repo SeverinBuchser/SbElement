@@ -11,7 +11,7 @@ Card / Stlye
 // ROOT
 .sb-card {
   @include transitioning.ease(300ms, box-shadow, transform);
-  @include border.radius(s);
+  @include border.radius(m);
   overflow: hidden;
 
   &.shadow {

@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:list';
 @use 'spacings';
 /*****************************************************************************
 Spacing
@@ -22,4 +23,32 @@ Spacing
   @each $key, $value in spacings.$spacings {
     @content($key, $value);
   }
+}
+
+
+// A function to retreive the next smaller spacing if available.
+// @param {String} $spacing The spacing.
+// @returns {String | null} The next smaller spacing or null.
+@function get-smaller($spacing) {
+  $spacing-keys: map.keys(spacings.$spacings);
+  $spacings-length: list.length($spacing-keys);
+  $index: list.index($spacing-keys, $spacing);
+  @if $index and 1 < $index and $index <= $spacings-length {
+    @return list.nth($spacing-keys, $index - 1);
+  }
+  @return null;
+}
+
+
+// A function to retreive the next bigger spacing if available.
+// @param {String} $spacing The spacing.
+// @returns {String | null} The next bigger spacing or null.
+@function get-bigger($spacing) {
+  $spacing-keys: map.keys(spacings.$spacings);
+  $spacings-length: list.length($spacing-keys);
+  $index: list.index($spacing-keys, $spacing);
+  @if $index and 0 < $index and $index < $spacings-length {
+    @return list.nth($spacing-keys, $index + 1);
+  }
+  @return null;
 }

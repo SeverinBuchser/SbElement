@@ -28,6 +28,7 @@ $icon-font-weights: (
 
 // Define font sizes.
 $default-font-sizes: (
+  xxs: var(--font-size-7),
   xs: var(--font-size-6),
   s: var(--font-size-5),
   m: var(--font-size-4),
@@ -44,6 +45,7 @@ $display-font-sizes: (
 );
 
 $icon-font-sizes: (
+  xxs: var(--icon-font-size-7),
   xs: var(--icon-font-size-6),
   s: var(--icon-font-size-5),
   m: var(--icon-font-size-4),

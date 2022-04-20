@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'spacings';
+@use 'spacing';
 /*****************************************************************************
 Size Functions
 ******************************************************************************/
@@ -8,8 +9,9 @@ Size Functions
 // @param {String} $size The spacing size.
 // @returns {String} The specified size.
 @function get-size($size: d) {
-  @if map.has-key(spacings.$spacings, $size) {
-    @return calc(2 * map.get(spacings.$spacings, $size));
+  $bigger: spacing.get-bigger($size);
+  @if $bigger {
+    @return spacing.get-spacing($bigger);
   } @else {
     @return $size;
   }

@@ -12,10 +12,6 @@ Bar / Style
   &.top, &.bottom {
     width: 100%;
   }
-
-  @include spacing.for-each-spacing using ($size, $value) {
-    &.sb--#{$size} {
-      @include spacing.padding($size);
-    }
-  }
+  
+  @include spacing.padding(s);
 }

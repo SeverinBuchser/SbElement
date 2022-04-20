@@ -42,6 +42,7 @@ Checkbox-Group / Style
   $options-animation-duration: 100ms;
 
   button {
+    min-width: 80px;
     transition-delay: $options-animation-duration;
     @include transitioning.ease($button-animation-duration,
       background,

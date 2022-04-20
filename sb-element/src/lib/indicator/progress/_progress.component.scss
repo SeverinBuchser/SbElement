@@ -12,7 +12,7 @@ Progress / Style
     height: spacing.get-spacing($size);
 
     &.pill {
-      @include border.radius($size);
+      @include border.radius($value);
     }
   }
 

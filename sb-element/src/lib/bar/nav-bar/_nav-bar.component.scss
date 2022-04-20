@@ -16,6 +16,8 @@ Nav-Bar / Style
   }
 
   &__left, &__right {
-    @include display.flex();
+    @include display.grid($gap: s);
+    justify-content: center;
+    align-items: center;
   }
 }

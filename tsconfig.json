@@ -16,14 +16,13 @@
     "importHelpers": true,
     "paths": {
       "sb-element": [
-        "dist/sb-element/sb-element",
         "dist/sb-element"
       ]
     },
     "target": "es2017",
     "module": "es2020",
     "lib": [
-      "es2018",
+      "es2020",
       "dom"
     ]
   },

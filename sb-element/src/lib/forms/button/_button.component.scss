@@ -9,12 +9,11 @@ Button / Style
 // SIZE
 @mixin button-size($size, $value) {
   &.sb--#{$size} {
-    min-width: calc($value * 2);
     height: $value;
-    @include spacing.padding-x(calc($value / 1.5));
+    @include spacing.padding-x($size);
 
     &.pill {
-      @include border.radius($size);
+      @include border.radius($value);
     }
     &.round {
       $height: spacing.get-size($size);
@@ -29,6 +28,7 @@ Button / Style
 
 // ROOT
 .sb-button {
+  min-width: 80px;
   border: 0;
   outline: 0;
   cursor: pointer;

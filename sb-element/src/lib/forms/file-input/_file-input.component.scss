@@ -17,7 +17,7 @@ File Input / Style
     }
 
     &.pill label {
-      @include border.radius(calc($value / 2));
+      @include border.radius($value);
     }
   }
 }

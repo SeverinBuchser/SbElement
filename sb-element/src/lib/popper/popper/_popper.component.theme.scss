@@ -6,15 +6,5 @@ Popper / Theme
 
 // THEME
 @mixin theme($theme) {
-  .sb-popper {
-    &__popper {
-      background: theming.get-background($theme);
-      color: theming.get-background-text($theme);
-      @include border.border-accent($theme);
-    }
-
-    &__arrow {
-      fill: theming.get-accent($theme);
-    }
-  }
+  .sb-popper {}
 }

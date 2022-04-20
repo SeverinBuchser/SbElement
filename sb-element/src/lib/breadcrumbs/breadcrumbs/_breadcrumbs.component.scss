@@ -2,22 +2,23 @@
 @use "sb-element/core/typography";
 @use "sb-element/core/transitioning";
 @use "sb-element/core/display";
+@use "sb-element/core/border";
 /*****************************************************************************
 Bar / Style
 ******************************************************************************/
 
 // ROOT
 .sb-breadcrumbs {
-  @include spacing.padding-x-y(m,s);
-  @include display.flex($justify: flex-start, $gap: s);
+  @include spacing.padding(s);
+  @include display.flex($justify: flex-start, $gap: xs);
 
   &__crumb {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: transparent;
     text-transform: capitalize;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
+    text-decoration-thickness: border.get-border-width(m);
+    text-underline-offset: border.get-border-width(m);
     @include transitioning.ease(300ms, text-decoration-color);
   }
 

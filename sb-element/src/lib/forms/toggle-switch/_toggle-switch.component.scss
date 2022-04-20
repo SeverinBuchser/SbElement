@@ -21,8 +21,8 @@ Toggle-Switch / Style
     @include border.radius($size);
 
     div {
-      top: calc($padding - 2px);
-      left: calc($padding - 2px);
+      top: calc($padding - border.get-border-width(m));
+      left: calc($padding - border.get-border-width(m));
       width: $diameter;
       height: $diameter;
       @include border.radius(calc($diameter / 2));

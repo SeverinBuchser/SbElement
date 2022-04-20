@@ -18,6 +18,17 @@ Border
   }
 }
 
+// Returns the specified border radius.
+// @param {String} $radius The border radius size.
+// @returns {String} The specified border radius.
+@function get-border-radius($radius: s) {
+  @if map.has-key(borders.$border-radii, $radius) {
+    @return map.get(borders.$border-radii, $radius);
+  } @else {
+    @return $radius;
+  }
+}
+
 // Returns the combination for a border with the accent color of the theme,
 // width and stlye.
 // @param {Map | String} $theme The theme name or color-palette.
@@ -95,33 +106,33 @@ Border
 // @param {String} $radius The border radius.
 @mixin radius-top-left($radius: s) {
   box-sizing: border-box;
-  border-top-left-radius: spacing.get-spacing($radius);
+  border-top-left-radius: get-border-radius($radius);
 }
 
 // Mixin for adding a border radius on the top right.
 // @param {String} $radius The border radius.
 @mixin radius-top-right($radius: s) {
   box-sizing: border-box;
-  border-top-right-radius: spacing.get-spacing($radius);
+  border-top-right-radius: get-border-radius($radius);
 }
 
 // Mixin for adding a border radius on the bottom left.
 // @param {String} $radius The border radius.
 @mixin radius-bottom-left($radius: s) {
   box-sizing: border-box;
-  border-bottom-left-radius: spacing.get-spacing($radius);
+  border-bottom-left-radius: get-border-radius($radius);
 }
 
 // Mixin for adding a border radius on the bottom right.
 // @param {String} $radius The border radius.
 @mixin radius-bottom-right($radius: s) {
   box-sizing: border-box;
-  border-bottom-right-radius: spacing.get-spacing($radius);
+  border-bottom-right-radius: get-border-radius($radius);
 }
 
 // Mixin for adding a border radius all corners.
 // @param {String} $radius The border radius.
 @mixin radius($radius: s) {
   box-sizing: border-box;
-  border-radius: spacing.get-spacing($radius);
+  border-radius: get-border-radius($radius);
 }

@@ -26,8 +26,8 @@ Checkbox / Style
   &__checkbox {
     position: relative;
     @include display.flex();
-    height: spacing.get-spacing(m);
-    width: spacing.get-spacing(m);
+    height: spacing.get-size(xs);
+    width: spacing.get-size(xs);
   }
 
   input {
@@ -38,7 +38,7 @@ Checkbox / Style
     /* For iOS < 15 to remove gradient background */
     background-color: transparent;
     @include border.border($width: m);
-    @include border.radius(2px);
+    @include border.radius(4px);
     /* Not removed via appearance */
     @include spacing.margin(0);
     @include transitioning.ease(200ms, background, border);

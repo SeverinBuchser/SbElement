@@ -5,8 +5,10 @@ Spacing Definitions
 
 // Define the spacings.
 $spacings: (
+  xs: var(--spacing-xs),
   s: var(--spacing-s),
   m: var(--spacing-m),
   l: var(--spacing-l),
   xl: var(--spacing-xl),
+  xxl: var(--spacing-xxl),
 );

@@ -8,7 +8,7 @@ import { SbClickTriggerDirective } from './click-trigger.directive';
 export class SbClickOutsideTriggerDirective extends SbClickTriggerDirective {
 
   @Input()
-  public triggerable!: Poppable
+  public triggerable!: Poppable;
 
   @HostListener('document: click', ['$event'])
   handleDocumentClick(event: PointerEvent): void {

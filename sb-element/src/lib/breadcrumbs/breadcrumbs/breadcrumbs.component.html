@@ -1,7 +1,7 @@
 <ng-template ngFor let-crumb let-index="index" [ngForOf]="crumbs">
   <sb-icon *ngIf="index > 0">&#xe5e1;</sb-icon>
-  <small [ngClass]="className + '__crumb'" (click)="handleClick(index)">
+  <span [ngClass]="className + '__crumb'" class="sb--xxs" (click)="handleClick(index)">
     <ng-template [ngIf]="index > 0" [ngIfElse]="home">{{ crumb }}</ng-template>
     <ng-template #home>{{ homePlaceholder }}</ng-template>
-  </small>
+  </span>
 </ng-template>

@@ -10,6 +10,10 @@ Input / Style
   &.sb--#{$size} {
     height: $value;
   }
+
+  &.sb--#{$size}.pill &__border {
+    @include border.radius($value);
+  }
 }
 
 // ROOT

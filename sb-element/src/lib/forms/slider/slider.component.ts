@@ -19,7 +19,6 @@ const SbSliderCore = mixinDisable(
   templateUrl: './slider.component.html',
   encapsulation: ViewEncapsulation.None,
   inputs: [
-    'size',
     'color',
     'disabled'
   ],

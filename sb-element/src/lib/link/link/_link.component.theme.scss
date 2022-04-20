@@ -6,12 +6,14 @@ Link / Theme
 // THEME
 @mixin theme($theme) {
   .sb-link {
-    background: theming.get-foreground($theme);
     color: theming.get-background-text($theme);
 
     &:hover {
-      background: theming.get-accent($theme);
       color: theming.get-accent-text($theme);
+    }
+
+    &:hover &__background {
+      background: theming.get-accent($theme);
     }
   }
 }

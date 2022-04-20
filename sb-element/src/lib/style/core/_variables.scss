@@ -48,10 +48,12 @@ Spacing
 ******************************************************************************/
 // Spacing variables used for spacing or sizing.
 :root {
-  --spacing-s: 0.7rem;
-  --spacing-m: 1rem;
-  --spacing-l: 1.4rem;
-  --spacing-xl: 1.8rem;
+	--spacing-xs: 0.4rem;
+  --spacing-s: 1rem;
+  --spacing-m: 1.6rem;
+  --spacing-l: 2.2rem;
+  --spacing-xl: 2.8rem;
+  --spacing-xxl: 3.4rem;
 }
 
 /*****************************************************************************
@@ -63,6 +65,11 @@ Border
   --border-m: 2px;
   --border-l: 3px;
   --border-xl: 4px;
+
+	--border-radius-s: var(--spacing-s);
+	--border-radius-m: var(--spacing-m);
+	--border-radius-l: var(--spacing-l);
+	--border-radius-xl: var(--spacing-xl);
 }
 
 /*****************************************************************************
@@ -101,6 +108,7 @@ Typography
 	--font-family-icon-outlined: 'Material Icons Outlined';
 
   // sizes
+	--font-size-7: 0.75rem;
   --font-size-6: 1rem;
   --font-size-5: 1.25rem;
   --font-size-4: 1.5rem;
@@ -113,6 +121,7 @@ Typography
   --display-font-size-2: 5.5rem;
   --display-font-size-1: 6rem;
 
+  --icon-font-size-6: calc(1.21 * var(--font-size-7));
   --icon-font-size-6: calc(1.21 * var(--font-size-6));
   --icon-font-size-5: calc(1.21 * var(--font-size-5));
   --icon-font-size-4: calc(1.21 * var(--font-size-4));

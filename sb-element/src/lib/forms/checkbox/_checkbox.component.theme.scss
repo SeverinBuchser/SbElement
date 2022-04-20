@@ -9,13 +9,13 @@ Checkbox / Theme
     .sb-checkbox.sb--#{$color} input {
         border-color: theming.get-accent($theme);
 
+        & ~.sb-icon {
+          color: theming.get-text($theme, $color);
+        }
+
         &:checked {
           background: theming.get-color($theme, $color);
           border-color: theming.get-color($theme, $color);
-
-          & ~.sb-icon {
-            color: theming.get-text($theme, $color);
-          }
         }
     }
   }

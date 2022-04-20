@@ -22,7 +22,6 @@ export class HomeComponent extends mixinColor(mixinClassName(class {
     public router: Router
   ) {
     super(elementRef, themeService);
-    this._themeService.commit('dark');
   }
 
   public toggleTheme() {

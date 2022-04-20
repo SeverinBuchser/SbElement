@@ -9,27 +9,34 @@ Alert Box / Style
 @mixin alert-box-size($size, $value) {
   &.sb--#{$size} {
     height: $value;
-    @include spacing.padding-x($size);
 
     &.pill {
-      @include border.radius($size);
+      @include border.radius($value);
     }
   }
 }
 
 // ROOT
 .sb-alert-box {
-  @include display.flex(flex-start, $gap: s);
+  @include display.grid(max-content auto max-content, $align: center);
+  @include spacing.padding-x(s);
   @include border.radius(s);
-
-  &.center {justify-content: center;}
 
   &__alert {
     @include display.grid($align: center);
   }
 
-  .sb-icon:last-child {
-    @include spacing.margin-left(auto);
+  &.only-arrow {
+    grid-template-columns: max-content auto;
+  }
+
+  &.only-icon {
+    grid-template-columns: auto max-content;
+  }
+
+  &.no-icon {
+    justify-content: center;
+    grid-template-columns: auto;
   }
 
   @include spacing.for-each-size using ($size, $value) {

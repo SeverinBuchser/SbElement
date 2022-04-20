@@ -7,26 +7,26 @@
 Link / Style
 ******************************************************************************/
 
-// SIZE
-@mixin link-size($size, $value) {
-  &.sb--#{$size} {
-    @include spacing.padding-x($size);
-    height: spacing.get-size($size);
-    @include border.radius($size);
-  }
-}
-
 // ROOT
 .sb-link {
+  $height: spacing.get-size(m);
   @include display.flex();
+  height: $height;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 
   &.active {
     @include typography.font-weight($weight: bold);
   }
 
-  @include transitioning.ease(background, 300ms);
-  @include spacing.for-each-size using ($size, $value) {
-    @include link-size($size, $value);
+  &__background {
+    position: absolute;
+    height: 100%;
+    width: calc(100% + spacing.get-size(s));
+    pointer-events: none;
+    z-index: -1;
+    @include border.radius($height);
+    @include transitioning.ease(background, 300ms);
   }
 }

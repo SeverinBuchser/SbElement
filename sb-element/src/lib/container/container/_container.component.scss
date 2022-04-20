@@ -7,7 +7,6 @@ Container / Style
 // ROOT
 .sb-container {
   display: block;
-  @include spacing.margin(m);
-  @include spacing.padding(xl);
-  @include border.radius(xl);
+  @include spacing.padding(m);
+  @include border.radius(l);
 }

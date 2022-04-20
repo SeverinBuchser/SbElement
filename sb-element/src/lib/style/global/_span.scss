@@ -1,0 +1,22 @@
+@use "../core/typography";
+/*****************************************************************************
+Paragraph
+******************************************************************************/
+
+@mixin span-size($font-size, $value) {
+  &.sb--#{$font-size} {
+    @include typography.font-size(default, $font-size);
+  }
+}
+
+span {
+  @include typography.font-family();
+  @include typography.font-weight();
+  line-height: 100%;
+  margin: 0;
+
+  @include typography.for-each-font-size(default) using ($font-size, $value) {
+    @include span-size($font-size, $value);
+  }
+
+}

@@ -18,7 +18,9 @@ const SbAlertBoxCore = mixinSize(
   host: {
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
-    '[class.center]': '!showArrow && !showIcon'
+    '[class.only-arrow]': 'arrow && !icon',
+    '[class.only-icon]': '!arrow && icon',
+    '[class.no-icon]': '!arrow && !icon',
   },
   inputs: [
     'size',

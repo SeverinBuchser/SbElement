@@ -12,7 +12,7 @@ Input-Core / Style
   &.sb--#{$size} {
     height: $value;
     .sb-input-core__spinner-control {
-      @include border.radius(4px);
+      @include border.radius(s);
       font-size: calc(($value / 2) - 2px)
     }
   }

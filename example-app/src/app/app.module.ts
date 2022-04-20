@@ -43,9 +43,9 @@ import { ExampleDefaultComponent } from './example/example-default/example-defau
     FormsModule,
     SbElementModule,
     SbStyleModule.forRoot([
+      {name: 'light', href: 'sb-light.css'},
       {name: 'dark', href: 'sb-dark.css'},
       {name: 'neutral', href: 'sb-neutral.css'},
-      {name: 'light', href: 'sb-light.css'}
     ])
   ],
   providers: [],

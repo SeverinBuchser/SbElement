@@ -47,12 +47,4 @@ mixinColor(
       return split.join('');
     } else return '';
   }
-
-  public toggleTheme() {
-    if (this._themeService.get() == 'dark') {
-      this._themeService.commit('light');
-    } else {
-      this._themeService.commit('dark');
-    }
-  }
 }
