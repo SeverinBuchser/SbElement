@@ -7,28 +7,29 @@ Checkbox-Group / Style
 ******************************************************************************/
 
 // SIZE
-@mixin select-button-size($size, $value) {
-  &.sb--#{$size} button {
-    height: $value;
-    width: calc($value * 5);
+@mixin select-button-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} button {
+    height: $bigger;
+    width: calc($bigger * 5);
   }
 
-  &.sb--#{$size} &__options {
-    max-height: calc(3 * $value);
+  &.sb--#{$key} &__options {
+    max-height: calc(3 * $bigger);
   }
 
-  &.sb--#{$size} &__option {
-    height: $value;
-    width: calc($value * 5);
+  &.sb--#{$key} &__option {
+    height: $bigger;
+    width: calc($bigger * 5);
   }
-  @include select-button-pill($size, $value);
+  @include select-button-pill($key, $bigger);
 }
 
 // SIZE
-@mixin select-button-pill($size, $value) {
-  &.sb--#{$size}.pill &__options {
-    border-bottom-left-radius: calc($value / 2);
-    border-bottom-right-radius: calc($value / 2);
+@mixin select-button-pill($key, $bigger) {
+  &.sb--#{$key}.pill &__options {
+    border-bottom-left-radius: calc($bigger / 2);
+    border-bottom-right-radius: calc($bigger / 2);
   }
 }
 
@@ -92,7 +93,7 @@ Checkbox-Group / Style
     transform: scaleY(1);
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include select-button-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include select-button-size($key, $spacing);
   }
 }

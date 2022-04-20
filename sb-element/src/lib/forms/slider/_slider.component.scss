@@ -47,7 +47,7 @@ Slider / Style
     &::-ms-thumb {cursor: pointer;}
     &:active {cursor: grabbing;}
 
-    $height: spacing.get-size(s);
+    $height: spacing.get-spacing(m);
     @include style-thumbs {
       height: $height;
       width: $height;
@@ -56,7 +56,7 @@ Slider / Style
     }
 
     @include style-tracks {
-      @include border.radius(calc($height / 2));
+      @include border.pill(calc($height/2));
       height: calc($height / 2);
     }
   }

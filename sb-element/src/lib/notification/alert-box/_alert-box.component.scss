@@ -6,12 +6,13 @@ Alert Box / Style
 ******************************************************************************/
 
 // SIZE
-@mixin alert-box-size($size, $value) {
-  &.sb--#{$size} {
-    height: $value;
+@mixin alert-box-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $bigger;
 
     &.pill {
-      @include border.radius($value);
+      @include border.pill($bigger);
     }
   }
 }
@@ -39,7 +40,7 @@ Alert Box / Style
     grid-template-columns: auto;
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include alert-box-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include alert-box-size($key, $spacing);
   }
 }

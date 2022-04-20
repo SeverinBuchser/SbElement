@@ -6,13 +6,14 @@ Input / Style
 ******************************************************************************/
 
 // SIZE
-@mixin input-size($size, $value) {
-  &.sb--#{$size} {
-    height: $value;
+@mixin input-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $bigger;
   }
 
-  &.sb--#{$size}.pill &__border {
-    @include border.radius($value);
+  &.sb--#{$key}.pill &__border {
+    @include border.pill($bigger);
   }
 }
 
@@ -49,7 +50,7 @@ Input / Style
     cursor: not-allowed;
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include input-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include input-size($key, $spacing);
   }
 }

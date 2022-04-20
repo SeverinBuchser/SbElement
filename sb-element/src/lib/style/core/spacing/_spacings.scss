@@ -1,3 +1,5 @@
+@use 'sass:map';
+@use 'sass:list';
 /*****************************************************************************
 Spacing Definitions
 ******************************************************************************/
@@ -11,4 +13,13 @@ $spacings: (
   l: var(--spacing-l),
   xl: var(--spacing-xl),
   xxl: var(--spacing-xxl),
+  xxxl: var(--spacing-xxxl),
 );
+
+$spacing-keys: map.keys($spacings);
+
+$smallest: xs;
+$biggest: xxl;
+
+$smallest-index: list.index($spacing-keys, $smallest);
+$biggest-index: list.index($spacing-keys, $biggest);

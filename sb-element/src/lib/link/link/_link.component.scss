@@ -9,7 +9,7 @@ Link / Style
 
 // ROOT
 .sb-link {
-  $height: spacing.get-size(m);
+  $height: spacing.get-spacing(l);
   @include display.flex();
   height: $height;
   cursor: pointer;
@@ -23,10 +23,10 @@ Link / Style
   &__background {
     position: absolute;
     height: 100%;
-    width: calc(100% + spacing.get-size(s));
+    width: calc(100% + spacing.get-spacing(m));
     pointer-events: none;
     z-index: -1;
-    @include border.radius($height);
+    @include border.pill($height);
     @include transitioning.ease(background, 300ms);
   }
 }

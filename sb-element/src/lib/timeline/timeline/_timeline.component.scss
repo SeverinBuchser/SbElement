@@ -5,16 +5,17 @@ Timeline / Style
 ******************************************************************************/
 
 // SIZE
-@mixin timeline-size($size, $value) {
-  &.sb--#{$size} {
+@mixin timeline-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
     .sb-grid {
-      grid-gap: 0 calc(2 * spacing.get-size($size));
+      grid-gap: 0 calc(2 * $bigger);
     }
   }
 
-  &.sb--#{$size} &__line {
-    right: calc(-2 * spacing.get-size($size) - 25%);
-    width: calc(2 * spacing.get-size($size) + 50%);
+  &.sb--#{$key} &__line {
+    right: calc(-2 * $bigger - 25%);
+    width: calc(2 * $bigger + 50%);
   }
 }
 
@@ -34,7 +35,7 @@ Timeline / Style
     height: 0;
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include timeline-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include timeline-size($key, $spacing);
   }
 }

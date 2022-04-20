@@ -48,12 +48,13 @@ Spacing
 ******************************************************************************/
 // Spacing variables used for spacing or sizing.
 :root {
-	--spacing-xs: 0.4rem;
+	--spacing-xs: 0.5rem;
   --spacing-s: 1rem;
-  --spacing-m: 1.6rem;
-  --spacing-l: 2.2rem;
-  --spacing-xl: 2.8rem;
-  --spacing-xxl: 3.4rem;
+  --spacing-m: 1.5rem;
+  --spacing-l: 2rem;
+  --spacing-xl: 2.5rem;
+  --spacing-xxl: 3rem;
+  --spacing-xxxl: 3.5rem;
 }
 
 /*****************************************************************************
@@ -65,11 +66,6 @@ Border
   --border-m: 2px;
   --border-l: 3px;
   --border-xl: 4px;
-
-	--border-radius-s: var(--spacing-s);
-	--border-radius-m: var(--spacing-m);
-	--border-radius-l: var(--spacing-l);
-	--border-radius-xl: var(--spacing-xl);
 }
 
 /*****************************************************************************

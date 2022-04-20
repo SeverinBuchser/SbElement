@@ -7,25 +7,25 @@ Toggle-Switch / Style
 ******************************************************************************/
 
 // SIZE
-@mixin toggle-switch-size($size, $value) {
+@mixin toggle-switch-size($key, $spacing) {
 
-  $height: $value;
+  $height: spacing.get-bigger($key);
   $width: calc(2 * $height);
   $diameter: calc(math.div(math.round(math.div(2, 3)*100), 100) * $height);
   $padding: calc(($height - $diameter) / 2);
   $innerwidth: calc($width - 2 * $padding);
 
-  &.sb--#{$size} {
+  &.sb--#{$key} {
     width: $width;
-    height: $value;
-    @include border.radius($size);
+    height: $height;
+    @include border.pill($height);
 
     div {
       top: calc($padding - border.get-border-width(m));
       left: calc($padding - border.get-border-width(m));
       width: $diameter;
       height: $diameter;
-      @include border.radius(calc($diameter / 2));
+      @include border.radius(50%);
     }
 
     &.off div {
@@ -50,7 +50,7 @@ Toggle-Switch / Style
 
   &.disabled {cursor: not-allowed;}
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include toggle-switch-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include toggle-switch-size($key, $spacing);
   }
 }

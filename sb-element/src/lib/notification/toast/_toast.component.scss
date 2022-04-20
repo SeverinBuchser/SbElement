@@ -8,8 +8,8 @@ Toast / Style
 ******************************************************************************/
 
 // SIZE
-@mixin toast-size($size, $value) {
-  &.sb--#{$size} {
+@mixin toast-size($key, $spacing) {
+  &.sb--#{$key} {
 
   }
 }
@@ -86,7 +86,7 @@ Toast / Style
     opacity: 1;
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include toast-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include toast-size($key, $spacing);
   }
 }

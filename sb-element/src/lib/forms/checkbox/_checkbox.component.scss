@@ -26,8 +26,8 @@ Checkbox / Style
   &__checkbox {
     position: relative;
     @include display.flex();
-    height: spacing.get-size(xs);
-    width: spacing.get-size(xs);
+    height: spacing.get-spacing(s);
+    width: spacing.get-spacing(s);
   }
 
   input {

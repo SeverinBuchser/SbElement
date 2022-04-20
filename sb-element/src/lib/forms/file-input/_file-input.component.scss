@@ -6,18 +6,19 @@ File Input / Style
 ******************************************************************************/
 
 // SIZE
-@mixin file-input-size($size, $value) {
-  &.sb--#{$size} {
-    height: $value;
-    width: calc($value * 5);
+@mixin file-input-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $bigger;
+    width: calc($bigger * 5);
     label {
       height: 100%;
       width: 100%;
-      line-height: $value;
+      line-height: $bigger;
     }
 
     &.pill label {
-      @include border.radius($value);
+      @include border.pill($bigger);
     }
   }
 }
@@ -47,7 +48,7 @@ File Input / Style
     cursor: not-allowed;
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include file-input-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include file-input-size($key, $spacing);
   }
 }

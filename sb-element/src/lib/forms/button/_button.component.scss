@@ -7,18 +7,19 @@ Button / Style
 ******************************************************************************/
 
 // SIZE
-@mixin button-size($size, $value) {
-  &.sb--#{$size} {
-    height: $value;
-    @include spacing.padding-x($size);
+@mixin button-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $bigger;
+    @include spacing.padding-x($key);
 
     &.pill {
-      @include border.radius($value);
+      @include border.pill($bigger);
     }
     &.round {
-      $height: spacing.get-size($size);
-      height: $height;
-      width: $height;
+      $round-height: spacing.get-bigger($key, 2);
+      height: $round-height;
+      width: $round-height;
       min-width: 0;
       @include spacing.padding(0);
       @include border.radius(50%);
@@ -41,7 +42,7 @@ Button / Style
     cursor: not-allowed;
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include button-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include button-size($key, $spacing);
   }
 }

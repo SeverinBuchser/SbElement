@@ -1,4 +1,5 @@
 @use "sass:map";
+@use 'sass:meta';
 @use "../theming";
 @use "../spacing";
 @use "borders";
@@ -22,8 +23,8 @@ Border
 // @param {String} $radius The border radius size.
 // @returns {String} The specified border radius.
 @function get-border-radius($radius: s) {
-  @if map.has-key(borders.$border-radii, $radius) {
-    @return map.get(borders.$border-radii, $radius);
+  @if spacing.spacing-exists($radius) {
+    @return spacing.get-smaller($radius);
   } @else {
     @return $radius;
   }
@@ -135,4 +136,11 @@ Border
 @mixin radius($radius: s) {
   box-sizing: border-box;
   border-radius: get-border-radius($radius);
+}
+
+// Mixin for adding a pill border radius to an element.
+// @param {String} $height The height of the element.
+@mixin pill($height) {
+  box-sizing: border-box;
+  border-radius: calc($height / 2);
 }

@@ -7,9 +7,9 @@ Grid / Style
 .sb-grid {
   display: grid;
 
-  @include spacing.for-each-spacing using ($size, $value) {
-    &[gap=#{$size}] {
-      grid-gap: $value;
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    &[gap=#{$key}] {
+      grid-gap: $spacing;
     }
   }
 }

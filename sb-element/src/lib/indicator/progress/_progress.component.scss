@@ -7,26 +7,27 @@ Progress / Style
 ******************************************************************************/
 
 // SIZE
-@mixin progress-size($size, $value) {
-  &.sb--#{$size} {
-    height: spacing.get-spacing($size);
+@mixin progress-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $spacing;
 
     &.pill {
-      @include border.radius($value);
+      @include border.pill($bigger);
     }
   }
 
-  &.sb--#{$size} &__bar {
-    font-size: calc(spacing.get-spacing($size) - 2px);
-    background-size: $value $value;
+  &.sb--#{$key} &__bar {
+    font-size: calc($spacing - 2px);
+    background-size: $bigger $bigger;
   }
 
-  @include animation.keyframes(progress-stripes--#{$size}) {
-      0% {background-position-x: $value;}
+  @include animation.keyframes(progress-stripes--#{$key}) {
+      0% {background-position-x: $bigger;}
   }
 
-  &.sb--#{$size}.animate-stripes &__bar {
-    @include animation.animation(progress-stripes--#{$size} 2s infinite linear);
+  &.sb--#{$key}.animate-stripes &__bar {
+    @include animation.animation(progress-stripes--#{$key} 2s infinite linear);
   }
 }
 
@@ -43,8 +44,8 @@ Progress / Style
     @include display.flex();
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include progress-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include progress-size($key, $spacing);
   }
 
   &.sb--xs {

@@ -1,54 +1,66 @@
 @use 'sass:map';
 @use 'sass:list';
+@use 'sass:meta';
 @use 'spacings';
 /*****************************************************************************
 Spacing
 ******************************************************************************/
 
 // Returns the specified spacing.
-// @param {String} $size The spacing size.
-// @returns {String} The specified size.
-@function get-spacing($size: d) {
-  @if map.has-key(spacings.$spacings, $size) {
-    @return map.get(spacings.$spacings, $size);
+// @param {String} $key The spacing key.
+// @returns {String} The specified spacing value.
+@function get-spacing($key: m) {
+  @if map.has-key(spacings.$spacings, $key) {
+    @return map.get(spacings.$spacings, $key);
   } @else {
-    @return $size;
+    @return $key;
   }
+}
+
+// Returns true if the spacing key exists and false otherwise.
+// @param {String} $key The spacing key.
+// @returns {Boolean} True if the spacing key exists and false otherwise.
+@function spacing-exists($key) {
+  @return map.has-key(spacings.$spacings, $key);
 }
 
 
 // A custom for-loop to control visibility of the $spacings variable. The loop
 // can be used to iterate over every $spacing defined in spacing.$spacings.
 @mixin for-each-spacing {
+  $keys: map.keys(spacings.$spacings);
   @each $key, $value in spacings.$spacings {
-    @content($key, $value);
+    $index: list.index($keys, $key);
+    @if $index > spacings.$smallest-index and $index < spacings.$biggest-index {
+      @content($key, $value);
+    }
   }
 }
 
 
 // A function to retreive the next smaller spacing if available.
-// @param {String} $spacing The spacing.
-// @returns {String | null} The next smaller spacing or null.
-@function get-smaller($spacing) {
-  $spacing-keys: map.keys(spacings.$spacings);
-  $spacings-length: list.length($spacing-keys);
-  $index: list.index($spacing-keys, $spacing);
-  @if $index and 1 < $index and $index <= $spacings-length {
-    @return list.nth($spacing-keys, $index - 1);
+// @param {String} $key The spacing key.
+// @returns {String} The next smaller spacing value.
+@function get-smaller($key, $times: 1) {
+  $keys: map.keys(spacings.$spacings);
+  $length: list.length($keys);
+  $index: list.index($keys, $key) - $times + 1;
+  @if $index and meta.type-of($index) == number and 1 < $index and $index <= $length {
+    @return get-spacing(list.nth($keys, $index - 1));
   }
-  @return null;
+  @error "There is no smaller spacing for the spacing #{$key}!";
 }
 
 
 // A function to retreive the next bigger spacing if available.
-// @param {String} $spacing The spacing.
-// @returns {String | null} The next bigger spacing or null.
-@function get-bigger($spacing) {
-  $spacing-keys: map.keys(spacings.$spacings);
-  $spacings-length: list.length($spacing-keys);
-  $index: list.index($spacing-keys, $spacing);
-  @if $index and 0 < $index and $index < $spacings-length {
-    @return list.nth($spacing-keys, $index + 1);
+// @param {String} $key The spacing key.
+// @returns {String} The next bigger spacing value.
+@function get-bigger($key, $times: 1) {
+  $keys: map.keys(spacings.$spacings);
+  $length: list.length($keys);
+  $index: list.index($keys, $key) + $times - 1;
+  @if $index and meta.type-of($index) == number and 0 < $index and $index < $length {
+    @return get-spacing(list.nth($keys, $index + 1));
   }
-  @return null;
+  @error "There is no bigger spacing for the spacing #{$key}!";
 }

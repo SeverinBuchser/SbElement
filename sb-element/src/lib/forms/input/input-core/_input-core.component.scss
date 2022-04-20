@@ -8,20 +8,21 @@ Input-Core / Style
 ******************************************************************************/
 
 // SIZE
-@mixin input-core-size($size, $value) {
-  &.sb--#{$size} {
-    height: $value;
+@mixin input-core-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $bigger;
     .sb-input-core__spinner-control {
       @include border.radius(s);
-      font-size: calc(($value / 2) - 2px)
+      font-size: calc(($bigger / 2) - 2px)
     }
   }
 
-  &.sb--#{$size} .sb-input-core__placeholder.top {
+  &.sb--#{$key} .sb-input-core__placeholder.top {
     transform:
       scale(0.75)
       translateY(calc(
-        ($value / (-2))
+        ($bigger / (-2))
         - 87.5%
         - border.get-border-width(xl)
       ));
@@ -81,7 +82,7 @@ Input-Core / Style
     cursor: not-allowed;
   }
 
-  @include spacing.for-each-size using ($size, $value) {
-    @include input-core-size($size, $value);
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include input-core-size($key, $spacing);
   }
 }

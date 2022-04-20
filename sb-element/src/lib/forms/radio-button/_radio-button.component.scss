@@ -26,8 +26,8 @@ Radio / Style
       appearance: none;
       /* For iOS < 15 to remove gradient background */
       background-color: transparent;
-      height: spacing.get-size(xs);
-      width: spacing.get-size(xs);
+      height: spacing.get-spacing(s);
+      width: spacing.get-spacing(s);
       /* Not removed via appearance */
       @include spacing.margin(0);
       @include border.radius(50%);
