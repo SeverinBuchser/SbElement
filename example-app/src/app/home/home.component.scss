@@ -1,4 +1,5 @@
 @use 'sb-element/core/theming';
+@use 'sb-element/core/spacing';
 
 .home {
   display: block;
@@ -10,5 +11,18 @@
 
   &.sb--light {
     background: theming.get-background(light);
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo-text {
+      letter-spacing: -0.04em;
+    }
+
+    .logo-svg {
+      height: spacing.get-bigger(xl);
+    }
   }
 }

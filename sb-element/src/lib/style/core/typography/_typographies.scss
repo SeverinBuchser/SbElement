@@ -6,18 +6,13 @@ Typography Definitions
 // Define font families
 $default-font-family: var(--font-family-default);
 $display-font-family: var(--font-family-display);
+$code-font-family: var(--font-family-code);
 $icon-font-family: var(--font-family-icon);
 $icon-outlined-font-family: var(--font-family-icon-outlined);
 
 // Define font weights.
 $default-font-weights: (
-  lighter: var(--font-weight-lighter),
-  normal: var(--font-weight-normal),
-  bold: var(--font-weight-bold),
-  bolder: var(--font-weight-bolder)
-);
-
-$display-font-weights: (
+  light: var(--font-weight-light),
   normal: var(--font-weight-normal),
   bold: var(--font-weight-bold)
 );
@@ -38,10 +33,12 @@ $default-font-sizes: (
 );
 
 $display-font-sizes: (
-  xs: var(--display-font-size-4),
-  s: var(--display-font-size-3),
-  m: var(--display-font-size-2),
-  l: var(--display-font-size-1)
+  xs: var(--display-font-size-6),
+  s: var(--display-font-size-5),
+  m: var(--display-font-size-4),
+  l: var(--display-font-size-3),
+  xl: var(--display-font-size-2),
+  xxl: var(--display-font-size-1)
 );
 
 $icon-font-sizes: (
@@ -134,9 +131,18 @@ $default-font: define-font(
 // Define a display font map.
 $display-font: define-font(
   $display-font-family,
-  $display-font-weights,
+  $default-font-weights,
   normal,
   $display-font-sizes,
+  xs
+);
+
+// Define a code font map.
+$code-font: define-font(
+  $code-font-family,
+  $default-font-weights,
+  normal,
+  $default-font-sizes,
   xs
 );
 

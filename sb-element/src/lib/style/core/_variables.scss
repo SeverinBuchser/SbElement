@@ -8,9 +8,9 @@ Color
 // Color variables. The different colors are used to define palettes, which are
 // used in either the light or dark theme or both.
 :root {
-	--white-default: #FAF3F0;
+	--white-default: #F5F5F5;
 	--white-light: #FFFFFF;
-	--white-dark: #D9D2D0;
+	--white-dark: #D9D9D9;
 
 
 	--black-default: #070809;
@@ -74,15 +74,14 @@ Typography
 // Imports the following font faces from goolge fonts api
 // (https://fonts.google.com/):
 //  - Inter (https://fonts.google.com/specimen/Inter)
-//    - Light 300
-//    - Regular 400
+//    - Light 400
+//    - Medium 500
 //    - Bold 700
-//    - Extra-bold 800
 // - Roboto Mono (https://fonts.google.com/specimen/Roboto+Mono)
+//		- Regular 400
+//    - Medium 500
 //    - Bold 700
-//    - Bold 700 italic
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap');
 // Imports material icons form the google fonts api (https://fonts.google.com/).
 // The icons can be found under 'https://fonts.google.com/icons'.
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
@@ -92,10 +91,9 @@ Typography
 // Typography vairables
 :root {
   // weights
-  --font-weight-lighter: lighter;
-  --font-weight-normal: normal;
-  --font-weight-bold: bold;
-  --font-weight-bolder: bolder;
+  --font-weight-light: 400;
+  --font-weight-normal: 500;
+  --font-weight-bold: 700;
 
   // families
   --font-family-default: 'Inter', sans-serif;
@@ -112,6 +110,9 @@ Typography
   --font-size-2: 2rem;
   --font-size-1: 2.5rem;
 
+  --display-font-size-7: 2rem;
+  --display-font-size-6: 2.5rem;
+  --display-font-size-5: 3rem;
   --display-font-size-4: 3.5rem;
   --display-font-size-3: 4.5rem;
   --display-font-size-2: 5.5rem;

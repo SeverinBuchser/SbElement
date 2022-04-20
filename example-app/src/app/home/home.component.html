@@ -1,6 +1,8 @@
 <sb-nav-bar>
-  <sb-icon left color="primary">&#xeb9b;</sb-icon>
-  <div left>SB Element Demo</div>
+  <div left class="logo">
+    <img src="assets/logo.svg" class="logo-svg"/>
+    <div class="sb-font-default sb--m sb--bold logo-text">element</div>
+  </div>
   <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
   <sb-link left [routerLink]="['example']">Example</sb-link>
   <sb-toggle

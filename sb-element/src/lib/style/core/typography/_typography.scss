@@ -16,6 +16,8 @@ Typography
       @return typographies.$default-font;
     } @else if $font == display {
       @return typographies.$display-font;
+    } @else if $font == code {
+      @return typographies.$code-font;
     } @else if $font == icon {
       @return typographies.$icon-font;
     } @else if $font == icon-outlined {
@@ -104,6 +106,16 @@ Typography
   font-weight: get-font-weight($font, $weight);
 }
 
+// Can be used to loop in every font weight for a specific font.
+// @param {String} $font The font from which to get the weights.
+@mixin for-each-font-weight($font) {
+  $font: get-font($font);
+  $weights: map.get($font, weights);
+  @each $key, $weight in $weights {
+    @content($key, $weight);
+  }
+}
+
 // A mixin to include a font size for a specific font.
 // @param {String} $font The font type.
 // @param {String} $weight The font weight.
@@ -116,7 +128,7 @@ Typography
 @mixin for-each-font-size($font) {
   $font: get-font($font);
   $sizes: map.get($font, sizes);
-  @each $size, $value in $sizes {
-    @content($size, $value);
+  @each $key, $size in $sizes {
+    @content($key, $size);
   }
 }

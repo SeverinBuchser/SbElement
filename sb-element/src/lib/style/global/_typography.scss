@@ -1,0 +1,28 @@
+@use "../core/typography";
+/*****************************************************************************
+Typography
+******************************************************************************/
+
+@mixin typography($font) {
+	.sb-font-#{$font} {
+		@include typography.font($font);
+		@include typography.for-each-font-size($font) using ($key, $font-size) {
+	    &.sb--#{$key} {
+	      @include typography.font-size($font, $key);
+	    }
+	  }
+
+		@include typography.for-each-font-weight($font) using ($key, $font-weight) {
+	    &.sb--#{$key} {
+	      @include typography.font-weight($font, $key);
+	    }
+	  }
+
+		&.sb--italic {
+			font-style: italic;
+		}
+	}
+}
+
+@include typography(default);
+@include typography(display);
