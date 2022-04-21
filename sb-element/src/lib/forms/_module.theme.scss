@@ -1,10 +1,11 @@
+@use 'date-input/module.theme' as date-input;
+@use 'input/module.theme' as input;
+@use 'number-input/module.theme' as number-input;
+
 @use 'button/button.component.theme';
 @use 'checkbox/checkbox.component.theme';
-@use 'date-input/date-input.module.theme';
 @use 'file-input/file-input.component.theme';
 @use 'icon-button/icon-button.component.theme';
-@use 'input/input.module.theme';
-@use 'number-input/number-input.module.theme';
 @use 'radio/radio-group.component.theme';
 @use 'radio/radio.component.theme';
 @use 'select-button/select-button.component.theme';

@@ -1,24 +1,25 @@
-@use 'style/global/theme' as global;
+@use 'core/module.theme' as core;
+@use 'global/module.theme' as global;
 
-@use 'bar/bar.module.theme';
-@use 'breadcrumbs/breadcrumbs.module.theme';
-@use 'calendar/calendar.module.theme';
-@use 'card/card.module.theme';
-@use 'core/core.module.theme';
-@use 'container/container.module.theme';
-@use 'forms/forms.module.theme';
-@use 'grid/grid.module.theme';
-@use 'icon/icon.module.theme';
-@use 'indicator/indicator.module.theme';
-@use 'link/link.module.theme';
-@use 'notification/notification.module.theme';
-@use 'popper/popper.module.theme';
-@use 'table/table.module.theme';
-@use 'timeline/timeline.module.theme';
+@use 'bar/module.theme' as bar;
+@use 'breadcrumbs/module.theme' as breadcrumbs;
+@use 'calendar/module.theme' as calendar;
+@use 'card/module.theme' as card;
+@use 'container/module.theme' as container;
+@use 'grid/module.theme' as grid;
+@use 'icon/module.theme' as icon;
+@use 'forms/module.theme' as forms;
+@use 'indicator/module.theme' as indicator;
+@use 'notification/module.theme' as notification;
+@use 'popper/module.theme' as popper;
+@use 'link/module.theme' as link;
+@use 'table/module.theme' as table;
+@use 'timeline/module.theme' as timeline;
 
 $theme: null !default;
 
 @mixin theme($theme) {
+  @include core.theme($theme);
   @include global.theme($theme);
 
   @include bar.theme($theme);

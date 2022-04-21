@@ -51,34 +51,34 @@
       "sass": "./src/lib/sb-element.theme.light.scss"
     },
     "./core": {
-      "sass": "./src/lib/style/core/_index.scss"
+      "sass": "./src/lib/core/_module.scss"
     },
     "./core/animation": {
-      "sass": "./src/lib/style/core/animation/_index.scss"
+      "sass": "./src/lib/core/animation/_index.scss"
     },
     "./core/border": {
-      "sass": "./src/lib/style/core/border/_index.scss"
+      "sass": "./src/lib/core/border/_index.scss"
     },
     "./core/box-shadow": {
-      "sass": "./src/lib/style/core/box-shadow/_index.scss"
+      "sass": "./src/lib/core/box-shadow/_index.scss"
     },
     "./core/display": {
-      "sass": "./src/lib/style/core/display/_index.scss"
+      "sass": "./src/lib/core/display/_index.scss"
     },
     "./core/spacing": {
-      "sass": "./src/lib/style/core/spacing/_index.scss"
+      "sass": "./src/lib/core/spacing/_index.scss"
     },
     "./core/theming": {
-      "sass": "./src/lib/style/core/theming/_index.scss"
+      "sass": "./src/lib/core/theming/_index.scss"
     },
     "./core/transitioning": {
-      "sass": "./src/lib/style/core/transitioning/_index.scss"
+      "sass": "./src/lib/core/transitioning/_index.scss"
     },
     "./core/typography": {
-      "sass": "./src/lib/style/core/typography/_index.scss"
+      "sass": "./src/lib/core/typography/_index.scss"
     },
     "./core/util": {
-      "sass": "./src/lib/style/core/util/_index.scss"
+      "sass": "./src/lib/core/util/_index.scss"
     }
   }
 }
