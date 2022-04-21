@@ -13,6 +13,7 @@ Card / Stlye
   @include transitioning.ease(300ms, box-shadow, transform);
   @include border.radius(m);
   overflow: hidden;
+  display: block;
 
   &.shadow {
     @include box-shadow.weak;

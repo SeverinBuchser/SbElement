@@ -1,16 +1,14 @@
-<sb-container size="l">
-  <sb-grid dim="1x1" gap="l">
-    <sb-card>
-      <sb-card-header>
-        <p class="sb--s">Progress</p>
-      </sb-card-header>
-      <sb-card-content ngClass="indicator-card">
-        <sb-progress size="xs" color="secondary" [progress]="20"></sb-progress>
-        <sb-progress size="s" color="primary" [progress]="40" striped></sb-progress>
-        <sb-progress size="m" color="warn" [progress]="60" pill striped [animateStripes]="true"></sb-progress>
-        <sb-progress size="l" color="info" [progress]="80" outline [showPercentage]="true"></sb-progress>
-        <sb-progress size="xl" color="success" [progress]="100"></sb-progress>
-      </sb-card-content>
-    </sb-card>
-  </sb-grid>
-</sb-container>
+<sb-grid dim="1xauto" gap="m" ngClass="sb--padding-m">
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Progress</p>
+    </sb-card-header>
+    <sb-card-content ngClass="indicator-card">
+      <sb-progress size="xs" color="secondary" [progress]="20"></sb-progress>
+      <sb-progress size="s" color="primary" [progress]="40" striped></sb-progress>
+      <sb-progress size="m" color="warn" [progress]="60" pill striped [animateStripes]="true"></sb-progress>
+      <sb-progress size="l" color="info" [progress]="80" outline [showPercentage]="true"></sb-progress>
+      <sb-progress size="xl" color="success" [progress]="100"></sb-progress>
+    </sb-card-content>
+  </sb-card>
+</sb-grid>

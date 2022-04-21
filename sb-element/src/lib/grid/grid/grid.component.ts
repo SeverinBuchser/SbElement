@@ -24,15 +24,21 @@ export class SbGridComponent extends SbGridCore {
     this.update();
   };
 
-  private _dimensions: string = '1x1';
+  private _dimensions: Array<string | number> = [1, 1];
   @Input()
   set dim(dimensions: string) {
-    this._dimensions = dimensions;
+    let split: Array<string | number> = dimensions.split("x");
+    if (split.length == 2) {
+      split = split.map((dim: string | number) => isNaN(parseInt(dim as string)) ? dim : parseInt(dim as string));
+      this._dimensions = split;
+    }
     this.update();
   }
 
-  @HostBinding('style.gridTemplateColumns') column!: string;
-  @HostBinding('style.gridTemplateRows') row!: string;
+  @HostBinding('style.gridTemplateColumns') templateColumns!: string;
+  @HostBinding('style.gridAutoColumns') autoColumns!: string;
+  @HostBinding('style.gridTemplateRows') templateRows!: string;
+  @HostBinding('style.gridAutoRows') autoRows!: string;
 
   constructor(
     elementRef: ElementRef
@@ -41,10 +47,19 @@ export class SbGridComponent extends SbGridCore {
   }
 
   private update() {
-    let split = this._dimensions.split("x");
     let justify = this._justify == 'even' ? '1fr' : this._justify;
-    this.column = `repeat(${split[0]}, ${justify})`;
-    this.row = `repeat(${split[1]}, ${justify})`;
+
+    if (typeof this._dimensions[0] == 'number') {
+      this.templateColumns = `repeat(${this._dimensions[0]}, ${justify})`;
+    } else {
+      this.autoColumns = justify;
+    }
+
+    if (typeof this._dimensions[1] == 'number') {
+      this.templateRows = `repeat(${this._dimensions[1]}, ${justify})`;
+    } else {
+      this.autoRows = justify;
+    }
   }
 
 }

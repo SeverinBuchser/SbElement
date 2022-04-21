@@ -1,36 +1,34 @@
-<div class="sb--padding-m">
-  <sb-grid dim="1x3" gap="m">
-    <sb-card>
-      <sb-card-header>
-        <p class="sb--s">Calendar Days</p>
-      </sb-card-header>
-      <sb-card-content ngClass="calendar-card">
-        <sb-calendar-dates></sb-calendar-dates>
-      </sb-card-content>
-    </sb-card>
-    <sb-card size="s" color="primary" hover>
-      <sb-card-header>
-        <p class="sb--s">Calendar Months</p>
-      </sb-card-header>
-      <sb-card-content ngClass="calendar-card">
-        <sb-calendar-months></sb-calendar-months>
-      </sb-card-content>
-    </sb-card>
-    <sb-card size="s" color="primary" hover>
-      <sb-card-header>
-        <p class="sb--s">Calendar Years</p>
-      </sb-card-header>
-      <sb-card-content ngClass="calendar-card">
-        <sb-calendar-years></sb-calendar-years>
-      </sb-card-content>
-    </sb-card>
-    <sb-card size="s" color="primary" hover>
-      <sb-card-header>
-        <p class="sb--s">Calendar</p>
-      </sb-card-header>
-      <sb-card-content ngClass="calendar-card">
-        <sb-calendar></sb-calendar>
-      </sb-card-content>
-    </sb-card>
-  </sb-grid>
-</div>
+<sb-grid dim="1x3" gap="m" ngClass="sb--padding-m">
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Calendar Days</p>
+    </sb-card-header>
+    <sb-card-content ngClass="calendar-card">
+      <sb-calendar-dates></sb-calendar-dates>
+    </sb-card-content>
+  </sb-card>
+  <sb-card size="s" color="primary" hover>
+    <sb-card-header>
+      <p class="sb--s">Calendar Months</p>
+    </sb-card-header>
+    <sb-card-content ngClass="calendar-card">
+      <sb-calendar-months></sb-calendar-months>
+    </sb-card-content>
+  </sb-card>
+  <sb-card size="s" color="primary" hover>
+    <sb-card-header>
+      <p class="sb--s">Calendar Years</p>
+    </sb-card-header>
+    <sb-card-content ngClass="calendar-card">
+      <sb-calendar-years></sb-calendar-years>
+    </sb-card-content>
+  </sb-card>
+  <sb-card size="s" color="primary" hover>
+    <sb-card-header>
+      <p class="sb--s">Calendar</p>
+    </sb-card-header>
+    <sb-card-content ngClass="calendar-card">
+      <sb-calendar></sb-calendar>
+    </sb-card-content>
+  </sb-card>
+</sb-grid>

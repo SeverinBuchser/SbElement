@@ -1,11 +1,24 @@
-<sb-container ngClass="container">
-  <sb-sidebar #sidebarOne>
-    <div sidebar>
-      <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
-    </div>
-    <div content>
-      <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
-
+<sb-grid dim="1xauto" gap="m" ngClass="sb--padding-m">
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Sidebar</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+      <sb-sidebar #sidebarOne>
+        <div sidebar>
+          <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
+        </div>
+        <div content>
+          <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
+        </div>
+      </sb-sidebar>
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
       <sb-popper #popperOne>
         <sb-popper-overlay position="bottom">
           Popper
@@ -14,6 +27,6 @@
           <button color="primary" sbClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
         </sb-popper-content>
       </sb-popper>
-    </div>
-  </sb-sidebar>
-</sb-container>
+    </sb-card-content>
+  </sb-card>
+</sb-grid>

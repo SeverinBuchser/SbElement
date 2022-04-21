@@ -1,0 +1,10 @@
+@use "../core/spacing";
+/*****************************************************************************
+Margin
+******************************************************************************/
+
+@include spacing.for-each-spacing using ($key, $value) {
+	.sb--margin-#{$key} {
+		@include spacing.margin($key);
+	}
+}
