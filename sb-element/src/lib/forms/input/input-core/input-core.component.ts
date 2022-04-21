@@ -69,9 +69,7 @@ export class SbInputCoreComponent extends SbInputCoreCore implements ControlValu
     return classes;
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

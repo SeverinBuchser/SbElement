@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include spacing.margin-right(s);
     .logo-text {
       letter-spacing: -0.04em;
     }

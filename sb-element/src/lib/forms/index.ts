@@ -4,7 +4,7 @@ export * from './date-input';
 export * from './file-input';
 export * from './icon-button';
 export * from './input';
-export * from './radio-button';
+export * from './radio';
 export * from './select-button';
 export * from './slider';
 export * from './number-input';

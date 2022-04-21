@@ -6,7 +6,9 @@ Link / Theme
 // THEME
 @mixin theme($theme) {
   .sb-link {
-    color: theming.get-background-text($theme);
+    &, & a {
+      color: theming.get-background-text($theme);
+    }
 
     &:hover {
       color: theming.get-accent-text($theme);

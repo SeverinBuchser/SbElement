@@ -1,5 +1,7 @@
-.pickers {  
-  display: flex;
-  justify-content: space-around;
-  gap: 50px;
+.pickers {
+  display: grid;
+  grid-gap: 50px;
+  grid-auto-flow: column;
+  box-sizing: border-box;
+  width: 100%
 }

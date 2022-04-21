@@ -4,7 +4,7 @@
     <div class="sb-font-default sb--m sb--bold logo-text">element</div>
   </div>
   <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
-  <sb-link left [routerLink]="['example']">Example</sb-link>
+  <sb-link left [routerLink]="['example']" [active]="true">Example</sb-link>
   <sb-toggle
     right
     type="switch"
@@ -14,5 +14,5 @@
     (ngModelChange)="toggleTheme()">
   </sb-toggle>
 </sb-nav-bar>
-<sb-breadcrumbs [url]="router.url" homePlaceholder="Home" (navigate)="router.navigate([$event])"></sb-breadcrumbs>
+<!-- <sb-breadcrumbs [url]="router.url" homePlaceholder="Home" (navigate)="router.navigate([$event])"></sb-breadcrumbs> -->
 <router-outlet></router-outlet>

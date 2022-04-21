@@ -5,7 +5,8 @@
 @use 'icon-button/icon-button.component.theme';
 @use 'input/input.module.theme';
 @use 'number-input/number-input.module.theme';
-@use 'radio-button/radio-button.component.theme';
+@use 'radio/radio-group.component.theme';
+@use 'radio/radio.component.theme';
 @use 'select-button/select-button.component.theme';
 @use 'slider/slider.component.theme';
 @use 'time-input/time-input.component.theme';
@@ -19,7 +20,8 @@
   @include icon-button.theme($theme);
   @include input.theme($theme);
   @include number-input.theme($theme);
-  @include radio-button.theme($theme);
+  @include radio-group.theme($theme);
+  @include radio.theme($theme);
   @include select-button.theme($theme);
   @include slider.theme($theme);
   @include time-input.theme($theme);

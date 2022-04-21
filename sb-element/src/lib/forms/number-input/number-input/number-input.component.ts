@@ -65,9 +65,7 @@ export class SbNumberInputComponent extends SbNumberInputCore implements Control
     return this.innerValue;
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

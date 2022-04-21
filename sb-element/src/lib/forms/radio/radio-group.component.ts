@@ -1,12 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinDisable, mixinFocus } from '../../core';
+import { Color, mixinClassName, mixinDisable, mixinFocus } from '../../core';
 
-const SbRadioButtonGroupCore = mixinDisable(mixinFocus(class {}));
+const SbRadioGroupCore = mixinDisable(
+  mixinFocus(
+    mixinClassName(
+      class {
+        constructor(public _elementRef: ElementRef) {}
+      }, 'sb-radio-group'
+    )
+  )
+);
 
 @Component({
-  selector: 'sb-radio-button-group',
-  templateUrl: './radio-button-group.component.html',
+  selector: 'sb-radio-group',
+  templateUrl: './radio-group.component.html',
   inputs: [
     'disabled'
   ],
@@ -16,11 +24,11 @@ const SbRadioButtonGroupCore = mixinDisable(mixinFocus(class {}));
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: SbRadioButtonGroupComponent,
+    useExisting: SbRadioGroupComponent,
     multi: true
   }]
 })
-export class SbRadioButtonGroupComponent extends SbRadioButtonGroupCore implements ControlValueAccessor {
+export class SbRadioGroupComponent extends SbRadioGroupCore implements ControlValueAccessor {
 
   @Input()
   public color: string = Color.PRIMARY;
@@ -47,6 +55,10 @@ export class SbRadioButtonGroupComponent extends SbRadioButtonGroupCore implemen
     if (this.innerValue) {
       return this.innerValue;
     } else return '';
+  }
+
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 
   public writeValue(value: string): void {

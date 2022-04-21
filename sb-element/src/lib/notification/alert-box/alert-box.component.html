@@ -4,10 +4,10 @@
 <ng-template ng-if [ngIf]="icon">
   <ng-content *ngIf="customIcon; else defaultIcon" select="[icon]"></ng-content>
   <ng-template #defaultIcon>
-    <sb-icon *ngIf="color == 'warn'">&#xe001;</sb-icon>
-    <sb-icon *ngIf="color == 'success'">&#xe92d;</sb-icon>
-    <sb-icon *ngIf="color == 'info'">&#xe88f;</sb-icon>
-    <sb-icon *ngIf="color == 'primary'">&#xe994;</sb-icon>
-    <sb-icon *ngIf="color == 'secondary'">&#xe87e;</sb-icon>
+    <sb-icon *ngIf="color == 'warn'">error_outline</sb-icon>
+    <sb-icon *ngIf="color == 'success'" outline>check_circle</sb-icon>
+    <sb-icon *ngIf="color == 'info'" outline>info</sb-icon>
+    <sb-icon *ngIf="color == 'primary'" outline>notifications</sb-icon>
+    <sb-icon *ngIf="color == 'secondary'" outline>favorite_border</sb-icon>
   </ng-template>
 </ng-template>

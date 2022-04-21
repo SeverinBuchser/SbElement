@@ -19,4 +19,8 @@ Checkbox / Theme
         }
     }
   }
+  
+  .sb-checkbox {
+    color: theming.get-foreground-text($theme);
+  }
 }

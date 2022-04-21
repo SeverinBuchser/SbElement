@@ -22,6 +22,8 @@ Input / Style
   position: relative;
   display: flex;
   gap: spacing.get-spacing(s);
+  box-sizing: border-box;
+  width: 100%;
   @include spacing.padding-x(s);
 
   &__prefix {

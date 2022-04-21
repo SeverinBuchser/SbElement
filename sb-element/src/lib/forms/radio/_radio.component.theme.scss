@@ -7,6 +7,8 @@ Radio / Theme
 // THEME
 @mixin theme($theme) {
   .sb-radio {
+    color: theming.get-foreground-text($theme);
+
     input {
       @include border.border-accent($theme, m);
     }

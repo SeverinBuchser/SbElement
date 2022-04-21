@@ -1,0 +1,12 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
+/*****************************************************************************
+Radio-Group / Style
+******************************************************************************/
+
+// ROOT
+.sb-radio-group {
+  display: block;
+}

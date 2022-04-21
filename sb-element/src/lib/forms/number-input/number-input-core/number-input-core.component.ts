@@ -78,9 +78,7 @@ export class SbNumberInputCoreComponent extends SbNumberInputCoreCore implements
   private onChange: any = () => {};
   private onTouch: () => void = () => {};
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

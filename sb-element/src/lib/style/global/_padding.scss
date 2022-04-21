@@ -1,0 +1,10 @@
+@use "../core/spacing";
+/*****************************************************************************
+Padding
+******************************************************************************/
+
+@include spacing.for-each-spacing using ($key, $value) {
+	.sb--padding-#{$key} {
+		@include spacing.padding($key);
+	}
+}

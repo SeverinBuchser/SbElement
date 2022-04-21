@@ -33,6 +33,7 @@ $default-font-sizes: (
 );
 
 $display-font-sizes: (
+  xxs: var(--display-font-size-7),
   xs: var(--display-font-size-6),
   s: var(--display-font-size-5),
   m: var(--display-font-size-4),

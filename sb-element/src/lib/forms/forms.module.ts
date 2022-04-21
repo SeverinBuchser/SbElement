@@ -15,7 +15,7 @@ import { SbButtonComponent } from './button';
 import { SbIconButtonComponent } from './icon-button';
 import { SbToggleSwitchComponent } from './toggle-switch';
 import { SbCheckboxComponent } from './checkbox';
-import { SbRadioButtonComponent, SbRadioButtonGroupComponent } from './radio-button';
+import { SbRadioGroupComponent, SbRadioComponent } from './radio';
 import { SbSelectButtonComponent } from './select-button';
 import { SbSliderComponent } from './slider';
 import { SbFileInputComponent } from './file-input';
@@ -27,8 +27,8 @@ import { SbTimeInputComponent } from './time-input';
     SbIconButtonComponent,
     SbToggleSwitchComponent,
     SbCheckboxComponent,
-    SbRadioButtonComponent,
-    SbRadioButtonGroupComponent,
+    SbRadioGroupComponent,
+    SbRadioComponent,
     SbSelectButtonComponent,
     SbSliderComponent,
     SbFileInputComponent,
@@ -51,8 +51,8 @@ import { SbTimeInputComponent } from './time-input';
     SbIconButtonComponent,
     SbToggleSwitchComponent,
     SbCheckboxComponent,
-    SbRadioButtonComponent,
-    SbRadioButtonGroupComponent,
+    SbRadioGroupComponent,
+    SbRadioComponent,
     SbSelectButtonComponent,
     SbSliderComponent,
     SbFileInputComponent,

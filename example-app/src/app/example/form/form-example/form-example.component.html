@@ -1,25 +1,24 @@
-<sb-container size="xl">
-  <sb-grid dim="1x2" gap="xl">
-    <sb-card>
+<div class="sb--padding-m">
+  <sb-grid dim="1x2" gap="m">
+    <sb-card size="s" color="primary">
       <sb-card-header>
-        <p class="sb--s">Datepicker</p>
+        <p class="sb--s">Input</p>
       </sb-card-header>
       <sb-card-content ngClass="pickers">
         <sb-input
-          type="date"
-          [(ngModel)]="model.date"
-          name="date"
+          type="text"
+          placeholder="Type some text here"
           size="l"
-          [color]="'success'"
-          #date="ngModel">
+          [color]="color"
+          [disabled]="false">
         </sb-input>
         <sb-input
-          type="date-range"
-          [(ngModel)]="model.dateRange"
-          name="dateRange"
+          type="double"
+          firstPlaceholder="First input"
+          secondPlaceholder="Second input"
           size="l"
-          [color]="'success'"
-          #dateRange="ngModel">
+          [color]="color"
+          [disabled]="false">
         </sb-input>
       </sb-card-content>
     </sb-card>
@@ -31,108 +30,76 @@
         <sb-input
           type="number"
           placeholder="Number Input"
-          [(ngModel)]="model.spinner"
-          name="spinner"
           size="l"
-          [color]="'success'"
-          #spinner="ngModel">
+          [color]="color">
         </sb-input>
         <sb-input
           type="time"
-          [(ngModel)]="model.time"
-          name="time"
-          size="s"
-          [color]="'success'"
-          #time="ngModel">
+          size="l"
+          [color]="color">
+        </sb-input>
+      </sb-card-content>
+    </sb-card>
+    <sb-card>
+      <sb-card-header>
+        <p class="sb--s">Datepicker</p>
+      </sb-card-header>
+      <sb-card-content ngClass="pickers">
+        <sb-input
+          type="date"
+          size="l"
+          [color]="color">
+        </sb-input>
+        <sb-input
+          type="date-range"
+          size="l"
+          [color]="color">
         </sb-input>
       </sb-card-content>
     </sb-card>
   </sb-grid>
-</sb-container>
-<sb-container size="xl">
-  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-    <p class="sb-form__header left sb--s">
-      This is a Form
-    </p>
-    <div class="sb-form__content">
-      <hr class="sb-form-group-separator">
-      <div>
-        <sb-checkbox
-          *ngFor="let checkbox of model.checkboxes"
-          [(ngModel)]="checkbox.checked"
-          name="checkboxes"
-          #checkboxes="ngModel"
-          [label]="checkbox.name"
-          name="checkboxes"
-          color="primary"
-          [disabled]="false">
-        </sb-checkbox>
-      </div>
-      <hr class="sb-form-group-separator">
-      <sb-radio-button-group
-        [(ngModel)]="model.radios"
-        name="radios"
-        #radios="ngModel"
-        [options]="options"
-        [disabled]="false">
-      </sb-radio-button-group>
-      <hr class="sb-form-group-separator">
-      <sb-select-button
-        pill
-        size="m"
-        [color]="color"
-        [(ngModel)]="model.select"
-        name="select"
-        #select="ngModel"
-        [options]="options">
-        Select
-      </sb-select-button>
-      <sb-slider
-        placeholder="Slider"
-        [color]="color"
-        [max]="20"
-        [min]="-20"
-        [step]="0.1"
-        [snap]="[0, 3, 6]"
-        [(ngModel)]="model.slider"
-        name="slider"
-        #slider="ngModel">
-      </sb-slider>
-      <hr class="sb-form-group-separator">
-      <sb-input
-        type="text"
-        placeholder="Enter your E-Mail"
-        size="m"
-        [color]="color"
-        [(ngModel)]="model.input"
-        name="input"
-        [disabled]="false"
-        #input="ngModel">
-      </sb-input>
-      <sb-input
-        type="file"
-        placeholder="File Input"
-        size="m"
-        pill
-        [color]="color"
-        [(ngModel)]="model.fileinput"
-        name="fileinput"
-        [disabled]="false"
-        #fileinput="ngModel">
-      </sb-input>
-    </div>
-    <div class="sb-form__footer center">
-      <sb-tooltip text="This is a tooltip!" position="left">
-        <button
-          type="submit"
-          class="sb-form__footer-element"
-          pill
-          size="m"
-          [color]="color"
-          [disabled]="!form.valid">
-            Submit
-        </button>
-      </sb-tooltip>
-    </div>
-  </form>
-</sb-container>
+  <sb-checkbox
+    *ngFor="let checkbox of model.checkboxes"
+    [label]="checkbox.name"
+    [color]="color"
+    [disabled]="false">
+  </sb-checkbox>
+  <sb-radio-group
+    [options]="options"
+    [color]="color"
+    [disabled]="false">
+  </sb-radio-group>
+  <sb-select-button
+    [options]="options"
+    pill
+    size="m"
+    [color]="color">
+    Select
+  </sb-select-button>
+  <sb-slider
+    placeholder="Slider"
+    [max]="20"
+    [min]="-20"
+    [step]="0.1"
+    [snap]="[0, 3, 6]"
+    [color]="color">
+  </sb-slider>
+  <sb-input
+    type="file"
+    placeholder="File Input"
+    pill
+    size="m"
+    [color]="color"
+    [disabled]="false">
+  </sb-input>
+  <sb-tooltip text="This is a tooltip!" position="bottom">
+    <button
+      type="submit"
+      pill
+      size="m"
+      [color]="color"
+      [disabled]="false">
+        Submit
+    </button>
+  </sb-tooltip>
+</div>

@@ -113,9 +113,7 @@ export class SbDoubleInputComponent extends SbDoubleInputCore implements Control
     } else return '';
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

@@ -91,9 +91,7 @@ export class SbDoubleNumberInputComponent extends SbDoubleNumberInputCore implem
     return this.innerSecondValue
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

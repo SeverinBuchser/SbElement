@@ -31,13 +31,11 @@ Input-Core / Style
 
 // ROOT
 .sb-input-core {
-  width: 100%;
   position: relative;
   display: flex;
-
-  &:focus {
-    outline: 1px solid red;
-  }
+  gap: spacing.get-spacing(s);
+  box-sizing: border-box;
+  width: 100%;
 
   input {
     width: 100%;
@@ -53,7 +51,6 @@ Input-Core / Style
   }
 
   &__spinner-controls {
-    @include spacing.margin-left(s);
     @include display.flex($direction: column);
     height: 100%;
   }
