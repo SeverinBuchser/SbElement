@@ -132,7 +132,6 @@
     </sb-card-header>
     <sb-card-content ngClass="inputs">
       <button
-        type="submit"
         pill
         size="m"
         [color]="color"
@@ -141,4 +140,97 @@
       </button>
     </sb-card-content>
   </sb-card>
+  <color-picker-card #buttonColor title="Button">
+    <h6>Default</h6>
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="button-grid">
+      <button
+        size="s"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        size="m"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        size="l"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        size="xl"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+    </sb-grid>
+    <hr>
+    <h6>Pill</h6>
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="button-grid">
+      <button
+        pill
+        size="s"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        pill
+        size="m"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        pill
+        size="l"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        pill
+        size="xl"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+    </sb-grid>
+    <hr>
+    <h6>Plain</h6>
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="button-grid">
+      <button
+        plain
+        size="s"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        plain
+        size="m"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        plain
+        size="l"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+      <button
+        plain
+        size="xl"
+        [color]="buttonColor.color"
+        [disabled]="false">
+          Button
+      </button>
+    </sb-grid>
+  </color-picker-card>
 </sb-grid>

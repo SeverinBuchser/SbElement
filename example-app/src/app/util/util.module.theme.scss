@@ -1,0 +1,5 @@
+@use 'color-picker-card/color-picker-card.component.theme';
+
+@mixin theme($theme) {
+	@include color-picker-card.theme($theme);
+}

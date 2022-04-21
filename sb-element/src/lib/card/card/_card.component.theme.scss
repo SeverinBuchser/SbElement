@@ -10,10 +10,5 @@ Card / Theme
     background: theming.get-foreground($theme);
     color: theming.get-foreground-text($theme);
     @include border.border-accent($theme, m);
-
-    hr {
-      border: 0;
-      @include border.border-side-accent(top, $theme, m);
-    }
   }
 }

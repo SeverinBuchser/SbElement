@@ -1,0 +1,5 @@
+@use "rule";
+
+@mixin theme($theme) {
+	@include rule.theme($theme);
+}

@@ -1,3 +1,5 @@
+@use 'style/global/theme' as global;
+
 @use 'bar/bar.module.theme';
 @use 'breadcrumbs/breadcrumbs.module.theme';
 @use 'calendar/calendar.module.theme';
@@ -17,6 +19,8 @@
 $theme: null !default;
 
 @mixin theme($theme) {
+  @include global.theme($theme);
+
   @include bar.theme($theme);
   @include breadcrumbs.theme($theme);
   @include calendar.theme($theme);

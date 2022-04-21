@@ -24,7 +24,7 @@ Card / Stlye
     @include box-shadow.strong;
   }
 
-  hr {
+  > hr {
     @include spacing.padding(0);
     @include spacing.margin(0);
   }

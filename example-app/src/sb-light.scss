@@ -1,6 +1,10 @@
 @use 'sb-element/theme/light';
 @use 'sb-element/core/theming';
+@use 'app/app.module.theme';
 
 .home {
   background: theming.get-background(light);
 }
+
+
+@include app.theme(light);

@@ -1,30 +1,41 @@
 @use "../core/typography";
+@use "../core/spacing";
 /*****************************************************************************
 Heading
 ******************************************************************************/
 
+@mixin heading($font-size) {
+  @include typography.font($size: $font-size);
+  @include spacing.margin-top($font-size);
+  @include spacing.margin-bottom($font-size);
+
+  &.no-margin-top {
+    @include spacing.margin-top(0);
+  }
+}
+
 h6 {
-  @include typography.font($size: xs)
+  @include heading(xs);
 }
 
 h5 {
-  @include typography.font($size: s)
+  @include heading(s);
 }
 
 h4 {
-  @include typography.font($size: m)
+  @include heading(m);
 }
 
 h3 {
-  @include typography.font($size: l)
+  @include heading(l);
 }
 
 h2 {
-  @include typography.font($size: xl)
+  @include heading(xl);
 }
 
 h1 {
-  @include typography.font($size: xxl);
+  @include heading(xxl);
 
   @include typography.for-each-font-size(display) using ($font-size, $value) {
     &.sb-display--#{$font-size} {

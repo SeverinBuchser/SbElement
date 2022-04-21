@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UtilModule } from './util/util.module';
 
 import { FormsModule } from '@angular/forms';
 import { SbElementModule, SbStyleModule } from 'sb-element';
@@ -18,7 +19,6 @@ import { PopperExampleComponent } from './example/popper/popper-example/popper-e
 import { TypographyExampleComponent } from './example/typography/typography-example/typography-example.component';
 import { CardExampleComponent } from './example/card/card-example/card-example.component';
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
-
 
 
 @NgModule({
@@ -46,7 +46,8 @@ import { ExampleDefaultComponent } from './example/example-default/example-defau
       {name: 'light', href: 'sb-light.css'},
       {name: 'dark', href: 'sb-dark.css'},
       {name: 'neutral', href: 'sb-neutral.css'},
-    ])
+    ]),
+    UtilModule
   ],
   providers: [],
   bootstrap: [AppComponent]

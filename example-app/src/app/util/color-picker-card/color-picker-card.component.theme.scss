@@ -1,0 +1,11 @@
+@use "sb-element/core/theming";
+
+@mixin theme($theme) {
+	.color-picker-header {
+		@include theming.for-each-color($theme) using ($color) {
+			.color-#{$color} {
+				background: theming.get-color($theme, $color);
+			}
+		}
+	}
+}

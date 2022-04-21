@@ -1,0 +1,5 @@
+@use "util/util.module.theme";
+
+@mixin theme($theme) {
+	@include util.theme($theme);
+}

@@ -1,0 +1,26 @@
+<sb-card>
+	<sb-card-header ngClass="color-picker-header">
+		<p class="sb--s">{{ title }}</p>
+		<div class="color-picker">
+			<div class="color-primary" [ngClass]="{'active': color == 'primary'}" (click)="pick('primary')">
+
+			</div>
+			<div class="color-secondary" [ngClass]="{'active': color == 'secondary'}" (click)="pick('secondary')">
+
+			</div>
+			<div class="color-success" [ngClass]="{'active': color == 'success'}" (click)="pick('success')">
+
+			</div>
+			<div class="color-warn" [ngClass]="{'active': color == 'warn'}" (click)="pick('warn')">
+
+			</div>
+			<div class="color-info" [ngClass]="{'active': color == 'info'}" (click)="pick('info')">
+
+			</div>
+		</div>
+	</sb-card-header>
+	<ng-content select="[sbCardImage]" ngProjectAs="[sbCardImage]"></ng-content>
+	<sb-card-content>
+		<ng-content></ng-content>
+	</sb-card-content>
+</sb-card>
