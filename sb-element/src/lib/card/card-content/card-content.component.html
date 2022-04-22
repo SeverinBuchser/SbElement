@@ -1,4 +1,5 @@
-<hr *ngIf="showTopDivider" [ngClass]="className + '__content-hr'">
-<div [ngClass]="className + '__wrapper'">
-	<ng-content></ng-content>
-</div>
+<ng-template>
+	<div [ngClass]="classes">
+		<ng-content></ng-content>
+	</div>
+</ng-template>

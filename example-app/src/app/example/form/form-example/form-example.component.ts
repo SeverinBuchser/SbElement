@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { Color, MarkedDates, Size } from "sb-element";
 
 @Component({
   selector: 'app-form-example',
   templateUrl: './form-example.component.html',
-  styleUrls: ['./form-example.component.scss']
+  styleUrls: ['./form-example.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FormExampleComponent implements OnInit {
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core';
 import { mixinClassName } from '../../core';
 
 const SbCardContentCore = mixinClassName(
@@ -16,10 +16,15 @@ export class SbCardContentComponent extends SbCardContentCore {
   @Input()
   public showTopDivider: boolean = false;
 
-  constructor(
-    elementRef: ElementRef
-  ) {
-    super(elementRef);
+  get classes(): Array<string> {
+    return this._elementRef.nativeElement.classList;
   }
 
+  @ViewChild(TemplateRef, { static: true })
+  public template!: TemplateRef<any>;
+
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
+    console.log(this._elementRef.nativeElement.classList)
+  }
 }

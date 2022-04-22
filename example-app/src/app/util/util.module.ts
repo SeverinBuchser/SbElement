@@ -4,13 +4,15 @@ import { ColorPickerCardComponent } from './color-picker-card/color-picker-card.
 import { SbElementModule } from 'sb-element';
 import { ThemeToggleSwitchComponent } from './theme-toggle-switch/theme-toggle-switch.component';
 import { FormsModule } from '@angular/forms';
+import { ColorPickerCardContentComponent } from './color-picker-card/color-picker-card-content/color-picker-card-content.component';
 
 
 
 @NgModule({
   declarations: [
     ColorPickerCardComponent,
-    ThemeToggleSwitchComponent
+    ThemeToggleSwitchComponent,
+    ColorPickerCardContentComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     ColorPickerCardComponent,
-    ThemeToggleSwitchComponent
+    ThemeToggleSwitchComponent,
+    ColorPickerCardContentComponent
   ]
 })
 export class UtilModule { }

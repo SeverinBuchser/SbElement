@@ -15,6 +15,11 @@ Card / Stlye
   overflow: hidden;
   display: block;
 
+  &__content-hr {
+    @include spacing.padding(0);
+    @include spacing.margin(0);
+  }
+
   &.shadow {
     @include box-shadow.weak;
   }

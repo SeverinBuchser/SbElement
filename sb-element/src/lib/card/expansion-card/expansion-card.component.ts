@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Attribute, Component, ElementRef, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SbCardComponent } from '../card';
 import { mixinHide, SbCollapseDirective, Triggerable } from '../../core';
 
@@ -20,8 +20,12 @@ export class SbExpansionCardComponent extends SbExpansionCardCore implements Tri
   @ViewChild(SbCollapseDirective)
   public collapse!: SbCollapseDirective;
 
-  constructor(elementRef: ElementRef) {
-    super(elementRef);
+  constructor(
+    elementRef: ElementRef,
+    @Optional() @Attribute('hover') hover: any,
+    @Optional() @Attribute('shadow') shadow: any
+  ) {
+    super(elementRef, hover, shadow);
   }
 
   public trigger(): void {

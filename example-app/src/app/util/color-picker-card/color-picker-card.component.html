@@ -21,7 +21,7 @@
 		<theme-toggle-switch></theme-toggle-switch>
 	</sb-card-header>
 	<ng-content select="[sbCardImage]" ngProjectAs="[sbCardImage]"></ng-content>
-	<sb-card-content>
-		<ng-content></ng-content>
+	<sb-card-content *ngFor="let content of contents" [ngClass]="content.classes">
+		<ng-container *ngTemplateOutlet="content.template"></ng-container>
 	</sb-card-content>
 </sb-card>
