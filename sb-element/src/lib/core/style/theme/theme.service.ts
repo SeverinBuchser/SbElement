@@ -12,13 +12,18 @@ export interface ThemeConfig {
 })
 export class SbThemeService {
 
-  private _themeConfig!: ThemeConfig;
+  private _themeConfig: ThemeConfig = {
+    name: '',
+    href: ''
+  };
 
   constructor(
     @Inject(ThemesConfig) private themesConfig: ThemesConfig,
     @Inject(DOCUMENT) private document: Document
   ) {
-    this.createNewLinkElement(themesConfig[0])
+    this.createLinkElement(themesConfig[0]).then(() => {
+        this._themeConfig = themesConfig[0];
+    })
   }
 
   private findThemeByName(themeName: string) {
@@ -34,28 +39,31 @@ export class SbThemeService {
     } else throw new Error(`Theme ${themeName} does not exist!`);
   }
 
-  public get(): string { return this._themeConfig.name }
-
-  private createNewLinkElement(themeConfig: ThemeConfig): void {
-    this.createLinkElement(themeConfig);
-    this._themeConfig = themeConfig;
+  public get(): string {
+    return this._themeConfig.name
   }
 
   private updateLinkElement(themeConfig: ThemeConfig): void {
-    this.removeLinkElement(this._themeConfig);
-    this.createNewLinkElement(themeConfig);
+    this.createLinkElement(themeConfig).then(() => {
+        this.removeLinkElement(this._themeConfig);
+        this._themeConfig = themeConfig;
+    })
   }
 
-  private createLinkElement(themeConfig: ThemeConfig) {
+  private createLinkElement(themeConfig: ThemeConfig): Promise<void> {
     const link = this.document.createElement('link');
     link.id = `sb-theme-${themeConfig.name}`;
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', themeConfig.href);
     this.document.head.appendChild(link);
+    return new Promise<void>(resolve => {
+      link.addEventListener('load', () => resolve())
+    });
   }
 
   private removeLinkElement(themeConfig: ThemeConfig): void {
-    const link: HTMLElement | null = this.document.getElementById(`sb-theme-${themeConfig.name}`);
+    const link: HTMLElement | null = this.document
+      .getElementById(`sb-theme-${themeConfig.name}`);
     if (link) {
       this.document.head.removeChild(link);
     }

@@ -5,14 +5,7 @@
   </div>
   <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
   <sb-link left [routerLink]="['example']" [active]="true">Example</sb-link>
-  <sb-toggle
-    right
-    type="switch"
-    size="s"
-    [color]="color"
-    [ngModel]="toggle"
-    (ngModelChange)="toggleTheme()">
-  </sb-toggle>
+  <theme-toggle-switch right></theme-toggle-switch>
 </sb-nav-bar>
 <!-- <sb-breadcrumbs [url]="router.url" homePlaceholder="Home" (navigate)="router.navigate([$event])"></sb-breadcrumbs> -->
 <router-outlet></router-outlet>

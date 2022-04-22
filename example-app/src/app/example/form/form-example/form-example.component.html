@@ -8,16 +8,14 @@
         type="text"
         placeholder="Type some text here"
         size="l"
-        [color]="color"
-        [disabled]="false">
+        [color]="color">
       </sb-input>
       <sb-input
         type="double"
         firstPlaceholder="First input"
         secondPlaceholder="Second input"
         size="l"
-        [color]="color"
-        [disabled]="false">
+        [color]="color">
       </sb-input>
     </sb-card-content>
   </sb-card>
@@ -64,8 +62,7 @@
       <sb-checkbox
         *ngFor="let checkbox of model.checkboxes"
         [label]="checkbox.name"
-        [color]="color"
-        [disabled]="false">
+        [color]="color">
       </sb-checkbox>
     </sb-card-content>
   </sb-card>
@@ -77,8 +74,7 @@
       <sb-radio-group
         ngClass="group"
         [options]="options"
-        [color]="color"
-        [disabled]="false">
+        [color]="color">
       </sb-radio-group>
     </sb-card-content>
   </sb-card>
@@ -111,124 +107,176 @@
       </sb-slider>
     </sb-card-content>
   </sb-card>
-  <sb-card>
-    <sb-card-header>
-      <p class="sb--s">File Input</p>
-    </sb-card-header>
-    <sb-card-content ngClass="inputs">
+  <color-picker-card #fileInputColor title="File Input">
+    <h6>Default</h6>
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
       <sb-input
         type="file"
         placeholder="File Input"
-        pill
-        size="m"
-        [color]="color"
-        [disabled]="false">
+        size="s"
+        [color]="fileInputColor.color">
       </sb-input>
-    </sb-card-content>
-  </sb-card>
-  <sb-card>
-    <sb-card-header>
-      <p class="sb--s">Button</p>
-    </sb-card-header>
-    <sb-card-content ngClass="inputs">
-      <button
-        pill
+      <sb-input
+        type="file"
+        placeholder="File Input"
         size="m"
-        [color]="color"
-        [disabled]="false">
-          Submit
-      </button>
-    </sb-card-content>
-  </sb-card>
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        placeholder="File Input"
+        size="l"
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        placeholder="File Input"
+        size="xl"
+        [color]="fileInputColor.color">
+      </sb-input>
+    </sb-grid>
+    <hr>
+    <h6>Pill</h6>
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+      <sb-input
+        type="file"
+        pill
+        placeholder="File Input"
+        size="s"
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        pill
+        placeholder="File Input"
+        size="m"
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        pill
+        placeholder="File Input"
+        size="l"
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        pill
+        placeholder="File Input"
+        size="xl"
+        [color]="fileInputColor.color">
+      </sb-input>
+    </sb-grid>
+    <hr>
+    <h6>Plain</h6>
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+      <sb-input
+        type="file"
+        plain
+        placeholder="File Input"
+        size="s"
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        plain
+        placeholder="File Input"
+        size="m"
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        plain
+        placeholder="File Input"
+        size="l"
+        [color]="fileInputColor.color">
+      </sb-input>
+      <sb-input
+        type="file"
+        plain
+        placeholder="File Input"
+        size="xl"
+        [color]="fileInputColor.color">
+      </sb-input>
+    </sb-grid>
+  </color-picker-card>
   <color-picker-card #buttonColor title="Button">
     <h6>Default</h6>
-    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="button-grid">
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
       <button
         size="s"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         size="m"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         size="l"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         size="xl"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
     </sb-grid>
     <hr>
     <h6>Pill</h6>
-    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="button-grid">
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
       <button
         pill
         size="s"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         pill
         size="m"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         pill
         size="l"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         pill
         size="xl"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
     </sb-grid>
     <hr>
     <h6>Plain</h6>
-    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="button-grid">
+    <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
       <button
         plain
         size="s"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         plain
         size="m"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         plain
         size="l"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
       <button
         plain
         size="xl"
-        [color]="buttonColor.color"
-        [disabled]="false">
+        [color]="buttonColor.color">
           Button
       </button>
     </sb-grid>

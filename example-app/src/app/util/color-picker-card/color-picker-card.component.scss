@@ -9,6 +9,7 @@
 		@include display.flex($justify: flex-end, $gap: s);
 
 		[class^=color] {
+			cursor: pointer;
 			height: spacing.get-spacing(m);
 			width: spacing.get-spacing(m);
 			@include border.radius(s);

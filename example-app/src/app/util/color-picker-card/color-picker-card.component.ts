@@ -11,7 +11,7 @@ export class ColorPickerCardComponent implements OnInit {
   @Input()
   public title: string = '';
 
-  public color: Color = Color.SECONDARY;
+  public color: Color = Color.PRIMARY;
 
   constructor() { }
 
