@@ -24,11 +24,6 @@ Card / Stlye
     @include box-shadow.strong;
   }
 
-  > hr {
-    @include spacing.padding(0);
-    @include spacing.margin(0);
-  }
-
   &__expanding-content {
     @include transitioning.ease(200ms);
     height: 0;

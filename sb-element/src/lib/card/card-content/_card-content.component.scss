@@ -6,5 +6,13 @@ Card-Content / Style
 // ROOT
 .sb-card-content {
   display: block;
-  @include spacing.padding(s);
+
+  &__content-hr {
+    @include spacing.padding(0);
+    @include spacing.margin(0);
+  }
+
+  &__wrapper {
+    @include spacing.padding(s);
+  }
 }

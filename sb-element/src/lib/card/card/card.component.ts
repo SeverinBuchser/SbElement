@@ -1,4 +1,4 @@
-import { AfterContentInit, Attribute, Component, ContentChild, ContentChildren, ElementRef, Input, Optional, QueryList, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, ContentChildren, ElementRef, Input, QueryList, ViewEncapsulation } from '@angular/core';
 import { SbCardHeaderComponent } from '../card-header';
 import { SbCardImageDirective } from '../card-image';
 import { SbCardContentComponent } from '../card-content';
@@ -30,47 +30,40 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
   @Input()
   public footerSeprator: boolean = true;
 
-  private hover: boolean = false;
-  private shadow: boolean = false;
-
   @ContentChild(SbCardHeaderComponent)
   public header?: SbCardHeaderComponent;
 
   @ContentChildren(SbCardImageDirective)
   public images!: QueryList<SbCardImageDirective>;;
 
-  @ContentChild(SbCardContentComponent)
-  public content?: SbCardContentComponent;
+  @ContentChildren(SbCardContentComponent)
+  public contents!: QueryList<SbCardContentComponent>;
 
-  public showDivider: boolean = false;
-
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('hover') hover: any,
-    @Optional() @Attribute('shadow') shadow: any
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (hover == '') this.hover = true;
-    if (shadow == '') this.shadow = true;
   }
 
   public ngAfterContentInit(): void {
-    if (this.images.length <= 0) {
-      if (this.header && this.content) {
-        this.showDivider = true;
+    this.contents.forEach((content: SbCardContentComponent, index: number) => {
+      if (index > 0) {
+        content.showTopDivider = true;
+      } else if (this.images.length <= 0 && this.header) {
+        content.showTopDivider = true;
       }
-    } else {
+    })
+    
+    if (this.images.length > 0) {
       if (!this.header) {
         this.images.first.borderTop = false;
       }
-      if (!this.content) {
+      if (this.contents.length == 0) {
         this.images.last.borderBottom = false;
       }
-
-      this.images.forEach((image: SbCardImageDirective, index: number) => {
-        if (index > 0) image.borderTop = false;
-      })
     }
+
+    this.images.forEach((image: SbCardImageDirective, index: number) => {
+      if (index > 0) image.borderTop = false;
+    })
   }
 
 }
