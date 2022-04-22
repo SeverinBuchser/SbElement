@@ -19,7 +19,8 @@ const SbButtonCore = mixinSize(
   host: {
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
-    '[class.round]': 'round'
+    '[class.round]': 'round',
+    '[class.accent]': 'accent'
   },
   inputs: [
     'size',
@@ -28,42 +29,46 @@ const SbButtonCore = mixinSize(
 })
 export class SbButtonComponent extends SbButtonCore {
 
-  @Input()
-  set isRound(isRound: boolean) {
-    if (!this.pill) this.round = isRound;
-    else if (isRound && this.pill) throw new Error('Cannot use pill and round'
+  @Input('round')
+  set isRound(isRound: boolean | string) {
+    if (!this.pill) {
+      if (typeof isRound == 'string') this.round = true;
+      else this.round = isRound;
+    } else if ((isRound == '' || isRound) && this.pill) throw new Error('Cannot use pill and round'
       + ' attribute simultaneously!');
   }
 
-  @Input()
-  set isPill(isPill: boolean) {
-    if (!this.round) this.pill = isPill;
-    else if (isPill && this.round) throw new Error('Cannot use pill and round'
+  @Input('pill')
+  set isPill(isPill: boolean | string) {
+    if (!this.round) {
+      if (typeof isPill == 'string') this.pill = true;
+      else this.pill = isPill;
+    } else if ((isPill == '' || isPill) && this.round) throw new Error('Cannot use pill and round'
       + ' attribute simultaneously!');
   }
 
-  @Input()
-  set isPlain(isPlain: boolean) {
-    this.plain = isPlain;
+  @Input('plain')
+  set isPlain(isPlain: boolean | string) {
+    if (typeof isPlain == 'string') this.plain = true;
+    else this.plain = isPlain;
+  }
+
+  @Input('accent')
+  set isAccent(isAccent: boolean | string) {
+    if (typeof isAccent == 'string') this.accent = true;
+    else this.accent = isAccent;
   }
 
   @Input()
   public type: string = 'button';
 
-  private round: boolean = false;
-  private pill: boolean = false;
-  private plain: boolean = false;
+  public round: boolean = false;
+  public pill: boolean = false;
+  public plain: boolean = false;
+  public accent: boolean = false;
 
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('round') isRound: any,
-    @Optional() @Attribute('pill') isPill: any,
-    @Optional() @Attribute('plain') isPlain: any
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (isRound == '') this.isRound = true;
-    if (isPill == '') this.isPill = true;
-    if (isPlain == '') this.isPlain = true;
   }
 
 }

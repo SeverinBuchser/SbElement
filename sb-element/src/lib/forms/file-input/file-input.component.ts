@@ -32,6 +32,7 @@ const SbFileInputCore = mixinDisable(
   host: {
     '[class.pill]': 'pill',
     '[class.plain]': 'plain',
+    '[class.accent]': 'accent',
     '[class.disabled]': 'disabled'
   },
   providers: [{
@@ -45,8 +46,24 @@ export class SbFileInputComponent extends SbFileInputCore implements ControlValu
   @Input()
   public placeholder: string = '';
 
-  public plain: boolean = false;
-  public pill: boolean = false;
+  @Input()
+  set isPill(isPill: boolean) {
+    this.pill = isPill;
+  }
+
+  @Input()
+  set isPlain(isPlain: boolean) {
+    this.plain = isPlain;
+  }
+
+  @Input()
+  set isAccent(isAccent: boolean) {
+    this.accent = isAccent;
+  }
+
+  private plain: boolean = false;
+  private pill: boolean = false;
+  private accent: boolean = false;
 
   get message(): string {
     if (this.value) {
@@ -74,11 +91,13 @@ export class SbFileInputComponent extends SbFileInputCore implements ControlValu
   constructor(
     elementRef: ElementRef,
     @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any
+    @Optional() @Attribute('plain') plain: any,
+    @Optional() @Attribute('accent') accent: any
   ) {
     super(elementRef);
-    if (pill == '') this.pill = true;
-    if (plain == '') this.plain = true;
+    if (pill == '') this.isPill = true;
+    if (plain == '') this.isPlain = true;
+    if (accent == '') this.isAccent = true;
   }
 
   public hendleInput(event: Event) {

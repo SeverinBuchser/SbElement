@@ -39,6 +39,24 @@ File Input / Theme
           theming.get-text($theme, $color)
         );
       }
+
+      &.accent {
+        @include file-input-color(
+          theming.get-accent($theme),
+          theming.get-accent-text($theme),
+          theming.get-color($theme, $color),
+          theming.get-text($theme, $color)
+        )
+      }
+
+      &.plain.accent {
+        @include file-input-color(
+          theming.get-accent($theme),
+          theming.get-accent-text($theme),
+          theming.get-color-inverted($theme, $color),
+          theming.get-text-inverted($theme, $color)
+        )
+      }
     }
   }
 }
