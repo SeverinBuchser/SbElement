@@ -1,4 +1,4 @@
-import { Attribute, Component, Input, Optional } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { mixinDisable, Color, Size, mixinFocus } from '../../core';
 
 const SbIconButtonCore = mixinDisable(mixinFocus(class {}));
@@ -23,44 +23,19 @@ export class SbIconButtonComponent extends SbIconButtonCore {
   @Input()
   public size: string = Size.MEDIUM;
 
-  @Input()
-  set isRound(isRound: boolean) {
-    if (!this.pill) this.round = isRound;
-    else if (isRound && this.pill) throw new Error('Cannot use pill and round'
-      + ' attribute simultaneously!');
-  }
-
-  @Input()
-  set isPill(isPill: boolean) {
-    if (!this.round) this.pill = isPill;
-    else if (isPill && this.round) throw new Error('Cannot use pill and round'
-      + ' attribute simultaneously!');
-  }
-
-  @Input()
-  set isPlain(isPlain: boolean) {
-    this.plain = isPlain;
-  }
+  @Input('accent')
+  public isAccent: boolean | string = false;
+  @Input('pill')
+  public isPill: boolean | string = false;
+  @Input('plain')
+  public isPlain: boolean | string = false;
+  @Input('round')
+  public isRound: boolean | string = false;
 
   @Input()
   public type: string = 'button';
 
-  public plain: boolean = false;
-  public pill: boolean = false;
-  public round: boolean = false;
-
   @Input()
   public icon: string = '';
-
-  constructor(
-    @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('round') round: any,
-    @Optional() @Attribute('plain') plain: any,
-  ) {
-    super();
-    if (pill == '') this.pill = true;
-    if (round == '') this.round = true;
-    if (plain == '') this.plain = true;
-  }
 
 }

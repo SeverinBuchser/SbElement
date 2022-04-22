@@ -1,18 +1,20 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SbDoubleInput } from "../../input";
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, Size } from '../../../core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinPill, mixinSize, Size } from '../../../core';
 
-const SbDoubleNumberInputCore = mixinDisable(
-  mixinFocus(
-    mixinSize(
-      mixinColor(
-        mixinClassName(
-          class {
-            constructor(public _elementRef: ElementRef) {}
-          }, 'sb-input'
-        ), Color.PRIMARY
-      ), Size.MEDIUM
+const SbDoubleNumberInputCore = mixinPill(
+  mixinDisable(
+    mixinFocus(
+      mixinSize(
+        mixinColor(
+          mixinClassName(
+            class {
+              constructor(public _elementRef: ElementRef) {}
+            }, 'sb-input'
+          ), Color.PRIMARY
+        ), Size.MEDIUM
+      )
     )
   )
 );
@@ -21,6 +23,7 @@ const SbDoubleNumberInputCore = mixinDisable(
   selector: 'sb-input[type=double-number]',
   templateUrl: './double-number-input.component.html',
   inputs: [
+    'isPill: pill',
     'size',
     'color',
     'disabled'

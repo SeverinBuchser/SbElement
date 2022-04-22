@@ -44,12 +44,12 @@ Checkbox-Group / Style
 
   button {
     min-width: 80px;
-    transition-delay: $options-animation-duration;
     @include transitioning.ease($button-animation-duration,
       background,
       color,
       border-radius
     );
+    transition-delay: $options-animation-duration;
     @include display.flex($justify: space-evenly);
   }
 

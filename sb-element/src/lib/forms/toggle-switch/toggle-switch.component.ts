@@ -1,19 +1,21 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTabindex, Size } from '../../core';
+import { Color, mixinAccent, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinSize, mixinTabindex, Size } from '../../core';
 
-const SbToggleSwitchCore = mixinFocus(
-  mixinDisable(
-    mixinTabindex(
-      mixinSize(
-        mixinColor(
-          mixinClassName(
-            class {
-              constructor(public _elementRef: ElementRef) {}
-            }, 'sb-toggle-switch'
-          ), Color.PRIMARY
-        ), Size.MEDIUM
-      ), 0
+const SbToggleSwitchCore = mixinAccent(
+  mixinFocus(
+    mixinDisable(
+      mixinTabindex(
+        mixinSize(
+          mixinColor(
+            mixinClassName(
+              class {
+                constructor(public _elementRef: ElementRef) {}
+              }, 'sb-toggle-switch'
+            ), Color.PRIMARY
+          ), Size.MEDIUM
+        ), 0
+      )
     )
   )
 );
@@ -31,6 +33,7 @@ const SbToggleSwitchCore = mixinFocus(
     '(blur)': 'setFocusedState(false)'
   },
   inputs: [
+    'isAccent: accent',
     'size',
     'color',
     'disabled'

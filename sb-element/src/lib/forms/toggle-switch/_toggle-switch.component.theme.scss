@@ -19,6 +19,22 @@ Toggle-Switch / Theme
           background: theming.get-text($theme, $color);
         }
       }
+
+      &.accent {
+        border: border.get-border-width(m) transparent solid;
+        background: theming.get-accent($theme);
+
+        &.off div {
+          background: theming.get-color($theme, $color);
+        }
+
+        &.on {
+          background: theming.get-color($theme, $color);
+          div {
+            background: theming.get-accent($theme);
+          }
+        }
+      }
     }
   }
 }

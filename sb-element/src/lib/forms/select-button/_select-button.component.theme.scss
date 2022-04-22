@@ -2,22 +2,59 @@
 /*****************************************************************************
 Select-button / Theme
 ******************************************************************************/
+// COLOR
+@mixin select-button-color($bg, $color, $hover-bg, $hover-color) {
+  background: $bg;
+  color: $color;
+  &:hover {
+    background: $hover-bg;
+    color: $hover-color;
+  }
+  &:disabled:hover {
+    background: $bg;
+    color: $color;
+  }
+}
 
 // THEME
 @mixin theme($theme) {
   @include theming.for-each-color($theme) using ($color) {
     .sb-select-button {
       &.sb--#{$color} &__option {
-        background: theming.get-color($theme, $color);
-        color: theming.get-text($theme, $color);
-        &:hover {
-          background: theming.get-color-inverted($theme, $color);
-          color: theming.get-text-inverted($theme, $color);
-        }
-        &:disabled:hover {
-          background: theming.get-color($theme, $color);
-          color: theming.get-text($theme, $color);
-        }
+        @include select-button-color(
+          theming.get-color($theme, $color),
+          theming.get-text($theme, $color),
+          theming.get-color-inverted($theme, $color),
+          theming.get-text-inverted($theme, $color)
+        );
+      }
+
+
+      &.sb--#{$color}.plain &__option {
+        @include select-button-color(
+          theming.get-color-inverted($theme, $color),
+          theming.get-text-inverted($theme, $color),
+          theming.get-color($theme, $color),
+          theming.get-text($theme, $color)
+        );
+      }
+
+      &.sb--#{$color}.accent &__option {
+        @include select-button-color(
+          theming.get-accent($theme),
+          theming.get-accent-text($theme),
+          theming.get-color($theme, $color),
+          theming.get-text($theme, $color)
+        );
+      }
+
+      &.sb--#{$color}.plain.accent &__option {
+        @include select-button-color(
+          theming.get-accent($theme),
+          theming.get-accent-text($theme),
+          theming.get-color-inverted($theme, $color),
+          theming.get-text-inverted($theme, $color)
+        );
       }
     }
   }

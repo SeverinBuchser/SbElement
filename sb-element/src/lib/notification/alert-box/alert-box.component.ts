@@ -1,12 +1,16 @@
-import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinColor, mixinClassName } from '../../core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { mixinSize, mixinColor, mixinClassName, mixinPill, mixinPlain } from '../../core';
 
-const SbAlertBoxCore = mixinSize(
-  mixinColor(
-    mixinClassName(
-      class {
-        constructor(public _elementRef: ElementRef) {}
-      }, 'sb-alert-box'
+const SbAlertBoxCore = mixinPill(
+  mixinPlain(
+    mixinSize(
+      mixinColor(
+        mixinClassName(
+          class {
+            constructor(public _elementRef: ElementRef) {}
+          }, 'sb-alert-box'
+        )
+      )
     )
   )
 );
@@ -16,13 +20,13 @@ const SbAlertBoxCore = mixinSize(
   templateUrl: './alert-box.component.html',
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class.pill]': 'pill',
-    '[class.plain]': 'plain',
     '[class.only-arrow]': 'arrow && !icon',
     '[class.only-icon]': '!arrow && icon',
     '[class.no-icon]': '!arrow && !icon',
   },
   inputs: [
+    'isPill: pill',
+    'isPlain: plain',
     'size',
     'color'
   ]
@@ -41,17 +45,8 @@ export class SbAlertBoxComponent extends SbAlertBoxCore {
   @Input()
   public customIcon: boolean = false;
 
-  private pill: boolean = false;
-  private plain: boolean = false;
-
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (pill == '') this.pill = true;
-    if (plain == '') this.plain = true;
   }
 
 }

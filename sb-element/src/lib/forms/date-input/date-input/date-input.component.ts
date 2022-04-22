@@ -30,6 +30,9 @@ export class SbDateInputComponent extends SbDateInputCore implements ControlValu
   @Input()
   public size: string = Size.MEDIUM;
 
+  @Input('pill')
+  public isPill: boolean | string = false;
+
   @Input()
   public format: string = 'yyyy-MM-dd';
 

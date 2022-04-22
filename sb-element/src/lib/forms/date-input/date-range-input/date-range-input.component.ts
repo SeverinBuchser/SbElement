@@ -31,6 +31,9 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore implements C
   @Input()
   public size: string = Size.MEDIUM;
 
+  @Input('pill')
+  public isPill: boolean | string = false;
+
   @Input()
   public format: string = 'yyyy-MM-dd';
 

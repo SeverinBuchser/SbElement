@@ -1,17 +1,23 @@
-import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { mixinDisable, mixinFocus, mixinSize, mixinColor, mixinClassName, Color, Size } from '../../core';
+import { mixinDisable, mixinFocus, mixinSize, mixinColor, mixinClassName, Color, Size, mixinAccent, mixinPill, mixinPlain } from '../../core';
 
-const SbSelectButtonCore = mixinDisable(
-  mixinFocus(
-    mixinSize(
-      mixinColor(
-        mixinClassName(
-          class {
-            constructor(public _elementRef: ElementRef) {}
-          }, 'sb-select-button'
-        ), Color.PRIMARY
-      ), Size.MEDIUM
+const SbSelectButtonCore = mixinAccent(
+  mixinPill(
+    mixinPlain(
+      mixinDisable(
+        mixinFocus(
+          mixinSize(
+            mixinColor(
+              mixinClassName(
+                class {
+                  constructor(public _elementRef: ElementRef) {}
+                }, 'sb-select-button'
+              ), Color.PRIMARY
+            ), Size.MEDIUM
+          )
+        )
+      )
     )
   )
 );
@@ -21,11 +27,12 @@ const SbSelectButtonCore = mixinDisable(
   templateUrl: './select-button.component.html',
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class.pill]': 'pill',
-    '[class.plain]': 'plain',
     '[class.open]': 'open'
   },
   inputs: [
+    'isAccent: accent',
+    'isPill: pill',
+    'isPlain: plain',
     'size',
     'color',
     'disabled'
@@ -42,18 +49,6 @@ const SbSelectButtonCore = mixinDisable(
 })
 export class SbSelectButtonComponent extends SbSelectButtonCore implements ControlValueAccessor {
 
-  @Input()
-  set isPill(isPill: boolean) {
-    this.pill = isPill;
-  }
-
-  @Input()
-  set isPlain(isPlain: boolean) {
-    this.plain = isPlain;
-  }
-
-  public plain: boolean = false;
-  public pill: boolean = false;
   public open: boolean = false;
 
   @Input()
@@ -77,14 +72,8 @@ export class SbSelectButtonComponent extends SbSelectButtonCore implements Contr
     } else return '';
   }
 
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (pill == '') this.pill = true;
-    if (plain == '') this.plain = true;
   }
 
   public toggle(): void {

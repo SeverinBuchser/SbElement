@@ -1,15 +1,17 @@
-import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinSize, Size } from "../../core";
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Color, mixinClassName, mixinColor, mixinDisable, mixinPill, mixinSize, Size } from "../../core";
 
-const SbProgressCore = mixinDisable(
-  mixinSize(
-    mixinColor(
-      mixinClassName(
-        class {
-          constructor(public _elementRef: ElementRef) {}
-        }, 'sb-progress'
-      ), Color.PRIMARY
-    ), Size.MEDIUM
+const SbProgressCore = mixinPill(
+  mixinDisable(
+    mixinSize(
+      mixinColor(
+        mixinClassName(
+          class {
+            constructor(public _elementRef: ElementRef) {}
+          }, 'sb-progress'
+        ), Color.PRIMARY
+      ), Size.MEDIUM
+    )
   )
 );
 
@@ -18,12 +20,12 @@ const SbProgressCore = mixinDisable(
   templateUrl: './progress.component.html',
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class.pill]': 'pill',
     '[class.outline]': 'outline',
     '[class.striped]': 'striped && size != "xs"',
     '[class.animate-stripes]': 'animateStripes && striped'
   },
   inputs: [
+    'isPill: pill',
     'size',
     'color',
     'disabled'
@@ -47,27 +49,23 @@ export class SbProgressComponent extends SbProgressCore {
   @Input()
   public animateStripes: boolean = false;
 
-  @Input()
-  set isPill(isPill: boolean) { this.pill = isPill; }
-  @Input()
-  set isOutline(isOutline: boolean) { this.outline = isOutline; }
-  @Input()
-  set isStriped(isStriped: boolean) { this.striped = isStriped; }
+  @Input('outline')
+  set isOutline(isOutline: boolean | string) {
+    if (typeof isOutline == 'string') this.outline = true;
+    else this.outline = isOutline;
+  }
 
-  private pill: boolean = false;
-  private outline: boolean = false;
-  private striped: boolean = false;
+  @Input('striped')
+  set isStriped(isStriped: boolean | string) {
+    if (typeof isStriped == 'string') this.striped = true;
+    else this.striped = isStriped;
+  }
 
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('pill') isPill: any,
-    @Optional() @Attribute('outline') isOutline: any,
-    @Optional() @Attribute('striped') isStriped: any
-  ) {
+  public outline: boolean = false;
+  public striped: boolean = false;
+
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (isPill == '') this.isPill = true;
-    if (isOutline == '') this.isOutline = true;
-    if (isStriped == '') this.isStriped = true;
   }
 
 }

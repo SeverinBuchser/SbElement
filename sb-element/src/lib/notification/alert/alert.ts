@@ -8,6 +8,8 @@ import { Color, Size } from "../../core";
  */
 export interface SbAlertOptions {
   message: string;
+  isPill: boolean;
+  isPlain: boolean;
   size: Size;
   color: Color;
   arrow: boolean;
@@ -19,6 +21,8 @@ export interface SbAlertOptions {
 export class SbAlert implements SbAlertOptions {
 
   public message: string = '';
+  public isPill: boolean = false;
+  public isPlain: boolean = false;
   public size: Size = Size.MEDIUM;
   public color: Color = Color.PRIMARY;
   public arrow: boolean = true;

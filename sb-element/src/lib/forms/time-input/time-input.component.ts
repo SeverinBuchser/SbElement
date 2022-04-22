@@ -29,6 +29,8 @@ export class SbTimeInputComponent extends SbTimeInputCore implements ControlValu
   @Input()
   public size: string = Size.MEDIUM;
 
+  @Input('pill')
+  public isPill: boolean | string = false;
 
   private onChange: any = () => {};
   private onTouch: any = () => {};

@@ -15,6 +15,7 @@
       placeholder="Pick a Date"
       [(ngModel)]="dateFormatted"
       [spellcheck]="false"
+      [pill]="isPill"
       [disabled]="disabled"
       (blur)="setFocusedState(false)"
       (focus)="setFocusedState(true)"

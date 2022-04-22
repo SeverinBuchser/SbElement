@@ -1,17 +1,23 @@
-import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { mixinDisable, mixinFocus, mixinColor, mixinSize, mixinClassName, Color, Size } from '../../core';
+import { mixinDisable, mixinFocus, mixinColor, mixinSize, mixinClassName, Color, Size, mixinPill, mixinAccent, mixinPlain } from '../../core';
 
-const SbFileInputCore = mixinDisable(
-  mixinFocus(
-    mixinSize(
-      mixinColor(
-        mixinClassName(
-          class {
-            constructor(public _elementRef: ElementRef) {}
-          }, 'sb-file-input'
-        ), Color.PRIMARY
-      ), Size.MEDIUM
+const SbFileInputCore = mixinAccent(
+  mixinPill(
+    mixinPlain(
+      mixinDisable(
+        mixinFocus(
+          mixinSize(
+            mixinColor(
+              mixinClassName(
+                class {
+                  constructor(public _elementRef: ElementRef) {}
+                }, 'sb-file-input'
+              ), Color.PRIMARY
+            ), Size.MEDIUM
+          )
+        )
+      )
     )
   )
 );
@@ -21,6 +27,9 @@ const SbFileInputCore = mixinDisable(
   templateUrl: './file-input.component.html',
   encapsulation: ViewEncapsulation.None,
   inputs: [
+    'isAccent: accent',
+    'isPill: pill',
+    'isPlain: plain',
     'size',
     'color',
     'disabled'
@@ -29,12 +38,6 @@ const SbFileInputCore = mixinDisable(
     'focus',
     'blur'
   ],
-  host: {
-    '[class.pill]': 'pill',
-    '[class.plain]': 'plain',
-    '[class.accent]': 'accent',
-    '[class.disabled]': 'disabled'
-  },
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SbFileInputComponent,
@@ -45,25 +48,6 @@ export class SbFileInputComponent extends SbFileInputCore implements ControlValu
 
   @Input()
   public placeholder: string = '';
-
-  @Input()
-  set isPill(isPill: boolean) {
-    this.pill = isPill;
-  }
-
-  @Input()
-  set isPlain(isPlain: boolean) {
-    this.plain = isPlain;
-  }
-
-  @Input()
-  set isAccent(isAccent: boolean) {
-    this.accent = isAccent;
-  }
-
-  private plain: boolean = false;
-  private pill: boolean = false;
-  private accent: boolean = false;
 
   get message(): string {
     if (this.value) {
@@ -88,16 +72,8 @@ export class SbFileInputComponent extends SbFileInputCore implements ControlValu
     return this.innerValue;
   }
 
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('pill') pill: any,
-    @Optional() @Attribute('plain') plain: any,
-    @Optional() @Attribute('accent') accent: any
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (pill == '') this.isPill = true;
-    if (plain == '') this.isPlain = true;
-    if (accent == '') this.isAccent = true;
   }
 
   public hendleInput(event: Event) {
