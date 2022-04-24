@@ -55,6 +55,7 @@ Toast / Style
     width: calc(100% - 2 * border.get-border-width(s));
     transform: translateX(border.get-border-width(s));
     z-index: 1;
+    @include spacing.margin(0);
   }
 
   &__header:empty,

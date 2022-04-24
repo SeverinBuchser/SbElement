@@ -205,6 +205,77 @@
         </sb-input>
       </sb-grid>
     </color-picker-card-content>
+
+    <color-picker-card-content>
+      <h6>Accent</h6>
+      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+        <sb-input
+          type="file"
+          accent
+          placeholder="File Input"
+          size="s"
+          [color]="fileInputColor.color">
+        </sb-input>
+        <sb-input
+          type="file"
+          accent
+          placeholder="File Input"
+          size="m"
+          [color]="fileInputColor.color">
+        </sb-input>
+        <sb-input
+          type="file"
+          accent
+          placeholder="File Input"
+          size="l"
+          [color]="fileInputColor.color">
+        </sb-input>
+        <sb-input
+          type="file"
+          accent
+          placeholder="File Input"
+          size="xl"
+          [color]="fileInputColor.color">
+        </sb-input>
+      </sb-grid>
+    </color-picker-card-content>
+    <color-picker-card-content>
+      <h6>Accent and Plain</h6>
+      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+        <sb-input
+          type="file"
+          accent
+          plain
+          placeholder="File Input"
+          size="s"
+          [color]="fileInputColor.color">
+        </sb-input>
+        <sb-input
+          type="file"
+          accent
+          plain
+          placeholder="File Input"
+          size="m"
+          [color]="fileInputColor.color">
+        </sb-input>
+        <sb-input
+          type="file"
+          accent
+          plain
+          placeholder="File Input"
+          size="l"
+          [color]="fileInputColor.color">
+        </sb-input>
+        <sb-input
+          type="file"
+          accent
+          plain
+          placeholder="File Input"
+          size="xl"
+          [color]="fileInputColor.color">
+        </sb-input>
+      </sb-grid>
+    </color-picker-card-content>
   </color-picker-card>
   <color-picker-card #buttonColor title="Button">
     <color-picker-card-content>
@@ -285,6 +356,68 @@
             Button
         </button>
         <button
+          plain
+          size="xl"
+          [color]="buttonColor.color">
+            Button
+        </button>
+      </sb-grid>
+    </color-picker-card-content>
+    <color-picker-card-content>
+      <h6>Accent</h6>
+      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+        <button
+          accent
+          size="s"
+          [color]="buttonColor.color">
+            Button
+        </button>
+        <button
+          accent
+          size="m"
+          [color]="buttonColor.color">
+            Button
+        </button>
+        <button
+          accent
+          size="l"
+          [color]="buttonColor.color">
+            Button
+        </button>
+        <button
+          accent
+          size="xl"
+          [color]="buttonColor.color">
+            Button
+        </button>
+      </sb-grid>
+    </color-picker-card-content>
+    <color-picker-card-content>
+      <h6>Accent and Plain</h6>
+      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+        <button
+          accent
+          plain
+          size="s"
+          [color]="buttonColor.color">
+            Button
+        </button>
+        <button
+          accent
+          plain
+          size="m"
+          [color]="buttonColor.color">
+            Button
+        </button>
+        <button
+          accent
+          plain
+          size="l"
+          [color]="buttonColor.color">
+            Button
+        </button>
+        <button
+          accent
           plain
           size="xl"
           [color]="buttonColor.color">

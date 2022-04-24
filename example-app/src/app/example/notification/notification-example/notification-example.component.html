@@ -5,29 +5,25 @@
     </sb-card-header>
     <sb-card-content>
       <sb-toast #toastOne [visible]="true" [timed]="2000">
-        <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
-          <div>
-            <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">breakfast_dining</sb-icon>
-            SbTimedToast
-          </div>
+        <div header>
+          <sb-icon color="secondary">breakfast_dining</sb-icon> SbTimedToast
         </div>
         <div body>
           This is a timed toast!
         </div>
       </sb-toast>
       <sb-toast [visible]="true">
-        <div header [ngStyle]="{'width': '100%','display': 'flex', 'justify-content': 'space-between'}">
-          <div>
-            <sb-icon [ngStyle]="{'display': 'inline-block'}" color="secondary">breakfast_dining</sb-icon>
-            SbToast
-          </div>
-          <span>5 min. ago</span>
+        <div header>
+          <sb-icon color="secondary">breakfast_dining</sb-icon> SbToast
         </div>
         <div body>
           This is a rather long toast notification!
         </div>
       </sb-toast>
       <button color="primary" sbClickTrigger [triggerable]="toastOne">Trigger Timed Toast</button>
+    </sb-card-content>
+    <sb-card-content>
+      <sb-code [code]="toastDoc" language="xml"></sb-code>
     </sb-card-content>
   </sb-card>
   <sb-card>
@@ -36,20 +32,23 @@
     </sb-card-header>
     <sb-card-content>
       <sb-grid dim="2x1" gap="xl">
-        <sb-grid content dim="1x5" gap="s">
-          <sb-alert-box color="primary" size="m" [arrow]="true" [icon]="true">Primary Notification</sb-alert-box>
-          <sb-alert-box color="secondary" size="m" [arrow]="true" [icon]="true">Secondary Notification</sb-alert-box>
-          <sb-alert-box color="success" size="m" [arrow]="true" [icon]="true">Success Notification</sb-alert-box>
-          <sb-alert-box color="warn" size="m" [arrow]="true" [icon]="true">Warn Notification</sb-alert-box>
-          <sb-alert-box color="info" size="m" [arrow]="true" [icon]="true">Info Notification</sb-alert-box>
+        <sb-grid dim="1x5" gap="s">
+          <sb-alert-box color="primary">Primary Notification</sb-alert-box>
+          <sb-alert-box color="secondary">Secondary Notification</sb-alert-box>
+          <sb-alert-box color="success">Success Notification</sb-alert-box>
+          <sb-alert-box color="warn">Warn Notification</sb-alert-box>
+          <sb-alert-box color="info">Info Notification</sb-alert-box>
         </sb-grid>
-        <sb-grid content dim="1x4" gap="m">
-          <sb-alert-box color="primary" size="s" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
-          <sb-alert-box color="primary" size="m" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
-          <sb-alert-box color="primary" size="l" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
-          <sb-alert-box color="primary" size="xl" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
+        <sb-grid dim="1x4" gap="m">
+          <sb-alert-box size="s"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
+          <sb-alert-box size="m"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
+          <sb-alert-box size="l"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
+          <sb-alert-box size="xl" color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
         </sb-grid>
       </sb-grid>
+    </sb-card-content>
+    <sb-card-content>
+      <sb-code [code]="alertBoxDoc" language="xml"></sb-code>
     </sb-card-content>
   </sb-card>
   <sb-card>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SbAlignDirective } from './align';
 import { SbCollapseDirective } from './collapse';
+import { SbInsertDirective } from './insert';
 import { SbStyleModule } from './style';
 import {
   SbClickOutsideTriggerDirective,
@@ -17,6 +18,7 @@ import { SbOverlayModule } from './overlay';
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
     SbCollapseDirective,
+    SbInsertDirective,
     SbHoverTriggerDirective,
     SbTriggerDirective,
   ],
@@ -28,6 +30,7 @@ import { SbOverlayModule } from './overlay';
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
     SbCollapseDirective,
+    SbInsertDirective,
     SbHoverTriggerDirective,
     SbTriggerDirective,
 

@@ -7,6 +7,7 @@
 @use 'card/module.theme' as card;
 @use 'container/module.theme' as container;
 @use 'grid/module.theme' as grid;
+@use 'highlight/module.theme' as highlight;
 @use 'icon/module.theme' as icon;
 @use 'forms/module.theme' as forms;
 @use 'indicator/module.theme' as indicator;
@@ -30,6 +31,7 @@ $theme: null !default;
   @include container.theme($theme);
   @include forms.theme($theme);
   @include grid.theme($theme);
+  @include highlight.theme($theme);
   @include icon.theme($theme);
   @include indicator.theme($theme);
   @include link.theme($theme);

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UtilModule } from './util/util.module';
 
 import { FormsModule } from '@angular/forms';
-import { SbElementModule, SbStyleModule } from 'sb-element';
+import { SbElementModule, SbHighlightModule, SbStyleModule } from 'sb-element';
 import { IndicatorExampleComponent } from './example/indicator/indicator-example/indicator-example.component';
 import { NotificationExampleComponent } from './example/notification/notification-example/notification-example.component';
 import { TimelineExampleComponent } from './example/timeline/timeline-example/timeline-example.component';
@@ -20,6 +21,7 @@ import { TypographyExampleComponent } from './example/typography/typography-exam
 import { CardExampleComponent } from './example/card/card-example/card-example.component';
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 
+import xml from 'highlight.js/lib/languages/xml';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { ExampleDefaultComponent } from './example/example-default/example-defau
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     SbElementModule,
@@ -46,6 +49,9 @@ import { ExampleDefaultComponent } from './example/example-default/example-defau
       {name: 'light', href: 'sb-light.css'},
       {name: 'dark', href: 'sb-dark.css'},
       {name: 'neutral', href: 'sb-neutral.css'},
+    ]),
+    SbHighlightModule.forRoot([
+      { name: 'xml', languageFn: xml }
     ]),
     UtilModule
   ],

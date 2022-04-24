@@ -1,0 +1,17 @@
+<sb-toast #toastOne [visible]="true" [timed]="2000">
+	<div header>
+		<sb-icon color="secondary">breakfast_dining</sb-icon> SbTimedToast
+	</div>
+	<div body>
+		This is a timed toast!
+	</div>
+</sb-toast>
+<sb-toast [visible]="true">
+	<div header>
+		<sb-icon color="secondary">breakfast_dining</sb-icon> SbToast
+	</div>
+	<div body>
+		This is a rather long toast notification!
+	</div>
+</sb-toast>
+<button color="primary" sbClickTrigger [triggerable]="toastOne">Trigger Timed Toast</button>

@@ -10,6 +10,7 @@ import { SbContainerModule } from './container';
 import { SbCoreModule } from './core';
 import { SbFormsModule } from './forms';
 import { SbGridModule } from './grid';
+import { SbHighlightModule } from './highlight';
 import { SbIconModule } from './icon';
 import { SbIndicatorModule } from "./indicator";
 import { SbLinkModule } from './link';
@@ -37,6 +38,7 @@ import { SbTimelineModule } from './timeline';
     SbCoreModule,
     SbFormsModule,
     SbGridModule,
+    SbHighlightModule,
     SbIconModule,
     SbIndicatorModule,
     SbLinkModule,

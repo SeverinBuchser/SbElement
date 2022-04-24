@@ -6,6 +6,14 @@ import { ThemesConfig } from "./theme";
   declarations: [],
   imports: [
     CommonModule
+  ],
+  providers: [
+    {
+      provide: ThemesConfig,
+      useValue: [
+        { name: 'light', href: 'sb-light.css' }
+      ]
+    }
   ]
 })
 export class SbStyleModule {
@@ -20,7 +28,7 @@ export class SbStyleModule {
     return {
       ngModule: SbStyleModule,
       providers: [
-        {provide: ThemesConfig, useValue: themesConfig}
+        { provide: ThemesConfig, useValue: themesConfig }
       ]
     }
   }

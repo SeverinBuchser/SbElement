@@ -25,6 +25,5 @@ export class SbCardContentComponent extends SbCardContentCore {
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
-    console.log(this._elementRef.nativeElement.classList)
   }
 }

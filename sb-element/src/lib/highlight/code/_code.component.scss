@@ -1,0 +1,38 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/border";
+@use "sb-element/core/typography";
+/*****************************************************************************
+Code / Style
+******************************************************************************/
+
+.sb-code {
+	display: block;
+	position: relative;
+	min-height: spacing.get-bigger(s, 2);
+
+	&__copy {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	pre {
+		@include spacing.margin(0);
+		overflow-x: auto;
+
+		code {
+			@include typography.font(code, light);
+			.section {
+				font-weight: 700;
+			}
+
+			.emphasis {
+				font-style: italic;
+			}
+
+			.strong {
+				font-weight: 700;
+			}
+		}
+	}
+}

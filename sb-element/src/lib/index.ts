@@ -6,6 +6,7 @@ export * from './container';
 export * from './core';
 export * from './forms';
 export * from './grid';
+export * from './highlight';
 export * from './icon';
 export * from './indicator';
 export * from './link';

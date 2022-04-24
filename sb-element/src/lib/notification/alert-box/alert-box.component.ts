@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinColor, mixinClassName, mixinPill, mixinPlain } from '../../core';
+import { mixinSize, mixinColor, mixinClassName, mixinPill, mixinPlain, Size } from '../../core';
 
 const SbAlertBoxCore = mixinPill(
   mixinPlain(
@@ -10,7 +10,7 @@ const SbAlertBoxCore = mixinPill(
             constructor(public _elementRef: ElementRef) {}
           }, 'sb-alert-box'
         )
-      )
+      ), Size.MEDIUM
     )
   )
 );

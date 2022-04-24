@@ -1,9 +1,12 @@
+@use "sb-element/core/spacing";
 /*****************************************************************************
 Tooltip / Style
 ******************************************************************************/
 
 // ROOT
 .sb-tooltip {
+  @include spacing.padding(xs);
+
   span {
     white-space: nowrap;
   }
