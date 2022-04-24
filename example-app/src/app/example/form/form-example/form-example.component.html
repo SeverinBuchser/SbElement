@@ -107,323 +107,90 @@
       </sb-slider>
     </sb-card-content>
   </sb-card>
-  <color-picker-card #fileInputColor title="File Input">
-    <color-picker-card-content>
-      <h6>Default</h6>
+  <picker-card #fileInputPicker title="File Input" [shapesNotAllowed]="['round']">
+    <picker-card-content>
+      <h6>{{ fileInputPicker.currentShape }}</h6>
       <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
         <sb-input
           type="file"
           placeholder="File Input"
           size="s"
-          [color]="fileInputColor.color">
+          [pill]="fileInputPicker.currentShape == 'pill'"
+          [plain]="fileInputPicker.currentLook.includes('plain')"
+          [accent]="fileInputPicker.currentLook.includes('accent')"
+          [color]="fileInputPicker.currentColor">
         </sb-input>
         <sb-input
           type="file"
           placeholder="File Input"
           size="m"
-          [color]="fileInputColor.color">
+          [pill]="fileInputPicker.currentShape == 'pill'"
+          [plain]="fileInputPicker.currentLook.includes('plain')"
+          [accent]="fileInputPicker.currentLook.includes('accent')"
+          [color]="fileInputPicker.currentColor">
         </sb-input>
         <sb-input
           type="file"
           placeholder="File Input"
           size="l"
-          [color]="fileInputColor.color">
+          [pill]="fileInputPicker.currentShape == 'pill'"
+          [plain]="fileInputPicker.currentLook.includes('plain')"
+          [accent]="fileInputPicker.currentLook.includes('accent')"
+          [color]="fileInputPicker.currentColor">
         </sb-input>
         <sb-input
           type="file"
           placeholder="File Input"
           size="xl"
-          [color]="fileInputColor.color">
+          [pill]="fileInputPicker.currentShape == 'pill'"
+          [plain]="fileInputPicker.currentLook.includes('plain')"
+          [accent]="fileInputPicker.currentLook.includes('accent')"
+          [color]="fileInputPicker.currentColor">
         </sb-input>
       </sb-grid>
-    </color-picker-card-content>
-
-    <color-picker-card-content>
-      <h6>Pill</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <sb-input
-          type="file"
-          pill
-          placeholder="File Input"
-          size="s"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          pill
-          placeholder="File Input"
-          size="m"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          pill
-          placeholder="File Input"
-          size="l"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          pill
-          placeholder="File Input"
-          size="xl"
-          [color]="fileInputColor.color">
-        </sb-input>
-      </sb-grid>
-    </color-picker-card-content>
-
-    <color-picker-card-content>
-      <h6>Plain</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <sb-input
-          type="file"
-          plain
-          placeholder="File Input"
-          size="s"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          plain
-          placeholder="File Input"
-          size="m"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          plain
-          placeholder="File Input"
-          size="l"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          plain
-          placeholder="File Input"
-          size="xl"
-          [color]="fileInputColor.color">
-        </sb-input>
-      </sb-grid>
-    </color-picker-card-content>
-
-    <color-picker-card-content>
-      <h6>Accent</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <sb-input
-          type="file"
-          accent
-          placeholder="File Input"
-          size="s"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          accent
-          placeholder="File Input"
-          size="m"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          accent
-          placeholder="File Input"
-          size="l"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          accent
-          placeholder="File Input"
-          size="xl"
-          [color]="fileInputColor.color">
-        </sb-input>
-      </sb-grid>
-    </color-picker-card-content>
-    <color-picker-card-content>
-      <h6>Accent and Plain</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <sb-input
-          type="file"
-          accent
-          plain
-          placeholder="File Input"
-          size="s"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          accent
-          plain
-          placeholder="File Input"
-          size="m"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          accent
-          plain
-          placeholder="File Input"
-          size="l"
-          [color]="fileInputColor.color">
-        </sb-input>
-        <sb-input
-          type="file"
-          accent
-          plain
-          placeholder="File Input"
-          size="xl"
-          [color]="fileInputColor.color">
-        </sb-input>
-      </sb-grid>
-    </color-picker-card-content>
-  </color-picker-card>
-  <color-picker-card #buttonColor title="Button">
-    <color-picker-card-content>
-      <h6>Default</h6>
+    </picker-card-content>
+  </picker-card>
+  <picker-card #buttonPicker title="Button">
+    <picker-card-content>
+      <h6>{{ buttonPicker.currentShape }}</h6>
       <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
         <button
           size="s"
-          [color]="buttonColor.color">
-            Button
+          [pill]="buttonPicker.currentShape == 'pill'"
+          [round]="buttonPicker.currentShape == 'round'"
+          [plain]="buttonPicker.currentLook.includes('plain')"
+          [accent]="buttonPicker.currentLook.includes('accent')"
+          [color]="buttonPicker.currentColor">
+            {{ buttonPicker.currentShape == 'round' ? 'Btn' : 'Button' }}
         </button>
         <button
           size="m"
-          [color]="buttonColor.color">
-            Button
+          [pill]="buttonPicker.currentShape == 'pill'"
+          [round]="buttonPicker.currentShape == 'round'"
+          [plain]="buttonPicker.currentLook.includes('plain')"
+          [accent]="buttonPicker.currentLook.includes('accent')"
+          [color]="buttonPicker.currentColor">
+            {{ buttonPicker.currentShape == 'round' ? 'Btn' : 'Button' }}
         </button>
         <button
           size="l"
-          [color]="buttonColor.color">
-            Button
+          [pill]="buttonPicker.currentShape == 'pill'"
+          [round]="buttonPicker.currentShape == 'round'"
+          [plain]="buttonPicker.currentLook.includes('plain')"
+          [accent]="buttonPicker.currentLook.includes('accent')"
+          [color]="buttonPicker.currentColor">
+            {{ buttonPicker.currentShape == 'round' ? 'Btn' : 'Button' }}
         </button>
         <button
           size="xl"
-          [color]="buttonColor.color">
-            Button
+          [pill]="buttonPicker.currentShape == 'pill'"
+          [round]="buttonPicker.currentShape == 'round'"
+          [plain]="buttonPicker.currentLook.includes('plain')"
+          [accent]="buttonPicker.currentLook.includes('accent')"
+          [color]="buttonPicker.currentColor">
+            {{ buttonPicker.currentShape == 'round' ? 'Btn' : 'Button' }}
         </button>
       </sb-grid>
-    </color-picker-card-content>
-
-    <color-picker-card-content>
-      <h6>Pill</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <button
-          pill
-          size="s"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          pill
-          size="m"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          pill
-          size="l"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          pill
-          size="xl"
-          [color]="buttonColor.color">
-            Button
-        </button>
-      </sb-grid>
-    </color-picker-card-content>
-
-    <color-picker-card-content>
-      <h6>Plain</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <button
-          plain
-          size="s"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          plain
-          size="m"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          plain
-          size="l"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          plain
-          size="xl"
-          [color]="buttonColor.color">
-            Button
-        </button>
-      </sb-grid>
-    </color-picker-card-content>
-    <color-picker-card-content>
-      <h6>Accent</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <button
-          accent
-          size="s"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          accent
-          size="m"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          accent
-          size="l"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          accent
-          size="xl"
-          [color]="buttonColor.color">
-            Button
-        </button>
-      </sb-grid>
-    </color-picker-card-content>
-    <color-picker-card-content>
-      <h6>Accent and Plain</h6>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
-        <button
-          accent
-          plain
-          size="s"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          accent
-          plain
-          size="m"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          accent
-          plain
-          size="l"
-          [color]="buttonColor.color">
-            Button
-        </button>
-        <button
-          accent
-          plain
-          size="xl"
-          [color]="buttonColor.color">
-            Button
-        </button>
-      </sb-grid>
-    </color-picker-card-content>
-  </color-picker-card>
+    </picker-card-content>
+  </picker-card>
 </sb-grid>

@@ -1,10 +1,14 @@
 @use "sb-element/core/theming";
 
 @mixin theme($theme) {
-	.color-picker-header {
+	.color-picker {
 		@include theming.for-each-color($theme) using ($color) {
 			.color-#{$color} {
 				background: theming.get-color($theme, $color);
+
+				&.disabled {
+					background: theming.get-color-inverted($theme, $color);
+				}
 			}
 		}
 	}

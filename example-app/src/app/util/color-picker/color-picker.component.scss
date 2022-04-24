@@ -1,0 +1,24 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/display";
+@use "sb-element/core/border";
+@use "sb-element/core/transitioning";
+
+.color-picker {
+	@include display.flex($justify: flex-end, $gap: xs);
+
+	[class^=color] {
+		cursor: pointer;
+		height: spacing.get-spacing(m);
+		width: spacing.get-spacing(m);
+		@include border.radius(s);
+		@include transitioning.ease(300ms, transform);
+
+		&.active {
+			transform: scale(1.4);
+		}
+
+		&.disabled {
+			cursor: not-allowed;
+		}
+	}
+}

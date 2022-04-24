@@ -1,0 +1,8 @@
+<div *ngFor="let color of colors"
+	[class]="'color-' + color"
+	[ngClass]="{
+		'active': currentColor == color,
+		'disabled': notAllowed.includes(color)
+	}"
+	(click)="pick(color)">
+</div>

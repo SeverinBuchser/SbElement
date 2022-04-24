@@ -1,11 +1,10 @@
 import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'color-picker-card-content',
-  templateUrl: './color-picker-card-content.component.html',
-  styleUrls: ['./color-picker-card-content.component.scss']
+  selector: 'picker-card-content',
+  templateUrl: './picker-card-content.component.html'
 })
-export class ColorPickerCardContentComponent {
+export class PickerCardContentComponent {
 
   @ViewChild(TemplateRef, { static: true }) template!: TemplateRef<any>;
 

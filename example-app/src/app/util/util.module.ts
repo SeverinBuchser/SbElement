@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ColorPickerCardComponent } from './color-picker-card/color-picker-card.component';
+import { PickerCardComponent } from './picker-card/picker-card.component';
 import { SbElementModule } from 'sb-element';
 import { ThemeToggleSwitchComponent } from './theme-toggle-switch/theme-toggle-switch.component';
 import { FormsModule } from '@angular/forms';
-import { ColorPickerCardContentComponent } from './color-picker-card/color-picker-card-content/color-picker-card-content.component';
+import { PickerCardContentComponent } from './picker-card/picker-card-content/picker-card-content.component';
+import { FormPickerComponent } from './form-picker/form-picker.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { LookPickerComponent } from './look-picker/look-picker.component';
 
 
 
 @NgModule({
   declarations: [
-    ColorPickerCardComponent,
+    PickerCardComponent,
     ThemeToggleSwitchComponent,
-    ColorPickerCardContentComponent
+    PickerCardContentComponent,
+    FormPickerComponent,
+    ColorPickerComponent,
+    LookPickerComponent,
   ],
   imports: [
     CommonModule,
@@ -20,9 +26,12 @@ import { ColorPickerCardContentComponent } from './color-picker-card/color-picke
     SbElementModule,
   ],
   exports: [
-    ColorPickerCardComponent,
+    PickerCardComponent,
     ThemeToggleSwitchComponent,
-    ColorPickerCardContentComponent
+    PickerCardContentComponent,
+    FormPickerComponent,
+    ColorPickerComponent,
+    LookPickerComponent,
   ]
 })
 export class UtilModule { }

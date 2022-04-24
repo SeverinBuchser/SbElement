@@ -1,0 +1,9 @@
+<div *ngFor="let shape of shapes"
+	[class]="'shape-' + shape"
+	[ngClass]="{
+		'active': currentShape == shape,
+		'disabled': notAllowed.includes(shape)
+	}"
+	(click)="pick(shape)">
+	<div></div>
+</div>

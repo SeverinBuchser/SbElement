@@ -1,5 +1,9 @@
-@use 'color-picker-card/color-picker-card.component.theme';
+@use 'color-picker/color-picker.component.theme';
+@use 'form-picker/form-picker.component.theme';
+@use 'look-picker/look-picker.component.theme';
 
 @mixin theme($theme) {
-	@include color-picker-card.theme($theme);
+	@include color-picker.theme($theme);
+	@include form-picker.theme($theme);
+	@include look-picker.theme($theme);
 }
