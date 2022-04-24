@@ -1,3 +1,13 @@
 <button
+	(click)="toggle()"
 	[size]="size"
-	[color]="color"></button>
+	[color]="color"
+	[accent]="accent"
+	[pill]="pill"
+	[round]="round"
+  (focus)="setFocusedState(true)"
+  (blur)="setFocusedState(false)"
+  [disabled]="disabled"
+	type="button">
+	<ng-content></ng-content>
+</button>

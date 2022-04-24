@@ -23,14 +23,14 @@ export class SbIconButtonComponent extends SbIconButtonCore {
   @Input()
   public size: string = Size.MEDIUM;
 
-  @Input('accent')
-  public isAccent: boolean | string = false;
-  @Input('pill')
-  public isPill: boolean | string = false;
-  @Input('plain')
-  public isPlain: boolean | string = false;
-  @Input('round')
-  public isRound: boolean | string = false;
+  @Input()
+  public accent: boolean | string = false;
+  @Input()
+  public pill: boolean | string = false;
+  @Input()
+  public plain: boolean | string = false;
+  @Input()
+  public round: boolean | string = false;
 
   @Input()
   public type: string = 'button';

@@ -24,6 +24,9 @@ const SbButtonCore = mixinAccent(
   selector: 'button, [sb-button]',
   templateUrl: './button.component.html',
   encapsulation: ViewEncapsulation.None,
+  host: {
+    '[attr.type]': 'type'
+  },
   inputs: [
     'isAccent: accent',
     'isPill: pill',
