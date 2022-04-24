@@ -1,6 +1,7 @@
 @use "sb-element/core/spacing";
 @use "sb-element/core/border";
 @use "sb-element/core/typography";
+@use "sb-element/core/transitioning";
 /*****************************************************************************
 Code / Style
 ******************************************************************************/
@@ -9,6 +10,7 @@ Code / Style
 	display: block;
 	position: relative;
 	min-height: spacing.get-bigger(s, 2);
+
 
 	&__copy {
 		position: absolute;

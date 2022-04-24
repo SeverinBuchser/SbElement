@@ -1,9 +1,9 @@
 <sb-card>
 	<sb-card-header ngClass="color-picker-header">
 		<p class="sb--s">{{ title }}</p>
-		<color-picker *ngIf="pickColor" [(ngModel)]="currentColor" [notAllowed]="colorsNotAllowed"></color-picker>
-		<form-picker *ngIf="pickShape" [(ngModel)]="currentShape" [notAllowed]="shapesNotAllowed"></form-picker>
-		<look-picker *ngIf="pickLook" [(ngModel)]="currentLook" [notAllowed]="looksNotAllowed"></look-picker>
+		<color-picker *ngIf="pickColor" (ngModelChange)="change.emit()" [(ngModel)]="color" [notAllowed]="colorsNotAllowed"></color-picker>
+		<form-picker *ngIf="pickShape" (ngModelChange)="change.emit()" [(ngModel)]="shape" [notAllowed]="shapesNotAllowed"></form-picker>
+		<look-picker *ngIf="pickLook" (ngModelChange)="change.emit()" [(ngModel)]="look" [notAllowed]="looksNotAllowed"></look-picker>
 		<theme-toggle-switch></theme-toggle-switch>
 	</sb-card-header>
 	<ng-content select="[sbCardImage]" ngProjectAs="[sbCardImage]"></ng-content>

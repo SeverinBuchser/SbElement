@@ -1,4 +1,4 @@
-import { Component, ContentChildren, Input, QueryList } from '@angular/core';
+import { Component, ContentChildren, EventEmitter, Input, Output, QueryList } from '@angular/core';
 import { Color } from 'sb-element';
 import { Shape } from '../form-picker/form-picker.component';
 import { Look } from '../look-picker/look-picker.component';
@@ -11,6 +11,9 @@ import { PickerCardContentComponent } from './picker-card-content/picker-card-co
 })
 export class PickerCardComponent {
 
+  @Output()
+  public change: EventEmitter<void> = new EventEmitter();
+
   @Input()
   public title: string = '';
 
@@ -21,9 +24,9 @@ export class PickerCardComponent {
   @Input()
   public looksNotAllowed: Array<Look> = new Array();
 
-  public currentColor: Color = Color.PRIMARY;
-  public currentShape: Shape = 'default';
-  public currentLook: Look = 'default';
+  public color: Color = Color.PRIMARY;
+  public shape: Shape = 'default';
+  public look: Look = 'default';
 
   @Input()
   public pickColor: boolean = true;
