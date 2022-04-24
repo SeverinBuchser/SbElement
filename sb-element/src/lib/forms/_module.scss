@@ -1,8 +1,9 @@
+@use 'button/module' as button;
 @use 'date-input/module' as date-input;
 @use 'input/module' as input;
 @use 'number-input/module' as number-input;
+@use 'toggle/module' as toggle;
 
-@use 'button/button.component';
 @use 'checkbox/checkbox.component';
 @use 'file-input/file-input.component';
 @use 'icon-button/icon-button.component';
@@ -11,4 +12,3 @@
 @use 'select-button/select-button.component';
 @use 'slider/slider.component';
 @use 'time-input/time-input.component';
-@use 'toggle-switch/toggle-switch.component';

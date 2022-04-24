@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinColor, mixinClassName, Color, Size, mixinPill, mixinRound, mixinPlain, mixinAccent } from '../../core';
+import { mixinSize, mixinColor, mixinClassName, Color, Size, mixinPill, mixinRound, mixinPlain, mixinAccent } from '../../../core';
 
 const SbButtonCore = mixinAccent(
   mixinPill(

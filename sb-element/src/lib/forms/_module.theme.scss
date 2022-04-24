@@ -1,8 +1,9 @@
+@use 'button/module.theme' as button;
 @use 'date-input/module.theme' as date-input;
 @use 'input/module.theme' as input;
 @use 'number-input/module.theme' as number-input;
+@use 'toggle/module.theme' as toggle;
 
-@use 'button/button.component.theme';
 @use 'checkbox/checkbox.component.theme';
 @use 'file-input/file-input.component.theme';
 @use 'icon-button/icon-button.component.theme';
@@ -11,7 +12,6 @@
 @use 'select-button/select-button.component.theme';
 @use 'slider/slider.component.theme';
 @use 'time-input/time-input.component.theme';
-@use 'toggle-switch/toggle-switch.component.theme';
 
 
 @mixin theme($theme) {
@@ -26,5 +26,5 @@
   @include select-button.theme($theme);
   @include slider.theme($theme);
   @include time-input.theme($theme);
-  @include toggle-switch.theme($theme);
+  @include toggle.theme($theme);
 }

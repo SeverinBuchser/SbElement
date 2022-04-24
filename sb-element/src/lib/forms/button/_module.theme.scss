@@ -1,0 +1,5 @@
+@use 'button/button.component.theme';
+
+@mixin theme($theme) {
+  @include button.theme($theme);
+}

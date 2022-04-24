@@ -7,13 +7,13 @@ import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 import { SbPopperModule } from "../popper";
 
+import { SbButtonModule } from './button';
 import { SbDateInputModule } from './date-input';
 import { SbInputModule } from './input';
 import { SbNumberInputModule } from './number-input';
+import { SbToggleModule } from './toggle';
 
-import { SbButtonComponent } from './button';
 import { SbIconButtonComponent } from './icon-button';
-import { SbToggleSwitchComponent } from './toggle-switch';
 import { SbCheckboxComponent } from './checkbox';
 import { SbRadioGroupComponent, SbRadioComponent } from './radio';
 import { SbSelectButtonComponent } from './select-button';
@@ -23,9 +23,7 @@ import { SbTimeInputComponent } from './time-input';
 
 @NgModule({
   declarations: [
-    SbButtonComponent,
     SbIconButtonComponent,
-    SbToggleSwitchComponent,
     SbCheckboxComponent,
     SbRadioGroupComponent,
     SbRadioComponent,
@@ -37,6 +35,7 @@ import { SbTimeInputComponent } from './time-input';
   imports: [
     CommonModule,
     FormsModule,
+    SbButtonModule,
     SbCoreModule,
     SbDateInputModule,
     SbIconModule,
@@ -47,9 +46,7 @@ import { SbTimeInputComponent } from './time-input';
   ],
   exports: [
     // components
-    SbButtonComponent,
     SbIconButtonComponent,
-    SbToggleSwitchComponent,
     SbCheckboxComponent,
     SbRadioGroupComponent,
     SbRadioComponent,
@@ -59,9 +56,11 @@ import { SbTimeInputComponent } from './time-input';
     SbTimeInputComponent,
 
     // modules
+    SbButtonModule,
     SbDateInputModule,
     SbInputModule,
     SbNumberInputModule,
+    SbToggleModule
   ]
 })
 export class SbFormsModule { }
