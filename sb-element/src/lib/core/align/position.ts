@@ -8,6 +8,11 @@ export enum Side {
 export class Position {
   private static minAlignment = -1;
   private static maxAlignment = 1;
+
+  get sideAlignment(): number {
+    return this.alignment * (this.isNegativeAlignment ? -1 : 1);
+  }
+
   get isTop(): boolean {
     return Side.TOP == this.side;
   }
@@ -26,6 +31,10 @@ export class Position {
 
   get isNegativeSide(): boolean {
     return this.isTop || this.isLeft;
+  }
+
+  get isNegativeAlignment(): boolean {
+    return this.isLeft || this.isRight
   }
 
   constructor(public side: Side, public alignment: number) {}

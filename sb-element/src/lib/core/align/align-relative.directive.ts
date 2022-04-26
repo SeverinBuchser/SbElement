@@ -62,7 +62,7 @@ export class SbAlignRelateiveDirective extends SbAlignDirective implements HasEl
     minAlignment: number,
     maxAlignment: number
   ): number {
-    let d = availableSpace * position.alignment;
+    let d = availableSpace * position.sideAlignment;
     let sign = Math.sign(d);
     d = Math.abs(d);
     d = Math.max(d, minAlignment);
