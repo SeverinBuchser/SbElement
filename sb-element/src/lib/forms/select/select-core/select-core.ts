@@ -13,6 +13,7 @@ export class SbSelectCore<Selectable> extends mixinFocus(
   private _options: Array<Selectable> = new Array<Selectable>();
 	set options(options: Array<Selectable>) {
 		this._options = options;
+		this.selected = new Map();
 		this._options.forEach((option: Selectable) => {
 			this.selected.set(option, false);
 		})

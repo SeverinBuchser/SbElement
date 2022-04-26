@@ -5,9 +5,7 @@ import { SbSelectListComponent } from './select-list';
 
 @NgModule({
   declarations: [SbSelectListComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [SbSelectListComponent]
 })
 export class SbSelectCoreModule { }

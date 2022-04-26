@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
 import { SbButtonModule } from '../../button';
 import { SbCoreModule } from '../../../core';
 import { SbIconModule } from '../../../icon';
-import { SbPopperModule } from '../../../popper';
 import { SbSelectCoreModule } from '../select-core';
 
 import { SbSelectButtonOverlayComponent } from './select-button-overlay';
@@ -23,7 +21,6 @@ import { SelectButtonComponent } from './select-button';
     SbButtonModule,
     SbCoreModule,
     SbIconModule,
-    SbPopperModule,
     SbSelectCoreModule
   ],
   exports: [
