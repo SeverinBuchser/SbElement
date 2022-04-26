@@ -11,9 +11,15 @@ import { Color, Size } from "sb-element";
 })
 export class FormExampleComponent implements OnInit {
 
+  public toggleButtonDoc: string = '';
+  public toggleSwitchDoc: string = '';
   public fileInputDoc: string = '';
   public buttonDoc: string = '';
 
+  @ViewChild('toggleButtonPicker', { static: true })
+  public toggleButtonPicker!: PickerCardComponent;
+  @ViewChild('toggleSwitchPicker', { static: true })
+  public toggleSwitchPicker!: PickerCardComponent;
   @ViewChild('fileInputPicker', { static: true })
   public fileInputPicker!: PickerCardComponent;
   @ViewChild('buttonPicker', { static: true })
@@ -36,6 +42,12 @@ export class FormExampleComponent implements OnInit {
   constructor(private doc: DocService) { }
 
   ngOnInit(): void {
+    this.toggleButtonPicker.change.subscribe(() => {
+      this.handleDoc();
+    })
+    this.toggleSwitchPicker.change.subscribe(() => {
+      this.handleDoc();
+    })
     this.buttonPicker.change.subscribe(() => {
       this.handleDoc();
     })
@@ -46,6 +58,24 @@ export class FormExampleComponent implements OnInit {
   }
 
   private handleDoc() {
+
+    this.doc.get('forms', 'toggle-button').subscribe((doc: string) => {
+      this.toggleButtonDoc = this.doc.replace(doc, {
+        pill: this.toggleButtonPicker.shape == 'pill',
+        round: this.toggleButtonPicker.shape == 'round',
+        accent: this.toggleButtonPicker.look.includes('accent'),
+        color: this.toggleButtonPicker.color,
+        content: this.toggleButtonPicker.shape == 'round' ? 'Btn' : 'Toggle Button'
+      });
+    })
+
+    this.doc.get('forms', 'toggle-switch').subscribe((doc: string) => {
+      this.toggleSwitchDoc = this.doc.replace(doc, {
+        accent: this.toggleSwitchPicker.look.includes('accent'),
+        color: this.toggleSwitchPicker.color
+      });
+    })
+
     this.doc.get('forms', 'button').subscribe((doc: string) => {
       this.buttonDoc = this.doc.replace(doc, {
         pill: this.buttonPicker.shape == 'pill',

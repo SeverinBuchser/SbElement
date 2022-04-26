@@ -1,20 +1,84 @@
 <sb-grid dim="1xauto" gap="m" ngClass="sb--padding-m">
-  <sb-card size="s" color="primary">
-    <sb-card-header>
-      <p class="sb--s">Toggle Button</p>
-    </sb-card-header>
-    <sb-card-content>
-      <sb-toggle type="button">Toggle Button</sb-toggle>
-    </sb-card-content>
-  </sb-card>
-  <sb-card size="s" color="primary">
-    <sb-card-header>
-      <p class="sb--s">Toggle Switch</p>
-    </sb-card-header>
-    <sb-card-content>
-      <sb-toggle type="switch"></sb-toggle>
-    </sb-card-content>
-  </sb-card>
+  
+  <picker-card #toggleButtonPicker title="Toggle Switch" [looksNotAllowed]="['plain', 'accent-plain']">
+    <picker-card-content>
+      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+        <sb-toggle
+          type="button"
+          size="s"
+          [pill]="toggleButtonPicker.shape == 'pill'"
+          [round]="toggleButtonPicker.shape == 'round'"
+          [accent]="toggleButtonPicker.look.includes('accent')"
+          [color]="toggleButtonPicker.color">
+          {{ toggleButtonPicker.shape == 'round' ? 'Btn' : 'Toggle Button' }}
+        </sb-toggle>
+        <sb-toggle
+          type="button"
+          size="m"
+          [pill]="toggleButtonPicker.shape == 'pill'"
+          [round]="toggleButtonPicker.shape == 'round'"
+          [accent]="toggleButtonPicker.look.includes('accent')"
+          [color]="toggleButtonPicker.color">
+          {{ toggleButtonPicker.shape == 'round' ? 'Btn' : 'Toggle Button' }}
+        </sb-toggle>
+        <sb-toggle
+          type="button"
+          size="l"
+          [pill]="toggleButtonPicker.shape == 'pill'"
+          [round]="toggleButtonPicker.shape == 'round'"
+          [accent]="toggleButtonPicker.look.includes('accent')"
+          [color]="toggleButtonPicker.color">
+          {{ toggleButtonPicker.shape == 'round' ? 'Btn' : 'Toggle Button' }}
+        </sb-toggle>
+        <sb-toggle
+          type="button"
+          size="xl"
+          [pill]="toggleButtonPicker.shape == 'pill'"
+          [round]="toggleButtonPicker.shape == 'round'"
+          [accent]="toggleButtonPicker.look.includes('accent')"
+          [color]="toggleButtonPicker.color">
+          {{ toggleButtonPicker.shape == 'round' ? 'Btn' : 'Toggle Button' }}
+        </sb-toggle>
+      </sb-grid>
+    </picker-card-content>
+    <picker-card-content>
+      <sb-code [code]="toggleButtonDoc" language="xml"></sb-code>
+    </picker-card-content>
+  </picker-card>
+
+  <picker-card #toggleSwitchPicker title="Toggle Switch" [pickShape]="false" [looksNotAllowed]="['plain', 'accent-plain']">
+    <picker-card-content>
+      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
+        <sb-toggle
+          type="switch"
+          size="s"
+          [accent]="toggleSwitchPicker.look.includes('accent')"
+          [color]="toggleSwitchPicker.color">
+        </sb-toggle>
+        <sb-toggle
+          type="switch"
+          size="m"
+          [accent]="toggleSwitchPicker.look.includes('accent')"
+          [color]="toggleSwitchPicker.color">
+        </sb-toggle>
+        <sb-toggle
+          type="switch"
+          size="l"
+          [accent]="toggleSwitchPicker.look.includes('accent')"
+          [color]="toggleSwitchPicker.color">
+        </sb-toggle>
+        <sb-toggle
+          type="switch"
+          size="xl"
+          [accent]="toggleSwitchPicker.look.includes('accent')"
+          [color]="toggleSwitchPicker.color">
+        </sb-toggle>
+      </sb-grid>
+    </picker-card-content>
+    <picker-card-content>
+      <sb-code [code]="toggleSwitchDoc" language="xml"></sb-code>
+    </picker-card-content>
+  </picker-card>
   <sb-card size="s" color="primary">
     <sb-card-header>
       <p class="sb--s">Input</p>
