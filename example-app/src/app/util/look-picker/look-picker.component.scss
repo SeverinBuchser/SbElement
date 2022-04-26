@@ -5,19 +5,5 @@
 @use "sb-element/core/typography";
 
 .look-picker {
-	@include display.flex($justify: flex-end, $gap: xs);
-
-	[class^=look] {
-		cursor: pointer;
-		height: spacing.get-spacing(m);
-		@include border.radius(s);
-		@include spacing.padding-x(xs);
-		@include display.flex();
-		@include transitioning.ease(300ms, background);
-		text-transform: capitalize;
-
-		&.disabled {
-			cursor: not-allowed;
-		}
-	}
+	
 }

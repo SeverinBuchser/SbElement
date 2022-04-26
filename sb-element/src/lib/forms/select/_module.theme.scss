@@ -1,7 +1,5 @@
-@use 'select-core/module.theme'as select-core;
 @use 'select-button/module.theme' as select-button;
 
 @mixin theme($theme) {
-  @include select-core.theme($theme);
   @include select-button.theme($theme);
 }

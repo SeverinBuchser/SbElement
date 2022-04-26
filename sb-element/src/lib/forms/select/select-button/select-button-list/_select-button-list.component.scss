@@ -1,6 +1,7 @@
 @use "sb-element/core/transitioning";
 @use "sb-element/core/border";
 @use "sb-element/core/spacing";
+@use "sb-element/core/display";
 /*****************************************************************************
 Select-Button-List / Style
 ******************************************************************************/
@@ -8,6 +9,10 @@ Select-Button-List / Style
 @mixin select-button-list-size($key, $size) {
   &.sb--#{$key} {
     max-height: calc(3 * spacing.get-bigger($key));
+  }
+
+  &.sb--#{$key} &__option {
+    height: spacing.get-bigger($key);
   }
 }
 
@@ -26,6 +31,12 @@ Select-Button-List / Style
   border-top-right-radius: 0;
   overflow-y: auto;
   overflow-x: hidden;
+
+  &__option {
+    cursor: pointer;
+    @include display.flex();
+    @include transitioning.ease(300ms, color, background);
+  }
 
   &.sb--hidden {
     display: none;

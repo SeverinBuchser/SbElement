@@ -1,11 +1,6 @@
-<sb-select-list
-	[options]="options"
-	(select)="select.emit($event)"
-	[accent]="accent"
-	[plain]="plain"
-	[size]="size"
-	[color]="color"
-	[disabled]="disabled"
-	(focus)="setFocusedState(true)"
-	(blur)="setFocusedState(false)">
-</sb-select-list>
+<div
+	*ngFor="let option of options"
+	[ngClass]="className + '__option'"
+	(click)="select.emit(option)">
+	{{ option }}
+</div>

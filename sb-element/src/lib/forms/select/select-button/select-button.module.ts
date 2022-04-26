@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { SbButtonModule } from '../../button';
 import { SbCoreModule } from '../../../core';
 import { SbIconModule } from '../../../icon';
-import { SbSelectCoreModule } from '../select-core';
 
 import { SbSelectButtonOverlayComponent } from './select-button-overlay';
 import { SbSelectButtonListComponent } from './select-button-list';
@@ -20,8 +19,7 @@ import { SelectButtonComponent } from './select-button';
     CommonModule,
     SbButtonModule,
     SbCoreModule,
-    SbIconModule,
-    SbSelectCoreModule
+    SbIconModule
   ],
   exports: [
     SelectButtonComponent

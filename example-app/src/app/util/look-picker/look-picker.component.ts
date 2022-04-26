@@ -9,6 +9,7 @@ const LookPickerCore = mixinClassName(
 )
 
 export type Look = 'default' | 'plain' | 'accent' | 'accent-plain';
+const allLooks: Array<Look> = ['default', 'plain', 'accent', 'accent-plain'];
 
 @Component({
   selector: 'look-picker',
@@ -39,12 +40,19 @@ export class LookPickerComponent extends LookPickerCore implements ControlValueA
         return !lookAllowed;
       })
     }
+
+    this.looks = allLooks.reduce((looks: Array<Look>, look: Look) => {
+      if (!this._notAllowed.includes(look)) {
+        looks.push(look);
+      }
+      return looks;
+    }, new Array())
   }
   get notAllowed(): Array<Look> {
     return this._notAllowed;
   }
 
-  public looks: Array<Look> = ['default', 'plain', 'accent', 'accent-plain'];
+  public looks: Array<Look> = allLooks;
 
   private _currentLook: Look = 'default';
   get currentLook(): Look {

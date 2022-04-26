@@ -1,9 +1,9 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { Color, mixinAccent, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinHide, mixinPlain, mixinSize, Size, Triggerable } from '../../../../core';
+import { Color, mixinAccent, mixinClassName, mixinColor, mixinDisable, mixinTabindex, mixinHide, mixinPlain, mixinSize, Size, Triggerable } from '../../../../core';
 
 const SbSelectButtonListCore = mixinHide(
   mixinDisable(
-    mixinFocus(
+    mixinTabindex(
       mixinAccent(
         mixinPlain(
           mixinSize(
@@ -16,7 +16,7 @@ const SbSelectButtonListCore = mixinHide(
             ), Size.MEDIUM
           )
         )
-      )
+      ), 0
     )
   ), false
 );
@@ -31,10 +31,6 @@ const SbSelectButtonListCore = mixinHide(
     'size',
     'color',
     'disabled'
-  ],
-  outputs: [
-    'focus',
-    'blur'
   ]
 })
 export class SbSelectButtonListComponent extends SbSelectButtonListCore implements Triggerable {

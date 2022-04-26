@@ -1,16 +1,7 @@
-<div *ngFor="let look of looks"
-	[class]="'look-' + look"
-	[ngClass]="{
-		'active': currentLook == look,
-		'disabled': notAllowed.includes(look)
-	}"
-	(click)="pick(look)">
-	{{ look }}
-</div>
-<!-- <sb-select-button
+<sb-select-button
 	[options]="looks"
 	size="s"
 	[ngModel]="currentLook"
 	(ngModelChange)="pick($event)">
-	Select
-</sb-select-button> -->
+	Look
+</sb-select-button>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbSelectCoreModule } from './select-core';
 import { SbSelectButtonModule } from './select-button';
 
 @NgModule({
@@ -9,6 +8,6 @@ import { SbSelectButtonModule } from './select-button';
   imports: [
     CommonModule
   ],
-  exports: [SbSelectCoreModule, SbSelectButtonModule]
+  exports: [SbSelectButtonModule]
 })
 export class SbSelectModule { }
