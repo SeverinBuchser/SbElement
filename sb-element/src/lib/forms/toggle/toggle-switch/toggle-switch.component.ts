@@ -23,9 +23,7 @@ const SbToggleSwitchCore = mixinAccent(
     '[class.on]': 'toggled',
     '[class.off]': '!toggled',
     '[class.disabled]': 'disabled',
-    '(click)': 'toggle()',
-    '(focus)': 'setFocusedState(true)',
-    '(blur)': 'setFocusedState(false)'
+    '(click)': 'toggle()'
   },
   inputs: [
     'isAccent: accent',
@@ -41,9 +39,7 @@ const SbToggleSwitchCore = mixinAccent(
 })
 export class SbToggleSwitchComponent extends SbToggleSwitchCore {
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

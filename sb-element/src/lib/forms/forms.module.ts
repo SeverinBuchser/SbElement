@@ -14,7 +14,6 @@ import { SbNumberInputModule } from './number-input';
 import { SbToggleModule } from './toggle';
 
 import { SbIconButtonComponent } from './icon-button';
-import { SbCheckboxComponent } from './checkbox';
 import { SbRadioGroupComponent, SbRadioComponent } from './radio';
 import { SbSliderComponent } from './slider';
 import { SbFileInputComponent } from './file-input';
@@ -24,7 +23,6 @@ import { SbSelectModule } from './select/select.module';
 @NgModule({
   declarations: [
     SbIconButtonComponent,
-    SbCheckboxComponent,
     SbRadioGroupComponent,
     SbRadioComponent,
     SbSliderComponent,
@@ -46,7 +44,6 @@ import { SbSelectModule } from './select/select.module';
   exports: [
     // components
     SbIconButtonComponent,
-    SbCheckboxComponent,
     SbRadioGroupComponent,
     SbRadioComponent,
     SbSliderComponent,

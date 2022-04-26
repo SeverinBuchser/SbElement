@@ -12,12 +12,15 @@ import { Color, Size } from "sb-element";
 export class FormExampleComponent implements OnInit {
 
   public toggleButtonDoc: string = '';
+  public toggleCheckboxDoc: string = '';
   public toggleSwitchDoc: string = '';
   public fileInputDoc: string = '';
   public buttonDoc: string = '';
 
   @ViewChild('toggleButtonPicker', { static: true })
   public toggleButtonPicker!: PickerCardComponent;
+  @ViewChild('toggleCheckboxPicker', { static: true })
+  public toggleCheckboxPicker!: PickerCardComponent;
   @ViewChild('toggleSwitchPicker', { static: true })
   public toggleSwitchPicker!: PickerCardComponent;
   @ViewChild('fileInputPicker', { static: true })
@@ -45,6 +48,9 @@ export class FormExampleComponent implements OnInit {
     this.toggleButtonPicker.change.subscribe(() => {
       this.handleDoc();
     })
+    this.toggleCheckboxPicker.change.subscribe(() => {
+      this.handleDoc();
+    })
     this.toggleSwitchPicker.change.subscribe(() => {
       this.handleDoc();
     })
@@ -66,6 +72,13 @@ export class FormExampleComponent implements OnInit {
         accent: this.toggleButtonPicker.look.includes('accent'),
         color: this.toggleButtonPicker.color,
         content: this.toggleButtonPicker.shape == 'round' ? 'Btn' : 'Toggle Button'
+      });
+    })
+
+    this.doc.get('forms', 'toggle-checkbox').subscribe((doc: string) => {
+      this.toggleCheckboxDoc = this.doc.replace(doc, {
+        accent: this.toggleCheckboxPicker.look.includes('accent'),
+        color: this.toggleCheckboxPicker.color
       });
     })
 
@@ -95,6 +108,10 @@ export class FormExampleComponent implements OnInit {
         color: this.fileInputPicker.color
       });
     })
+  }
+
+  log() {
+    console.log("Hi")
   }
 
 }

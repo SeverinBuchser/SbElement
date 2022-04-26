@@ -1,5 +1,5 @@
 <sb-grid dim="1xauto" gap="m" ngClass="sb--padding-m">
-  
+
   <picker-card #toggleButtonPicker title="Toggle Switch" [looksNotAllowed]="['plain', 'accent-plain']">
     <picker-card-content>
       <sb-grid dim="2xauto" justify="even" gap="s" ngClass="color-picker-grid">
@@ -134,18 +134,19 @@
       </sb-input>
     </sb-card-content>
   </sb-card>
-  <sb-card>
-    <sb-card-header>
-      <p class="sb--s">Checkbox</p>
-    </sb-card-header>
-    <sb-card-content class="group">
-      <sb-checkbox
-        *ngFor="let checkbox of checkboxes"
-        [label]="checkbox.name"
-        [color]="color">
-      </sb-checkbox>
-    </sb-card-content>
-  </sb-card>
+  <picker-card #toggleCheckboxPicker title="Toggle Checkbox" [pickShape]="false" [looksNotAllowed]="['plain', 'accent-plain']">
+    <picker-card-content>
+      <sb-toggle
+        type="checkbox"
+        [accent]="toggleCheckboxPicker.look.includes('accent')"
+        [color]="toggleCheckboxPicker.color">
+        Option
+      </sb-toggle>
+    </picker-card-content>
+    <picker-card-content>
+      <sb-code [code]="toggleCheckboxDoc" language="xml"></sb-code>
+    </picker-card-content>
+  </picker-card>
   <sb-card>
     <sb-card-header>
       <p class="sb--s">Radio</p>

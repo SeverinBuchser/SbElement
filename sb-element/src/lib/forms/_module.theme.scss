@@ -5,7 +5,6 @@
 @use 'select/module.theme' as select;
 @use 'toggle/module.theme' as toggle;
 
-@use 'checkbox/checkbox.component.theme';
 @use 'file-input/file-input.component.theme';
 @use 'icon-button/icon-button.component.theme';
 @use 'radio/radio-group.component.theme';
@@ -16,7 +15,6 @@
 
 @mixin theme($theme) {
   @include button.theme($theme);
-  @include checkbox.theme($theme);
   @include file-input.theme($theme);
   @include icon-button.theme($theme);
   @include input.theme($theme);

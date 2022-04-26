@@ -17,15 +17,23 @@ export class SbToggleCore extends mixinFocus(
   get toggled(): boolean {
     return this._toggled;
   }
+  set toggled(isToggled: boolean) {
+    this.toggle(isToggled);
+  }
 
   constructor(public _elementRef: ElementRef) {
     super();
   }
 
-  public toggle(): void {
+  public toggle(isToggled?: boolean): void {
     if (!this.disabled) {
-      this._toggled = !this.toggled;
-      this.onChange(this.toggled);
+      if (isToggled !== undefined && isToggled !== this.toggled) {
+        this._toggled = isToggled;
+        this.onChange(this.toggled);
+      } else {
+        this._toggled = !this.toggled;
+        this.onChange(this.toggled);
+      }
     }
   }
 
