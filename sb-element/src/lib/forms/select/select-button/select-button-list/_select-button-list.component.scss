@@ -22,7 +22,6 @@ Select-Button-List / Style
   display: block;
   position: absolute;
   pointer-events: all;
-  width: 100%;
   top: 100%;
   transform-origin: top center;
   @include transitioning.ease(200ms, opacity, transform, color);
@@ -34,6 +33,7 @@ Select-Button-List / Style
 
   &__option {
     cursor: pointer;
+    white-space: nowrap;
     @include display.flex();
     @include transitioning.ease(300ms, color, background);
   }

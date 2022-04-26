@@ -37,8 +37,13 @@ export class SbSelectButtonOverlayComponent extends SbSelectButtonOverlayCore {
 
   public ngAfterContentInit(): void {
     this.list.showStart.subscribe(() => {
-      let contentBBox = this.button.nativeElement.getBoundingClientRect();
-      this.overlayOutletRef.instance.setBoundingBox(contentBBox);
+      let buttonBBox = this.button.nativeElement.getBoundingClientRect();
+      let listBBox = this.list._elementRef.nativeElement.getBoundingClientRect();
+
+      buttonBBox.width = Math.max(listBBox.width, buttonBBox.width);
+      this.button.nativeElement.style.minWidth = buttonBBox.width + 'px';
+      this.list._elementRef.nativeElement.style.minWidth = buttonBBox.width + 'px';
+      this.overlayOutletRef.instance.setBoundingBox(buttonBBox);
     })
     this.list.hideEnd.subscribe(() => {
       this.overlayOutletRef.instance.clear();

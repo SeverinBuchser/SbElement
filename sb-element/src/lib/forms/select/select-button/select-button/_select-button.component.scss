@@ -11,6 +11,7 @@ Select-Button / Style
   .sb-button {
     @include display.flex($gap: xs);
     @include transitioning.ease(300ms, border-radius, background, color);
+    white-space: nowrap;
 
     .sb-icon {
       @include transitioning.ease(300ms, transform);
