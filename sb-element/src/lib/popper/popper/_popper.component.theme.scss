@@ -1,10 +1,6 @@
-@use "sb-element/core/theming";
-@use "sb-element/core/border";
 /*****************************************************************************
 Popper / Theme
 ******************************************************************************/
 
 // THEME
-@mixin theme($theme) {
-  .sb-popper {}
-}
+@mixin theme($theme) {}

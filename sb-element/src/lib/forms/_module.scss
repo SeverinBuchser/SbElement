@@ -2,6 +2,7 @@
 @use 'date-input/module' as date-input;
 @use 'input/module' as input;
 @use 'number-input/module' as number-input;
+@use 'select/module' as select;
 @use 'toggle/module' as toggle;
 
 @use 'checkbox/checkbox.component';
@@ -9,6 +10,5 @@
 @use 'icon-button/icon-button.component';
 @use 'radio/radio-group.component';
 @use 'radio/radio.component';
-@use 'select-button/select-button.component';
 @use 'slider/slider.component';
 @use 'time-input/time-input.component';

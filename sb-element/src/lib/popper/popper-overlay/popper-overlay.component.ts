@@ -1,10 +1,9 @@
 import { Component, ElementRef, HostBinding, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinHide, SbAlignDirective, Triggerable } from '../../core';
-import { PopperPosition } from '../popper/popper-position';
+import { Alignment, mixinClassName, mixinHide, Position, SbAlignRelateiveDirective, Side, Triggerable } from '../../core';
 
 const SbPopperOverlayCore = mixinHide(
   mixinClassName(
-    SbAlignDirective, 'sb-popper-overlay'
+    SbAlignRelateiveDirective, 'sb-popper-overlay'
   ), false
 );
 
@@ -15,87 +14,83 @@ const SbPopperOverlayCore = mixinHide(
 })
 export class SbPopperOverlayComponent extends SbPopperOverlayCore implements Triggerable {
 
-  @ViewChild('arrow', {read: SbAlignDirective})
-  public arrow!: SbAlignDirective;
+  @ViewChild('arrow', {read: SbAlignRelateiveDirective})
+  public arrow!: SbAlignRelateiveDirective;
 
-  @Input() @HostBinding('class')
-  public position: string = PopperPosition.TOP;
-
-  get isTop(): boolean {
-    return new RegExp(PopperPosition.TOP).test(this.position);
+  @Input('position') @HostBinding('class')
+  set stringPosition(position: string) {
+    this.position = Position.parse(position);
+    if (this.visible && this.currentContentBBox) {
+      this.alignRelative(this.currentContentBBox);
+    }
+  }
+  get stringPosition(): string {
+    return this.position.toString();
   }
 
-  get isLeft(): boolean {
-    return new RegExp(PopperPosition.LEFT).test(this.position);
+  @Input('alignment')
+  set alignmentNumber(alignment: number) {
+    this.position.alignment = alignment;
+    if (this.visible && this.currentContentBBox) {
+      this.alignRelative(this.currentContentBBox);
+    }
   }
 
-  get isRight(): boolean {
-    return new RegExp(PopperPosition.RIGHT).test(this.position);
-  }
+  public position: Position = new Position(Side.TOP, 0);
+  private currentContentBBox?: DOMRect;
 
-  get isBottom(): boolean {
-    return new RegExp(PopperPosition.BOTTOM).test(this.position);
-  }
-
-  get isStart(): boolean {
-    return new RegExp('start').test(this.position);
-  }
-
-  get isEnd(): boolean {
-    return new RegExp('end').test(this.position);
-  }
-
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
     this.transitionElement = this._elementRef;
   }
 
   public trigger(): void {
     this.visible = !this.visible;
+
+    if (!this.visible) {
+      this.currentContentBBox = undefined;
+    }
   }
 
-  public alignRelative(contentBBox: DOMRect): void {
-    let popperBBox = this.nativeElement.getBoundingClientRect();
-    let arrowBBox = this.arrow.nativeElement.getBoundingClientRect();
-
-    let pDx = 0;
-    let pDy = 0;
-
-    let aDx = 0;
-    let aDy = 0;
-
-    if (this.isTop || this.isBottom) {
-      aDx = Math.min(
-        popperBBox.width/2 - arrowBBox.width * 3/2,
-        contentBBox.width / 2 - popperBBox.width / 2
-      );
-      if (this.isEnd) {
-        pDx = contentBBox.width - popperBBox.width;
-        aDx = -aDx;
-      } else if (!this.isStart){
-        pDx = contentBBox.width / 2 - popperBBox.width / 2;
-        aDx = 0;
+  public alignRelative(contentBBox: DOMRect): Alignment {
+    this.currentContentBBox = contentBBox;
+    let alignment = super.alignRelative(
+      contentBBox,
+      this.position,
+      {
+        marginSide: {
+          dx: this.arrow.width,
+          dy: this.arrow.height
+        },
+        maxAlignment : {
+          dx: (contentBBox.width - this.width) / 2,
+          dy: (contentBBox.height - this.height) / 2
+        }
       }
-    }
+    );
 
-    if (this.isLeft || this.isRight) {
-      aDy = Math.min(
-        popperBBox.height/2 - arrowBBox.height * 3/2,
-        contentBBox.height / 2 - popperBBox.height / 2
-      );
-      if (this.isEnd) {
-        pDy = contentBBox.height - popperBBox.height;
-        aDy = -aDy;
-      } else if (!this.isStart){
-        pDy = contentBBox.height / 2 - popperBBox.height / 2;
-        aDy = 0;
+    let borderRadius = parseFloat(getComputedStyle(this._elementRef.nativeElement).borderRadius);
+
+    this.arrow.alignRelative(
+      this.boundingClientRect,
+      this.position.oppositeSide().oppositeAlignment(),
+      {
+        marginAlignment: {
+          dx: borderRadius,
+          dy: borderRadius,
+        },
+        minAlignment: {
+          dx: Math.abs(alignment.offsetAlignment.dx),
+          dy: Math.abs(alignment.offsetAlignment.dy)
+        },
+        maxAlignment : {
+          dx: (this.width - this.arrow.width) / 2 - borderRadius,
+          dy: (this.height - this.arrow.height) / 2 - borderRadius
+        }
       }
-    }
+    );
 
-    this.moveBy(pDx, pDy);
-    this.arrow.moveBy(aDx, aDy);
+    return alignment;
   }
 
 }

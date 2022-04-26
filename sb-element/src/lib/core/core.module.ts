@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbAlignDirective } from './align';
+import { SbAlignModule } from './align';
 import { SbCollapseDirective } from './collapse';
 import { SbInsertDirective } from './insert';
 import { SbStyleModule } from './style';
@@ -14,7 +14,6 @@ import { SbOverlayModule } from './overlay';
 
 @NgModule({
   declarations: [
-    SbAlignDirective,
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
     SbCollapseDirective,
@@ -26,7 +25,6 @@ import { SbOverlayModule } from './overlay';
     CommonModule
   ],
   exports: [
-    SbAlignDirective,
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
     SbCollapseDirective,
@@ -34,6 +32,7 @@ import { SbOverlayModule } from './overlay';
     SbHoverTriggerDirective,
     SbTriggerDirective,
 
+    SbAlignModule,
     SbStyleModule,
     SbOverlayModule
   ]

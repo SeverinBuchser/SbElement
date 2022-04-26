@@ -101,11 +101,11 @@
     <sb-card-content ngClass="inputs">
       <sb-select-button
         [options]="options"
-        accent
-        size="m"
-        [color]="color">
-        Select
+        placeholder="Select One"
+        [(ngModel)]="hi"
+        accent>
       </sb-select-button>
+      {{hi}}
     </sb-card-content>
   </sb-card>
   <sb-card>

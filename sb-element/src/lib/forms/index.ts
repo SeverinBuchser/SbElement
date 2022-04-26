@@ -6,7 +6,7 @@ export * from './icon-button';
 export * from './input';
 export * from './number-input';
 export * from './radio';
-export * from './select-button';
+export * from './select';
 export * from './slider';
 export * from './time-input';
 export * from './toggle';

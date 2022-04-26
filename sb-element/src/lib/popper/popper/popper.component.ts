@@ -1,12 +1,10 @@
-import { AfterViewInit, Component, ComponentRef, ContentChild, ElementRef, OnDestroy, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { mixinClassName, Poppable, SbOverlayService, SbOverlayComponent } from '../../core/';
 import { SbPopperContentComponent } from '../popper-content';
 import { SbPopperOverlayComponent } from '../popper-overlay';
 
 const SbPopperCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-popper'
+  SbOverlayComponent, 'sb-popper'
 );
 
 @Component({
@@ -21,7 +19,7 @@ const SbPopperCore = mixinClassName(
     'hide'
   ]
 })
-export class SbPopperComponent extends SbPopperCore implements Poppable, AfterViewInit, OnDestroy {
+export class SbPopperComponent extends SbPopperCore implements Poppable, AfterContentInit, OnDestroy {
 
   @ContentChild(SbPopperContentComponent, {read: ElementRef})
   public content!: ElementRef;
@@ -29,39 +27,29 @@ export class SbPopperComponent extends SbPopperCore implements Poppable, AfterVi
   @ContentChild(SbPopperOverlayComponent)
   public popperOverlay!: SbPopperOverlayComponent;
 
-  @ViewChild('overlayTemplate')
-  public overlayTemplate!: TemplateRef<any>;
-
-  private overlayRef: ComponentRef<SbOverlayComponent>;
-
   constructor(
     elementRef: ElementRef,
-    private overlayService: SbOverlayService
+    overlayService: SbOverlayService
   ) {
-    super(elementRef);
-    this.overlayRef = this.overlayService.create();
+    super(elementRef, overlayService);
   }
 
   public trigger(): void {
     this.popperOverlay.trigger();
   }
 
-  public ngAfterViewInit(): void {
-    this.overlayRef.instance.createEmbeddedView(this.overlayTemplate);
+  public ngAfterContentInit(): void {
     this.popperOverlay.showStart.subscribe(() => {
       let contentBBox = this.content.nativeElement.getBoundingClientRect();
-      this.overlayRef.instance.setBoundingBox(contentBBox);
+      this.overlayOutletRef.instance.setBoundingBox(contentBBox);
       this.popperOverlay.alignRelative(contentBBox);
     })
     this.popperOverlay.hideEnd.subscribe(() => {
-      this.overlayRef.instance.clear();
+      this.overlayOutletRef.instance.clear();
+      this.popperOverlay.clear();
     })
   }
-
-  public ngOnDestroy(): void {
-    this.overlayRef.destroy();
-  }
-
+  
   public getPopperRef(): ElementRef<any> {
     return this.popperOverlay._elementRef;
   }

@@ -1,5 +1,5 @@
 import { ApplicationRef, ComponentRef, Injectable, Injector, NgModuleRef, Type, ViewContainerRef } from '@angular/core';
-import { SbOverlayComponent } from './overlay.component';
+import { SbOverlayOutletComponent } from './overlay-outlet';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,7 @@ export class SbOverlayService {
     this.appView = this.appRef.components[0].injector.get(ViewContainerRef);
   }
 
-  public create(): ComponentRef<SbOverlayComponent> {
-    return this.appView.createComponent(SbOverlayComponent);
-  }
-
-  public createCustom<C extends SbOverlayComponent>(
+  public create<C extends SbOverlayOutletComponent>(
     componentType: Type<C>,
     options?: {
       index?: number;

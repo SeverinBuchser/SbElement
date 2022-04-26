@@ -18,7 +18,7 @@ export class FormExampleComponent implements OnInit {
   public fileInputPicker!: PickerCardComponent;
   @ViewChild('buttonPicker', { static: true })
   public buttonPicker!: PickerCardComponent;
-
+  public hi = 'Option 1';
 
   @Input()
   public color: string = Color.PRIMARY;

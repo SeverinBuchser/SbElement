@@ -10,7 +10,6 @@ File Input / Style
   $bigger: spacing.get-bigger($key);
   &.sb--#{$key} {
     height: $bigger;
-    width: calc($bigger * 5);
     label {
       height: 100%;
       width: 100%;

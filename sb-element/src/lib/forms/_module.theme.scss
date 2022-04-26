@@ -2,6 +2,7 @@
 @use 'date-input/module.theme' as date-input;
 @use 'input/module.theme' as input;
 @use 'number-input/module.theme' as number-input;
+@use 'select/module.theme' as select;
 @use 'toggle/module.theme' as toggle;
 
 @use 'checkbox/checkbox.component.theme';
@@ -9,7 +10,6 @@
 @use 'icon-button/icon-button.component.theme';
 @use 'radio/radio-group.component.theme';
 @use 'radio/radio.component.theme';
-@use 'select-button/select-button.component.theme';
 @use 'slider/slider.component.theme';
 @use 'time-input/time-input.component.theme';
 
@@ -23,7 +23,7 @@
   @include number-input.theme($theme);
   @include radio-group.theme($theme);
   @include radio.theme($theme);
-  @include select-button.theme($theme);
+  @include select.theme($theme);
   @include slider.theme($theme);
   @include time-input.theme($theme);
   @include toggle.theme($theme);

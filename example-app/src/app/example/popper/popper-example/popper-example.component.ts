@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SbPopperComponent } from 'sb-element';
 
 @Component({
   selector: 'app-popper-example',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popper-example.component.scss']
 })
 export class PopperExampleComponent implements OnInit {
+
+  public sth: number = 0;
+
+  @ViewChild('popperOne')
+  public popper!: SbPopperComponent;
 
   constructor() { }
 

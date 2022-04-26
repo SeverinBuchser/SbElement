@@ -1,0 +1,5 @@
+@use 'select-list/select-list.component.theme';
+
+@mixin theme($theme) {
+  @include select-list.theme($theme);
+}

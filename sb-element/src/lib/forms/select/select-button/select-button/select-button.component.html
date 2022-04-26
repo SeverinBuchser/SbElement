@@ -1,0 +1,27 @@
+<sb-select-button-overlay>
+  <button
+    sbClickTrigger
+    [triggerable]="list"
+  	[accent]="accent"
+  	[plain]="plain"
+  	[size]="size"
+  	[color]="color"
+  	[disabled]="disabled"
+  	(focus)="setFocusedState(true)"
+  	(blur)="setFocusedState(false)">
+    {{ value ? value : placeholder }}
+    <sb-icon>expand_more</sb-icon>
+  </button>
+  <sb-select-button-list
+    #list
+    [options]="options"
+    (select)="select($event)"
+  	[accent]="accent"
+  	[plain]="plain"
+  	[size]="size"
+  	[color]="color"
+  	[disabled]="disabled"
+  	(focus)="setFocusedState(true)"
+  	(blur)="setFocusedState(false)">
+  </sb-select-button-list>
+</sb-select-button-overlay>

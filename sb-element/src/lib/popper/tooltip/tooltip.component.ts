@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { PopperPosition } from "../popper/popper-position";
 
 @Component({
   selector: 'sb-tooltip',
@@ -27,6 +26,6 @@ export class SbTooltipComponent {
   public delay: number = 0;
 
   @Input()
-  public position: string = PopperPosition.TOP;
-  
+  public position: string = 'top-center';
+
 }

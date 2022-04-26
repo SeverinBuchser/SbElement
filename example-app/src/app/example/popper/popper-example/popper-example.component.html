@@ -20,13 +20,18 @@
     </sb-card-header>
     <sb-card-content ngClass="center">
       <sb-popper #popperOne>
-        <sb-popper-overlay position="bottom">
+        <sb-popper-overlay position="top" [alignment]="sth">
           Popper
         </sb-popper-overlay>
         <sb-popper-content>
-          <button color="primary" sbClickOutsideTrigger [triggerable]="popperOne">Open Popper</button>
+          <button color="primary" sbClickTrigger [triggerable]="popperOne">Open Popper</button>
         </sb-popper-content>
       </sb-popper>
+      <sb-slider
+      [(ngModel)]="sth"
+      [max]="1"
+      [min]="-1"
+      [step]="0.01"></sb-slider>
     </sb-card-content>
   </sb-card>
 </sb-grid>

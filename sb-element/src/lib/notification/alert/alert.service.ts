@@ -67,7 +67,7 @@ export class SbAlertService extends Subject<SbAlertOptions> {
 
   private async showAlert(alert: SbAlertOptions): Promise<void> {
     this.next(alert);
-    let alertRef = this.overlayService.createCustom(SbAlertComponent);
+    let alertRef = this.overlayService.create(SbAlertComponent);
     return alertRef.instance.alert(alert).then(() => {
       alertRef.destroy();
     });

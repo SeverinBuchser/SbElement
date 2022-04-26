@@ -1,0 +1,41 @@
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/display";
+/*****************************************************************************
+Select-List / Style
+******************************************************************************/
+
+// SIZE
+@mixin select-list-size($key, $spacing) {
+  &.sb--#{$key} &__option {
+    height: spacing.get-bigger($key);
+  }
+}
+
+// ROOT
+.sb-select-list {
+  display: block;
+
+  &__option {
+    cursor: pointer;
+    @include display.flex($justify: null);
+    @include transitioning.ease(300ms, color, background);
+  }
+
+  &.align-left &__option {
+    justify-content: flex-start;
+  }
+
+  &.align-center &__option {
+    justify-content: center;
+  }
+
+  &.align-right &__option {
+    justify-content: flex-end;
+  }
+
+
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include select-list-size($key, $spacing);
+  }
+}

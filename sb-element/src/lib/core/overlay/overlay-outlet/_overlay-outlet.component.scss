@@ -2,11 +2,11 @@
 @use "sb-element/core/transitioning";
 @use "sb-element/core/border";
 /*****************************************************************************
-Overlay / Style
+Overlay-Outlet / Style
 ******************************************************************************/
 
 // ROOT
-.sb-overlay {
+.sb-overlay-outlet {
   display: block;
   position: absolute;
   top: 0;

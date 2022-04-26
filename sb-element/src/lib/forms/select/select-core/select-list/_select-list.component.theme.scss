@@ -1,9 +1,9 @@
 @use "sb-element/core/theming";
 /*****************************************************************************
-Select-button / Theme
+Select-List / Theme
 ******************************************************************************/
 // COLOR
-@mixin select-button-color($bg, $color, $hover-bg, $hover-color) {
+@mixin select-list-color($bg, $color, $hover-bg, $hover-color) {
   background: $bg;
   color: $color;
   &:hover {
@@ -19,9 +19,9 @@ Select-button / Theme
 // THEME
 @mixin theme($theme) {
   @include theming.for-each-color($theme) using ($color) {
-    .sb-select-button {
+    .sb-select-list {
       &.sb--#{$color} &__option {
-        @include select-button-color(
+        @include select-list-color(
           theming.get-color($theme, $color),
           theming.get-text($theme, $color),
           theming.get-color-inverted($theme, $color),
@@ -29,9 +29,8 @@ Select-button / Theme
         );
       }
 
-
       &.sb--#{$color}.plain &__option {
-        @include select-button-color(
+        @include select-list-color(
           theming.get-color-inverted($theme, $color),
           theming.get-text-inverted($theme, $color),
           theming.get-color($theme, $color),
@@ -40,7 +39,7 @@ Select-button / Theme
       }
 
       &.sb--#{$color}.accent &__option {
-        @include select-button-color(
+        @include select-list-color(
           theming.get-accent($theme),
           theming.get-accent-text($theme),
           theming.get-color($theme, $color),
@@ -49,7 +48,7 @@ Select-button / Theme
       }
 
       &.sb--#{$color}.plain.accent &__option {
-        @include select-button-color(
+        @include select-list-color(
           theming.get-accent($theme),
           theming.get-accent-text($theme),
           theming.get-color-inverted($theme, $color),

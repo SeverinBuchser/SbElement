@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SbOverlayComponent } from './overlay.component';
+import { SbOverlayComponent } from './overlay';
+import { SbOverlayOutletComponent } from './overlay-outlet';
 
 @NgModule({
-  declarations: [SbOverlayComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SbOverlayComponent]
+  declarations: [SbOverlayComponent, SbOverlayOutletComponent],
+  imports: [CommonModule],
+  exports: [SbOverlayComponent, SbOverlayOutletComponent]
 })
 export class SbOverlayModule {}

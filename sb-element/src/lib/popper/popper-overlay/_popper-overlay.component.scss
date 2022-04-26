@@ -14,27 +14,6 @@ Popper-Overlay / Style
   @include spacing.padding(s);
   @include border.radius(s);
 
-
-  &[class*="top"] {
-    margin-bottom: calc(#{spacing.get-spacing(s)} / 2);
-    bottom: 100%;
-  }
-
-  &[class*="left"] {
-    margin-right: calc(#{spacing.get-spacing(s)} / 2);
-    right: 100%;
-  }
-
-  &[class*="right"] {
-    margin-left: calc(#{spacing.get-spacing(s)} / 2);
-    left: 100%;
-  }
-
-  &[class*="bottom"] {
-    margin-top: calc(#{spacing.get-spacing(s)} / 2);
-    top: 100%;
-  }
-
   &.sb--hidden {
     display: none;
   }
@@ -49,29 +28,16 @@ Popper-Overlay / Style
 
   &__arrow {
     position: absolute;
+    top: -1px;
+    left: -1px;
   }
 
-  &[class*="top"] &__arrow {
-    width: spacing.get-spacing(s);
-    left: calc(50% - #{spacing.get-spacing(s)} / 2);
-    top: 100%;
+  $dimension: spacing.get-spacing(s);
+  &[class*="top"] &__arrow, &[class*="bottom"] &__arrow {
+    width: $dimension;
   }
 
-  &[class*="left"] &__arrow {
-    height: spacing.get-spacing(s);
-    top: calc(50% - #{spacing.get-spacing(s)} / 2);
-    left: 100%;
-  }
-
-  &[class*="right"] &__arrow {
-    height: spacing.get-spacing(s);
-    top: calc(50% - #{spacing.get-spacing(s)} / 2);
-    right: 100%;
-  }
-
-  &[class*="bottom"] &__arrow {
-    width: spacing.get-spacing(s);
-    left: calc(50% - #{spacing.get-spacing(s)} / 2);
-    bottom: 100%;
+  &[class*="left"] &__arrow, &[class*="right"] &__arrow {
+    height: $dimension;
   }
 }

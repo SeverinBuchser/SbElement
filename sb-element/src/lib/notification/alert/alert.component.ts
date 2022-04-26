@@ -1,10 +1,10 @@
 import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SbAlertOptions } from './alert';
-import { mixinClassName, mixinHide, SbOverlayComponent } from '../../core';
+import { mixinClassName, mixinHide, SbOverlayOutletComponent } from '../../core';
 import { SbAlertBoxComponent } from "../alert-box";
 
 const SbAlertCore = mixinHide(
-  mixinClassName(SbOverlayComponent, 'sb-alert')
+  mixinClassName(SbOverlayOutletComponent, 'sb-alert')
 );
 
 @Component({

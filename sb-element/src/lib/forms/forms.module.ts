@@ -16,10 +16,10 @@ import { SbToggleModule } from './toggle';
 import { SbIconButtonComponent } from './icon-button';
 import { SbCheckboxComponent } from './checkbox';
 import { SbRadioGroupComponent, SbRadioComponent } from './radio';
-import { SbSelectButtonComponent } from './select-button';
 import { SbSliderComponent } from './slider';
 import { SbFileInputComponent } from './file-input';
 import { SbTimeInputComponent } from './time-input';
+import { SbSelectModule } from './select/select.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { SbTimeInputComponent } from './time-input';
     SbCheckboxComponent,
     SbRadioGroupComponent,
     SbRadioComponent,
-    SbSelectButtonComponent,
     SbSliderComponent,
     SbFileInputComponent,
     SbTimeInputComponent,
@@ -50,7 +49,6 @@ import { SbTimeInputComponent } from './time-input';
     SbCheckboxComponent,
     SbRadioGroupComponent,
     SbRadioComponent,
-    SbSelectButtonComponent,
     SbSliderComponent,
     SbFileInputComponent,
     SbTimeInputComponent,
@@ -60,6 +58,7 @@ import { SbTimeInputComponent } from './time-input';
     SbDateInputModule,
     SbInputModule,
     SbNumberInputModule,
+    SbSelectModule,
     SbToggleModule
   ]
 })
