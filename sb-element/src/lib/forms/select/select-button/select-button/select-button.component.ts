@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SbSelectCore } from '../../select-core';
+import { SbSelectOneCore } from '../../select-core';
 import { CanClassName, CanDisable, CanFocus, HasElementRef, mixinAccent, mixinClassName, mixinColor, mixinPlain, mixinSize } from '../../../../core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SbSelectButtonListComponent } from '../select-button-list';
@@ -9,7 +9,7 @@ const SbSelectButtonCore = mixinAccent(
     mixinSize(
       mixinColor(
         mixinClassName(
-          SbSelectCore, 'sb-select-button'
+          SbSelectOneCore, 'sb-select-button'
         )
       )
     )
@@ -17,7 +17,7 @@ const SbSelectButtonCore = mixinAccent(
 );
 
 @Component({
-  selector: 'sb-select-button',
+  selector: 'sb-select[type=button]',
   templateUrl: './select-button.component.html',
   encapsulation: ViewEncapsulation.None,
   host: {

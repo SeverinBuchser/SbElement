@@ -142,6 +142,10 @@
         [color]="toggleCheckboxPicker.color">
         Option
       </sb-toggle>
+      <sb-select
+        type="checkbox"
+        [(ngModel)]="checkboxes">
+      </sb-select>
     </picker-card-content>
     <picker-card-content>
       <sb-code [code]="toggleCheckboxDoc" language="xml"></sb-code>
@@ -164,12 +168,13 @@
       <p class="sb--s">Select Button</p>
     </sb-card-header>
     <sb-card-content ngClass="inputs">
-      <sb-select-button
+      <sb-select
+        type="button"
         [options]="options"
         placeholder="Select One"
         [(ngModel)]="hi"
         accent>
-      </sb-select-button>
+      </sb-select>
       {{hi}}
     </sb-card-content>
   </sb-card>

@@ -37,9 +37,9 @@ export class FormExampleComponent implements OnInit {
 
   public options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
   public checkboxes = [
-    {name: 'Option 1', checked: false},
-    {name: 'Option 2', checked: false},
-    {name: 'Option 3', checked: false}
+    {name: 'Option 1', toggled: true},
+    {name: 'Option 2', toggled: false},
+    {name: 'Option 3', toggled: false}
   ];
 
   constructor(private doc: DocService) { }

@@ -1,12 +1,12 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SbToggleCore } from '../toggle-core';
+import { SbToggleCVACore } from '../toggle-core';
 import { Color, mixinAccent, mixinClassName, mixinColor } from '../../../core';
 
 const SbToggleCheckboxCore = mixinAccent(
   mixinColor(
     mixinClassName(
-      SbToggleCore, 'sb-toggle-checkbox'
+      SbToggleCVACore, 'sb-toggle-checkbox'
     ), Color.PRIMARY
   )
 );

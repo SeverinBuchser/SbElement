@@ -1,9 +1,9 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SbToggleCore } from '../toggle-core';
+import { SbToggleCVACore } from '../toggle-core';
 import { Color, mixinClassName, Size } from '../../../core';
 
-const SbToggleButtonCore = mixinClassName(SbToggleCore, 'sb-toggle-button');
+const SbToggleButtonCore = mixinClassName(SbToggleCVACore, 'sb-toggle-button');
 
 @Component({
   selector: 'sb-toggle[type=button]',

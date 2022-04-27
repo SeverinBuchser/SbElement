@@ -1,76 +1,71 @@
-import { ElementRef } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
-import { CanDisable, CanFocus, HasElementRef, mixinDisable, mixinFocus } from '../../../core';
+import { SbToggleCore } from '../../toggle';
 
-export class SbSelectCore<Selectable> extends mixinFocus(
-	mixinDisable(
-		class {
-			constructor() {}
-		}
-	)
-) implements HasElementRef, ControlValueAccessor, CanDisable, CanFocus {
+export interface SbSelectToggle<T> {
+	name: T;
+	toggled: boolean;
+}
+
+export class SbSelectCore<Selectable> {
 
   private _options: Array<Selectable> = new Array<Selectable>();
 	set options(options: Array<Selectable>) {
 		this._options = options;
-		this.selected = new Map();
+		this._toggles = new Map();
 		this._options.forEach((option: Selectable) => {
-			this.selected.set(option, false);
+			this._toggles.set(option, new SbToggleCore());
 		})
+    this.updateToggles();
 	}
 	get options(): Array<Selectable> {
 		return this._options;
 	}
 
-	public selected: Map<Selectable, boolean> = new Map<Selectable, boolean>();
+	protected _toggles: Map<Selectable, SbToggleCore> = new Map<Selectable, SbToggleCore>();
+  public toggles: Array<SbSelectToggle<Selectable>> = new Array();
 
-  private onChange: any = () => {};
-  private onTouch: any = () => {};
-
-  private innerValue: Selectable | undefined = undefined;
-
-	get value(): Selectable | undefined {
-		return this.innerValue;
-	}
-
-  constructor(public _elementRef: ElementRef) {
-    super();
+  protected updateToggles(): void {
+    this.toggles = Array.from(this._toggles.entries())
+    .map((value: [Selectable, SbToggleCore]) => {
+      return {
+        name: value[0],
+        toggled: value[1].toggled
+      }
+    })
   }
 
-	public isSelected(value: Selectable): boolean {
-		return this.selected.get(value) ? true : false;
+	public isSelected(option: Selectable): boolean {
+		let toggle = this.get(option);
+		return toggle ? toggle.toggled : false;
 	}
 
-	public select(value: Selectable): void {
-		if (value !== this.innerValue && !this.disabled) {
-			this.unset(this.innerValue);
-      this.innerValue = value;
-			this.set(this.innerValue);
-      this.onChange(value);
-    }
-	}
-
-	private unset(value: Selectable | undefined): void {
-		if (value !== undefined) {
-			this.selected.set(value, false);
+	public toggle(option: Selectable, isToggled?: boolean): void {
+		let toggle = this.get(option);
+		if (toggle) {
+			toggle.toggle(isToggled);
+      this.updateToggles();
 		}
 	}
 
-	private set(value: Selectable | undefined): void {
-		if (value !== undefined) {
-			this.selected.set(value, true);
+	protected unset(option: Selectable | undefined): void {
+		let toggle = this.get(option);
+		if (toggle) {
+			toggle.toggle(false);
+      this.updateToggles();
 		}
 	}
 
-  public writeValue(value: Selectable | undefined): void {
-    if (value !== this.innerValue && !this.disabled) {
-			this.unset(this.innerValue);
-      this.innerValue = value;
-			this.set(this.innerValue);
-    }
-  }
+	protected set(option: Selectable | undefined): void {
+		let toggle = this.get(option);
+		if (toggle) {
+			toggle.toggle(true);
+      this.updateToggles();
+		}
+	}
 
-  public registerOnChange(fn: any): void { this.onChange = fn }
-  public registerOnTouched(fn: any): void { this.onTouch = fn }
-  public onBlur(): void { this.onTouch() }
+	protected get(option: Selectable | undefined): SbToggleCore | undefined {
+		if (option !== undefined) {
+			return this._toggles.get(option);
+		}
+		return;
+	}
 }

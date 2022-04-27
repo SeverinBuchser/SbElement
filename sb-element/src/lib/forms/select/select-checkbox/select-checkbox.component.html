@@ -1,0 +1,6 @@
+<sb-toggle *ngFor="let selectToggle of toggles"
+	type="checkbox"
+	[ngModel]="selectToggle.toggled"
+	(ngModelChange)="select(selectToggle.name)">
+	{{ selectToggle.name }}
+</sb-toggle>

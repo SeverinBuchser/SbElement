@@ -9,7 +9,7 @@
   	[disabled]="disabled"
   	(focus)="setFocusedState(true)"
   	(blur)="setFocusedState(false)">
-    {{ value ? value : placeholder }}
+    {{ selectedOption ? selectedOption : placeholder }}
     <sb-icon>expand_more</sb-icon>
   </button>
   <sb-select-button-list
