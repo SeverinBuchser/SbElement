@@ -2,10 +2,10 @@
   <input
     type="radio"
     [attr.name]="name"
-    [value]="label"
+    [value]="name"
     [(ngModel)]="value"
     (focus)="setFocusedState(true)"
     (blur)="setFocusedState(false)"
     [disabled]="disabled"/>
-  <span>{{ label }}</span>
+  <span><ng-content></ng-content></span>
 </label>

@@ -4,3 +4,10 @@
 	(ngModelChange)="select(selectToggle.name)">
 	{{ selectToggle.name }}
 </sb-toggle>
+<sb-toggle *ngFor="let selectToggle of toggles"
+	type="radio"
+	[name]="selectToggle.name"
+	[ngModel]="selectToggle.toggled"
+	(ngModelChange)="select(selectToggle.name)">
+	{{ selectToggle.name }}
+</sb-toggle>

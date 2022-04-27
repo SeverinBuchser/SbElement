@@ -7,7 +7,6 @@
 
 @use 'file-input/file-input.component.theme';
 @use 'icon-button/icon-button.component.theme';
-@use 'radio/radio-group.component.theme';
 @use 'radio/radio.component.theme';
 @use 'slider/slider.component.theme';
 @use 'time-input/time-input.component.theme';
@@ -19,7 +18,6 @@
   @include icon-button.theme($theme);
   @include input.theme($theme);
   @include number-input.theme($theme);
-  @include radio-group.theme($theme);
   @include radio.theme($theme);
   @include select.theme($theme);
   @include slider.theme($theme);

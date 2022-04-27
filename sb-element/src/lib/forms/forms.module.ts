@@ -14,19 +14,18 @@ import { SbNumberInputModule } from './number-input';
 import { SbToggleModule } from './toggle';
 
 import { SbIconButtonComponent } from './icon-button';
-import { SbRadioGroupComponent, SbRadioComponent } from './radio';
 import { SbSliderComponent } from './slider';
 import { SbFileInputComponent } from './file-input';
+import { SbRadioComponent } from './radio';
 import { SbTimeInputComponent } from './time-input';
 import { SbSelectModule } from './select/select.module';
 
 @NgModule({
   declarations: [
     SbIconButtonComponent,
-    SbRadioGroupComponent,
-    SbRadioComponent,
     SbSliderComponent,
     SbFileInputComponent,
+    SbRadioComponent,
     SbTimeInputComponent,
   ],
   imports: [
@@ -44,10 +43,9 @@ import { SbSelectModule } from './select/select.module';
   exports: [
     // components
     SbIconButtonComponent,
-    SbRadioGroupComponent,
-    SbRadioComponent,
     SbSliderComponent,
     SbFileInputComponent,
+    SbRadioComponent,
     SbTimeInputComponent,
 
     // modules

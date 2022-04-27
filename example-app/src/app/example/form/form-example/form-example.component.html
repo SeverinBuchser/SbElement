@@ -137,15 +137,12 @@
   <picker-card #toggleCheckboxPicker title="Toggle Checkbox" [pickShape]="false" [looksNotAllowed]="['plain', 'accent-plain']">
     <picker-card-content>
       <sb-toggle
+        *ngFor="let option of options"
         type="checkbox"
         [accent]="toggleCheckboxPicker.look.includes('accent')"
         [color]="toggleCheckboxPicker.color">
-        Option
+        {{ option }}
       </sb-toggle>
-      <sb-select
-        type="checkbox"
-        [(ngModel)]="checkboxes">
-      </sb-select>
     </picker-card-content>
     <picker-card-content>
       <sb-code [code]="toggleCheckboxDoc" language="xml"></sb-code>
@@ -156,11 +153,11 @@
       <p class="sb--s">Radio</p>
     </sb-card-header>
     <sb-card-content>
-      <sb-radio-group
-        ngClass="group"
-        [options]="options"
-        [color]="color">
-      </sb-radio-group>
+      <sb-radio
+        *ngFor="let option of options"
+        [name]="option">
+        {{ option }}
+      </sb-radio>
     </sb-card-content>
   </sb-card>
   <sb-card>
