@@ -14,7 +14,6 @@ const allLooks: Array<Look> = ['default', 'plain', 'accent', 'accent-plain'];
 @Component({
   selector: 'look-picker',
   templateUrl: './look-picker.component.html',
-  styleUrls: ['./look-picker.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,

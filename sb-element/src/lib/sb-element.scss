@@ -1,20 +1,19 @@
 @forward 'core/module';
 
-@use 'global/module' as global;
-
-@use 'bar/module' as bar;
-@use 'breadcrumbs/module' as breadcrumbs;
-@use 'calendar/module' as calendar;
-@use 'card/module' as card;
-@use 'core/module' as core;
-@use 'container/module' as container;
-@use 'grid/module' as grid;
-@use 'highlight/module' as highlight;
-@use 'icon/module' as icon;
-@use 'forms/module' as forms;
-@use 'indicator/module' as indicator;
-@use 'notification/module' as notification;
-@use 'popper/module' as popper;
-@use 'link/module' as link;
-@use 'table/module' as table;
-@use 'timeline/module' as timeline;
+@use 'global/module' 					as global;
+@use 'bar/module' 						as bar;
+@use 'breadcrumbs/module' 		as breadcrumbs;
+@use 'calendar/module' 				as calendar;
+@use 'card/module' 						as card;
+@use 'core/module' 						as core;
+@use 'container/module' 			as container;
+@use 'grid/module' 						as grid;
+@use 'highlight/module' 			as highlight;
+@use 'icon/module' 						as icon;
+@use 'forms/module' 					as forms;
+@use 'indicator/module' 			as indicator;
+@use 'notification/module' 		as notification;
+@use 'popper/module' 					as popper;
+@use 'link/module' 						as link;
+@use 'table/module' 					as table;
+@use 'timeline/module' 				as timeline;

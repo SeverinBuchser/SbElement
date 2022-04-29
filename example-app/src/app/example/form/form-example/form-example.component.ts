@@ -6,7 +6,6 @@ import { Color, Size } from "sb-element";
 @Component({
   selector: 'app-form-example',
   templateUrl: './form-example.component.html',
-  styleUrls: ['./form-example.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class FormExampleComponent implements OnInit {

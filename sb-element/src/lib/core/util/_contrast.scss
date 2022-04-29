@@ -1,0 +1,29 @@
+@use "sass:math";
+@use "sass:color";
+/*****************************************************************************
+Contrst
+******************************************************************************/
+
+// Calculate the difference in color.
+@function color-difference($color-one, $color-two) {
+  $r: (max(red($color-one), red($color-two))) - (min(red($color-one), red($color-two)));
+  $g: (max(green($color-one), green($color-two))) - (min(green($color-one), green($color-two)));
+  $b: (max(blue($color-one), blue($color-two))) - (min(blue($color-one), blue($color-two)));
+  $sum-rgb: $r + $g + $b;
+  @return math.abs($sum-rgb);
+}
+
+@function optimal-contrast-difference($color-one, $color-two) {
+  $differnce: color-difference($color-one, $color-two);
+  @return $differnce;
+}
+
+@function optimal-contrast($foreground-one, $foreground-two, $background) {
+  $difference-one: optimal-contrast-difference($foreground-one, $background);
+  $difference-two: optimal-contrast-difference($foreground-two, $background);
+  @if $difference-one > $difference-two {
+    @return $foreground-one;
+  } @else {
+    @return $foreground-two;
+  }
+}

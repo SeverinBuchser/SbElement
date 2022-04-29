@@ -1,211 +1,86 @@
 @use 'sass:map';
-@use 'palettes';
+@use 'palette';
+@use 'scheme';
 /*****************************************************************************
 Theme Definitions
 ******************************************************************************/
 
-// Validates the specified palette for completeness. The palette Map must
-// contain a default, light and dark color as well as the contrast colors for
-// all these colors. The Map structure looks as follows:
-//
-// $palette: (
-//   default: {color},
-//   light: {color},
-//   dark: {color},
-//   contrast: (
-//     default: {color},
-//     light: {color},
-//     dark: {color},
-//   )
-// );
-// @param {Map} $palette The palette to validate.
-// @returns {Map} The same palette as the $palette parameter.
-@function validate-palette($palette) {
-  @if not map.has-key($palette, default) {
-    @error 'Palette does not define a valid "default" color.';
-  } @else if not map.has-key($palette, light) {
-    @error 'Palette does not define a valid "light" color.';
-  } @else if not map.has-key($palette, dark) {
-    @error 'Palette does not define a valid "dark" color.';
-  }
-  @if map.has-key($palette, contrast) {
-    $contrast: map.get($palette, contrast);
-    @if not map.has-key($contrast, default) {
-      @error 'Contrast palette does not define a valid "default-contrast" color.';
-    } @else if not map.has-key($contrast, light) {
-      @error 'Contrast palette does not define a valid "lighter-contrast" color.';
-    } @else if not map.has-key($contrast, dark) {
-      @error 'Contrast palette does not define a valid "dark-contrast" color.';
-    }
-  } @else {
-    @error 'Palette does not define a valid "contrast" palette.';
-  }
-  @return $palette;
-}
-
-// Defines a color scheme from different color palettes and returns a Map of
-// all color-palettes. The colors to define are primary, secondary, success,
-// warn and info. All palettes are validated using the validate-palette function,
-// before returning the result.
-// @param {Map} $primary-palette Primary color-palette.
-// @param {Map} $secondary-palette Secondary color-palette.
-// @param {Map} $success-palette Success color-palette.
-// @param {Map} $warn-palette Warn color-palette.
-// @param {Map} $info-palette Info color-palette.
-// @returns {Map} A color scheme with primary, secondary, success, warn and info
-// colors.
-@function define-color-scheme($primary-palette, $secondary-palette, $success-palette,
-  $warn-palette, $info-palette) {
-  @return (
-    primary: validate-palette($primary-palette),
-    secondary: validate-palette($secondary-palette),
-    success: validate-palette($success-palette),
-    warn: validate-palette($warn-palette),
-    info: validate-palette($info-palette)
-  );
-}
-
-// Validates the specified color scheme. The scheme Map must
-// contain a primary, sedondary, success, warn and info palette. Each palette
-// must be valid. The Map structure looks as follows:
-//
-// $scheme: (
-//   primary: {Map},
-//   secondary: {Map},
-//   success: {Map},
-//   warn: {Map},
-//   info: {Map},
-// );
-//
-// @param {Map} $scheme The color scheme to validate.
-// @returns {Map} The same color scheme as the $scheme parameter.
-@function validate-color-scheme($scheme) {
-  @if not map.has-key($scheme, primary) {
-    @error 'Palette does not define a valid "primary" color-palette.';
-  } @else if not map.has-key($scheme, secondary) {
-    @error 'Palette does not define a valid "secondary" color-palette.';
-  } @else if not map.has-key($scheme, success) {
-    @error 'Palette does not define a valid "success" color-palette.';
-  } @else if not map.has-key($scheme, warn) {
-    @error 'Palette does not define a valid "warn" color-palette.';
-  } @else if not map.has-key($scheme, info) {
-    @error 'Palette does not define a valid "info" color-palette.';
-  }
-
-  @each $scheme-color, $palette in $scheme {
-    $temp: validate-palette($palette)
-  }
-
-  @return $scheme;
-}
-
-// Defines the light theme map from different color palettes and returns a Map
-// of the color scheme and the theme colors.
-// @param {Map} $primary-palette Primary color-palette.
-// @param {Map} $secondary-palette Secondary color-palette.
-// @param {Map} $success-palette Success color-palette.
-// @param {Map} $warn-palette Warn color-palette.
-// @param {Map} $info-palette Info color-palette.
-// @param {Map} $black-palette Palette used for defining theme-dependent colors
-// @returns {Map} A complete Sb-Theming light theme color-palette.
-@function define-light-theme($primary-palette, $secondary-palette,
-  $success-palette, $warn-palette, $info-palette, $white-palette, $black-palette) {
-  $result: (
-    scheme: define-color-scheme($primary-palette, $secondary-palette,
-      $success-palette, $warn-palette, $info-palette),
-    base: $white-palette,
-    base-secondary: $black-palette,
-    background-hue: light,
-    foreground-hue: default,
-    accent-hue: dark,
-    is-dark: false
-  );
-  @return $result;
-}
-
-// Defines the dark theme map from different color palettes and returns a Map of
-// the color scheme and the theme colors.
-// @param {Map} $primary-palette Primary color-palette.
-// @param {Map} $secondary-palette Secondary color-palette.
-// @param {Map} $success-palette Success color-palette.
-// @param {Map} $warn-palette Warn color-palette.
-// @param {Map} $info-palette Info color-palette.
-// @param {Map} $black-palette Palette used for defining theme-dependent colors
-// @returns {Map} A complete Sb-Theming dark theme color-palette.
-@function define-dark-theme($primary-palette, $secondary-palette,
-$success-palette, $warn-palette, $info-palette, $white-palette, $black-palette) {
-  $result: (
-  scheme: define-color-scheme($primary-palette, $secondary-palette,
-  $success-palette, $warn-palette, $info-palette),
-  base: $black-palette,
-  base-secondary: $white-palette,
-  background-hue: dark,
-  foreground-hue: default,
-  accent-hue: light,
-  is-dark: true
-  );
-  @return $result;
-}
-
-// Validates the specified Sb-Theming theme map. The Map must contain a valid
-// scheme map, a valid base palette, a background-hue, a foreground-hue and an
-// accent-hue as well as a id-dark boolean. The Map structure looks as follows:
-//
-// $theme: (
-//   scheme: {Map},
-//   base: {Map},
-//   base-secondary: {Map},
-//   background-hue: {String},
-//   foreground-hue: {String},
-//   accent-hue: {String},
-//   is-dark: {Boolean}
-// );
-//
-// @param {Map} $theme The Sb-Theming theme map to validate.
-// @returns {Map} The same Sb-Theming theme map as the $theme parameter.
+// Validates the specified theme for completeness. The theme must include a
+// valid base color schem as well as a valid primar, secondary, success, warn
+// and info color scheme.
+// @param {Map} $theme The theme to validate.
+// @returns {Map} The valid theme.
 @function validate-theme($theme) {
-  @if not map.has-key($theme, scheme) {
-    @error 'Palette does not define a valid "color-scheme".';
-  } @else if not map.has-key($theme, base) {
-    @error 'Palette does not define a valid "base" color-palette.';
-  } @else if not map.has-key($theme, base-secondary) {
-    @error 'Palette does not define a valid "base-secondary" color-palette.';
-  } @else if not map.has-key($theme, background-hue) {
-    @error 'Palette does not define a valid "background-hue".';
-  } @else if not map.has-key($theme, foreground-hue) {
-    @error 'Palette does not define a valid "foreground-hue".';
-  } @else if not map.has-key($theme, accent-hue) {
-    @error 'Palette does not define a valid "accent-hue".';
-  } @else if not map.has-key($theme, is-dark) {
-    @error 'Palette does not define a valid "is-dark" boolean value.';
+  @if not map.has-key($theme, base) {
+    @error "Theme does not specify a base scheme.";
+  } @else if not map.has-key($theme, primary) {
+    @error "Theme does not specify a primary scheme.";
+  } @else if not map.has-key($theme, secondary) {
+    @error "Theme does not specify a secondary scheme.";
+  } @else if not map.has-key($theme, success) {
+    @error "Theme does not specify a success scheme.";
+  } @else if not map.has-key($theme, warn) {
+    @error "Theme does not specify a warn scheme.";
+  } @else if not map.has-key($theme, info) {
+    @error "Theme does not specify a info scheme.";
   }
+  //  @else if not map.has-key($theme, type) {
+  //   @error "Theme does not specify a 'type', the type can either be 'light' or 'dark'.";
+  // } @else if map.get($theme, type) != light && map.get($theme, type) != dark {
+  //   @error "Theme type is incorrect, found #{map.get($theme, type)}, can either be 'light' or 'dark'."
+  // }
 
-  $scheme: validate-color-scheme(map.get($theme, scheme));
-  $base: validate-palette(map.get($theme, base));
-  $base-secondary: validate-palette(map.get($theme, base-secondary));
+  $base: scheme.validate-scheme(map.get($theme, base));
+  $primary: scheme.validate-scheme(map.get($theme, primary));
+  $secondary: scheme.validate-scheme(map.get($theme, secondary));
+  $success: scheme.validate-scheme(map.get($theme, success));
+  $warn: scheme.validate-scheme(map.get($theme, warn));
+  $info: scheme.validate-scheme(map.get($theme, info));
 
   @return $theme;
 }
 
+// Defines a theme. The theme includes a base color scheme as well as a
+// primary, a secondary, a success, a warn and an info color scheme.
+// @param {Map} $base-scheme The base color scheme.
+// @param {Map} $primary-scheme The primary color scheme.
+// @param {Map} $secondary-scheme The secondary color scheme.
+// @param {Map} $success-scheme The success color scheme.
+// @param {Map} $warn-scheme The warn color scheme.
+// @param {Map} $info-scheme The info color scheme.
+// @return {Map} The valid theme map.
+@function define-theme(
+  $base-scheme,
+  $primary-scheme,
+  $secondary-scheme,
+  $success-scheme,
+  $warn-scheme,
+  $info-scheme
+) {
+  @return validate-theme((
+    base: $base-scheme,
+    primary: $primary-scheme,
+    secondary: $secondary-scheme,
+    success: $success-scheme,
+    warn: $warn-scheme,
+    info: $info-scheme
+  ));
+}
 
-// Define two default themes with the predefined palettes,
-// @see "_palettes.scss".
-$light-theme: define-light-theme(
-  palettes.$blue-palette,
-  palettes.$pink-palette,
-  palettes.$green-palette,
-  palettes.$red-palette,
-  palettes.$yellow-palette,
-  palettes.$white-palette,
-  palettes.$black-palette
+$light-theme: define-theme(
+  scheme.$light-scheme,
+  scheme.$blue-scheme,
+  scheme.$magenta-scheme,
+  scheme.$green-scheme,
+  scheme.$red-light-scheme,
+  scheme.$yellow-scheme
 );
 
-$dark-theme: define-dark-theme(
-  palettes.$blue-palette,
-  palettes.$pink-palette,
-  palettes.$green-palette,
-  palettes.$red-palette,
-  palettes.$yellow-palette,
-  palettes.$white-palette,
-  palettes.$black-palette
+$dark-theme: define-theme(
+  scheme.$dark-scheme,
+  scheme.$blue-scheme,
+  scheme.$magenta-scheme,
+  scheme.$green-scheme,
+  scheme.$red-dark-scheme,
+  scheme.$yellow-scheme
 );

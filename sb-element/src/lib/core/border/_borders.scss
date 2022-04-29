@@ -5,8 +5,8 @@ Border Definitions
 
 // Define the border widths.
 $border-widths: (
-  s: var(--border-s),
-  m: var(--border-m),
-  l: var(--border-l),
-  xl: var(--border-xl)
+  s: 1px,
+  m: 2px,
+  l: 3px,
+  xl: 4px
 );

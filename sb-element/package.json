@@ -81,6 +81,9 @@
     },
     "./core/util": {
       "sass": "./src/lib/core/util/_index.scss"
+    },
+    "./variables": {
+      "sass": "./src/lib/core/_variables.scss"
     }
   }
 }

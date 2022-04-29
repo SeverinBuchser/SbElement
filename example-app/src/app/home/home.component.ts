@@ -5,7 +5,6 @@ import { Color, mixinClassName, mixinColor } from "sb-element";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent extends mixinColor(mixinClassName(class {

@@ -1,0 +1,137 @@
+@use 'sass:map';
+@use 'palette';
+/*****************************************************************************
+Scheme Definitions
+******************************************************************************/
+
+// Validates the specified color scheme for completeness. The scheme Map must
+// contain a valid color palette, an the following shades, which must be
+// included by the color palette: base-shade, alternate-shade, accent-shade and
+// highlight-shade.
+// @param {Map} $scheme The color scheme to validate.
+// @returns {Map} The valid color scheme.
+@function validate-scheme($scheme) {
+  @if not map.has-key($scheme, palette) {
+    @error "Scheme does not define a 'palette'.";
+  } @else if not map.has-key($scheme, base-shade) {
+    @error "Scheme does not define a 'base-shade'.";
+  } @else if not map.has-key($scheme, alternate-shade) {
+    @error "Scheme does not define a 'alternate-shade'.";
+  } @else if not map.has-key($scheme, accent-shade) {
+    @error "Scheme does not define a 'accent-shade'.";
+  } @else if not map.has-key($scheme, highlight-shade) {
+    @error "Scheme does not define a 'highlight-shade'.";
+  }
+
+  $palette: palette.validate-palette(map.get($scheme, palette));
+
+  @if not map.has-key($palette, shades, map.get($scheme, base-shade)) {
+    @error "The specified 'base-shade' does not exist in the palette shades.";
+  } @else if not map.has-key($palette, shades, map.get($scheme, alternate-shade)) {
+    @error "The specified 'alternate-shade' does not exist in the palette shades.";
+  } @else if not map.has-key($palette, shades, map.get($scheme, accent-shade)) {
+    @error "The specified 'accent-shade' does not exist in the palette shades.";
+  } @else if not map.has-key($palette, shades, map.get($scheme, highlight-shade)) {
+    @error "The specified 'highlight-shade' does not exist in the palette shades.";
+  }
+
+  @return $scheme;
+}
+
+// Defines a color scheme. A color scheme consists of a color palette and
+// certain shades. The shades include a base-shade, a alternate-shade and a
+// accent-shade. The shades have to be included in the color palette.
+// @param {Map} $palette The color palette.
+// @param {String} $base-shade The base-shade.
+// @param {String} $alternate-shade The alternate-shade.
+// @param {String} $accent-shade The accent-shade.
+// @param {String} $hightlight-shade The hightlight-shade.
+// @return {Map} The valid color scheme map.
+@function define-scheme(
+  $palette,
+  $base-shade,
+  $alternate-shade,
+  $accent-shade,
+  $hightlight-shade
+) {
+  @return validate-scheme((
+    palette: $palette,
+    base-shade: $base-shade,
+    alternate-shade: $alternate-shade,
+    accent-shade: $accent-shade,
+    highlight-shade: $hightlight-shade
+  ));
+}
+
+// Define default schemes.
+$light-scheme: define-scheme(
+  map.get(palette.$blues, desaturated),
+  1000,
+  900,
+  800,
+  700
+);
+
+$dark-scheme: define-scheme(
+  map.get(palette.$blues, desaturated),
+  0,
+  100,
+  200,
+  300
+);
+
+$gray-scheme: define-scheme(
+  palette.$grays,
+  500,
+  600,
+  700,
+  800
+);
+
+$red-light-scheme: define-scheme(
+  map.get(palette.$reds, saturated),
+  500,
+  700,
+  800,
+  900
+);
+
+$red-dark-scheme: define-scheme(
+  map.get(palette.$reds, saturated),
+  500,
+  300,
+  200,
+  100
+);
+
+$yellow-scheme: define-scheme(
+  map.get(palette.$yellows, saturated),
+  500,
+  700,
+  800,
+  900
+);
+
+$green-scheme: define-scheme(
+  map.get(palette.$greens, saturated),
+  500,
+  700,
+  800,
+  900
+);
+
+$blue-scheme: define-scheme(
+  map.get(palette.$blues, saturated),
+  500,
+  700,
+  800,
+  900
+);
+
+$magenta-scheme: define-scheme(
+  map.get(palette.$magentas, saturated),
+  500,
+  700,
+  800,
+  900
+);

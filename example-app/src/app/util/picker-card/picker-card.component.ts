@@ -1,4 +1,4 @@
-import { Component, ContentChildren, EventEmitter, Input, Output, QueryList } from '@angular/core';
+import { Component, ContentChildren, EventEmitter, Input, Output, QueryList, ViewEncapsulation } from '@angular/core';
 import { Color } from 'sb-element';
 import { Shape } from '../form-picker/form-picker.component';
 import { Look } from '../look-picker/look-picker.component';
@@ -7,7 +7,7 @@ import { PickerCardContentComponent } from './picker-card-content/picker-card-co
 @Component({
   selector: 'picker-card',
   templateUrl: './picker-card.component.html',
-  styleUrls: ['./picker-card.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class PickerCardComponent {
 

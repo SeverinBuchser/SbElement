@@ -43,7 +43,7 @@ Button / Theme
           theming.get-accent-text($theme),
           theming.get-color($theme, $color),
           theming.get-text($theme, $color)
-        )
+        );
       }
 
       &.plain.accent {
@@ -52,7 +52,7 @@ Button / Theme
           theming.get-accent-text($theme),
           theming.get-color-inverted($theme, $color),
           theming.get-text-inverted($theme, $color)
-        )
+        );
       }
     }
   }

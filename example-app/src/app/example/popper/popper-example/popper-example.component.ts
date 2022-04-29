@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SbPopperComponent } from 'sb-element';
 
 @Component({
   selector: 'app-popper-example',
   templateUrl: './popper-example.component.html',
-  styleUrls: ['./popper-example.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class PopperExampleComponent implements OnInit {
 

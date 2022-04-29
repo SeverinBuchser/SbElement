@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-table-example',
   templateUrl: './table-example.component.html',
-  styleUrls: ['./table-example.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class TableExampleComponent implements OnInit {
 

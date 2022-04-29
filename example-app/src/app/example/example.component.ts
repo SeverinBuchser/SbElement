@@ -5,7 +5,6 @@ import { SbThemeService, mixinClassName, mixinColor, Color } from 'sb-element';
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
-  styleUrls: ['./example.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ExampleComponent extends

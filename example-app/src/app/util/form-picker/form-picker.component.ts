@@ -13,7 +13,6 @@ export type Shape = 'default' | 'pill' | 'round'
 @Component({
   selector: 'form-picker',
   templateUrl: './form-picker.component.html',
-  styleUrls: ['./form-picker.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,

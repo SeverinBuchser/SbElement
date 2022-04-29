@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-typography-example',
   templateUrl: './typography-example.component.html',
-  styleUrls: ['./typography-example.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class TypographyExampleComponent implements OnInit {
 

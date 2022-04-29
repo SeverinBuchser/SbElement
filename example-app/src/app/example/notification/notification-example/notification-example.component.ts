@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SbAlertService } from "sb-element";
 import { DocService } from 'example-app/src/app/util/doc/doc.service';
 
 @Component({
   selector: 'app-notification-example',
   templateUrl: './notification-example.component.html',
-  styleUrls: ['./notification-example.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class NotificationExampleComponent implements OnInit {
 

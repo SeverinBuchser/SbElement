@@ -3,54 +3,75 @@
 Typography Definitions
 ******************************************************************************/
 
+// Scales a font-size Map.
+// @param {Map} $font-sizes The font size to scale.
+// @param {Number} $scale The factor with which to scale.
+// @returns {Map} The scaled font sizes.
+@function scale-font-sizes($font-sizes, $scale) {
+  $scaled: ();
+  @each $key, $value in $font-sizes {
+    $scaled: map.set($scaled, $key, $value * $scale);
+  }
+  @return $scaled;
+}
+
+// Imports the following font faces from goolge fonts api
+// (https://fonts.google.com/):
+//  - Inter (https://fonts.google.com/specimen/Inter)
+//    - Light 400
+//    - Medium 500
+//    - Bold 700
+// - Roboto Mono (https://fonts.google.com/specimen/Roboto+Mono)
+//		- Regular 400
+//    - Medium 500
+//    - Bold 700
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+// Imports material icons form the google fonts api (https://fonts.google.com/).
+// The icons can be found under 'https://fonts.google.com/icons'.
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+
 // Define font families
-$default-font-family: var(--font-family-default);
-$display-font-family: var(--font-family-display);
-$code-font-family: var(--font-family-code);
-$icon-font-family: var(--font-family-icon);
-$icon-outlined-font-family: var(--font-family-icon-outlined);
+$default-font-family: 'Inter', sans-serif;
+$display-font-family: 'Roboto Mono', monospace;
+$code-font-family: 'Roboto Mono', monospace;
+$icon-font-family: 'Material Icons Round';
+$icon-outlined-font-family: 'Material Icons Outlined';
 
 // Define font weights.
 $default-font-weights: (
-  light: var(--font-weight-light),
-  normal: var(--font-weight-normal),
-  bold: var(--font-weight-bold)
+  light: 400,
+  normal: 500,
+  bold: 700
 );
 
 $icon-font-weights: (
-  normal: var(--font-weight-normal)
+  normal: 500
 );
 
 // Define font sizes.
 $default-font-sizes: (
-  xxs: var(--font-size-7),
-  xs: var(--font-size-6),
-  s: var(--font-size-5),
-  m: var(--font-size-4),
-  l: var(--font-size-3),
-  xl: var(--font-size-2),
-  xxl: var(--font-size-1)
+  xxs: 0.75rem,
+  xs: 1rem,
+  s: 1.25rem,
+  m: 1.5rem,
+  l: 1.75rem,
+  xl: 2rem,
+  xxl: 2.5rem
 );
 
 $display-font-sizes: (
-  xxs: var(--display-font-size-7),
-  xs: var(--display-font-size-6),
-  s: var(--display-font-size-5),
-  m: var(--display-font-size-4),
-  l: var(--display-font-size-3),
-  xl: var(--display-font-size-2),
-  xxl: var(--display-font-size-1)
+  xxs: 2rem,
+  xs: 2.5rem,
+  s: 3rem,
+  m: 3.5rem,
+  l: 4.5rem,
+  xl: 5.5rem,
+  xxl: 6rem
 );
 
-$icon-font-sizes: (
-  xxs: var(--icon-font-size-7),
-  xs: var(--icon-font-size-6),
-  s: var(--icon-font-size-5),
-  m: var(--icon-font-size-4),
-  l: var(--icon-font-size-3),
-  xl: var(--icon-font-size-2),
-  xxl: var(--icon-font-size-1)
-);
+$icon-font-sizes: scale-font-sizes($default-font-sizes, 1.21);
 
 // Validates the specified font map. The Map must contain a font family, a
 // weights map and a sizes map. The Map structure looks as follows:

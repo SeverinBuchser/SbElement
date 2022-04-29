@@ -1,5 +1,5 @@
 {
-    "output": "./documentation",
+    "output": "../dist/documentation",
     "serve": true,
     "tsconfig": "tsconfig.lib.doc.json",
     "watch": true,

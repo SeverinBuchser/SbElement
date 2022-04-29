@@ -19,11 +19,6 @@ import { SbPopperModule } from './popper';
 import { SbTableModule } from './table';
 import { SbTimelineModule } from './timeline';
 
-// Components
-
-// Directives
-
-
 @NgModule({
   declarations: [],
   imports: [

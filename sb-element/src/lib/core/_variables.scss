@@ -7,6 +7,9 @@ Color
 ******************************************************************************/
 // Color variables. The different colors are used to define palettes, which are
 // used in either the light or dark theme or both.
+
+
+
 :root {
 	--white-default: #F5F5F5;
 	--white-light: #FFFFFF;
@@ -41,89 +44,4 @@ Color
 	--pink-default: #F75999;
 	--pink-light: #F9C4D5;
 	--pink-dark: #4F2034;
-}
-
-/*****************************************************************************
-Spacing
-******************************************************************************/
-// Spacing variables used for spacing or sizing.
-:root {
-	--spacing-xs: 0.5rem;
-  --spacing-s: 1rem;
-  --spacing-m: 1.5rem;
-  --spacing-l: 2rem;
-  --spacing-xl: 2.5rem;
-  --spacing-xxl: 3rem;
-  --spacing-xxxl: 3.5rem;
-}
-
-/*****************************************************************************
-Border
-******************************************************************************/
-// Border width variables.
-:root {
-  --border-s: 1px;
-  --border-m: 2px;
-  --border-l: 3px;
-  --border-xl: 4px;
-}
-
-/*****************************************************************************
-Typography
-******************************************************************************/
-// Imports the following font faces from goolge fonts api
-// (https://fonts.google.com/):
-//  - Inter (https://fonts.google.com/specimen/Inter)
-//    - Light 400
-//    - Medium 500
-//    - Bold 700
-// - Roboto Mono (https://fonts.google.com/specimen/Roboto+Mono)
-//		- Regular 400
-//    - Medium 500
-//    - Bold 700
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap');
-// Imports material icons form the google fonts api (https://fonts.google.com/).
-// The icons can be found under 'https://fonts.google.com/icons'.
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
-
-
-// Typography vairables
-:root {
-  // weights
-  --font-weight-light: 400;
-  --font-weight-normal: 500;
-  --font-weight-bold: bold;
-
-  // families
-  --font-family-default: 'Inter', sans-serif;
-  --font-family-display: 'Roboto Mono', monospace;
-  --font-family-code: 'Roboto Mono', monospace;
-	--font-family-icon: 'Material Icons Round';
-	--font-family-icon-outlined: 'Material Icons Outlined';
-
-  // sizes
-	--font-size-7: 0.75rem;
-  --font-size-6: 1rem;
-  --font-size-5: 1.25rem;
-  --font-size-4: 1.5rem;
-  --font-size-3: 1.75rem;
-  --font-size-2: 2rem;
-  --font-size-1: 2.5rem;
-
-  --display-font-size-7: 2rem;
-  --display-font-size-6: 2.5rem;
-  --display-font-size-5: 3rem;
-  --display-font-size-4: 3.5rem;
-  --display-font-size-3: 4.5rem;
-  --display-font-size-2: 5.5rem;
-  --display-font-size-1: 6rem;
-
-  --icon-font-size-6: calc(1.21 * var(--font-size-7));
-  --icon-font-size-6: calc(1.21 * var(--font-size-6));
-  --icon-font-size-5: calc(1.21 * var(--font-size-5));
-  --icon-font-size-4: calc(1.21 * var(--font-size-4));
-  --icon-font-size-3: calc(1.21 * var(--font-size-3));
-  --icon-font-size-2: calc(1.21 * var(--font-size-2));
-  --icon-font-size-1: calc(1.21 * var(--font-size-1));
 }
