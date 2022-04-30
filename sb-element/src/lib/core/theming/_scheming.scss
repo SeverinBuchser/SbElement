@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use 'scheming';
+/*****************************************************************************
+Scheming
+******************************************************************************/
+
+// Returns the shade of the specified scheme-shade of the scheme.
+// @param {Map} $scheme The scheme.
+// @param {String} $shade The shade.
+// @returns {Color} The shade of the scheme.
+@function get-shade($scheme, $shade) {
+  $scheme: get-scheme($scheme);
+  $shade: map.get($scheme, $shade);
+  $palette: map.get($scheme, palette);
+  @return map.get($palette, shades, $shade);
+}
+
+// Returns the contrast of the specified scheme-shade of the scheme.
+// @param {Map} $scheme The scheme.
+// @param {String} $shade The shade.
+// @returns {Color} The shade of the scheme.
+@function get-contrast($scheme, $shade) {
+  $scheme: get-scheme($scheme);
+  $shade: map.get($scheme, $shade);
+  $palette: map.get($scheme, palette);
+  @return map.get($palette, contrasts, $shade);
+}
