@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use 'theme';
-@use 'scheme';
+@use 'scheming';
 /*****************************************************************************
 Theming
 ******************************************************************************/
@@ -32,7 +32,7 @@ Theming
 @function get-color($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheme.get-shade($scheme, base-shade);
+  @return scheming.get-shade($scheme, base);
 }
 
 // Returns the specified text color for a scheme color of the theme.
@@ -44,7 +44,7 @@ Theming
 @function get-text($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheme.get-contrast($scheme, base-shade);
+  @return scheming.get-contrast($scheme, base);
 }
 
 // Returns the inverse of the specified scheme color of the theme.
@@ -54,7 +54,7 @@ Theming
 @function get-color-inverted($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheme.get-shade($scheme, alternate-shade);
+  @return scheming.get-shade($scheme, alternate);
 }
 
 // Returns the text color of the inverse scheme color of the theme.
@@ -64,7 +64,7 @@ Theming
 @function get-text-inverted($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheme.get-contrast($scheme, alternate-shade);
+  @return scheming.get-contrast($scheme, alternate);
 }
 
 // Returns the background color of the theme.
@@ -73,7 +73,7 @@ Theming
 @function get-background($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheme.get-shade($scheme, base-shade);
+  @return scheming.get-shade($scheme, base);
 }
 
 // Returns the text color of the background of the theme.
@@ -82,7 +82,7 @@ Theming
 @function get-background-text($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheme.get-contrast($scheme, base-shade);
+  @return scheming.get-contrast($scheme, base);
 }
 
 // Returns the foreground color of the theme.
@@ -91,7 +91,7 @@ Theming
 @function get-foreground($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheme.get-shade($scheme, alternate-shade);
+  @return scheming.get-shade($scheme, alternate);
 }
 
 // Returns the text color of the foreground of the theme.
@@ -100,7 +100,7 @@ Theming
 @function get-foreground-text($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheme.get-contrast($scheme, alternate-shade);
+  @return scheming.get-contrast($scheme, alternate);
 }
 
 // Returns the accent color of the theme.
@@ -109,7 +109,7 @@ Theming
 @function get-accent($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheme.get-shade($scheme, accent-shade);
+  @return scheming.get-shade($scheme, accent);
 }
 
 // Returns the text color of the accent of the theme.
@@ -118,7 +118,7 @@ Theming
 @function get-accent-text($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheme.get-contrast($scheme, accent-shade);
+  @return scheming.get-contrast($scheme, accent);
 }
 
 // A custom for-loop to simplyfiy the looping through each color of a theme

@@ -21,7 +21,7 @@ Palette Definitions
   } @else {
     $shades: map.get($palette, shades);
     $contrasts: map.get($palette, contrasts);
-    
+
     @each $key, $shade in $shades {
       @if meta.type-of($shade) != color {
         @error "The shade #{$key} in the 'shades' map is not a color.";
@@ -55,35 +55,67 @@ $black: #000108;
 
 $default-mixing-map: palette-mixing.get-mixing-map($white, $black);
 
-$gray-base: color.mix($white, $black, 50%);
-$grays: palette-mixing.create-palette($gray-base, $default-mixing-map, $white, $black);
-
-// desaturated by 30%
-$reds: (
-	saturated: palette-mixing.create-palette(#ff5757, $default-mixing-map, $white, $black),
-	desaturated: palette-mixing.create-palette(#e67070, $default-mixing-map, $white, $black)
+$reds-saturated-palette: palette-mixing.create-palette(
+  #ff5757,
+  $default-mixing-map,
+  $white,
+  $black
+);
+$reds-desaturated-palette: palette-mixing.create-palette(
+  #e67070, // desaturated by 30%
+  $default-mixing-map,
+  $white,
+  $black
 );
 
-// desaturated by 30%
-$yellows: (
-	saturated: palette-mixing.create-palette(#fcc43f, $default-mixing-map, $white, $black),
-	desaturated: palette-mixing.create-palette(#e0b85c, $default-mixing-map, $white, $black)
+$yellows-saturated-palette: palette-mixing.create-palette(
+  #fcc43f,
+  $default-mixing-map,
+  $white,
+  $black
+);
+$yellows-desaturated-palette: palette-mixing.create-palette(
+  #e0b85c, // desaturated by 30%
+  $default-mixing-map,
+  $white,
+  $black
 );
 
-// desaturated by 30%
-$greens: (
-	saturated: palette-mixing.create-palette(#2adf9a, $default-mixing-map, $white, $black),
-	desaturated: palette-mixing.create-palette(#45c493, $default-mixing-map, $white, $black)
+$greens-saturated-palette: palette-mixing.create-palette(
+  #2adf9a,
+  $default-mixing-map,
+  $white,
+  $black
+);
+$greens-desaturated-palette: palette-mixing.create-palette(
+  #45c493, // desaturated by 30%
+  $default-mixing-map,
+  $white,
+  $black
 );
 
-// desaturated by 30%
-$blues: (
-	saturated: palette-mixing.create-palette(#3f8bfd, $default-mixing-map, $white, $black),
-	desaturated: palette-mixing.create-palette(#5c91e1, $default-mixing-map, $white, $black)
+$blues-saturated-palette: palette-mixing.create-palette(
+  #3f8bfd,
+  $default-mixing-map,
+  $white,
+  $black
+);
+$blues-desaturated-palette: palette-mixing.create-palette(
+  #5c91e1, // desaturated by 30%
+  $default-mixing-map,
+  $white,
+  $black
 );
 
-// desaturated by 30%
-$magentas: (
-	saturated: palette-mixing.create-palette(#f75998, $default-mixing-map, $white, $black),
-	desaturated: palette-mixing.create-palette(#e0719d, $default-mixing-map, $white, $black)
+$magentas-saturated-palette: palette-mixing.create-palette(
+  #f75998,
+  $default-mixing-map,
+  $white,
+  $black
+);
+$magentas-desaturated-palette: palette-mixing.create-palette(
+  #e0719d, // desaturated by 30%
+  $default-mixing-map,
+  $white,
+  $black
 );
