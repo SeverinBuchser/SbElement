@@ -67,7 +67,7 @@ Scheme Definitions
 $light-scheme: define-scheme(
   map.get(palette.$blues, desaturated),
   1000,
-  900,
+  950,
   800,
   700
 );
@@ -75,7 +75,7 @@ $light-scheme: define-scheme(
 $dark-scheme: define-scheme(
   map.get(palette.$blues, desaturated),
   0,
-  100,
+  50,
   200,
   300
 );
@@ -104,7 +104,7 @@ $red-dark-scheme: define-scheme(
   100
 );
 
-$yellow-scheme: define-scheme(
+$yellow-light-scheme: define-scheme(
   map.get(palette.$yellows, saturated),
   500,
   700,
@@ -112,7 +112,15 @@ $yellow-scheme: define-scheme(
   900
 );
 
-$green-scheme: define-scheme(
+$yellow-dark-scheme: define-scheme(
+  map.get(palette.$yellows, saturated),
+  500,
+  300,
+  200,
+  100
+);
+
+$green-light-scheme: define-scheme(
   map.get(palette.$greens, saturated),
   500,
   700,
@@ -120,7 +128,15 @@ $green-scheme: define-scheme(
   900
 );
 
-$blue-scheme: define-scheme(
+$green-dark-scheme: define-scheme(
+  map.get(palette.$greens, saturated),
+  500,
+  300,
+  200,
+  100
+);
+
+$blue-light-scheme: define-scheme(
   map.get(palette.$blues, saturated),
   500,
   700,
@@ -128,10 +144,27 @@ $blue-scheme: define-scheme(
   900
 );
 
-$magenta-scheme: define-scheme(
+$blue-dark-scheme: define-scheme(
+  map.get(palette.$blues, saturated),
+  500,
+  300,
+  200,
+  100
+);
+
+
+$magenta-light-scheme: define-scheme(
   map.get(palette.$magentas, saturated),
   500,
   700,
   800,
   900
+);
+
+$magenta-dark-scheme: define-scheme(
+  map.get(palette.$magentas, saturated),
+  500,
+  300,
+  200,
+  100
 );

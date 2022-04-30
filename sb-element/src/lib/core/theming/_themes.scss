@@ -69,18 +69,18 @@ Theme Definitions
 
 $light-theme: define-theme(
   scheme.$light-scheme,
-  scheme.$blue-scheme,
-  scheme.$magenta-scheme,
-  scheme.$green-scheme,
+  scheme.$blue-light-scheme,
+  scheme.$magenta-light-scheme,
+  scheme.$green-light-scheme,
   scheme.$red-light-scheme,
-  scheme.$yellow-scheme
+  scheme.$yellow-light-scheme
 );
 
 $dark-theme: define-theme(
   scheme.$dark-scheme,
-  scheme.$blue-scheme,
-  scheme.$magenta-scheme,
-  scheme.$green-scheme,
+  scheme.$blue-dark-scheme,
+  scheme.$magenta-dark-scheme,
+  scheme.$green-dark-scheme,
   scheme.$red-dark-scheme,
-  scheme.$yellow-scheme
+  scheme.$yellow-dark-scheme
 );

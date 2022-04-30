@@ -1,0 +1,100 @@
+@use "sass:map";
+@use "sass:color";
+@use "sass:meta";
+@use "../util";
+/*****************************************************************************
+Palette Mixing
+******************************************************************************/
+
+// Creates a mixing map with the appropriate colors to mix.
+//
+// The colors will be mixed with the following ratios:
+//    hue   base   light  dark
+//    0:    0%     0%     100%
+//    100:  12.5%  0%     87.5%
+//    200:  25%    0%     75%
+//    300:  50%    0%     50%
+//    400:  75%    0%     25%
+//    500:  100%   0%     0%
+//    600:  75%    25%    0%
+//    700:  50%    50%    0%
+//    800:  25%    75%    0%
+//    900:  12.5%  87.5%  0%
+//    1000: 0%     100%   0%
+//
+// @param {Color} $light-color The light color to mix.
+// @param {Color} $dark-color The dark color to mix.
+// @returns {Map} The mixing map.
+@function get-mixing-map($light-color, $dark-color) {
+  @return (
+    0:    (percentage: 0%,    mix: $dark-color),
+    50:   (percentage: 4%,    mix: $dark-color),
+    100:  (percentage: 10%, 	mix: $dark-color),
+    150:  (percentage: 20%, 	mix: $dark-color),
+    200:  (percentage: 30%,   mix: $dark-color),
+    250:  (percentage: 45%,   mix: $dark-color),
+    300:  (percentage: 60%,   mix: $dark-color),
+    350:  (percentage: 70%,   mix: $dark-color),
+    400:  (percentage: 80%,   mix: $dark-color),
+    450:  (percentage: 90%,   mix: $dark-color),
+    500:  (percentage: 100%,  mix: null),
+    550:  (percentage: 90%,  	mix: $light-color),
+    600:  (percentage: 80%,   mix: $light-color),
+    650:  (percentage: 70%,   mix: $light-color),
+    700:  (percentage: 60%,   mix: $light-color),
+    750:  (percentage: 45%,   mix: $light-color),
+    800:  (percentage: 30%,   mix: $light-color),
+    850:  (percentage: 20%,   mix: $light-color),
+    900:  (percentage: 10%, 	mix: $light-color),
+    950:  (percentage: 4%, 		mix: $light-color),
+    1000: (percentage: 0%,    mix: $light-color)
+  );
+}
+
+// Defines a color palette. A color palette consists of shades and contrasts to
+// those shades. A color palette can be interpreted as different shades for a
+// sepecific hue and saturation. The contrast color can be defined via the
+// $contrast-cuttoff parameter. The hues get brighter with increasing numbers.
+// This means that the contrasts are bright at lower numbers. There can be two
+// contrast colors, one for the lights and one for the darks. The
+// $light-contrast itself gets used for the lower shades and the $dark-contrast
+// gets used for the higher shades.
+// @param {Color} $base-color The base color.
+// @param {Map} $mixing The mixing map.
+// @param {Color} $light-contrast The light contrast color.
+// @param {Color} $dark-contrast The dark contrast color.
+// @return {Map} The created and valid color palette.
+@function create-palette(
+  $base-color,
+  $mixing-map,
+  $light-contrast,
+  $dark-contrast,
+  $contrast-override: null
+) {
+  $shades: ();
+  $contrasts: ();
+
+  @each $shade, $mix in $mixing-map {
+    $percentage: map.get($mix, percentage);
+    $mix-color: map.get($mix, mix);
+    $mixed-color: $base-color;
+
+    @if $mix-color {
+      $mixed-color: color.mix($base-color, $mix-color, $percentage);
+    }
+    $shades: map.set($shades, $shade, $mixed-color);
+    @if not $contrast-override {
+      $contrasts: map.set($contrasts, $shade, util.optimal-contrast(
+        $light-contrast, $dark-contrast, $mixed-color
+      ));
+    }
+  }
+
+  @if $contrast-override {
+    $contrasts: $contrast-override;
+  }
+  @return (
+		shades: $shades,
+		contrasts: $contrasts
+	);
+}

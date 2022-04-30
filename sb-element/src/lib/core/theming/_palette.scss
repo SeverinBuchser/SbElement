@@ -1,100 +1,12 @@
 @use "sass:map";
+@use "sass:list";
 @use "sass:color";
 @use "sass:meta";
+@use "palette-mixing";
 @use "../util";
 /*****************************************************************************
 Palette Definitions
 ******************************************************************************/
-// Defining palettes for later use. The below color definitions are all colors,
-// which can be used in the whole library. @see 'core/_variables.scss'.
-
-// Define text colors
-$dark-text-color: var(--black-default);
-$bright-text-color: var(--white-default);
-
-// Define black color palette
-$black-palette: (
-  default: var(--black-default),
-  light: var(--black-light),
-  dark: var(--black-dark),
-  contrast: (
-    default: $bright-text-color,
-    light: $bright-text-color,
-    dark: $bright-text-color,
-  )
-);
-
-// Define white color palette
-$white-palette: (
-  default: var(--white-default),
-  light: var(--white-light),
-  dark: var(--white-dark),
-  contrast: (
-    default: $dark-text-color,
-    light: $dark-text-color,
-    dark: $dark-text-color,
-  )
-);
-
-// Define green color palette
-$green-palette: (
-  default: var(--green-default),
-  light: var(--green-light),
-  dark: var(--green-dark),
-  contrast: (
-    default: $dark-text-color,
-    light: $dark-text-color,
-    dark: $bright-text-color,
-  )
-);
-
-// Define red color palette
-$red-palette: (
-  default: var(--red-default),
-  light: var(--red-light),
-  dark: var(--red-dark),
-  contrast: (
-    default: $dark-text-color,
-    light: $dark-text-color,
-    dark: $bright-text-color,
-  )
-);
-
-// Define yellow color palette
-$yellow-palette: (
-  default: var(--yellow-default),
-  light: var(--yellow-light),
-  dark: var(--yellow-dark),
-  contrast: (
-    default: $dark-text-color,
-    light: $dark-text-color,
-    dark: $bright-text-color,
-  )
-);
-
-// Define blue color palette
-$blue-palette: (
-  default: var(--blue-default),
-  light: var(--blue-light),
-  dark: var(--blue-dark),
-  contrast: (
-    default: $bright-text-color,
-    light: $dark-text-color,
-    dark: $bright-text-color,
-  )
-);
-
-// Define pink color palette
-$pink-palette: (
-  default: var(--pink-default),
-  light: var(--pink-light),
-  dark: var(--pink-dark),
-  contrast: (
-    default: $dark-text-color,
-    light: $dark-text-color,
-    dark: $bright-text-color,
-  )
-);
 
 // Validates the specified palette for completeness. The palette Map must
 // contain all shades from 0 to 1000 in 100 steps, as well as contrast colors
@@ -109,103 +21,20 @@ $pink-palette: (
   } @else {
     $shades: map.get($palette, shades);
     $contrasts: map.get($palette, contrasts);
-    @for $i from 0 through 10 {
-      $shade: $i * 100;
-
-      @if not map.has-key($shades, $shade) {
-        @error "The shade #{$shade} is missing from the 'shades' map.";
-      } @else if meta.type-of(map.get($shades, $shade)) != color {
-        @error "The shade #{$shade} in the 'shades' map is not a color.";
+    
+    @each $key, $shade in $shades {
+      @if meta.type-of($shade) != color {
+        @error "The shade #{$key} in the 'shades' map is not a color.";
       }
 
-      @if not map.has-key($contrasts, $shade) {
-        @error "The shade #{$shade} is missing from the 'contrasts' map.";
-      } @else if meta.type-of(map.get($contrasts, $shade)) != color {
-        @error "The shade #{$shade} in the 'contrasts' map is not a color.";
+      @if not map.has-key($contrasts, $key) {
+        @error "The shade #{$key} is missing from the 'contrasts' map.";
+      } @else if meta.type-of(map.get($contrasts, $key)) != color {
+        @error "The shade #{$key} in the 'contrasts' map is not a color.";
       }
     }
   }
   @return $palette;
-}
-
-// Creates a mixing map with the appropriate colors to mix.
-//
-// The colors will be mixed with the following ratios:
-//    hue   base   light  dark
-//    0:    0%     0%     100%
-//    100:  12.5%  0%     87.5%
-//    200:  25%    0%     75%
-//    300:  50%    0%     50%
-//    400:  75%    0%     25%
-//    500:  100%   0%     0%
-//    600:  75%    25%    0%
-//    700:  50%    50%    0%
-//    800:  25%    75%    0%
-//    900:  12.5%  87.5%  0%
-//    1000: 0%     100%   0%
-//
-// @param {Color} $light-color The light color to mix.
-// @param {Color} $dark-color The dark color to mix.
-// @returns {Map} The mixing map.
-@function get-mixing-map($light-color, $dark-color) {
-  @return (
-    0:    (percentage: 0%,    mix: $dark-color),
-    100:  (percentage: 12.5%, mix: $dark-color),
-    200:  (percentage: 25%,   mix: $dark-color),
-    300:  (percentage: 50%,   mix: $dark-color),
-    400:  (percentage: 75%,   mix: $dark-color),
-    500:  (percentage: 100%,  mix: null),
-    600:  (percentage: 75%,   mix: $light-color),
-    700:  (percentage: 50%,   mix: $light-color),
-    800:  (percentage: 25%,   mix: $light-color),
-    900:  (percentage: 12.5%, mix: $light-color),
-    1000: (percentage: 0%,    mix: $light-color)
-  );
-}
-
-// Defines a color palette. A color palette consists of shades and contrasts to
-// those shades. A color palette can be interpreted as different shades for a
-// sepecific hue and saturation. The contrast color can be defined via the
-// $contrast-cuttoff parameter. The hues get brighter with increasing numbers.
-// This means that the contrasts are bright at lower numbers. There can be two
-// contrast colors, one for the lights and one for the darks. The
-// $light-contrast itself gets used for the lower shades and the $dark-contrast
-// gets used for the higher shades.
-// @param {Color} $base-color The base color.
-// @param {Map} $mixing The mixing map.
-// @param {Color} $light-contrast The light contrast color.
-// @param {Color} $dark-contrast The dark contrast color.
-// @return {Map} The created and valid color palette.
-@function create-palette(
-  $base-color,
-  $mixing-map,
-  $light-contrast,
-  $dark-contrast,
-  $contrast-override: null
-) {
-  $shades: ();
-  $contrasts: ();
-
-  @each $shade, $mix in $mixing-map {
-    $percentage: map.get($mix, percentage);
-    $mix-color: map.get($mix, mix);
-    $mixed-color: $base-color;
-
-    @if $mix-color {
-      $mixed-color: color.mix($base-color, $mix-color, $percentage);
-    }
-    $shades: map.set($shades, $shade, $mixed-color);
-    @if not $contrast-override {
-      $contrasts: map.set($contrasts, $shade, util.optimal-contrast(
-        $light-contrast, $dark-contrast, $mixed-color
-      ));
-    }
-  }
-
-  @if $contrast-override {
-    $contrasts: $contrast-override;
-  }
-  @return define-palette($shades, $contrasts);
 }
 
 // Defines a color palette. A color palette consists of shades and contrast
@@ -224,37 +53,37 @@ $pink-palette: (
 $white: #ffffff;
 $black: #000108;
 
-$default-mixing-map: get-mixing-map($white, $black);
+$default-mixing-map: palette-mixing.get-mixing-map($white, $black);
 
 $gray-base: color.mix($white, $black, 50%);
-$grays: create-palette($gray-base, $default-mixing-map, $white, $black);
+$grays: palette-mixing.create-palette($gray-base, $default-mixing-map, $white, $black);
 
 // desaturated by 30%
 $reds: (
-	saturated: create-palette(#ff5757, $default-mixing-map, $white, $black),
-	desaturated: create-palette(#e67070, $default-mixing-map, $white, $black)
+	saturated: palette-mixing.create-palette(#ff5757, $default-mixing-map, $white, $black),
+	desaturated: palette-mixing.create-palette(#e67070, $default-mixing-map, $white, $black)
 );
 
 // desaturated by 30%
 $yellows: (
-	saturated: create-palette(#fcc43f, $default-mixing-map, $white, $black),
-	desaturated: create-palette(#e0b85c, $default-mixing-map, $white, $black)
+	saturated: palette-mixing.create-palette(#fcc43f, $default-mixing-map, $white, $black),
+	desaturated: palette-mixing.create-palette(#e0b85c, $default-mixing-map, $white, $black)
 );
 
 // desaturated by 30%
 $greens: (
-	saturated: create-palette(#2adf9a, $default-mixing-map, $white, $black),
-	desaturated: create-palette(#45c493, $default-mixing-map, $white, $black)
+	saturated: palette-mixing.create-palette(#2adf9a, $default-mixing-map, $white, $black),
+	desaturated: palette-mixing.create-palette(#45c493, $default-mixing-map, $white, $black)
 );
 
 // desaturated by 30%
 $blues: (
-	saturated: create-palette(#3f8bfd, $default-mixing-map, $white, $black),
-	desaturated: create-palette(#5c91e1, $default-mixing-map, $white, $black)
+	saturated: palette-mixing.create-palette(#3f8bfd, $default-mixing-map, $white, $black),
+	desaturated: palette-mixing.create-palette(#5c91e1, $default-mixing-map, $white, $black)
 );
 
 // desaturated by 30%
 $magentas: (
-	saturated: create-palette(#f75998, $default-mixing-map, $white, $black),
-	desaturated: create-palette(#e0719d, $default-mixing-map, $white, $black)
+	saturated: palette-mixing.create-palette(#f75998, $default-mixing-map, $white, $black),
+	desaturated: palette-mixing.create-palette(#e0719d, $default-mixing-map, $white, $black)
 );
