@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { SbSelectOneCore } from '../select-core';
 import { CanClassName, CanDisable, CanFocus, HasElementRef, mixinAccent, mixinPill, mixinClassName, mixinColor, mixinPlain, mixinSize } from '../../../core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -83,6 +83,9 @@ const SbColorPickerCore = mixinPill(
 })
 export class SbColorPickerComponent extends SbColorPickerCore<string>
   implements CanClassName, CanDisable, CanFocus, ControlValueAccessor, HasElementRef {
+
+  @Input()
+  public position: string = 'bottom-center';
 
   public dim = [
     shades.length,

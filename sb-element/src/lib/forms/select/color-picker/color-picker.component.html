@@ -21,7 +21,7 @@
 			</ng-template>
 		</button>
 	</sb-popper-content>
-	<sb-popper-overlay position="bottom">
+	<sb-popper-overlay [position]="position">
 		<sb-grid [dim]="dim" gap="xs">
 			<div *ngFor="let option of options"
 				[ngClass]="[

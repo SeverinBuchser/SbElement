@@ -34,6 +34,9 @@ export class SbDateInputComponent extends SbDateInputCore implements ControlValu
   public isPill: boolean | string = false;
 
   @Input()
+  public position: string = 'bottom-center';
+
+  @Input()
   public format: string = 'yyyy-MM-dd';
 
   private onChange: any = () => {};

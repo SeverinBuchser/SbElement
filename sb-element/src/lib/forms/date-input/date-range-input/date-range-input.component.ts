@@ -33,6 +33,9 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore implements C
 
   @Input('pill')
   public isPill: boolean | string = false;
+  
+  @Input()
+  public position: string = 'bottom-center';
 
   @Input()
   public format: string = 'yyyy-MM-dd';
