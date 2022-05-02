@@ -1,24 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
+import { SbButtonModule } from '../button';
+import { SbCoreModule } from '../../core';
+import { SbGridModule } from '../../grid';
 import { SbToggleModule } from '../toggle';
+import { SbPopperModule } from '../../popper';
 
+import { SbColorPickerComponent } from './color-picker';
 import { SbSelectButtonModule } from './select-button';
 import { SbSelectCheckboxComponent } from './select-checkbox';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    SbSelectCheckboxComponent
+    SbColorPickerComponent,
+    SbSelectCheckboxComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    SbToggleModule
+    SbButtonModule,
+    SbCoreModule,
+    SbGridModule,
+    SbToggleModule,
+    SbPopperModule,
   ],
   exports: [
+    SbColorPickerComponent,
     SbSelectCheckboxComponent,
-    SbSelectButtonModule
+    SbSelectButtonModule,
   ]
 })
 export class SbSelectModule { }

@@ -1,0 +1,36 @@
+<sb-popper #colorPicker>
+	<sb-popper-content sbClickOutsideTrigger [triggerable]="colorPicker">
+		<button
+			type="button"
+			[size]="size"
+			[color]="color"
+			[accent]="accent"
+			[pill]="pill"
+			[plain]="plain"
+			(focus)="setFocusedState(true)"
+			(blur)="setFocusedState(false)"
+			[disabled]="disabled">
+			<ng-template [ngIf]="!selectedOption" [ngIfElse]="showSelected">
+				<ng-content></ng-content>
+			</ng-template>
+			<ng-template #showSelected>
+				{{ formatOption(selectedOption) }}
+				<div [ngClass]="'sb--bg-' + selectedOption">
+
+				</div>
+			</ng-template>
+		</button>
+	</sb-popper-content>
+	<sb-popper-overlay position="bottom">
+		<sb-grid [dim]="dim" gap="xs">
+			<div *ngFor="let option of options"
+				[ngClass]="[
+					className + '__color',
+					'sb--bg-' + option,
+					selectedOption == option ? 'selected' : ''
+				]"
+				(click)="select(option)">
+			</div>
+		</sb-grid>
+	</sb-popper-overlay>
+</sb-popper>

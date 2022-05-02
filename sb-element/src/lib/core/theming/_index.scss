@@ -1,6 +1,25 @@
 @forward 'theme' show define-theme, $light-theme, $dark-theme;
 
-@forward 'theming' show get-color,
-  get-color, get-color-inverted, get-text, get-text-inverted, get-background,
-  get-background-text, get-foreground, get-foreground-text, get-accent,
-  get-accent-text, for-each-theme, for-each-theme-color, for-each-color;
+@forward 'theming' show get-color, get-color-inverted, get-text,
+  get-text-inverted, get-background, get-background-text, get-foreground,
+  get-foreground-text, get-accent, get-accent-text, for-each-theme,
+  for-each-color;
+
+@forward 'scheme' show define-scheme, $light-scheme, $dark-scheme,
+  $red-light-scheme, $red-dark-scheme,
+  $yellow-light-scheme, $yellow-dark-scheme,
+  $green-light-scheme, $green-dark-scheme,
+  $blue-light-scheme, $blue-dark-scheme,
+  $magenta-light-scheme, $magenta-dark-scheme;
+
+@forward 'scheming' show get-scheme;
+
+@forward 'palette' show define-palette, $white, $black,
+  $red-saturated-palette, $red-desaturated-palette,
+  $yellow-saturated-palette, $yellow-desaturated-palette,
+  $green-saturated-palette, $green-desaturated-palette,
+  $blue-saturated-palette, $blue-desaturated-palette,
+  $magenta-saturated-palette, $magenta-desaturated-palette;
+
+@forward 'paletting' show get-palette, get-shade, get-contrast,
+  for-each-palette, for-each-shade;

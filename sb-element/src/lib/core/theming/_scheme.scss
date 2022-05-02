@@ -65,15 +65,15 @@ Scheme Definitions
 
 // Define default schemes.
 $light-scheme: define-scheme(
-  palette.$blues-desaturated-palette,
+  palette.$blue-desaturated-palette,
   1000,
-  950,
+  900,
   800,
   700
 );
 
 $dark-scheme: define-scheme(
-  palette.$blues-desaturated-palette,
+  palette.$blue-desaturated-palette,
   0,
   50,
   200,
@@ -81,7 +81,7 @@ $dark-scheme: define-scheme(
 );
 
 $red-light-scheme: define-scheme(
-  palette.$reds-desaturated-palette,
+  palette.$red-desaturated-palette,
   500,
   700,
   800,
@@ -89,7 +89,7 @@ $red-light-scheme: define-scheme(
 );
 
 $red-dark-scheme: define-scheme(
-  palette.$reds-desaturated-palette,
+  palette.$red-desaturated-palette,
   500,
   300,
   200,
@@ -97,7 +97,7 @@ $red-dark-scheme: define-scheme(
 );
 
 $yellow-light-scheme: define-scheme(
-  palette.$yellows-saturated-palette,
+  palette.$yellow-saturated-palette,
   500,
   700,
   800,
@@ -105,7 +105,7 @@ $yellow-light-scheme: define-scheme(
 );
 
 $yellow-dark-scheme: define-scheme(
-  palette.$yellows-saturated-palette,
+  palette.$yellow-saturated-palette,
   500,
   300,
   200,
@@ -113,7 +113,7 @@ $yellow-dark-scheme: define-scheme(
 );
 
 $green-light-scheme: define-scheme(
-  palette.$greens-desaturated-palette,
+  palette.$green-desaturated-palette,
   500,
   700,
   800,
@@ -121,7 +121,7 @@ $green-light-scheme: define-scheme(
 );
 
 $green-dark-scheme: define-scheme(
-  palette.$greens-desaturated-palette,
+  palette.$green-desaturated-palette,
   500,
   300,
   200,
@@ -129,7 +129,7 @@ $green-dark-scheme: define-scheme(
 );
 
 $blue-light-scheme: define-scheme(
-  palette.$blues-saturated-palette,
+  palette.$blue-saturated-palette,
   500,
   700,
   800,
@@ -137,7 +137,7 @@ $blue-light-scheme: define-scheme(
 );
 
 $blue-dark-scheme: define-scheme(
-  palette.$blues-saturated-palette,
+  palette.$blue-saturated-palette,
   500,
   300,
   200,
@@ -146,7 +146,7 @@ $blue-dark-scheme: define-scheme(
 
 
 $magenta-light-scheme: define-scheme(
-  palette.$magentas-saturated-palette,
+  palette.$magenta-saturated-palette,
   500,
   700,
   800,
@@ -154,7 +154,7 @@ $magenta-light-scheme: define-scheme(
 );
 
 $magenta-dark-scheme: define-scheme(
-  palette.$magentas-saturated-palette,
+  palette.$magenta-saturated-palette,
   500,
   300,
   200,

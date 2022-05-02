@@ -26,8 +26,13 @@ export class SbGridComponent extends SbGridCore {
 
   private _dimensions: Array<string | number> = [1, 1];
   @Input()
-  set dim(dimensions: string) {
-    let split: Array<string | number> = dimensions.split("x");
+  set dim(dimensions: string | Array<number>) {
+    let split: Array<string | number>;
+    if (Array.isArray(dimensions)) {
+      split = dimensions;
+    } else {
+      split = dimensions.split("x");
+    }
     if (split.length == 2) {
       split = split.map((dim: string | number) => isNaN(parseInt(dim as string)) ? dim : parseInt(dim as string));
       this._dimensions = split;

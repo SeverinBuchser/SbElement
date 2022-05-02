@@ -1,9 +1,6 @@
 @use "sass:map";
-@use "sass:list";
-@use "sass:color";
 @use "sass:meta";
 @use "palette-mixing";
-@use "../util";
 /*****************************************************************************
 Palette Definitions
 ******************************************************************************/
@@ -55,65 +52,65 @@ $black: #000108;
 
 $default-mixing-map: palette-mixing.get-mixing-map($white, $black);
 
-$reds-saturated-palette: palette-mixing.create-palette(
+$red-saturated-palette: palette-mixing.create-palette(
   #ff5757,
   $default-mixing-map,
   $white,
   $black
 );
-$reds-desaturated-palette: palette-mixing.create-palette(
+$red-desaturated-palette: palette-mixing.create-palette(
   #e67070, // desaturated by 30%
   $default-mixing-map,
   $white,
   $black
 );
 
-$yellows-saturated-palette: palette-mixing.create-palette(
+$yellow-saturated-palette: palette-mixing.create-palette(
   #fcc43f,
   $default-mixing-map,
   $white,
   $black
 );
-$yellows-desaturated-palette: palette-mixing.create-palette(
+$yellow-desaturated-palette: palette-mixing.create-palette(
   #e0b85c, // desaturated by 30%
   $default-mixing-map,
   $white,
   $black
 );
 
-$greens-saturated-palette: palette-mixing.create-palette(
+$green-saturated-palette: palette-mixing.create-palette(
   #2adf9a,
   $default-mixing-map,
   $white,
   $black
 );
-$greens-desaturated-palette: palette-mixing.create-palette(
+$green-desaturated-palette: palette-mixing.create-palette(
   #45c493, // desaturated by 30%
   $default-mixing-map,
   $white,
   $black
 );
 
-$blues-saturated-palette: palette-mixing.create-palette(
+$blue-saturated-palette: palette-mixing.create-palette(
   #3f8bfd,
   $default-mixing-map,
   $white,
   $black
 );
-$blues-desaturated-palette: palette-mixing.create-palette(
+$blue-desaturated-palette: palette-mixing.create-palette(
   #5c91e1, // desaturated by 30%
   $default-mixing-map,
   $white,
   $black
 );
 
-$magentas-saturated-palette: palette-mixing.create-palette(
+$magenta-saturated-palette: palette-mixing.create-palette(
   #f75998,
   $default-mixing-map,
   $white,
   $black
 );
-$magentas-desaturated-palette: palette-mixing.create-palette(
+$magenta-desaturated-palette: palette-mixing.create-palette(
   #e0719d, // desaturated by 30%
   $default-mixing-map,
   $white,

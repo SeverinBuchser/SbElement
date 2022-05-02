@@ -11,6 +11,7 @@ Toggle-Button / Style
   display: block;
 
   button {
+    width: 100%;
     border-width: border.get-border-width(m);
     border-style: solid;
     border-color: transparent;

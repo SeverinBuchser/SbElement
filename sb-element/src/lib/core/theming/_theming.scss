@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use 'theme';
-@use 'scheming';
+@use 'paletting';
 /*****************************************************************************
 Theming
 ******************************************************************************/
@@ -32,7 +32,9 @@ Theming
 @function get-color($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheming.get-shade($scheme, base);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, base);
+  @return paletting.get-shade($palette, $shade);
 }
 
 // Returns the specified text color for a scheme color of the theme.
@@ -44,7 +46,9 @@ Theming
 @function get-text($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheming.get-contrast($scheme, base);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, base);
+  @return paletting.get-contrast($palette, $shade);
 }
 
 // Returns the inverse of the specified scheme color of the theme.
@@ -54,7 +58,9 @@ Theming
 @function get-color-inverted($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheming.get-shade($scheme, alternate);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, alternate);
+  @return paletting.get-shade($palette, $shade);
 }
 
 // Returns the text color of the inverse scheme color of the theme.
@@ -64,7 +70,9 @@ Theming
 @function get-text-inverted($theme, $scheme: primary) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, $scheme);
-  @return scheming.get-contrast($scheme, alternate);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, alternate);
+  @return paletting.get-contrast($palette, $shade);
 }
 
 // Returns the background color of the theme.
@@ -73,7 +81,9 @@ Theming
 @function get-background($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheming.get-shade($scheme, base);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, base);
+  @return paletting.get-shade($palette, $shade);
 }
 
 // Returns the text color of the background of the theme.
@@ -82,7 +92,9 @@ Theming
 @function get-background-text($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheming.get-contrast($scheme, base);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, base);
+  @return paletting.get-contrast($palette, $shade);
 }
 
 // Returns the foreground color of the theme.
@@ -91,7 +103,9 @@ Theming
 @function get-foreground($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheming.get-shade($scheme, alternate);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, alternate);
+  @return paletting.get-shade($palette, $shade);
 }
 
 // Returns the text color of the foreground of the theme.
@@ -100,7 +114,9 @@ Theming
 @function get-foreground-text($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheming.get-contrast($scheme, alternate);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, alternate);
+  @return paletting.get-contrast($palette, $shade);
 }
 
 // Returns the accent color of the theme.
@@ -109,7 +125,9 @@ Theming
 @function get-accent($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheming.get-shade($scheme, accent);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, accent);
+  @return paletting.get-shade($palette, $shade);
 }
 
 // Returns the text color of the accent of the theme.
@@ -118,13 +136,15 @@ Theming
 @function get-accent-text($theme) {
   $theme: get-theme($theme);
   $scheme: map.get($theme, base);
-  @return scheming.get-contrast($scheme, accent);
+  $palette: map.get($scheme, palette);
+  $shade: map.get($scheme, accent);
+  @return paletting.get-contrast($palette, $shade);
 }
 
 // A custom for-loop to simplyfiy the looping through each color of a theme
 // palette. The loop and can be used to iterate over every color in the theme.
 // @param {Map} $theme The theme.
-@mixin for-each-color ($theme) {
+@mixin for-each-color($theme) {
   @each $key, $scheme  in get-theme($theme) {
     @if $key != base {
       @content($key);

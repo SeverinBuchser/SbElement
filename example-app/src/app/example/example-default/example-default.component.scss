@@ -1,17 +1,15 @@
 @use "sb-element/core/spacing";
 
-.sb-grid {
-  .sb-card {
-    cursor: pointer;
+.nav-card {
+  cursor: pointer;
 
-    .content {
-      p {
-        transition: all 200ms;
-      }
+  .content {
+    p {
+      transition: all 200ms;
     }
+  }
 
-    &:hover .content p {
-      transform: translateX(spacing.get-spacing(s));
-    }
+  &:hover .content p {
+    transform: translateX(spacing.get-spacing(s));
   }
 }

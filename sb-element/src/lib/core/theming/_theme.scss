@@ -24,11 +24,6 @@ Theme Definitions
   } @else if not map.has-key($theme, info) {
     @error "Theme does not specify a info scheme.";
   }
-  //  @else if not map.has-key($theme, type) {
-  //   @error "Theme does not specify a 'type', the type can either be 'light' or 'dark'.";
-  // } @else if map.get($theme, type) != light && map.get($theme, type) != dark {
-  //   @error "Theme type is incorrect, found #{map.get($theme, type)}, can either be 'light' or 'dark'."
-  // }
 
   $base: scheme.validate-scheme(map.get($theme, base));
   $primary: scheme.validate-scheme(map.get($theme, primary));

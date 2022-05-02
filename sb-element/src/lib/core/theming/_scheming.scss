@@ -1,7 +1,5 @@
-@use 'sass:map';
 @use 'sass:meta';
 @use 'scheme';
-@use 'paletting';
 /*****************************************************************************
 Scheming
 ******************************************************************************/
@@ -44,26 +42,4 @@ Scheming
   } @else {
     @return scheme.validate-scheme($scheme);
   }
-}
-
-// Returns the shade of the specified scheme-shade of the scheme.
-// @param {Map} $scheme The scheme.
-// @param {String} $shade The shade.
-// @returns {Color} The shade of the scheme.
-@function get-shade($scheme, $shade) {
-  $scheme: get-scheme($scheme);
-  $shade: map.get($scheme, $shade);
-  $palette: map.get($scheme, palette);
-  @return paletting.get-shade($palette, $shade);
-}
-
-// Returns the contrast of the specified scheme-shade of the scheme.
-// @param {Map} $scheme The scheme.
-// @param {String} $shade The shade.
-// @returns {Color} The shade of the scheme.
-@function get-contrast($scheme, $shade) {
-  $scheme: get-scheme($scheme);
-  $shade: map.get($scheme, $shade);
-  $palette: map.get($scheme, palette);
-  @return paletting.get-contrast($palette, $shade);
 }

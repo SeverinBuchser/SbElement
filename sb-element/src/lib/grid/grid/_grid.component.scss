@@ -12,4 +12,8 @@ Grid / Style
       grid-gap: $spacing;
     }
   }
+
+  &[gap=xs] {
+    grid-gap: spacing.get-spacing(xs);
+  }
 }

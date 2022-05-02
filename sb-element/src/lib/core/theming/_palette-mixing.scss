@@ -1,27 +1,11 @@
 @use "sass:map";
 @use "sass:color";
-@use "sass:meta";
 @use "../util";
 /*****************************************************************************
 Palette Mixing
 ******************************************************************************/
 
 // Creates a mixing map with the appropriate colors to mix.
-//
-// The colors will be mixed with the following ratios:
-//    hue   base   light  dark
-//    0:    0%     0%     100%
-//    100:  12.5%  0%     87.5%
-//    200:  25%    0%     75%
-//    300:  50%    0%     50%
-//    400:  75%    0%     25%
-//    500:  100%   0%     0%
-//    600:  75%    25%    0%
-//    700:  50%    50%    0%
-//    800:  25%    75%    0%
-//    900:  12.5%  87.5%  0%
-//    1000: 0%     100%   0%
-//
 // @param {Color} $light-color The light color to mix.
 // @param {Color} $dark-color The dark color to mix.
 // @returns {Map} The mixing map.
