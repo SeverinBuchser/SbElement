@@ -12,9 +12,6 @@ Link / Theme
 
     &:hover {
       color: theming.get-accent-text($theme);
-    }
-
-    &:hover &__background {
       background: theming.get-accent($theme);
     }
   }

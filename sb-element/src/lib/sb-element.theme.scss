@@ -12,6 +12,7 @@
 @use 'forms/module.theme'           as forms;
 @use 'indicator/module.theme'       as indicator;
 @use 'notification/module.theme'    as notification;
+@use 'paginator/module.theme' 			as paginator;
 @use 'popper/module.theme'          as popper;
 @use 'link/module.theme'            as link;
 @use 'table/module.theme'           as table;
@@ -21,7 +22,7 @@ $theme: null !default;
 
 @mixin theme($theme) {
   @include core.theme($theme);
-  
+
   @include global.theme($theme);
   @include bar.theme($theme);
   @include breadcrumbs.theme($theme);

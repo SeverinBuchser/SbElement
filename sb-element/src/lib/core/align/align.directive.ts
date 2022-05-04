@@ -39,11 +39,11 @@ export class SbAlignDirective implements HasElementRef {
     this.style.transform = 'translate(' + x + 'px,' + y + 'px)';
   }
 
-  private setHeight(height: number) {
+  public setHeight(height: number) {
     this.style.height = `${height}px`;
   }
 
-  private setWidth(width: number) {
+  public setWidth(width: number) {
     this.style.width = `${width}px`;
   }
 

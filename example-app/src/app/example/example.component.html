@@ -1,4 +1,12 @@
 <sb-nav-bar>
-  <sb-link right *ngFor="let route of routes" [routerLink]="['/', 'example', route.path]">{{ toCapitalCase(route.path) }}</sb-link>
+  <sb-nav-bar-content>
+    <div sbContentPagination>
+
+    </div>
+    <sb-link right *ngFor="let route of routes" [routerLink]="['/', 'example', route.path]" sbContentPagination>{{ toCapitalCase(route.path) }}</sb-link>
+  </sb-nav-bar-content>
 </sb-nav-bar>
+<sb-tab-bar>
+  <sb-tab *ngFor="let route of routes" [routerLink]="['/', 'example', route.path]" routerLinkActive="active">{{ toCapitalCase(route.path) }}</sb-tab>
+</sb-tab-bar>
 <router-outlet></router-outlet>

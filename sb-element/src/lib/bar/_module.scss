@@ -1,3 +1,6 @@
 @use 'bar/bar.component';
 @use 'nav-bar/nav-bar.component';
+@use 'nav-bar/nav-bar-content/nav-bar-content.component';
+@use 'tab-bar/tab-bar.component';
+@use 'tab-bar/tab/tab.component';
 @use 'sidebar/sidebar.component';

@@ -1,0 +1,25 @@
+@use "sb-element/core/display";
+@use "sb-element/core/spacing";
+@use "sb-element/core/border";
+@use "sb-element/core/transitioning";
+/*****************************************************************************
+Tab / Style
+******************************************************************************/
+
+// ROOT
+.sb-tab {
+  @include display.flex();
+  @include spacing.padding-bottom(s);
+  @include transitioning.ease(300ms, border);
+  width: 100%;
+  height: spacing.get-spacing(l);
+  z-index: 0;
+
+  &__wrapper {
+    @include transitioning.ease(300ms, transform);
+  }
+
+  &.active &__wrapper {
+    transform: translateY(spacing.get-spacing(s) / 2);
+  }
+}

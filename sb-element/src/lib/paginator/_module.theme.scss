@@ -1,0 +1,5 @@
+@use 'content-paginator/content-paginator.component.theme';
+
+@mixin theme($theme) {
+  @include content-paginator.theme($theme);
+}

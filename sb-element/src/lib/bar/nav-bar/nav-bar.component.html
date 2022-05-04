@@ -1,8 +1,7 @@
 <sb-bar side="top">
-  <div [ngClass]="className + '__left'">
-    <ng-content select="[left]"></ng-content>
-  </div>
-  <div [ngClass]="className + '__right'">
-    <ng-content select="[right]"></ng-content>
-  </div>
+  <sb-content-paginator [paginations]="paginations">
+    <div [ngClass]="className + '__wrapper'">
+      <ng-content select="sb-nav-bar-content"></ng-content>
+    </div>
+  </sb-content-paginator>
 </sb-bar>

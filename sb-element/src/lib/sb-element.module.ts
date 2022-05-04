@@ -15,6 +15,7 @@ import { SbIconModule } from './icon';
 import { SbIndicatorModule } from "./indicator";
 import { SbLinkModule } from './link';
 import { SbNotificationModule } from "./notification";
+import { SbPaginatorModule } from "./paginator";
 import { SbPopperModule } from './popper';
 import { SbTableModule } from './table';
 import { SbTimelineModule } from './timeline';
@@ -38,6 +39,7 @@ import { SbTimelineModule } from './timeline';
     SbIndicatorModule,
     SbLinkModule,
     SbNotificationModule,
+    SbPaginatorModule,
     SbPopperModule,
     SbTableModule,
     SbTimelineModule,

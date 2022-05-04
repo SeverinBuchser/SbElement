@@ -11,22 +11,14 @@ Link / Style
 .sb-link {
   $height: spacing.get-spacing(l);
   @include display.flex();
+  @include spacing.padding-x(xs);
+  @include border.pill($height);
+  @include transitioning.ease(background, 300ms);
   height: $height;
   cursor: pointer;
   position: relative;
-  z-index: 1;
 
   &.active {
     @include typography.font-weight($weight: bold);
-  }
-
-  &__background {
-    position: absolute;
-    height: 100%;
-    width: calc(100% + spacing.get-spacing(m));
-    pointer-events: none;
-    z-index: -1;
-    @include border.pill($height);
-    @include transitioning.ease(background, 300ms);
   }
 }

@@ -1,17 +1,14 @@
 @use "sb-element/core/display";
 /*****************************************************************************
-Nav-Bar / Style
+Content-Paginator / Style
 ******************************************************************************/
 
 // ROOT
-.sb-nav-bar {
-  display: block;
-
-  .sb-bar {
-    display: flex;
-  }
-
+.sb-content-paginator {
+  display: flex;
+  width: 100%;
   &__wrapper {
-    @include display.flex($justify: space-between, $gap: s);
+    width: 100%;
+    overflow: hidden;
   }
 }

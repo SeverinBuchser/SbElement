@@ -1,17 +1,11 @@
 @use "sb-element/core/display";
 /*****************************************************************************
-Nav-Bar / Style
+Nav-Bar-Content / Style
 ******************************************************************************/
 
 // ROOT
-.sb-nav-bar {
-  display: block;
-
-  .sb-bar {
-    display: flex;
-  }
-
-  &__wrapper {
-    @include display.flex($justify: space-between, $gap: s);
-  }
+.sb-nav-bar-content {
+  @include display.grid($gap: xs);
+  justify-content: center;
+  align-items: center;
 }

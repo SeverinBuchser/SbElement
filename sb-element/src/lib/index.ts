@@ -11,6 +11,7 @@ export * from './icon';
 export * from './indicator';
 export * from './link';
 export * from './notification';
+export * from './paginator';
 export * from './popper';
 export * from './table';
 export * from './timeline';

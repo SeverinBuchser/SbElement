@@ -1,0 +1,5 @@
+<sb-icon-button *ngIf="showPaginationControls" (click)="handleScrollLeft()" round size="s">navigate_before</sb-icon-button>
+<div #paginator [ngClass]="className + '__wrapper'" (wheel)="handleScroll($event)">
+  <ng-content></ng-content>
+</div>
+<sb-icon-button *ngIf="showPaginationControls" (click)="handleScrollRight()" round size="s">navigate_next</sb-icon-button>

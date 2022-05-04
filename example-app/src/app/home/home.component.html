@@ -1,11 +1,15 @@
 <sb-nav-bar>
-  <div left class="logo">
-    <img src="assets/logo.svg" class="logo-svg"/>
-    <div class="sb-font-default sb--m sb--bold logo-text">element</div>
-  </div>
-  <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
-  <sb-link left [routerLink]="['example']" [active]="true">Example</sb-link>
-  <theme-toggle-switch right></theme-toggle-switch>
+  <sb-nav-bar-content>
+    <div class="logo">
+      <img src="assets/logo.svg" class="logo-svg"/>
+      <div class="sb-font-default sb--m sb--bold logo-text">element</div>
+    </div>
+    <sb-link href="https://severinbuchser.github.io/sb-element-doc/" left>Documentation</sb-link>
+    <sb-link [routerLink]="['example']" [active]="true">Example</sb-link>
+  </sb-nav-bar-content>
+  <sb-nav-bar-content>
+    <theme-toggle-switch></theme-toggle-switch>
+  </sb-nav-bar-content>
 </sb-nav-bar>
 <!-- <sb-breadcrumbs [url]="router.url" homePlaceholder="Home" (navigate)="router.navigate([$event])"></sb-breadcrumbs> -->
 <router-outlet></router-outlet>
