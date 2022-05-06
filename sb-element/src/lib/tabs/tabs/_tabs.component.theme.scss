@@ -1,10 +1,12 @@
-@use "sb-element/core/display";
+@use "sb-element/core/theming";
+@use "sb-element/core/border";
 /*****************************************************************************
-Nav-Bar-Content / Style
+Tabs / Theme
 ******************************************************************************/
 
-// ROOT
-.sb-nav-bar-content {
-  @include display.grid($gap: xs);
-  align-items: center;
+// THEME
+@mixin theme($theme) {
+	.sb-tabs {
+		
+	}
 }

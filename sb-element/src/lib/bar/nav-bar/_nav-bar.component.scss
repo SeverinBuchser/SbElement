@@ -7,11 +7,7 @@ Nav-Bar / Style
 .sb-nav-bar {
   display: block;
 
-  .sb-bar {
-    display: flex;
-  }
-
-  &__wrapper {
+  .sb-content-paginator .sb-content-paginator__wrapper {
     @include display.flex($justify: space-between, $gap: s);
   }
 }

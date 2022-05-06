@@ -1,0 +1,6 @@
+<div [@slideAnimation]="{
+		value: animationState
+	}"
+	(@slideAnimation.done)="onAnimationDone()">
+	<ng-container cdkPortalOutlet></ng-container>
+</div>

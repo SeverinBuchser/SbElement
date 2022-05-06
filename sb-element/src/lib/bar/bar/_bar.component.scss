@@ -5,6 +5,7 @@ Bar / Style
 
 // ROOT
 .sb-bar {
+  display: block;
   &.left, &.right {
     height: 100%;
   }
@@ -12,6 +13,6 @@ Bar / Style
   &.top, &.bottom {
     width: 100%;
   }
-  
+
   @include spacing.padding(s);
 }

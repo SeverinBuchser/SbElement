@@ -3,23 +3,16 @@
 @use "sb-element/core/border";
 @use "sb-element/core/transitioning";
 /*****************************************************************************
-Tab / Style
+Tab-Label / Style
 ******************************************************************************/
 
 // ROOT
-.sb-tab {
+.sb-tab-label {
   @include display.flex();
-  @include spacing.padding-bottom(s);
+  @include spacing.padding-x(xs);
   @include transitioning.ease(300ms, border);
-  width: 100%;
   height: spacing.get-spacing(l);
   z-index: 0;
-
-  &__wrapper {
-    @include transitioning.ease(300ms, transform);
-  }
-
-  &.active &__wrapper {
-    transform: translateY(spacing.get-spacing(s) / 2);
-  }
+  cursor: pointer;
+  white-space: nowrap;
 }

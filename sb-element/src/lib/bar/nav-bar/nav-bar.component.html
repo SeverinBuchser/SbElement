@@ -1,7 +1,5 @@
 <sb-bar side="top">
   <sb-content-paginator [paginations]="paginations">
-    <div [ngClass]="className + '__wrapper'">
-      <ng-content select="sb-nav-bar-content"></ng-content>
-    </div>
+    <ng-content select="sb-nav-bar-content"></ng-content>
   </sb-content-paginator>
 </sb-bar>

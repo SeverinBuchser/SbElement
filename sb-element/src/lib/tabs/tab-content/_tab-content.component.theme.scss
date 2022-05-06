@@ -1,10 +1,12 @@
+@use "sb-element/core/theming";
 @use "sb-element/core/border";
 /*****************************************************************************
-Tab / Theme
+Tab-Content / Theme
 ******************************************************************************/
 
 // THEME
 @mixin theme($theme) {
-	.sb-tab {
+	.sb-tab-content {
+
 	}
 }

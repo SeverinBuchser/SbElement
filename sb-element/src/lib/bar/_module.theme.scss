@@ -1,15 +1,11 @@
 @use 'bar/bar.component.theme';
 @use 'nav-bar/nav-bar.component.theme';
 @use 'nav-bar/nav-bar-content/nav-bar-content.component.theme';
-@use 'tab-bar/tab-bar.component.theme';
-@use 'tab-bar/tab/tab.component.theme';
 @use 'sidebar/sidebar.component.theme';
 
 @mixin theme($theme) {
   @include bar.theme($theme);
   @include nav-bar.theme($theme);
   @include nav-bar-content.theme($theme);
-  @include tab-bar.theme($theme);
-  @include tab.theme($theme);
   @include sidebar.theme($theme);
 }

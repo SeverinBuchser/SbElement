@@ -1,0 +1,17 @@
+<sb-tab-bar>
+	<sb-tab-label
+		*ngFor="let tab of tabs; let i = index"
+		[isActive]="i == activeTabIndex"
+		(click)="setActive(i)">
+		<ng-container [cdkPortalOutlet]="tab.label"></ng-container>
+	</sb-tab-label>
+</sb-tab-bar>
+<ng-template [ngIf]="tabs.length > 0">
+	<div [ngClass]="className + '__content'">
+		<sb-tab-content
+			*ngFor="let tab of tabs; let i = index"
+			[ngClass]="{'active': i == activeTabIndex}"
+			[tab]="tab">
+		</sb-tab-content>
+	</div>
+</ng-template>

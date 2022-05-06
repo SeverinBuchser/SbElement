@@ -1,4 +1,5 @@
 export * from './align';
+export * from './animation';
 export * from './collapse';
 export * from './common-behaviors';
 export * from './insert';

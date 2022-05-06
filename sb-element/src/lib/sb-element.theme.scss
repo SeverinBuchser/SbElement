@@ -11,10 +11,11 @@
 @use 'icon/module.theme'            as icon;
 @use 'forms/module.theme'           as forms;
 @use 'indicator/module.theme'       as indicator;
+@use 'link/module.theme'            as link;
 @use 'notification/module.theme'    as notification;
 @use 'paginator/module.theme' 			as paginator;
 @use 'popper/module.theme'          as popper;
-@use 'link/module.theme'            as link;
+@use 'tabs/module.theme'            as tabs;
 @use 'table/module.theme'           as table;
 @use 'timeline/module.theme'        as timeline;
 
@@ -38,6 +39,7 @@ $theme: null !default;
   @include link.theme($theme);
   @include notification.theme($theme);
   @include popper.theme($theme);
+  @include tabs.theme($theme);
   @include table.theme($theme);
   @include timeline.theme($theme);
 }

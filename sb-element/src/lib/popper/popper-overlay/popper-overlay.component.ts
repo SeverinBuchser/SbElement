@@ -93,4 +93,9 @@ export class SbPopperOverlayComponent extends SbPopperOverlayCore implements Tri
     return alignment;
   }
 
+  public clear(): void {
+    super.clear();
+    this.arrow.clear();
+  }
+
 }

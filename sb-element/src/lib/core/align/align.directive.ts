@@ -6,6 +6,8 @@ import { HasElementRef } from '../common-behaviors';
 })
 export class SbAlignDirective implements HasElementRef {
 
+  private translationAccumulation = {x: 0, y: 0};
+
   get boundingClientRect(): DOMRect {
     return this._elementRef.nativeElement.getBoundingClientRect();
   }
@@ -22,17 +24,50 @@ export class SbAlignDirective implements HasElementRef {
     return this._elementRef.nativeElement.style;
   }
 
+  get translateX(): number {
+    const style = getComputedStyle(this._elementRef.nativeElement);
+    const matrix = new DOMMatrix(style.transform);
+    return matrix.m41;
+  }
+
+  get translateY(): number {
+    const style = getComputedStyle(this._elementRef.nativeElement);
+    const matrix = new DOMMatrix(style.transform);
+    return matrix.m42;
+  }
+
   constructor(public _elementRef: ElementRef) { }
 
   public moveTo(x: number, y: number): void {
     let hostBBox = this.boundingClientRect;
     let hostX = hostBBox.x;
     let hostY = hostBBox.y;
-    this.moveBy(x - hostX, y - hostY);
+    this.translate(x - hostX, y - hostY);
+  }
+
+  public accumulateMoveTo(x: number, y: number): void {
+    let hostBBox = this.boundingClientRect;
+    let hostX = hostBBox.x;
+    let hostY = hostBBox.y;
+    this.accumulate(x - hostX, y - hostY);
   }
 
   public moveBy(dx: number, dy: number): void {
-    this.translate(dx, dy);
+    this.translate(dx + this.translateX, dy + this.translateY);
+  }
+
+  public accumulateMoveBy(dx: number, dy: number): void {
+    this.accumulate(dx + this.translateX, dy + this.translateY);
+  }
+
+  private accumulate(x: number, y: number): void {
+    this.translationAccumulation.x += x;
+    this.translationAccumulation.y += y;
+  }
+
+  public applyAlignment(): void {
+    this.translate(this.translationAccumulation.x, this.translationAccumulation.y);
+    this.translationAccumulation = {x: 0, y: 0};
   }
 
   private translate(x: number, y: number) {

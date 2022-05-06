@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, ElementRef, Input, NgZone, QueryList, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, Input, NgZone, OnDestroy, QueryList, ViewChild } from '@angular/core';
 import {ViewportRuler} from '@angular/cdk/scrolling';
 import {take, takeUntil} from 'rxjs/operators';
 import { SbContentPaginationDirective } from './content-pagination.directive';
@@ -15,7 +15,7 @@ const SbContentPaginatorCore = mixinClassName(
   selector: 'sb-content-paginator',
   templateUrl: './content-paginator.component.html'
 })
-export class SbContentPaginatorComponent extends SbContentPaginatorCore implements AfterContentInit {
+export class SbContentPaginatorComponent extends SbContentPaginatorCore implements AfterContentInit, OnDestroy {
 
   @ViewChild('paginator', { static: true })
   public paginator!: ElementRef;
@@ -23,7 +23,10 @@ export class SbContentPaginatorComponent extends SbContentPaginatorCore implemen
   @Input()// @ContentChildren(SbContentPaginationDirective, { descendants: true })
   public paginations!: QueryList<SbContentPaginationDirective>;
 
-  private maxScroll!: number;
+  get maxScroll(): number {
+    let paginatiorElement = this.paginator.nativeElement;
+    return paginatiorElement.scrollWidth - paginatiorElement.clientWidth;
+  }
 
 
   protected readonly _destroyed = new Subject<void>();
@@ -46,17 +49,14 @@ export class SbContentPaginatorComponent extends SbContentPaginatorCore implemen
       .pipe(takeUntil(this._destroyed))
       .subscribe(() => {
         this._ngZone.run(() => {
-          Promise.resolve().then(() => {
-            this.updatePagination();
-          });
+          this.updatePagination();
         });
       });
   }
 
   private updatePagination(): void {
-    let paginationElement = this.paginator.nativeElement;
-    this.maxScroll = paginationElement.scrollWidth - paginationElement.clientWidth;
-    this.showPaginationControls = paginationElement.scrollWidth > paginationElement.clientWidth;
+    let paginatiorElement = this.paginator.nativeElement;
+    this.showPaginationControls = paginatiorElement.scrollWidth > paginatiorElement.clientWidth;
   }
 
   public handleScrollRight(): void {
@@ -128,5 +128,10 @@ export class SbContentPaginatorComponent extends SbContentPaginatorCore implemen
     return this.paginations.find((content: SbContentPaginationDirective) => {
       return fn(content._elementRef.nativeElement);
     })
+  }
+
+  public ngOnDestroy() {
+    this._destroyed.next();
+    this._destroyed.complete();
   }
 }

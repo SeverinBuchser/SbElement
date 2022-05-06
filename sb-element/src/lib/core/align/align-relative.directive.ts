@@ -149,10 +149,15 @@ export class SbAlignRelateiveDirective extends SbAlignDirective implements HasEl
   ): Alignment {
     let centerAlignment = this.getCenterAlignment(relativeBBox);
     let offsetAlignment = this.getOffsetAlignment(relativeBBox, position, options);
-    this.moveBy(
+    this.accumulateMoveTo(
+      relativeBBox.x,
+      relativeBBox.y
+    )
+    this.accumulateMoveBy(
       centerAlignment.dx + offsetAlignment.dx,
       centerAlignment.dy + offsetAlignment.dy
     );
+    this.applyAlignment();
     return { centerAlignment, offsetAlignment }
   }
 

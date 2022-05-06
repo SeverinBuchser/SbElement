@@ -1,15 +1,17 @@
 @use "sb-element/core/display";
+@use "sb-element/core/spacing";
+@use "sb-element/core/transitioning";
+@use "sb-element/core/border";
 /*****************************************************************************
-Content-Paginator / Style
+Tabs / Style
 ******************************************************************************/
 
 // ROOT
-.sb-content-paginator {
-  display: flex;
-  width: 100%;
-  &__wrapper {
-    position: relative;
-    width: 100%;
+.sb-tabs {
+  display: block;
+  &__content {
+    @include display.flex();
     overflow: hidden;
+    position: relative;
   }
 }
