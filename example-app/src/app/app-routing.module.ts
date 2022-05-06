@@ -11,6 +11,7 @@ import { FormExampleComponent } from "./example/form/form-example/form-example.c
 import { PopperExampleComponent } from "./example/popper/popper-example/popper-example.component";
 import { TypographyExampleComponent } from "./example/typography/typography-example/typography-example.component";
 import { CardExampleComponent } from "./example/card/card-example/card-example.component";
+import { TabsExampleComponent } from "./example/tabs/tabs-example/tabs-example.component";
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 
 const routes: Routes = [
@@ -45,6 +46,10 @@ const routes: Routes = [
           {
             path: 'table',
             component: TableExampleComponent
+          },
+          {
+            path: 'tabs',
+            component: TabsExampleComponent
           },
           {
             path: 'form',

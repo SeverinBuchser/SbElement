@@ -1,0 +1,44 @@
+<sb-grid dim="1xauto" gap="m" ngClass="sb--padding-m">
+	<sb-card size="s" color="primary">
+    <sb-card-header>
+      <p class="sb--s">Tab Bar</p>
+    </sb-card-header>
+    <sb-card-content ngClass="inputs">
+			<sb-tab-bar>
+			  <sb-tab-label
+					*ngFor="let tabLabel of tabLabels" 
+					[isActive]="tabLabel == activeTabLabel"
+					(click)="handleActivate(tabLabel)">
+					{{ tabLabel }}
+				</sb-tab-label>
+			</sb-tab-bar>
+    </sb-card-content>
+  </sb-card>
+	<sb-card size="s" color="primary">
+    <sb-card-header>
+      <p class="sb--s">Tabs</p>
+    </sb-card-header>
+    <sb-card-content ngClass="inputs">
+			<sb-tabs [activeTabIndex]="1">
+			  <sb-tab [labelTemplate]="labelOne">
+			    <ng-template #labelOne>
+			      This is a fancy label<sb-icon>face</sb-icon>
+			    </ng-template>
+			    <sb-container class="sb--margin-s">
+			      Content A
+			    </sb-container>
+			  </sb-tab>
+			  <sb-tab label="This is a basic label">
+			    <sb-container class="sb--margin-s">
+			      Content B
+			    </sb-container>
+			  </sb-tab>
+			  <sb-tab label="Another label">
+			    <sb-container class="sb--margin-s">
+			      Content C
+			    </sb-container>
+			  </sb-tab>
+			</sb-tabs>
+    </sb-card-content>
+  </sb-card>
+</sb-grid>

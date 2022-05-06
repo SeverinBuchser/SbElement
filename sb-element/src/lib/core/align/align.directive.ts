@@ -39,10 +39,8 @@ export class SbAlignDirective implements HasElementRef {
   constructor(public _elementRef: ElementRef) { }
 
   public moveTo(x: number, y: number): void {
-    let hostBBox = this.boundingClientRect;
-    let hostX = hostBBox.x;
-    let hostY = hostBBox.y;
-    this.translate(x - hostX, y - hostY);
+    this.accumulateMoveTo(x, y);
+    this.applyAlignment();
   }
 
   public accumulateMoveTo(x: number, y: number): void {
@@ -53,7 +51,8 @@ export class SbAlignDirective implements HasElementRef {
   }
 
   public moveBy(dx: number, dy: number): void {
-    this.translate(dx + this.translateX, dy + this.translateY);
+    this.accumulateMoveBy(dx, dy);
+    this.applyAlignment();
   }
 
   public accumulateMoveBy(dx: number, dy: number): void {
@@ -89,9 +88,9 @@ export class SbAlignDirective implements HasElementRef {
   }
 
   public clear() {
-    this.style.height = '';
-    this.style.width = '';
-    this.style.transform = '';
+    this.style.height = 'none';
+    this.style.width = 'none';
+    this.style.transform = 'none';
   }
 
 }
