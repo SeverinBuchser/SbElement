@@ -5,7 +5,7 @@ Content-Paginator / Style
 
 // ROOT
 .sb-content-paginator {
-  display: flex;
+  @include display.flex($justify: null, $gap: xs);
   &__wrapper {
     position: relative;
     width: 100%;

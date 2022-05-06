@@ -7,11 +7,14 @@ Tab-Bar / Theme
 // THEME
 @mixin theme($theme) {
 	.sb-tab-bar {
-		@include border.border-side-accent(bottom, $theme, s);
 		background: theming.get-foreground($theme);
 
 		&__active-underlay {
 			@include border.border-side(top, $theme, primary, m);
 		}
+
+	  .sb-content-paginator .sb-content-paginator__wrapper {
+  		@include border.border-side-accent(bottom, $theme, s);
+	  }
 	}
 }

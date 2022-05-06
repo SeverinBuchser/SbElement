@@ -9,9 +9,8 @@ Tab-Label / Style
 // ROOT
 .sb-tab-label {
   @include display.flex();
-  @include spacing.padding-x(xs);
+  @include spacing.padding-y(s);
   @include transitioning.ease(300ms, border);
-  height: spacing.get-spacing(l);
   z-index: 0;
   cursor: pointer;
   white-space: nowrap;

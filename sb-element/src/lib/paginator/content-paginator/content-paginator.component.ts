@@ -56,7 +56,7 @@ export class SbContentPaginatorComponent extends SbContentPaginatorCore implemen
 
   private updatePagination(): void {
     let paginatiorElement = this.paginator.nativeElement;
-    this.showPaginationControls = paginatiorElement.scrollWidth > paginatiorElement.clientWidth;
+    this.showPaginationControls = paginatiorElement.scrollWidth > paginatiorElement.clientWidth && this.paginations.length > 0;
   }
 
   public handleScrollRight(): void {

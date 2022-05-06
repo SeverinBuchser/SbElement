@@ -1,6 +1,4 @@
-<sb-bar side="top">
-	<sb-content-paginator [paginations]="labels">
-		<div sbAlign [ngClass]="className + '__active-underlay'"></div>
-		<ng-content></ng-content>
-  </sb-content-paginator>
-</sb-bar>
+<sb-content-paginator [paginations]="labels">
+	<div sbAlign [ngClass]="className + '__active-underlay'"></div>
+	<ng-content></ng-content>
+</sb-content-paginator>

@@ -20,7 +20,7 @@ Tab-Bar / Style
   }
 
   .sb-content-paginator .sb-content-paginator__wrapper {
-    @include display.grid($gap: xs);
+    @include display.grid($gap: s);
     align-items: center;
   }
 }
