@@ -6,7 +6,7 @@
     <sb-card-content ngClass="inputs">
 			<sb-tab-bar>
 			  <sb-tab-label
-					*ngFor="let tabLabel of tabLabels" 
+					*ngFor="let tabLabel of tabLabels"
 					[isActive]="tabLabel == activeTabLabel"
 					(click)="handleActivate(tabLabel)">
 					{{ tabLabel }}

@@ -25,20 +25,20 @@ export const sbSlideAnimation: AnimationTriggerMetadata =
 		state('center, void, inital-center-left, inital-center-right', style({transform: 'none'})),
 		transition(
 			'* => left, * => right, left => center, right => center',
-			animate('.3s ease'),
+			animate('{{animationDuration}} ease'),
 		),
 		transition(
 			'void => inital-center-left', [
 			style({
 				transform: 'translateX(100%)'
 			}),
-			animate('.3s ease')
+			animate('{{animationDuration}} ease')
 		]),
 		transition(
 			'void => inital-center-right', [
 			style({
 				transform: 'translateX(-100%)'
 			}),
-			animate('.3s ease')
+			animate('{{animationDuration}} ease')
 		])
 	])

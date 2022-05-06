@@ -21,7 +21,7 @@ export class SbTabLabelComponent extends SbTabLabelCore {
 
   @Output()
   public isActiveChange: EventEmitter<boolean> = new EventEmitter();
-  
+
   private _isActive: boolean = false;
   @Input()
   get isActive(): boolean {

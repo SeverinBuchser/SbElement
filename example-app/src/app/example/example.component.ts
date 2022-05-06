@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Route, Routes } from "@angular/router";
-import { SbThemeService, mixinClassName, mixinColor, Color } from 'sb-element';
+import { mixinClassName, mixinColor, Color } from 'sb-element';
 
 @Component({
   selector: 'app-example',
@@ -11,9 +11,7 @@ export class ExampleComponent extends
 mixinColor(
   mixinClassName(
     class {
-      constructor(
-        public _elementRef: ElementRef,
-        public _themeService: SbThemeService) {}
+      constructor(public _elementRef: ElementRef) {}
     }, 'example'
   ), Color.PRIMARY
 ) {
@@ -23,11 +21,10 @@ mixinColor(
   public routes: Routes = [];
 
   constructor(
-    themeService: SbThemeService,
     elementRef: ElementRef,
     private route: ActivatedRoute
   ) {
-    super(elementRef, themeService);
+    super(elementRef);
 
     if (this.route.routeConfig?.children) {
       this.routes = this.route.routeConfig?.children.reduce((routes, route) => {

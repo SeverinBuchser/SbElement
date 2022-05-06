@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { SbThemeService } from 'sb-element';
+import { SbThemingService } from 'sb-element';
 
 @Component({
   selector: 'theme-toggle-switch',
@@ -9,17 +9,17 @@ import { SbThemeService } from 'sb-element';
 export class ThemeToggleSwitchComponent {
 
   get toggle(): boolean {
-    return this.themeService.get() == 'dark';
+    return this.themingService.get() == 'dark';
   }
 
   set toggle(isToggled: boolean) {
-    if (this.themeService.get() == 'dark') {
-      this.themeService.commit('light');
+    if (this.themingService.get() == 'dark') {
+      this.themingService.commit('light');
     } else {
-      this.themeService.commit('dark');
+      this.themingService.commit('dark');
     }
   }
 
-  constructor(private themeService: SbThemeService) { }
+  constructor(private themingService: SbThemingService) { }
 
 }

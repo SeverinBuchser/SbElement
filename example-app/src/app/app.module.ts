@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { UtilModule } from './util/util.module';
 
 import { FormsModule } from '@angular/forms';
-import { SbElementModule, SbHighlightModule, SbStyleModule } from 'sb-element';
+import { SbElementModule, SbHighlightModule, SbTabsModule, SbThemingModule } from 'sb-element';
 import { IndicatorExampleComponent } from './example/indicator/indicator-example/indicator-example.component';
 import { NotificationExampleComponent } from './example/notification/notification-example/notification-example.component';
 import { TimelineExampleComponent } from './example/timeline/timeline-example/timeline-example.component';
@@ -47,7 +47,7 @@ import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.c
     AppRoutingModule,
     FormsModule,
     SbElementModule,
-    SbStyleModule.forRoot([
+    SbThemingModule.forRoot([
       {name: 'light', href: 'sb-light.css'},
       {name: 'dark', href: 'sb-dark.css'},
       {name: 'neutral', href: 'sb-neutral.css'},
@@ -55,6 +55,9 @@ import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.c
     SbHighlightModule.forRoot([
       { name: 'xml', languageFn: xml }
     ]),
+    SbTabsModule.forRoot({
+      animationDuration: '0.3s'
+    }),
     UtilModule
   ],
   providers: [],

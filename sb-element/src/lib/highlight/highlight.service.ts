@@ -1,4 +1,4 @@
-import { Inject, Injectable, Optional } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { SbHighlightLanguage } from './highlight-language';
 import { SB_HIGHLIGHT_OPTIONS, SbHighlightOptions } from './highlight-options';
 import hljs from 'highlight.js/lib/core';
@@ -11,7 +11,7 @@ import { HighlightResult } from 'highlight.js';
 export class SbHighlightService {
   private languages: Array<SbHighlightLanguage> = new Array();
 
-  constructor(@Optional() @Inject(SB_HIGHLIGHT_OPTIONS) private options?: SbHighlightOptions) {
+  constructor(@Inject(SB_HIGHLIGHT_OPTIONS) private options?: SbHighlightOptions) {
     hljs.configure({
       classPrefix: ''
     })

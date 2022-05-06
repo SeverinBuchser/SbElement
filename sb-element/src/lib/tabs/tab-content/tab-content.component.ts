@@ -21,7 +21,7 @@ export class SbTabContentComponent extends SbTabContentCore implements OnInit {
   public contentHost!: CdkPortalOutlet;
 
   @Input()
-  public tab?: SbTabComponent;
+  public tab!: SbTabComponent;
 
   public animationState: SbSlideAnimationState = 'void';
 
@@ -30,16 +30,14 @@ export class SbTabContentComponent extends SbTabContentCore implements OnInit {
   }
 
   public ngOnInit(): void {
-    if (this.tab) {
-      this.tab.positionChange.subscribe((change: SbTabPositionChange) => {
-        this.animationState = this.getNextAnimationState(change);
-        if (this.isCenterState(this.animationState)) {
-          if (!this.contentHost.hasAttached()) {
-            this.contentHost.attach(this.tab!.content);
-          }
+    this.tab.positionChange.subscribe((change: SbTabPositionChange) => {
+      this.animationState = this.getNextAnimationState(change);
+      if (this.isCenterState(this.animationState)) {
+        if (!this.contentHost.hasAttached()) {
+          this.contentHost.attach(this.tab!.content);
         }
-      })
-    }
+      }
+    })
   }
 
   public onAnimationDone(): void {

@@ -8,6 +8,8 @@ Tab-Bar / Style
 
 // ROOT
 .sb-tab-bar {
+  display: block;
+  overflow: hidden;
 
   &__active-underlay {
     @include transitioning.ease(300ms, transform, width);

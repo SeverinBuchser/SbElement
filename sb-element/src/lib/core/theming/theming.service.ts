@@ -1,56 +1,61 @@
 import { DOCUMENT } from "@angular/common";
-import { Inject, Injectable } from '@angular/core';
-export class ThemesConfig extends Array<ThemeConfig> {}
-
-export interface ThemeConfig {
-  name: string;
-  href: string;
-}
+import { Inject, Injectable, Optional } from '@angular/core';
+import { SbThemeConfig, SbThemingModuleConfig, SB_THEMING_CONFIG } from "./theming.module.config";
 
 @Injectable({
   providedIn: 'root'
 })
-export class SbThemeService {
+export class SbThemingService {
 
-  private _themeConfig: ThemeConfig = {
+  private _themeConfig: SbThemeConfig = {
     name: '',
     href: ''
   };
 
   constructor(
-    @Inject(ThemesConfig) private themesConfig: ThemesConfig,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    @Optional() @Inject(SB_THEMING_CONFIG) private config?: SbThemingModuleConfig,
   ) {
-    this.createLinkElement(themesConfig[0]).then(() => {
-        this._themeConfig = themesConfig[0];
-    })
+    if (config) {
+      this.createLinkElement(config[0]).then(() => {
+          this._themeConfig = config[0];
+      })
+    }
+  }
+
+  private checkConfigured(): void {
+    if (!this.config) {
+      throw new Error("The SbThemingModule has not been configured!");
+    }
   }
 
   private findThemeByName(themeName: string) {
-    return (themeConfig: ThemeConfig): boolean => {
+    return (themeConfig: SbThemeConfig): boolean => {
       return themeName == themeConfig.name;
     }
   }
 
   public commit(themeName: string): void {
-    const themeConfig = this.themesConfig.find(this.findThemeByName(themeName));
+    this.checkConfigured();
+    const themeConfig = this.config!.find(this.findThemeByName(themeName));
     if (themeConfig) {
       this.updateLinkElement(themeConfig);
     } else throw new Error(`Theme ${themeName} does not exist!`);
   }
 
   public get(): string {
+    this.checkConfigured();
     return this._themeConfig.name
   }
 
-  private updateLinkElement(themeConfig: ThemeConfig): void {
+  private updateLinkElement(themeConfig: SbThemeConfig): void {
     this.createLinkElement(themeConfig).then(() => {
         this.removeLinkElement(this._themeConfig);
         this._themeConfig = themeConfig;
     })
   }
 
-  private createLinkElement(themeConfig: ThemeConfig): Promise<void> {
+  private createLinkElement(themeConfig: SbThemeConfig): Promise<void> {
     const link = this.document.createElement('link');
     link.id = `sb-theme-${themeConfig.name}`;
     link.setAttribute('rel', 'stylesheet');
@@ -61,7 +66,7 @@ export class SbThemeService {
     });
   }
 
-  private removeLinkElement(themeConfig: ThemeConfig): void {
+  private removeLinkElement(themeConfig: SbThemeConfig): void {
     const link: HTMLElement | null = this.document
       .getElementById(`sb-theme-${themeConfig.name}`);
     if (link) {

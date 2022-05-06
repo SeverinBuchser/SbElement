@@ -1,4 +1,4 @@
-import { Component, ContentChildren, ElementRef, Input, NgZone, OnInit, QueryList, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChildren, ElementRef, Input, NgZone, QueryList, ViewEncapsulation } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { SbTabComponent } from '../tab';
 import { mixinClassName } from "../../core";
@@ -14,7 +14,7 @@ const SbTabsCore = mixinClassName(
   templateUrl: './tabs.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class SbTabsComponent extends SbTabsCore implements OnInit {
+export class SbTabsComponent extends SbTabsCore {
 
   @Input()
   public activeTabIndex: number = 0;
@@ -27,12 +27,6 @@ export class SbTabsComponent extends SbTabsCore implements OnInit {
     private _ngZone: NgZone
   ) {
     super(elementRef);
-  }
-
-  ngOnInit(): void {
-
-  }
-  ngAfterContentInit(): void {
     this._ngZone.onStable.pipe(take(1)).subscribe(() => {
       this.setInitalTabPositions();
     });
@@ -50,9 +44,7 @@ export class SbTabsComponent extends SbTabsCore implements OnInit {
   }
 
   private shiftTabPositions(amount: number): void {
-    this.tabs.forEach(tab => {
-      tab.position += amount;
-    })
+    this.tabs.forEach(tab => tab.position += amount)
   }
 
 }
