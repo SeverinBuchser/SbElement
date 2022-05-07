@@ -1,11 +1,7 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { mixinClassName } from '../../../core';
+import { hasElementRefClass, mixinClassName } from '../../../core';
 
-const SbNavBarContentCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-nav-bar-content'
-);
+const SbNavBarContentCore = mixinClassName(hasElementRefClass, 'sb-nav-bar-content');
 
 @Component({
   selector: 'sb-nav-bar-content',
@@ -14,11 +10,8 @@ const SbNavBarContentCore = mixinClassName(
 })
 export class SbNavBarContentComponent extends SbNavBarContentCore {
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
-
 
 }

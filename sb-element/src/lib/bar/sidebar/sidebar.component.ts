@@ -1,11 +1,18 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, Size, Triggerable } from '../../core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  ViewChild,
+  ViewEncapsulation } from '@angular/core';
+import {
+  hasElementRefClass,
+  mixinClassName,
+  mixinHide,
+  Size,
+  Triggerable } from '../../core';
+import { SbBarComponent, SbBarSide } from '../bar';
 
-const SbSidebarCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-sidebar'
-);
+const SbSidebarCore = mixinHide(mixinClassName(hasElementRefClass, 'sb-sidebar'));
 
 @Component({
   selector: 'sb-sidebar',
@@ -18,27 +25,16 @@ export class SbSidebarComponent extends SbSidebarCore implements Triggerable {
   public size: string = Size.MEDIUM;
 
   @Input()
-  public side: 'left' | 'right' | 'top' | 'bottom' = 'left';
+  public side: SbBarSide = 'left';
 
-  @Input()
-  public visible: boolean = false;
+  @ViewChild(SbBarComponent, { read: ElementRef })
+  public transitionElement!: ElementRef;
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 
   public trigger(): void {
     this.visible = !this.visible;
-  }
-
-  public getSidebarOverlayClasses(): Array<string> {
-    let classes: Array<string> = new Array<string>();
-    classes.push(this.className + '__overlay');
-    if (this.visible) {
-      classes.push('visible');
-    }
-    return classes;
   }
 }

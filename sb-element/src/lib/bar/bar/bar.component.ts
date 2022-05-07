@@ -1,14 +1,14 @@
-import { Component, ElementRef, HostBinding, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, mixinColor } from '../../core';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  Input,
+  ViewEncapsulation } from '@angular/core';
+import { hasElementRefClass, mixinClassName, mixinColor } from '../../core';
 
-const SbBarCore = mixinColor(
-  mixinClassName(
-    class {
-      constructor(public _elementRef: ElementRef) {}
-    }, 'sb-bar'
-  )
-);
+export type SbBarSide = 'left' | 'right' | 'top' | 'bottom';
 
+const SbBarCore = mixinColor(mixinClassName(hasElementRefClass, 'sb-bar'));
 
 @Component({
   selector: 'sb-bar',
@@ -22,11 +22,9 @@ const SbBarCore = mixinColor(
 export class SbBarComponent extends SbBarCore {
 
   @Input() @HostBinding('class')
-  public side: 'left' | 'right' | 'top' | 'bottom' = 'left';
+  public side: SbBarSide = 'left';
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 }
