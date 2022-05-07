@@ -1,12 +1,15 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { Color, mixinClassName, mixinColor } from '../../core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation } from '@angular/core';
+import { Color, hasElementRefClass, mixinClassName, mixinColor } from '../../core';
 
 const SbBreadcrumbsCore = mixinColor(
-  mixinClassName(
-    class {
-      constructor(public _elementRef: ElementRef) {}
-    }, 'sb-breadcrumbs'
-  ), Color.PRIMARY
+  mixinClassName(hasElementRefClass, 'sb-breadcrumbs'),
+  Color.PRIMARY
 );
 
 @Component({
@@ -43,15 +46,12 @@ export class SbBreadcrumbsComponent extends SbBreadcrumbsCore {
     }, new Array<string>())
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 
   public handleClick(crumbIndex: number) {
     this.navigate.emit(this.crumbs.slice(0, crumbIndex + 1).join('/'));
   }
-
 
 }
