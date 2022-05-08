@@ -7,4 +7,6 @@ export interface SbThemeConfig {
 
 export interface SbThemingModuleConfig extends Array<SbThemeConfig> {}
 
-export const SB_THEMING_CONFIG = new InjectionToken<SbThemingModuleConfig>('theming.config');
+export const SB_THEMING_CONFIG = new InjectionToken<SbThemingModuleConfig>(
+  'theming.config'
+);

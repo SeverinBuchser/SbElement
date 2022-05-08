@@ -1,5 +1,5 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { SbThemingModuleConfig, SB_THEMING_CONFIG } from "./theming.module.config";
 
 @NgModule({
@@ -16,7 +16,9 @@ export class SbThemingModule {
     }
   }
 
-  public static forRoot(config: SbThemingModuleConfig): ModuleWithProviders<SbThemingModule> {
+  public static forRoot(
+    config: SbThemingModuleConfig
+  ): ModuleWithProviders<SbThemingModule> {
     return {
       ngModule: SbThemingModule,
       providers: [

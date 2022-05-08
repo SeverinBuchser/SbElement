@@ -6,9 +6,12 @@ Contrst
 
 // Calculate the difference in color.
 @function color-difference($color-one, $color-two) {
-  $r: (max(red($color-one), red($color-two))) - (min(red($color-one), red($color-two)));
-  $g: (max(green($color-one), green($color-two))) - (min(green($color-one), green($color-two)));
-  $b: (max(blue($color-one), blue($color-two))) - (min(blue($color-one), blue($color-two)));
+  $r: max(red($color-one), red($color-two)) -
+      min(red($color-one), red($color-two));
+  $g: max(green($color-one), green($color-two)) -
+      min(green($color-one), green($color-two));
+  $b: max(blue($color-one), blue($color-two)) -
+      min(blue($color-one), blue($color-two));
   $sum-rgb: $r + $g + $b;
   @return math.abs($sum-rgb);
 }

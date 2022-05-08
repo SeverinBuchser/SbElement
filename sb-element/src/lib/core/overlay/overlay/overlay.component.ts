@@ -1,13 +1,17 @@
-import { Component, ComponentRef, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ComponentRef,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewEncapsulation } from '@angular/core';
+import { hasElementRefClass, mixinClassName } from '../../common-behaviors';
 import { SbOverlayOutletComponent } from '../overlay-outlet';
 import { SbOverlayService } from '../overlay.service';
-import { mixinClassName } from '../../common-behaviors';
 
-const SbOverlayCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-overlay'
-);
+const SbOverlayCore = mixinClassName(hasElementRefClass, 'sb-overlay');
 
 @Component({
   selector: 'sb-overlay',

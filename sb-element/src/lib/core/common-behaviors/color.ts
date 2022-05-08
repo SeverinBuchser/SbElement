@@ -1,7 +1,6 @@
 import { AbstractConstructor, Constructor } from "./constructor";
 import { HasElementRef } from "./has-element-ref";
 
-
 export enum Color {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',

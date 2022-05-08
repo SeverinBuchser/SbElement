@@ -6,8 +6,6 @@ export enum Side {
 }
 
 export class Position {
-  private static minAlignment = -1;
-  private static maxAlignment = 1;
 
   get sideAlignment(): number {
     return this.alignment * (this.isNegativeAlignment ? -1 : 1);

@@ -1,10 +1,10 @@
+@forward 'animation';
+@forward 'border';
+@forward 'box-shadow';
+@forward 'display';
 @forward 'spacing';
 @forward 'theming';
-@forward 'border';
-@forward 'typography';
 @forward 'transitioning';
-@forward 'box-shadow';
-@forward 'animation';
-@forward 'display';
+@forward 'typography';
 
 @use 'overlay/module' as overlay;

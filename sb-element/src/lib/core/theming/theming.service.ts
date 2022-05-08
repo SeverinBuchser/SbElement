@@ -1,6 +1,9 @@
 import { DOCUMENT } from "@angular/common";
 import { Inject, Injectable, Optional } from '@angular/core';
-import { SbThemeConfig, SbThemingModuleConfig, SB_THEMING_CONFIG } from "./theming.module.config";
+import {
+  SbThemeConfig,
+  SbThemingModuleConfig,
+  SB_THEMING_CONFIG } from "./theming.module.config";
 
 @Injectable({
   providedIn: 'root'

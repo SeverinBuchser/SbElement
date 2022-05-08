@@ -6,7 +6,7 @@ import { Directive, ElementRef } from '@angular/core';
 export class SbCollapseDirective {
 
   get expandedHeight() {
-    let children = this.host.nativeElement.children;
+    let children = this._elementRef.nativeElement.children;
     let sum = 0;
     for (let i = 0 ; i < children.length ; i++) {
       sum += children.item(i).offsetHeight;
@@ -25,12 +25,10 @@ export class SbCollapseDirective {
     return this._collapsed;
   }
 
-  constructor(
-    private host: ElementRef
-  ) { }
+  constructor(public _elementRef: ElementRef) { }
 
   private setHeight(height: number) {
-    this.host.nativeElement.style.height = height + 'px';
+    this._elementRef.nativeElement.style.height = height + 'px';
   }
 
   public setCollapsedState(isCollapsed: boolean): void {

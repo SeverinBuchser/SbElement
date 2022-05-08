@@ -1,4 +1,4 @@
+@forward 'margin';
+@forward 'padding';
 @forward 'spacing' show get-spacing, spacing-exists, for-each-spacing,
 	get-smaller, get-bigger;
-@forward 'padding';
-@forward 'margin';

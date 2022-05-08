@@ -1,5 +1,5 @@
-@use 'sass:map';
 @use 'sass:list';
+@use 'sass:map';
 @use 'sass:meta';
 @use 'spacings';
 /*****************************************************************************
@@ -45,7 +45,8 @@ Spacing
   $keys: map.keys(spacings.$spacings);
   $length: list.length($keys);
   $index: list.index($keys, $key) - $times + 1;
-  @if $index and meta.type-of($index) == number and 1 < $index and $index <= $length {
+  @if $index and meta.type-of($index) == number and 1 < $index
+    and $index <= $length {
     @return get-spacing(list.nth($keys, $index - 1));
   }
   @error "There is no smaller spacing for the spacing #{$key}!";
@@ -59,7 +60,8 @@ Spacing
   $keys: map.keys(spacings.$spacings);
   $length: list.length($keys);
   $index: list.index($keys, $key) + $times - 1;
-  @if $index and meta.type-of($index) == number and 0 < $index and $index < $length {
+  @if $index and meta.type-of($index) == number and 0 < $index
+    and $index < $length {
     @return get-spacing(list.nth($keys, $index + 1));
   }
   @error "There is no bigger spacing for the spacing #{$key}!";

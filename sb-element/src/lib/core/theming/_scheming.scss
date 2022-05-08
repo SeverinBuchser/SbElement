@@ -37,7 +37,10 @@ Scheming
     } @else if $scheme == magenta-dark {
       @return scheme.$magenta-dark-scheme;
     } @else {
-      @error "Scheme must be one of the following: 'light', 'dark', 'red-light', 'red-dark', 'yellow-light', 'yellow-dark', 'green-light', 'green-dark', 'blue-light', 'blue-dark', 'magenta-light' or 'magenta-dark'";
+      @error "Scheme must be one of the following: 'light', 'dark', "
+        "'red-light', 'red-dark', 'yellow-light', 'yellow-dark', "
+        "'green-light', 'green-dark', 'blue-light', 'blue-dark', "
+        "'magenta-light' or 'magenta-dark'";
     }
   } @else {
     @return scheme.validate-scheme($scheme);

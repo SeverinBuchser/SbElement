@@ -1,10 +1,19 @@
-import { Component, ComponentRef, ElementRef, EmbeddedViewRef, Injector, NgModuleRef, TemplateRef, Type, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { SbAlignDirective } from '../../align';
+import {
+  Component,
+  ComponentRef,
+  ElementRef,
+  EmbeddedViewRef,
+  Injector,
+  NgModuleRef,
+  TemplateRef,
+  Type,
+  ViewChild,
+  ViewContainerRef,
+  ViewEncapsulation } from '@angular/core';
 import { mixinClassName } from '../../common-behaviors';
+import { SbAlignDirective } from '../../align';
 
-const SbOverlayOutletCore = mixinClassName(
-  SbAlignDirective, 'sb-overlay-outlet'
-);
+const SbOverlayOutletCore = mixinClassName(SbAlignDirective, 'sb-overlay-outlet');
 
 @Component({
   selector: 'sb-overlay-outlet',
@@ -16,9 +25,7 @@ export class SbOverlayOutletComponent extends SbOverlayOutletCore {
   @ViewChild('outlet', {read: ViewContainerRef, static: true})
   public outlet!: ViewContainerRef;
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

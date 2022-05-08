@@ -1,9 +1,8 @@
 @use 'sass:meta';
 @use '../spacing';
 /*****************************************************************************
-Flex Box
+Flex-Box
 ******************************************************************************/
-
 
 @mixin flex($justify: center, $align: center, $direction: none, $gap: 0) {
   display: flex;

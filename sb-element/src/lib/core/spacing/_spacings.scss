@@ -1,5 +1,5 @@
-@use 'sass:map';
 @use 'sass:list';
+@use 'sass:map';
 /*****************************************************************************
 Spacing Definitions
 ******************************************************************************/
@@ -21,11 +21,15 @@ $smallest: xs !default;
 $biggest: xxl !default;
 
 @if not map.has-key($spacings, $smallest) {
-  @error "The smallest value #{$smallest} does not exist in the $spacings variable. To fix this either set a smallest value yourself in the library configuration, or add the value to the $spacings!";
+  @error "The smallest value #{$smallest} does not exist in the $spacings "
+    "variable. To fix this either set a smallest value yourself in the library "
+    "configuration, or add the value to the $spacings!";
 }
 
 @if not map.has-key($spacings, $biggest) {
-  @error "The biggest value #{$biggest} does not exist in the $spacings variable. To fix this either set a biggest value yourself in the library configuration, or add the value to the $spacings!";
+  @error "The biggest value #{$biggest} does not exist in the $spacings "
+    "variable. To fix this either set a biggest value yourself in the library "
+    "configuration, or add the value to the $spacings!";
 }
 
 $smallest-index: list.index($spacing-keys, $smallest);

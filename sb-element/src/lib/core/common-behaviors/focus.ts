@@ -1,5 +1,5 @@
-import { AbstractConstructor, Constructor } from "./constructor";
 import { EventEmitter } from "@angular/core";
+import { AbstractConstructor, Constructor } from "./constructor";
 
 export interface CanFocus {
   focused: boolean;

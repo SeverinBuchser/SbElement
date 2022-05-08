@@ -4,21 +4,21 @@ import { CommonModule } from '@angular/common';
 import { SbAlignModule } from './align';
 import { SbCollapseDirective } from './collapse';
 import { SbInsertDirective } from './insert';
+import { SbOverlayModule } from './overlay';
 import { SbThemingModule } from './theming';
 import {
   SbClickOutsideTriggerDirective,
   SbClickTriggerDirective,
   SbHoverTriggerDirective,
   SbTriggerDirective } from './trigger';
-import { SbOverlayModule } from './overlay';
 
 @NgModule({
   declarations: [
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
     SbCollapseDirective,
-    SbInsertDirective,
     SbHoverTriggerDirective,
+    SbInsertDirective,
     SbTriggerDirective,
   ],
   imports: [
@@ -28,13 +28,13 @@ import { SbOverlayModule } from './overlay';
     SbClickOutsideTriggerDirective,
     SbClickTriggerDirective,
     SbCollapseDirective,
-    SbInsertDirective,
     SbHoverTriggerDirective,
+    SbInsertDirective,
     SbTriggerDirective,
 
     SbAlignModule,
+    SbOverlayModule,
     SbThemingModule,
-    SbOverlayModule
   ]
 })
 export class SbCoreModule { }

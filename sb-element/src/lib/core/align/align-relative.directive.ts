@@ -1,7 +1,7 @@
 import { Directive, ElementRef } from '@angular/core';
-import { SbAlignDirective } from './align.directive';
-import { Position } from './position';
 import { HasElementRef } from '../common-behaviors';
+import { Position } from './position';
+import { SbAlignDirective } from './align.directive';
 
 const defaultOptions = {
   marginSide: {

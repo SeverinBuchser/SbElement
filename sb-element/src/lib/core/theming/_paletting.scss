@@ -35,7 +35,10 @@ Paletting
     } @else if $palette == magenta-desaturated {
       @return palette.$magenta-desaturated-palette;
     } @else {
-      @error "Palette must be one of the following: 'red-saturated', 'red-desaturated', 'yellow-saturated', 'yellow-desaturated', 'green-saturated', 'green-desaturated', 'blue-saturated', 'blue-desaturated', 'magenta-saturated' or 'magenta-desaturated'";
+      @error "Palette must be one of the following: 'red-saturated', "
+        "'red-desaturated', 'yellow-saturated', 'yellow-desaturated', "
+        "'green-saturated', 'green-desaturated', 'blue-saturated', "
+        "'blue-desaturated', 'magenta-saturated' or 'magenta-desaturated'";
     }
   } @else {
     @return palette.validate-palette($palette);
