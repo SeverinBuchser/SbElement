@@ -1,21 +1,26 @@
-import { AfterContentInit, Component, ElementRef, Input, NgZone, OnDestroy, QueryList, ViewChild } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ElementRef,
+  Input,
+  NgZone,
+  OnDestroy,
+  QueryList,
+  ViewChild } from '@angular/core';
 import {ViewportRuler} from '@angular/cdk/scrolling';
-import {take, takeUntil} from 'rxjs/operators';
-import { SbContentPaginationDirective } from './content-pagination.directive';
-import { mixinClassName } from '../../core';
 import { merge, Subject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+import { hasElementRefClass, mixinClassName } from '../../core';
+import { SbContentPaginationDirective } from './content-pagination.directive';
 
-const SbContentPaginatorCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-content-paginator'
-);
+const SbContentPaginatorCore = mixinClassName(hasElementRefClass, 'sb-content-paginator');
 
 @Component({
   selector: 'sb-content-paginator',
   templateUrl: './content-paginator.component.html'
 })
-export class SbContentPaginatorComponent extends SbContentPaginatorCore implements AfterContentInit, OnDestroy {
+export class SbContentPaginatorComponent extends SbContentPaginatorCore
+  implements AfterContentInit, OnDestroy {
 
   @ViewChild('paginator', { static: true })
   public paginator!: ElementRef;
