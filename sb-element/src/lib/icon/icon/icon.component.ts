@@ -1,13 +1,9 @@
-import { Attribute, Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinClassName, mixinColor } from '../../core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { mixinSize, mixinClassName, mixinColor, hasElementRefClass } from '../../core';
 
 const SbIconCore = mixinSize(
   mixinColor(
-    mixinClassName(
-      class {
-        constructor(public _elementRef: ElementRef) {}
-      }, 'sb-icon'
-    )
+    mixinClassName(hasElementRefClass, 'sb-icon')
   )
 );
 
@@ -29,19 +25,20 @@ export class SbIconComponent extends SbIconCore {
   @Input()
   public icon: string = '';
 
-  @Input()
-  set isOutline(isOutline: boolean) {
-    this.outline = isOutline;
+  private _outline: boolean = false;
+
+  get outline(): boolean {
+    return this._outline
   }
 
-  private outline: boolean = false;
+  @Input('outline')
+  set isOutline(isOutline: boolean | string) {
+    if (typeof isOutline == 'string') this._outline = true;
+    else this._outline = isOutline;
+  }
 
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('outline') outline: any
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (outline == '') this.isOutline = true;
   }
 
 }
