@@ -1,30 +1,34 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 
 import { SbCardComponent } from './card';
-import { SbExpansionCardComponent } from './expansion-card';
+import { SbCardContentComponent } from './card-content';
 import { SbCardHeaderComponent } from './card-header';
 import { SbCardImageDirective } from './card-image';
-import { SbCardContentComponent } from './card-content';
+import { SbExpansionCardComponent } from './expansion-card';
 
 @NgModule({
   declarations: [
     SbCardComponent,
-    SbExpansionCardComponent,
     SbCardContentComponent,
     SbCardHeaderComponent,
     SbCardImageDirective,
+    SbExpansionCardComponent,
   ],
-  imports: [CommonModule, SbCoreModule, SbIconModule],
+  imports: [
+    CommonModule,
+    SbCoreModule,
+    SbIconModule
+  ],
   exports: [
     SbCardComponent,
-    SbExpansionCardComponent,
     SbCardContentComponent,
     SbCardHeaderComponent,
     SbCardImageDirective,
+    SbExpansionCardComponent,
   ]
 })
 export class SbCardModule { }

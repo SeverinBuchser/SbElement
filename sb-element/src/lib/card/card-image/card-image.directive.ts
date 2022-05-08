@@ -1,17 +1,13 @@
 import { Directive, ElementRef } from '@angular/core';
-import { mixinClassName } from '../../core';
+import { hasElementRefClass, mixinClassName } from '../../core';
 
-const SbCardImageCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-card-image'
-);
+const SbCardImageCore = mixinClassName(hasElementRefClass, 'sb-card-image');
 
 @Directive({
   selector: '[sbCardImage]',
   host: {
-    '[class.border-top]': 'borderTop',
-    '[class.border-bottom]': 'borderBottom'
+    '[class.border-bottom]': 'borderBottom',
+    '[class.border-top]': 'borderTop'
   }
 })
 export class SbCardImageDirective extends SbCardImageCore {
@@ -19,9 +15,7 @@ export class SbCardImageDirective extends SbCardImageCore {
   public borderTop: boolean = true;
   public borderBottom: boolean = true;
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

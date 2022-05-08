@@ -1,11 +1,7 @@
 import { Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core';
-import { mixinClassName } from '../../core';
+import { hasElementRefClass, mixinClassName } from '../../core';
 
-const SbCardContentCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-card-content'
-);
+const SbCardContentCore = mixinClassName(hasElementRefClass, 'sb-card-content');
 
 @Component({
   selector: 'sb-card-content',

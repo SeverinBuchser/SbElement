@@ -1,6 +1,11 @@
-import { AfterContentInit, Attribute, Component, ElementRef, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SbCardComponent } from '../card';
+import {
+  AfterContentInit,
+  Component,
+  ElementRef,
+  ViewChild,
+  ViewEncapsulation } from '@angular/core';
 import { mixinHide, SbCollapseDirective, Triggerable } from '../../core';
+import { SbCardComponent } from '../card';
 
 const SbExpansionCardCore = mixinHide(SbCardComponent);
 
@@ -10,7 +15,8 @@ const SbExpansionCardCore = mixinHide(SbCardComponent);
   templateUrl: './expansion-card.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class SbExpansionCardComponent extends SbExpansionCardCore implements Triggerable, AfterContentInit {
+export class SbExpansionCardComponent extends SbExpansionCardCore
+  implements Triggerable, AfterContentInit {
 
   public isOpen: boolean = false;
 
@@ -20,12 +26,8 @@ export class SbExpansionCardComponent extends SbExpansionCardCore implements Tri
   @ViewChild(SbCollapseDirective)
   public collapse!: SbCollapseDirective;
 
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('hover') hover: any,
-    @Optional() @Attribute('shadow') shadow: any
-  ) {
-    super(elementRef, hover, shadow);
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 
   public trigger(): void {
@@ -36,7 +38,8 @@ export class SbExpansionCardComponent extends SbExpansionCardCore implements Tri
   ngAfterContentInit() {
     super.ngAfterContentInit();
     if (!this.header) {
-      throw new Error("There is no header defined for the expansion card! The card cannot be expanded!")
+      throw new Error("There is no header defined for the expansion card!"
+        + "The card cannot be expanded!");
     }
     this.header.hasAction = true;
     this.header._elementRef.nativeElement.addEventListener('click', () => {

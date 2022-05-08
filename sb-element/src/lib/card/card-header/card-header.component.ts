@@ -1,11 +1,7 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName } from '../../core';
+import { hasElementRefClass, mixinClassName } from '../../core';
 
-const SbCardHeaderCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-card-header'
-);
+const SbCardHeaderCore = mixinClassName(hasElementRefClass, 'sb-card-header');
 
 @Component({
   selector: 'sb-card-header',
@@ -20,9 +16,7 @@ export class SbCardHeaderComponent extends SbCardHeaderCore {
   @Input()
   public hasAction: boolean = false;
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

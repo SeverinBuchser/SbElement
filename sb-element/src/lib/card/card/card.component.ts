@@ -1,14 +1,18 @@
-import { AfterContentInit, Attribute, Component, ContentChild, ContentChildren, ElementRef, Input, Optional, QueryList, TemplateRef, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ContentChildren,
+  ElementRef,
+  Input,
+  QueryList,
+  ViewEncapsulation } from '@angular/core';
+import { hasElementRefClass, mixinClassName } from '../../core';
 import { SbCardHeaderComponent } from '../card-header';
 import { SbCardImageDirective } from '../card-image';
 import { SbCardContentComponent } from '../card-content';
-import { mixinClassName } from '../../core';
 
-const SbCardCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-card'
-);
+const SbCardCore = mixinClassName(hasElementRefClass, 'sb-card');
 
 @Component({
   selector: 'sb-card',
@@ -17,10 +21,7 @@ const SbCardCore = mixinClassName(
   host: {
     '[class.hover]': 'hover',
     '[class.shadow]': 'shadow'
-  },
-  inputs: [
-    'size'
-  ]
+  }
 })
 export class SbCardComponent extends SbCardCore implements AfterContentInit {
 
@@ -39,19 +40,9 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
   @ContentChildren(SbCardContentComponent)
   public contents!: QueryList<SbCardContentComponent>;
 
-  private hover: boolean = false;
-  private shadow: boolean = false;
-
-  constructor(
-    elementRef: ElementRef,
-    @Optional() @Attribute('hover') hover: any,
-    @Optional() @Attribute('shadow') shadow: any
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
-    if (hover == '') this.hover = true;
-    if (shadow == '') this.shadow = true;
   }
-
 
   public ngAfterContentInit(): void {
 
