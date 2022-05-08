@@ -1,24 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
-import { SbCalendarModule } from "../calendar";
-import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
-import { SbPopperModule } from "../popper";
 
 import { SbButtonModule } from './button';
 import { SbDateInputModule } from './date-input';
 import { SbInputModule } from './input';
 import { SbNumberInputModule } from './number-input';
+import { SbSelectModule } from './select';
 import { SbToggleModule } from './toggle';
 
-import { SbIconButtonComponent } from './icon-button';
-import { SbSliderComponent } from './slider';
 import { SbFileInputComponent } from './file-input';
+import { SbIconButtonComponent } from './icon-button';
 import { SbRadioComponent } from './radio';
+import { SbSliderComponent } from './slider';
 import { SbTimeInputComponent } from './time-input';
-import { SbSelectModule } from './select/select.module';
 
 @NgModule({
   declarations: [
@@ -32,22 +29,16 @@ import { SbSelectModule } from './select/select.module';
     CommonModule,
     FormsModule,
     SbButtonModule,
-    SbCoreModule,
-    SbDateInputModule,
     SbIconModule,
-    SbInputModule,
     SbNumberInputModule,
-    SbPopperModule,
-    SbCalendarModule
   ],
   exports: [
     // components
-    SbIconButtonComponent,
-    SbSliderComponent,
     SbFileInputComponent,
+    SbIconButtonComponent,
     SbRadioComponent,
+    SbSliderComponent,
     SbTimeInputComponent,
-
     // modules
     SbButtonModule,
     SbDateInputModule,

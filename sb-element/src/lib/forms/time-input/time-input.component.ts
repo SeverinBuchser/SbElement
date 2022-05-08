@@ -12,8 +12,8 @@ const SbTimeInputCore = mixinDisable(mixinFocus(class {}));
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -21,7 +21,8 @@ const SbTimeInputCore = mixinDisable(mixinFocus(class {}));
     multi: true
   }]
 })
-export class SbTimeInputComponent extends SbTimeInputCore implements ControlValueAccessor {
+export class SbTimeInputComponent extends SbTimeInputCore
+  implements ControlValueAccessor {
 
   @Input()
   public color: string = Color.PRIMARY;

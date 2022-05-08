@@ -1,5 +1,23 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { Color, mixinAccent, mixinClassName, mixinColor, mixinDisable, mixinTabindex, mixinHide, mixinPlain, mixinSize, Size, Triggerable } from '../../../../core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation } from '@angular/core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinAccent,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinHide,
+  mixinPlain,
+  mixinSize,
+  mixinTabindex,
+  Size,
+  Triggerable } from '../../../../core';
 
 const SbSelectButtonListCore = mixinHide(
   mixinDisable(
@@ -8,17 +26,17 @@ const SbSelectButtonListCore = mixinHide(
         mixinPlain(
           mixinSize(
             mixinColor(
-              mixinClassName(
-                class {
-                  constructor(public _elementRef: ElementRef) {}
-                }, 'sb-select-button-list'
-              ), Color.PRIMARY
-            ), Size.MEDIUM
+              mixinClassName(hasElementRefClass, 'sb-select-button-list'),
+              Color.PRIMARY
+            ),
+            Size.MEDIUM
           )
         )
-      ), 0
+      ),
+      0
     )
-  ), false
+  ),
+  false
 );
 
 @Component({
@@ -33,7 +51,8 @@ const SbSelectButtonListCore = mixinHide(
     'disabled'
   ]
 })
-export class SbSelectButtonListComponent extends SbSelectButtonListCore implements Triggerable {
+export class SbSelectButtonListComponent extends SbSelectButtonListCore
+  implements Triggerable {
 
   @Input()
   public options: Array<string> = new Array();

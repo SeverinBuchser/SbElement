@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
-import { SbButtonModule } from '../button';
 import { SbCoreModule } from '../../core';
 import { SbGridModule } from '../../grid';
-import { SbToggleModule } from '../toggle';
 import { SbPopperModule } from '../../popper';
+
+import { SbButtonModule } from '../button';
+import { SbToggleModule } from '../toggle';
 
 import { SbColorPickerComponent } from './color-picker';
 import { SbSelectButtonModule } from './select-button';
@@ -20,16 +21,16 @@ import { SbSelectCheckboxComponent } from './select-checkbox';
   imports: [
     CommonModule,
     FormsModule,
-    SbButtonModule,
     SbCoreModule,
     SbGridModule,
-    SbToggleModule,
     SbPopperModule,
+    SbButtonModule,
+    SbToggleModule,
   ],
   exports: [
     SbColorPickerComponent,
-    SbSelectCheckboxComponent,
     SbSelectButtonModule,
+    SbSelectCheckboxComponent,
   ]
 })
 export class SbSelectModule { }

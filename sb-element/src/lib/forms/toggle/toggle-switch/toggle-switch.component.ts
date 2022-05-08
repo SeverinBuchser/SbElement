@@ -1,17 +1,25 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SbToggleCVACore } from '../toggle-core';
-import { Color, mixinAccent, mixinClassName, mixinColor, mixinSize, mixinTabindex, Size } from '../../../core';
+import {
+  Color,
+  mixinAccent,
+  mixinClassName,
+  mixinColor,
+  mixinSize,
+  mixinTabindex,
+  Size } from '../../../core';
 
 const SbToggleSwitchCore = mixinAccent(
   mixinTabindex(
     mixinSize(
       mixinColor(
-        mixinClassName(
-          SbToggleCVACore, 'sb-toggle-switch'
-        ), Color.PRIMARY
-      ), Size.MEDIUM
-    ), 0
+        mixinClassName(SbToggleCVACore, 'sb-toggle-switch'),
+        Color.PRIMARY
+      ),
+      Size.MEDIUM
+    ),
+    0
   )
 );
 

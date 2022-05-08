@@ -1,8 +1,12 @@
 import { ElementRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import {
+	CanDisable,
+	CanFocus,
+	HasElementRef,
+	mixinDisable,
+	mixinFocus } from '../../../core';
 import { SbSelectCore, SbSelectToggle } from './select-core';
-import { CanDisable, CanFocus, HasElementRef, mixinDisable, mixinFocus } from '../../../core';
-
 
 const SbSelectAllCoreCore = mixinFocus(mixinDisable(SbSelectCore))
 

@@ -1,6 +1,17 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { mixinDisable, mixinFocus, mixinColor, mixinSize, mixinClassName, Color, Size, mixinPill, mixinAccent, mixinPlain } from '../../core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinAccent,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinFocus,
+  mixinPill,
+  mixinPlain,
+  mixinSize,
+  Size } from '../../core';
 
 const SbFileInputCore = mixinAccent(
   mixinPill(
@@ -9,12 +20,10 @@ const SbFileInputCore = mixinAccent(
         mixinFocus(
           mixinSize(
             mixinColor(
-              mixinClassName(
-                class {
-                  constructor(public _elementRef: ElementRef) {}
-                }, 'sb-file-input'
-              ), Color.PRIMARY
-            ), Size.MEDIUM
+              mixinClassName(hasElementRefClass, 'sb-file-input'),
+              Color.PRIMARY
+            ),
+            Size.MEDIUM
           )
         )
       )
@@ -35,8 +44,8 @@ const SbFileInputCore = mixinAccent(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -44,7 +53,8 @@ const SbFileInputCore = mixinAccent(
     multi: true
   }]
 })
-export class SbFileInputComponent extends SbFileInputCore implements ControlValueAccessor {
+export class SbFileInputComponent extends SbFileInputCore
+  implements ControlValueAccessor {
 
   @Input()
   public placeholder: string = '';

@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SbToggleCVACore } from '../toggle-core';
 import { Color, mixinClassName, Size } from '../../../core';
+import { SbToggleCVACore } from '../toggle-core';
 
 const SbToggleButtonCore = mixinClassName(SbToggleCVACore, 'sb-toggle-button');
 
@@ -17,8 +17,8 @@ const SbToggleButtonCore = mixinClassName(SbToggleCVACore, 'sb-toggle-button');
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,

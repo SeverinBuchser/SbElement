@@ -1,15 +1,22 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  CanClassName,
+  CanDisable,
+  CanFocus,
+  HasElementRef,
+  mixinAccent,
+  mixinClassName,
+  mixinColor,
+  mixinPlain,
+  mixinSize } from '../../../core';
 import { SbSelectAllCore } from '../select-core';
-import { CanClassName, CanDisable, CanFocus, HasElementRef, mixinAccent, mixinClassName, mixinColor, mixinPlain, mixinSize } from '../../../core';
 
 const SbSelectCheckboxeCore = mixinAccent(
   mixinPlain(
     mixinSize(
       mixinColor(
-        mixinClassName(
-          SbSelectAllCore, 'sb-select-checkbox'
-        )
+        mixinClassName(SbSelectAllCore, 'sb-select-checkbox')
       )
     )
   )
@@ -27,8 +34,8 @@ const SbSelectCheckboxeCore = mixinAccent(
     'disabled'
   ],
   outputs: [
+    'blur',
     'focus',
-    'blur'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,

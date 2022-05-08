@@ -1,7 +1,17 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { SbSelectOneCore } from '../select-core';
-import { CanClassName, CanDisable, CanFocus, HasElementRef, mixinAccent, mixinPill, mixinClassName, mixinColor, mixinPlain, mixinSize } from '../../../core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  CanClassName,
+  CanDisable,
+  CanFocus,
+  HasElementRef,
+  mixinAccent,
+  mixinClassName,
+  mixinColor,
+  mixinPill,
+  mixinPlain,
+  mixinSize } from '../../../core';
+import { SbSelectOneCore } from '../select-core';
 
 const shades = [
   0,
@@ -50,9 +60,7 @@ const SbColorPickerCore = mixinPill(
     mixinPlain(
       mixinSize(
         mixinColor(
-          mixinClassName(
-            SbSelectOneCore, 'sb-color-picker'
-          )
+          mixinClassName(SbSelectOneCore, 'sb-color-picker')
         )
       )
     )
@@ -72,8 +80,8 @@ const SbColorPickerCore = mixinPill(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -115,7 +123,8 @@ export class SbColorPickerComponent extends SbColorPickerCore<string>
 
   public formatOption(option: string | undefined): string {
     if (option) {
-      return option.split('-').map(split => split.charAt(0).toUpperCase() + split.substring(1)).join(' ');
+      return option.split('-').map(split => split.charAt(0).toUpperCase()
+        + split.substring(1)).join(' ');
     }
     return '';
   }

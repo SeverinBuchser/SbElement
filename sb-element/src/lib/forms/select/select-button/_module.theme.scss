@@ -1,9 +1,9 @@
+@use 'select-button-list/select-button-list.component.theme';
 @use 'select-button-overlay/select-button-overlay.component.theme';
 @use 'select-button/select-button.component.theme';
-@use 'select-button-list/select-button-list.component.theme';
 
 @mixin theme($theme) {
+  @include select-button-list.theme($theme);
   @include select-button-overlay.theme($theme);
   @include select-button.theme($theme);
-  @include select-button-list.theme($theme);
 }

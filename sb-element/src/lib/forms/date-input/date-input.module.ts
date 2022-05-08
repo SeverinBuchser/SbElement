@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 import { SbCalendarModule } from "../../calendar";
 import { SbCoreModule } from '../../core';
@@ -17,8 +17,8 @@ import { SbDateRangeInputComponent } from './date-range-input';
   imports: [
     CommonModule,
     FormsModule,
-    SbCoreModule,
     SbCalendarModule,
+    SbCoreModule,
     SbIconModule,
     SbInputModule,
     SbPopperModule

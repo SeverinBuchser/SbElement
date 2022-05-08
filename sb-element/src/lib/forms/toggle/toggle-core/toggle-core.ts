@@ -1,4 +1,3 @@
-
 export class SbToggleCore {
 
   private _toggled: boolean = false;

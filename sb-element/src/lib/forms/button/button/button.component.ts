@@ -1,5 +1,15 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinColor, mixinClassName, Color, Size, mixinPill, mixinRound, mixinPlain, mixinAccent } from '../../../core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinAccent,
+  mixinClassName,
+  mixinColor,
+  mixinPill,
+  mixinPlain,
+  mixinRound,
+  mixinSize,
+  Size } from '../../../core';
 
 const SbButtonCore = mixinAccent(
   mixinPill(
@@ -7,12 +17,10 @@ const SbButtonCore = mixinAccent(
       mixinRound(
         mixinSize(
           mixinColor(
-            mixinClassName(
-              class {
-                constructor(public _elementRef: ElementRef) {}
-              }, 'sb-button'
-            ), Color.PRIMARY
-          ), Size.MEDIUM
+            mixinClassName(hasElementRefClass, 'sb-button'),
+            Color.PRIMARY
+          ),
+          Size.MEDIUM
         )
       )
     )

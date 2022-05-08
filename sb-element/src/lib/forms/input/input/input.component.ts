@@ -1,18 +1,25 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinPill, mixinSize, Size } from '../../../core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinFocus,
+  mixinPill,
+  mixinSize,
+  Size } from '../../../core';
 
 const SbInputCore = mixinPill(
   mixinDisable(
     mixinFocus(
       mixinSize(
         mixinColor(
-          mixinClassName(
-            class {
-              constructor(public _elementRef: ElementRef) {}
-            }, 'sb-input'
-          ), Color.PRIMARY
-        ), Size.MEDIUM
+          mixinClassName(hasElementRefClass, 'sb-input'),
+          Color.PRIMARY
+        ),
+        Size.MEDIUM
       )
     )
   )
@@ -29,8 +36,8 @@ const SbInputCore = mixinPill(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,

@@ -1,16 +1,23 @@
 import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SbSelectOneCore } from '../../select-core';
-import { CanClassName, CanDisable, CanFocus, HasElementRef, mixinAccent, mixinClassName, mixinColor, mixinPlain, mixinSize } from '../../../../core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  CanClassName,
+  CanDisable,
+  CanFocus,
+  HasElementRef,
+  mixinAccent,
+  mixinClassName,
+  mixinColor,
+  mixinPlain,
+  mixinSize } from '../../../../core';
+import { SbSelectOneCore } from '../../select-core';
 import { SbSelectButtonListComponent } from '../select-button-list';
 
 const SbSelectButtonCore = mixinAccent(
   mixinPlain(
     mixinSize(
       mixinColor(
-        mixinClassName(
-          SbSelectOneCore, 'sb-select-button'
-        )
+        mixinClassName(SbSelectOneCore, 'sb-select-button')
       )
     )
   )
@@ -32,16 +39,16 @@ const SbSelectButtonCore = mixinAccent(
     'options'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: SelectButtonComponent,
+    useExisting: SbSelectButtonComponent,
     multi: true
   }]
 })
-export class SelectButtonComponent extends SbSelectButtonCore<string>
+export class SbSelectButtonComponent extends SbSelectButtonCore<string>
   implements CanClassName, CanDisable, CanFocus, ControlValueAccessor, HasElementRef {
 
   @ViewChild(SbSelectButtonListComponent)

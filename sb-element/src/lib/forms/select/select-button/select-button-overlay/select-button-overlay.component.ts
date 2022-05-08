@@ -4,7 +4,8 @@ import { mixinClassName, SbOverlayService, SbOverlayComponent } from '../../../.
 import { SbSelectButtonListComponent } from '../select-button-list';
 
 const SbSelectButtonOverlayCore = mixinClassName(
-  SbOverlayComponent, 'sb-select-button-overlay'
+  SbOverlayComponent,
+  'sb-select-button-overlay'
 );
 
 
@@ -16,8 +17,8 @@ const SbSelectButtonOverlayCore = mixinClassName(
     'visible'
   ],
   outputs: [
-    'show',
-    'hide'
+    'hide',
+    'show'
   ]
 })
 export class SbSelectButtonOverlayComponent extends SbSelectButtonOverlayCore {

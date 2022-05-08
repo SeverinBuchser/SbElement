@@ -1,15 +1,18 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus } from '../../core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinFocus } from '../../core';
 
 const SbSliderCore = mixinDisable(
   mixinFocus(
     mixinColor(
-      mixinClassName(
-        class {
-          constructor(public _elementRef: ElementRef) {}
-        }, 'sb-slider'
-      ), Color.PRIMARY
+      mixinClassName(hasElementRefClass, 'sb-slider'),
+      Color.PRIMARY
     )
   )
 );
@@ -23,8 +26,8 @@ const SbSliderCore = mixinDisable(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -78,9 +81,7 @@ export class SbSliderComponent extends SbSliderCore implements ControlValueAcces
     return this.innerValue;
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

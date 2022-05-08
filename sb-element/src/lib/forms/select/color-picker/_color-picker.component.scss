@@ -1,14 +1,13 @@
+@use "sb-element/core/border";
 @use "sb-element/core/display";
 @use "sb-element/core/spacing";
-@use "sb-element/core/border";
 @use "sb-element/core/transitioning";
 /*****************************************************************************
-color-picker / Style
+Color-Picker / Style
 ******************************************************************************/
 
 // ROOT
 .sb-color-picker {
-
   .sb-button {
     width: 100%;
     @include display.flex($direction: row, $gap: xs);

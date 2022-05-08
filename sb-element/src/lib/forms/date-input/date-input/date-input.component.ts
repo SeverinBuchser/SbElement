@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Color, mixinDisable, mixinFocus, Size } from "../../../core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
+import { Color, mixinDisable, mixinFocus, Size } from "../../../core";
 import { SbMarkedDates } from "../../../calendar";
 
 const SbDateInputCore = mixinDisable(mixinFocus(class {}));
@@ -22,7 +22,8 @@ const SbDateInputCore = mixinDisable(mixinFocus(class {}));
     multi: true
   }]
 })
-export class SbDateInputComponent extends SbDateInputCore implements ControlValueAccessor {
+export class SbDateInputComponent extends SbDateInputCore
+  implements ControlValueAccessor {
 
   @Input()
   public color: string = Color.PRIMARY;

@@ -1,15 +1,18 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus } from '../../core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinFocus } from '../../core';
 
 const SbRadioCore = mixinDisable(
   mixinFocus(
     mixinColor(
-      mixinClassName(
-        class {
-          constructor(public _elementRef: ElementRef) {}
-        }, 'sb-radio'
-      ), Color.PRIMARY
+      mixinClassName(hasElementRefClass, 'sb-radio'),
+      Color.PRIMARY
     )
   )
 );
@@ -27,8 +30,8 @@ const SbRadioCore = mixinDisable(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,

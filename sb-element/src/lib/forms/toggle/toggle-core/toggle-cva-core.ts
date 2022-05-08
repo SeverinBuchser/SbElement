@@ -1,7 +1,12 @@
 import { ElementRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import {
+  CanDisable,
+  CanFocus,
+  HasElementRef,
+  mixinDisable,
+  mixinFocus } from '../../../core';
 import { SbToggleCore } from './toggle-core';
-import { CanDisable, CanFocus, HasElementRef, mixinDisable, mixinFocus } from '../../../core';
 
 export class SbToggleCVACore extends mixinFocus(mixinDisable(SbToggleCore))
   implements HasElementRef, ControlValueAccessor, CanDisable, CanFocus {

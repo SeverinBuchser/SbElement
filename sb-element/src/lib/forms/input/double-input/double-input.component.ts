@@ -1,18 +1,25 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus, mixinPill, mixinSize, Size } from '../../../core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinFocus,
+  mixinPill,
+  mixinSize,
+  Size } from '../../../core';
 
 const SbDoubleInputCore = mixinPill(
   mixinDisable(
     mixinFocus(
       mixinSize(
         mixinColor(
-          mixinClassName(
-            class {
-              constructor(public _elementRef: ElementRef) {}
-            }, 'sb-input'
-          ), Color.PRIMARY
-        ), Size.MEDIUM
+          mixinClassName(hasElementRefClass, 'sb-input'),
+          Color.PRIMARY
+        ),
+        Size.MEDIUM
       )
     )
   )
@@ -33,7 +40,10 @@ export class SbDoubleInput<T> {
     }
   }
 
-  public static equals<T>(inputOne: SbDoubleInput<T>, inputTwo: SbDoubleInput<T>): boolean {
+  public static equals<T>(
+    inputOne: SbDoubleInput<T>,
+    inputTwo: SbDoubleInput<T>
+  ): boolean {
     return inputOne.first == inputTwo.first && inputOne.second == inputTwo.second;
   }
 }
@@ -48,8 +58,8 @@ export class SbDoubleInput<T> {
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -57,7 +67,8 @@ export class SbDoubleInput<T> {
     multi: true
   }]
 })
-export class SbDoubleInputComponent extends SbDoubleInputCore implements ControlValueAccessor {
+export class SbDoubleInputComponent extends SbDoubleInputCore
+  implements ControlValueAccessor {
 
   @Input()
   public firstPlaceholder: string = '';

@@ -1,19 +1,19 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { SbButtonModule } from '../../button';
 import { SbCoreModule } from '../../../core';
 import { SbIconModule } from '../../../icon';
 
-import { SbSelectButtonOverlayComponent } from './select-button-overlay';
+import { SbSelectButtonComponent } from './select-button';
 import { SbSelectButtonListComponent } from './select-button-list';
-import { SelectButtonComponent } from './select-button';
+import { SbSelectButtonOverlayComponent } from './select-button-overlay';
 
 @NgModule({
   declarations: [
-    SbSelectButtonOverlayComponent,
+    SbSelectButtonComponent,
     SbSelectButtonListComponent,
-    SelectButtonComponent
+    SbSelectButtonOverlayComponent,
   ],
   imports: [
     CommonModule,
@@ -22,7 +22,7 @@ import { SelectButtonComponent } from './select-button';
     SbIconModule
   ],
   exports: [
-    SelectButtonComponent
+    SbSelectButtonComponent
   ]
 })
 export class SbSelectButtonModule { }

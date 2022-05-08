@@ -3,7 +3,6 @@ import { mixinDisable, Color, Size, mixinFocus } from '../../core';
 
 const SbIconButtonCore = mixinDisable(mixinFocus(class {}));
 
-
 @Component({
   selector: 'sb-icon-button',
   templateUrl: './icon-button.component.html',
@@ -11,8 +10,8 @@ const SbIconButtonCore = mixinDisable(mixinFocus(class {}));
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
 })
 export class SbIconButtonComponent extends SbIconButtonCore {
