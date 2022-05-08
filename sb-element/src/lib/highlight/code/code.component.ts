@@ -1,13 +1,9 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { mixinClassName } from '../../core';
+import { hasElementRefClass, mixinClassName } from '../../core';
 import { SbHighlightService } from '../highlight.service';
 
-const SbCodeCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-code'
-);
+const SbCodeCore = mixinClassName(hasElementRefClass, 'sb-code');
 
 @Component({
   selector: 'sb-code',

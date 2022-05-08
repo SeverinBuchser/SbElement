@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@angular/core';
-import { SbHighlightLanguage } from './highlight-language';
-import { SB_HIGHLIGHT_OPTIONS, SbHighlightOptions } from './highlight-options';
 import hljs from 'highlight.js/lib/core';
 import { HighlightResult } from 'highlight.js';
+import { SB_HIGHLIGHT_CONFIG, SbHighlightModuleConfig } from './highlight.module.config';
+import { SbHighlightLanguage } from './highlight-language';
 
 
 @Injectable({
@@ -11,14 +11,12 @@ import { HighlightResult } from 'highlight.js';
 export class SbHighlightService {
   private languages: Array<SbHighlightLanguage> = new Array();
 
-  constructor(@Inject(SB_HIGHLIGHT_OPTIONS) private options?: SbHighlightOptions) {
+  constructor(@Inject(SB_HIGHLIGHT_CONFIG) private config: SbHighlightModuleConfig) {
     hljs.configure({
       classPrefix: ''
     })
 
-    if (this.options) {
-      this.register(this.options.languages)
-    }
+    this.register(this.config.languages)
   }
 
 	private register(languages: Array<SbHighlightLanguage>): void {
@@ -29,16 +27,26 @@ export class SbHighlightService {
 	}
 
   public languageExists(languageName: string): boolean {
-    return this.languages.findIndex((language: SbHighlightLanguage) => language.name == languageName) >= 0;
+    return this.languages.findIndex((language: SbHighlightLanguage) => {
+      return language.name == languageName
+    }) >= 0;
   }
 
-  private replaceTabs(code: string, tabReplace: string = '   '): string {
+  private replaceTabs(code: string, tabReplace?: string): string {
+    if (!tabReplace) {
+      tabReplace = this.config.tabReplace
+    }
     return code.replaceAll('\t', tabReplace);
   }
 
-  public highlight(code: string, language: string, tabReplace: string = '   '): HighlightResult {
+  public highlight(
+    code: string,
+    language: string,
+    tabReplace?: string
+  ): HighlightResult {
     if (!this.languageExists(language)) {
-      throw new Error(`Language '${language}' does either not exist or has not been registered!`);
+      throw new Error(`Language '${language}' does either not exist or has not been`
+        + ` registered!`);
     }
     return hljs.highlight(this.replaceTabs(code, tabReplace), { language })
   }

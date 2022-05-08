@@ -15,7 +15,10 @@ import { SbTabContentComponent } from './tab-content';
 import { SbTabLabelComponent } from './tab-label';
 import { SbTabsComponent } from './tabs';
 
-import { SbTabsModuleConfig, SB_TABS_CONFIG, SB_TABS_CONFIG_DEFAULT } from './tabs.module.config';
+import {
+  SbTabsModuleConfig,
+  SB_TABS_CONFIG,
+  SB_TABS_CONFIG_DEFAULT } from './tabs.module.config';
 
 @NgModule({
   declarations: [

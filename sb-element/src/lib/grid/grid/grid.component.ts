@@ -1,11 +1,12 @@
-import { Component, ElementRef, HostBinding, Input, ViewEncapsulation } from '@angular/core';
-import { mixinClassName } from '../../core';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  Input,
+  ViewEncapsulation } from '@angular/core';
+import { hasElementRefClass, mixinClassName } from '../../core';
 
-const SbGridCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-grid'
-);
+const SbGridCore = mixinClassName(hasElementRefClass, 'sb-grid');
 
 @Component({
   selector: 'sb-grid',
@@ -34,7 +35,9 @@ export class SbGridComponent extends SbGridCore {
       split = dimensions.split("x");
     }
     if (split.length == 2) {
-      split = split.map((dim: string | number) => isNaN(parseInt(dim as string)) ? dim : parseInt(dim as string));
+      split = split.map((dim: string | number) => {
+        return isNaN(parseInt(dim as string)) ? dim : parseInt(dim as string)
+      });
       this._dimensions = split;
     }
     this.update();
@@ -45,9 +48,7 @@ export class SbGridComponent extends SbGridCore {
   @HostBinding('style.gridTemplateRows') templateRows!: string;
   @HostBinding('style.gridAutoRows') autoRows!: string;
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

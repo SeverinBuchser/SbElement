@@ -1,40 +1,44 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ClipboardModule } from '@angular/cdk/clipboard'
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+
 import { SbCoreModule } from '../core';
 import { SbFormsModule } from '../forms';
 import { SbIconModule } from '../icon';
 import { SbPopperModule } from '../popper';
 
+import {
+  SbHighlightModuleConfig,
+  SB_HIGHLIGHT_CONFIG,
+  SB_HIGHLIGHT_CONFIG_DEFAULT } from './highlight.module.config';
 import { SbCodeComponent } from './code';
-import { SbHighlightLanguage } from './highlight-language';
-import { SB_HIGHLIGHT_OPTIONS } from './highlight-options';
 
 @NgModule({
   declarations: [SbCodeComponent],
   imports: [
+    ClipboardModule,
     CommonModule,
     SbCoreModule,
-    SbIconModule,
     SbFormsModule,
+    SbIconModule,
     SbPopperModule,
-    ClipboardModule
   ],
-  exports: [SbCodeComponent]
+  exports: [SbCodeComponent],
+  providers: [
+    { provide: SB_HIGHLIGHT_CONFIG, useValue: SB_HIGHLIGHT_CONFIG_DEFAULT }
+  ]
 })
 export class SbHighlightModule {
-  constructor(@Optional() @SkipSelf() parentModule?: SbHighlightModule) {
-    if (parentModule) {
-      throw new Error(
-        'HighlightModule is already loaded. Import it in the AppModule only');
-    }
-  }
-
-  public static forRoot(languages: Array<SbHighlightLanguage>): ModuleWithProviders<SbHighlightModule> {
+  public static forRoot(
+    config: Partial<SbHighlightModuleConfig>
+  ): ModuleWithProviders<SbHighlightModule> {
     return {
       ngModule: SbHighlightModule,
       providers: [
-        { provide: SB_HIGHLIGHT_OPTIONS, useValue: { languages } }
+        { provide: SB_HIGHLIGHT_CONFIG, useValue: {
+          ...SB_HIGHLIGHT_CONFIG_DEFAULT,
+          ...config
+        }}
       ]
     }
   }

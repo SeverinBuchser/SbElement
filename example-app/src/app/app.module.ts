@@ -52,9 +52,11 @@ import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.c
       {name: 'dark', href: 'sb-dark.css'},
       {name: 'neutral', href: 'sb-neutral.css'},
     ]),
-    SbHighlightModule.forRoot([
-      { name: 'xml', languageFn: xml }
-    ]),
+    SbHighlightModule.forRoot({
+      languages: [
+        { name: 'xml', languageFn: xml }
+      ]
+    }),
     SbTabsModule.forRoot({
       animationDuration: '0.3s'
     }),
