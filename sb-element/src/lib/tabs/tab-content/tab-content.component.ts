@@ -1,13 +1,19 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation } from '@angular/core';
 import { CdkPortalOutlet } from '@angular/cdk/portal';
+import {
+  hasElementRefClass,
+  mixinClassName,
+  sbAnimations,
+  SbSlideAnimationState } from "../../core";
 import { SbTabComponent, SbTabPositionChange } from '../tab';
-import { mixinClassName, sbAnimations, SbSlideAnimationState } from "../../core";
 
-const SbTabContentCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-tab-content'
-);
+const SbTabContentCore = mixinClassName(hasElementRefClass, 'sb-tab-content');
 
 @Component({
   selector: 'sb-tab-content',

@@ -1,16 +1,16 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { PortalModule } from '@angular/cdk/portal';
 
 import { SbBarModule } from '../bar';
 import { SbCoreModule } from '../core';
 import { SbFormsModule } from '../forms';
 import { SbPaginatorModule } from '../paginator';
 
-import { SbTabComponent } from './tab';
 import { SbTabBarComponent } from './tab-bar';
+import { SbTabComponent } from './tab';
 import { SbTabContentComponent } from './tab-content';
 import { SbTabLabelComponent } from './tab-label';
 import { SbTabsComponent } from './tabs';
@@ -22,8 +22,8 @@ import {
 
 @NgModule({
   declarations: [
-    SbTabComponent,
     SbTabBarComponent,
+    SbTabComponent,
     SbTabContentComponent,
     SbTabLabelComponent,
     SbTabsComponent,
@@ -39,8 +39,8 @@ import {
     SbPaginatorModule,
   ],
   exports: [
-    SbTabComponent,
     SbTabBarComponent,
+    SbTabComponent,
     SbTabLabelComponent,
     SbTabsComponent,
   ],

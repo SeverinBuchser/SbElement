@@ -1,5 +1,15 @@
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+  ViewEncapsulation } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { Component, EventEmitter, Inject, Input, OnInit, Optional, Output, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { SbTabsModuleConfig, SB_TABS_CONFIG } from '../tabs.module.config';
 
 export interface SbTabPositionChange {

@@ -1,5 +1,5 @@
-export * from './tab';
 export * from './tab-bar';
 export * from './tab-label';
-export * from './tabs';
+export * from './tab';
 export * from './tabs.module';
+export * from './tabs';

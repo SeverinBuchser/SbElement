@@ -1,13 +1,18 @@
-import { Component, ElementRef, EventEmitter, Input, NgZone, Optional, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  NgZone,
+  Optional,
+  Output,
+  ViewEncapsulation } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
-import { SbContentPaginationDirective } from '../../paginator';
-import { mixinClassName } from "../../core";
 import { take } from 'rxjs/operators';
+import { mixinClassName } from "../../core";
+import { SbContentPaginationDirective } from '../../paginator';
 
-const SbTabLabelCore = mixinClassName(
-  SbContentPaginationDirective, 'sb-tab-label'
-);
-
+const SbTabLabelCore = mixinClassName(SbContentPaginationDirective, 'sb-tab-label');
 
 @Component({
   selector: 'sb-tab-label',

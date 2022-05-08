@@ -1,13 +1,16 @@
-import { Component, ContentChildren, ElementRef, Input, NgZone, QueryList, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  ElementRef,
+  Input,
+  NgZone,
+  QueryList,
+  ViewEncapsulation } from '@angular/core';
 import { take } from 'rxjs/operators';
+import { hasElementRefClass, mixinClassName } from "../../core";
 import { SbTabComponent } from '../tab';
-import { mixinClassName } from "../../core";
 
-const SbTabsCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-tabs'
-);
+const SbTabsCore = mixinClassName(hasElementRefClass, 'sb-tabs');
 
 @Component({
   selector: 'sb-tabs',
