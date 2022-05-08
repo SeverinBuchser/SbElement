@@ -1,16 +1,25 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { mixinFocus, mixinColor, mixinClassName, Color, mixinDisable } from "../../core";
-import { MarkedDates } from "../marked-dates";
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinFocus } from "../../core";
+import { SbMarkedDates } from "../marked-dates";
 
 const SbCalendarDatesCore = mixinDisable(
   mixinFocus(
     mixinColor(
-      mixinClassName(
-        class {
-          constructor(public _elementRef: ElementRef) {}
-        }, 'sb-calendar-dates'
-      ), Color.PRIMARY
+      mixinClassName(hasElementRefClass, 'sb-calendar-dates'),
+      Color.PRIMARY
     )
   )
 );
@@ -24,8 +33,8 @@ const SbCalendarDatesCore = mixinDisable(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
 })
 export class SbCalendarDatesComponent extends SbCalendarDatesCore {
@@ -42,7 +51,7 @@ export class SbCalendarDatesComponent extends SbCalendarDatesCore {
   }
 
   @Input()
-  public markedDates: MarkedDates = new MarkedDates();
+  public markedDates: SbMarkedDates = new SbMarkedDates();
 
   @Input()
   set showingMonthStart(date: Date) {
@@ -56,9 +65,7 @@ export class SbCalendarDatesComponent extends SbCalendarDatesCore {
   public calendarDates!: Array<Date>;
   public weekDays: Array<string> = new Array<string>();
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
     this.updateCalendarDates();
     this.createWeekDays();

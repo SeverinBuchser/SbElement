@@ -1,17 +1,27 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { mixinColor, mixinClassName, Color, mixinTabindex, mixinDisable } from "../../core";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { MarkedDates } from "../marked-dates";
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinTabindex } from "../../core";
+import { SbMarkedDates } from "../marked-dates";
 
 const SbCalendarYearCore = mixinDisable(
   mixinTabindex(
     mixinColor(
-      mixinClassName(
-        class {
-          constructor(public _elementRef: ElementRef) {}
-        }, 'sb-calendar-year'
-      ), Color.PRIMARY
-    ), 0
+      mixinClassName(hasElementRefClass, 'sb-calendar-year'),
+      Color.PRIMARY
+    ),
+    0
   )
 );
 
@@ -44,7 +54,7 @@ export class SbCalendarYearComponent extends SbCalendarYearCore {
   public year!: Date;
 
   @Input()
-  public markedDates: MarkedDates = new MarkedDates();
+  public markedDates: SbMarkedDates = new SbMarkedDates();
 
   get isMarked(): boolean {
     return this.markedDates.isRange && (
@@ -74,9 +84,7 @@ export class SbCalendarYearComponent extends SbCalendarYearCore {
     return fns.format(this.year, this.yearFormat);
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

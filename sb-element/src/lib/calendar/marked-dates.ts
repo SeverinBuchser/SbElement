@@ -1,6 +1,6 @@
 import * as fns from "date-fns";
 
-export class MarkedDates {
+export class SbMarkedDates {
   private _start: Date | undefined;
   private _end: Date | undefined;
 

@@ -1,9 +1,21 @@
 <div [ngClass]="className + '__navigation'">
-  <sb-icon (click)="goToPreviousBig()" [color]="color">&#xeac3;</sb-icon>
-  <sb-icon (click)="goToPreviousSmall()" [color]="color">&#xe314;</sb-icon>
-  <div [ngClass]="className + '__navigation-month'" (click)="handleNavigationMode()">{{ navigationFormatted }}</div>
-  <sb-icon (click)="goToNextSmall()" [color]="color">&#xe315;</sb-icon>
-  <sb-icon (click)="goToNextBig()" [color]="color">&#xeac9;</sb-icon>
+  <sb-icon (click)="goToPreviousBig()" [color]="color">
+    keyboard_double_arrow_left
+  </sb-icon>
+  <sb-icon (click)="goToPreviousSmall()" [color]="color">
+    keyboard_arrow_left
+  </sb-icon>
+  <div
+    [ngClass]="className + '__navigation-month'"
+    (click)="handleNavigationMode()">
+    {{ navigationFormatted }}
+  </div>
+  <sb-icon (click)="goToNextSmall()" [color]="color">
+    keyboard_arrow_right
+  </sb-icon>
+  <sb-icon (click)="goToNextBig()" [color]="color">
+    keyboard_double_arrow_right
+  </sb-icon>
 </div>
 <ng-template [ngIf]="navigationMode == 'date'">
   <sb-calendar-dates

@@ -1,16 +1,22 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { mixinFocus, mixinClassName, Color, mixinDisable } from "../../core";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { MarkedDates } from "../marked-dates";
-
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinDisable,
+  mixinFocus } from "../../core";
+import { SbMarkedDates } from "../marked-dates";
 
 const SbCalendarMonthsCore = mixinDisable(
   mixinFocus(
-    mixinClassName(
-      class {
-        constructor(public _elementRef: ElementRef) {}
-      }, 'sb-calendar-months'
-    )
+    mixinClassName(hasElementRefClass, 'sb-calendar-months')
   )
 );
 
@@ -22,8 +28,8 @@ const SbCalendarMonthsCore = mixinDisable(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
 })
 export class SbCalendarMonthsComponent extends SbCalendarMonthsCore {
@@ -53,11 +59,9 @@ export class SbCalendarMonthsComponent extends SbCalendarMonthsCore {
   public calendarMonths!: Array<Date>;
 
   @Input()
-  public markedDates: MarkedDates = new MarkedDates();
+  public markedDates: SbMarkedDates = new SbMarkedDates();
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
     this.updateCalendarMonths();
   }

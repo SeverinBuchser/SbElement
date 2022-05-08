@@ -1,16 +1,25 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation } from '@angular/core';
 import * as fns from "date-fns";
-import { mixinColor, mixinClassName, Color, mixinTabindex, mixinDisable } from "../../core";
-import { MarkedDates } from "../marked-dates";
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinTabindex } from "../../core";
+import { SbMarkedDates } from "../marked-dates";
 
 const SbCalendarDateCore = mixinDisable(
   mixinTabindex(
     mixinColor(
-      mixinClassName(
-        class {
-          constructor(public _elementRef: ElementRef) {}
-          }, 'sb-calendar-date'
-      ), Color.PRIMARY
+      mixinClassName(hasElementRefClass, 'sb-calendar-date'),
+      Color.PRIMARY
     ), 0
   )
 );
@@ -42,7 +51,7 @@ export class SbCalendarDateComponent extends SbCalendarDateCore {
   public date!: Date;
 
   @Input()
-  public markedDates: MarkedDates = new MarkedDates();
+  public markedDates: SbMarkedDates = new SbMarkedDates();
 
   @Input()
   public showingMonthStart!: Date;
@@ -79,9 +88,7 @@ export class SbCalendarDateComponent extends SbCalendarDateCore {
     return fns.format(this.date, 'dd');
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

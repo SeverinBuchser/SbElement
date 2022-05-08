@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Color, mixinDisable, mixinFocus, Size } from "../../../core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
-import { MarkedDates } from "../../../calendar";
+import { SbMarkedDates } from "../../../calendar";
 
 const SbDateInputCore = mixinDisable(mixinFocus(class {}));
 
@@ -42,15 +42,15 @@ export class SbDateInputComponent extends SbDateInputCore implements ControlValu
   private onChange: any = () => {};
   private onTouch: any = () => {};
 
-  private _markedDates: MarkedDates | undefined;
+  private _markedDates: SbMarkedDates | undefined;
 
-  set markedDates(markedDates: MarkedDates) {
+  set markedDates(markedDates: SbMarkedDates) {
     this._markedDates = markedDates
   }
-  get markedDates(): MarkedDates {
+  get markedDates(): SbMarkedDates {
     if (this._markedDates) {
       return this._markedDates
-    } else return new MarkedDates();
+    } else return new SbMarkedDates();
   }
 
   get dateFormatted(): string {
@@ -62,21 +62,21 @@ export class SbDateInputComponent extends SbDateInputCore implements ControlValu
   set dateFormatted(dateString: string) {
     let date = fns.parseISO(dateString);
     if (this.doUpdate(date)) {
-      this.markedDates = new MarkedDates(date);
+      this.markedDates = new SbMarkedDates(date);
       this.onChange(date);
     }
   }
 
   public handlePickerSelect(date: Date): void {
     if (this.doUpdate(date)) {
-      this.markedDates = new MarkedDates(date);
+      this.markedDates = new SbMarkedDates(date);
       this.onChange(date);
     }
   }
 
   public writeValue(date: Date): void {
     if (this.doUpdate(date)) {
-      this.markedDates = new MarkedDates(date);
+      this.markedDates = new SbMarkedDates(date);
     }
   }
 

@@ -1,25 +1,25 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
+import { NgModule } from '@angular/core';
 
 import { SbIconModule } from "../icon";
 
-import { SbCalendarsComponent } from './calendar';
 import { SbCalendarDateComponent } from './date';
 import { SbCalendarDatesComponent } from "./dates";
 import { SbCalendarMonthComponent } from './month';
 import { SbCalendarMonthsComponent } from './months';
+import { SbCalendarsComponent } from './calendar';
 import { SbCalendarYearComponent } from './year';
 import { SbCalendarYearsComponent } from './years';
 
 @NgModule({
   declarations: [
-    SbCalendarsComponent,
     SbCalendarDateComponent,
-    SbCalendarMonthComponent,
-    SbCalendarYearComponent,
     SbCalendarDatesComponent,
+    SbCalendarMonthComponent,
     SbCalendarMonthsComponent,
+    SbCalendarsComponent,
+    SbCalendarYearComponent,
     SbCalendarYearsComponent,
   ],
   imports: [
@@ -28,12 +28,12 @@ import { SbCalendarYearsComponent } from './years';
     SbIconModule,
   ],
   exports: [
-    SbCalendarsComponent,
     SbCalendarDateComponent,
-    SbCalendarMonthComponent,
-    SbCalendarYearComponent,
     SbCalendarDatesComponent,
+    SbCalendarMonthComponent,
     SbCalendarMonthsComponent,
+    SbCalendarsComponent,
+    SbCalendarYearComponent,
     SbCalendarYearsComponent,
   ]
 })

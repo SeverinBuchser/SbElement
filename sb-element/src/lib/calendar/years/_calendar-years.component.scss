@@ -1,5 +1,5 @@
-@use "sb-element/core/spacing";
 @use "sb-element/core/display";
+@use "sb-element/core/spacing";
 /*****************************************************************************
 Calendar-Years / Stlye
 ******************************************************************************/
@@ -8,7 +8,10 @@ Calendar-Years / Stlye
 .sb-calendar-years {
   @include display.grid(
     repeat(4, calc(7 / 4 * spacing.get-spacing(xl))),
-    repeat(5, calc(7 / 5 * spacing.get-spacing(xl))), 0, $flow: row);
+    repeat(5, calc(7 / 5 * spacing.get-spacing(xl))),
+    0,
+    $flow: row
+  );
   justify-items: center;
   align-items: center;
 }

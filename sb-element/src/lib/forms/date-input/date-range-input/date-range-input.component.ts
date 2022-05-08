@@ -3,7 +3,7 @@ import { mixinDisable, mixinFocus, Color, Size } from "../../../core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
 import { SbDoubleInput } from "../../input";
-import { MarkedDates } from "../../../calendar";
+import { SbMarkedDates } from "../../../calendar";
 
 const SbDateRangeInputCore = mixinDisable(mixinFocus(class {}));
 
@@ -33,23 +33,23 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore implements C
 
   @Input('pill')
   public isPill: boolean | string = false;
-  
+
   @Input()
   public position: string = 'bottom-center';
 
   @Input()
   public format: string = 'yyyy-MM-dd';
 
-  public markedDates: MarkedDates = new MarkedDates();
-  private pickerMarkedDates: MarkedDates = new MarkedDates();
+  public markedDates: SbMarkedDates = new SbMarkedDates();
+  private pickerMarkedDates: SbMarkedDates = new SbMarkedDates();
   public doubleInputDates: SbDoubleInput<string> = new SbDoubleInput();
 
-  private onChange: (dates: MarkedDates) => void = () => {};
+  private onChange: (dates: SbMarkedDates) => void = () => {};
   private onTouch: () => void = () => {};
 
   public handlePickerSelect(date: Date): void {
     if (this.pickerMarkedDates.isRangeDays || !this.pickerMarkedDates.start) {
-      this.pickerMarkedDates = new MarkedDates();
+      this.pickerMarkedDates = new SbMarkedDates();
       this.pickerMarkedDates.start = date;
     } else {
       this.pickerMarkedDates.end = date;
@@ -69,7 +69,7 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore implements C
     var startDate = startDateString ? fns.parseISO(startDateString) : undefined;
     var endDate = endDateString ? fns.parseISO(endDateString) : undefined;
 
-    const markedDates = new MarkedDates();
+    const markedDates = new SbMarkedDates();
 
     if (fns.isValid(startDate)) {
       markedDates.start = startDate;
@@ -95,7 +95,7 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore implements C
     }
   }
 
-  public writeValue(dates: MarkedDates): void {
+  public writeValue(dates: SbMarkedDates): void {
     if (this.doUpdate(dates)) {
       dates.sort();
       this.markedDates = dates;
@@ -103,7 +103,7 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore implements C
     }
   }
 
-  private doUpdate(dates: MarkedDates): boolean {
+  private doUpdate(dates: SbMarkedDates): boolean {
     if (dates && dates.start && dates.end) {
       const isStartDateValid = fns.isValid(dates.start);
       const isEndDateValid = fns.isValid(dates.end);
@@ -114,7 +114,7 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore implements C
     return false;
   }
 
-  public registerOnChange(fn: (dates: MarkedDates) => void): void { this.onChange = fn }
+  public registerOnChange(fn: (dates: SbMarkedDates) => void): void { this.onChange = fn }
   public registerOnTouched(fn: any): void { this.onTouch = fn }
   protected onBlur(): void { this.onTouch() }
 

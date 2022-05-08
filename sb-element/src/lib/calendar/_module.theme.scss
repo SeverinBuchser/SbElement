@@ -7,11 +7,11 @@
 @use 'years/calendar-years.component.theme';
 
 @mixin theme($theme) {
-  @include calendar.theme($theme);
   @include calendar-date.theme($theme);
   @include calendar-dates.theme($theme);
   @include calendar-month.theme($theme);
   @include calendar-months.theme($theme);
   @include calendar-year.theme($theme);
   @include calendar-years.theme($theme);
+  @include calendar.theme($theme);
 }

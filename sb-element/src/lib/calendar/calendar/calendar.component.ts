@@ -1,16 +1,27 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinFocus } from "../../core";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation } from '@angular/core';
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinFocus } from "../../core";
 import * as fns from "date-fns";
-import { MarkedDates } from "../marked-dates";
+import { SbMarkedDates } from "../marked-dates";
+
+export type SbCalendarSelectionMode = 'date' | 'month' | 'year';
 
 const SbCalendarCore = mixinDisable(
   mixinFocus(
     mixinColor(
-      mixinClassName(
-        class {
-          constructor(public _elementRef: ElementRef) {}
-        }, 'sb-calendar'
-      ), Color.PRIMARY
+      mixinClassName(hasElementRefClass, 'sb-calendar'),
+      Color.PRIMARY
     )
   )
 );
@@ -27,8 +38,8 @@ const SbCalendarCore = mixinDisable(
     'disabled'
   ],
   outputs: [
-    'focus',
-    'blur'
+    'blur',
+    'focus'
   ],
 })
 export class SbCalendarsComponent extends SbCalendarCore {
@@ -48,21 +59,21 @@ export class SbCalendarsComponent extends SbCalendarCore {
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();
 
-  private _markedDates: MarkedDates = new MarkedDates();
+  private _markedDates: SbMarkedDates = new SbMarkedDates();
 
   public showingDate: Date = fns.startOfMonth(new Date());
 
-  private _selectionMode: 'date' | 'month' | 'year' = 'date';
+  private _selectionMode: SbCalendarSelectionMode = 'date';
   @Input()
-  set selectionMode(selectionMode: 'date' | 'month' | 'year') {
+  set selectionMode(selectionMode: SbCalendarSelectionMode) {
     this._selectionMode = selectionMode;
     this.navigationMode = selectionMode;
   }
-  get selectionMode(): 'date' | 'month' | 'year' {
+  get selectionMode(): SbCalendarSelectionMode {
     return this._selectionMode;
   }
 
-  public navigationMode: 'date' | 'month' | 'year' = 'date';
+  public navigationMode: SbCalendarSelectionMode = 'date';
   get navigationFormatted(): string {
     if (this.showingDate) {
       if (this.navigationMode == 'date') {
@@ -78,7 +89,7 @@ export class SbCalendarsComponent extends SbCalendarCore {
   }
 
   @Input()
-  set markedDates(markedDates: MarkedDates) {
+  set markedDates(markedDates: SbMarkedDates) {
     this._markedDates = markedDates;
     if (this._markedDates.start) {
       if (!fns.isEqual(this.showingDate, fns.startOfMonth(this._markedDates.start))) {
@@ -91,11 +102,9 @@ export class SbCalendarsComponent extends SbCalendarCore {
     }
   };
 
-  get markedDates(): MarkedDates { return this._markedDates }
+  get markedDates(): SbMarkedDates { return this._markedDates }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 
