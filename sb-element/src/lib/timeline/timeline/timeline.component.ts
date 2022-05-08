@@ -1,17 +1,13 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { hasElementRefClass, mixinClassName, mixinColor, mixinSize } from '../../core/';
 import { LinkedList, ListItem } from '../../models';
-import { mixinClassName, mixinColor, mixinSize } from '../../core/';
 
 type State = 'current' | 'awaiting' | 'done' | 'pending';
 type Step = {name: string, state: State, line: boolean};
 
 const SbTimelineCore = mixinSize(
   mixinColor(
-    mixinClassName(
-      class {
-        constructor(public _elementRef: ElementRef) {}
-      }, 'sb-timeline'
-    )
+    mixinClassName(hasElementRefClass, 'sb-timeline')
   )
 );
 
@@ -50,9 +46,7 @@ export class SbTimelineComponent extends SbTimelineCore {
     return this._steps.length + "x2";
   }
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

@@ -1,22 +1,22 @@
 @use 'core/module.theme'            as core;
 
-@use 'global/module.theme'          as global;
 @use 'bar/module.theme'             as bar;
 @use 'breadcrumbs/module.theme'     as breadcrumbs;
 @use 'calendar/module.theme'        as calendar;
 @use 'card/module.theme'            as card;
 @use 'container/module.theme'       as container;
+@use 'forms/module.theme'           as forms;
+@use 'global/module.theme'          as global;
 @use 'grid/module.theme'            as grid;
 @use 'highlight/module.theme'       as highlight;
 @use 'icon/module.theme'            as icon;
-@use 'forms/module.theme'           as forms;
 @use 'indicator/module.theme'       as indicator;
 @use 'link/module.theme'            as link;
 @use 'notification/module.theme'    as notification;
 @use 'paginator/module.theme' 			as paginator;
 @use 'popper/module.theme'          as popper;
-@use 'tabs/module.theme'            as tabs;
 @use 'table/module.theme'           as table;
+@use 'tabs/module.theme'            as tabs;
 @use 'timeline/module.theme'        as timeline;
 
 $theme: null !default;
@@ -24,14 +24,14 @@ $theme: null !default;
 @mixin theme($theme) {
   @include core.theme($theme);
 
-  @include global.theme($theme);
   @include bar.theme($theme);
   @include breadcrumbs.theme($theme);
   @include calendar.theme($theme);
   @include card.theme($theme);
-  @include core.theme($theme);
   @include container.theme($theme);
+  @include core.theme($theme);
   @include forms.theme($theme);
+  @include global.theme($theme);
   @include grid.theme($theme);
   @include highlight.theme($theme);
   @include icon.theme($theme);
@@ -39,8 +39,8 @@ $theme: null !default;
   @include link.theme($theme);
   @include notification.theme($theme);
   @include popper.theme($theme);
-  @include tabs.theme($theme);
   @include table.theme($theme);
+  @include tabs.theme($theme);
   @include timeline.theme($theme);
 }
 

@@ -17,8 +17,8 @@ import { SbLinkModule } from './link';
 import { SbNotificationModule } from "./notification";
 import { SbPaginatorModule } from "./paginator";
 import { SbPopperModule } from './popper';
-import { SbTabsModule } from './tabs';
 import { SbTableModule } from './table';
+import { SbTabsModule } from './tabs';
 import { SbTimelineModule } from './timeline';
 
 @NgModule({
@@ -42,8 +42,8 @@ import { SbTimelineModule } from './timeline';
     SbNotificationModule,
     SbPaginatorModule,
     SbPopperModule,
-    SbTabsModule,
     SbTableModule,
+    SbTabsModule,
     SbTimelineModule,
   ]
 })
