@@ -1,13 +1,14 @@
-import { Attribute, Component, ElementRef, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { mixinColor, mixinClassName } from '../../core';
+import {
+  Attribute,
+  Component,
+  ElementRef,
+  HostBinding,
+  Input,
+  Optional,
+  ViewEncapsulation } from '@angular/core';
+import { mixinColor, mixinClassName, hasElementRefClass } from '../../core';
 
-const SbTableCore = mixinColor(
-  mixinClassName(
-    class {
-      constructor(public _elementRef: ElementRef) {}
-    }, 'sb-table'
-  )
-);
+const SbTableCore = mixinColor(mixinClassName(hasElementRefClass, 'sb-table'));
 
 @Component({
   selector: 'sb-table',

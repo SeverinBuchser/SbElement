@@ -1,5 +1,4 @@
 <table>
-
   <thead>
     <tr [ngClass]="className + '__head'">
       <th *ngFor="let data of head" [ngClass]="className + '__th'">
@@ -9,7 +8,6 @@
       </th>
     </tr>
   </thead>
-
   <tbody>
     <tr *ngFor="let row of body"
       [ngClass]="className + '__row'">
@@ -20,5 +18,4 @@
       </td>
     </tr>
   </tbody>
-
 </table>
