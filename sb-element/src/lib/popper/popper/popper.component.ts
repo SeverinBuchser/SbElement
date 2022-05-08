@@ -1,5 +1,15 @@
-import { AfterContentInit, Component, ContentChild, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { mixinClassName, Poppable, SbOverlayService, SbOverlayComponent } from '../../core/';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  OnDestroy,
+  ViewEncapsulation } from '@angular/core';
+import {
+  mixinClassName,
+  Poppable,
+  SbOverlayService,
+  SbOverlayComponent } from '../../core/';
 import { SbPopperContentComponent } from '../popper-content';
 import { SbPopperOverlayComponent } from '../popper-overlay';
 
@@ -15,11 +25,12 @@ const SbPopperCore = mixinClassName(
     'visible'
   ],
   outputs: [
-    'show',
-    'hide'
+    'hide',
+    'show'
   ]
 })
-export class SbPopperComponent extends SbPopperCore implements Poppable, AfterContentInit, OnDestroy {
+export class SbPopperComponent extends SbPopperCore
+  implements Poppable, AfterContentInit, OnDestroy {
 
   @ContentChild(SbPopperContentComponent, {read: ElementRef})
   public content!: ElementRef;
@@ -49,7 +60,7 @@ export class SbPopperComponent extends SbPopperCore implements Poppable, AfterCo
       this.popperOverlay.clear();
     })
   }
-  
+
   public getPopperRef(): ElementRef<any> {
     return this.popperOverlay._elementRef;
   }

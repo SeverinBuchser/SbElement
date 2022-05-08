@@ -1,11 +1,7 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { mixinClassName } from '../../core';
+import { hasElementRefClass, mixinClassName } from '../../core';
 
-const SbPopperContentCore = mixinClassName(
-  class {
-    constructor(public _elementRef: ElementRef) {}
-  }, 'sb-popper-content'
-);
+const SbPopperContentCore = mixinClassName(hasElementRefClass, 'sb-popper-content');
 
 @Component({
   selector: 'sb-popper-content',
@@ -14,9 +10,7 @@ const SbPopperContentCore = mixinClassName(
 })
 export class SbPopperContentComponent extends SbPopperContentCore {
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

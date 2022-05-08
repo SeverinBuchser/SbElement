@@ -1,10 +1,22 @@
-import { Component, ElementRef, HostBinding, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Alignment, mixinClassName, mixinHide, Position, SbAlignRelateiveDirective, Side, Triggerable } from '../../core';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  Input,
+  ViewChild,
+  ViewEncapsulation } from '@angular/core';
+import {
+  Alignment,
+  mixinClassName,
+  mixinHide,
+  Position,
+  SbAlignRelateiveDirective,
+  Side,
+  Triggerable } from '../../core';
 
 const SbPopperOverlayCore = mixinHide(
-  mixinClassName(
-    SbAlignRelateiveDirective, 'sb-popper-overlay'
-  ), false
+  mixinClassName(SbAlignRelateiveDirective, 'sb-popper-overlay'),
+  false
 );
 
 @Component({
