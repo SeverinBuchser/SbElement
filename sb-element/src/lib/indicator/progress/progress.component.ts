@@ -1,16 +1,22 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { Color, mixinClassName, mixinColor, mixinDisable, mixinPill, mixinSize, Size } from "../../core";
+import {
+  Color,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinDisable,
+  mixinPill,
+  mixinSize,
+  Size } from "../../core";
 
 const SbProgressCore = mixinPill(
   mixinDisable(
     mixinSize(
       mixinColor(
-        mixinClassName(
-          class {
-            constructor(public _elementRef: ElementRef) {}
-          }, 'sb-progress'
-        ), Color.PRIMARY
-      ), Size.MEDIUM
+        mixinClassName(hasElementRefClass, 'sb-progress'),
+        Color.PRIMARY
+      ),
+      Size.MEDIUM
     )
   )
 );
@@ -49,20 +55,29 @@ export class SbProgressComponent extends SbProgressCore {
   @Input()
   public animateStripes: boolean = false;
 
+  private _outline: boolean = false;
+
+  get outline(): boolean {
+    return this._outline;
+  }
+
   @Input('outline')
   set isOutline(isOutline: boolean | string) {
-    if (typeof isOutline == 'string') this.outline = true;
-    else this.outline = isOutline;
+    if (typeof isOutline == 'string') this._outline = true;
+    else this._outline = isOutline;
+  }
+
+  private _striped: boolean = false;
+  
+  get striped(): boolean {
+    return this._striped;
   }
 
   @Input('striped')
   set isStriped(isStriped: boolean | string) {
-    if (typeof isStriped == 'string') this.striped = true;
-    else this.striped = isStriped;
+    if (typeof isStriped == 'string') this._striped = true;
+    else this._striped = isStriped;
   }
-
-  public outline: boolean = false;
-  public striped: boolean = false;
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
