@@ -1,11 +1,9 @@
 import { Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SbAlertOptions } from './alert';
 import { mixinClassName, mixinHide, SbOverlayOutletComponent } from '../../core';
 import { SbAlertBoxComponent } from "../alert-box";
+import { SbAlertOptions } from './alert';
 
-const SbAlertCore = mixinHide(
-  mixinClassName(SbOverlayOutletComponent, 'sb-alert')
-);
+const SbAlertCore = mixinHide(mixinClassName(SbOverlayOutletComponent, 'sb-alert'));
 
 @Component({
   selector: 'sb-alert',
@@ -15,8 +13,8 @@ const SbAlertCore = mixinHide(
     'visible'
   ],
   outputs: [
-    'show',
-    'hide'
+    'hide',
+    'show'
   ]
 })
 export class SbAlertComponent extends SbAlertCore {
@@ -33,9 +31,7 @@ export class SbAlertComponent extends SbAlertCore {
   @ViewChild(SbAlertBoxComponent, {read: ElementRef})
   public transitionElement?: ElementRef;
 
-  constructor(
-    elementRef: ElementRef
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

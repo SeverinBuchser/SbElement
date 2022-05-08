@@ -1,16 +1,20 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinColor, mixinClassName, mixinPill, mixinPlain, Size } from '../../core';
+import {
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor,
+  mixinPill,
+  mixinPlain,
+  mixinSize,
+  Size } from '../../core';
 
 const SbAlertBoxCore = mixinPill(
   mixinPlain(
     mixinSize(
       mixinColor(
-        mixinClassName(
-          class {
-            constructor(public _elementRef: ElementRef) {}
-          }, 'sb-alert-box'
-        )
-      ), Size.MEDIUM
+        mixinClassName(hasElementRefClass, 'sb-alert-box')
+      ),
+      Size.MEDIUM
     )
   )
 );

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Color, SbOverlayService } from "../../core";
-import { SbAlert, SbAlertOptions } from './alert';
-import { Queue } from '../../models/queue/queue';
-import { SbAlertComponent } from './alert.component';
 import { Subject } from 'rxjs';
+import { Color, SbOverlayService } from "../../core";
+import { Queue } from '../../models/queue/queue';
+import { SbAlert, SbAlertOptions } from './alert';
+import { SbAlertComponent } from './alert.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,7 @@ export class SbAlertService extends Subject<SbAlertOptions> {
 
   private isBusy: boolean = false;
 
-  constructor(
-    private overlayService: SbOverlayService
-  ) {
+  constructor(private overlayService: SbOverlayService) {
     super();
   }
 
