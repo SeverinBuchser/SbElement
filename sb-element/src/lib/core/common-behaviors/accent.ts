@@ -3,15 +3,18 @@ import { HasElementRef } from "./has-element-ref";
 
 export interface CanAccent {
   readonly accent: boolean;
+  set isAccent(isAccent: boolean | string);
 }
 
 type CanAccentCtor = Constructor<CanAccent> & AbstractConstructor<CanAccent>;
 
 export function mixinAccent<T extends AbstractConstructor<HasElementRef>>(
-  core: T
+  core: T,
+  inital?: boolean
 ): CanAccentCtor & T;
 export function mixinAccent<T extends Constructor<HasElementRef>>(
-  core: T
+  core: T,
+  inital: boolean = false
 ): CanAccentCtor & T {
   return class extends core {
     private _accent: boolean = false;
@@ -36,6 +39,8 @@ export function mixinAccent<T extends Constructor<HasElementRef>>(
 
     constructor(...args: Array<any>) {
       super(...args);
+
+      this.isAccent = inital;
     }
   }
 }
