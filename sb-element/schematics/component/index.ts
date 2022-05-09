@@ -2,9 +2,11 @@ import {
   apply,
   applyTemplates,
   chain,
+  filter,
   MergeStrategy,
   mergeWith,
   move,
+  noop,
   Rule,
   SchematicsException,
   Tree,
@@ -34,6 +36,70 @@ const THEME_MODULE = '_module.theme.scss';
 const TOP_LEVEL_STYLE_MODULE = 'sb-element.scss';
 const TOP_LEVEL_THEME_MODULE = 'sb-element.theme.scss';
 
+function exportInIndex(options: Schema): Rule {
+  if (!options.export) {
+    return (host: Tree) => host;
+  }
+  return (host: Tree) => {
+    const modulePath = options.module;
+    if (!modulePath) {
+      throw new SchematicsException("There is no module to declare the style files in!");
+    }
+    const indexDir = dirname(modulePath as Path);
+    const indexPath = join(indexDir as Path, 'index.ts');
+    if (host.exists(indexPath)) {
+      const sourceText = read(host, indexPath);
+
+      const componentDir = normalize(`${options.path}/`
+        + (options.flat ? '' : strings.dasherize(options.name)));
+
+      const componentPath = join(
+        componentDir as Path,
+        strings.dasherize(options.name) + '.component'
+      );
+
+      const isSameDir = componentDir == indexDir;
+
+      const relativePath = buildRelativePath(indexPath, isSameDir ? componentPath : componentDir);
+
+      let indexPos = 0;
+      let indexExport = `export * from \'${relativePath}\';\n`;
+
+      let exportsRegexp = /export.*'(.*)';(\n)?/g;
+
+      let exportMatch;
+      let currentExportMatch;
+      while ((currentExportMatch = exportsRegexp.exec(sourceText)) !== null) {
+        if (currentExportMatch[1]
+            && currentExportMatch[1].localeCompare(relativePath) > 0) {
+          break;
+        }
+        exportMatch = currentExportMatch;
+      }
+
+      if (exportMatch) {
+        indexPos = exportMatch.index + exportMatch[0].length;
+        let hasNewLine = exportMatch[2];
+        if (!hasNewLine) {
+          indexExport = '\n' + indexExport;
+        }
+      }
+
+      const indexChange = new InsertChange(
+        indexPath,
+        indexPos,
+        indexExport
+      );
+
+      const indexRecorder = host.beginUpdate(indexPath);
+      applyToUpdateRecorder(indexRecorder, [indexChange]);
+      host.commitUpdate(indexRecorder);
+    }
+
+    return host;
+  }
+}
+
 function addDeclarationToNgModule(options: Schema): Rule {
   return (host: Tree) => {
     const modulePath = options.module;
@@ -49,11 +115,18 @@ function addDeclarationToNgModule(options: Schema): Rule {
       true
     );
 
-    const componentPath =
-      `/${options.path}/` +
-      (options.flat ? '' : strings.dasherize(options.name) + '/') +
-      strings.dasherize(options.name) + '.component';
-    const relativePath = buildRelativePath(modulePath, componentPath);
+    const componentDir = normalize(`${options.path}/`
+      + (options.flat ? '' : strings.dasherize(options.name)));
+
+    const componentPath = join(
+      componentDir as Path,
+      strings.dasherize(options.name) + '.component'
+    );
+
+    const isSameDir = componentDir == dirname(modulePath as Path);
+
+    const relativePath = buildRelativePath(modulePath, isSameDir ? componentPath : componentDir);
+    console.log(relativePath)
     const classifiedName = sbStrings.sbComponentify(options.name);
     const declarationChanges = addDeclarationToModule(
       source,
@@ -96,7 +169,7 @@ function addDeclarationToNgModule(options: Schema): Rule {
     }
 
     return host;
-  };
+  }
 }
 
 function addDeclarationToStyleModules(options: Schema): Rule {
@@ -210,7 +283,7 @@ function addDeclarationToStyleModules(options: Schema): Rule {
     host.commitUpdate(themeModuleRecorder);
 
     return host;
-  };
+  }
 }
 
 
@@ -236,7 +309,15 @@ export function sbComponent(options: Schema): Rule {
     let corePath = join(buildDefaultPath(project) as Path, CORE_DIR);
     corePath = relative(options.path as Path, corePath);
 
+    let componentDir = `/${options.path}/`
+      + (options.flat ? '' : strings.dasherize(options.name));
+
+    let componentInSameDirAsModule = options.module ? componentDir == dirname(options.module as Path) : false;
+
     const templateSource = apply(url('./files'), [
+      options.flat || componentInSameDirAsModule ? filter((path: Path) => {
+        return !path.includes('index.ts');
+      }) : noop(),
       applyTemplates({
         ...strings,
         ...sbStrings,
@@ -250,6 +331,7 @@ export function sbComponent(options: Schema): Rule {
     return chain([
       addDeclarationToNgModule(options),
       addDeclarationToStyleModules(options),
+      exportInIndex(options),
       mergeWith(templateSource, MergeStrategy.Overwrite)
     ]);
   };
