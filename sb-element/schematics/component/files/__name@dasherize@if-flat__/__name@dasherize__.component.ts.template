@@ -1,0 +1,21 @@
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { CanClassName, hasElementRefClass, mixinClassName } from '<%= corePath %>';
+
+const <%= sbCorify(name) %> = mixinClassName(
+  hasElementRefClass,
+  '<%= sbDasherize(name) %>'
+);
+
+@Component({
+  selector: '<%= sbDasherize(name) %>',
+	templateUrl: './<%= dasherize(name) %>.component.html',
+  encapsulation: ViewEncapsulation.None
+})
+export class <%= sbComponentify(name) %> extends <%= sbCorify(name) %>
+  implements CanClassName {
+
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
+  }
+
+}

@@ -7,9 +7,10 @@
     "url": "https://github.com/SeverinBuchser/SbElement.git"
   },
   "scripts": {
-    "build": "ng build SbElement --configuration production && tsc -p tsconfig.schematics.json",
-    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../dist/sb-element/",
+    "build": "ng build SbElement --configuration production && tsc --project tsconfig.schematics.json",
+    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/*/** schematics/collection.json ../dist/sb-element/",
     "dev": "ng build SbElement --watch",
+    "build:schematics": "tsc --project tsconfig.schematics.json && npm run postbuild",
     "doc": "compodoc --config .compodocrc",
     "copy:doc": "cp -ra ./documentation/. ../../SeverinBuchser.github.io/sb-element-doc"
   },
