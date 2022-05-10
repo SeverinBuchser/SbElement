@@ -3,15 +3,18 @@ import { HasElementRef } from "./has-element-ref";
 
 export interface CanRound {
   readonly round: boolean;
+  set isRound(isRound: boolean | string);
 }
 
 type CanRoundCtor = Constructor<CanRound> & AbstractConstructor<CanRound>;
 
 export function mixinRound<T extends AbstractConstructor<HasElementRef>>(
-  core: T
+  core: T,
+  isRoundInital?: boolean
 ): CanRoundCtor & T;
 export function mixinRound<T extends Constructor<HasElementRef>>(
-  core: T
+  core: T,
+  isRoundInital: boolean = false
 ): CanRoundCtor & T {
   return class extends core {
     private _round: boolean = false;
@@ -36,6 +39,8 @@ export function mixinRound<T extends Constructor<HasElementRef>>(
 
     constructor(...args: Array<any>) {
       super(...args);
+
+      this.isRound = isRoundInital;
     }
   }
 }

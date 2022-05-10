@@ -17,16 +17,24 @@ export function mixinTabindex<T extends Constructor<HasElementRef>>(
   defaultTabindex?: number
 ): CanTabindexCtor & T {
   return class extends core {
-    private _tabindex: number | undefined;
+    private _tabindex: number = -1;
     public defaultTabindex = defaultTabindex;
 
     get tabindex(): number | undefined {
       return this._tabindex;
     }
     set tabindex(value: number | undefined) {
-      const tabindex = value || this.defaultTabindex;
+      let tabindex;
+      if (value == undefined) {
+        tabindex = this.defaultTabindex;
+      } else {
+        tabindex = value;
+      }
+      if (tabindex == undefined) {
+        tabindex = -1;
+      }
 
-      if (tabindex !== undefined && tabindex !== this._tabindex) {
+      if (tabindex !== this._tabindex) {
         this._elementRef.nativeElement.tabIndex = tabindex;
       }
 

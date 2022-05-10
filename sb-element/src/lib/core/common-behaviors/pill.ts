@@ -3,15 +3,18 @@ import { HasElementRef } from "./has-element-ref";
 
 export interface CanPill {
   readonly pill: boolean;
+  set isPill(isPill: boolean | string);
 }
 
 type CanPillCtor = Constructor<CanPill> & AbstractConstructor<CanPill>;
 
 export function mixinPill<T extends AbstractConstructor<HasElementRef>>(
-  core: T
+  core: T,
+  isPillInital?: boolean
 ): CanPillCtor & T;
 export function mixinPill<T extends Constructor<HasElementRef>>(
-  core: T
+  core: T,
+  isPillInital: boolean = false
 ): CanPillCtor & T {
   return class extends core {
     private _pill: boolean = false;
@@ -36,6 +39,8 @@ export function mixinPill<T extends Constructor<HasElementRef>>(
 
     constructor(...args: Array<any>) {
       super(...args);
+
+      this.isPill = isPillInital;
     }
   }
 }

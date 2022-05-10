@@ -3,15 +3,18 @@ import { HasElementRef } from "./has-element-ref";
 
 export interface CanPlain {
   readonly plain: boolean;
+  set isPlain(isPlain: boolean | string);
 }
 
 type CanPlainCtor = Constructor<CanPlain> & AbstractConstructor<CanPlain>;
 
 export function mixinPlain<T extends AbstractConstructor<HasElementRef>>(
-  core: T
+  core: T,
+  isPlainInital?: boolean
 ): CanPlainCtor & T;
 export function mixinPlain<T extends Constructor<HasElementRef>>(
-  core: T
+  core: T,
+  isPlainInital: boolean = false
 ): CanPlainCtor & T {
   return class extends core {
     private _plain: boolean = false;
@@ -36,6 +39,8 @@ export function mixinPlain<T extends Constructor<HasElementRef>>(
 
     constructor(...args: Array<any>) {
       super(...args);
+
+      this.isPlain = isPlainInital;
     }
   }
 }
