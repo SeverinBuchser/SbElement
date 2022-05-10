@@ -10,11 +10,11 @@ type CanAccentCtor = Constructor<CanAccent> & AbstractConstructor<CanAccent>;
 
 export function mixinAccent<T extends AbstractConstructor<HasElementRef>>(
   core: T,
-  inital?: boolean
+  isAccentInital?: boolean
 ): CanAccentCtor & T;
 export function mixinAccent<T extends Constructor<HasElementRef>>(
   core: T,
-  inital: boolean = false
+  isAccentInital: boolean = false
 ): CanAccentCtor & T {
   return class extends core {
     private _accent: boolean = false;
@@ -40,7 +40,7 @@ export function mixinAccent<T extends Constructor<HasElementRef>>(
     constructor(...args: Array<any>) {
       super(...args);
 
-      this.isAccent = inital;
+      this.isAccent = isAccentInital;
     }
   }
 }

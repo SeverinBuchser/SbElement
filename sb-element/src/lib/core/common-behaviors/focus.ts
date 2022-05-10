@@ -3,9 +3,9 @@ import { AbstractConstructor, Constructor } from "./constructor";
 
 export interface CanFocus {
   focused: boolean;
-  setFocusedState(isFocused: boolean): void;
   focus: EventEmitter<void>;
   blur: EventEmitter<void>;
+  setFocusedState(isFocused: boolean): void;
 }
 
 type CanFocusCtor = Constructor<CanFocus> & AbstractConstructor<CanFocus>;

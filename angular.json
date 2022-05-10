@@ -116,6 +116,7 @@
             "polyfills": "example-app/src/polyfills.ts",
             "tsConfig": "example-app/tsconfig.spec.json",
             "karmaConfig": "example-app/karma.conf.js",
+            "codeCoverage": true,
             "inlineStyleLanguage": "scss",
             "assets": [
               "example-app/src/favicon.ico",

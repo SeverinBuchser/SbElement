@@ -9,12 +9,14 @@ type CanDisableCtor = Constructor<CanDisable> & AbstractConstructor<CanDisable>;
 
 export function mixinDisable<T extends AbstractConstructor<{}>>(
   core: T,
+  isDisabledInital?: boolean
 ): CanDisableCtor & T;
 export function mixinDisable<T extends Constructor<{}>>(
   core: T,
+  isDisabledInital: boolean = false
 ): CanDisableCtor & T {
   return class extends core {
-    private _disabled: boolean = false;
+    private _disabled: boolean = isDisabledInital;
 
     get disabled(): boolean {
       return this._disabled;

@@ -4,7 +4,13 @@ import {
   HostBinding,
   Input,
   ViewEncapsulation } from '@angular/core';
-import { hasElementRefClass, mixinClassName, mixinColor } from '../../core';
+import {
+  CanClassName,
+  CanColor,
+  HasElementRef,
+  hasElementRefClass,
+  mixinClassName,
+  mixinColor } from '../../core';
 
 export type SbBarSide = 'left' | 'right' | 'top' | 'bottom';
 
@@ -15,11 +21,12 @@ const SbBarCore = mixinColor(mixinClassName(hasElementRefClass, 'sb-bar'));
   templateUrl: './bar.component.html',
   encapsulation: ViewEncapsulation.None,
   inputs: [
-    'size',
-    'color'
+    'color',
+    'size'
   ]
 })
-export class SbBarComponent extends SbBarCore {
+export class SbBarComponent extends SbBarCore
+  implements HasElementRef, CanClassName, CanColor {
 
   @Input() @HostBinding('class')
   public side: SbBarSide = 'left';

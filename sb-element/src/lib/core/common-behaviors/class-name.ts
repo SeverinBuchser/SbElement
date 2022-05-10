@@ -15,6 +15,9 @@ export function mixinClassName<T extends Constructor<HasElementRef>>(
   core: T,
   className: string
 ): CanClassNameCtor & T {
+  if (className == '') {
+    throw new Error(`The className '${className}' is invalid!`);
+  }
   return class extends core {
     private _className: string = className;
 
