@@ -1,7 +1,7 @@
 import { mixinFocus } from './focus';
 
 describe('MixinFocus', () => {
-  it('should augment an existing class with a disabled property', () => {
+  it('should augment an existing class with a focused property', () => {
     const classWithFocus = mixinFocus(class {});
     const instance = new classWithFocus();
 

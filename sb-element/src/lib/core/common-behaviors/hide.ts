@@ -10,23 +10,24 @@ export interface CanHide {
   hideStart: EventEmitter<void>;
   hideEnd: EventEmitter<void>;
   transitionDuration: number;
-  transitionElement?: ElementRef;
+  transitionElement: ElementRef;
   defaultVisiblity?: boolean;
   wait(time: number): Promise<void>;
 }
+
+export const padding = 5;
 
 type CanHideCtor = Constructor<CanHide> & AbstractConstructor<CanHide>;
 
 export function mixinHide<T extends AbstractConstructor<HasElementRef>>(
   core: T,
-  defaultVisiblity?: boolean
+  isVisibleInital?: boolean
 ): CanHideCtor & T;
 export function mixinHide<T extends Constructor<HasElementRef>>(
   core: T,
-  defaultVisiblity?: boolean
+  isVisibleInital: boolean = false
 ): CanHideCtor & T {
   return class extends core {
-    private padding: number = 5;
     private _visible: boolean | undefined;
 
     public showStart: EventEmitter<void> = new EventEmitter<void>();
@@ -34,8 +35,7 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
     public hideStart: EventEmitter<void> = new EventEmitter<void>();
     public hideEnd: EventEmitter<void> = new EventEmitter<void>();
 
-    public defaultVisiblity?: boolean = defaultVisiblity;
-    public transitionElement?: ElementRef;
+    public transitionElement: ElementRef = this._elementRef;
 
     get visible(): boolean {
       return this._visible || false;
@@ -57,31 +57,41 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
       })
     }
 
+    private addClass(className: string): void {
+      this._elementRef.nativeElement.classList.add(className);
+    }
+
+    private removeClass(className: string): void {
+      this._elementRef.nativeElement.classList.remove(className);
+    }
+
     private async showElement(wasVisible: boolean | undefined): Promise<void> {
-      this._elementRef.nativeElement.classList.remove(`sb--hidden`);
+      this.removeClass('sb--hidden');
       if (wasVisible !== undefined) {
-        this._elementRef.nativeElement.classList.add(`sb--visibly-hidden`);
-        await this.wait(this.padding);
-        this._elementRef.nativeElement.classList.remove(`sb--visibly-hidden`);
+        await this.visiblyHiddenFor(padding);
       }
       this.emitShowStart();
-      this._elementRef.nativeElement.classList.add(`sb--visible`);
-      await this.wait(this.transitionDuration + this.padding);
+      this.addClass('sb--visible');
+      await this.wait(this.transitionDuration + padding);
       this.emitShowEnd();
     }
 
     private async hideElement(wasVisible: boolean | undefined): Promise<void> {
-      this._elementRef.nativeElement.classList.remove(`sb--visible`);
+    this.removeClass('sb--visible');
       this.emitHideStart();
       if (wasVisible !== undefined) {
-        this._elementRef.nativeElement.classList.add(`sb--visibly-hidden`);
-        await this.wait(this.transitionDuration + this.padding);
-        this._elementRef.nativeElement.classList.remove(`sb--visibly-hidden`);
+        await this.visiblyHiddenFor(this.transitionDuration + padding);
       }
       if (wasVisible == undefined || this._visible == false) {
-        this._elementRef.nativeElement.classList.add(`sb--hidden`);
+        this.addClass('sb--hidden');
         this.emitHideEnd();
       }
+    }
+
+    private async visiblyHiddenFor(duration: number): Promise<void> {
+      this.addClass('sb--visibly-hidden');
+      await this.wait(duration);
+      this.removeClass('sb--visibly-hidden');
     }
 
     get transitionDuration(): number {
@@ -133,7 +143,7 @@ export function mixinHide<T extends Constructor<HasElementRef>>(
     constructor(...args: Array<any>) {
       super(...args);
 
-      this.visible = defaultVisiblity || false;
+      this.visible = isVisibleInital;
     }
   }
 }
