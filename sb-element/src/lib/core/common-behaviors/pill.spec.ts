@@ -33,10 +33,9 @@ describe('MixinPill', () => {
 
     instance.isPill = false;
 
-    expect(instance.testElement.classList).not.toContain(
-      'pill',
-      'Expected the element to no longer have "pill" set.',
-    );
+    expect(instance.testElement.classList)
+      .withContext('Expected the element to no longer have "pill" set.')
+      .not.toContain('pill');
 
 		instance.isPill = 'foo';
 

@@ -1,0 +1,16 @@
+@use "sb-element/core/box-shadow";
+@use "sb-element/core/spacing";
+/*****************************************************************************
+Alert-Container
+******************************************************************************/
+
+// ROOT
+.sb-alert-container {
+  @include spacing.margin(s);
+
+  .sb-alert-box {
+    min-width: 300px;
+    overflow: visible;
+    @include box-shadow.smooth;
+  }
+}

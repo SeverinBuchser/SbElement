@@ -116,7 +116,6 @@
             "polyfills": "example-app/src/polyfills.ts",
             "tsConfig": "example-app/tsconfig.spec.json",
             "karmaConfig": "example-app/karma.conf.js",
-            "codeCoverage": true,
             "inlineStyleLanguage": "scss",
             "assets": [
               "example-app/src/favicon.ico",
@@ -176,7 +175,11 @@
           "options": {
             "main": "sb-element/src/test.ts",
             "tsConfig": "sb-element/tsconfig.spec.json",
-            "karmaConfig": "sb-element/karma.conf.js"
+            "karmaConfig": "sb-element/karma.conf.js",
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "**/testing/**/*"
+            ]
           }
         }
       }

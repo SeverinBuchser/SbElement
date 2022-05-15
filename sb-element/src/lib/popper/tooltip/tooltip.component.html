@@ -1,13 +1,13 @@
 <sb-popper
   #tooltipPopper
-  [visible]="visible"
   (showStart)="showStart.emit()"
   (showEnd)="showEnd.emit()"
   (hideStart)="hideStart.emit()"
-  (hideEnd)="hideEnd.emit()">
+  (hideEnd)="hideEnd.emit()"
+  [position]="position"
+  [alignment]="alignment">
   <sb-popper-overlay
-    ngClass="sb-tooltip"
-    [position]="position">
+    ngClass="sb-tooltip">
     <span>
       {{ text }}
     </span>

@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostBinding,
@@ -6,108 +7,64 @@ import {
   ViewChild,
   ViewEncapsulation } from '@angular/core';
 import {
-  Alignment,
+  hasElementRefClass,
   mixinClassName,
-  mixinHide,
-  Position,
   SbAlignRelateiveDirective,
-  Side,
-  Triggerable } from '../../core';
+  SbConnectedSide } from '../../core';
 
-const SbPopperOverlayCore = mixinHide(
-  mixinClassName(SbAlignRelateiveDirective, 'sb-popper-overlay'),
-  false
-);
+const SbPopperOverlayCore = mixinClassName(hasElementRefClass, 'sb-popper-overlay');
 
 @Component({
   selector: 'sb-popper-overlay',
   templateUrl: './popper-overlay.component.html',
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
-export class SbPopperOverlayComponent extends SbPopperOverlayCore implements Triggerable {
+export class SbPopperOverlayComponent extends SbPopperOverlayCore {
 
-  @ViewChild('arrow', {read: SbAlignRelateiveDirective})
+  @Input() @HostBinding('class')
+  public position: SbConnectedSide = 'bottom';
+
+  @ViewChild('arrow', { read: SbAlignRelateiveDirective, static: true })
   public arrow!: SbAlignRelateiveDirective;
 
-  @Input('position') @HostBinding('class')
-  set stringPosition(position: string) {
-    this.position = Position.parse(position);
-    if (this.visible && this.currentContentBBox) {
-      this.alignRelative(this.currentContentBBox);
+  get viewBox(): string {
+    if (this.position == 'left') {
+      return "0 0 1000 2000";
+    } else if (this.position == 'right') {
+      return "0 0 1000 2000";
+    } else if (this.position == 'top') {
+      return "0 0 2000 1000";
+    } else if (this.position == 'bottom') {
+      return "0 0 2000 1000";
     }
-  }
-  get stringPosition(): string {
-    return this.position.toString();
+    return "";
   }
 
-  @Input('alignment')
-  set alignmentNumber(alignment: number) {
-    this.position.alignment = alignment;
-    if (this.visible && this.currentContentBBox) {
-      this.alignRelative(this.currentContentBBox);
+  get arrowPath(): string {
+    if (this.position == 'left') {
+      return "M 0, 0 L 1000, 1000 L 0, 2000 Z";
+    } else if (this.position == 'right') {
+      return "M 1000, 0 L 0, 1000 L 1000, 2000 Z";
+    } else if (this.position == 'top') {
+      return "M 0, 0 L 1000, 1000 L 2000, 0 Z";
+    } else if (this.position == 'bottom') {
+      return "M 0, 1000 L 1000, 0 L 2000, 1000 Z";
     }
+    return "";
   }
 
-  public position: Position = new Position(Side.TOP, 0);
-  private currentContentBBox?: DOMRect;
-
-  constructor(elementRef: ElementRef) {
+  constructor(
+    elementRef: ElementRef,
+    private _changeDetectorRef: ChangeDetectorRef
+  ) {
     super(elementRef);
-    this.transitionElement = this._elementRef;
   }
 
-  public trigger(): void {
-    this.visible = !this.visible;
-
-    if (!this.visible) {
-      this.currentContentBBox = undefined;
-    }
-  }
-
-  public alignRelative(contentBBox: DOMRect): Alignment {
-    this.currentContentBBox = contentBBox;
-    let alignment = super.alignRelative(
-      contentBBox,
-      this.position,
-      {
-        marginSide: {
-          dx: this.arrow.width,
-          dy: this.arrow.height
-        },
-        maxAlignment : {
-          dx: (contentBBox.width - this.width) / 2,
-          dy: (contentBBox.height - this.height) / 2
-        }
-      }
-    );
-
-    let borderRadius = parseFloat(getComputedStyle(this._elementRef.nativeElement).borderRadius);
-
-    this.arrow.alignRelative(
-      this.boundingClientRect,
-      this.position.oppositeSide().oppositeAlignment(),
-      {
-        marginAlignment: {
-          dx: borderRadius,
-          dy: borderRadius,
-        },
-        minAlignment: {
-          dx: Math.abs(alignment.offsetAlignment.dx),
-          dy: Math.abs(alignment.offsetAlignment.dy)
-        },
-        maxAlignment : {
-          dx: (this.width - this.arrow.width) / 2 - borderRadius,
-          dy: (this.height - this.arrow.height) / 2 - borderRadius
-        }
-      }
-    );
-
-    return alignment;
-  }
-
-  public clear(): void {
-    super.clear();
-    this.arrow.clear();
+  public setPositionClass(position: SbConnectedSide): void {
+    this._elementRef.nativeElement.classList.remove(this.position);
+		this._elementRef.nativeElement.classList.add(position);
+    this.position = position;
+    this._changeDetectorRef.detectChanges();
   }
 
 }

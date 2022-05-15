@@ -17,19 +17,19 @@ describe('SbBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have as side 'left'`, () => {
+  it('should have as side "left"', () => {
     const fixture = TestBed.createComponent(SbBarComponent);
     const component = fixture.componentInstance;
     expect(component.side).toEqual('left');
   });
 
-  it(`should not have a color`, () => {
+  it('should not have a color', () => {
     const fixture = TestBed.createComponent(SbBarComponent);
     const component = fixture.componentInstance;
     expect(component.color).toBeUndefined();
   });
 
-  it(`should have as classes 'sb-bar' and 'left'`, () => {
+  it('should have as classes "sb-bar" and "left"', () => {
     const fixture = TestBed.createComponent(SbBarComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
@@ -37,7 +37,7 @@ describe('SbBarComponent', () => {
     expect(compiled.classList.contains('left')).toBe(true)
   });
 
-  it(`should change side from 'left' to 'right'`, () => {
+  it('should change side from "left" to "right"', () => {
     const fixture = TestBed.createComponent(SbBarComponent);
     fixture.detectChanges();
     const component = fixture.componentInstance;
@@ -48,7 +48,7 @@ describe('SbBarComponent', () => {
     expect(compiled.classList.contains('right')).toBe(true)
   });
 
-  it(`should have color 'primary'`, () => {
+  it('should have color "primary"', () => {
     const fixture = TestBed.createComponent(SbBarComponent);
     const component = fixture.componentInstance;
     const compiled = fixture.nativeElement;

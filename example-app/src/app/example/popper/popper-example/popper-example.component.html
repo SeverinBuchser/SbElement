@@ -4,14 +4,10 @@
       <p class="sb--s">Sidebar</p>
     </sb-card-header>
     <sb-card-content ngClass="center">
-      <sb-sidebar #sidebarOne>
-        <div sidebar>
-          <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
-        </div>
-        <div content>
-          <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
-        </div>
+      <sb-sidebar #sidebarOne side="left">
+        <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Close Sidebar</button>
       </sb-sidebar>
+      <button color="primary" sbClickTrigger [triggerable]="sidebarOne">Open Sidebar</button>
     </sb-card-content>
   </sb-card>
   <sb-card>
@@ -19,11 +15,16 @@
       <p class="sb--s">Popper</p>
     </sb-card-header>
     <sb-card-content ngClass="center">
-      <sb-popper #popperOne>
-        <sb-popper-overlay position="top" [alignment]="sth">
+      <sb-popper #popperOne position="left" [alignment]="sth">
+        <sb-popper-overlay>
           Popper
         </sb-popper-overlay>
-        <sb-popper-content>
+        <sb-popper-content [ngStyle]="{
+          'width': '200px',
+          'height': '200px',
+          'background': 'black',
+          'transform': 'translate(0px, 0px)'
+        }">
           <button color="primary" sbClickTrigger [triggerable]="popperOne">Open Popper</button>
         </sb-popper-content>
       </sb-popper>
@@ -32,6 +33,83 @@
       [max]="1"
       [min]="-1"
       [step]="0.01"></sb-slider>
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
+    </sb-card-content>
+  </sb-card>
+  <sb-card>
+    <sb-card-header>
+      <p class="sb--s">Popper</p>
+    </sb-card-header>
+    <sb-card-content ngClass="center">
     </sb-card-content>
   </sb-card>
 </sb-grid>

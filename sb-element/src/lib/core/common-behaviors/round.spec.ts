@@ -33,10 +33,9 @@ describe('MixinRound', () => {
 
     instance.isRound = false;
 
-    expect(instance.testElement.classList).not.toContain(
-      'round',
-      'Expected the element to no longer have "round" set.',
-    );
+    expect(instance.testElement.classList)
+      .withContext('Expected the element to no longer have "round" set.')
+      .not.toContain('round');
 
 		instance.isRound = 'foo';
 

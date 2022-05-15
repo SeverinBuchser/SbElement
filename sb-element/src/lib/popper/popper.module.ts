@@ -1,3 +1,4 @@
+import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -15,7 +16,7 @@ import { SbTooltipComponent } from "./tooltip";
     SbPopperOverlayComponent,
     SbTooltipComponent
   ],
-  imports: [CommonModule, SbCoreModule],
+  imports: [CommonModule, OverlayModule, SbCoreModule],
   exports: [
     SbPopperComponent,
     SbPopperContentComponent,

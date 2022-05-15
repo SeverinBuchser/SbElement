@@ -33,10 +33,9 @@ describe('MixinTabindex', () => {
 
     instance.tabindex = 2;
 
-    expect(instance.testElement.tabIndex).not.toBe(
-      1,
-      'Expected the element to no longer have a tabIndex of "1" set.',
-    );
+    expect(instance.testElement.tabIndex)
+      .withContext('Expected the element to no longer have a tabIndex of "1" set.')
+      .not.toBe(1);
     expect(instance.testElement.tabIndex)
       .withContext('Expected the element to have a tabIndex of "2" set')
       .toBe(2);

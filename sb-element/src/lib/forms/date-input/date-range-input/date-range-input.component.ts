@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
-import { mixinDisable, mixinFocus, Color, Size } from "../../../core";
+import { mixinDisable, mixinFocus, Color, Size, SbConnectedSide } from "../../../core";
 import { SbMarkedDates } from "../../../calendar";
 import { SbDoubleInput } from "../../input";
 
@@ -36,7 +36,7 @@ export class SbDateRangeInputComponent extends SbDateRangeInputCore
   public isPill: boolean | string = false;
 
   @Input()
-  public position: string = 'bottom-center';
+  public position: SbConnectedSide = 'bottom';
 
   @Input()
   public format: string = 'yyyy-MM-dd';

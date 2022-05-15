@@ -14,7 +14,7 @@ describe('MixinClassName', () => {
   it('should not allow to augment class with invalid className', () => {
     expect(() => mixinClassName(TestClass, ''))
       .withContext('Expected the mixin to fail with invalid className')
-      .toThrow(new Error(`The className '' is invalid!`))
+      .toThrow(new Error('The className \'\' is invalid!'))
   });
 });
 

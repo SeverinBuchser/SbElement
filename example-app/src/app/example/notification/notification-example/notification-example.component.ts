@@ -15,23 +15,23 @@ export class NotificationExampleComponent implements OnInit {
   constructor(private alertService: SbAlertService, private doc: DocService) { }
 
   alertPrimary() {
-    this.alertService.primary({message: "Primary Notification"});
+    this.alertService.primary("Primary Notification");
   }
 
   alertSecondary() {
-    this.alertService.secondary({message: "Secondary Notification"});
+    this.alertService.secondary("Secondary Notification");
   }
 
   alertSuccess() {
-    this.alertService.success({message: "Success Notification"});
+    this.alertService.success("Success Notification");
   }
 
   alertWarn() {
-    this.alertService.warn({message: "Warn Notification"});
+    this.alertService.warn("Warn Notification");
   }
 
   alertInform() {
-    this.alertService.inform({message: "Info Notification"});
+    this.alertService.inform("Info Notification");
   }
 
   ngOnInit(): void {

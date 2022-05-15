@@ -1,4 +1,4 @@
-<sb-popper #colorPicker>
+<sb-popper #colorPicker [position]="position">
 	<sb-popper-content sbClickOutsideTrigger [triggerable]="colorPicker">
 		<button
 			type="button"
@@ -21,7 +21,7 @@
 			</ng-template>
 		</button>
 	</sb-popper-content>
-	<sb-popper-overlay [position]="position">
+	<sb-popper-overlay>
 		<sb-grid [dim]="dim" gap="xs">
 			<div *ngFor="let option of options"
 				[ngClass]="[

@@ -1,10 +1,8 @@
-@use 'alert-box/alert-box.component.theme';
-@use 'alert/alert.component.theme';
+@use 'alert';
 @use 'toast/toast.component.theme';
 @use 'toaster/toaster.component.theme';
 
 @mixin theme($theme) {
-  @include alert-box.theme($theme);
   @include alert.theme($theme);
   @include toast.theme($theme);
   @include toaster.theme($theme);

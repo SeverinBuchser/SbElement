@@ -5,29 +5,27 @@ import { SbCoreModule } from "../core";
 import { SbIconModule } from "../icon";
 import { SbIndicatorModule } from "../indicator";
 
-import { SbAlertBoxComponent } from './alert-box';
-import { SbAlertComponent } from './alert';
 import { SbToastComponent } from './toast';
 import { SbToasterComponent } from './toaster';
+import { PortalModule } from '@angular/cdk/portal';
+import { SbAlertModule } from './alert';
 
 @NgModule({
   declarations: [
-    SbAlertBoxComponent,
-    SbAlertComponent,
     SbToastComponent,
     SbToasterComponent
   ],
   imports: [
     CommonModule,
+    PortalModule,
     SbCoreModule,
     SbIconModule,
     SbIndicatorModule
   ],
   exports: [
-    SbAlertBoxComponent,
-    SbAlertComponent,
     SbToastComponent,
-    SbToasterComponent
+    SbToasterComponent,
+    SbAlertModule
   ]
 })
 export class SbNotificationModule { }

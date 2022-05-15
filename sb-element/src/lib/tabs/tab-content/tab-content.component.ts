@@ -40,7 +40,7 @@ export class SbTabContentComponent extends SbTabContentCore implements OnInit {
       this.animationState = this.getNextAnimationState(change);
       if (this.isCenterState(this.animationState)) {
         if (!this.contentHost.hasAttached()) {
-          this.contentHost.attach(this.tab!.content);
+          this.contentHost.attach(this.tab.content);
         }
       }
     })

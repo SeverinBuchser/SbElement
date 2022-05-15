@@ -1,6 +1,9 @@
 /*****************************************************************************
-Alert / Theme
+Overlay-Container / Style
 ******************************************************************************/
 
-// THEME
-@mixin theme($theme) {}
+// ROOT
+.sb-overlay-container {
+  display: block;
+  pointer-events: none;
+}

@@ -33,10 +33,9 @@ describe('MixinPlain', () => {
 
     instance.isPlain = false;
 
-    expect(instance.testElement.classList).not.toContain(
-      'plain',
-      'Expected the element to no longer have "plain" set.',
-    );
+    expect(instance.testElement.classList)
+      .withContext('Expected the element to no longer have "plain" set.')
+      .not.toContain('plain');
 
 		instance.isPlain = 'foo';
 

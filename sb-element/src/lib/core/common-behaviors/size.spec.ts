@@ -33,10 +33,9 @@ describe('MixinSize', () => {
 
     instance.size = Size.LARGE;
 
-    expect(instance.testElement.classList).not.toContain(
-      'sb--m',
-      'Expected the element to no longer have "sb--m" set.',
-    );
+    expect(instance.testElement.classList)
+      .withContext('Expected the element to no longer have "sb--m" set.')
+      .not.toContain('sb--m');
     expect(instance.testElement.classList)
       .withContext('Expected the element to have the "sb--l" class set')
       .toContain('sb--l');

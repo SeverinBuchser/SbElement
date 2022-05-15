@@ -33,10 +33,9 @@ describe('MixinAccent', () => {
 
     instance.isAccent = false;
 
-    expect(instance.testElement.classList).not.toContain(
-      'accent',
-      'Expected the element to no longer have "accent" set.',
-    );
+    expect(instance.testElement.classList)
+      .withContext('Expected the element to no longer have "accent" set.')
+      .not.toContain('accent');
 
 		instance.isAccent = 'foo';
 

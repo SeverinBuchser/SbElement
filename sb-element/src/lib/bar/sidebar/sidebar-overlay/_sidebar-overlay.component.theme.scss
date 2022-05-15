@@ -1,0 +1,13 @@
+@use "sb-element/core/theming";
+/*****************************************************************************
+sidebar-overlay / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-sidebar-overlay {
+    &__underlay {
+      background: theming.get-background($theme);
+    }
+  }
+}

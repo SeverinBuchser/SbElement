@@ -1,13 +1,15 @@
 @use "sb-element/core/border";
 @use "sb-element/core/display";
 @use "sb-element/core/spacing";
+@use "sb-element/core/theming";
 /*****************************************************************************
-Alert-Box / Style
+Alert-Box
 ******************************************************************************/
 
 // SIZE
 @mixin alert-box-size($key, $spacing) {
   $bigger: spacing.get-bigger($key);
+
   &.sb--#{$key} {
     height: $bigger;
 
@@ -42,5 +44,28 @@ Alert-Box / Style
 
   @include spacing.for-each-spacing using ($key, $spacing) {
     @include alert-box-size($key, $spacing);
+  }
+}
+
+// COLOR
+@mixin alert-box-color($bg, $color) {
+  background: $bg;
+  color: $color  !important;
+}
+
+// THEME
+@mixin theme($theme) {
+  .sb-alert-box {
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} {
+        @include alert-box-color(theming.get-color($theme, $color),
+          theming.get-text($theme, $color));
+
+        &.plain {
+          @include alert-box-color(theming.get-color-inverted($theme, $color),
+            theming.get-text-inverted($theme, $color));
+        }
+      }
+    }
   }
 }

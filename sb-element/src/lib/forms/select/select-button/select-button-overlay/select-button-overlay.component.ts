@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, ElementRef, NgZone, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { SbButtonComponent } from '../../../button';
 import { mixinClassName, SbOverlayService, SbOverlayComponent } from '../../../../core/';
 import { SbSelectButtonListComponent } from '../select-button-list';
@@ -31,23 +31,26 @@ export class SbSelectButtonOverlayComponent extends SbSelectButtonOverlayCore {
 
   constructor(
     elementRef: ElementRef,
-    overlayService: SbOverlayService
+    overlayService: SbOverlayService,
+    viewContainerRef: ViewContainerRef
   ) {
-    super(elementRef, overlayService);
+    super(elementRef, overlayService, viewContainerRef);
   }
 
   public ngAfterContentInit(): void {
     this.list.showStart.subscribe(() => {
+      this.attach();
       let buttonBBox = this.button.nativeElement.getBoundingClientRect();
       let listBBox = this.list._elementRef.nativeElement.getBoundingClientRect();
 
       buttonBBox.width = Math.max(listBBox.width, buttonBBox.width);
       this.button.nativeElement.style.minWidth = buttonBBox.width + 'px';
       this.list._elementRef.nativeElement.style.minWidth = buttonBBox.width + 'px';
-      this.overlayOutletRef.instance.setBoundingBox(buttonBBox);
+      this._overlayOutletRef.instance.setBoundingBox(buttonBBox);
     })
     this.list.hideEnd.subscribe(() => {
-      this.overlayOutletRef.instance.clear();
+      this._overlayOutletRef.instance.clear();
+      this.detach();
     })
   }
 

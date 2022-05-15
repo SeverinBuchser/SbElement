@@ -33,10 +33,9 @@ describe('MixinColor', () => {
 
     instance.color = Color.SECONDARY;
 
-    expect(instance.testElement.classList).not.toContain(
-      'sb--primary',
-      'Expected the element to no longer have "sb--primary" set.',
-    );
+    expect(instance.testElement.classList)
+      .withContext('Expected the element to no longer have "sb--primary" set.')
+      .not.toContain('sb--primary');
     expect(instance.testElement.classList)
       .withContext('Expected the element to have the "sb--secondary" class set')
       .toContain('sb--secondary');

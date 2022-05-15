@@ -8,7 +8,7 @@ Popper-Overlay / Style
 // ROOT
 .sb-popper-overlay {
   display: block;
-  position: absolute;
+  position: relative;
   pointer-events: all;
   @include transitioning.ease(200ms, opacity);
   @include spacing.padding(s);
@@ -28,16 +28,16 @@ Popper-Overlay / Style
 
   &__arrow {
     position: absolute;
-    top: -1px;
-    left: -1px;
+    top: 0;
+    left: 0;
   }
 
   $dimension: spacing.get-spacing(s);
-  &[class*="top"] &__arrow, &[class*="bottom"] &__arrow {
+  &.top &__arrow, &.bottom &__arrow {
     width: $dimension;
   }
 
-  &[class*="left"] &__arrow, &[class*="right"] &__arrow {
+  &.left &__arrow, &.right &__arrow {
     height: $dimension;
   }
 }

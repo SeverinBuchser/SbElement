@@ -28,7 +28,7 @@ const SbSelectButtonCore = mixinAccent(
   templateUrl: './select-button.component.html',
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class.open]': 'open'
+    '[class.open]': 'visible'
   },
   inputs: [
     'isAccent: accent',
@@ -57,7 +57,7 @@ export class SbSelectButtonComponent extends SbSelectButtonCore<string>
   @Input()
   public placeholder: string = '';
 
-  get open(): boolean {
+  get visible(): boolean {
     return this.list ? this.list.visible : false;
   }
 

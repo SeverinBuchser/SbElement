@@ -1,3 +1,4 @@
+import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -5,9 +6,9 @@ import { SbCoreModule } from '../core';
 import { SbPaginatorModule } from '../paginator';
 
 import { SbBarComponent } from './bar';
-import { SbNavBarComponent } from './nav-bar';
-import { SbNavBarContentComponent } from './nav-bar/nav-bar-content';
+import { SbNavBarComponent, SbNavBarContentComponent } from './nav-bar';
 import { SbSidebarComponent } from './sidebar';
+import { SbSidebarOverlayComponent } from './sidebar/sidebar-overlay';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,11 @@ import { SbSidebarComponent } from './sidebar';
     SbNavBarComponent,
     SbNavBarContentComponent,
     SbSidebarComponent,
+    SbSidebarOverlayComponent
   ],
   imports: [
     CommonModule,
+    PortalModule,
     SbCoreModule,
     SbPaginatorModule
   ],
@@ -25,7 +28,7 @@ import { SbSidebarComponent } from './sidebar';
     SbBarComponent,
     SbNavBarComponent,
     SbNavBarContentComponent,
-    SbSidebarComponent,
+    SbSidebarComponent
   ]
 })
 export class SbBarModule { }

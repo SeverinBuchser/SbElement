@@ -10,7 +10,8 @@ import {
   mixinColor,
   mixinPill,
   mixinPlain,
-  mixinSize } from '../../../core';
+  mixinSize,
+  SbConnectedSide} from '../../../core';
 import { SbSelectOneCore } from '../select-core';
 
 const shades = [
@@ -93,7 +94,7 @@ export class SbColorPickerComponent extends SbColorPickerCore<string>
   implements CanClassName, CanDisable, CanFocus, ControlValueAccessor, HasElementRef {
 
   @Input()
-  public position: string = 'bottom-center';
+  public position: SbConnectedSide = 'bottom';
 
   public dim = [
     shades.length,

@@ -1,6 +1,7 @@
-import { Directive, HostListener, Input } from '@angular/core';
-import { Poppable } from './poppable';
+import { Directive, Input } from '@angular/core';
+import { TriggerableOverlay } from './triggerable-overlay';
 import { SbClickTriggerDirective } from './click-trigger.directive';
+import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[sbClickOutsideTrigger]'
@@ -8,26 +9,21 @@ import { SbClickTriggerDirective } from './click-trigger.directive';
 export class SbClickOutsideTriggerDirective extends SbClickTriggerDirective {
 
   @Input()
-  public triggerable!: Poppable;
+  public triggerable!: TriggerableOverlay;
 
-  @HostListener('document: click', ['$event'])
-  handleDocumentClick(event: PointerEvent): void {
-    let popperBBox = this.triggerable.getPopperRef().nativeElement.getBoundingClientRect()
-    if (!this.isMouseoverBoundingRect(event, popperBBox) && this.triggerable.isPopped()) {
-      this.trigger();
-    }
+  private _outsidePointerEventsSubscription: Subscription = Subscription.EMPTY;
+
+  public ngOnInit(): void {
+    this._outsidePointerEventsSubscription = this.triggerable.getOutsidePointerEvents()
+      .subscribe(() => {
+        if (this.triggerable.isVisible()) {
+          this.trigger();
+        }
+      })
   }
 
-  private isMouseoverBoundingRect(
-    event: PointerEvent, boundingRect: DOMRect
-  ): boolean {
-    let mouseX: number = event.clientX;
-    let mouseY: number = event.clientY;
-
-    let xInBounds = mouseX >= boundingRect.left && mouseX <= boundingRect.right;
-    let yInBounds = mouseY >= boundingRect.top && mouseY <= boundingRect.bottom;
-
-    return xInBounds && yInBounds;
+  public ngOnDestroy(): void {
+    this._outsidePointerEventsSubscription.unsubscribe();
   }
 
 }

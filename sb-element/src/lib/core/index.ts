@@ -7,3 +7,4 @@ export * from './insert';
 export * from './overlay';
 export * from './theming';
 export * from './trigger';
+export * from './util';

@@ -1,40 +1,47 @@
+import { CdkPortal } from '@angular/cdk/portal';
 import {
   Component,
-  ElementRef,
+  ComponentRef,
   Input,
+  NgZone,
+  OnDestroy,
   ViewChild,
   ViewEncapsulation } from '@angular/core';
+import { take } from 'rxjs/operators';
 import {
-  hasElementRefClass,
-  mixinClassName,
-  mixinHide,
-  Size,
+  SbOverlayService,
   Triggerable } from '../../core';
-import { SbBarComponent, SbBarSide } from '../bar';
-
-const SbSidebarCore = mixinHide(mixinClassName(hasElementRefClass, 'sb-sidebar'));
+import { SbBarSide } from '../bar';
+import { SbSidebarOverlayComponent } from './sidebar-overlay';
 
 @Component({
   selector: 'sb-sidebar',
   templateUrl: './sidebar.component.html',
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
-export class SbSidebarComponent extends SbSidebarCore implements Triggerable {
-
-  @Input()
-  public size: string = Size.MEDIUM;
+export class SbSidebarComponent implements Triggerable, OnDestroy {
 
   @Input()
   public side: SbBarSide = 'left';
 
-  @ViewChild(SbBarComponent, { read: ElementRef })
-  public transitionElement!: ElementRef;
+  @ViewChild(CdkPortal, { static: true })
+  public overlayPortal!: CdkPortal;
 
-  constructor(elementRef: ElementRef) {
-    super(elementRef);
+  private _overlayOutletRef!: ComponentRef<SbSidebarOverlayComponent>;
+
+  constructor(private _overlayService: SbOverlayService, public _ngZone: NgZone) {
+    this._overlayOutletRef = this._overlayService.create(SbSidebarOverlayComponent);
+    _ngZone.onStable.pipe(take(1)).subscribe(() => {
+      this._overlayOutletRef.instance.attach(this.overlayPortal)
+      this._overlayOutletRef.instance.side = this.side;
+    })
   }
 
   public trigger(): void {
-    this.visible = !this.visible;
+    this._overlayOutletRef.instance.trigger();
+  }
+
+  public ngOnDestroy(): void {
+    this._overlayOutletRef.destroy();
   }
 }

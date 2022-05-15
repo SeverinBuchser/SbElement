@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import * as fns from "date-fns";
-import { Color, mixinDisable, mixinFocus, Size } from "../../../core";
+import { Color, mixinDisable, mixinFocus, SbConnectedSide, Size } from "../../../core";
 import { SbMarkedDates } from "../../../calendar";
 
 const SbDateInputCore = mixinDisable(mixinFocus(class {}));
@@ -35,7 +35,7 @@ export class SbDateInputComponent extends SbDateInputCore
   public isPill: boolean | string = false;
 
   @Input()
-  public position: string = 'bottom-center';
+  public position: SbConnectedSide = 'bottom';
 
   @Input()
   public format: string = 'yyyy-MM-dd';

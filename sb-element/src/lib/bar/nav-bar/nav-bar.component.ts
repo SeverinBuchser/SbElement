@@ -4,7 +4,11 @@ import {
   ElementRef,
   QueryList,
   ViewEncapsulation } from '@angular/core';
-import { hasElementRefClass, mixinClassName } from "../../core";
+import {
+  CanClassName,
+  HasElementRef,
+  hasElementRefClass,
+  mixinClassName } from "../../core";
 import { SbContentPaginationDirective } from '../../paginator';
 import { SbNavBarContentComponent } from './nav-bar-content';
 
@@ -15,15 +19,16 @@ const SbNavBarCore = mixinClassName(hasElementRefClass, 'sb-nav-bar');
   templateUrl: './nav-bar.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class SbNavBarComponent extends SbNavBarCore {
+export class SbNavBarComponent extends SbNavBarCore
+  implements CanClassName, HasElementRef {
 
   @ContentChildren(SbNavBarContentComponent)
-  public contents!: QueryList<SbNavBarContentComponent>;
+  public contents: QueryList<SbNavBarContentComponent> = new QueryList();
 
   // FIX
   // currently no able to pass ng content to other component
   @ContentChildren(SbContentPaginationDirective, { descendants: true })
-  public paginations!: QueryList<SbContentPaginationDirective>;
+  public paginations: QueryList<SbContentPaginationDirective> = new QueryList();
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
