@@ -4,23 +4,17 @@ import { NgModule } from '@angular/core';
 
 import { SbIconModule } from "../icon";
 
-import { SbCalendarDateComponent } from './date';
-import { SbCalendarDatesComponent } from "./dates";
-import { SbCalendarMonthComponent } from './month';
-import { SbCalendarMonthsComponent } from './months';
-import { SbCalendarsComponent } from './calendar';
-import { SbCalendarYearComponent } from './year';
-import { SbCalendarYearsComponent } from './years';
+import { SbCalendarComponent } from './calendar';
+import { SbCalendarDatesComponent } from "./calendar-dates";
+import { SbCalendarPeriodComponent } from './calendar-period';
+import { SbMarkableDateComponent } from './markable-date';
 
 @NgModule({
   declarations: [
-    SbCalendarDateComponent,
+    SbCalendarComponent,
     SbCalendarDatesComponent,
-    SbCalendarMonthComponent,
-    SbCalendarMonthsComponent,
-    SbCalendarsComponent,
-    SbCalendarYearComponent,
-    SbCalendarYearsComponent,
+    SbCalendarPeriodComponent,
+    SbMarkableDateComponent
   ],
   imports: [
     CommonModule,
@@ -28,13 +22,10 @@ import { SbCalendarYearsComponent } from './years';
     SbIconModule,
   ],
   exports: [
-    SbCalendarDateComponent,
+    SbCalendarComponent,
     SbCalendarDatesComponent,
-    SbCalendarMonthComponent,
-    SbCalendarMonthsComponent,
-    SbCalendarsComponent,
-    SbCalendarYearComponent,
-    SbCalendarYearsComponent,
+    SbCalendarPeriodComponent,
+    SbMarkableDateComponent,
   ]
 })
 export class SbCalendarModule { }

@@ -1,5 +1,7 @@
 import * as fns from "date-fns";
 
+export type SbPeriodLength = 'days' | 'months' | 'years';
+
 export class SbMarkedDates {
   private _start: Date | undefined;
   private _end: Date | undefined;
@@ -11,27 +13,21 @@ export class SbMarkedDates {
   }
 
   get isRangeDays(): boolean {
-    if (this.start && this.end) {
-      if (this.start != this.end) {
-        return !fns.isSameDay(this.start, this.end);
-      } else return false;
-    } else return false;
+    return this.isPeriodRange('days')
   }
 
-  get isRangeMonths(): boolean {
-    if (this.start && this.end) {
-      if (this.start != this.end) {
-        return !fns.isSameMonth(this.start, this.end);
-      } else return false;
-    } else return false;
-  }
-
-  get isRangeYears(): boolean {
-    if (this.start && this.end) {
-      if (this.start != this.end) {
-        return !fns.isSameYear(this.start, this.end);
-      } else return false;
-    } else return false;
+  public isPeriodRange(periodLength: SbPeriodLength): boolean {
+    if (this.isRange) {
+      switch (periodLength) {
+        case 'days':
+          return !fns.isSameDay(this.start!, this.end!);
+        case 'months': 
+          return !fns.isSameMonth(this.start!, this.end!);
+        case 'years':
+          return !fns.isSameYear(this.start!, this.end!);
+      }
+    }
+    return false;
   }
 
   get start(): Date | undefined { return this._start }
@@ -50,93 +46,85 @@ export class SbMarkedDates {
     this.end = end;
   }
 
-  public isStart(date: Date): boolean {
-    if (this.start) return fns.isEqual(date, this.start);
-    else return false;
+  public isStartOfRange(periodLength: SbPeriodLength, date: Date): boolean {
+    return this.isPeriodRange(periodLength) && this.isPeriodStart(periodLength, date);
   }
 
-  public isStartSameDay(date: Date): boolean {
-    if (this.start) return fns.isSameDay(date, this.start);
-    else return false;
+  public isEndOfRange(periodLength: SbPeriodLength, date: Date): boolean {
+    return this.isPeriodRange(periodLength) && this.isPeriodEnd(periodLength, date);
   }
 
-  public isStartSameMonth(date: Date): boolean {
-    if (this.start) return fns.isSameMonth(date, this.start);
-    else return false;
-  }
+  public isBetweenRange(periodLength: SbPeriodLength, date: Date): boolean {
+    if (!this.isPeriodRange(periodLength)) return false;
+    if (this.isSame(periodLength, this.start!, this.end!)) return false;
 
-  public isStartSameYear(date: Date): boolean {
-    if (this.start) return fns.isSameYear(date, this.start);
-    else return false;
-  }
-
-  public isEnd(date: Date): boolean {
-    if (this.end) return fns.isEqual(date, this.end);
-    else return false;
-  }
-
-  public isEndSameDay(date: Date): boolean {
-    if (this.end) return fns.isSameDay(date, this.end);
-    return false;
-  }
-
-  public isEndSameMonth(date: Date): boolean {
-    if (this.end) return fns.isSameMonth(date, this.end);
-    else return false;
-  }
-
-  public isEndSameYear(date: Date): boolean {
-    if (this.end) return fns.isSameYear(date, this.end);
-    else return false;
-  }
-
-  public isBetween(date: Date): boolean {
-    if (this.start && this.end) {
-      if (fns.isEqual(this.start, this.end)) return false;
-      return fns.isAfter(date, this.start) && fns.isBefore(date, this.end);
-    } else return false;
-  }
-
-  public isBetweenDays(date: Date): boolean {
-    if (this.start && this.end) {
-      if (fns.isSameDay(this.start, this.end)) return false;
-      let dateStartOfDay = fns.startOfDay(date);
-      let startStartOfDay = fns.startOfDay(this.start);
-      let endStartOfDay = fns.startOfDay(this.end);
-      return fns.isAfter(dateStartOfDay, startStartOfDay) &&
-        fns.isBefore(dateStartOfDay, endStartOfDay);
-    } else return false;
-  }
-
-  public isBetweenMonths(date: Date): boolean {
-    if (this.start && this.end) {
-      if (fns.isSameMonth(this.start, this.end)) return false;
-      let dateStartOfMonth = fns.startOfMonth(date);
-      let startStartOfMonth = fns.startOfMonth(this.start);
-      let endStartOfMonth = fns.startOfMonth(this.end);
-      return fns.isAfter(dateStartOfMonth, startStartOfMonth) &&
-        fns.isBefore(dateStartOfMonth, endStartOfMonth);
-    } else return false;
-  }
-
-  public isBetweenYears(date: Date): boolean {
-    if (this.start && this.end) {
-      if (fns.isSameYear(this.start, this.end)) return false;
-      let dateStartOfMonth = fns.startOfYear(date);
-      let startStartOfMonth = fns.startOfYear(this.start);
-      let endStartOfMonth = fns.startOfYear(this.end);
-      return fns.isAfter(dateStartOfMonth, startStartOfMonth) &&
-        fns.isBefore(dateStartOfMonth, endStartOfMonth);
-    } else return false;
+    date = this.startOfPeriod(periodLength, date);
+    let start = this.startOfPeriod(periodLength, this.start!);
+    let end = this.startOfPeriod(periodLength, this.end!);
+    
+    return fns.isAfter(date, start) &&
+      fns.isBefore(date, end);
   }
 
   public sort(): void {
-    if (this.isRange && this.start && this.end) {
-      if (fns.isAfter(this.start, this.end)) {
+    if (this.isRange) {
+      if (fns.isAfter(this.start!, this.end!)) {
         let startCopy = this.start;
         this.start = this.end;
         this.end = startCopy;
       }
+    }
+  }
+
+  private startOfPeriod(periodLength: SbPeriodLength, date: Date): Date {
+    switch (periodLength) {
+      case 'days':
+        return fns.startOfDay(date);
+      case 'months': 
+      return fns.startOfMonth(date);
+      case 'years':
+        return fns.startOfYear(date);
+    }
+  }
+
+  public isStartSamePeriod(periodLength: SbPeriodLength, date: Date): boolean {
+    if (this.start) return this.isSame(periodLength, date, this.start);
+    return false;
+  }
+
+  public isEndSamePeriod(periodLength: SbPeriodLength, date: Date): boolean {
+    if (this.end) return this.isSame(periodLength, date, this.end);
+    return false;
+  }
+
+  private isSame(
+    periodLength: SbPeriodLength, 
+    dateOne: Date, 
+    dateTwo: Date
+    ): boolean {
+    switch (periodLength) {
+      case 'days':
+        return fns.isSameDay(dateOne, dateTwo);
+      case 'months': 
+      return fns.isSameMonth(dateOne, dateTwo);
+      case 'years':
+        return fns.isSameYear(dateOne, dateTwo);
+    } 
+  }
+
+  private isPeriodStart(periodLength: SbPeriodLength, date: Date): boolean {
+    if (this.start) {
+      return this.isSame(periodLength, date, this.start);
+    } else {
+      return false;
+    }
+  }
+
+  private isPeriodEnd(periodLength: SbPeriodLength, date: Date): boolean {
+    if (this.end) {
+      return this.isSame(periodLength, date, this.end);
+    } else {
+      return false;
     }
   }
 }

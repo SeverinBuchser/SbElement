@@ -1,19 +1,18 @@
-@use "sb-element/core/border";
-@use "sb-element/core/display";
-@use "sb-element/core/spacing";
-@use "sb-element/core/transitioning";
+@use "../core/border";
+@use "../core/display";
+@use "../core/transitioning";
 /*****************************************************************************
-Calendar-Month / Style
+Calendar-Markable / Style
 ******************************************************************************/
 
 // ROOT
-.sb-calendar-month {
+.sb-markable-date {
   cursor: pointer;
   position: relative;
   width: 100%;
   height: 63%;
-  @include border.radius(calc(0.63 * 7 / 4 * spacing.get-spacing(xl)));
   @include transitioning.ease(200ms);
+  @include border.pill(500px);
   @include display.flex();
 
   &.disabled {
@@ -21,11 +20,13 @@ Calendar-Month / Style
 
     &:hover {
       background: transparent;
+
       span {
         color: inherit;
       }
     }
   }
+
 
   span {
     @include transitioning.ease(200ms);
@@ -47,6 +48,14 @@ Calendar-Month / Style
       left: -1px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+    }
+  }
+
+  &.not-in-range {
+    cursor: default;
+
+    &:hover {
+      background: transparent;
     }
   }
 }

@@ -11,9 +11,10 @@ import {
   mixinClassName,
   mixinColor,
   mixinDisable,
-  mixinFocus } from "../../core";
+  mixinFocus } from "../core";
 import * as fns from "date-fns";
-import { SbMarkedDates } from "../marked-dates";
+import { SbMarkedDates } from "./marked-dates";
+import { SbPeriodConfig } from './calendar-period';
 
 export type SbCalendarSelectionMode = 'date' | 'month' | 'year';
 
@@ -28,7 +29,8 @@ const SbCalendarCore = mixinDisable(
 
 @Component({
   selector: 'sb-calendar',
-  templateUrl: './calendar.component.html',
+  templateUrl: './calendar.html',
+  styleUrls: ['./calendar.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.disabled]': 'disabled'
@@ -42,7 +44,7 @@ const SbCalendarCore = mixinDisable(
     'focus'
   ],
 })
-export class SbCalendarsComponent extends SbCalendarCore {
+export class SbCalendarComponent extends SbCalendarCore {
 
   @Input()
   public weekDayFormat: string = 'EEEEEE';
@@ -55,6 +57,24 @@ export class SbCalendarsComponent extends SbCalendarCore {
 
   @Input()
   public monthYearFormat: string = 'MMM. yyyy';
+
+  public monthConfig: SbPeriodConfig = {
+    min: 0,
+    max: 12,
+    columns: 3,
+    rows: 4,
+    format: 'MMMM', 
+    periodLength: 'months'
+  }
+
+  public yearConfig: SbPeriodConfig = {
+    min: -10,
+    max: 10,
+    columns: 4,
+    rows: 5,
+    format: 'yyyy', 
+    periodLength: 'years'
+  }
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();

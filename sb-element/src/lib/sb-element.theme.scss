@@ -1,7 +1,7 @@
 @use 'core/module.theme' as core;
 
-@use 'breadcrumbs/_theme' as breadcrumbs;
-@use 'calendar/module.theme' as calendar;
+@use 'breadcrumbs/theme' as breadcrumbs;
+@use 'calendar/theme' as calendar;
 @use 'card/module.theme' as card;
 @use 'container/module.theme' as container;
 @use 'forms/module.theme' as forms;

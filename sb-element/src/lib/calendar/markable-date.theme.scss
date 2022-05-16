@@ -1,11 +1,11 @@
-@use "sb-element/core/theming";
+@use "../core/theming";
 /*****************************************************************************
-Calendar-Year / Theme
+Markable-Date / Theme
 ******************************************************************************/
 
 // THEME
 @mixin theme($theme) {
-  .sb-calendar-year {
+  .sb-markable-date {
 
     &:hover {
       background: theming.get-accent($theme);
@@ -20,6 +20,19 @@ Calendar-Year / Theme
           background: theming.get-color($theme, $color);
           span {
             color: theming.get-text($theme, $color);
+          }
+        }
+
+        &.not-in-range {
+          span {
+            color: theming.get-color-inverted($theme, $color);
+          }
+
+          &.marked {
+            background: theming.get-color-inverted($theme, $color);
+            span {
+              color: theming.get-text-inverted($theme, $color);
+            }
           }
         }
       }    

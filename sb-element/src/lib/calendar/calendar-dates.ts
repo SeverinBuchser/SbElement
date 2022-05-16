@@ -12,8 +12,8 @@ import {
   mixinClassName,
   mixinColor,
   mixinDisable,
-  mixinFocus } from "../../core";
-import { SbMarkedDates } from "../marked-dates";
+  mixinFocus } from "../core";
+import { SbMarkedDates } from "./marked-dates";
 
 const SbCalendarDatesCore = mixinDisable(
   mixinFocus(
@@ -26,7 +26,8 @@ const SbCalendarDatesCore = mixinDisable(
 
 @Component({
   selector: 'sb-calendar-dates',
-  templateUrl: './calendar-dates.component.html',
+  templateUrl: './calendar-dates.html',
+  styleUrls: ['./calendar-dates.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'color',
@@ -90,5 +91,9 @@ export class SbCalendarDatesComponent extends SbCalendarDatesCore {
     for (let day = 0 ; day < 42 ; day++) {
       this.calendarDates.push(fns.addDays(calendarMonthStart, day));
     }
+  }
+
+  public isNotInMonth(date: Date): boolean {
+    return !fns.isSameMonth(this._showingMonthStart, date);
   }
 }

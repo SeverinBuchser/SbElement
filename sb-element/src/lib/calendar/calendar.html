@@ -30,26 +30,26 @@
   </sb-calendar-dates>
 </ng-template>
 <ng-template [ngIf]="navigationMode == 'month'">
-  <sb-calendar-months
+  <sb-calendar-period
+    [config]="monthConfig"
     [color]="color"
     [markedDates]="markedDates"
-    [showingYearStart]="showingDate"
-    [monthFormat]="monthFormat"
+    [showingStartDate]="showingDate"
     (select)="handleMonthSelect($event)"
     (focus)="setFocusedState(true)"
     (blur)="setFocusedState(false)"
     [disabled]="disabled">
-  </sb-calendar-months>
+  </sb-calendar-period>
 </ng-template>
 <ng-template [ngIf]="navigationMode == 'year'">
-  <sb-calendar-years
+  <sb-calendar-period
+    [config]="yearConfig"
     [color]="color"
     [markedDates]="markedDates"
-    [showingVicennialStart]="showingDate"
-    [yearFormat]="yearFormat"
+    [showingStartDate]="showingDate"
     (select)="handleYearSelect($event)"
     (focus)="setFocusedState(true)"
     (blur)="setFocusedState(false)"
     [disabled]="disabled">
-  </sb-calendar-years>
+  </sb-calendar-period>
 </ng-template>
