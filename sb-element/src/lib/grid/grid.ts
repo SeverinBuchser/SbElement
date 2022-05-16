@@ -4,13 +4,14 @@ import {
   HostBinding,
   Input,
   ViewEncapsulation } from '@angular/core';
-import { hasElementRefClass, mixinClassName } from '../../core';
+import { hasElementRefClass, mixinClassName } from '../core';
 
 const SbGridCore = mixinClassName(hasElementRefClass, 'sb-grid');
 
 @Component({
   selector: 'sb-grid',
-  templateUrl: './grid.component.html',
+  templateUrl: './grid.html',
+  styleUrls: ['./grid.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbGridComponent extends SbGridCore {

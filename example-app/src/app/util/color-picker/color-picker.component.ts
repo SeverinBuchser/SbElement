@@ -11,6 +11,7 @@ const ColorPickerCore = mixinClassName(
 @Component({
   selector: 'color-picker',
   templateUrl: './color-picker.component.html',
+  styleUrls: ['./color-picker.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: NG_VALUE_ACCESSOR,

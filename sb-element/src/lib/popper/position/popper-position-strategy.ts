@@ -3,7 +3,13 @@ import { OverlayContainer } from "@angular/cdk/overlay";
 import { Platform } from "@angular/cdk/platform";
 import { ViewportRuler } from "@angular/cdk/scrolling";
 import { ElementRef, NgZone } from "@angular/core";
-import { extendStyles, mergeDimensions, SbDimensions, SbFlexibleConnectedPositionConfig, SbFlexibleConnectedPositionStrategy } from "../../core";
+import { 
+	extendStyles, 
+	mergeDimensions, 
+	SbDimensions, 
+	SbFlexibleConnectedPositionConfig, 
+	SbFlexibleConnectedPositionStrategy 
+} from "../../core";
 import { SbPopperOverlayComponent } from "../popper-overlay";
 
 
@@ -12,6 +18,7 @@ export class SbPopperPositionStrategy extends SbFlexibleConnectedPositionStrateg
 	private _arrowElement?: HTMLElement;
 	private _arrowElementRect?: SbDimensions;
 	private _arrowPosition?: SbDimensions;
+	private _borderWidth: number = 0;
 
 	constructor(
 		private _popperOverlay: SbPopperOverlayComponent,
@@ -27,12 +34,13 @@ export class SbPopperPositionStrategy extends SbFlexibleConnectedPositionStrateg
 	}
 
 	public apply(): void {
-		this._positionConfig = {
-			...this._positionConfig,
-			margin: 1/2 * parseInt(
-				getComputedStyle(this._popperOverlay._elementRef.nativeElement).padding
-			)
-		}
+		const computedArrowStyle = getComputedStyle(
+			this._popperOverlay._elementRef.nativeElement
+		);
+		this._positionConfig.margin = parseInt(computedArrowStyle.padding) / 2 
+		this._borderWidth = parseInt(computedArrowStyle.borderWidth);
+		this._borderWidth = isNaN(this._borderWidth) ? 0 : this._borderWidth;
+
 		super.apply();
 
 		this._popperOverlay.setPositionClass(this._actualPositionConfig!.originSide);
@@ -54,49 +62,61 @@ export class SbPopperPositionStrategy extends SbFlexibleConnectedPositionStrateg
 		const currentPosition = this._position!;
 		const originRect = this._originRect!;
 		const arrowElementRect = this._arrowElementRect!;
+		console.log(currentPosition, arrowElementRect)
 
-		let top: number = 0;
 		let left: number = 0;
+		let top: number = 0;
+		let width: number = arrowElementRect.width;
+		let height: number = arrowElementRect.height;
 
 		switch (positionConfig.originSide) {
 			case 'top':
-				top = currentPosition.bottom - arrowElementRect.top;
-				left = (originRect.width - arrowElementRect.width) / 2
-					- currentPosition.left + originRect.left;
+				height = this._positionConfig.margin!;
+				width = this._positionConfig.margin! * 2;
+				top = currentPosition.height;
+				left = (originRect.width - width) / 2 - currentPosition.left + originRect.left;
 				left = Math.max(this._getMargin(), left);
 				left = Math.min(currentPosition.width - 3 * this._getMargin(), left);
 				break;
 
 			case 'bottom':
-				top = currentPosition.top - arrowElementRect.bottom;
-				left = (originRect.width - arrowElementRect.width) / 2
-					- currentPosition.left + originRect.left;
+				height = this._positionConfig.margin!;
+				width = this._positionConfig.margin! * 2;
+				top = - this._getMargin();
+				left = (originRect.width - width) / 2 - currentPosition.left + originRect.left;
 				left = Math.max(this._getMargin(), left);
 				left = Math.min(currentPosition.width - 3 * this._getMargin(), left);
 				break;
 
 			case 'left':
-				left = currentPosition.right - arrowElementRect.left;
-				top = (originRect.height - arrowElementRect.height) / 2
-					- currentPosition.top + originRect.top;
+				height = this._positionConfig.margin! * 2;
+				width = this._positionConfig.margin!;
+				left = currentPosition.width;
+				top = (originRect.height - height) / 2 - currentPosition.top + originRect.top;
 				top = Math.max(this._getMargin(), top);
 				top = Math.min(currentPosition.height - 3 * this._getMargin(), top);
 				break;
 
 			case 'right':
-				left = currentPosition.left - arrowElementRect.right;
-				top = (originRect.height - arrowElementRect.height) / 2
-					- currentPosition.top + originRect.top;
+				height = this._positionConfig.margin! * 2;
+				width = this._positionConfig.margin!;
+				left = - this._getMargin();
+				top = (originRect.height - height) / 2 - currentPosition.top + originRect.top;
 				top = Math.max(this._getMargin(), top);
 				top = Math.min(currentPosition.height - 3 * this._getMargin(), top);
 				break;
 		}
 
+		top -= this._borderWidth;
+		left -= this._borderWidth;
+
 		this._arrowPosition = mergeDimensions(arrowElementRect, {
 			top,
-			bottom: top + arrowElementRect.height,
+			bottom: top + height,
 			left,
-			right: left + arrowElementRect.width
+			right: left + width,
+			height,
+			width
 		});
 	}
 
@@ -143,6 +163,10 @@ export class SbPopperPositionStrategy extends SbFlexibleConnectedPositionStrateg
 				coerceCssPixelValue(this._arrowPosition.top) : 'none';
 	    styles.left = this._arrowPosition.left ?
 				coerceCssPixelValue(this._arrowPosition.left) : 'none';
+			styles.width = this._arrowPosition.width ?
+				coerceCssPixelValue(this._arrowPosition.width) : 'auto';
+			styles.height = this._arrowPosition.height ?
+				coerceCssPixelValue(this._arrowPosition.height) : 'auto';
 		}
 
 		extendStyles(this._arrowElement!.style, styles)

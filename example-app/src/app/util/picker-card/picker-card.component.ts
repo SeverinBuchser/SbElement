@@ -7,6 +7,7 @@ import { PickerCardContentComponent } from './picker-card-content/picker-card-co
 @Component({
   selector: 'picker-card',
   templateUrl: './picker-card.component.html',
+  styleUrls: ['./picker-card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class PickerCardComponent {

@@ -26,12 +26,10 @@ Input / Style
   width: 100%;
   @include spacing.padding-x(s);
 
-  &__prefix {
-    @include display.flex();
-  }
-
-  &__delimiter {
-    @include display.flex();
+  &__prefix, &__delimiter, &__suffix  {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
   }
 
   &__border {
@@ -43,11 +41,7 @@ Input / Style
     pointer-events: none;
     @include border.radius(s);
   }
-
-  &__suffix {
-    @include display.flex();
-  }
-
+  
   &.disabled &__input {
     cursor: not-allowed;
   }

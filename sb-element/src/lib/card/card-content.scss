@@ -5,6 +5,5 @@ Card-Content / Style
 
 // ROOT
 .sb-card-content {
-  display: block;
   @include spacing.padding(s);
 }

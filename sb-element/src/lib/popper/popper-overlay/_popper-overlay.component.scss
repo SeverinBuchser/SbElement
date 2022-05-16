@@ -31,13 +31,4 @@ Popper-Overlay / Style
     top: 0;
     left: 0;
   }
-
-  $dimension: spacing.get-spacing(s);
-  &.top &__arrow, &.bottom &__arrow {
-    width: $dimension;
-  }
-
-  &.left &__arrow, &.right &__arrow {
-    height: $dimension;
-  }
 }

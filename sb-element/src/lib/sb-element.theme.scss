@@ -6,7 +6,6 @@
 @use 'container/theme' as container;
 @use 'forms/module.theme' as forms;
 @use 'global/module.theme' as global;
-@use 'grid/module.theme' as grid;
 @use 'highlight/module.theme' as highlight;
 @use 'icon/module.theme' as icon;
 @use 'indicator/module.theme' as indicator;
@@ -32,7 +31,6 @@ $theme: null !default;
   @include core.theme($theme);
   @include forms.theme($theme);
   @include global.theme($theme);
-  @include grid.theme($theme);
   @include highlight.theme($theme);
   @include icon.theme($theme);
   @include indicator.theme($theme);
