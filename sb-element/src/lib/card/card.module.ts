@@ -7,7 +7,7 @@ import { SbIconModule } from '../icon';
 import { SbCardComponent } from './card';
 import { SbCardContentComponent } from './card-content';
 import { SbCardHeaderComponent } from './card-header';
-import { SbCardImageDirective } from './card-image';
+import { SbCardImageComponent } from './card-image';
 import { SbExpansionCardComponent } from './expansion-card';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { SbExpansionCardComponent } from './expansion-card';
     SbCardComponent,
     SbCardContentComponent,
     SbCardHeaderComponent,
-    SbCardImageDirective,
+    SbCardImageComponent,
     SbExpansionCardComponent,
   ],
   imports: [
@@ -27,7 +27,7 @@ import { SbExpansionCardComponent } from './expansion-card';
     SbCardComponent,
     SbCardContentComponent,
     SbCardHeaderComponent,
-    SbCardImageDirective,
+    SbCardImageComponent,
     SbExpansionCardComponent,
   ]
 })

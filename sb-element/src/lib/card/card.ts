@@ -6,17 +6,19 @@ import {
   ElementRef,
   Input,
   QueryList,
-  ViewEncapsulation } from '@angular/core';
-import { hasElementRefClass, mixinClassName } from '../../core';
-import { SbCardHeaderComponent } from '../card-header';
-import { SbCardImageDirective } from '../card-image';
-import { SbCardContentComponent } from '../card-content';
+  ViewEncapsulation
+} from '@angular/core';
+import { hasElementRefClass, mixinClassName } from '../core';
+import { SbCardContentComponent } from './card-content';
+import { SbCardHeaderComponent } from './card-header';
+import { SbCardImageComponent } from './card-image';
 
 const SbCardCore = mixinClassName(hasElementRefClass, 'sb-card');
 
 @Component({
   selector: 'sb-card',
-  templateUrl: './card.component.html',
+  templateUrl: './card.html',
+  styleUrls: ['./card.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.hover]': 'hover',
@@ -34,8 +36,8 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
   @ContentChild(SbCardHeaderComponent)
   public header?: SbCardHeaderComponent;
 
-  @ContentChildren(SbCardImageDirective)
-  public images!: QueryList<SbCardImageDirective>;;
+  @ContentChildren(SbCardImageComponent)
+  public images!: QueryList<SbCardImageComponent>;;
 
   @ContentChildren(SbCardContentComponent)
   public contents!: QueryList<SbCardContentComponent>;
@@ -55,7 +57,7 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
       }
     }
 
-    this.images.forEach((image: SbCardImageDirective, index: number) => {
+    this.images.forEach((image: SbCardImageComponent, index: number) => {
       if (index > 0) image.borderTop = false;
     })
   }

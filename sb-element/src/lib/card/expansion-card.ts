@@ -4,15 +4,16 @@ import {
   ElementRef,
   ViewChild,
   ViewEncapsulation } from '@angular/core';
-import { mixinHide, SbCollapseDirective, Triggerable } from '../../core';
-import { SbCardComponent } from '../card';
+import { mixinHide, SbCollapseDirective, Triggerable } from '../core';
+import { SbCardComponent } from './card';
 
 const SbExpansionCardCore = mixinHide(SbCardComponent);
 
 
 @Component({
   selector: 'sb-expansion-card',
-  templateUrl: './expansion-card.component.html',
+  templateUrl: './expansion-card.html',
+  styleUrls: ['./expansion-card.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbExpansionCardComponent extends SbExpansionCardCore
@@ -38,8 +39,8 @@ export class SbExpansionCardComponent extends SbExpansionCardCore
   ngAfterContentInit() {
     super.ngAfterContentInit();
     if (!this.header) {
-      throw new Error("There is no header defined for the expansion card!"
-        + "The card cannot be expanded!");
+      throw new Error("SbExpansionCardComponent: There is no header defined for the " + 
+        "expansion card! The card cannot be expanded!");
     }
     this.header.hasAction = true;
     this.header._elementRef.nativeElement.addEventListener('click', () => {

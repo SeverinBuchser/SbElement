@@ -1,6 +1,10 @@
+@use "../core/spacing";
 /*****************************************************************************
-Expansion-Card / Theme
+Card-Content / Style
 ******************************************************************************/
 
-// THEME
-@mixin theme($theme) {}
+// ROOT
+.sb-card-content {
+  display: block;
+  @include spacing.padding(s);
+}

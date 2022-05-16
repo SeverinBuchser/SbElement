@@ -1,0 +1,7 @@
+@use 'card-image.theme';
+@use 'card.theme';
+
+@mixin theme($theme) {
+  @include card-image.theme($theme);
+  @include card.theme($theme);
+}

@@ -1,11 +1,20 @@
-import { Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core';
-import { hasElementRefClass, mixinClassName } from '../../core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  TemplateRef,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
+import { hasElementRefClass, mixinClassName } from '../core';
 
 const SbCardContentCore = mixinClassName(hasElementRefClass, 'sb-card-content');
 
 @Component({
   selector: 'sb-card-content',
-  templateUrl: './card-content.component.html'
+  templateUrl: './card-content.html',
+  styleUrls: ['./card-content.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SbCardContentComponent extends SbCardContentCore {
 

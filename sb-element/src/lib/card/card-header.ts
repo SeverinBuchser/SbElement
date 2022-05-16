@@ -1,11 +1,12 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { hasElementRefClass, mixinClassName } from '../../core';
+import { hasElementRefClass, mixinClassName } from '../core';
 
 const SbCardHeaderCore = mixinClassName(hasElementRefClass, 'sb-card-header');
 
 @Component({
   selector: 'sb-card-header',
-  templateUrl: './card-header.component.html',
+  templateUrl: './card-header.html',
+  styleUrls: ['./card-header.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.has-action]': 'hasAction'
