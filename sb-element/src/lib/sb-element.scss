@@ -1,6 +1,5 @@
 @forward 'core/module';
 
-@use 'container/module' as container;
 @use 'core/module' as core;
 @use 'forms/module' as forms;
 @use 'global/module' as global;
