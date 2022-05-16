@@ -7,16 +7,12 @@ import { SbPaginatorModule } from '../paginator';
 
 import { SbBarComponent } from './bar';
 import { SbNavBarComponent, SbNavBarContentComponent } from './nav-bar';
-import { SbSidebarComponent } from './sidebar';
-import { SbSidebarOverlayComponent } from './sidebar/sidebar-overlay';
 
 @NgModule({
   declarations: [
     SbBarComponent,
     SbNavBarComponent,
-    SbNavBarContentComponent,
-    SbSidebarComponent,
-    SbSidebarOverlayComponent
+    SbNavBarContentComponent
   ],
   imports: [
     CommonModule,
@@ -27,8 +23,7 @@ import { SbSidebarOverlayComponent } from './sidebar/sidebar-overlay';
   exports: [
     SbBarComponent,
     SbNavBarComponent,
-    SbNavBarContentComponent,
-    SbSidebarComponent
+    SbNavBarContentComponent
   ]
 })
 export class SbBarModule { }

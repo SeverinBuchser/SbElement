@@ -1,13 +1,12 @@
+@use "sass:color";
 @use "sb-element/core/theming";
 /*****************************************************************************
-sidebar-overlay / Theme
+Sidebar / Theme
 ******************************************************************************/
 
 // THEME
 @mixin theme($theme) {
-  .sb-sidebar-overlay {
-    &__underlay {
-      background: theming.get-background($theme);
-    }
+  .sb-sidebar-backdrop {
+    background: color.scale(theming.get-foreground($theme), $alpha: -50%);
   }
 }

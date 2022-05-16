@@ -1,6 +1,2 @@
 @use 'alert-box';
 @use 'alert-container';
-
-@mixin theme($theme) {
-  @include alert-box.theme($theme);
-}

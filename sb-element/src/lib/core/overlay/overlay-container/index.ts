@@ -1,1 +1,2 @@
-export * from './overlay-container.component';
+export * from './overlay-container';
+export * from './slidable-overlay-container';

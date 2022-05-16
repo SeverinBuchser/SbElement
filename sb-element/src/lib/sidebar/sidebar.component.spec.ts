@@ -1,7 +1,7 @@
 import { fakeAsync, TestBed, tick } from "@angular/core/testing";
-import { SbOverlayService } from "../../core";
+import { SbOverlayService } from "../core";
 import { SbBarModule } from "../.";
-import { SbSidebarComponent } from "./sidebar.component";
+import { SbSidebarComponent } from "./sidebar";
 import { SidebarHarnessTest } from "./testing/sidebar-harness.component";
 import { EventEmitter, Injectable, NgZone, Type } from "@angular/core";
 

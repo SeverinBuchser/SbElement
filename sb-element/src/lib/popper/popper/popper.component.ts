@@ -65,7 +65,6 @@ export class SbPopperComponent extends SbPopperCore
     private _overlayContainer: OverlayContainer
   ) {
     super(elementRef, overlayService, viewContainerRef);
-
   }
 
   private _createOverlay(): OverlayRef {

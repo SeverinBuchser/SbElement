@@ -1,4 +1,9 @@
-import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { 
+  GlobalPositionStrategy, 
+  Overlay, 
+  OverlayConfig, 
+  OverlayRef 
+} from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType, TemplatePortal } from '@angular/cdk/portal';
 import { ComponentRef, Inject, Injectable, Injector, TemplateRef } from '@angular/core';
 import { SbAlertBoxComponent } from './alert-box';
@@ -79,7 +84,7 @@ export class SbAlertService {
     return this._overlay.create(overlayConfig);
   }
 
-  private _attachSnackBarContainer(
+  private _attachAlertContainer(
     overlayRef: OverlayRef,
     config: SbAlertConfig
   ): SbAlertContainerComponent {
@@ -107,7 +112,7 @@ export class SbAlertService {
       ...userConfig
     };
     const overlayRef = this._createOverlay(config);
-    const container = this._attachSnackBarContainer(overlayRef, config);
+    const container = this._attachAlertContainer(overlayRef, config);
 
     if (content instanceof TemplateRef) {
       const portal = new TemplatePortal(content, null!);

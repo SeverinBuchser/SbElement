@@ -1,0 +1,7 @@
+@use 'sidebar-container.theme';
+@use 'sidebar.theme';
+
+@mixin theme($theme) {
+  @include sidebar-container.theme($theme);
+  @include sidebar.theme($theme);
+}

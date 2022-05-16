@@ -13,6 +13,7 @@ export * from './link';
 export * from './notification';
 export * from './paginator';
 export * from './popper';
+export * from './sidebar';
 export * from './table';
 export * from './tabs';
 export * from './timeline';

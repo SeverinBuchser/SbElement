@@ -1,7 +1,7 @@
 import { OverlayRef } from "@angular/cdk/overlay";
-import { SbAlertContainerComponent } from "./alert-container";
 import { Subject } from "rxjs";
 import { SbAlertConfig } from "./alert-config";
+import { SbAlertContainerComponent } from "./alert-container";
 
 export class SbAlertRef {
 	public dismissed: Subject<void> = new Subject();
@@ -51,7 +51,7 @@ export class SbAlertRef {
 		this.dismissed.subscribe(() => {
 			this._actualDispose();
 		});
-		if (this._alertContainer.isInactive()) {
+		if (this._alertContainer.isInactive) {
 			this._actualDispose();
 		} else if (this._config.isInterruptable) {
 			this.interrupt();

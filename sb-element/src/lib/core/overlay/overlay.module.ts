@@ -4,11 +4,24 @@ import { PortalModule } from '@angular/cdk/portal';
 
 import { SbOverlayComponent } from './overlay';
 import { SbOverlayOutletComponent } from './overlay-outlet';
-import { SbOverlayContainerComponent } from './overlay-container';
+import { 
+  SbOverlayContainerComponent, 
+  SbSlidableOverlayContainerComponent 
+} from './overlay-container';
 
 @NgModule({
-  declarations: [SbOverlayComponent, SbOverlayOutletComponent, SbOverlayContainerComponent],
+  declarations: [
+    SbOverlayComponent, 
+    SbOverlayOutletComponent, 
+    SbOverlayContainerComponent, 
+    SbSlidableOverlayContainerComponent
+  ],
   imports: [CommonModule, PortalModule],
-  exports: [SbOverlayComponent, SbOverlayOutletComponent, SbOverlayContainerComponent]
+  exports: [
+    SbOverlayComponent, 
+    SbOverlayOutletComponent, 
+    SbOverlayContainerComponent,
+    SbSlidableOverlayContainerComponent
+  ]
 })
-export class SbOverlayModule {}
+export class SbOverlayModule { }

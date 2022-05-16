@@ -1,16 +1,16 @@
 import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SbBarModule } from '../bar';
 import { SbCoreModule } from '../core';
 import { SbFormsModule } from '../forms';
 import { SbPaginatorModule } from '../paginator';
 
-import { SbTabBarComponent } from './tab-bar';
 import { SbTabComponent } from './tab';
+import { SbTabBarComponent } from './tab-bar';
 import { SbTabContentComponent } from './tab-content';
 import { SbTabLabelComponent } from './tab-label';
 import { SbTabsComponent } from './tabs';
@@ -18,7 +18,8 @@ import { SbTabsComponent } from './tabs';
 import {
   SbTabsModuleConfig,
   SB_TABS_CONFIG,
-  SB_TABS_CONFIG_DEFAULT } from './tabs.module.config';
+  SB_TABS_CONFIG_DEFAULT
+} from './tabs.module.config';
 
 @NgModule({
   declarations: [

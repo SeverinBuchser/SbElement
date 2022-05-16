@@ -17,6 +17,7 @@ import { SbLinkModule } from './link';
 import { SbNotificationModule } from "./notification";
 import { SbPaginatorModule } from "./paginator";
 import { SbPopperModule } from './popper';
+import { SbSidebarModule } from './sidebar/sidebar.module';
 import { SbTableModule } from './table';
 import { SbTabsModule } from './tabs';
 import { SbTimelineModule } from './timeline';
@@ -42,9 +43,10 @@ import { SbTimelineModule } from './timeline';
     SbNotificationModule,
     SbPaginatorModule,
     SbPopperModule,
+    SbSidebarModule,
     SbTableModule,
     SbTabsModule,
-    SbTimelineModule,
+    SbTimelineModule
   ]
 })
 export class SbElementModule { }

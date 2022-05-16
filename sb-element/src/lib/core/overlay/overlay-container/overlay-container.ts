@@ -17,7 +17,7 @@ const SbOverlayContainerCore = mixinClassName(hasElementRefClass, 'sb-overlay-co
 
 @Component({
   selector: 'sb-overlay-container',
-  templateUrl: './overlay-container.component.html',
+  templateUrl: './overlay-container.html',
   encapsulation: ViewEncapsulation.None,
 })
 export class SbOverlayContainerComponent extends SbOverlayContainerCore

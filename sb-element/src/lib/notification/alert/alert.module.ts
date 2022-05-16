@@ -3,11 +3,9 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { SbCoreModule } from "../../core";
 import { SbIconModule } from "../../icon";
-import { SbIndicatorModule } from "../../indicator";
 
-import { SbAlertBoxComponent } from './alert-box';
-import { SbAlertContainerComponent } from './alert-container';
 import { PortalModule } from '@angular/cdk/portal';
+import { SbAlertBoxComponent } from './alert-box';
 import {
   SbAlertBoxConfig,
   SbAlertConfig,
@@ -16,6 +14,7 @@ import {
   SB_ALERT_CONFIG_DEFAULT,
   SB_ALERT_CONFIG_DEFAULT_DEFAULT
 } from './alert-config';
+import { SbAlertContainerComponent } from './alert-container';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import {
     CommonModule,
     PortalModule,
     SbCoreModule,
-    SbIconModule,
-    SbIndicatorModule
+    SbIconModule
   ],
   exports: [
     SbAlertBoxComponent,

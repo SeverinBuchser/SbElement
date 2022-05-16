@@ -18,6 +18,10 @@ export type SbSlideInOutAnimationState =
 	'center' |
   'void';
 
+export interface SbSlideInOutAnimationParams {
+	animationDuration: string;
+}
+
 export const sbSlideInOutAnimation: AnimationTriggerMetadata =
 	trigger('slideInOutAnimation', [
 		state('left', style({
@@ -37,15 +41,19 @@ export const sbSlideInOutAnimation: AnimationTriggerMetadata =
       opacity: 0
 		})),
 		state(
-      'inital-left-center, inital-right-center, inital-top-center, inital-bottom-center, cetner, void',
+      'inital-left-center, inital-right-center, inital-top-center, inital-bottom-center, cetner',
       style({
         transform: 'none',
         opacity: 1
       })
     ),
+		state('void', style({
+			display: 'none'
+		})),
 		transition(
 			'void => inital-left-center', [
   			style({
+					display: 'block',
   				transform: 'translateX(-100%)',
           opacity: 0
   			}),
@@ -55,6 +63,7 @@ export const sbSlideInOutAnimation: AnimationTriggerMetadata =
 		transition(
 			'void => inital-right-center', [
   			style({
+					display: 'block',
   				transform: 'translateX(100%)',
           opacity: 0
   			}),
@@ -64,6 +73,7 @@ export const sbSlideInOutAnimation: AnimationTriggerMetadata =
 		transition(
 			'void => inital-top-center', [
   			style({
+					display: 'block',
   				transform: 'translateY(-100%)',
           opacity: 0
   			}),
@@ -73,6 +83,7 @@ export const sbSlideInOutAnimation: AnimationTriggerMetadata =
 		transition(
 			'void => inital-bottom-center', [
   			style({
+					display: 'block',
   				transform: 'translateY(100%)',
           opacity: 0
   			}),

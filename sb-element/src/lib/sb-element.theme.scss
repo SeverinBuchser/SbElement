@@ -15,6 +15,7 @@
 @use 'notification/module.theme' as notification;
 @use 'paginator/module.theme' as paginator;
 @use 'popper/module.theme' as popper;
+@use 'sidebar/theme' as sidebar;
 @use 'table/module.theme' as table;
 @use 'tabs/module.theme' as tabs;
 @use 'timeline/module.theme' as timeline;
@@ -39,6 +40,7 @@ $theme: null !default;
   @include link.theme($theme);
   @include notification.theme($theme);
   @include popper.theme($theme);
+  @include sidebar.theme($theme);
   @include table.theme($theme);
   @include tabs.theme($theme);
   @include timeline.theme($theme);

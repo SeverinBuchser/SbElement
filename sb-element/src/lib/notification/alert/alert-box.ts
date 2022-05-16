@@ -1,4 +1,11 @@
-import { Component, ElementRef, Inject, Input, Optional, ViewEncapsulation } from '@angular/core';
+import {
+  Component, 
+  ElementRef, 
+  Inject, 
+  Input, 
+  Optional, 
+  ViewEncapsulation
+} from '@angular/core';
 import {
   hasElementRefClass,
   mixinClassName,
@@ -9,9 +16,9 @@ import {
   Size
 } from '../../core';
 import {
-  SbAlertBoxConfig,
-  SB_ALERT_DATA,
-  SB_ALERT_BOX_CONFIG_DEFAULT
+  SbAlertBoxConfig, 
+  SB_ALERT_BOX_CONFIG_DEFAULT, 
+  SB_ALERT_DATA
 } from './alert-config';
 
 export interface SbAlertBoxData {

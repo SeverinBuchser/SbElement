@@ -1,5 +1,5 @@
 import { InjectionToken } from "@angular/core";
-import { Color, SbConnectedSide, SbFlexibleAlignment, Size } from "../../core";
+import { Color, SbConnectedSide, Size } from "../../core";
 
 export interface SbAlertBoxConfig {
   message: string,

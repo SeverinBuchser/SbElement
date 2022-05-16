@@ -1,5 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { SbSidebarComponent } from "../sidebar.component";
+import { SbSidebarComponent } from "../sidebar";
 
 @Component({
   template: `
