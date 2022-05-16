@@ -1,7 +1,6 @@
 @use 'core/module.theme' as core;
 
-@use 'bar/module.theme' as bar;
-@use 'breadcrumbs/module.theme' as breadcrumbs;
+@use 'breadcrumbs/_theme' as breadcrumbs;
 @use 'calendar/module.theme' as calendar;
 @use 'card/module.theme' as card;
 @use 'container/module.theme' as container;
@@ -12,11 +11,12 @@
 @use 'icon/module.theme' as icon;
 @use 'indicator/module.theme' as indicator;
 @use 'link/module.theme' as link;
+@use 'nav-bar/theme' as nav-bar;
 @use 'notification/module.theme' as notification;
 @use 'paginator/module.theme' as paginator;
 @use 'popper/module.theme' as popper;
 @use 'sidebar/theme' as sidebar;
-@use 'table/module.theme' as table;
+@use 'table/theme' as table;
 @use 'tabs/module.theme' as tabs;
 @use 'timeline/module.theme' as timeline;
 
@@ -25,7 +25,6 @@ $theme: null !default;
 @mixin theme($theme) {
   @include core.theme($theme);
 
-  @include bar.theme($theme);
   @include breadcrumbs.theme($theme);
   @include calendar.theme($theme);
   @include card.theme($theme);
@@ -38,6 +37,7 @@ $theme: null !default;
   @include icon.theme($theme);
   @include indicator.theme($theme);
   @include link.theme($theme);
+  @include nav-bar.theme($theme);
   @include notification.theme($theme);
   @include popper.theme($theme);
   @include sidebar.theme($theme);

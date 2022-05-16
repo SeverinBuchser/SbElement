@@ -1,9 +1,0 @@
-@use 'bar/bar.component.theme';
-@use 'nav-bar/nav-bar-content/nav-bar-content.component.theme';
-@use 'nav-bar/nav-bar.component.theme';
-
-@mixin theme($theme) {
-  @include bar.theme($theme);
-  @include nav-bar-content.theme($theme);
-  @include nav-bar.theme($theme);
-}

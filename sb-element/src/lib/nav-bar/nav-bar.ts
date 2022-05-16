@@ -8,15 +8,16 @@ import {
   CanClassName,
   HasElementRef,
   hasElementRefClass,
-  mixinClassName } from "../../core";
-import { SbContentPaginationDirective } from '../../paginator';
+  mixinClassName } from "../core";
+import { SbContentPaginationDirective } from '../paginator';
 import { SbNavBarContentComponent } from './nav-bar-content';
 
 const SbNavBarCore = mixinClassName(hasElementRefClass, 'sb-nav-bar');
 
 @Component({
   selector: 'sb-nav-bar',
-  templateUrl: './nav-bar.component.html',
+  templateUrl: './nav-bar.html',
+  styleUrls: ['./nav-bar.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbNavBarComponent extends SbNavBarCore

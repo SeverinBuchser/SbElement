@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 // Modules
-import { SbBarModule } from "./bar";
 import { SbBreadcrumbsModule } from './breadcrumbs';
 import { SbCalendarModule } from "./calendar";
 import { SbCardModule } from './card';
@@ -14,6 +13,7 @@ import { SbHighlightModule } from './highlight';
 import { SbIconModule } from './icon';
 import { SbIndicatorModule } from "./indicator";
 import { SbLinkModule } from './link';
+import { SbNavBarModule } from "./nav-bar";
 import { SbNotificationModule } from "./notification";
 import { SbPaginatorModule } from "./paginator";
 import { SbPopperModule } from './popper';
@@ -28,7 +28,6 @@ import { SbTimelineModule } from './timeline';
     BrowserModule
   ],
   exports: [
-    SbBarModule,
     SbBreadcrumbsModule,
     SbCalendarModule,
     SbCardModule,
@@ -40,6 +39,7 @@ import { SbTimelineModule } from './timeline';
     SbIconModule,
     SbIndicatorModule,
     SbLinkModule,
+    SbNavBarModule,
     SbNotificationModule,
     SbPaginatorModule,
     SbPopperModule,

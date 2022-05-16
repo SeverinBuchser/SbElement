@@ -1,6 +1,10 @@
+@use "../core/display";
 /*****************************************************************************
-Nav-Bar / Theme
+Nav-Bar-Content / Style
 ******************************************************************************/
 
-// THEME
-@mixin theme($theme) {}
+// ROOT
+.sb-nav-bar-content {
+  @include display.grid($gap: xs);
+  align-items: center;
+}

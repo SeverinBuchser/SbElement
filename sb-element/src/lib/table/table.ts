@@ -6,13 +6,14 @@ import {
   Input,
   Optional,
   ViewEncapsulation } from '@angular/core';
-import { mixinColor, mixinClassName, hasElementRefClass } from '../../core';
+import { mixinColor, mixinClassName, hasElementRefClass } from '../core';
 
 const SbTableCore = mixinColor(mixinClassName(hasElementRefClass, 'sb-table'));
 
 @Component({
   selector: 'sb-table',
-  templateUrl: './table.component.html',
+  templateUrl: './table.html',
+  styleUrls: ['./table.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.plain]': 'plain'

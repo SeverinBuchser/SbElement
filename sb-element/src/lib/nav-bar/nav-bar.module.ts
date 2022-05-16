@@ -5,12 +5,11 @@ import { NgModule } from '@angular/core';
 import { SbCoreModule } from '../core';
 import { SbPaginatorModule } from '../paginator';
 
-import { SbBarComponent } from './bar';
-import { SbNavBarComponent, SbNavBarContentComponent } from './nav-bar';
+import { SbNavBarContentComponent } from './nav-bar-content';
+import { SbNavBarComponent } from './nav-bar';
 
 @NgModule({
   declarations: [
-    SbBarComponent,
     SbNavBarComponent,
     SbNavBarContentComponent
   ],
@@ -21,9 +20,8 @@ import { SbNavBarComponent, SbNavBarContentComponent } from './nav-bar';
     SbPaginatorModule
   ],
   exports: [
-    SbBarComponent,
     SbNavBarComponent,
     SbNavBarContentComponent
   ]
 })
-export class SbBarModule { }
+export class SbNavBarModule { }

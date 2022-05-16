@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 import { SbContentPaginationDirective } from "../../paginator";
-import { SbBarModule } from "../.";
+import { SbBarModule } from "..";
 import { SbNavBarComponent } from "./nav-bar.component";
 import { NavBarHarnessTest } from "./testing/nav-bar-harness.component";
 

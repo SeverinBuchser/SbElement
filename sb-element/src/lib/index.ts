@@ -1,4 +1,3 @@
-export * from './bar';
 export * from './breadcrumbs';
 export * from './calendar';
 export * from './card';
@@ -10,6 +9,7 @@ export * from './highlight';
 export * from './icon';
 export * from './indicator';
 export * from './link';
+export * from './nav-bar';
 export * from './notification';
 export * from './paginator';
 export * from './popper';

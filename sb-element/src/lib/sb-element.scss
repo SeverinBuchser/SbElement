@@ -1,7 +1,5 @@
 @forward 'core/module';
 
-@use 'bar/module' as bar;
-@use 'breadcrumbs/module' as breadcrumbs;
 @use 'calendar/module' as calendar;
 @use 'card/module' as card;
 @use 'container/module' as container;
@@ -16,6 +14,5 @@
 @use 'notification/module' as notification;
 @use 'paginator/module' as paginator;
 @use 'popper/module' as popper;
-@use 'table/module' as table;
 @use 'tabs/module' as tabs;
 @use 'timeline/module' as timeline;

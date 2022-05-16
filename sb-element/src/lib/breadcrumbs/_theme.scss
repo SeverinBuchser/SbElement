@@ -1,4 +1,4 @@
-@use 'breadcrumbs/breadcrumbs.component.theme';
+@use 'breadcrumbs.theme';
 
 @mixin theme($theme) {
   @include breadcrumbs.theme($theme);

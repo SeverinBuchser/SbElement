@@ -1,4 +1,5 @@
-@use "sb-element/core/display";
+@use "../core/display";
+@use "../core/spacing";
 /*****************************************************************************
 Nav-Bar / Style
 ******************************************************************************/
@@ -6,8 +7,12 @@ Nav-Bar / Style
 // ROOT
 .sb-nav-bar {
   display: block;
+  width: 100%;
+
+  @include spacing.padding(s);
 
   .sb-content-paginator .sb-content-paginator__wrapper {
     @include display.flex($justify: space-between, $gap: s);
   }
+  
 }

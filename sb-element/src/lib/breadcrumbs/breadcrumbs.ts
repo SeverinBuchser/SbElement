@@ -5,7 +5,7 @@ import {
   Input,
   Output,
   ViewEncapsulation } from '@angular/core';
-import { Color, hasElementRefClass, mixinClassName, mixinColor } from '../../core';
+import { Color, hasElementRefClass, mixinClassName, mixinColor } from '../core';
 
 const SbBreadcrumbsCore = mixinColor(
   mixinClassName(hasElementRefClass, 'sb-breadcrumbs'),
@@ -14,7 +14,8 @@ const SbBreadcrumbsCore = mixinColor(
 
 @Component({
   selector: 'sb-breadcrumbs',
-  templateUrl: './breadcrumbs.component.html',
+  templateUrl: './breadcrumbs.html',
+  styleUrls: ['./breadcrumbs.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'color'
