@@ -6,7 +6,7 @@ Alert-Container
 
 // ROOT
 .sb-alert-container {
-  @include spacing.margin(s);
+  @include spacing.padding(s);
 
   .sb-alert-box {
     min-width: 300px;

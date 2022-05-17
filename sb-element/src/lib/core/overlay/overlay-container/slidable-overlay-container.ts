@@ -21,7 +21,9 @@ export class SbSlidableOverlayContainerComponent extends SbOverlayContainerCompo
   private _animationState: SbSlideInOutAnimationState = 'void';
   private _entrySide?: SbConnectedSide;
   protected _params: SbSlideInOutAnimationParams = {
-    animationDuration: "300ms"
+    animationDuration: "300ms",
+    outsideOpacity: 1,
+    centerOpacity: 1
   }
 
   get isInactive(): boolean {
@@ -63,6 +65,14 @@ export class SbSlidableOverlayContainerComponent extends SbOverlayContainerCompo
         this._animationState = side;
       }
     }
+  }
+
+  public dispose(): void {
+    super.dispose();
+    this.beforeEnter.complete();
+    this.afterEnter.complete();
+    this.beforeExit.complete();
+    this.afterExit.complete();
   }
 
   public _onAnimationDone(event: AnimationEvent): void {

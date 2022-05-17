@@ -19,16 +19,22 @@ const SbSidebarContainerCore = mixinClassName(
 })
 export class SbSidebarContainerComponent extends SbSidebarContainerCore {
   
-  private side: SbConnectedSide = 'left';
+  private _side: SbConnectedSide = 'left';
 
   constructor(elementRef: ElementRef) {
     super(elementRef)
+
+    this._params.outsideOpacity = 1;
+  }
+
+  public updateSide(side: SbConnectedSide): void {
+    this._elementRef.nativeElement.classList.remove(this._side);
+    this._elementRef.nativeElement.classList.add(side);
+    this._side = side;
   }
 
   public enter(side: SbConnectedSide): void {
-    this._elementRef.nativeElement.classList.remove(this.side);
-    this._elementRef.nativeElement.classList.add(side);
-    this.side = side;
+    this.updateSide(side);
     super.enter(side);
   }
   

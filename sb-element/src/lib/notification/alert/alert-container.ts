@@ -34,8 +34,14 @@ export class SbAlertContainerComponent extends SbAlertContainerCore {
     @Optional() @Inject(SB_ALERT_CONFIG) config?: SbAlertConfig
   ) {
     super(elementRef);
-    this._config = { ...this._defaultConfig, ...config };
-    this._params = this._config;
+    this._config = { 
+      ...this._defaultConfig, 
+      ...config,
+    };
+    this._params = {
+      ...this._params,
+      ...this._config
+    };
   }
 
   public enter(): void {

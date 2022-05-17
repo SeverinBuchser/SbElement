@@ -1,10 +1,8 @@
-@use "../core/spacing";
 /*****************************************************************************
-Sidebar-Container / Style
+Sidebar / Style
 ******************************************************************************/
 
 // ROOT
-.sb-sidebar-container {
-  @include spacing.padding(s);
-  pointer-events: all;
+.sb-sidebar-overlay {
+  pointer-events: none;
 }

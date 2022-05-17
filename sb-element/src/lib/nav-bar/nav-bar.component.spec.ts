@@ -1,8 +1,8 @@
 import { TestBed } from "@angular/core/testing";
-import { SbContentPaginationDirective } from "../../paginator";
-import { SbBarModule } from "..";
-import { SbNavBarComponent } from "./nav-bar.component";
-import { NavBarHarnessTest } from "./testing/nav-bar-harness.component";
+import { SbNavBarModule } from "./nav-bar.module";
+import { SbContentPaginationDirective } from "../paginator";
+import { SbNavBarComponent } from "./nav-bar";
+import { NavBarHarnessTest } from "./testing/nav-bar-harness";
 
 describe('SbNavBarComponent', () => {
   beforeEach(async () => {
@@ -12,7 +12,7 @@ describe('SbNavBarComponent', () => {
         NavBarHarnessTest
       ],
       imports: [
-        SbBarModule
+        SbNavBarModule
       ]
     }).compileComponents();
   });

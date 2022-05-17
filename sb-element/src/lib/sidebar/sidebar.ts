@@ -1,7 +1,7 @@
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { CdkPortal, ComponentPortal } from '@angular/cdk/portal';
 import {
-  Component, ComponentRef, Injector, Input, OnDestroy, OnInit, ViewChild,
+  Component, Injector, Input, OnChanges, OnDestroy, OnInit, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import {
@@ -12,27 +12,34 @@ import { SbSidebarContainerComponent } from './sidebar-container';
 @Component({
   selector: 'sb-sidebar',
   templateUrl: './sidebar.html',
+  styleUrls: ['./sidebar.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class SbSidebarComponent implements Triggerable, OnDestroy {
+export class SbSidebarComponent implements Triggerable, OnInit, OnChanges, OnDestroy {
 
   @Input()
   public side: SbConnectedSide = 'left';
 
+  private _visible: boolean = false;
   @Input()
   set visible(isVisible: boolean) {
-    if (this._overlayRef.hasAttached() !== isVisible) {
-      this.trigger();
+    if (this._visible != isVisible) {
+      this._visible = !this._visible;
+      if (this._visible) {
+        this._showSidebar();
+      } else {
+        this._hideSidebar();
+      }
     }
   }
   get visible(): boolean {
-    return this._overlayRef.hasAttached();
+    return this._visible;
   }
 
   @ViewChild(CdkPortal, { static: true })
   public overlayPortal!: CdkPortal;
   private _overlayRef: OverlayRef;
-  private _container?: SbSidebarContainerComponent;
+  private _container!: SbSidebarContainerComponent;
   private _containerPortal = new ComponentPortal(
     SbSidebarContainerComponent,
     undefined,
@@ -43,11 +50,21 @@ export class SbSidebarComponent implements Triggerable, OnDestroy {
     private _injector: Injector,
     private _overlay: Overlay
   ) {
-    this._overlayRef = this._createOverlay();
+    this._overlayRef = this._createOverlay(); 
   }
 
-  private _createOverlay(): OverlayRef {
-    const overlayConfig = new OverlayConfig();
+  public ngOnInit(): void {
+    this._attachSidebarContainer();
+  }
+
+  public ngOnChanges(simpleChanges: any): void {
+    if (!simpleChanges.side.firstChange) {
+      this._overlayRef.updatePositionStrategy(this._createPositionStrategy());
+      this._container.updateSide(this.side);
+    }
+  }
+
+  private _createPositionStrategy(): GlobalPositionStrategy {
     const positionStrategy = this._overlay.position().global();
 
     switch (this.side) {
@@ -64,28 +81,31 @@ export class SbSidebarComponent implements Triggerable, OnDestroy {
         positionStrategy.bottom('0');
         break;
     }
-    overlayConfig.positionStrategy = positionStrategy;
-    overlayConfig.backdropClass = 'sb-sidebar-backdrop';
-    overlayConfig.hasBackdrop = true;
+    return positionStrategy;
+  }
+
+  private _createOverlay(): OverlayRef {
+    const overlayConfig = new OverlayConfig();
+    overlayConfig.positionStrategy = this._createPositionStrategy();
+    overlayConfig.panelClass = 'sb-sidebar-overlay';
     return this._overlay.create(overlayConfig);
   }
 
   private _attachSidebarContainer(): void {
     this._container = this._overlayRef.attach(this._containerPortal).instance;
     this._container.attach(this.overlayPortal);
-    this._container.afterExit.subscribe(() => {
-      this._overlayRef.detach();
-      this._container!.dispose();
-    });
+  }
+
+  private _showSidebar(): void {
+    this._container.enter(this.side);
+  }
+
+  private _hideSidebar(): void {
+    this._container.exit();
   }
 
   public trigger(): void {
-    if (!this._overlayRef.hasAttached()) {
-      this._attachSidebarContainer();
-      this._container!.enter(this.side);
-    } else {
-      this._container!.exit();
-    }
+    this.visible = !this.visible;
   }
 
   public ngOnDestroy(): void {
