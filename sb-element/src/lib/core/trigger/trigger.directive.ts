@@ -13,9 +13,8 @@ export class SbTriggerDirective {
   public delay: number = 0;
 
   protected trigger(): void {
-    let timeout = setTimeout(() => {
+    setTimeout(() => {
       this.triggerable.trigger();
-      clearTimeout(timeout);
     }, this.delay);
   }
 

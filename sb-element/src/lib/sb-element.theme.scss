@@ -9,6 +9,7 @@
 @use 'highlight/module.theme' as highlight;
 @use 'icon/module.theme' as icon;
 @use 'indicator/module.theme' as indicator;
+@use 'input/theme' as input;
 @use 'link/module.theme' as link;
 @use 'nav-bar/theme' as nav-bar;
 @use 'notification/module.theme' as notification;
@@ -34,6 +35,7 @@ $theme: null !default;
   @include highlight.theme($theme);
   @include icon.theme($theme);
   @include indicator.theme($theme);
+  @include input.theme($theme);
   @include link.theme($theme);
   @include nav-bar.theme($theme);
   @include notification.theme($theme);

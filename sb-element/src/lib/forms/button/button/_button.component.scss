@@ -45,4 +45,6 @@ Button / Style
   @include spacing.for-each-spacing using ($key, $spacing) {
     @include button-size($key, $spacing);
   }
+
+  @include button-size(xs, spacing.get-spacing(xs));
 }

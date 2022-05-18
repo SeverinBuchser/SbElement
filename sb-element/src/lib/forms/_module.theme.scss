@@ -1,26 +1,17 @@
 @use 'button/module.theme' as button;
-@use 'date-input/module.theme' as date-input;
-@use 'input/module.theme' as input;
-@use 'number-input/module.theme' as number-input;
 @use 'select/module.theme' as select;
 @use 'toggle/module.theme' as toggle;
 
 @use 'file-input/file-input.component.theme';
-@use 'icon-button/icon-button.component.theme';
 @use 'radio/radio.component.theme';
 @use 'slider/slider.component.theme';
-@use 'time-input/time-input.component.theme';
 
 
 @mixin theme($theme) {
   @include button.theme($theme);
   @include file-input.theme($theme);
-  @include icon-button.theme($theme);
-  @include input.theme($theme);
-  @include number-input.theme($theme);
   @include radio.theme($theme);
   @include select.theme($theme);
   @include slider.theme($theme);
-  @include time-input.theme($theme);
   @include toggle.theme($theme);
 }

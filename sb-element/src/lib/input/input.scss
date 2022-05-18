@@ -1,0 +1,98 @@
+@use "../core/border";
+@use "../core/display";
+@use "../core/spacing";
+@use "../core/transitioning";
+@use "../core/typography";
+/*****************************************************************************
+Input / Style
+******************************************************************************/
+
+// SIZE
+@mixin input-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $bigger;
+    .sb-input__spinner-control {
+      @include border.radius(s);
+      font-size: calc(($bigger / 2) - 2px)
+    }
+  }
+
+  &.sb--#{$key} .sb-input__placeholder.top {
+    transform:
+      scale(0.75)
+      translateY(calc(
+        ($bigger / (-2))
+        - 87.5%
+        - border.get-border-width(xl)
+      ));
+  }
+}
+
+// ROOT
+.sb-input {
+  display: flex;
+  gap: spacing.get-spacing(xs);
+  position: relative;
+  width: 100%;
+
+  &.border {
+    @include spacing.padding-x(xs);
+    @include border.radius(s);
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: inherit;
+    @include spacing.padding(0);
+    @include typography.font();
+
+    &::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  &__spinner-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__spinner-control {
+    @include transitioning.ease(200ms, background, color);
+    transform: rotate(-90deg);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    pointer-events: none;
+    transform-origin: left center;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: inherit;
+    @include spacing.padding-x(4px);
+
+    @include transitioning.ease(200ms, transform, color);
+  }
+
+  &.border &__placeholder {
+    left: calc(spacing.get-spacing(xs) - 4px);
+  }
+
+  &.disabled input {
+    cursor: not-allowed;
+  }
+
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include input-size($key, $spacing);
+  }
+}

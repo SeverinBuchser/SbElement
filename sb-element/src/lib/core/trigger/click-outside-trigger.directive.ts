@@ -14,6 +14,14 @@ export class SbClickOutsideTriggerDirective extends SbClickTriggerDirective {
   private _outsidePointerEventsSubscription: Subscription = Subscription.EMPTY;
 
   public ngOnInit(): void {
+    if (this.triggerable.onReady.closed) {
+      this._subscribeToOusidePointerEvents();
+    } else {
+      this.triggerable.onReady.subscribe(() => this._subscribeToOusidePointerEvents());
+    }
+  }
+
+  private _subscribeToOusidePointerEvents(): void {
     this._outsidePointerEventsSubscription = this.triggerable.getOutsidePointerEvents()
       .subscribe(() => {
         if (this.triggerable.isVisible()) {
@@ -24,6 +32,14 @@ export class SbClickOutsideTriggerDirective extends SbClickTriggerDirective {
 
   public ngOnDestroy(): void {
     this._outsidePointerEventsSubscription.unsubscribe();
+  }
+
+  protected trigger(): void {
+    setTimeout(() => {
+      if (!this._outsidePointerEventsSubscription.closed) {
+        this.triggerable.trigger();
+      }
+    }, this.delay);
   }
 
 }

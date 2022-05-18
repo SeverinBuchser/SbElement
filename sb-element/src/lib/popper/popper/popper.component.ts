@@ -1,5 +1,6 @@
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
+  AfterContentInit,
   Component,
   ContentChild,
   ElementRef,
@@ -10,7 +11,7 @@ import {
   SimpleChanges,
   ViewContainerRef,
   ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Overlay, OverlayConfig, OverlayContainer, OverlayRef } from '@angular/cdk/overlay';
 import {
   CanClassName,
@@ -33,14 +34,19 @@ const SbPopperCore = mixinClassName(SbOverlayComponent, 'sb-popper');
   templateUrl: './popper.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class SbPopperComponent extends SbPopperCore
-  implements HasElementRef, CanClassName, TriggerableOverlay, OnInit, OnDestroy {
+export class SbPopperComponent extends SbPopperCore implements HasElementRef, 
+  CanClassName, TriggerableOverlay, OnInit, AfterContentInit, OnDestroy {
+
+  public onReady: Subject<void> = new Subject();
 
   @ContentChild(SbPopperContentComponent, {read: ElementRef})
   public content!: ElementRef;
 
-  @ContentChild(SbPopperContentComponent, { static: true })
+  @ContentChild(SbPopperContentComponent, { static: false })
   public popperContent!: SbPopperContentComponent;
+
+  @Input()
+  public customConnectionElement?: ElementRef | Element;
 
   @ContentChild(SbPopperOverlayComponent, { static: true })
   public popperOverlay!: SbPopperOverlayComponent;
@@ -71,7 +77,7 @@ export class SbPopperComponent extends SbPopperCore
     const overlayConfig = new OverlayConfig();
     this._positionStrategy = new SbPopperPositionStrategy(
       this.popperOverlay,
-      this.popperContent._elementRef,
+      this.customConnectionElement || this.popperContent._elementRef,
       this._ngZone,
       this._viewportRuler,
       this._platform,
@@ -81,7 +87,7 @@ export class SbPopperComponent extends SbPopperCore
       overlayAlignment: this.alignment
     })
 
-    overlayConfig.positionStrategy = this._positionStrategy
+    overlayConfig.positionStrategy = this._positionStrategy;
     overlayConfig.scrollStrategy = this._overlay.scrollStrategies.reposition()
 
     return this._overlay.create(overlayConfig);
@@ -103,9 +109,10 @@ export class SbPopperComponent extends SbPopperCore
     return this._overlayRef.hasAttached();
   }
 
-  public ngOnInit(): void {
-    super.ngOnInit()
+  public ngAfterContentInit(): void {
     this._overlayRef = this._createOverlay();
+    this.onReady.next();
+    this.onReady.unsubscribe();
   }
 
   public ngOnDestroy(): void {

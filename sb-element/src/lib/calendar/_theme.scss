@@ -1,11 +1,7 @@
 @use 'calendar-dates.theme';
-@use 'calendar-period.theme';
-@use 'calendar.theme';
 @use 'markable-date.theme';
 
 @mixin theme($theme) {
   @include calendar-dates.theme($theme);
-  @include calendar-period.theme($theme);
-  @include calendar.theme($theme);
   @include markable-date.theme($theme);
 }

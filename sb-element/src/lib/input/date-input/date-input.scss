@@ -1,0 +1,13 @@
+@use "../../core/spacing";
+/*****************************************************************************
+Date-Input / Style
+******************************************************************************/
+
+// ROOT
+.sb-date-input-content-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: spacing.get-spacing(xs);
+}

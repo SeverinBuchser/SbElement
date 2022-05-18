@@ -62,7 +62,6 @@ export class SbPopperPositionStrategy extends SbFlexibleConnectedPositionStrateg
 		const currentPosition = this._position!;
 		const originRect = this._originRect!;
 		const arrowElementRect = this._arrowElementRect!;
-		console.log(currentPosition, arrowElementRect)
 
 		let left: number = 0;
 		let top: number = 0;

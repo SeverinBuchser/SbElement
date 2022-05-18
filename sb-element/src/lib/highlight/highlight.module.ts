@@ -1,17 +1,18 @@
-import { ClipboardModule } from '@angular/cdk/clipboard'
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { SbCoreModule } from '../core';
-import { SbFormsModule } from '../forms';
 import { SbIconModule } from '../icon';
 import { SbPopperModule } from '../popper';
 
+import { SbIconButtonModule } from '../icon-button';
+import { SbCodeComponent } from './code';
 import {
   SbHighlightModuleConfig,
   SB_HIGHLIGHT_CONFIG,
-  SB_HIGHLIGHT_CONFIG_DEFAULT } from './highlight.module.config';
-import { SbCodeComponent } from './code';
+  SB_HIGHLIGHT_CONFIG_DEFAULT
+} from './highlight.module.config';
 
 @NgModule({
   declarations: [SbCodeComponent],
@@ -19,7 +20,7 @@ import { SbCodeComponent } from './code';
     ClipboardModule,
     CommonModule,
     SbCoreModule,
-    SbFormsModule,
+    SbIconButtonModule,
     SbIconModule,
     SbPopperModule,
   ],

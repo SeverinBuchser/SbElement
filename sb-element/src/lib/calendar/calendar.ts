@@ -64,7 +64,7 @@ export class SbCalendarComponent extends SbCalendarCore {
     columns: 3,
     rows: 4,
     format: 'MMMM', 
-    periodLength: 'months'
+    unit: 'month'
   }
 
   public yearConfig: SbPeriodConfig = {
@@ -73,13 +73,11 @@ export class SbCalendarComponent extends SbCalendarCore {
     columns: 4,
     rows: 5,
     format: 'yyyy', 
-    periodLength: 'years'
+    unit: 'year'
   }
 
   @Output()
   public select: EventEmitter<Date> = new EventEmitter<Date>();
-
-  private _markedDates: SbMarkedDates = new SbMarkedDates();
 
   public showingDate: Date = fns.startOfMonth(new Date());
 
@@ -108,21 +106,25 @@ export class SbCalendarComponent extends SbCalendarCore {
     } else return '';
   }
 
-  @Input()
-  set markedDates(markedDates: SbMarkedDates) {
-    this._markedDates = markedDates;
-    if (this._markedDates.start) {
-      if (!fns.isEqual(this.showingDate, fns.startOfMonth(this._markedDates.start))) {
-        this.showingDate = fns.startOfMonth(this._markedDates.start);
-      }
-    } else if (this._markedDates.end) {
-      if (!fns.isEqual(this.showingDate, fns.startOfMonth(this._markedDates.end))) {
-        this.showingDate = fns.startOfMonth(this._markedDates.end);
-      }
-    }
-  };
 
-  get markedDates(): SbMarkedDates { return this._markedDates }
+  @Input()
+  public markedDates: SbMarkedDates = new SbMarkedDates();
+
+  ngOnInit() {
+    this.markedDates.onChange.subscribe(() => {
+      const start = this.markedDates.get(0);
+      const end = this.markedDates.get(1);
+      if (start) {
+        if (!fns.isEqual(this.showingDate, fns.startOfMonth(start))) {
+          this.showingDate = fns.startOfMonth(start);
+        }
+      } else if (end) {
+        if (!fns.isEqual(this.showingDate, fns.startOfMonth(end))) {
+          this.showingDate = fns.startOfMonth(end);
+        }
+      }
+    })
+  }
 
   constructor(elementRef: ElementRef) {
     super(elementRef);

@@ -8,7 +8,7 @@ export class SbAlertRef {
 	public interrupted: Subject<void> = new Subject();
 	public disposed: Subject<void> = new Subject();
 	private _isDisposed: boolean = false;
-	private _timeout?: number;
+	private _timeout?: any;
 
 	constructor(
 		private _overlayRef: OverlayRef,

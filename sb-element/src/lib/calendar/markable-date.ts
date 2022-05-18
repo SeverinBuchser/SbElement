@@ -15,7 +15,7 @@ import {
   mixinTabindex
 } from "../core";
 import { SbMarkableDateConfig } from './markable-config';
-import { SbMarkedDates } from "./marked-dates";
+import { SbDateUnit, SbMarkedDates } from "./marked-dates";
 
 const SbMarkableDateCore = mixinDisable(
   mixinTabindex(
@@ -34,9 +34,9 @@ const SbMarkableDateCore = mixinDisable(
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.marked]': 'isMarked',
-    '[class.start]': 'markedDates.isStartOfRange(config.periodLength, date)',
-    '[class.end]': 'markedDates.isEndOfRange(config.periodLength, date)',
-    '[class.between]': 'markedDates.isBetweenRange(config.periodLength, date)',
+    '[class.start]': 'markedDates.isStartOfRange(date, unit)',
+    '[class.end]': 'markedDates.isEndOfRange(date, unit)',
+    '[class.between]': 'markedDates.isInRange(date, unit, false)',
     '[class.disabled]': 'disabled',
     '(click)': 'handleClick()'
   },
@@ -53,6 +53,13 @@ export class SbMarkableDateComponent extends SbMarkableDateCore {
   @Input()
   public config?: SbMarkableDateConfig;
 
+  get unit(): SbDateUnit {
+    if (!this.config) {
+      throw new Error("SbMarkableDateComponent: Config not found.");
+    }
+    return this.config.unit;
+  }
+
   @Input()
   public date: Date = new Date();
 
@@ -60,18 +67,8 @@ export class SbMarkableDateComponent extends SbMarkableDateCore {
   public markedDates: SbMarkedDates = new SbMarkedDates();
 
   get isMarked(): boolean {
-    if (!this.config) {
-      throw new Error("SbMarkableDateComponent: Config not found.");
-    }
-    return (
-      this.markedDates.isBetweenRange(this.config.periodLength, this.date) ||
-      this.markedDates.isStartOfRange(this.config.periodLength, this.date) ||
-      this.markedDates.isEndOfRange(this.config.periodLength, this.date)
-    ) ||
-    !this.markedDates.isRange && (
-      this.markedDates.isStartSamePeriod(this.config.periodLength, this.date) &&
-      this.markedDates.isEndSamePeriod(this.config.periodLength, this.date)
-    );
+    return this.markedDates.isInRange(this.date, this.unit) 
+      || this.markedDates.isEqualTo(this.date, 0, this.unit);
   }
 
   constructor(elementRef: ElementRef) {

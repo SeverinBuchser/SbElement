@@ -13,6 +13,7 @@ import { TypographyExampleComponent } from "./example/typography/typography-exam
 import { CardExampleComponent } from "./example/card/card-example/card-example.component";
 import { TabsExampleComponent } from "./example/tabs/tabs-example/tabs-example.component";
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
+import { InputExampleComponent } from './example/input/input-example/input-example.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
           {
             path: 'indicator',
             component: IndicatorExampleComponent
+          },
+          {
+            path: 'input',
+            component: InputExampleComponent,
           },
           {
             path: 'notification',

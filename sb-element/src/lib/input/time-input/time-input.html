@@ -1,0 +1,41 @@
+<sb-input-group *ngIf="!hasParentGroup">
+  <sb-icon>schedule</sb-icon>
+  <sb-input
+    *ngIf="formatsHours"
+    type="number"
+    [(ngModel)]="hours">
+  </sb-input>
+
+  <sb-input
+    *ngIf="formatsMinutes"
+    type="number"
+    [(ngModel)]="minutes">
+  </sb-input>
+
+  <sb-input
+    *ngIf="formatsSeconds"
+    type="number"
+    [(ngModel)]="seconds">
+  </sb-input>
+</sb-input-group>
+
+<ng-template #contentTemplate> 
+  <sb-icon>schedule</sb-icon>
+  <sb-input
+    *ngIf="formatsHours"
+    type="number"
+    [(ngModel)]="hours">
+  </sb-input>
+
+  <sb-input
+    *ngIf="formatsMinutes"
+    type="number"
+    [(ngModel)]="minutes">
+  </sb-input>
+
+  <sb-input
+    *ngIf="formatsSeconds"
+    type="number"
+    [(ngModel)]="seconds">
+  </sb-input>
+</ng-template>

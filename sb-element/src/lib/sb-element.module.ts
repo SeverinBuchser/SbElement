@@ -10,8 +10,10 @@ import { SbCoreModule } from './core';
 import { SbFormsModule } from './forms';
 import { SbGridModule } from './grid';
 import { SbHighlightModule } from './highlight';
+import { SbIconButtonModule } from './icon-button';
 import { SbIconModule } from './icon';
 import { SbIndicatorModule } from "./indicator";
+import { SbInputModule } from './input/input.module';
 import { SbLinkModule } from './link';
 import { SbNavBarModule } from "./nav-bar";
 import { SbNotificationModule } from "./notification";
@@ -36,8 +38,10 @@ import { SbTimelineModule } from './timeline';
     SbFormsModule,
     SbGridModule,
     SbHighlightModule,
+    SbIconButtonModule,
     SbIconModule,
     SbIndicatorModule,
+    SbInputModule,
     SbLinkModule,
     SbNavBarModule,
     SbNotificationModule,

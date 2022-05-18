@@ -6,7 +6,7 @@
 <div [ngClass]="className + '__dates'">
   <sb-markable-date
     *ngFor="let date of calendarDates"
-    [config]="{format: 'dd', periodLength: 'days'}"
+    [config]="{format: 'dd', unit: 'day'}"
     [color]="color"
     [date]="date"
     [markedDates]="markedDates"

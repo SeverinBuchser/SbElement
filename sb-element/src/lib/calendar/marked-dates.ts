@@ -1,130 +1,221 @@
 import * as fns from "date-fns";
+import { Subject } from "rxjs";
 
-export type SbPeriodLength = 'days' | 'months' | 'years';
+export type SbDateUnit = 'day' | 'month' | 'year';
+export function toDurationKey(unit: SbDateUnit): string {
+  return unit + 's';
+}
+
+export interface SbRange {
+  start: Date,
+  end: Date
+}
 
 export class SbMarkedDates {
-  private _start: Date | undefined;
-  private _end: Date | undefined;
+  private _dates: Array<Date> = new Array();
+  private _normalizedDates: Array<Date> = new Array();
+  private static MAX_MARKABLE_DATES = 2;
+  private _maxMarkableDates = SbMarkedDates.MAX_MARKABLE_DATES;
 
-  get isRange(): boolean {
-    if (this.start && this.end) {
-      return this.start != this.end;
-    } else return false;
+  public onChange: Subject<void> = new Subject();
+
+  constructor(maxMarkableDates: number = SbMarkedDates.MAX_MARKABLE_DATES) {    
+    if (maxMarkableDates > SbMarkedDates.MAX_MARKABLE_DATES) {
+      throw new Error(`SbMarkedDates: The maximum number of dates that can be marked is `
+         + `2, found ${maxMarkableDates}`);
+    }
+    this._maxMarkableDates = maxMarkableDates;
   }
 
-  get isRangeDays(): boolean {
-    return this.isPeriodRange('days')
-  }
-
-  public isPeriodRange(periodLength: SbPeriodLength): boolean {
-    if (this.isRange) {
-      switch (periodLength) {
-        case 'days':
-          return !fns.isSameDay(this.start!, this.end!);
-        case 'months': 
-          return !fns.isSameMonth(this.start!, this.end!);
-        case 'years':
-          return !fns.isSameYear(this.start!, this.end!);
+  public parseAndMark(format: string, ...formattedDates: Array<string>): SbMarkedDates {
+    return this.mark(...formattedDates.map((date: string) => {
+      return fns.parse(date, format, new Date());
+    }).reduce((dates: Array<Date>, date: Date) => {
+      if (fns.isValid(date)) {
+        dates.push(date);
       }
+      return dates;
+    }, new Array()))
+  }
+
+  public mark(...dates: Array<Date>): SbMarkedDates {
+    if (dates.length > this._maxMarkableDates) {
+      throw new Error(`SbMarkedDates: The number of dates one can add to a range is `
+        + `${this._maxMarkableDates}, found ${dates.length}`);
+    }
+    if (this._dates.length + dates.length <= this._maxMarkableDates) {
+      dates.forEach(date => {
+        if (!fns.isValid(date)) {
+          throw new Error("SbMarkedDates: All the marked dates must be valid")
+        }
+      })
+      this._dates.push(...dates);
+      this._sort();
+      this.onChange.next();
+    }
+    return this;
+  }
+
+  public get(index: number, unit?: SbDateUnit): Date | undefined {
+    if (index < 0 || index > this._maxMarkableDates) {
+      throw new Error(`SbMarkedDates: index ${index} is out of range`);
+    }
+    if (unit) {
+      this._normalize(unit);
+      return this._normalizedDates[index];
+    }
+    return this._dates[index];
+  }
+
+  public getFormatted(format: string, index: number): string {
+    const date = this.get(index);
+    return date ? fns.format(date, format) : '';
+  }
+
+  public set(date: Date, index: number): void {
+    if (index < 0 || index > this._maxMarkableDates) {
+      throw new Error(`SbMarkedDates: index ${index} is out of range`);
+    }
+    if (!fns.isValid(date)) {
+      throw new Error("SbMarkedDates: All the marked dates must be valid")
+    }
+    this._dates[index] = date;
+    this._sort();
+    this.onChange.next();
+  }
+
+  public setFormatted(formattedDate: string, format: string, index: number): void {
+    const date = fns.parse(formattedDate, format, new Date());
+    if (fns.isValid(date)) {
+      this.set(date, index);
+    }
+  }
+
+  private _normalize(unit: SbDateUnit): void {
+    this._normalizedDates = this._dates.map(date => this._startOfUnit(date, unit));
+  }
+
+  public clear(): void {
+    this._dates = new Array();
+    this._normalizedDates = new Array();
+    this.onChange.next();
+  }
+
+  public isEqualTo(date: Date, index: number, unit?: SbDateUnit): boolean {
+    if (index < 0 || index > this._maxMarkableDates) {
+      throw new Error(`SbMarkedDates: index ${index} is out of range`);
+    }
+    if (unit) {
+      date = this._startOfUnit(date, unit);
+    }
+    const dateToCompare = this.get(index, unit);
+
+    if (dateToCompare) {
+      return fns.isEqual(date, dateToCompare);
     }
     return false;
   }
 
-  get start(): Date | undefined { return this._start }
-  set start(start: Date | undefined) { this._start = start }
-  get date(): Date | undefined { return this._start }
-  set date(date: Date | undefined) { this._start = date }
-
-  get end(): Date | undefined { return this._end ? this._end : this._start }
-  set end(end: Date | undefined) { this._end = end }
-
-  constructor();
-  constructor(date: Date);
-  constructor(start: Date, end: Date);
-  constructor(dateOrStart?: Date, end?: Date) {
-    this.start = dateOrStart;
-    this.end = end;
+  private _sort(): void {
+    this._dates.sort(fns.compareAsc);
   }
 
-  public isStartOfRange(periodLength: SbPeriodLength, date: Date): boolean {
-    return this.isPeriodRange(periodLength) && this.isPeriodStart(periodLength, date);
-  }
-
-  public isEndOfRange(periodLength: SbPeriodLength, date: Date): boolean {
-    return this.isPeriodRange(periodLength) && this.isPeriodEnd(periodLength, date);
-  }
-
-  public isBetweenRange(periodLength: SbPeriodLength, date: Date): boolean {
-    if (!this.isPeriodRange(periodLength)) return false;
-    if (this.isSame(periodLength, this.start!, this.end!)) return false;
-
-    date = this.startOfPeriod(periodLength, date);
-    let start = this.startOfPeriod(periodLength, this.start!);
-    let end = this.startOfPeriod(periodLength, this.end!);
-    
-    return fns.isAfter(date, start) &&
-      fns.isBefore(date, end);
-  }
-
-  public sort(): void {
-    if (this.isRange) {
-      if (fns.isAfter(this.start!, this.end!)) {
-        let startCopy = this.start;
-        this.start = this.end;
-        this.end = startCopy;
-      }
-    }
-  }
-
-  private startOfPeriod(periodLength: SbPeriodLength, date: Date): Date {
-    switch (periodLength) {
-      case 'days':
+  private _startOfUnit(date: Date, unit: SbDateUnit): Date {
+    switch (unit) {
+      case 'day':
         return fns.startOfDay(date);
-      case 'months': 
-      return fns.startOfMonth(date);
-      case 'years':
+      case 'month': 
+        return fns.startOfMonth(date);
+      case 'year':
         return fns.startOfYear(date);
     }
   }
 
-  public isStartSamePeriod(periodLength: SbPeriodLength, date: Date): boolean {
-    if (this.start) return this.isSame(periodLength, date, this.start);
+  // Range Operations with maxMarkable dates == 2
+
+  public isRange(unit?: SbDateUnit): boolean {
+    if (this._dates.length == 2) {
+      if (unit) {
+        this._normalize(unit);
+      }
+      const range: [Date, Date] = [
+        unit ? this._normalizedDates[0] : this._dates[0],
+        unit ? this._normalizedDates[1] : this._dates[1]
+      ]
+      switch (unit) {
+        case 'day':
+          return !fns.isSameDay(...range);
+        case 'month': 
+          return !fns.isSameMonth(...range);
+        case 'year':
+          return !fns.isSameYear(...range);
+        default:
+          return true;
+      }
+    }
     return false;
   }
 
-  public isEndSamePeriod(periodLength: SbPeriodLength, date: Date): boolean {
-    if (this.end) return this.isSame(periodLength, date, this.end);
-    return false;
-  }
-
-  private isSame(
-    periodLength: SbPeriodLength, 
-    dateOne: Date, 
-    dateTwo: Date
-    ): boolean {
-    switch (periodLength) {
-      case 'days':
-        return fns.isSameDay(dateOne, dateTwo);
-      case 'months': 
-      return fns.isSameMonth(dateOne, dateTwo);
-      case 'years':
-        return fns.isSameYear(dateOne, dateTwo);
-    } 
-  }
-
-  private isPeriodStart(periodLength: SbPeriodLength, date: Date): boolean {
-    if (this.start) {
-      return this.isSame(periodLength, date, this.start);
-    } else {
-      return false;
+  public toRange(unit?: SbDateUnit): SbRange {
+    if (!this.isRange()) {
+      throw new Error("SbMarkedDates: The marked dates do not form a range");
+    }
+    if (unit) {
+      this._normalize(unit);
+    }
+    return {
+      start: unit ? this._normalizedDates[0] : this._dates[0],
+      end: unit ? this._normalizedDates[1] : this._dates[1]
     }
   }
 
-  private isPeriodEnd(periodLength: SbPeriodLength, date: Date): boolean {
-    if (this.end) {
-      return this.isSame(periodLength, date, this.end);
-    } else {
-      return false;
+  public toRangeTuple(unit?: SbDateUnit): [Date, Date] {
+    if (!this.isRange()) {
+      throw new Error("SbMarkedDates: The marked dates do not form a range");
     }
+    if (unit) {
+      this._normalize(unit);
+    }
+    return [
+      unit ? this._normalizedDates[0] : this._dates[0],
+      unit ? this._normalizedDates[1] : this._dates[1]
+    ]
+  }
+
+  public isInRange(date: Date, unit?: SbDateUnit, inclusive: boolean = true): boolean {
+    if (!this.isRange(unit)) return false;
+    if (unit) {
+      date = this._startOfUnit(date, unit);
+    }
+    if (inclusive) return fns.isWithinInterval(date, this.toRange(unit));
+    const range = this.toRange(unit);
+    return fns.isAfter(date, range.start) &&
+      fns.isBefore(date, range.end);
+  }
+
+  public isStartOfRange(date: Date, unit?: SbDateUnit): boolean {
+    if (!this.isRange(unit)) return false;
+    if (unit) {
+      date = this._startOfUnit(date, unit);
+    }
+    const range = this.toRange(unit);
+    return fns.isEqual(date, range.start);
+  }
+
+  public isEndOfRange(date: Date, unit?: SbDateUnit): boolean {
+    if (!this.isRange(unit)) return false;
+    if (unit) {
+      date = this._startOfUnit(date, unit);
+    }
+    const range = this.toRange(unit);
+    return fns.isEqual(date, range.end);
+  }
+
+  public static range(start: Date, end: Date, unit: SbDateUnit = 'day'): SbMarkedDates {
+    return new SbMarkedDates().mark(start, end);
+  }
+
+  public static single(date: Date, unit: SbDateUnit = 'day'): SbMarkedDates {
+    return new SbMarkedDates().mark(date);
   }
 }

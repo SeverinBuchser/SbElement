@@ -23,6 +23,7 @@ import { ExampleDefaultComponent } from './example/example-default/example-defau
 
 import xml from 'highlight.js/lib/languages/xml';
 import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.component';
+import { InputExampleComponent } from './example/input/input-example/input-example.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.c
     CardExampleComponent,
     ExampleDefaultComponent,
     TabsExampleComponent,
+    InputExampleComponent,
   ],
   imports: [
     BrowserModule,

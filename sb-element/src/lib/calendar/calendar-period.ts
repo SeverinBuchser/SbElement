@@ -14,7 +14,7 @@ import {
   mixinDisable,
   mixinFocus } from "../core";
 import { SbMarkableDateConfig } from './markable-config';
-import { SbMarkedDates } from "./marked-dates";
+import { SbMarkedDates, toDurationKey } from "./marked-dates";
 
 const SbCalendarPeriodCore = mixinDisable(
   mixinFocus(
@@ -96,7 +96,7 @@ export class SbCalendarPeriodComponent extends SbCalendarPeriodCore {
     this.dates = new Array<Date>();
     for (let date = this.config!.min ; date < this.config!.max ; date++) {
       this.dates.push(fns.add(this.showingStartDate, {
-        [this.config!.periodLength]: date
+        [toDurationKey(this.config!.unit)]: date
       }))
     }
     
