@@ -32,15 +32,15 @@ export class SbHighlightService {
     }) >= 0;
   }
 
-  private replaceTabs(code: string, tabReplace?: string): string {
+  private replaceTabs(highlight: string, tabReplace?: string): string {
     if (!tabReplace) {
       tabReplace = this.config.tabReplace
     }
-    return code.replaceAll('\t', tabReplace);
+    return highlight.replaceAll('\t', tabReplace);
   }
 
   public highlight(
-    code: string,
+    highlight: string,
     language: string,
     tabReplace?: string
   ): HighlightResult {
@@ -48,6 +48,6 @@ export class SbHighlightService {
       throw new Error(`Language '${language}' does either not exist or has not been`
         + ` registered!`);
     }
-    return hljs.highlight(this.replaceTabs(code, tabReplace), { language })
+    return hljs.highlight(this.replaceTabs(highlight, tabReplace), { language })
   }
 }

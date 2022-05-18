@@ -7,7 +7,7 @@ import { SbIconModule } from '../icon';
 import { SbPopperModule } from '../popper';
 
 import { SbButtonModule } from '../button';
-import { SbCodeComponent } from './code';
+import { SbHighlightComponent } from './highlight';
 import {
   SbHighlightModuleConfig,
   SB_HIGHLIGHT_CONFIG,
@@ -15,7 +15,7 @@ import {
 } from './highlight.module.config';
 
 @NgModule({
-  declarations: [SbCodeComponent],
+  declarations: [SbHighlightComponent],
   imports: [
     ClipboardModule,
     CommonModule,
@@ -24,7 +24,7 @@ import {
     SbIconModule,
     SbPopperModule,
   ],
-  exports: [SbCodeComponent],
+  exports: [SbHighlightComponent],
   providers: [
     { provide: SB_HIGHLIGHT_CONFIG, useValue: SB_HIGHLIGHT_CONFIG_DEFAULT }
   ]

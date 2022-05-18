@@ -1,5 +1,0 @@
-@use 'code/code.component.theme';
-
-@mixin theme($theme) {
-  @include code.theme($theme);
-}
