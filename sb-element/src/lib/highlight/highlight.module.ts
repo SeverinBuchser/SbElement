@@ -6,7 +6,7 @@ import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 import { SbPopperModule } from '../popper';
 
-import { SbIconButtonModule } from '../icon-button';
+import { SbButtonModule } from '../button';
 import { SbCodeComponent } from './code';
 import {
   SbHighlightModuleConfig,
@@ -20,7 +20,7 @@ import {
     ClipboardModule,
     CommonModule,
     SbCoreModule,
-    SbIconButtonModule,
+    SbButtonModule,
     SbIconModule,
     SbPopperModule,
   ],

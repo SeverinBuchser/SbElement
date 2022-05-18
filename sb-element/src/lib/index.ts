@@ -6,7 +6,7 @@ export * from './core';
 export * from './forms';
 export * from './grid';
 export * from './highlight';
-export * from './icon-button';
+export * from './button';
 export * from './icon';
 export * from './indicator';
 export * from './input';

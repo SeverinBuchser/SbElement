@@ -1,6 +1,7 @@
 @use 'core/module.theme' as core;
 
 @use 'breadcrumbs/theme' as breadcrumbs;
+@use 'button/theme' as button;
 @use 'calendar/theme' as calendar;
 @use 'card/theme' as card;
 @use 'container/theme' as container;
@@ -26,6 +27,7 @@ $theme: null !default;
   @include core.theme($theme);
 
   @include breadcrumbs.theme($theme);
+  @include button.theme($theme);
   @include calendar.theme($theme);
   @include card.theme($theme);
   @include container.theme($theme);

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { SbButtonModule } from '../../button';
+import { SbButtonModule } from '../../../button';
 import { SbCoreModule } from '../../../core';
 import { SbIconModule } from '../../../icon';
 

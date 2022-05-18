@@ -1,5 +1,5 @@
 import { Component, ContentChild, ElementRef, NgZone, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { SbButtonComponent } from '../../../button';
+import { SbButtonComponent } from '../../../../button';
 import { mixinClassName, SbOverlayService, SbOverlayComponent } from '../../../../core/';
 import { SbSelectButtonListComponent } from '../select-button-list';
 

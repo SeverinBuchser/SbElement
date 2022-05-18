@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 
 import { SbIconModule } from '../icon';
 
-import { SbButtonModule } from './button';
 import { SbSelectModule } from './select';
 import { SbToggleModule } from './toggle';
 
@@ -21,7 +20,6 @@ import { SbSliderComponent } from './slider';
   imports: [
     CommonModule,
     FormsModule,
-    SbButtonModule,
     SbIconModule
   ],
   exports: [
@@ -30,7 +28,6 @@ import { SbSliderComponent } from './slider';
     SbRadioComponent,
     SbSliderComponent,
     // modules
-    SbButtonModule,
     SbSelectModule,
     SbToggleModule
   ]

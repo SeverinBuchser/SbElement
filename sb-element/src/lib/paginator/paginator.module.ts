@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { SbIconButtonModule } from '../icon-button';
+import { SbButtonModule } from '../button';
 
 import {
   SbContentPaginationDirective,
@@ -10,7 +10,7 @@ import {
 
 @NgModule({
   declarations: [SbContentPaginationDirective, SbContentPaginatorComponent],
-  imports: [CommonModule, SbIconButtonModule],
+  imports: [CommonModule, SbButtonModule],
   exports: [SbContentPaginationDirective, SbContentPaginatorComponent]
 })
 export class SbPaginatorModule { }

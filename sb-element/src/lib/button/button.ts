@@ -9,7 +9,8 @@ import {
   mixinPlain,
   mixinRound,
   mixinSize,
-  Size } from '../../../core';
+  Size
+} from '../core';
 
 const SbButtonCore = mixinAccent(
   mixinPill(
@@ -30,7 +31,8 @@ const SbButtonCore = mixinAccent(
 
 @Component({
   selector: 'button, [sb-button]',
-  templateUrl: './button.component.html',
+  templateUrl: './button.html',
+  styleUrls: ['./button.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[attr.type]': 'type'

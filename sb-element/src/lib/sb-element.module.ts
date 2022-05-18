@@ -10,7 +10,7 @@ import { SbCoreModule } from './core';
 import { SbFormsModule } from './forms';
 import { SbGridModule } from './grid';
 import { SbHighlightModule } from './highlight';
-import { SbIconButtonModule } from './icon-button';
+import { SbButtonModule } from './button';
 import { SbIconModule } from './icon';
 import { SbIndicatorModule } from "./indicator";
 import { SbInputModule } from './input/input.module';
@@ -38,7 +38,7 @@ import { SbTimelineModule } from './timeline';
     SbFormsModule,
     SbGridModule,
     SbHighlightModule,
-    SbIconButtonModule,
+    SbButtonModule,
     SbIconModule,
     SbIndicatorModule,
     SbInputModule,

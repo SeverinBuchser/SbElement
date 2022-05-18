@@ -1,4 +1,3 @@
-export * from './button';
 export * from './file-input';
 export * from './forms.module';
 export * from './radio';

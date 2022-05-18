@@ -3,20 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { SbIconModule } from '../icon';
 
-import { SbButtonModule } from '../forms/button';
 import { SbIconButtonComponent } from './icon-button';
+import { SbButtonComponent } from './button';
 
 @NgModule({
   declarations: [
-    SbIconButtonComponent
+    SbIconButtonComponent,
+    SbButtonComponent
   ],
   imports: [
     CommonModule,
-    SbButtonModule,
     SbIconModule,
   ],
   exports: [
-    SbIconButtonComponent
+    SbIconButtonComponent,
+    SbButtonComponent
   ]
 })
-export class SbIconButtonModule { }
+export class SbButtonModule { }

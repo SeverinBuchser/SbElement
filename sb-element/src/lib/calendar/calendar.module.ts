@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 
 import { SbIconModule } from "../icon";
 
-import { SbIconButtonModule } from '../icon-button';
+import { SbButtonModule } from '../button';
 import { SbCalendarComponent } from './calendar';
 import { SbCalendarDatesComponent } from "./calendar-dates";
 import { SbCalendarPeriodComponent } from './calendar-period';
@@ -20,7 +20,7 @@ import { SbMarkableDateComponent } from './markable-date';
   imports: [
     CommonModule,
     FormsModule,
-    SbIconButtonModule,
+    SbButtonModule,
     SbIconModule
   ],
   exports: [

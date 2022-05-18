@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { SbIconModule } from '../../icon';
 
-import { SbButtonModule } from '../button';
+import { SbButtonModule } from '../../button';
 
 import { SbToggleButtonComponent } from './toggle-button';
 import { SbToggleCheckboxComponent } from './toggle-checkbox';
