@@ -1,0 +1,42 @@
+@use "../core/border";
+@use "../core/display";
+@use "../core/spacing";
+@use "../core/transitioning";
+/*****************************************************************************
+Radio / Style
+******************************************************************************/
+
+// ROOT
+.sb-radio {
+  display: block;
+  label {
+    cursor: pointer;
+    @include display.flex($justify: flex-start, $gap: s);
+
+    span:empty {
+      display: none;
+    }
+
+    span {
+      @include display.flex();
+      height: 100%;
+    }
+
+    input {
+      appearance: none;
+      /* For iOS < 15 to remove gradient background */
+      background-color: transparent;
+      height: spacing.get-spacing(s);
+      width: spacing.get-spacing(s);
+      /* Not removed via appearance */
+      @include spacing.margin(0);
+      @include border.radius(50%);
+      @include transitioning.ease(200ms, background, border);
+    }
+  }
+
+  &.disabled label {
+    cursor: not-allowed;
+    input { cursor: not-allowed; }
+  }
+}

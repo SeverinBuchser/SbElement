@@ -7,7 +7,7 @@ import { SbCalendarModule } from "./calendar";
 import { SbCardModule } from './card';
 import { SbContainerModule } from './container';
 import { SbCoreModule } from './core';
-import { SbFormsModule } from './forms';
+import { SbFileInputModule } from './file-input';
 import { SbGridModule } from './grid';
 import { SbHighlightModule } from './highlight';
 import { SbButtonModule } from './button';
@@ -25,6 +25,9 @@ import { SbTableModule } from './table';
 import { SbTabsModule } from './tabs';
 import { SbTimelineModule } from './timeline';
 import { SbToggleModule } from './toggle';
+import { SbSelectModule } from './select';
+import { SbSliderModule } from './slider';
+import { SbRadioModule } from './radio';
 
 @NgModule({
   declarations: [],
@@ -39,7 +42,7 @@ import { SbToggleModule } from './toggle';
     SbCardModule,
     SbContainerModule,
     SbCoreModule,
-    SbFormsModule,
+    SbFileInputModule,
     SbGridModule,
     SbHighlightModule,
     SbButtonModule,
@@ -54,7 +57,10 @@ import { SbToggleModule } from './toggle';
     SbTableModule,
     SbTabsModule,
     SbTimelineModule,
-    SbToggleModule
+    SbToggleModule,
+    SbSelectModule,
+    SbSliderModule,
+    SbRadioModule
   ]
 })
 export class SbElementModule { }

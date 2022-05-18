@@ -1,0 +1,26 @@
+@use "../../core/border";
+@use "../../core/theming";
+/*****************************************************************************
+Color-Picker / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+	.sb-color-picker {
+		.sb-button {
+	    div {
+				@include border.border-accent($theme, m);
+	    }
+	  }
+
+		@include theming.for-each-color($theme) using ($color) {
+			&.sb--#{$color}.accent .sb-button div {
+				@include border.border($theme, $color, m);
+			}
+		}
+
+		&__color {
+			@include border.border-accent($theme, m);
+		}
+	}
+}

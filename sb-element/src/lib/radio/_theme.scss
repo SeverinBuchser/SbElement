@@ -1,0 +1,6 @@
+@use 'radio.theme';
+
+
+@mixin theme($theme) {
+  @include radio.theme($theme);
+}

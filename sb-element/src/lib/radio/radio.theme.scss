@@ -1,0 +1,23 @@
+@use "../core/border";
+@use "../core/theming";
+/*****************************************************************************
+Radio / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-radio {
+    color: theming.get-foreground-text($theme);
+
+    input {
+      @include border.border-accent($theme, m);
+    }
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} input:checked {
+        background: theming.get-color($theme, $color);
+        @include border.border($theme, $color, m);
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "../../core/border";
+@use "../../core/display";
+@use "../../core/spacing";
+@use "../../core/transitioning";
+/*****************************************************************************
+Color-Picker / Style
+******************************************************************************/
+
+// ROOT
+.sb-color-picker {
+  .sb-button {
+    width: 100%;
+    @include display.flex($direction: row, $gap: xs);
+    div {
+      height: spacing.get-spacing(s);
+      width: spacing.get-spacing(s);
+      @include border.radius(s);
+    }
+  }
+
+  &__color {
+    height: spacing.get-spacing(m);
+    width: spacing.get-spacing(m);
+    cursor: pointer;
+    @include border.radius(s);
+    @include transitioning.ease(200ms, transform);
+
+    &:hover, &.selected {
+      transform: scale(1.5);
+    }
+  }
+}

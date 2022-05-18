@@ -6,7 +6,7 @@
 @use 'calendar/theme' as calendar;
 @use 'card/theme' as card;
 @use 'container/theme' as container;
-@use 'forms/module.theme' as forms;
+@use 'file-input/theme' as file-input;
 @use 'global/module.theme' as global;
 @use 'highlight/theme' as highlight;
 @use 'icon/theme' as icon;
@@ -21,6 +21,9 @@
 @use 'timeline/theme' as timeline;
 @use 'toast/theme' as toast;
 @use 'toggle/theme' as toggle;
+@use 'select/theme' as select;
+@use 'radio/theme' as radio;
+@use 'slider/theme' as slider;
 
 $theme: null !default;
 
@@ -34,7 +37,7 @@ $theme: null !default;
   @include card.theme($theme);
   @include container.theme($theme);
   @include core.theme($theme);
-  @include forms.theme($theme);
+  @include file-input.theme($theme);
   @include global.theme($theme);
   @include highlight.theme($theme);
   @include icon.theme($theme);
@@ -49,6 +52,9 @@ $theme: null !default;
   @include timeline.theme($theme);
   @include toast.theme($theme);
   @include toggle.theme($theme);
+  @include select.theme($theme);
+  @include radio.theme($theme);
+  @include slider.theme($theme);
 }
 
 @if $theme != null {

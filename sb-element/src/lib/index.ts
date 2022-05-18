@@ -5,7 +5,7 @@ export * from './calendar';
 export * from './card';
 export * from './container';
 export * from './core';
-export * from './forms';
+export * from './file-input';
 export * from './grid';
 export * from './highlight';
 export * from './button';
@@ -21,5 +21,8 @@ export * from './table';
 export * from './tabs';
 export * from './timeline';
 export * from './toggle';
+export * from './select';
+export * from './slider';
+export * from './radio';
 
 export * from './sb-element.module';

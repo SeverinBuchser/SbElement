@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SbCoreModule } from '../core';
-import { SbFormsModule } from '../forms';
 import { SbPaginatorModule } from '../paginator';
 
 import { SbTabComponent } from './tab';
@@ -34,7 +33,6 @@ import {
     CommonModule,
     PortalModule,
     SbCoreModule,
-    SbFormsModule,
     SbPaginatorModule,
   ],
   exports: [

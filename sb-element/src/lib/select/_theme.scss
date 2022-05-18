@@ -1,0 +1,8 @@
+@use 'select-button/theme' as select-button;
+
+@use 'color-picker/color-picker.theme';
+
+@mixin theme($theme) {
+  @include select-button.theme($theme);
+  @include color-picker.theme($theme);
+}
