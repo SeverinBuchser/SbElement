@@ -16,7 +16,8 @@ import { SbIndicatorModule } from "./indicator";
 import { SbInputModule } from './input/input.module';
 import { SbLinkModule } from './link';
 import { SbNavBarModule } from "./nav-bar";
-import { SbNotificationModule } from "./notification";
+import { SbAlertModule } from "./alert";
+import { SbToastModule } from "./toast";
 import { SbPaginatorModule } from "./paginator";
 import { SbPopperModule } from './popper';
 import { SbSidebarModule } from './sidebar/sidebar.module';
@@ -30,6 +31,8 @@ import { SbTimelineModule } from './timeline';
     BrowserModule
   ],
   exports: [
+    SbAlertModule,
+    SbToastModule,
     SbBreadcrumbsModule,
     SbCalendarModule,
     SbCardModule,
@@ -44,7 +47,6 @@ import { SbTimelineModule } from './timeline';
     SbInputModule,
     SbLinkModule,
     SbNavBarModule,
-    SbNotificationModule,
     SbPaginatorModule,
     SbPopperModule,
     SbSidebarModule,

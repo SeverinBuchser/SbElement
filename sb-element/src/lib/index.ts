@@ -1,4 +1,6 @@
 export * from './breadcrumbs';
+export * from './alert';
+export * from './toast';
 export * from './calendar';
 export * from './card';
 export * from './container';
@@ -12,7 +14,6 @@ export * from './indicator';
 export * from './input';
 export * from './link';
 export * from './nav-bar';
-export * from './notification';
 export * from './paginator';
 export * from './popper';
 export * from './sidebar';

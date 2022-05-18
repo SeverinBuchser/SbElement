@@ -1,7 +1,0 @@
-@use 'alert/theme' as alert;
-@use 'toast/theme' as toast;
-
-@mixin theme($theme) {
-  @include alert.theme($theme);
-  @include toast.theme($theme);
-}

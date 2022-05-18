@@ -1,0 +1,24 @@
+@use "../core/border";
+@use "../core/theming";
+/*****************************************************************************
+Timeline / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-timeline {
+    .sb-icon.awaiting {
+      color: theming.get-accent($theme);
+    }
+
+    &__line {
+      @include border.border-accent($theme);
+    }
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} &__line.active {
+        @include border.border($theme, $color);
+      }
+    }
+  }
+}

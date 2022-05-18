@@ -1,0 +1,24 @@
+@use "../core/display";
+@use "../core/transitioning";
+/*****************************************************************************
+Tab-Bar / Style
+******************************************************************************/
+
+// ROOT
+.sb-tab-bar {
+  display: block;
+  overflow: hidden;
+
+  &__active-underlay {
+    @include transitioning.ease(300ms, transform, width);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .sb-content-paginator .sb-content-paginator__wrapper {
+    @include display.grid($gap: s);
+    align-items: center;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../core/border";
+@use "../core/theming";
+/*****************************************************************************
+Popper-Overlay / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-popper-overlay {
+    background: theming.get-background($theme);
+    color: theming.get-background-text($theme);
+    @include border.border-accent($theme);
+
+    &__arrow {
+      fill: theming.get-accent($theme);
+    }
+  }
+}

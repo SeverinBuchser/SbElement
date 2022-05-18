@@ -1,0 +1,34 @@
+@use "../core/border";
+@use "../core/spacing";
+@use "../core/transitioning";
+/*****************************************************************************
+Popper-Overlay / Style
+******************************************************************************/
+
+// ROOT
+.sb-popper-overlay {
+  display: block;
+  position: relative;
+  pointer-events: all;
+  @include transitioning.ease(200ms, opacity);
+  @include spacing.padding(s);
+  @include border.radius(s);
+
+  &.sb--hidden {
+    display: none;
+  }
+
+  &.sb--visibly-hidden {
+    opacity: 0;
+  }
+
+  &.sb--visible {
+    opacity: 1;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

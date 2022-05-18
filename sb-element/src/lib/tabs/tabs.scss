@@ -1,0 +1,15 @@
+@use "../core/display";
+/*****************************************************************************
+Tabs / Style
+******************************************************************************/
+
+// ROOT
+.sb-tabs {
+  display: block;
+  overflow: hidden;
+  &__content {
+    @include display.flex();
+    overflow: hidden;
+    position: relative;
+  }
+}
