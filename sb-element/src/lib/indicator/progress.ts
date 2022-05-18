@@ -7,7 +7,7 @@ import {
   mixinDisable,
   mixinPill,
   mixinSize,
-  Size } from "../../core";
+  Size } from "../core";
 
 const SbProgressCore = mixinPill(
   mixinDisable(
@@ -23,7 +23,8 @@ const SbProgressCore = mixinPill(
 
 @Component({
   selector: 'sb-progress',
-  templateUrl: './progress.component.html',
+  templateUrl: './progress.html',
+  styleUrls: ['./progress.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.outline]': 'outline',

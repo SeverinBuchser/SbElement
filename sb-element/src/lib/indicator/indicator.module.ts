@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { SbProgressComponent } from './progress/progress.component';
+import { SbProgressComponent } from './progress';
 
 @NgModule({
   declarations: [SbProgressComponent],

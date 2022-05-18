@@ -1,4 +1,4 @@
-@use 'progress/progress.component.theme';
+@use 'progress.theme';
 
 @mixin theme($theme) {
   @include progress.theme($theme);
