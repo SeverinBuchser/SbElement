@@ -1,13 +1,14 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Color, mixinClassName, Size } from '../../../core';
-import { SbToggleCVACore } from '../toggle-core';
+import { Color, mixinClassName, Size } from '../../core';
+import { SbToggleCVACore } from '../toggle-cva-core';
 
 const SbToggleButtonCore = mixinClassName(SbToggleCVACore, 'sb-toggle-button');
 
 @Component({
   selector: 'sb-toggle[type=button]',
-  templateUrl: './toggle-button.component.html',
+  templateUrl: './toggle-button.html',
+  styleUrls: ['./toggle-button.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.on]': 'toggled',

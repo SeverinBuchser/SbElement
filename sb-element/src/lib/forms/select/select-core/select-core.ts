@@ -1,4 +1,4 @@
-import { SbToggleCore } from '../../toggle';
+import { SbToggleCore } from '../../../toggle';
 
 export interface SbSelectToggle<T> {
 	name: T;

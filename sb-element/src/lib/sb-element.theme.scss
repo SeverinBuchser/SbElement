@@ -20,6 +20,7 @@
 @use 'tabs/theme' as tabs;
 @use 'timeline/theme' as timeline;
 @use 'toast/theme' as toast;
+@use 'toggle/theme' as toggle;
 
 $theme: null !default;
 
@@ -47,6 +48,7 @@ $theme: null !default;
   @include tabs.theme($theme);
   @include timeline.theme($theme);
   @include toast.theme($theme);
+  @include toggle.theme($theme);
 }
 
 @if $theme != null {

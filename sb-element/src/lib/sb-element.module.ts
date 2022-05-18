@@ -24,6 +24,7 @@ import { SbSidebarModule } from './sidebar/sidebar.module';
 import { SbTableModule } from './table';
 import { SbTabsModule } from './tabs';
 import { SbTimelineModule } from './timeline';
+import { SbToggleModule } from './toggle';
 
 @NgModule({
   declarations: [],
@@ -52,7 +53,8 @@ import { SbTimelineModule } from './timeline';
     SbSidebarModule,
     SbTableModule,
     SbTabsModule,
-    SbTimelineModule
+    SbTimelineModule,
+    SbToggleModule
   ]
 })
 export class SbElementModule { }

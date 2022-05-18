@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { SbIconModule } from '../icon';
 
 import { SbSelectModule } from './select';
-import { SbToggleModule } from './toggle';
 
 import { SbFileInputComponent } from './file-input';
 import { SbRadioComponent } from './radio';
@@ -29,7 +28,6 @@ import { SbSliderComponent } from './slider';
     SbSliderComponent,
     // modules
     SbSelectModule,
-    SbToggleModule
   ]
 })
 export class SbFormsModule { }

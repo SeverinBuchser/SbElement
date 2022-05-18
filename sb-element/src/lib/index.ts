@@ -20,5 +20,6 @@ export * from './sidebar';
 export * from './table';
 export * from './tabs';
 export * from './timeline';
+export * from './toggle';
 
 export * from './sb-element.module';

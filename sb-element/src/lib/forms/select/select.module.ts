@@ -7,7 +7,7 @@ import { SbGridModule } from '../../grid';
 import { SbPopperModule } from '../../popper';
 
 import { SbButtonModule } from '../../button';
-import { SbToggleModule } from '../toggle';
+import { SbToggleModule } from '../../toggle';
 
 import { SbColorPickerComponent } from './color-picker';
 import { SbSelectButtonModule } from './select-button';

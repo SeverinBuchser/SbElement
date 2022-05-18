@@ -5,7 +5,7 @@ import {
   CanFocus,
   HasElementRef,
   mixinDisable,
-  mixinFocus } from '../../../core';
+  mixinFocus } from '../core';
 import { SbToggleCore } from './toggle-core';
 
 export class SbToggleCVACore extends mixinFocus(mixinDisable(SbToggleCore))

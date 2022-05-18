@@ -1,5 +1,4 @@
 @use 'select/module.theme' as select;
-@use 'toggle/module.theme' as toggle;
 
 @use 'file-input/file-input.component.theme';
 @use 'radio/radio.component.theme';
@@ -11,5 +10,4 @@
   @include radio.theme($theme);
   @include select.theme($theme);
   @include slider.theme($theme);
-  @include toggle.theme($theme);
 }
