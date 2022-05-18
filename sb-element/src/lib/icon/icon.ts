@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinClassName, mixinColor, hasElementRefClass } from '../../core';
+import { mixinSize, mixinClassName, mixinColor, hasElementRefClass } from '../core';
 
 const SbIconCore = mixinSize(
   mixinColor(
@@ -10,7 +10,8 @@ const SbIconCore = mixinSize(
 
 @Component({
   selector: 'sb-icon',
-  templateUrl: './icon.component.html',
+  templateUrl: './icon.html',
+  styleUrls: ['./icon.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.outline]': 'outline'
