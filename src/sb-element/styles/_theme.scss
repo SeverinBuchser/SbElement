@@ -1,0 +1,6 @@
+@use "global/theme" as global;
+
+
+@mixin theme($theme) {
+  @include global.theme($theme);
+}

@@ -1,5 +1,0 @@
-@use 'container.theme';
-
-@mixin theme($theme) {
-  @include container.theme($theme);
-}

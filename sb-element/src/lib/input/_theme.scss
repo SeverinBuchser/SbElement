@@ -1,7 +1,0 @@
-@use 'input.theme';
-@use 'input-group.theme';
-
-@mixin theme($theme) {
-  @include input.theme($theme);
-  @include input-group.theme($theme);
-}

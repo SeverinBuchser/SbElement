@@ -1,0 +1,5 @@
+@use "link.theme";
+
+@mixin theme($theme) {
+  @include link.theme($theme);
+}

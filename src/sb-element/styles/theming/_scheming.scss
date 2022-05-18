@@ -1,0 +1,48 @@
+@use "sass:meta";
+@use "scheme";
+/*****************************************************************************
+Scheming
+******************************************************************************/
+
+// Returns the specified color scheme. The color scheme is either a color
+// scheme map or a string either 'light', 'dark', 'red-light', 'red-dark',
+// 'yellows-light', 'greens-light', 'greens-dark', 'blues-light', 'blues-dark',
+// 'magentas-light' and 'magentas-dark'.
+// @param {Map | String} $scheme The color scheme name or color scheme map.
+// @returns {Map} A valid color scheme map.
+@function get-scheme($scheme) {
+  @if meta.type-of($scheme) == string {
+    @if $scheme == light {
+      @return scheme.$light-scheme;
+    } @else if $scheme == dark {
+      @return scheme.$dark-scheme;
+    } @else if $scheme == red-light {
+      @return scheme.$red-light-scheme;
+    } @else if $scheme == red-dark {
+      @return scheme.$red-dark-scheme;
+    } @else if $scheme == yellow-light {
+      @return scheme.$yellow-light-scheme;
+    } @else if $scheme == yellow-dark {
+      @return scheme.$yellow-dark-scheme;
+    } @else if $scheme == green-light {
+      @return scheme.$green-light-scheme;
+    } @else if $scheme == green-dark {
+      @return scheme.$green-dark-scheme;
+    } @else if $scheme == blue-light {
+      @return scheme.$blue-light-scheme;
+    } @else if $scheme == blue-dark {
+      @return scheme.$blue-dark-scheme;
+    } @else if $scheme == magenta-light {
+      @return scheme.$magenta-light-scheme;
+    } @else if $scheme == magenta-dark {
+      @return scheme.$magenta-dark-scheme;
+    } @else {
+      @error "Scheme must be one of the following: 'light', 'dark', "
+        "'red-light', 'red-dark', 'yellow-light', 'yellow-dark', "
+        "'green-light', 'green-dark', 'blue-light', 'blue-dark', "
+        "'magenta-light' or 'magenta-dark'";
+    }
+  } @else {
+    @return scheme.validate-scheme($scheme);
+  }
+}

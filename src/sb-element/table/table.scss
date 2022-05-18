@@ -1,0 +1,52 @@
+@use "../styles/border";
+@use "../styles/spacing";
+/*****************************************************************************
+Table / Style
+******************************************************************************/
+
+// ROOT
+.sb-table {
+
+  display: flex;
+  @include border.radius(s);
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__th, &__td {
+    @include spacing.padding(s);
+  }
+
+  &.left &__th, &.left &__td {
+    text-align: left;
+  }
+
+  &.center &__th, &.center &__td {
+    text-align: center;
+  }
+
+  &.right &__th, &.right &__td {
+    text-align: right;
+  }
+
+  &__head &__th {
+    &:first-child {
+      @include border.radius-top-left(s);
+    }
+    &:last-child {
+      @include border.radius-top-right(s);
+    }
+  }
+
+  &__row:last-child &__td {
+    &:first-child {
+      @include border.radius-bottom-left(s);
+    }
+    &:last-child {
+      @include border.radius-bottom-right(s);
+    }
+  }
+}

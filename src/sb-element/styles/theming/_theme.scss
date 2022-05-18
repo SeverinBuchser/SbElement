@@ -1,0 +1,81 @@
+@use "sass:map";
+@use "palette";
+@use "scheme";
+/*****************************************************************************
+Theme Definitions
+******************************************************************************/
+
+// Validates the specified theme for completeness. The theme must include a
+// valid base color schem as well as a valid primar, secondary, success, warn
+// and info color scheme.
+// @param {Map} $theme The theme to validate.
+// @returns {Map} The valid theme.
+@function validate-theme($theme) {
+  @if not map.has-key($theme, base) {
+    @error "Theme does not specify a base scheme.";
+  } @else if not map.has-key($theme, primary) {
+    @error "Theme does not specify a primary scheme.";
+  } @else if not map.has-key($theme, secondary) {
+    @error "Theme does not specify a secondary scheme.";
+  } @else if not map.has-key($theme, success) {
+    @error "Theme does not specify a success scheme.";
+  } @else if not map.has-key($theme, warn) {
+    @error "Theme does not specify a warn scheme.";
+  } @else if not map.has-key($theme, info) {
+    @error "Theme does not specify a info scheme.";
+  }
+
+  $base: scheme.validate-scheme(map.get($theme, base));
+  $primary: scheme.validate-scheme(map.get($theme, primary));
+  $secondary: scheme.validate-scheme(map.get($theme, secondary));
+  $success: scheme.validate-scheme(map.get($theme, success));
+  $warn: scheme.validate-scheme(map.get($theme, warn));
+  $info: scheme.validate-scheme(map.get($theme, info));
+
+  @return $theme;
+}
+
+// Defines a theme. The theme includes a base color scheme as well as a
+// primary, a secondary, a success, a warn and an info color scheme.
+// @param {Map} $base-scheme The base color scheme.
+// @param {Map} $primary-scheme The primary color scheme.
+// @param {Map} $secondary-scheme The secondary color scheme.
+// @param {Map} $success-scheme The success color scheme.
+// @param {Map} $warn-scheme The warn color scheme.
+// @param {Map} $info-scheme The info color scheme.
+// @return {Map} The valid theme map.
+@function define-theme(
+  $base-scheme,
+  $primary-scheme,
+  $secondary-scheme,
+  $success-scheme,
+  $warn-scheme,
+  $info-scheme
+) {
+  @return validate-theme((
+    base: $base-scheme,
+    primary: $primary-scheme,
+    secondary: $secondary-scheme,
+    success: $success-scheme,
+    warn: $warn-scheme,
+    info: $info-scheme
+  ));
+}
+
+$light-theme: define-theme(
+  scheme.$light-scheme,
+  scheme.$blue-light-scheme,
+  scheme.$magenta-light-scheme,
+  scheme.$green-light-scheme,
+  scheme.$red-light-scheme,
+  scheme.$yellow-light-scheme
+);
+
+$dark-theme: define-theme(
+  scheme.$dark-scheme,
+  scheme.$blue-dark-scheme,
+  scheme.$magenta-dark-scheme,
+  scheme.$green-dark-scheme,
+  scheme.$red-dark-scheme,
+  scheme.$yellow-dark-scheme
+);

@@ -1,0 +1,33 @@
+@use "../styles/border";
+@use "../styles/display";
+@use "../styles/transition";
+/*****************************************************************************
+Calendar / Style
+******************************************************************************/
+
+// ROOT
+.sb-calendar {
+  &__navigation {
+    @include display.flex(space-between);
+
+    .sb-icon {
+      @include transition.ease(200ms);
+      @include border.radius(50%);
+      cursor: pointer;
+    }
+  }
+
+  &__navigation-month {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    &__navigation .sb-icon {
+      cursor: not-allowed;
+    }
+
+    &__navigation-month {
+      cursor: not-allowed;
+    }
+  }
+}

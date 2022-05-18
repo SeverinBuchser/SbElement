@@ -1,0 +1,40 @@
+@use "../../styles/border";
+@use "../../styles/theming";
+/*****************************************************************************
+Toggle-Switch / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-toggle-switch.sb--#{$color} {
+      @include border.border($theme, $color, m);
+      &.off div {
+        background: theming.get-color($theme, $color);
+      }
+
+      &.on {
+        background: theming.get-color($theme, $color);
+        div {
+          background: theming.get-text($theme, $color);
+        }
+      }
+
+      &.accent {
+        border: border.get-border-width(m) transparent solid;
+        background: theming.get-accent($theme);
+
+        &.off div {
+          background: theming.get-color($theme, $color);
+        }
+
+        &.on {
+          background: theming.get-color($theme, $color);
+          div {
+            background: theming.get-accent($theme);
+          }
+        }
+      }
+    }
+  }
+}

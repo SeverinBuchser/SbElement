@@ -1,0 +1,10 @@
+@use "../styles/display";
+/*****************************************************************************
+Nav-Bar-Content / Style
+******************************************************************************/
+
+// ROOT
+.sb-nav-bar-content {
+  @include display.grid($gap: xs);
+  align-items: center;
+}

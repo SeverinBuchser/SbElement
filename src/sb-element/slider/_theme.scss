@@ -1,0 +1,6 @@
+@use "slider.theme";
+
+
+@mixin theme($theme) {
+  @include slider.theme($theme);
+}

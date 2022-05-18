@@ -1,5 +1,0 @@
-@use 'highlight.theme';
-
-@mixin theme($theme) {
-  @include highlight.theme($theme);
-}

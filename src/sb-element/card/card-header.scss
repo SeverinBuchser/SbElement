@@ -1,0 +1,20 @@
+@use "../styles/spacing";
+@use "../styles/display";
+@use "../styles/transition";
+/*****************************************************************************
+Card-Header / Style
+******************************************************************************/
+
+// ROOT
+.sb-card-header {
+  display: block;
+  @include spacing.padding(s);
+
+  &.has-action {
+    cursor: pointer;
+  }
+
+  .sb-icon {
+    @include transition.ease(200ms);
+  }
+}

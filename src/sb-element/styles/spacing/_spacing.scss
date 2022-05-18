@@ -1,0 +1,68 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "spacings";
+/*****************************************************************************
+Spacing
+******************************************************************************/
+
+// Returns the specified spacing.
+// @param {String} $key The spacing key.
+// @returns {String} The specified spacing value.
+@function get-spacing($key: m) {
+  @if map.has-key(spacings.$spacings, $key) {
+    @return map.get(spacings.$spacings, $key);
+  } @else {
+    @return $key;
+  }
+}
+
+// Returns true if the spacing key exists and false otherwise.
+// @param {String} $key The spacing key.
+// @returns {Boolean} True if the spacing key exists and false otherwise.
+@function spacing-exists($key) {
+  @return map.has-key(spacings.$spacings, $key);
+}
+
+
+// A custom for-loop to control visibility of the $spacings variable. The loop
+// can be used to iterate over every $spacing defined in spacing.$spacings.
+@mixin for-each-spacing {
+  $keys: map.keys(spacings.$spacings);
+  @each $key, $value in spacings.$spacings {
+    $index: list.index($keys, $key);
+    @if $index > spacings.$smallest-index and $index < spacings.$biggest-index {
+      @content($key, $value);
+    }
+  }
+}
+
+
+// A function to retreive the next smaller spacing if available.
+// @param {String} $key The spacing key.
+// @returns {String} The next smaller spacing value.
+@function get-smaller($key, $times: 1) {
+  $keys: map.keys(spacings.$spacings);
+  $length: list.length($keys);
+  $index: list.index($keys, $key) - $times + 1;
+  @if $index and meta.type-of($index) == number and 1 < $index
+    and $index <= $length {
+    @return get-spacing(list.nth($keys, $index - 1));
+  }
+  @error "There is no smaller spacing for the spacing #{$key}!";
+}
+
+
+// A function to retreive the next bigger spacing if available.
+// @param {String} $key The spacing key.
+// @returns {String} The next bigger spacing value.
+@function get-bigger($key, $times: 1) {
+  $keys: map.keys(spacings.$spacings);
+  $length: list.length($keys);
+  $index: list.index($keys, $key) + $times - 1;
+  @if $index and meta.type-of($index) == number and 0 < $index
+    and $index < $length {
+    @return get-spacing(list.nth($keys, $index + 1));
+  }
+  @error "There is no bigger spacing for the spacing #{$key}!";
+}

@@ -1,0 +1,24 @@
+@use "sb-element/styles/display";
+
+.inputs {
+  display: grid;
+  grid-gap: 50px;
+  grid-auto-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%
+}
+
+
+.group {
+  @include display.flex($align: flex-start, $direction: column, $gap: xs);
+}
+
+
+.picker-grid {
+  align-items: center;
+}
+
+h6 {
+  text-transform: capitalize;
+}

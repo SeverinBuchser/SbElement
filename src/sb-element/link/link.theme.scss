@@ -1,0 +1,18 @@
+@use "../styles/theming";
+/*****************************************************************************
+Link / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-link {
+    &, & a {
+      color: theming.get-background-text($theme);
+    }
+
+    &:hover {
+      color: theming.get-accent-text($theme);
+      background: theming.get-accent($theme);
+    }
+  }
+}

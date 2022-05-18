@@ -1,0 +1,32 @@
+@use "../../styles/theming";
+/*****************************************************************************
+Checkbox / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-toggle-checkbox {
+    color: theming.get-foreground-text($theme);
+
+    input {
+      border-color: theming.get-accent($theme);
+    }
+
+    &.accent input {
+      background: theming.get-accent($theme);
+    }
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} input {
+        & ~.sb-icon {
+          color: theming.get-text($theme, $color);
+        }
+
+        &:checked {
+          background: theming.get-color($theme, $color);
+          border-color: theming.get-color($theme, $color);
+        }
+      }
+    }
+  }
+}

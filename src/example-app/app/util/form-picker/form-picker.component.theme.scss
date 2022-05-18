@@ -1,0 +1,20 @@
+@use "sb-element/styles/theming";
+@use "sb-element/styles/border";
+
+@mixin theme($theme) {
+	[class^=shape] {
+
+		div {
+			border: theming.get-accent-text($theme) border.get-border-width(m) solid;
+		}
+
+		&.active div {
+			background: theming.get-accent-text($theme);
+		}
+
+		&.disabled div {
+			border: none;
+			background: theming.get-accent($theme);
+		}
+	}
+}

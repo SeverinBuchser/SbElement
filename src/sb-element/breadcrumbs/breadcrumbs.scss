@@ -1,0 +1,28 @@
+@use "../styles/border";
+@use "../styles/display";
+@use "../styles/spacing";
+@use "../styles/transition";
+@use "../styles/typography";
+/*****************************************************************************
+Bar / Style
+******************************************************************************/
+
+// ROOT
+.sb-breadcrumbs {
+  @include spacing.padding(s);
+  @include display.flex($justify: flex-start, $gap: xs);
+
+  &__crumb {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-transform: capitalize;
+    text-decoration-thickness: border.get-border-width(m);
+    text-underline-offset: border.get-border-width(m);
+    @include transition.ease(300ms, text-decoration-color);
+  }
+
+  .sb-icon {
+    font-size: smaller;
+  }
+}

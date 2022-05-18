@@ -1,0 +1,18 @@
+@use "../styles/border";
+@use "../styles/theming";
+/*****************************************************************************
+Card-Image / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-card-image {
+    &.border-top {
+      @include border.border-side-accent(top, $theme, m);
+    }
+
+    &.border-bottom {
+      @include border.border-side-accent(bottom, $theme, m);
+    }
+  }
+}

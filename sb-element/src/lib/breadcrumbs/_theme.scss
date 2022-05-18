@@ -1,5 +1,0 @@
-@use 'breadcrumbs.theme';
-
-@mixin theme($theme) {
-  @include breadcrumbs.theme($theme);
-}

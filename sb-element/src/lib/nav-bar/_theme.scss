@@ -1,5 +1,0 @@
-@use 'nav-bar.theme';
-
-@mixin theme($theme) {
-  @include nav-bar.theme($theme);
-}

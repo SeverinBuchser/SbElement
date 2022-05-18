@@ -1,0 +1,13 @@
+@use "../theming";
+/*****************************************************************************
+Background
+******************************************************************************/
+
+@include theming.for-each-palette using ($palette) {
+	@include theming.for-each-shade($palette) using ($shade) {
+		.sb--bg-#{$palette}-#{$shade} {
+			background: theming.get-shade($palette, $shade);
+			color: theming.get-contrast($palette, $shade);
+		}
+	}
+}

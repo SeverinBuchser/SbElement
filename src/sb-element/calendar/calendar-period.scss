@@ -1,0 +1,14 @@
+@use "../styles/display";
+@use "../styles/spacing";
+/*****************************************************************************
+Calendar-Years / Stlye
+******************************************************************************/
+
+// ROOT
+.sb-calendar-period {
+  width: calc(7 * spacing.get-spacing(xl));
+  height: calc(7 * spacing.get-spacing(xl));
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}

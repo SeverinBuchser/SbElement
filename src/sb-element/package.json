@@ -1,0 +1,87 @@
+{
+  "name": "sb-element",
+  "version": "1.0.13",
+  "author": "Severin Buchser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeverinBuchser/SbElement.git"
+  },
+  "scripts": {
+    "build": "ng build sb-element -c production && tsc --project tsconfig.schematics.json",
+    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/*/** schematics/collection.json ../../dist/sb-element/",
+    "dev": "ng build sb-element --watch",
+    "build:schematics": "tsc --project tsconfig.schematics.json && npm run postbuild",
+    "doc": "compodoc --config .compodocrc",
+    "copy:doc": "cp -ra ./documentation/. ../../SeverinBuchser.github.io/sb-element-doc"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "devDependencies"
+  },
+  "peerDependencies": {
+    "@angular/common": "~13.2.0",
+    "@angular/core": "~13.2.0",
+    "@angular/cdk": "^13.3.4",
+    "date-fns": "^2.24.0",
+    "highlight.js": "^11.5.1"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "copyfiles": "file:../../node_modules/copyfiles",
+    "typescript": "file:../../node_modules/typescript"
+  },
+  "keywords": [
+    "library",
+    "angular",
+    "sb",
+    "component",
+    "sb-theming",
+    "sb-element"
+  ],
+  "exports": {
+    ".": {
+      "sass": "./sb-element.scss"
+    },
+    "./theme": {
+      "sass": "./sb-element.theme.scss"
+    },
+    "./theme/dark": {
+      "sass": "./sb-element.theme.dark.scss"
+    },
+    "./theme/light": {
+      "sass": "./sb-element.theme.light.scss"
+    },
+    "./styles": {
+      "sass": "./styles/_index.scss"
+    },
+    "./styles/animation": {
+      "sass": "./styles/animation/_index.scss"
+    },
+    "./styles/border": {
+      "sass": "./styles/border/_index.scss"
+    },
+    "./styles/box-shadow": {
+      "sass": "./styles/box-shadow/_index.scss"
+    },
+    "./styles/display": {
+      "sass": "./styles/display/_index.scss"
+    },
+    "./styles/spacing": {
+      "sass": "./styles/spacing/_index.scss"
+    },
+    "./styles/theming": {
+      "sass": "./styles/theming/_index.scss"
+    },
+    "./styles/transition": {
+      "sass": "./styles/transition/_index.scss"
+    },
+    "./styles/typography": {
+      "sass": "./styles/typography/_index.scss"
+    },
+    "./styles/util": {
+      "sass": "./styles/util/_index.scss"
+    }
+  }
+}

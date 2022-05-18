@@ -1,0 +1,16 @@
+@use "../styles/display";
+@use "../styles/spacing";
+@use "../styles/transition";
+/*****************************************************************************
+Tab-Label / Style
+******************************************************************************/
+
+// ROOT
+.sb-tab-label {
+  @include display.flex();
+  @include spacing.padding-y(s);
+  @include transition.ease(300ms, border);
+  z-index: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}

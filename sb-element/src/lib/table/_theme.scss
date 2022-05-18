@@ -1,5 +1,0 @@
-@use 'table.theme';
-
-@mixin theme($theme) {
-  @include table.theme($theme);
-}

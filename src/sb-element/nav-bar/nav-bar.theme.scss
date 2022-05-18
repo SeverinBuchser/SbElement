@@ -1,0 +1,14 @@
+@use "../styles/border";
+@use "../styles/theming";
+/*****************************************************************************
+Nav-Bar / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-nav-bar {
+    color: theming.get-foreground-text($theme);
+    background: theming.get-foreground($theme);
+    @include border.border-side-accent(bottom, $theme);
+  }
+}

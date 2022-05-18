@@ -1,0 +1,24 @@
+@use "../styles/border";
+@use "../styles/display";
+@use "../styles/spacing";
+@use "../styles/transition";
+@use "../styles/typography";
+/*****************************************************************************
+Link / Style
+******************************************************************************/
+
+// ROOT
+.sb-link {
+  $height: spacing.get-spacing(l);
+  @include display.flex();
+  @include spacing.padding-x(xs);
+  @include border.pill($height);
+  @include transition.ease(background, 300ms);
+  height: $height;
+  cursor: pointer;
+  position: relative;
+
+  &.active {
+    @include typography.font-weight($weight: bold);
+  }
+}

@@ -1,0 +1,10 @@
+@use "../styles/spacing";
+/*****************************************************************************
+Sidebar-Container / Style
+******************************************************************************/
+
+// ROOT
+.sb-sidebar-container {
+  @include spacing.padding(s);
+  pointer-events: all;
+}

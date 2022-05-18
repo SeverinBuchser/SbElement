@@ -1,0 +1,12 @@
+@use "../styles/border";
+@use "../styles/spacing";
+/*****************************************************************************
+Container / Style
+******************************************************************************/
+
+// ROOT
+.sb-container {
+  display: block;
+  @include spacing.padding(s);
+  @include border.radius(m);
+}

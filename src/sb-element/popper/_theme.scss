@@ -1,0 +1,5 @@
+@use "popper-overlay.theme";
+
+@mixin theme($theme) {
+  @include popper-overlay.theme($theme);
+}

@@ -1,0 +1,5 @@
+@use "sb-element/styles/display";
+
+.center {
+	@include display.flex();
+}

@@ -1,0 +1,32 @@
+@use "sass:color";
+@use "../styles/theming";
+/*****************************************************************************
+Markable-Date / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-markable-date {
+
+    &:hover {
+      background: theming.get-accent($theme);
+    }
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} {
+        &.marked, &.marked:hover, &.marked.disabled:hover {
+          background: theming.get-color($theme, $color);
+          color: theming.get-text($theme, $color);
+        }
+
+        &.not-in-range {
+          color: theming.get-color-inverted($theme, $color);
+          &.marked {
+            background: theming.get-color-inverted($theme, $color);
+            color: theming.get-text-inverted($theme, $color);
+          }
+        }
+      }    
+    }
+  }
+}

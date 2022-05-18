@@ -1,0 +1,13 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/sb-element",
+  "lib": {
+    "entryFile": "./index.ts"
+  },
+  "assets": [
+    "**/*theme.scss",
+    "**/_theme.scss",
+    "**/styles/**/*.scss",
+    "**/sb-element*.scss"
+  ]
+}

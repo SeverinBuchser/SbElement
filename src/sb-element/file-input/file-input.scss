@@ -1,0 +1,53 @@
+@use "../styles/border";
+@use "../styles/spacing";
+@use "../styles/transition";
+/*****************************************************************************
+File-Input / Style
+******************************************************************************/
+
+// SIZE
+@mixin file-input-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $bigger;
+    label {
+      height: 100%;
+      width: 100%;
+      line-height: $bigger;
+    }
+
+    &.pill label {
+      @include border.pill($bigger);
+    }
+  }
+}
+
+// ROOT
+.sb-file-input {
+  display: block;
+
+  input {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include transition.ease(300ms, background, color);
+    @include border.radius(s);
+    @include spacing.padding-x(s);
+  }
+
+  &.disabled label {
+    cursor: not-allowed;
+  }
+
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include file-input-size($key, $spacing);
+  }
+}

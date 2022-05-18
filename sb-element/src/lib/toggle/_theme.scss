@@ -1,9 +1,0 @@
-@use 'toggle-button/toggle-button.theme';
-@use 'toggle-checkbox/toggle-checkbox.theme';
-@use 'toggle-switch/toggle-switch.theme';
-
-@mixin theme($theme) {
-  @include toggle-button.theme($theme);
-  @include toggle-checkbox.theme($theme);
-  @include toggle-switch.theme($theme);
-}

@@ -1,5 +1,0 @@
-@use 'select-button-list.theme';
-
-@mixin theme($theme) {
-  @include select-button-list.theme($theme);
-}

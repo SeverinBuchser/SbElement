@@ -1,0 +1,19 @@
+@use "../styles/spacing";
+/*****************************************************************************
+Grid / Style
+******************************************************************************/
+
+// ROOT
+.sb-grid {
+  display: grid;
+
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    &[gap=#{$key}] {
+      grid-gap: $spacing;
+    }
+  }
+
+  &[gap=xs] {
+    grid-gap: spacing.get-spacing(xs);
+  }
+}

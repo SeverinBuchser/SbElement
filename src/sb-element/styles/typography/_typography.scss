@@ -1,0 +1,134 @@
+@use "sass:map";
+@use "sass:meta";
+@use "typographies";
+/*****************************************************************************
+Typography
+******************************************************************************/
+
+// Returns the specified font. The font is either a font map, as defied in
+// @see "./_typographies.scss" or a string, either 'default', 'display', 'icon'
+// or 'icon-outlined'.
+// @param {Map | String} $font The font name or map.
+// @returns {Map} A complete font map.
+@function get-font($font: default) {
+  @if meta.type-of($font) == string {
+    @if $font == default {
+      @return typographies.$default-font;
+    } @else if $font == display {
+      @return typographies.$display-font;
+    } @else if $font == code {
+      @return typographies.$code-font;
+    } @else if $font == icon {
+      @return typographies.$icon-font;
+    } @else if $font == icon-outlined {
+      @return typographies.$icon-outlined-font;
+    } @else {
+      @error 'The font must either be "default", "display" or a map.';
+    }
+  } @else {
+    @return typographies.validate-font($font);
+  }
+}
+
+// Returns the specified font family for the font type.
+// @param {String} $font The font type.
+// @returns {String} The specified font family.
+@function get-font-family($font: default) {
+  $font: get-font($font);
+  @return map.get($font, family);
+}
+
+// Returns the specified font weight for a specific font tpye. Note that not all
+// font weights are allowed for different font types. Thus the function throws
+// an error if the weight is not available for the spefified type.
+// @param {String} $font The font type.
+// @param {String} $weight The font weight.
+// @returns {String} The specified font weight for the specified font type.
+@function get-font-weight($font: default, $weight: null) {
+  $font: get-font($font);
+  $weights: map.get($font, weights);
+  @if not $weight {
+    $weight: map.get($font, default-weight);
+  }
+  @if map.has-key($weights, $weight) {
+    @return map.get($weights, $weight);
+  } @else {
+    @error 'The spefified font-weight "#{$weight}" does not exist.';
+  }
+}
+
+// Returns the specified font size for a specific font tpye. Note that not all
+// font sizes are allowed for different font types. Thus the function throws
+// an error if the size is not available for the spefified type. If the size is
+// not specified, the function defaults to the default font size defined by the
+// font type.
+// @param {String} $font The font type.
+// @param {String} $size The font size.
+// @returns {String} The specified font size for the specified font type.
+@function get-font-size($font: default, $size: null) {
+  $font: get-font($font);
+  $sizes: map.get($font, sizes);
+  @if not $size {
+    $size: map.get($font, default-size);
+  }
+  @if map.has-key($sizes, $size) {
+    @return map.get($sizes, $size);
+  } @else {
+    @error 'The spefified font-size "#{$size}" does not exist.';
+  }
+}
+
+// A mixin to include font types with the specified type, weight and
+// size.
+// @param {String} $font The font type.
+// @param {String} $weight The font weight.
+// @param {String} $size The font size.
+@mixin font($font: default, $weight: null, $size: null) {
+  $family: get-font-family($font);
+  $weight: get-font-weight($font, $weight);
+  $size: get-font-size($font, $size);
+  font: $weight $size $family;
+}
+
+// A mixin to include font family with the specified type.
+// @param {String} $font The font type.
+// @param {String} $weight The font weight.
+// @param {String} $size The font size.
+@mixin font-family($font: default) {
+  $family: get-font-family($font);
+  font-family: $family;
+}
+
+// A mixin to include a font weight for a specific font.
+// @param {String} $font The font type.
+// @param {String} $weight The font weight.
+@mixin font-weight($font: default, $weight: null) {
+  font-weight: get-font-weight($font, $weight);
+}
+
+// Can be used to loop in every font weight for a specific font.
+// @param {String} $font The font from which to get the weights.
+@mixin for-each-font-weight($font) {
+  $font: get-font($font);
+  $weights: map.get($font, weights);
+  @each $key, $weight in $weights {
+    @content($key, $weight);
+  }
+}
+
+// A mixin to include a font size for a specific font.
+// @param {String} $font The font type.
+// @param {String} $weight The font weight.
+@mixin font-size($font: default, $size: null) {
+  font-size: get-font-size($font, $size);
+}
+
+// Can be used to loop in every font size for a specific font.
+// @param {String} $font The font from which to get the sizes.
+@mixin for-each-font-size($font) {
+  $font: get-font($font);
+  $sizes: map.get($font, sizes);
+  @each $key, $size in $sizes {
+    @content($key, $size);
+  }
+}

@@ -1,0 +1,14 @@
+@use "../theming";
+/*****************************************************************************
+Scrollbar / Theme
+******************************************************************************/ 
+
+@mixin theme($theme) {
+	html::-webkit-scrollbar-thumb {
+		color: theming.get-accent-text($theme);
+	}
+
+	html::-webkit-scrollbar-track {
+		background: theming.get-foreground($theme);
+	}
+}

@@ -1,0 +1,60 @@
+@use "../styles/animation";
+@use "../styles/border";
+@use "../styles/display";
+@use "../styles/spacing";
+/*****************************************************************************
+Progress / Style
+******************************************************************************/
+
+// SIZE
+@mixin progress-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} {
+    height: $spacing;
+
+    &.pill {
+      @include border.pill($bigger);
+    }
+  }
+
+  &.sb--#{$key} &__bar {
+    font-size: calc($spacing - 2px);
+    background-size: $bigger $bigger;
+  }
+
+  @include animation.keyframes(progress-stripes--#{$key}) {
+      0% {background-position-x: $bigger;}
+  }
+
+  &.sb--#{$key}.animate-stripes &__bar {
+    @include animation.animation(progress-stripes--#{$key} 2s infinite linear);
+  }
+}
+
+// ROOT
+.sb-progress {
+
+  @include display.flex($justify: flex-start);
+  @include border.radius(s);
+  overflow: hidden;
+  width: 100%;
+
+  &__bar {
+    height: 100%;
+    @include display.flex();
+  }
+
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include progress-size($key, $spacing);
+  }
+
+  &.sb--xs {
+    height: 2px;
+    border-radius: 0;
+  }
+
+  &.sb--xs &__bar {
+    background-image: none !important;
+  }
+
+}

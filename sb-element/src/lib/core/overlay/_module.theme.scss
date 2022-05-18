@@ -1,7 +1,0 @@
-@use 'overlay-outlet/overlay-outlet.component.theme';
-@use 'overlay/overlay.component.theme';
-
-@mixin theme($theme) {
-  @include overlay-outlet.theme($theme);
-  @include overlay.theme($theme);
-}

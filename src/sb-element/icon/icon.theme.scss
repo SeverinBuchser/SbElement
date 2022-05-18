@@ -1,0 +1,13 @@
+@use "../styles/theming";
+/*****************************************************************************
+Icon / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-icon.sb--#{$color} {
+        color: theming.get-color($theme, $color);
+    }
+  }
+}

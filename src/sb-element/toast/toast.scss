@@ -1,0 +1,93 @@
+@use "../styles/border";
+@use "../styles/box-shadow";
+@use "../styles/display";
+@use "../styles/spacing";
+@use "../styles/transition";
+/*****************************************************************************
+Toast / Style
+******************************************************************************/
+
+// SIZE
+@mixin toast-size($key, $spacing) {
+  &.sb--#{$key} {
+
+  }
+}
+
+// ROOT
+.sb-toast {
+  position: relative;
+  @include display.grid($gap: 0, $flow: row);
+  @include transition.ease(200ms, opacity);
+  @include box-shadow.weak();
+  @include border.radius(s);
+
+  &__border {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    @include border.radius(s);
+  }
+
+  &__header {
+    @include display.flex($justify: space-between, $gap: s);
+    @include spacing.padding(s);
+    grid-row: 1 / 2;
+    z-index: 1;
+  }
+
+  &__close {
+    margin-left: auto;
+    @include transition.ease(200ms);
+    @include border.radius(50%);
+    cursor: pointer;
+  }
+
+  &__body {
+    @include spacing.padding(s);
+    grid-row: 3 / 4;
+    z-index: 1;
+  }
+
+  &__header-hr {
+    grid-row: 2 / 3;
+    width: calc(100% - 2 * border.get-border-width(s));
+    transform: translateX(border.get-border-width(s));
+    z-index: 1;
+    @include spacing.margin(0);
+  }
+
+  &__header:empty,
+  &__body:empty,
+  &:not(.timed) &__header:empty ~ &__header-hr, // only header empty and not timed
+  &:not(.timed) &__body:empty ~ &__header-hr { // only body empty and not timed
+    display: none;
+  }
+
+  &.timed &__body:empty ~ &__border {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.timed &__header:empty ~ &__border {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &.sb--hidden {
+    display: none;
+  }
+
+  &.sb--visibly-hidden {
+    opacity: 0;
+  }
+
+  &.sb--visible {
+    opacity: 1;
+  }
+
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include toast-size($key, $spacing);
+  }
+}

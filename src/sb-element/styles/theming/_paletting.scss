@@ -1,0 +1,89 @@
+@use "sass:map";
+@use "sass:meta";
+@use "palette";
+/*****************************************************************************
+Paletting
+******************************************************************************/
+
+// Returns the specified color palette. The color palette is either a color
+// palette map or a string either 'reds-saturated', 'reds-desaturated',
+// 'yellows-saturated', 'yellows-desaturated', 'greens-saturated',
+// 'greens-desaturated', 'blues-saturated', 'blues-desaturated',
+// 'magentas-saturated' and 'magentas-desaturated'.
+// @param {Map | String} $palette The color palette name or color palette map.
+// @returns {Map} A valid color palette map.
+@function get-palette($palette) {
+  @if meta.type-of($palette) == string {
+    @if $palette == red-saturated {
+      @return palette.$red-saturated-palette;
+    } @else if $palette == red-desaturated {
+      @return palette.$red-desaturated-palette;
+    } @else if $palette == yellow-saturated {
+      @return palette.$yellow-saturated-palette;
+    } @else if $palette == yellow-desaturated {
+      @return palette.$yellow-desaturated-palette;
+    } @else if $palette == green-saturated {
+      @return palette.$green-saturated-palette;
+    } @else if $palette == green-desaturated {
+      @return palette.$green-desaturated-palette;
+    } @else if $palette == blue-saturated {
+      @return palette.$blue-saturated-palette;
+    } @else if $palette == blue-desaturated {
+      @return palette.$blue-desaturated-palette;
+    } @else if $palette == magenta-saturated {
+      @return palette.$magenta-saturated-palette;
+    } @else if $palette == magenta-desaturated {
+      @return palette.$magenta-desaturated-palette;
+    } @else {
+      @error "Palette must be one of the following: 'red-saturated', "
+        "'red-desaturated', 'yellow-saturated', 'yellow-desaturated', "
+        "'green-saturated', 'green-desaturated', 'blue-saturated', "
+        "'blue-desaturated', 'magenta-saturated' or 'magenta-desaturated'";
+    }
+  } @else {
+    @return palette.validate-palette($palette);
+  }
+}
+
+// Returns the speficied shade of the specified color palette.
+// @param {Map} $palette The palette.
+// @param {String} $shade The shade.
+// @returns {Color} The shade of the color palette.
+@function get-shade($palette, $shade) {
+  $palette: get-palette($palette);
+  @return map.get($palette, shades, $shade);
+}
+
+// Returns the speficied contrast of the specified color palette.
+// @param {Map} $palette The palette.
+// @param {String} $contrast The contrast.
+// @returns {Color} The contrast of the color palette.
+@function get-contrast($palette, $contrast) {
+  $palette: get-palette($palette);
+  @return map.get($palette, contrasts, $contrast);
+}
+
+// A custom for-loop to simplyfiy the looping through each available color
+// palette.
+@mixin for-each-palette() {
+  @content(red-saturated);
+  @content(red-desaturated);
+  @content(yellow-saturated);
+  @content(yellow-desaturated);
+  @content(green-saturated);
+  @content(green-desaturated);
+  @content(blue-saturated);
+  @content(blue-desaturated);
+  @content(magenta-saturated);
+  @content(magenta-desaturated);
+}
+
+// A custom for-loop to simplyfiy the looping through each color of a color
+// palette. The loop and can be used to iterate over every shade in the color
+// palette.
+// @param {Map | String} $palette The color palette.
+@mixin for-each-shade($palette) {
+  @each $key, $shade  in map.get(get-palette($palette), shades) {
+    @content($key);
+  }
+}

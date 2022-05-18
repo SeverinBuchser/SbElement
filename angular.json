@@ -4,7 +4,7 @@
     "analytics": "0f6cfd45-a9ae-4322-a71f-2cf83aa4761e"
   },
   "version": 1,
-  "newProjectRoot": ".",
+  "newProjectRoot": "src",
   "projects": {
     "example-app": {
       "projectType": "application",
@@ -16,44 +16,44 @@
           "strict": true
         }
       },
-      "root": "",
-      "sourceRoot": "example-app/src",
+      "root": "example-app",
+      "sourceRoot": "src/example-app",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/example-app",
-            "index": "example-app/src/index.html",
-            "main": "example-app/src/main.ts",
-            "polyfills": "example-app/src/polyfills.ts",
-            "tsConfig": "example-app/tsconfig.app.json",
+            "index": "src/example-app/index.html",
+            "main": "src/example-app/main.ts",
+            "polyfills": "src/example-app/polyfills.ts",
+            "tsConfig": "src/example-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "example-app/src/favicon.ico",
-              "example-app/src/assets"
+              "src/example-app/favicon.ico",
+              "src/example-app/assets"
             ],
             "styles": [
-              "example-app/src/styles.scss",
+              "src/example-app/styles.scss",
               {
-                "input": "example-app/src/sb-dark.scss",
+                "input": "src/example-app/sb-dark.scss",
                 "inject": false,
                 "bundleName": "sb-dark"
               },
               {
-                "input": "example-app/src/sb-neutral.scss",
+                "input": "src/example-app/sb-neutral.scss",
                 "inject": false,
                 "bundleName": "sb-neutral"
               },
               {
-                "input": "example-app/src/sb-light.scss",
+                "input": "src/example-app/sb-light.scss",
                 "inject": false,
                 "bundleName": "sb-light"
               }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "example-app/src"
+                "src/example-app"
               ]
             },
             "scripts": []
@@ -74,8 +74,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "example-app/src/environments/environment.ts",
-                  "with": "example-app/src/environments/environment.prod.ts"
+                  "replace": "src/example-app/environments/environment.ts",
+                  "with": "src/example-app/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -112,36 +112,36 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "example-app/src/test.ts",
-            "polyfills": "example-app/src/polyfills.ts",
-            "tsConfig": "example-app/tsconfig.spec.json",
-            "karmaConfig": "example-app/karma.conf.js",
+            "main": "src/example-app/test.ts",
+            "polyfills": "src/example-app/polyfills.ts",
+            "tsConfig": "src/example-app/tsconfig.spec.json",
+            "karmaConfig": "src/example-app/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "example-app/src/favicon.ico",
-              "example-app/src/assets"
+              "src/example-app/favicon.ico",
+              "src/example-app/assets"
             ],
             "styles": [
-              "example-app/src/styles.scss",
+              "src/example-app/styles.scss",
               {
-                "input": "example-app/src/sb-dark.scss",
+                "input": "src/example-app/sb-dark.scss",
                 "inject": false,
                 "bundleName": "sb-dark"
               },
               {
-                "input": "example-app/src/sb-neutral.scss",
+                "input": "src/example-app/sb-neutral.scss",
                 "inject": false,
                 "bundleName": "sb-neutral"
               },
               {
-                "input": "example-app/src/sb-light.scss",
+                "input": "src/example-app/sb-light.scss",
                 "inject": false,
                 "bundleName": "sb-light"
               }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "example-app/src"
+                "src/example-app"
               ]
             },
             "scripts": []
@@ -149,33 +149,33 @@
         }
       }
     },
-    "SbElement": {
+    "sb-element": {
       "projectType": "library",
       "root": "sb-element",
-      "sourceRoot": "sb-element/src",
-      "prefix": "lib",
+      "sourceRoot": "src/sb-element",
+      "prefix": "sb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "sb-element/ng-package.json"
+            "project": "src/sb-element/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "sb-element/tsconfig.lib.prod.json"
+              "tsConfig": "src/sb-element/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "sb-element/tsconfig.lib.json"
+              "tsConfig": "src/sb-element/tsconfig.lib.json"
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "sb-element/src/test.ts",
-            "tsConfig": "sb-element/tsconfig.spec.json",
-            "karmaConfig": "sb-element/karma.conf.js",
+            "main": "src/sb-element/test.ts",
+            "tsConfig": "src/sb-element/tsconfig.spec.json",
+            "karmaConfig": "src/sb-element/karma.conf.js",
             "codeCoverage": true,
             "codeCoverageExclude": [
               "**/testing/**/*"

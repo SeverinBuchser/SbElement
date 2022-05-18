@@ -1,0 +1,12 @@
+@use "../styles/theming";
+/*****************************************************************************
+Container / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-container {
+    background: theming.get-foreground($theme);
+    color: theming.get-foreground-text($theme);
+  }
+}

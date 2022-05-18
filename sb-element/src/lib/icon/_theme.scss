@@ -1,5 +1,0 @@
-@use 'icon.theme';
-
-@mixin theme($theme) {
-  @include icon.theme($theme);
-}

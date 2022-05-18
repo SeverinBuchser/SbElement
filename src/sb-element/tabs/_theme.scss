@@ -1,0 +1,5 @@
+@use "tab-bar.theme";
+
+@mixin theme($theme) {
+  @include tab-bar.theme($theme);
+}

@@ -1,0 +1,5 @@
+@use "toast.theme";
+
+@mixin theme($theme) {
+  @include toast.theme($theme);
+}

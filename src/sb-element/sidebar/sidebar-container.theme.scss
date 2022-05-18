@@ -1,0 +1,28 @@
+@use "../styles/border";
+@use "../styles/theming";
+/*****************************************************************************
+Sidebar-Container / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-sidebar-container {
+    background: theming.get-foreground($theme);
+
+    &.left {
+      @include border.border-side-accent(right, $theme);
+    }
+
+    &.right {
+      @include border.border-side-accent(left, $theme);
+    }
+
+    &.top {
+      @include border.border-side-accent(bottom, $theme);
+    }
+
+    &.bottom {
+      @include border.border-side-accent(top, $theme);
+    }
+  }
+}

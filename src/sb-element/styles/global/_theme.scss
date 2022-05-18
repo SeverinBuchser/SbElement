@@ -1,0 +1,7 @@
+@use "rule.theme";
+@use "scrollbar.theme";
+
+@mixin theme($theme) {
+	@include rule.theme($theme);
+	@include scrollbar.theme($theme);
+}

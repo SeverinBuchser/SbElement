@@ -1,0 +1,16 @@
+@use "../styles/border";
+@use "../styles/display";
+@use "../styles/spacing";
+/*****************************************************************************
+Input-Group / Style
+******************************************************************************/
+
+// ROOT
+.sb-input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: spacing.get-spacing(xs);
+  @include spacing.padding-x(xs);
+  @include border.radius(s);
+}

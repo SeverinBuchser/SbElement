@@ -1,0 +1,63 @@
+@use "../styles/border";
+@use "../styles/spacing";
+/*****************************************************************************
+Slider / Style
+******************************************************************************/
+
+// Helper
+@mixin style-thumbs {
+  &::-webkit-slider-thumb {@content;}
+  &::-moz-range-thumb {@content;}
+  &::-ms-thumb {@content;}
+}
+
+// Helper
+@mixin style-tracks {
+  &::-webkit-slider-runnable-track {@content;}
+  &::-moz-range-track {@content;}
+  &::-ms-track {@content;}
+  &::-ms-fill-lower {@content;}
+  &::-ms-fill-upper {@content;}
+}
+
+// ROOT
+.sb-slider {
+  display: flex;
+
+  input {
+    width: 100%;
+    appearance: none;
+    box-sizing: border-box;
+    background: transparent;
+    cursor: pointer;
+    @include spacing.margin(0);
+
+    &:focus {outline: none;}
+    &::-ms-track {
+      cursor: pointer;
+
+      // Hides the slider so custom styles can be added
+      background: transparent;
+      border: 0;
+      color: transparent;
+    }
+
+    &::-webkit-slider-thumb {-webkit-appearance: none;}
+    &::-moz-range-thumb {cursor: pointer;}
+    &::-ms-thumb {cursor: pointer;}
+    &:active {cursor: grabbing;}
+
+    $height: spacing.get-spacing(m);
+    @include style-thumbs {
+      height: $height;
+      width: $height;
+      @include border.radius(50%);
+      transform: translateY(calc($height / (-4)));
+    }
+
+    @include style-tracks {
+      @include border.pill(calc($height/2));
+      height: calc($height / 2);
+    }
+  }
+}

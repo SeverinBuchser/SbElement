@@ -1,0 +1,31 @@
+@use "../styles/border";
+@use "../styles/theming";
+/*****************************************************************************
+Input / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-input.sb--#{$color} {
+      background: theming.get-foreground($theme);
+      color: theming.get-foreground-text($theme);
+      
+      .sb-input__spinner-control {
+        &:hover {
+          background: theming.get-accent($theme);
+          color: theming.get-accent-text($theme);
+        }
+
+        &:active {
+          background: theming.get-color-inverted($theme, $color);
+          color: theming.get-text-inverted($theme, $color);
+        }
+      }
+
+      &.border {
+        @include border.border($theme, $color, m);
+      }
+    }
+  }
+}

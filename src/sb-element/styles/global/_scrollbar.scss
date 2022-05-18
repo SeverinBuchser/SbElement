@@ -1,0 +1,20 @@
+@use "../border";
+@use "../spacing";
+/*****************************************************************************
+Scrollbar / Style
+******************************************************************************/
+
+html::-webkit-scrollbar {
+	width: spacing.get-spacing(s);
+	@include border.radius(s);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+html::-webkit-scrollbar-thumb {
+	@include border.radius(s);
+	background-clip: padding-box;
+	border: calc(spacing.get-spacing(s) / 3) solid transparent;
+	box-shadow: inset 0 0 0 spacing.get-spacing(s);
+}

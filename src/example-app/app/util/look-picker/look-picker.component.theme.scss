@@ -1,0 +1,15 @@
+@use "sb-element/styles/theming";
+@use "sb-element/styles/border";
+
+@mixin theme($theme) {
+	[class^=look] {
+		&.active {
+			background: theming.get-accent($theme);
+			color: theming.get-accent-text($theme);
+		}
+
+		&.disabled {
+			color: theming.get-accent($theme);
+		}
+	}
+}

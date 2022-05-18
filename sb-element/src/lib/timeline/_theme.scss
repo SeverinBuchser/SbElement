@@ -1,5 +1,0 @@
-@use 'timeline.theme';
-
-@mixin theme($theme) {
-  @include timeline.theme($theme);
-}

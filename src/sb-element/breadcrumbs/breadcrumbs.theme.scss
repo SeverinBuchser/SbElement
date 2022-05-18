@@ -1,0 +1,26 @@
+@use "../styles/theming";
+/*****************************************************************************
+Bar / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-breadcrumbs {
+    color: theming.get-background-text($theme);
+    background: theming.get-background($theme);
+
+    .sb-icon {
+      color: theming.get-accent($theme);
+    }
+
+    &__crumb {
+      text-decoration-color: theming.get-accent($theme);
+    }
+
+    @include theming.for-each-color($theme) using ($color) {
+      &.sb--#{$color} &__crumb:hover {
+        text-decoration-color: theming.get-color($theme, $color);
+      }
+    }
+  }
+}

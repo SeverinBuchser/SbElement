@@ -1,0 +1,11 @@
+@use "sb-element/styles/theming";
+
+.example {
+  display: block;
+}
+
+.sidebar-container {
+  height: 400px;
+  width: 400px;
+  border: 1px solid red;
+}

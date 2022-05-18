@@ -1,0 +1,41 @@
+@use "sb-element/styles/spacing";
+@use "sb-element/styles/display";
+@use "sb-element/styles/border";
+@use "sb-element/styles/transition";
+
+.form-picker {
+	@include display.flex($justify: flex-end, $gap: xs);
+
+	[class^=shape] {
+		cursor: pointer;
+		height: spacing.get-spacing(m);
+		@include border.radius(s);
+		@include display.flex();
+
+		div {
+			@include transition.ease(300ms, background);
+		}
+
+		&.disabled {
+			cursor: not-allowed;
+		}
+	}
+
+	.shape-default div {
+		height: 100%;
+		width: calc(2 * spacing.get-spacing(m));
+		@include border.radius(s);
+	}
+
+	.shape-pill div {
+		height: 100%;
+		width: calc(2 * spacing.get-spacing(m));
+		@include border.pill(spacing.get-spacing(m));
+	}
+
+	.shape-round div {
+		height: 100%;
+		width: spacing.get-spacing(m);
+		@include border.pill(spacing.get-spacing(m));
+	}
+}

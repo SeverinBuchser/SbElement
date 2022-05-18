@@ -1,5 +1,0 @@
-@use 'overlay/module.theme' as overlay;
-
-@mixin theme($theme) {
-  @include overlay.theme($theme);
-}

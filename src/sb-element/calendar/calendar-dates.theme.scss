@@ -1,0 +1,16 @@
+@use "../styles/border";
+@use "../styles/theming";
+/*****************************************************************************
+Calendar-Dates / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  @include theming.for-each-color($theme) using ($color) {
+    .sb-calendar-dates {
+      &.sb--#{$color} &__week-days {
+        @include border.border-side(bottom, $theme, $color, m);
+      }
+    }
+  }
+}

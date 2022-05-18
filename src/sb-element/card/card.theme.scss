@@ -1,0 +1,14 @@
+@use "../styles/border";
+@use "../styles/theming";
+/*****************************************************************************
+Card / Theme
+******************************************************************************/
+
+// THEME
+@mixin theme($theme) {
+  .sb-card {
+    background: theming.get-foreground($theme);
+    color: theming.get-foreground-text($theme);
+    @include border.border-accent($theme, m);
+  }
+}
