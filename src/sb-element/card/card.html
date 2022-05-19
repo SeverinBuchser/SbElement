@@ -1,3 +1,8 @@
+<ng-template #titleTemplate [ngIf]="title">
+	<sb-card-header>
+		{{ title }}
+	</sb-card-header>
+</ng-template>
 <ng-content select="sb-card-header"></ng-content>
 <ng-content select="[sbCardImage]"></ng-content>
 <ng-container *ngFor="let content of contents; index as index">

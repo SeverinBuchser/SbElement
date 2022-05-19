@@ -81,6 +81,7 @@ export class SbAlertService {
   private _createOverlay(config: SbAlertConfig): OverlayRef {
     const overlayConfig = new OverlayConfig();
     overlayConfig.positionStrategy = this._createPositionStrategy(config);
+    overlayConfig.panelClass = 'sb-alert-overlay-pane';
     return this._overlay.create(overlayConfig);
   }
 

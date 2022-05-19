@@ -41,7 +41,8 @@ export class SbAlertContainerComponent extends SbAlertContainerCore {
     };
     this._params = {
       ...this._params,
-      ...this._config
+      ...this._config,
+      outsideOpacity: 0
     };
   }
 

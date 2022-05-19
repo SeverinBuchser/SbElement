@@ -14,7 +14,7 @@ import { TimelineExampleComponent } from './example/timeline/timeline-example/ti
 import { CalendarExampleComponent } from './example/calendar/calendar-example/calendar-example.component';
 import { TableExampleComponent } from './example/table/table-example/table-example.component';
 import { HomeComponent } from './home/home.component';
-import { ExampleComponent } from './example/example.component';
+import { ExampleComponentt } from './example/example.component';
 import { FormExampleComponent } from './example/form/form-example/form-example.component';
 import { PopperExampleComponent } from './example/popper/popper-example/popper-example.component';
 import { TypographyExampleComponent } from './example/typography/typography-example/typography-example.component';
@@ -24,6 +24,8 @@ import { ExampleDefaultComponent } from './example/example-default/example-defau
 import xml from 'highlight.js/lib/languages/xml';
 import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.component';
 import { InputExampleComponent } from './example/input/input-example/input-example.component';
+import { DocModule } from './doc';
+
 
 @NgModule({
   declarations: [
@@ -34,14 +36,14 @@ import { InputExampleComponent } from './example/input/input-example/input-examp
     CalendarExampleComponent,
     TableExampleComponent,
     HomeComponent,
-    ExampleComponent,
+    ExampleComponentt,
     FormExampleComponent,
     PopperExampleComponent,
     TypographyExampleComponent,
     CardExampleComponent,
     ExampleDefaultComponent,
     TabsExampleComponent,
-    InputExampleComponent,
+    InputExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { InputExampleComponent } from './example/input/input-example/input-examp
     SbTabsModule.forRoot({
       animationDuration: '0.3s'
     }),
-    UtilModule
+    UtilModule,
+    DocModule
   ],
   providers: [],
   bootstrap: [AppComponent]

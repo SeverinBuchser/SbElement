@@ -6,6 +6,8 @@ import {
   ElementRef,
   Input,
   QueryList,
+  TemplateRef,
+  ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import { hasElementRefClass, mixinClassName } from '../core';
@@ -33,6 +35,12 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
   @Input()
   public footerSeprator: boolean = true;
 
+  @Input()
+  public title?: string;
+
+  @ViewChild(TemplateRef)
+  public titleTemplate!: TemplateRef<any>;
+
   @ContentChild(SbCardHeaderComponent)
   public header?: SbCardHeaderComponent;
 
@@ -46,10 +54,14 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
     super(elementRef);
   }
 
+  private _hasHeader(): boolean {
+    return this.header || this.title ? true : false;
+  }
+
   public ngAfterContentInit(): void {
 
     if (this.images.length > 0) {
-      if (!this.header) {
+      if (!this._hasHeader()) {
         this.images.first.borderTop = false;
       }
       if (this.contents.length == 0) {
@@ -63,7 +75,7 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
   }
 
   public showContentTopRule(index: number): boolean {
-    if (index > 0 || this.images.length <= 0 && this.header) {
+    if (index > 0 || this.images.length <= 0 && this._hasHeader()) {
       return true;
     }
     return false;

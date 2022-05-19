@@ -6,7 +6,7 @@ import { IndicatorExampleComponent } from "./example/indicator/indicator-example
 import { NotificationExampleComponent } from "./example/notification/notification-example/notification-example.component";
 import { TableExampleComponent } from "./example/table/table-example/table-example.component";
 import { TimelineExampleComponent } from "./example/timeline/timeline-example/timeline-example.component";
-import { ExampleComponent } from "./example/example.component";
+import { ExampleComponentt } from "./example/example.component";
 import { FormExampleComponent } from "./example/form/form-example/form-example.component";
 import { PopperExampleComponent } from "./example/popper/popper-example/popper-example.component";
 import { TypographyExampleComponent } from "./example/typography/typography-example/typography-example.component";
@@ -14,6 +14,7 @@ import { CardExampleComponent } from "./example/card/card-example/card-example.c
 import { TabsExampleComponent } from "./example/tabs/tabs-example/tabs-example.component";
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 import { InputExampleComponent } from './example/input/input-example/input-example.component';
+import { AlertDocComponent, BreadcrumbsDocComponent } from './doc';
 
 const routes: Routes = [
   {
@@ -22,11 +23,19 @@ const routes: Routes = [
     children: [
       {
         path: 'example',
-        component: ExampleComponent,
+        component: ExampleComponentt,
         children: [
           {
             path: '',
             component: ExampleDefaultComponent
+          },
+          {
+            path: 'alert',
+            component: AlertDocComponent
+          },
+          {
+            path: 'breadcrumbs',
+            component: BreadcrumbsDocComponent
           },
           {
             path: 'indicator',
