@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { hasElementRefClass, mixinClassName, SbAlertService } from 'sb-element';
 
 @Component({
@@ -12,6 +12,9 @@ import { hasElementRefClass, mixinClassName, SbAlertService } from 'sb-element';
 })
 export class AlertExampleComponent extends mixinClassName(
   hasElementRefClass, 'app-alert-example') {
+
+  @ViewChild('customAlertTemplate', { static: true })
+  public customAlertTemplate!: TemplateRef<any>;
 
   constructor(
     elementRef: ElementRef,
@@ -38,5 +41,9 @@ export class AlertExampleComponent extends mixinClassName(
 
   alertInform() {
     this.alertService.inform("Info Notification");
+  }
+
+  alertCustom() {
+    this.alertService.alertFromTemplate(this.customAlertTemplate)
   }
 }
