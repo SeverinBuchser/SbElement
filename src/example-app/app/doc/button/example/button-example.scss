@@ -1,0 +1,12 @@
+@use "sb-element/styles/spacing";
+
+.app-button-example {
+  display: block;
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: spacing.get-spacing(xs);
+  }
+}

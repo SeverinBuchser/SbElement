@@ -15,6 +15,7 @@ import { TabsExampleComponent } from "./example/tabs/tabs-example/tabs-example.c
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 import { InputExampleComponent } from './example/input/input-example/input-example.component';
 import { AlertDocComponent, BreadcrumbsDocComponent } from './doc';
+import { ButtonDocComponent } from './doc/button';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
           {
             path: 'breadcrumbs',
             component: BreadcrumbsDocComponent
+          },
+          {
+            path: 'Button',
+            component: ButtonDocComponent
           },
           {
             path: 'indicator',
