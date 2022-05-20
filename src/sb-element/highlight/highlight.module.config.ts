@@ -1,5 +1,5 @@
-import { InjectionToken } from "@angular/core";
-import { SbHighlightLanguage } from "./highlight-language";
+import { InjectionToken } from '@angular/core';
+import { SbHighlightLanguage } from './highlight-language';
 
 export interface SbHighlightModuleConfig {
   languages: Array<SbHighlightLanguage>,

@@ -1,14 +1,16 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+
 import { hasElementRefClass, mixinClassName } from '../core';
+
 import { SbHighlightService } from './highlight.service';
 
 const SbHighlightCore = mixinClassName(hasElementRefClass, 'sb-highlight');
 
 @Component({
   selector: 'sb-highlight',
-  templateUrl: './highlight.html',
-  styleUrls: ['./highlight.scss'],
+  templateUrl: './highlight.component.html',
+  styleUrls: ['./highlight.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbHighlightComponent extends SbHighlightCore {

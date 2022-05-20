@@ -5,9 +5,9 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 import { SbPopperModule } from '../popper';
-
 import { SbButtonModule } from '../button';
-import { SbHighlightComponent } from './highlight';
+
+import { SbHighlightComponent } from './highlight.component';
 import {
   SbHighlightModuleConfig,
   SB_HIGHLIGHT_CONFIG,
