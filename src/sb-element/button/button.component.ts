@@ -31,8 +31,8 @@ const SbButtonCore = mixinAccent(
 
 @Component({
   selector: 'button, [sb-button]',
-  templateUrl: './button.html',
-  styleUrls: ['./button.scss'],
+  template: '<ng-content></ng-content>',
+  styleUrls: ['./button.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[attr.type]': 'type'

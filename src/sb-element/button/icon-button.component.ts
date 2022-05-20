@@ -1,11 +1,11 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { mixinDisable, Color, Size, mixinFocus } from '../core';
+import { Color, mixinDisable, mixinFocus, Size } from '../core';
 
 const SbIconButtonCore = mixinDisable(mixinFocus(class {}));
 
 @Component({
   selector: 'sb-icon-button',
-  templateUrl: './icon-button.html',
+  templateUrl: './icon-button.component.html',
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { SbIconModule } from '../icon';
 
-import { SbIconButtonComponent } from './icon-button';
-import { SbButtonComponent } from './button';
+import { SbButtonComponent } from './button.component';
+import { SbIconButtonComponent } from './icon-button.component';
 
 @NgModule({
   declarations: [
