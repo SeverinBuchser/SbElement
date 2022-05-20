@@ -11,7 +11,8 @@ import {
   mixinPill,
   mixinPlain,
   mixinSize,
-  Size } from '../core';
+  Size
+} from '../core';
 
 const SbFileInputCore = mixinAccent(
   mixinPill(
@@ -33,8 +34,8 @@ const SbFileInputCore = mixinAccent(
 
 @Component({
   selector: 'sb-input[type=file]',
-  templateUrl: './file-input.html',
-  styleUrls: ['./file-input.scss'],
+  templateUrl: './file-input.component.html',
+  styleUrls: ['./file-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'isAccent: accent',
