@@ -1,4 +1,4 @@
-@use "icon.theme";
+@use "icon.component.theme";
 
 @mixin theme($theme) {
   @include icon.theme($theme);
