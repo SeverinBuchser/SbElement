@@ -3,8 +3,8 @@ import { SbConnectedSide, SbFlexibleAlignment } from '../../core';
 
 @Component({
   selector: 'sb-tooltip',
-  templateUrl: './tooltip.html',
-  styleUrls: ['./tooltip.scss'],
+  templateUrl: './tooltip.component.html',
+  styleUrls: ['./tooltip.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbTooltipComponent {

@@ -5,8 +5,8 @@ const SbPopperContentCore = mixinClassName(hasElementRefClass, 'sb-popper-conten
 
 @Component({
   selector: 'sb-popper-content',
-  templateUrl: './popper-content.html',
-  styleUrls: ['./popper-content.scss'],
+  templateUrl: './popper-content.component.html',
+  styleUrls: ['./popper-content.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SbPopperContentComponent extends SbPopperContentCore {

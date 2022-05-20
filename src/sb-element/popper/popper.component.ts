@@ -1,3 +1,4 @@
+import { Overlay, OverlayConfig, OverlayContainer, OverlayRef } from '@angular/cdk/overlay';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
   AfterContentInit,
@@ -10,28 +11,29 @@ import {
   OnInit,
   SimpleChanges,
   ViewContainerRef,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Overlay, OverlayConfig, OverlayContainer, OverlayRef } from '@angular/cdk/overlay';
+
 import {
   CanClassName,
   HasElementRef,
-  mixinClassName,
-  SbOverlayComponent,
-  TriggerableOverlay,
-  SbConnectedSide,
-  SbFlexibleAlignment } from '../core/';
-import { SbPopperContentComponent } from './popper-content';
-import { SbPopperOverlayComponent } from './popper-overlay';
-import { SbPopperPositionStrategy } from './popper-position-strategy';
+  mixinClassName, SbConnectedSide,
+  SbFlexibleAlignment, SbOverlayComponent,
+  TriggerableOverlay
+} from '../core/';
+
 import { Platform } from '@angular/cdk/platform';
+import { SbPopperContentComponent } from './popper-content.component';
+import { SbPopperOverlayComponent } from './popper-overlay.component';
+import { SbPopperPositionStrategy } from './popper-position-strategy';
 
 const SbPopperCore = mixinClassName(SbOverlayComponent, 'sb-popper');
 
 @Component({
   selector: 'sb-popper',
-  templateUrl: './popper.html',
-  styleUrls: ['./popper.scss'],
+  templateUrl: './popper.component.html',
+  styleUrls: ['./popper.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbPopperComponent extends SbPopperCore implements HasElementRef, 

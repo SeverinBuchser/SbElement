@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 
 import { SbCoreModule } from '../core';
 
-import { SbPopperComponent } from './popper';
-import { SbPopperContentComponent } from './popper-content';
-import { SbPopperOverlayComponent } from './popper-overlay';
+import { SbPopperContentComponent } from './popper-content.component';
+import { SbPopperOverlayComponent } from './popper-overlay.component';
+import { SbPopperComponent } from './popper.component';
 import { SbTooltipComponent } from "./tooltip";
 
 @NgModule({

@@ -1,16 +1,18 @@
-import { coerceCssPixelValue } from "@angular/cdk/coercion";
-import { OverlayContainer } from "@angular/cdk/overlay";
-import { Platform } from "@angular/cdk/platform";
-import { ViewportRuler } from "@angular/cdk/scrolling";
-import { ElementRef, NgZone } from "@angular/core";
-import { 
-	extendStyles, 
-	mergeDimensions, 
-	SbDimensions, 
-	SbFlexibleConnectedPositionConfig, 
-	SbFlexibleConnectedPositionStrategy 
-} from "../core";
-import { SbPopperOverlayComponent } from "./popper-overlay";
+import { coerceCssPixelValue } from '@angular/cdk/coercion';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { Platform } from '@angular/cdk/platform';
+import { ViewportRuler } from '@angular/cdk/scrolling';
+import { ElementRef, NgZone } from '@angular/core';
+
+import {
+	extendStyles,
+	mergeDimensions,
+	SbDimensions,
+	SbFlexibleConnectedPositionConfig,
+	SbFlexibleConnectedPositionStrategy
+} from '../core';
+
+import { SbPopperOverlayComponent } from './popper-overlay.component';
 
 
 export class SbPopperPositionStrategy extends SbFlexibleConnectedPositionStrategy {

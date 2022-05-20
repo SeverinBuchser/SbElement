@@ -5,19 +5,21 @@ import {
   HostBinding,
   Input,
   ViewChild,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import {
   hasElementRefClass,
   mixinClassName,
   SbAlignRelateiveDirective,
-  SbConnectedSide } from '../core';
+  SbConnectedSide
+} from '../core';
 
 const SbPopperOverlayCore = mixinClassName(hasElementRefClass, 'sb-popper-overlay');
 
 @Component({
   selector: 'sb-popper-overlay',
-  templateUrl: './popper-overlay.html',
-  styleUrls: ['./popper-overlay.scss'],
+  templateUrl: './popper-overlay.component.html',
+  styleUrls: ['./popper-overlay.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbPopperOverlayComponent extends SbPopperOverlayCore {
