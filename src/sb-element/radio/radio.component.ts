@@ -1,12 +1,14 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
 import {
   Color,
   hasElementRefClass,
   mixinClassName,
   mixinColor,
   mixinDisable,
-  mixinFocus } from '../core';
+  mixinFocus
+} from '../core';
 
 const SbRadioCore = mixinDisable(
   mixinFocus(
@@ -19,8 +21,8 @@ const SbRadioCore = mixinDisable(
 
 @Component({
   selector: 'sb-radio',
-  templateUrl: './radio.html',
-  styleUrls: ['./radio.scss'],
+  templateUrl: './radio.component.html',
+  styleUrls: ['./radio.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.disabled]': 'disabled'
