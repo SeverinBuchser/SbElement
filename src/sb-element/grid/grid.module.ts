@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { SbGridComponent } from './grid';
+import { SbGridComponent } from './grid.component';
 
 @NgModule({
   declarations: [SbGridComponent],
