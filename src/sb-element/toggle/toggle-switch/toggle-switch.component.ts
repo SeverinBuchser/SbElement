@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SbToggleCVACore } from '../toggle-cva-core';
+
 import {
   Color,
   mixinAccent,
@@ -8,7 +8,10 @@ import {
   mixinColor,
   mixinSize,
   mixinTabindex,
-  Size } from '../../core';
+  Size
+} from '../../core';
+
+import { SbToggleCVACore } from '../toggle-cva-core';
 
 const SbToggleSwitchCore = mixinAccent(
   mixinTabindex(
@@ -25,8 +28,8 @@ const SbToggleSwitchCore = mixinAccent(
 
 @Component({
   selector: 'sb-toggle[type=switch]',
-  templateUrl: './toggle-switch.html',
-  styleUrls: ['./toggle-switch.scss'],
+  templateUrl: './toggle-switch.component.html',
+  styleUrls: ['./toggle-switch.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.on]': 'toggled',

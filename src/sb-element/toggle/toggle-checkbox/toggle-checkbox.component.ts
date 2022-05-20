@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+
 import { Color, mixinAccent, mixinClassName, mixinColor } from '../../core';
+
 import { SbToggleCVACore } from '../toggle-cva-core';
 
 const SbToggleCheckboxCore = mixinAccent(
@@ -12,8 +14,8 @@ const SbToggleCheckboxCore = mixinAccent(
 
 @Component({
   selector: 'sb-toggle[type=checkbox]',
-  templateUrl: './toggle-checkbox.html',
-  styleUrls: ['./toggle-checkbox.scss'],
+  templateUrl: './toggle-checkbox.component.html',
+  styleUrls: ['./toggle-checkbox.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.disabled]': 'disabled'
