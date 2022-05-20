@@ -11,14 +11,12 @@ import { SbElementModule, SbHighlightModule, SbTabsModule, SbThemingModule } fro
 import { IndicatorExampleComponent } from './example/indicator/indicator-example/indicator-example.component';
 import { NotificationExampleComponent } from './example/notification/notification-example/notification-example.component';
 import { TimelineExampleComponent } from './example/timeline/timeline-example/timeline-example.component';
-import { CalendarExampleComponent } from './example/calendar/calendar-example/calendar-example.component';
 import { TableExampleComponent } from './example/table/table-example/table-example.component';
 import { HomeComponent } from './home/home.component';
 import { ExampleComponentt } from './example/example.component';
 import { FormExampleComponent } from './example/form/form-example/form-example.component';
 import { PopperExampleComponent } from './example/popper/popper-example/popper-example.component';
 import { TypographyExampleComponent } from './example/typography/typography-example/typography-example.component';
-import { CardExampleComponent } from './example/card/card-example/card-example.component';
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 
 import xml from 'highlight.js/lib/languages/xml';
@@ -33,14 +31,12 @@ import { DocModule } from './doc';
     IndicatorExampleComponent,
     NotificationExampleComponent,
     TimelineExampleComponent,
-    CalendarExampleComponent,
     TableExampleComponent,
     HomeComponent,
     ExampleComponentt,
     FormExampleComponent,
     PopperExampleComponent,
     TypographyExampleComponent,
-    CardExampleComponent,
     ExampleDefaultComponent,
     TabsExampleComponent,
     InputExampleComponent

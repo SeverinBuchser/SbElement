@@ -4,6 +4,8 @@ import { AlertDocModule } from './alert/alert-doc.module';
 import { BreadcrumbsDocModule } from './breadcrumbs';
 import { ButtonDocModule } from './button';
 import { CalendarDocModule } from './calendar';
+import { CardDocModule } from './card';
+import { ContainerDocModule } from './container';
 
 
 
@@ -15,7 +17,9 @@ import { CalendarDocModule } from './calendar';
     AlertDocModule,
     BreadcrumbsDocModule,
     ButtonDocModule,
-    CalendarDocModule
+    CalendarDocModule,
+    CardDocModule,
+    ContainerDocModule
   ]
 })
 export class DocModule { }

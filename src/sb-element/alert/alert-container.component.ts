@@ -21,8 +21,8 @@ const SbAlertContainerCore = mixinClassName(
 
 @Component({
   selector: 'sb-alert-container',
-  templateUrl: './alert-container.html',
-  styleUrls: ['./alert-container.scss'],
+  templateUrl: './alert-container.component.html',
+  styleUrls: ['./alert-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SbAlertContainerComponent extends SbAlertContainerCore {

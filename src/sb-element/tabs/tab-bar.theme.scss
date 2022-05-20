@@ -8,6 +8,7 @@ Tab-Bar / Theme
 @mixin theme($theme) {
 	.sb-tab-bar {
 		background: theming.get-foreground($theme);
+		color: theming.get-foreground-text($theme);
 
 		&__active-underlay {
 			@include border.border-side(top, $theme, primary, m);

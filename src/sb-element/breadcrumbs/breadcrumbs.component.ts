@@ -14,8 +14,8 @@ const SbBreadcrumbsCore = mixinColor(
 
 @Component({
   selector: 'sb-breadcrumbs',
-  templateUrl: './breadcrumbs.html',
-  styleUrls: ['./breadcrumbs.scss'],
+  templateUrl: './breadcrumbs.component.html',
+  styleUrls: ['./breadcrumbs.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'color'

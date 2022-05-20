@@ -38,8 +38,8 @@ const SbAlertBoxCore = mixinPill(
 
 @Component({
   selector: 'sb-alert-box',
-  templateUrl: './alert-box.html',
-  styleUrls: ['./alert-box.scss'],
+  templateUrl: './alert-box.component.html',
+  styleUrls: ['./alert-box.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.only-arrow]': 'arrow && !icon',

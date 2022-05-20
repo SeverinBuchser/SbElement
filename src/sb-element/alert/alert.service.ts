@@ -6,7 +6,7 @@ import {
 } from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType, TemplatePortal } from '@angular/cdk/portal';
 import { ComponentRef, Inject, Injectable, Injector, TemplateRef } from '@angular/core';
-import { SbAlertBoxComponent } from './alert-box';
+import { SbAlertBoxComponent } from './alert-box.component';
 import { Color } from "../core";
 import {
   SbAlertBoxConfig,
@@ -16,7 +16,7 @@ import {
   SB_ALERT_CONFIG_DEFAULT,
   SB_ALERT_DATA
 } from './alert-config';
-import { SbAlertContainerComponent } from './alert-container';
+import { SbAlertContainerComponent } from './alert-container.component';
 import { SbAlertModule } from './alert.module';
 import { SbAlertRef } from './alert-ref';
 

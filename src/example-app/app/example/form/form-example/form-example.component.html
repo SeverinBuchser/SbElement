@@ -269,49 +269,4 @@
       <sb-highlight [code]="fileInputDoc" language="xml"></sb-highlight>
     </picker-card-content>
   </picker-card>
-  <picker-card #buttonPicker title="Button">
-    <picker-card-content>
-      <sb-grid dim="2xauto" justify="even" gap="s" ngClass="picker-grid">
-        <button
-          size="s"
-          [pill]="buttonPicker.shape == 'pill'"
-          [round]="buttonPicker.shape == 'round'"
-          [plain]="buttonPicker.look.includes('plain')"
-          [accent]="buttonPicker.look.includes('accent')"
-          [color]="buttonPicker.color">
-            {{ buttonPicker.shape == 'round' ? 'Btn' : 'Button' }}
-        </button>
-        <button
-          size="m"
-          [pill]="buttonPicker.shape == 'pill'"
-          [round]="buttonPicker.shape == 'round'"
-          [plain]="buttonPicker.look.includes('plain')"
-          [accent]="buttonPicker.look.includes('accent')"
-          [color]="buttonPicker.color">
-            {{ buttonPicker.shape == 'round' ? 'Btn' : 'Button' }}
-        </button>
-        <button
-          size="l"
-          [pill]="buttonPicker.shape == 'pill'"
-          [round]="buttonPicker.shape == 'round'"
-          [plain]="buttonPicker.look.includes('plain')"
-          [accent]="buttonPicker.look.includes('accent')"
-          [color]="buttonPicker.color">
-            {{ buttonPicker.shape == 'round' ? 'Btn' : 'Button' }}
-        </button>
-        <button
-          size="xl"
-          [pill]="buttonPicker.shape == 'pill'"
-          [round]="buttonPicker.shape == 'round'"
-          [plain]="buttonPicker.look.includes('plain')"
-          [accent]="buttonPicker.look.includes('accent')"
-          [color]="buttonPicker.color">
-            {{ buttonPicker.shape == 'round' ? 'Btn' : 'Button' }}
-        </button>
-      </sb-grid>
-    </picker-card-content>
-    <picker-card-content>
-      <sb-highlight [code]="buttonDoc" language="xml"></sb-highlight>
-    </picker-card-content>
-  </picker-card>
 </sb-grid>
