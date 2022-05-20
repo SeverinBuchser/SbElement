@@ -5,15 +5,17 @@ import {
   HostBinding,
   Input,
   Output,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import * as fns from "date-fns";
 import {
   Color,
   hasElementRefClass,
   mixinClassName,
   mixinDisable,
-  mixinFocus } from "../core";
-import { SbMarkableDateConfig } from './markable-config';
+  mixinFocus
+} from "../core";
+import { SbMarkableDateConfig } from './markable.component.config';
 import { SbMarkedDates, toDurationKey } from "./marked-dates";
 
 const SbCalendarPeriodCore = mixinDisable(
@@ -31,8 +33,8 @@ export interface SbPeriodConfig extends SbMarkableDateConfig {
 
 @Component({
   selector: 'sb-calendar-period',
-  templateUrl: './calendar-period.html',
-  styleUrls: ['./calendar-period.scss'],
+  templateUrl: './calendar-period.component.html',
+  styleUrls: ['./calendar-period.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'

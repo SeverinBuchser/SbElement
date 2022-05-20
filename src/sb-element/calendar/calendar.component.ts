@@ -4,17 +4,19 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
+import * as fns from 'date-fns';
 import {
   Color,
   hasElementRefClass,
   mixinClassName,
   mixinColor,
   mixinDisable,
-  mixinFocus } from "../core";
-import * as fns from "date-fns";
-import { SbMarkedDates } from "./marked-dates";
-import { SbPeriodConfig } from './calendar-period';
+  mixinFocus
+} from '../core';
+import { SbPeriodConfig } from './calendar-period.component';
+import { SbMarkedDates } from './marked-dates';
 
 export type SbCalendarSelectionMode = 'date' | 'month' | 'year';
 
@@ -29,8 +31,8 @@ const SbCalendarCore = mixinDisable(
 
 @Component({
   selector: 'sb-calendar',
-  templateUrl: './calendar.html',
-  styleUrls: ['./calendar.scss'],
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.disabled]': 'disabled'

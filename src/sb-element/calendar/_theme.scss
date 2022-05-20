@@ -1,5 +1,5 @@
-@use "calendar-dates.theme";
-@use "markable-date.theme";
+@use "calendar-dates.component.theme";
+@use "markable-date.component.theme";
 
 @mixin theme($theme) {
   @include calendar-dates.theme($theme);

@@ -4,7 +4,8 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import * as fns from "date-fns";
 import {
   Color,
@@ -12,7 +13,8 @@ import {
   mixinClassName,
   mixinColor,
   mixinDisable,
-  mixinFocus } from "../core";
+  mixinFocus
+} from "../core";
 import { SbMarkedDates } from "./marked-dates";
 
 const SbCalendarDatesCore = mixinDisable(
@@ -26,8 +28,8 @@ const SbCalendarDatesCore = mixinDisable(
 
 @Component({
   selector: 'sb-calendar-dates',
-  templateUrl: './calendar-dates.html',
-  styleUrls: ['./calendar-dates.scss'],
+  templateUrl: './calendar-dates.component.html',
+  styleUrls: ['./calendar-dates.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'color',

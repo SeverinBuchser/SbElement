@@ -1,4 +1,4 @@
-import { SbDateUnit } from "./marked-dates";
+import { SbDateUnit } from './marked-dates';
 
 export interface SbMarkableDateConfig {
   format: string;

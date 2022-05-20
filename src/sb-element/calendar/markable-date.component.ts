@@ -13,9 +13,9 @@ import {
   mixinColor,
   mixinDisable,
   mixinTabindex
-} from "../core";
-import { SbMarkableDateConfig } from './markable-config';
-import { SbDateUnit, SbMarkedDates } from "./marked-dates";
+} from '../core';
+import { SbMarkableDateConfig } from './markable.component.config';
+import { SbDateUnit, SbMarkedDates } from './marked-dates';
 
 const SbMarkableDateCore = mixinDisable(
   mixinTabindex(
@@ -29,8 +29,8 @@ const SbMarkableDateCore = mixinDisable(
 
 @Component({
   selector: 'sb-markable-date',
-  templateUrl: './markable-date.html',
-  styleUrls: ['./markable-date.scss'],
+  templateUrl: './markable-date.component.html',
+  styleUrls: ['./markable-date.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.marked]': 'isMarked',
