@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AlertDocModule } from './alert/alert-doc.module';
 import { BreadcrumbsDocModule } from './breadcrumbs';
 import { ButtonDocModule } from './button';
+import { CalendarDocModule } from './calendar';
 
 
 
@@ -13,7 +14,8 @@ import { ButtonDocModule } from './button';
   exports: [
     AlertDocModule,
     BreadcrumbsDocModule,
-    ButtonDocModule
+    ButtonDocModule,
+    CalendarDocModule
   ]
 })
 export class DocModule { }

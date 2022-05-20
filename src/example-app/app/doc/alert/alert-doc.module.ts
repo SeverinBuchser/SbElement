@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { SbAlertModule, SbButtonModule, SbCardModule, SbGridModule } from 'sb-element';
+
 import { DocCoreModule } from '../doc-core';
 
-import { AlertApiDocComponent } from './api-doc';
 import { AlertDocComponent } from './alert-doc';
+import { AlertApiDocComponent } from './api-doc';
 import { AlertExampleComponent } from './example';
-import { SbAlertModule, SbButtonModule, SbCardModule, SbGridModule } from 'sb-element';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,9 @@ import { SbAlertModule, SbButtonModule, SbCardModule, SbGridModule } from 'sb-el
     CommonModule,
     DocCoreModule,
     SbAlertModule,
-    SbGridModule,
     SbButtonModule,
-    SbCardModule
+    SbCardModule,
+    SbGridModule
   ],
   exports: [
     AlertDocComponent
