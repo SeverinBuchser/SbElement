@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { SbLinkComponent } from './link';
+import { SbLinkComponent } from './link.component';
 
 @NgModule({
   declarations: [SbLinkComponent],

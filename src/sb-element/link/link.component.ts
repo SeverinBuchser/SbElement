@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-import { mixinSize, mixinClassName, Size, hasElementRefClass } from "../core";
-
+import { hasElementRefClass, mixinClassName, mixinSize, Size } from '../core';
 
 const SbLinkCore = mixinSize(
   mixinClassName(hasElementRefClass, 'sb-link'),
@@ -9,8 +8,8 @@ const SbLinkCore = mixinSize(
 
 @Component({
   selector: 'sb-link',
-  templateUrl: './link.html',
-  styleUrls: ['./link.scss'],
+  templateUrl: './link.component.html',
+  styleUrls: ['./link.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.active]': 'active'
