@@ -5,8 +5,8 @@ const SbNavBarContentCore = mixinClassName(hasElementRefClass, 'sb-nav-bar-conte
 
 @Component({
   selector: 'sb-nav-bar-content',
-  templateUrl: './nav-bar-content.html',
-  styleUrls: ['./nav-bar-content.scss'],
+  templateUrl: './nav-bar-content.component.html',
+  styleUrls: ['./nav-bar-content.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbNavBarContentComponent extends SbNavBarContentCore {

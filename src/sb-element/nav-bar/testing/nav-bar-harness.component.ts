@@ -1,5 +1,5 @@
-import { Component, ViewChild } from "@angular/core";
-import { SbNavBarComponent } from "../nav-bar";
+import { Component, ViewChild } from '@angular/core';
+import { SbNavBarComponent } from '../nav-bar.component';
 
 @Component({
   template: `
