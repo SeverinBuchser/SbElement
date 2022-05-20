@@ -7,8 +7,8 @@ import { SbButtonModule } from '../../button';
 import { SbCoreModule } from '../../core';
 import { SbIconModule } from '../../icon';
 
-import { SbSelectButtonComponent } from './select-button';
-import { SbSelectButtonListComponent } from './select-button-list';
+import { SbSelectButtonListComponent } from './select-button-list.component';
+import { SbSelectButtonComponent } from './select-button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { SbSelectButtonListComponent } from './select-button-list';
   imports: [
     CommonModule,
     OverlayModule,
-    PortalModule,
     SbButtonModule,
     SbCoreModule,
     SbIconModule

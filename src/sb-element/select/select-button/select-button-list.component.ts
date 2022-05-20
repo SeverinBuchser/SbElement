@@ -5,8 +5,10 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import { Subject } from 'rxjs';
+
 import {
   Color,
   hasElementRefClass,
@@ -21,7 +23,8 @@ import {
   SbCollapseAnimationParams,
   SbCollapseAnimationState,
   SbConnectedSide,
-  Size } from '../../core';
+  Size
+} from '../../core';
 
 const SbSelectButtonListCore = mixinDisable(
   mixinTabindex(
@@ -42,8 +45,8 @@ const SbSelectButtonListCore = mixinDisable(
 
 @Component({
   selector: 'sb-select-button-list',
-  templateUrl: './select-button-list.html',
-  styleUrls: ['./select-button-list.scss'],
+  templateUrl: './select-button-list.component.html',
+  styleUrls: ['./select-button-list.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'isAccent: accent',

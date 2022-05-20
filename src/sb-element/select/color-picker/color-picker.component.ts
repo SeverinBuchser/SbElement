@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
 import {
   CanClassName,
   CanDisable,
@@ -11,7 +12,9 @@ import {
   mixinPill,
   mixinPlain,
   mixinSize,
-  SbConnectedSide} from '../../core';
+  SbConnectedSide
+} from '../../core';
+
 import { SbSelectOneCore } from '../select-one-core';
 
 const shades = [
@@ -70,8 +73,8 @@ const SbColorPickerCore = mixinPill(
 
 @Component({
   selector: 'sb-color-picker',
-  templateUrl: './color-picker.html',
-  styleUrls: ['./color-picker.scss'],
+  templateUrl: './color-picker.component.html',
+  styleUrls: ['./color-picker.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'isAccent: accent',

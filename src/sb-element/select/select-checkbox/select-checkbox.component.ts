@@ -9,7 +9,9 @@ import {
   mixinClassName,
   mixinColor,
   mixinPlain,
-  mixinSize } from '../../core';
+  mixinSize
+} from '../../core';
+
 import { SbSelectAllCore } from '../select-all-core';
 
 const SbSelectCheckboxeCore = mixinAccent(
@@ -24,8 +26,8 @@ const SbSelectCheckboxeCore = mixinAccent(
 
 @Component({
   selector: 'sb-select[type=checkbox]',
-  templateUrl: './select-checkbox.html',
-  styleUrls: ['./select-checkbox.scss'],
+  templateUrl: './select-checkbox.component.html',
+  styleUrls: ['./select-checkbox.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'isAccent: accent',

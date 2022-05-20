@@ -9,15 +9,14 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import {
   Component, ElementRef, Input,
   NgZone,
-  OnInit,
-  TemplateRef,
-  ViewChild,
+  OnInit, ViewChild,
   ViewContainerRef,
   ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
+
 import { SbButtonComponent } from '../../button';
 import {
   CanClassName,
@@ -31,8 +30,10 @@ import {
   mixinSize,
   TriggerableOverlay
 } from '../../core';
+
 import { SbSelectOneCore } from '../select-one-core';
-import { SbSelectButtonListComponent } from './select-button-list';
+
+import { SbSelectButtonListComponent } from './select-button-list.component';
 
 const SbSelectButtonCore = mixinAccent(
   mixinPlain(
@@ -46,8 +47,8 @@ const SbSelectButtonCore = mixinAccent(
 
 @Component({
   selector: 'sb-select[type=button]',
-  templateUrl: './select-button.html',
-  styleUrls: ['./select-button.scss'],
+  templateUrl: './select-button.component.html',
+  styleUrls: ['./select-button.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.open]': 'isVisible()'
