@@ -1,24 +1,26 @@
 import {
+  CdkPortalOutlet,
+  ComponentPortal,
+  Portal,
+  PortalOutlet,
+  TemplatePortal
+} from '@angular/cdk/portal';
+import {
   Component,
   ComponentRef,
   ElementRef,
   EmbeddedViewRef,
   ViewChild,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import { hasElementRefClass, mixinClassName } from '../common-behaviors';
-import {
-  CdkPortalOutlet,
-  ComponentPortal,
-  Portal,
-  PortalOutlet,
-  TemplatePortal } from '@angular/cdk/portal';
 
 const SbOverlayContainerCore = mixinClassName(hasElementRefClass, 'sb-overlay-container');
 
 @Component({
   selector: 'sb-overlay-container',
-  templateUrl: './overlay-container.html',
-  styleUrls: ['./overlay-container.scss'],
+  templateUrl: './overlay-container.component.html',
+  styleUrls: ['./overlay-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SbOverlayContainerComponent extends SbOverlayContainerCore

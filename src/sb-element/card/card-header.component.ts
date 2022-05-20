@@ -5,8 +5,8 @@ const SbCardHeaderCore = mixinClassName(hasElementRefClass, 'sb-card-header');
 
 @Component({
   selector: 'sb-card-header',
-  templateUrl: './card-header.html',
-  styleUrls: ['./card-header.scss'],
+  templateUrl: './card-header.component.html',
+  styleUrls: ['./card-header.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.has-action]': 'hasAction'

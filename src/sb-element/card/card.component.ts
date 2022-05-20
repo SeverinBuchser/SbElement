@@ -11,16 +11,16 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { hasElementRefClass, mixinClassName } from '../core';
-import { SbCardContentComponent } from './card-content';
-import { SbCardHeaderComponent } from './card-header';
-import { SbCardImageComponent } from './card-image';
+import { SbCardContentComponent } from './card-content.component';
+import { SbCardHeaderComponent } from './card-header.component';
+import { SbCardImageComponent } from './card-image.component';
 
 const SbCardCore = mixinClassName(hasElementRefClass, 'sb-card');
 
 @Component({
   selector: 'sb-card',
-  templateUrl: './card.html',
-  styleUrls: ['./card.scss'],
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.hover]': 'hover',

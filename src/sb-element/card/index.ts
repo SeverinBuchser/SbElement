@@ -1,6 +1,7 @@
-export * from './card-content';
-export * from './card-header';
-export * from './card-image';
+export * from './card-content.component';
+export * from './card-header.component';
+export * from './card-image.component';
+export * from './card.component';
 export * from './card.module';
-export * from './card';
-export * from './expansion-card';
+export * from './expansion-card.component';
+

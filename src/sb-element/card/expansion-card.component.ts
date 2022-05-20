@@ -3,17 +3,18 @@ import {
   Component,
   ElementRef,
   ViewChild,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import { mixinHide, SbCollapseDirective, Triggerable } from '../core';
-import { SbCardComponent } from './card';
+import { SbCardComponent } from './card.component';
 
 const SbExpansionCardCore = mixinHide(SbCardComponent);
 
 
 @Component({
   selector: 'sb-expansion-card',
-  templateUrl: './expansion-card.html',
-  styleUrls: ['./expansion-card.scss'],
+  templateUrl: './expansion-card.component.html',
+  styleUrls: ['./expansion-card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbExpansionCardComponent extends SbExpansionCardCore

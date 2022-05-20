@@ -1,18 +1,16 @@
 import { AnimationEvent } from '@angular/animations';
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
-import { 
-  sbAnimations, 
-  SbSlideInOutAnimationState, 
-  SbSlideInOutAnimationParams 
+import {
+  sbAnimations, SbSlideInOutAnimationParams, SbSlideInOutAnimationState
 } from '../animation';
+import { SbOverlayContainerComponent } from './overlay-container.component';
 import { SbConnectedSide } from './position';
-import { SbOverlayContainerComponent } from './overlay-container';
 
 @Component({
   selector: 'sb-slidable-overlay-container',
-  templateUrl: './overlay-container.html',
-  styleUrls: ['./overlay-container.scss'],
+  templateUrl: './overlay-container.component.html',
+  styleUrls: ['./overlay-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: [sbAnimations.sbSlideInOutAnimation],
   host: {

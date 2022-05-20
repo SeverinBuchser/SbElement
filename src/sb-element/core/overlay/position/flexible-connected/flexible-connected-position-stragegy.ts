@@ -1,20 +1,22 @@
-import { coerceCssPixelValue } from "@angular/cdk/coercion";
-import { ElementRef, EventEmitter, NgZone } from "@angular/core";
-import { extendStyles } from "../../../util";
-import { merge, Subscription } from "rxjs";
-import { mergeDimensions, SbDimensions } from "../dimensions";
-import { OverlayContainer, PositionStrategy, ViewportRuler } from "@angular/cdk/overlay";
-import { OverlayReference } from "@angular/cdk/overlay/overlay-reference";
-import { SbDimensionsOverlap } from "../overlap";
+import { coerceCssPixelValue } from '@angular/cdk/coercion';
+import { OverlayContainer, PositionStrategy, ViewportRuler } from '@angular/cdk/overlay';
+import { OverlayReference } from '@angular/cdk/overlay/overlay-reference';
+import { Platform } from '@angular/cdk/platform';
+import { ElementRef, EventEmitter, NgZone } from '@angular/core';
+import { merge, Subscription } from 'rxjs';
+
+import { extendStyles } from '../../../util';
+import { mergeDimensions, SbDimensions } from '../dimensions';
 import { SbDimensionsOverlapOverflow } from '../overflow';
+import { SbDimensionsOverlap } from '../overlap';
+import { SbConnectedSide } from '../position';
 import {
 	calculateFlexibleAlignment,
 	defaultFlexibleConnectedPositionConfig,
 	getFlexibleAlignment,
 	SbFlexibleConnectedPositionConfig,
-	validateFlexibleConnectedPositionConfig } from "./config";
-import { Platform } from "@angular/cdk/platform";
-import { SbConnectedSide } from "../position";
+	validateFlexibleConnectedPositionConfig
+} from './flexible-connected-position-config';
 
 
 export class SbFlexibleConnectedPositionStrategy implements PositionStrategy {

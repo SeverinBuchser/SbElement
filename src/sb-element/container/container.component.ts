@@ -5,8 +5,8 @@ const SbContainerCore = mixinClassName(hasElementRefClass, 'sb-container');
 
 @Component({
   selector: 'sb-container',
-  templateUrl: './container.html',
-  styleUrls: ['./container.scss'],
+  template: '<ng-content></ng-content>',
+  styleUrls: ['./container.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbContainerComponent extends SbContainerCore {

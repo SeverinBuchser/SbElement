@@ -1,2 +1,2 @@
-export * from './config';
-export * from './strategy';
+export * from './flexible-connected-position-config';
+export * from './flexible-connected-position-stragegy';

@@ -6,7 +6,7 @@ const SbCardImageCore = mixinClassName(hasElementRefClass, 'sb-card-image');
 @Component({
   selector: 'img[sbCardImage]',
   template: '',
-  styleUrls: ['./card-image.scss'],
+  styleUrls: ['./card-image.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.border-bottom]': 'borderBottom',

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { SbAlignModule } from './align';
 import { SbCollapseDirective } from './collapse';
@@ -10,7 +10,8 @@ import {
   SbClickOutsideTriggerDirective,
   SbClickTriggerDirective,
   SbHoverTriggerDirective,
-  SbTriggerDirective } from './trigger';
+  SbTriggerDirective
+} from './trigger';
 
 @NgModule({
   declarations: [

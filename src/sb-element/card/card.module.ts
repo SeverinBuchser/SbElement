@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 
-import { SbCardComponent } from './card';
-import { SbCardContentComponent } from './card-content';
-import { SbCardHeaderComponent } from './card-header';
-import { SbCardImageComponent } from './card-image';
-import { SbExpansionCardComponent } from './expansion-card';
+import { SbCardContentComponent } from './card-content.component';
+import { SbCardHeaderComponent } from './card-header.component';
+import { SbCardImageComponent } from './card-image.component';
+import { SbCardComponent } from './card.component';
+import { SbExpansionCardComponent } from './expansion-card.component';
 
 @NgModule({
   declarations: [
