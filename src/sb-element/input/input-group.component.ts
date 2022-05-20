@@ -1,4 +1,13 @@
-import { Component, ElementRef, EmbeddedViewRef, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EmbeddedViewRef,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+  ViewEncapsulation
+} from '@angular/core';
+
 import {
   Color,
   hasElementRefClass, mixinClassName,
@@ -15,8 +24,8 @@ const SbInputGroupCore = mixinSize(
 
 @Component({
   selector: 'sb-input-group',
-  templateUrl: './input-group.html',
-  styleUrls: ['./input-group.scss'],
+  templateUrl: './input-group.component.html',
+  styleUrls: ['./input-group.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SbInputGroupComponent extends SbInputGroupCore {

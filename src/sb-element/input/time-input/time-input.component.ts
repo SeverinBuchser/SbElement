@@ -1,8 +1,19 @@
-import { Component, ElementRef, HostBinding, Input, Optional, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  Input,
+  Optional,
+  TemplateRef,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as fns from 'date-fns';
-import { Color, hasElementRefClass, mixinClassName, mixinDisable, mixinFocus, Size } from "../../core";
-import { SbInputGroupComponent } from "../input-group";
+
+import { Color, hasElementRefClass, mixinClassName, mixinDisable, mixinFocus, Size } from '../../core';
+
+import { SbInputGroupComponent } from '../input-group.component';
 
 const SbTimeInputCore = mixinDisable(
   mixinFocus(
@@ -12,7 +23,7 @@ const SbTimeInputCore = mixinDisable(
 
 @Component({
   selector: 'sb-input[type=time]',
-  templateUrl: './time-input.html',
+  templateUrl: './time-input.component.html',
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'

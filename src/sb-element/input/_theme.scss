@@ -1,5 +1,5 @@
-@use "input.theme";
-@use "input-group.theme";
+@use "input.component.theme";
+@use "input-group.component.theme";
 
 @mixin theme($theme) {
   @include input.theme($theme);

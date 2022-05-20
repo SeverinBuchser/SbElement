@@ -1,2 +1,2 @@
 export * from './indicator.module';
-export * from './progress';
+export * from './progress.component';

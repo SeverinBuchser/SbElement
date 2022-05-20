@@ -8,18 +8,20 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { SbMarkedDates } from "../../calendar";
-import { Color, mixinDisable, mixinFocus, SbConnectedSide, Size } from "../../core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+import { SbMarkedDates } from '../../calendar';
+import { Color, mixinDisable, mixinFocus, SbConnectedSide, Size } from '../../core';
 import { SbPopperComponent, SbPopperContentComponent } from '../../popper';
-import { SbInputGroupComponent } from '../input-group';
+
+import { SbInputGroupComponent } from '../input-group.component';
 
 const SbDateInputCore = mixinDisable(mixinFocus(class {}));
 
 @Component({
   selector: 'sb-input[type=date]',
-  templateUrl: './date-input.html',
-  styleUrls: ['./date-input.scss'],
+  templateUrl: './date-input.component.html',
+  styleUrls: ['./date-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'

@@ -1,5 +1,6 @@
-export * from './input-group';
-export * from './input.module';
-export * from './input';
 export * from './date-input';
+export * from './input-group.component';
+export * from './input.component';
+export * from './input.module';
 export * from './time-input';
+

@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
 import {
   Color,
   hasElementRefClass,
@@ -8,7 +9,8 @@ import {
   mixinDisable,
   mixinFocus, mixinPill, mixinSize, Size
 } from '../core';
-import { SbInputGroupComponent } from './input-group';
+
+import { SbInputGroupComponent } from './input-group.component';
 
 const SbInputCore = mixinPill(
   mixinDisable(
@@ -27,8 +29,8 @@ const SbInputCore = mixinPill(
 @Component({
   selector: 'sb-input[type=text], sb-input[type=number], sb-input[type=email]' + 
     'sb-input[type=password], sb-input[type=url]',
-  templateUrl: './input.html',
-  styleUrls: ['./input.scss'],
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'isPill: pill',

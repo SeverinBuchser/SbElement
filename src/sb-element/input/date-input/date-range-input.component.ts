@@ -1,26 +1,28 @@
-import { 
-  Component, 
-  HostBinding, 
-  Input, 
-  OnInit, 
-  Optional, 
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnInit,
+  Optional,
   TemplateRef,
-  ViewChild, 
-  ViewEncapsulation 
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import * as fns from "date-fns";
-import { mixinDisable, mixinFocus, Color, Size, SbConnectedSide } from "../../core";
-import { SbMarkedDates } from "../../calendar";
-import { SbPopperContentComponent, SbPopperComponent } from '../../popper';
-import { SbInputGroupComponent } from '../input-group';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import * as fns from 'date-fns';
+
+import { SbMarkedDates } from '../../calendar';
+import { Color, mixinDisable, mixinFocus, SbConnectedSide, Size } from '../../core';
+import { SbPopperComponent, SbPopperContentComponent } from '../../popper';
+
+import { SbInputGroupComponent } from '../input-group.component';
 
 const SbDateRangeInputCore = mixinDisable(mixinFocus(class {}));
 
 @Component({
   selector: 'sb-input[type=date-range]',
-  templateUrl: './date-range-input.html',
-  styleUrls: ['./date-input.scss'],
+  templateUrl: './date-range-input.component.html',
+  styleUrls: ['./date-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'disabled'
