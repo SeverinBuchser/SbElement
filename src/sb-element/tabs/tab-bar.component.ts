@@ -1,3 +1,4 @@
+import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
   AfterContentInit,
   Component,
@@ -7,19 +8,21 @@ import {
   OnDestroy,
   QueryList,
   ViewChild,
-  ViewEncapsulation } from '@angular/core';
-import { ViewportRuler } from '@angular/cdk/scrolling';
-import { auditTime, filter, map, take, takeUntil } from 'rxjs/operators';
+  ViewEncapsulation
+} from '@angular/core';
 import { merge, Subject } from 'rxjs';
+import { auditTime, filter, map, take, takeUntil } from 'rxjs/operators';
+
 import { hasElementRefClass, mixinClassName, SbAlignDirective } from "../core";
-import { SbTabLabelComponent } from './tab-label';
+
+import { SbTabLabelComponent } from './tab-label.component';
 
 const SbTabBarCore = mixinClassName(hasElementRefClass, 'sb-tab-bar');
 
 @Component({
   selector: 'sb-tab-bar',
-  templateUrl: './tab-bar.html',
-  styleUrls: ['./tab-bar.scss'],
+  templateUrl: './tab-bar.component.html',
+  styleUrls: ['./tab-bar.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbTabBarComponent extends SbTabBarCore

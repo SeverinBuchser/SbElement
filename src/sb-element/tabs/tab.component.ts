@@ -1,3 +1,4 @@
+import { TemplatePortal } from '@angular/cdk/portal';
 import {
   Component,
   EventEmitter,
@@ -8,8 +9,9 @@ import {
   TemplateRef,
   ViewChild,
   ViewContainerRef,
-  ViewEncapsulation } from '@angular/core';
-import { TemplatePortal } from '@angular/cdk/portal';
+  ViewEncapsulation
+} from '@angular/core';
+
 import { SbTabsModuleConfig, SB_TABS_CONFIG } from './tabs.module.config';
 
 export interface SbTabPositionChange {
@@ -19,7 +21,7 @@ export interface SbTabPositionChange {
 
 @Component({
   selector: 'sb-tab',
-  templateUrl: './tab.html',
+  templateUrl: './tab.component.html',
   encapsulation: ViewEncapsulation.None
 })
 export class SbTabComponent implements OnInit {

@@ -5,17 +5,20 @@ import {
   Input,
   NgZone,
   QueryList,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import { take } from 'rxjs/operators';
+
 import { hasElementRefClass, mixinClassName } from "../core";
-import { SbTabComponent } from './tab';
+
+import { SbTabComponent } from './tab.component';
 
 const SbTabsCore = mixinClassName(hasElementRefClass, 'sb-tabs');
 
 @Component({
   selector: 'sb-tabs',
-  templateUrl: './tabs.html',
-  styleUrls: ['./tabs.scss'],
+  templateUrl: './tabs.component.html',
+  styleUrls: ['./tabs.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbTabsComponent extends SbTabsCore {

@@ -6,9 +6,11 @@ import {
   NgZone,
   Optional,
   Output,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { take } from 'rxjs/operators';
+
 import { mixinClassName } from "../core";
 import { SbContentPaginationDirective } from '../paginator';
 
@@ -16,8 +18,8 @@ const SbTabLabelCore = mixinClassName(SbContentPaginationDirective, 'sb-tab-labe
 
 @Component({
   selector: 'sb-tab-label',
-  templateUrl: './tab-label.html',
-  styleUrls: ['./tab-label.scss'],
+  templateUrl: './tab-label.component.html',
+  styleUrls: ['./tab-label.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.active]': 'isActive'

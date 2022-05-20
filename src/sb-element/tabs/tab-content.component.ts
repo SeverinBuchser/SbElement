@@ -1,24 +1,28 @@
+import { CdkPortalOutlet } from '@angular/cdk/portal';
 import {
   Component,
   ElementRef,
   Input,
   OnInit,
   ViewChild,
-  ViewEncapsulation } from '@angular/core';
-import { CdkPortalOutlet } from '@angular/cdk/portal';
+  ViewEncapsulation
+} from '@angular/core';
+
 import {
   hasElementRefClass,
   mixinClassName,
   sbAnimations,
-  SbSlideAnimationState } from "../core";
-import { SbTabComponent, SbTabPositionChange } from './tab';
+  SbSlideAnimationState
+} from "../core";
+
+import { SbTabComponent, SbTabPositionChange } from './tab.component';
 
 const SbTabContentCore = mixinClassName(hasElementRefClass, 'sb-tab-content');
 
 @Component({
   selector: 'sb-tab-content',
-  templateUrl: './tab-content.html',
-  styleUrls: ['./tab-content.scss'],
+  templateUrl: './tab-content.component.html',
+  styleUrls: ['./tab-content.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: [sbAnimations.sbSlideAnimation]
 })

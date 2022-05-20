@@ -7,11 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SbCoreModule } from '../core';
 import { SbPaginatorModule } from '../paginator';
 
-import { SbTabComponent } from './tab';
-import { SbTabBarComponent } from './tab-bar';
-import { SbTabContentComponent } from './tab-content';
-import { SbTabLabelComponent } from './tab-label';
-import { SbTabsComponent } from './tabs';
+import { SbTabBarComponent } from './tab-bar.component';
+import { SbTabContentComponent } from './tab-content.component';
+import { SbTabLabelComponent } from './tab-label.component';
+import { SbTabComponent } from './tab.component';
+import { SbTabsComponent } from './tabs.component';
 
 import {
   SbTabsModuleConfig,
