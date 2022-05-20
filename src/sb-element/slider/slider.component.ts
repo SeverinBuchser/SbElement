@@ -6,7 +6,8 @@ import {
   mixinClassName,
   mixinColor,
   mixinDisable,
-  mixinFocus } from '../core';
+  mixinFocus
+} from '../core';
 
 const SbSliderCore = mixinDisable(
   mixinFocus(
@@ -19,8 +20,8 @@ const SbSliderCore = mixinDisable(
 
 @Component({
   selector: 'sb-slider',
-  templateUrl: './slider.html',
-  styleUrls: ['./slider.scss'],
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'color',
