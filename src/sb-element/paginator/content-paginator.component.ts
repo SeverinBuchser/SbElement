@@ -1,3 +1,4 @@
+import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
   AfterContentInit,
   Component,
@@ -6,20 +7,22 @@ import {
   NgZone,
   OnDestroy,
   QueryList,
-  ViewChild, 
-  ViewEncapsulation} from '@angular/core';
-import {ViewportRuler} from '@angular/cdk/scrolling';
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import { merge, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
+
 import { hasElementRefClass, mixinClassName } from '../core';
-import { SbContentPaginationDirective } from './content-pagination';
+
+import { SbContentPaginationDirective } from './content-pagination.directive';
 
 const SbContentPaginatorCore = mixinClassName(hasElementRefClass, 'sb-content-paginator');
 
 @Component({
   selector: 'sb-content-paginator',
-  templateUrl: './content-paginator.html',
-  styleUrls: ['./content-paginator.scss'],
+  templateUrl: './content-paginator.component.html',
+  styleUrls: ['./content-paginator.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbContentPaginatorComponent extends SbContentPaginatorCore
