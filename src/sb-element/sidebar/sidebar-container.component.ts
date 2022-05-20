@@ -5,7 +5,6 @@ import {
   mixinClassName, SbConnectedSide, SbSlidableOverlayContainerComponent
 } from '../core';
 
-
 const SbSidebarContainerCore = mixinClassName(
   SbSlidableOverlayContainerComponent, 
   'sb-sidebar-container'
@@ -13,8 +12,8 @@ const SbSidebarContainerCore = mixinClassName(
 
 @Component({
   selector: 'sb-sidebar-container',
-  templateUrl: './sidebar-container.html',
-  styleUrls: ['./sidebar-container.scss'],
+  templateUrl: './sidebar-container.component.html',
+  styleUrls: ['./sidebar-container.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbSidebarContainerComponent extends SbSidebarContainerCore {

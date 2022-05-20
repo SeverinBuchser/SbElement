@@ -1,18 +1,25 @@
-import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import {
+  GlobalPositionStrategy,
+  Overlay,
+  OverlayConfig,
+  OverlayRef
+} from '@angular/cdk/overlay';
 import { CdkPortal, ComponentPortal } from '@angular/cdk/portal';
 import {
   Component, Injector, Input, OnChanges, OnDestroy, OnInit, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
+
 import {
   SbConnectedSide, Triggerable
 } from '../core';
-import { SbSidebarContainerComponent } from './sidebar-container';
+
+import { SbSidebarContainerComponent } from './sidebar-container.component';
 
 @Component({
   selector: 'sb-sidebar',
-  templateUrl: './sidebar.html',
-  styleUrls: ['./sidebar.scss'],
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class SbSidebarComponent implements Triggerable, OnInit, OnChanges, OnDestroy {
