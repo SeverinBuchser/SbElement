@@ -13,8 +13,8 @@ const SbTimelineCore = mixinSize(
 
 @Component({
   selector: 'sb-timeline',
-  templateUrl: './timeline.html',
-  styleUrls: ['./timeline.scss'],
+  templateUrl: './timeline.component.html',
+  styleUrls: ['./timeline.component.scss'],
   encapsulation: ViewEncapsulation.None,
   inputs: [
     'size',

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { SbGridModule } from '../grid';
 import { SbIconModule } from '../icon';
 
-import { SbTimelineComponent } from './timeline';
+import { SbTimelineComponent } from './timeline.component';
 
 @NgModule({
   declarations: [SbTimelineComponent],
