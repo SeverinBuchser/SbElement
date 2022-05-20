@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { SbIndicatorModule } from "../indicator";
 
-import { SbToastComponent } from './toast';
-import { SbToasterComponent } from './toaster';
+import { SbToastComponent } from './toast.component';
+import { SbToasterComponent } from './toaster.component';
 
 @NgModule({
   declarations: [

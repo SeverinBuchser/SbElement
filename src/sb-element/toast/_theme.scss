@@ -1,4 +1,4 @@
-@use "toast.theme";
+@use "toast.component.theme";
 
 @mixin theme($theme) {
   @include toast.theme($theme);

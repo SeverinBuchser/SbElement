@@ -1,3 +1,3 @@
-export * from './toast';
-export * from './toaster';
+export * from './toast.component';
 export * from './toast.module';
+export * from './toaster.component';

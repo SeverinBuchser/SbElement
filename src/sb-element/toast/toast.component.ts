@@ -5,21 +5,24 @@ import {
   Input,
   Output,
   ViewChild,
-  ViewEncapsulation } from '@angular/core';
+  ViewEncapsulation
+} from '@angular/core';
+
 import {
   Color,
   hasElementRefClass,
   mixinClassName,
   mixinHide,
-  Triggerable } from "../core";
+  Triggerable
+} from "../core";
 import { SbProgressComponent } from "../indicator";
 
 const SbToastCore = mixinHide(mixinClassName(hasElementRefClass, 'sb-toast'));
 
 @Component({
   selector: 'sb-toast',
-  templateUrl: './toast.html',
-  styleUrls: ['./toast.scss'],
+  templateUrl: './toast.component.html',
+  styleUrls: ['./toast.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class.timed]': 'timed > 0'
