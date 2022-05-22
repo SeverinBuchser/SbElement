@@ -29,6 +29,9 @@ import { SbSelectModule } from './select';
 import { SbSliderModule } from './slider';
 import { SbRadioModule } from './radio';
 
+/**
+ * @category Module
+ */
 @NgModule({
   declarations: [],
   imports: [

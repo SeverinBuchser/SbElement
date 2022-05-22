@@ -26,7 +26,10 @@ import {
   ],
   exports: [SbHighlightComponent],
   providers: [
-    { provide: SB_HIGHLIGHT_CONFIG, useValue: SB_HIGHLIGHT_CONFIG_DEFAULT }
+    { 
+      provide: SB_HIGHLIGHT_CONFIG, 
+      useValue: SB_HIGHLIGHT_CONFIG_DEFAULT 
+    }
   ]
 })
 export class SbHighlightModule {

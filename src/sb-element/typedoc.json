@@ -1,0 +1,6 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "tsconfig": "tsconfig.lib.prod.json",
+  "entryPoints": ["./index.ts"],
+  "json": "../../doc/sb-element.json"
+}

@@ -1,6 +1,7 @@
 import { AbstractConstructor, Constructor } from "./constructor";
 import { HasElementRef } from "./has-element-ref";
 
+/** Describes the status of a delivery order. */
 export enum Color {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',

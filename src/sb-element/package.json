@@ -12,6 +12,7 @@
     "dev": "ng build sb-element --watch",
     "build:schematics": "tsc --project tsconfig.schematics.json && npm run postbuild",
     "doc": "compodoc --config .compodocrc",
+    "typedoc": "typedoc --options ./typedoc.json",
     "copy:doc": "cp -ra ./documentation/. ../../SeverinBuchser.github.io/sb-element-doc"
   },
   "schematics": "./schematics/collection.json",

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlertDocComponent, BreadcrumbsDocComponent, ButtonDocComponent, CalendarDocComponent, CardDocComponent, ContainerDocComponent } from './doc';
+import { AlertDocComponent, BreadcrumbsDocComponent, ButtonDocComponent, CalendarDocComponent, CardDocComponent, ContainerDocComponent, DocComponent } from './doc';
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 import { ExampleComponentt } from "./example/example.component";
 import { FormExampleComponent } from "./example/form/form-example/form-example.component";
@@ -88,6 +88,10 @@ const routes: Routes = [
             component: TypographyExampleComponent
           }
         ]
+      },
+      {
+        path: 'documentation',
+        component: DocComponent
       }
     ]
   }

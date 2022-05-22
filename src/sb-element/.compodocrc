@@ -1,7 +1,20 @@
 {
-    "output": "../dist/documentation",
-    "serve": true,
+    "output": "../../doc/sb-element",
     "tsconfig": "tsconfig.lib.doc.json",
-    "watch": true,
-    "theme": "gitbook"
+    "disableSourceCode": true,
+    "disableDomTree": true,
+    "disableTemplateTab": true,
+    "disableStyleTab": true,
+    "disableGraph": true,
+    "disableCoverage": true,
+    "disablePrivate": true,
+    "disableProtected": true,
+    "disableInternal": true,
+    "disableLifeCycleHooks": true,
+    "disableRoutesGraph": true,
+    "disableSearch": true,
+    "disableDependencies": true,
+    "exportFormat": "html",
+    "hideGenerator": true,
+    "minimal": true
 }
