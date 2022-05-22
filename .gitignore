@@ -2,7 +2,7 @@
 
 # compodocrc
 documentation/
-doc/
+/doc
 
 # compiled output
 /dist

@@ -12,7 +12,8 @@
     "typedoc:sb": "npm run typedoc --prefix ./src/sb-element",
     "doc:sb": "npm run doc --prefix ./src/sb-element",
     "copy:doc:sb": "npm run copy:doc --prefix ./src/sb-element",
-    "parse-doc": "npx nodemon --config ./nodemon.parse-doc.json ./dist/scripts/parse-doc.js",
+    "dev:parse-doc": "npx nodemon --config ./nodemon.parse-doc.json ./dist/scripts/parse-doc.js",
+    "build:parse-doc": "node ./dist/scripts/parse-doc.js",
     "test": "ng test"
   },
   "private": true,
