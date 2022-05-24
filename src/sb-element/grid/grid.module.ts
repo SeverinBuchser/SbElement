@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { SbGridComponent } from './grid.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbGridComponent],
   imports: [CommonModule],

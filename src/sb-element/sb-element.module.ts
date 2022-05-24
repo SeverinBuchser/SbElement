@@ -30,7 +30,7 @@ import { SbSliderModule } from './slider';
 import { SbRadioModule } from './radio';
 
 /**
- * @category Module
+ * @category NgModule
  */
 @NgModule({
   declarations: [],

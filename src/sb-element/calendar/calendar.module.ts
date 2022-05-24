@@ -10,6 +10,9 @@ import { SbCalendarPeriodComponent } from './calendar-period.component';
 import { SbCalendarComponent } from './calendar.component';
 import { SbMarkableDateComponent } from './markable-date.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbCalendarComponent,

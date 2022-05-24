@@ -3,7 +3,7 @@
     <sb-link *ngFor="let route of routes" 
       [routerLink]="['/', 'documentation', route.path]" 
       sbContentPagination>
-      {{ route.path | titlecase }}
+      {{ route.path }}
     </sb-link>
   </sb-nav-bar-content>
 </sb-nav-bar>

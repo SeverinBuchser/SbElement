@@ -10,7 +10,9 @@ import { SbToggleButtonComponent } from './toggle-button';
 import { SbToggleCheckboxComponent } from './toggle-checkbox';
 import { SbToggleSwitchComponent } from './toggle-switch';
 
-
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbToggleButtonComponent,

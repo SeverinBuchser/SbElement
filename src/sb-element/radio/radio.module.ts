@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 
 import { SbRadioComponent } from './radio.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbRadioComponent

@@ -10,6 +10,9 @@ import { SbIconModule } from '../../icon';
 import { SbSelectButtonListComponent } from './select-button-list.component';
 import { SbSelectButtonComponent } from './select-button.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbSelectButtonComponent,

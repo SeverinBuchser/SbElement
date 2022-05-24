@@ -1,0 +1,254 @@
+{
+	"id": 2759,
+	"name": "SbElementModule",
+	"kind": 128,
+	"kindString": "Class",
+	"flags": {},
+	"comment": {},
+	"decorators": [
+		{
+			"name": "NgModule",
+			"type": {
+				"type": "reference",
+				"qualifiedName": "NgModuleDecorator",
+				"package": "@angular/core",
+				"name": "NgModule"
+			},
+			"arguments": {
+				"imports": [
+					{
+						"id": 2873,
+						"name": "BrowserModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": -1
+					}
+				],
+				"exports": [
+					{
+						"id": 2874,
+						"name": "SbAlertModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 114
+					},
+					{
+						"id": 2875,
+						"name": "SbToastModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 219
+					},
+					{
+						"id": 2876,
+						"name": "SbBreadcrumbsModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 20
+					},
+					{
+						"id": 2877,
+						"name": "SbCalendarModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 370
+					},
+					{
+						"id": 2878,
+						"name": "SbCardModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 529
+					},
+					{
+						"id": 2879,
+						"name": "SbContainerModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 574
+					},
+					{
+						"id": 2880,
+						"name": "SbCoreModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 928
+					},
+					{
+						"id": 2881,
+						"name": "SbFileInputModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1340
+					},
+					{
+						"id": 2882,
+						"name": "SbGridModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1364
+					},
+					{
+						"id": 2883,
+						"name": "SbHighlightModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1398
+					},
+					{
+						"id": 2884,
+						"name": "SbButtonModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1451
+					},
+					{
+						"id": 2885,
+						"name": "SbIconModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1492
+					},
+					{
+						"id": 2886,
+						"name": "SbIndicatorModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1495
+					},
+					{
+						"id": 2887,
+						"name": "SbInputModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1753
+					},
+					{
+						"id": 2888,
+						"name": "SbLinkModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1833
+					},
+					{
+						"id": 2889,
+						"name": "SbNavBarModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1850
+					},
+					{
+						"id": 2890,
+						"name": "SbPaginatorModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 1895
+					},
+					{
+						"id": 2891,
+						"name": "SbPopperModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2025
+					},
+					{
+						"id": 2892,
+						"name": "SbSidebarModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2073
+					},
+					{
+						"id": 2893,
+						"name": "SbTableModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2092
+					},
+					{
+						"id": 2894,
+						"name": "SbTabsModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2175
+					},
+					{
+						"id": 2895,
+						"name": "SbTimelineModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2241
+					},
+					{
+						"id": 2896,
+						"name": "SbToggleModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2378
+					},
+					{
+						"id": 2897,
+						"name": "SbSelectModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2665
+					},
+					{
+						"id": 2898,
+						"name": "SbSliderModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2715
+					},
+					{
+						"id": 2899,
+						"name": "SbRadioModule",
+						"kind": 16777216,
+						"flags": {},
+						"target": 2756
+					}
+				]
+			},
+			"angularDecoratorType": "NgModule"
+		}
+	],
+	"children": [
+		{
+			"id": 2760,
+			"name": "constructor",
+			"kind": 512,
+			"kindString": "Constructor",
+			"flags": {},
+			"signatures": [
+				{
+					"id": 2761,
+					"name": "new SbElementModule",
+					"kind": 16384,
+					"kindString": "Constructor signature",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"id": 2759,
+						"name": "SbElementModule"
+					}
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Constructors",
+			"kind": 512,
+			"children": [
+				2760
+			]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "sb-element.module.ts",
+			"line": 69,
+			"character": 13
+		}
+	]
+}

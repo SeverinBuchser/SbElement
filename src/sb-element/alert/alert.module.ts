@@ -16,6 +16,9 @@ import {
 } from './alert-config';
 import { SbAlertContainerComponent } from './alert-container.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbAlertBoxComponent,

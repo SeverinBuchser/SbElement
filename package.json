@@ -2,19 +2,17 @@
   "name": "sb-element",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:sb": "npm run build --prefix ./src/sb-element && npm run build --prefix ./src/schematics",
     "dev:sb": "npm run dev --prefix ./src/sb-element",
-    "build:sb": "npm run build --prefix ./src/sb-element",
-    "dev:scripts": "tsc -p ./scripts/tsconfig.scripts.json --watch",
     "build:scripts": "tsc -p ./scripts/tsconfig.scripts.json",
-    "typedoc:sb": "npm run typedoc --prefix ./src/sb-element",
-    "doc:sb": "npm run doc --prefix ./src/sb-element",
-    "copy:doc:sb": "npm run copy:doc --prefix ./src/sb-element",
-    "dev:parse-doc": "npx nodemon --config ./nodemon.parse-doc.json ./dist/scripts/parse-doc.js",
-    "build:parse-doc": "node ./dist/scripts/parse-doc.js",
-    "test": "ng test"
+    "dev:scripts": "tsc -p ./scripts/tsconfig.scripts.json --watch",
+    "build:doc": "node ./dist/scripts/sb-element-docs.js",
+    "dev:doc": "npx nodemon --config ./nodemon.parse-doc.json ./dist/scripts/sb-element-docs.js",
+    "build:schematics": "npm run build --prefix ./src/schematics",
+    "dev:schematics": "npm run dev --prefix ./src/schematics",
+    "test:sb": "ng test sb-element"
   },
   "private": true,
   "dependencies": {
@@ -54,9 +52,7 @@
     "ng-packagr": "^13.2.1",
     "nodemon": "^2.0.16",
     "sass-loader": "^12.6.0",
-    "sb-cli": "file:../SbCli",
-    "sb-devkit": "^0.0.4",
-    "sb-log": "file:../SbLog/dist",
+    "tree-model": "^1.0.7",
     "typedoc": "^0.22.15",
     "typescript": "^4.4.4"
   }

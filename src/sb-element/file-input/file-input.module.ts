@@ -6,6 +6,9 @@ import { SbIconModule } from '../icon';
 
 import { SbFileInputComponent } from './file-input.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbFileInputComponent

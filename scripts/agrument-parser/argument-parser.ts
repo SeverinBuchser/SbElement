@@ -7,8 +7,12 @@ export enum AngularDecoratorType {
   injectable = 'InjectableDecorator'
 }
 
-export function parseDecoratorArguments(decoratorArguments: any): any {
-  if (decoratorArguments.obj) {
-    return parseObjectString(decoratorArguments.obj)
-  }
+export function parseArguments(args: any): any {
+  const keys = Object.keys(args);
+  keys.forEach((key: string) => {
+    if (typeof args[key] == 'string') {
+      args[key] = parseObjectString(args[key]);
+    }
+  })
+  return args;
 }

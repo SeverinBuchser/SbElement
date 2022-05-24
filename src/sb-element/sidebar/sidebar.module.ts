@@ -7,6 +7,9 @@ import { SbCoreModule } from '../core';
 import { SbSidebarContainerComponent } from './sidebar-container.component';
 import { SbSidebarComponent } from './sidebar.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbSidebarComponent,

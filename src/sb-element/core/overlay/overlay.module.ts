@@ -8,6 +8,9 @@ import {
   SbSlidableOverlayContainerComponent 
 } from './slidable-overlay-container.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbOverlayComponent, 

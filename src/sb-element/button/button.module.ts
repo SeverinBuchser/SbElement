@@ -6,6 +6,9 @@ import { SbIconModule } from '../icon';
 import { SbButtonComponent } from './button.component';
 import { SbIconButtonComponent } from './icon-button.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbIconButtonComponent,

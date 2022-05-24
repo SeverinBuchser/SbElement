@@ -6,6 +6,9 @@ import { SbIconModule } from '../icon';
 
 import { SbTimelineComponent } from './timeline.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbTimelineComponent],
   imports: [CommonModule, SbGridModule, SbIconModule],

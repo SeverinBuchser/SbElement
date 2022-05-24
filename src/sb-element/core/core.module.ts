@@ -13,6 +13,9 @@ import {
   SbTriggerDirective
 } from './trigger';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbClickOutsideTriggerDirective,

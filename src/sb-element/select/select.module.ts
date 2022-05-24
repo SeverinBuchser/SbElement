@@ -12,6 +12,9 @@ import { SbColorPickerComponent } from './color-picker';
 import { SbSelectButtonModule } from './select-button';
 import { SbSelectCheckboxComponent } from './select-checkbox';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbColorPickerComponent,

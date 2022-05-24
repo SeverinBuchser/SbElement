@@ -8,7 +8,7 @@ import { CardDocModule } from './card';
 import { ContainerDocModule } from './container';
 import { docConfig, DocConfig } from './doc.module.config';
 import { DocComponent } from './doc.component';
-import { SbLinkModule, SbNavBarModule } from 'sb-element';
+import { SbLinkModule, SbNavBarModule, SbPaginatorModule } from 'sb-element';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -16,7 +16,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     SbNavBarModule,
     SbLinkModule,
-    RouterModule
+    RouterModule,
+    SbPaginatorModule
   ],
   exports: [
     AlertDocModule,

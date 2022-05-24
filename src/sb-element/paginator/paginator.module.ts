@@ -5,7 +5,9 @@ import { SbButtonModule } from '../button';
 import { SbContentPaginationDirective } from './content-pagination.directive';
 import { SbContentPaginatorComponent } from './content-paginator.component';
 
-
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbContentPaginationDirective, SbContentPaginatorComponent],
   imports: [CommonModule, SbButtonModule],

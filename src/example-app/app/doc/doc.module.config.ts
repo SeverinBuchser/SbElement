@@ -9,6 +9,7 @@ import { ContainerExampleComponent } from "./container/example";
 export class DocConfig {
 
   constructor(
+    public docFile: string,
     public rootModule: string, 
     public exampleConfig: Array<ModuleExample> = new Array()
   ) {}
@@ -20,7 +21,7 @@ export interface ModuleExample {
   exampleComponent: Type<any>;
 }
 
-export const docConfig = new DocConfig('SbElementModule', [
+export const docConfig = new DocConfig('sb-element.json', 'SbElementModule', [
   { moduleName: 'SbAlertModule', exampleComponent: AlertExampleComponent },
   { moduleName: 'SbBreadcrumbsModule', exampleComponent: BreadcrumbsExampleComponent},
   { moduleName: 'SbButtonModule', exampleComponent: ButtonExampleComponent},

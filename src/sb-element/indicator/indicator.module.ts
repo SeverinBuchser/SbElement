@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { SbProgressComponent } from './progress.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbProgressComponent],
   imports: [CommonModule],

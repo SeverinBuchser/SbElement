@@ -1,0 +1,12 @@
+{
+  "watch": [
+    ".",
+    "../../dist/sb-element"
+  ],
+  "ignore": [
+    "../../dist/sb-element/schematics",
+    "../../dist/example-app",
+    "../../dist/srcripts"
+  ],
+  "delay": 500
+}

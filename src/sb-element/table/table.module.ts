@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { SbTableComponent } from './table.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbTableComponent],
   imports: [CommonModule],

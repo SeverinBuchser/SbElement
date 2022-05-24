@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { SbContainerComponent } from './container.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbContainerComponent],
   imports: [CommonModule],

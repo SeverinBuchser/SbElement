@@ -14,6 +14,9 @@ import {
   SB_HIGHLIGHT_CONFIG_DEFAULT
 } from './highlight.module.config';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbHighlightComponent],
   imports: [

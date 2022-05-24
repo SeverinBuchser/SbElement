@@ -7,6 +7,9 @@ import { SbIndicatorModule } from "../indicator";
 import { SbToastComponent } from './toast.component';
 import { SbToasterComponent } from './toaster.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbToastComponent,

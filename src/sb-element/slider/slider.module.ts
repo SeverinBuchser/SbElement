@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 
 import { SbSliderComponent } from './slider.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbSliderComponent

@@ -10,6 +10,9 @@ import { SbCardImageComponent } from './card-image.component';
 import { SbCardComponent } from './card.component';
 import { SbExpansionCardComponent } from './expansion-card.component';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbCardComponent,

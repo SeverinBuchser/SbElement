@@ -12,6 +12,9 @@ import { SbInputGroupComponent } from './input-group.component';
 import { SbInputComponent } from './input.component';
 import { SbTimeInputComponent } from './time-input';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbDateInputComponent,

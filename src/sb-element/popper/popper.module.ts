@@ -9,6 +9,9 @@ import { SbPopperOverlayComponent } from './popper-overlay.component';
 import { SbPopperComponent } from './popper.component';
 import { SbTooltipComponent } from "./tooltip";
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbPopperComponent,

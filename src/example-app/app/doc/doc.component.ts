@@ -18,7 +18,7 @@ export class DocComponent {
     private _router: Router,
     private _route: ActivatedRoute
   ) {
-    this._docService.buildRoutes().then((routes) => {
+    this._docService.routes.subscribe((routes) => {
       this._route.routeConfig!.children = routes;
 
       this.routes = this._route.routeConfig!.children.reduce((routes, route) => {

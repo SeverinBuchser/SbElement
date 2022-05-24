@@ -19,6 +19,9 @@ import {
   SB_TABS_CONFIG_DEFAULT
 } from './tabs.module.config';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbTabBarComponent,
