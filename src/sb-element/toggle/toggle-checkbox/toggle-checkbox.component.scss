@@ -29,19 +29,21 @@ Checkbox / Style
     height: spacing.get-spacing(s);
     width: spacing.get-spacing(s);
   }
-
-  input {
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    appearance: none;
-    /* For iOS < 15 to remove gradient background */
-    background-color: transparent;
-    @include border.border($width: m);
-    @include border.radius(4px);
-    /* Not removed via appearance */
-    @include spacing.margin(0);
-    @include transition.ease(200ms, background, border);
+  
+  @layer toggle-checkbox-input {
+    input {
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      appearance: none;
+      /* For iOS < 15 to remove gradient background */
+      background-color: transparent;
+      @include border.border($width: m);
+      @include border.radius(4px);
+      /* Not removed via appearance */
+      @include spacing.margin(0);
+      @include transition.ease(200ms, background, border);
+    }
   }
 
   .sb-icon {

@@ -7,6 +7,7 @@ import {
   ViewEncapsulation } from '@angular/core';
 import { Color, hasElementRefClass, mixinClassName, mixinColor } from '../core';
 
+/** @internal */
 const SbBreadcrumbsCore = mixinColor(
   mixinClassName(hasElementRefClass, 'sb-breadcrumbs'),
   Color.PRIMARY

@@ -1,6 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Color, mixinDisable, mixinFocus, Size } from '../core';
 
+/** @internal */
 const SbIconButtonCore = mixinDisable(mixinFocus(class {}));
 
 @Component({

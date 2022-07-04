@@ -7,16 +7,9 @@ const SbCardImageCore = mixinClassName(hasElementRefClass, 'sb-card-image');
   selector: 'img[sbCardImage]',
   template: '',
   styleUrls: ['./card-image.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    '[class.border-bottom]': 'borderBottom',
-    '[class.border-top]': 'borderTop'
-  }
+  encapsulation: ViewEncapsulation.None
 })
 export class SbCardImageComponent extends SbCardImageCore {
-
-  public borderTop: boolean = true;
-  public borderBottom: boolean = true;
 
   constructor(elementRef: ElementRef) {
     super(elementRef);

@@ -1,12 +1,11 @@
 {
   "name": "sb-element-schematics",
-  "version": "0.0.0",
-  "author": "Severin Buchser",
   "scripts": {
-    "build": "tsc --project tsconfig.schematics.json",
+    "build": "rm -rf ../../dist/sb-element/schematics && tsc --project tsconfig.schematics.json",
     "postbuild": "copyfiles ./*/schema.json ./*/files/*/** ./collection.json ../../dist/sb-element/schematics",
     "dev": "npx nodemon --config ./nodemon.schematics.json --exec npm run build"
   },
+  "private": true,
   "dependencies": {
     "tslib": "^2.1.0"
   },

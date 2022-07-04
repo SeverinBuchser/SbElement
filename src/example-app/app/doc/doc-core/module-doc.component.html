@@ -1,0 +1,11 @@
+<ng-content></ng-content>
+<sb-tabs>
+  <sb-tab label="Example">
+    <ng-template [cdkPortalOutlet]="exampleComponentPortal"></ng-template>
+  </sb-tab>
+  <sb-tab label="API">
+    <div class="sb--padding-s">
+      <ng-content></ng-content>
+    </div>
+  </sb-tab>
+</sb-tabs>

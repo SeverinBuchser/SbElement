@@ -18,6 +18,13 @@ Color-Picker / Style
     }
   }
 
+  &__colors {
+    display: grid;
+    grid-gap: spacing.get-spacing(xs);
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(21, 1fr);
+  }
+
   &__color {
     height: spacing.get-spacing(m);
     width: spacing.get-spacing(m);

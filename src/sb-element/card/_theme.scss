@@ -1,7 +1,5 @@
-@use "card-image.component.theme";
 @use "card.component.theme";
 
 @mixin theme($theme) {
-  @include card-image.theme($theme);
   @include card.theme($theme);
 }

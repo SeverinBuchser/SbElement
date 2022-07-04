@@ -20,9 +20,11 @@ import { TypographyExampleComponent } from './example/typography/typography-exam
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 
 import xml from 'highlight.js/lib/languages/xml';
+import typescript from 'highlight.js/lib/languages/typescript';
 import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.component';
 import { InputExampleComponent } from './example/input/input-example/input-example.component';
 import { DocModule } from './doc';
+import { ExampleModule } from './example';
 
 
 @NgModule({
@@ -54,14 +56,16 @@ import { DocModule } from './doc';
     ]),
     SbHighlightModule.forRoot({
       languages: [
-        { name: 'xml', languageFn: xml }
+        { name: 'xml', languageFn: xml },
+        { name: 'typescript', languageFn: typescript }
       ]
     }),
     SbTabsModule.forRoot({
       animationDuration: '0.3s'
     }),
     UtilModule,
-    DocModule
+    DocModule,
+    ExampleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

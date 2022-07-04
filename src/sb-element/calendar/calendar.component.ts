@@ -20,6 +20,7 @@ import { SbMarkedDates } from './marked-dates';
 
 export type SbCalendarSelectionMode = 'date' | 'month' | 'year';
 
+/** @internal */
 const SbCalendarCore = mixinDisable(
   mixinFocus(
     mixinColor(

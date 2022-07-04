@@ -1,0 +1,11 @@
+import { Route } from '@angular/router';
+
+import { DocComponent } from './doc.component';
+
+<%= imports %>
+
+export const docRoute: Route = {
+  path: 'documentation',
+  component: DocComponent,
+  children: <%= routes %>
+};

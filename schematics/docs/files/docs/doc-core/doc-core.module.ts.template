@@ -1,0 +1,25 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { PortalModule } from '@angular/cdk/portal';
+
+import { SbElementModule } from 'sb-element';
+
+import { ClassSignatureComponent } from './class-signature';
+import { ModuleDocComponent } from './module-doc.component';
+
+@NgModule({
+  declarations: [
+    ClassSignatureComponent,
+    ModuleDocComponent
+  ],
+  imports: [
+    CommonModule,
+    PortalModule,
+    SbElementModule
+  ],
+  exports: [
+    ClassSignatureComponent,
+    ModuleDocComponent
+  ]
+})
+export class DocCoreModule { }

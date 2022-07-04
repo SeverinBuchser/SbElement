@@ -1,0 +1,1 @@
+export * from './sb-breadcrumbs-module-doc.component';

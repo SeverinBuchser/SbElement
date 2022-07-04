@@ -14,6 +14,7 @@ import {
   SB_ALERT_CONFIG_DEFAULT
 } from './alert-config';
 
+/** @internal */
 const SbAlertContainerCore = mixinClassName(
   SbSlidableOverlayContainerComponent, 
   'sb-alert-container'

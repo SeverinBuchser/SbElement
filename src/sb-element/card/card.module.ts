@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 
+import { SbCardComponent } from './card.component';
 import { SbCardContentComponent } from './card-content.component';
+import { SbCardContentDirective } from './card-content.directive';
 import { SbCardHeaderComponent } from './card-header.component';
 import { SbCardImageComponent } from './card-image.component';
-import { SbCardComponent } from './card.component';
-import { SbExpansionCardComponent } from './expansion-card.component';
 
 /**
  * @category NgModule
@@ -17,9 +17,9 @@ import { SbExpansionCardComponent } from './expansion-card.component';
   declarations: [
     SbCardComponent,
     SbCardContentComponent,
+    SbCardContentDirective,
     SbCardHeaderComponent,
-    SbCardImageComponent,
-    SbExpansionCardComponent,
+    SbCardImageComponent
   ],
   imports: [
     CommonModule,
@@ -30,8 +30,7 @@ import { SbExpansionCardComponent } from './expansion-card.component';
     SbCardComponent,
     SbCardContentComponent,
     SbCardHeaderComponent,
-    SbCardImageComponent,
-    SbExpansionCardComponent,
+    SbCardImageComponent
   ]
 })
 export class SbCardModule { }

@@ -1,0 +1,14 @@
+import { Component, Type } from '@angular/core';
+import { <%= exampleComponent %> } from '<%= exampleComponentPath %>';
+
+@Component({
+  selector: 'app-<%= dasherize(name) %>-doc',
+  templateUrl: './<%= dasherize(name) %>-doc.component.html'
+})
+export class <%= classify(name) %>DocComponent {
+
+  get exampleComponent(): Type<<%= exampleComponent %>> {
+    return <%= exampleComponent %>;
+  }
+
+}

@@ -31,8 +31,7 @@ import { SbAlertContainerComponent } from './alert-container.component';
     SbIconModule
   ],
   exports: [
-    SbAlertBoxComponent,
-    SbAlertContainerComponent
+    SbAlertBoxComponent
   ],
   providers: [
     {

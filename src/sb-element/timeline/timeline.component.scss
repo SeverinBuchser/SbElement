@@ -7,10 +7,8 @@ Timeline / Style
 // SIZE
 @mixin timeline-size($key, $spacing) {
   $bigger: spacing.get-bigger($key);
-  &.sb--#{$key} {
-    .sb-grid {
-      grid-gap: 0 calc(2 * $bigger);
-    }
+  &.sb--#{$key} &__grid {
+    grid-gap: 0 calc(2 * $bigger);
   }
 
   &.sb--#{$key} &__line {
@@ -21,6 +19,13 @@ Timeline / Style
 
 // ROOT
 .sb-timeline {
+
+  &__grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
   &__name {
     @include display.flex();
   }

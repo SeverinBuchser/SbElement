@@ -1,37 +1,38 @@
+import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AlertDocModule } from './alert/alert-doc.module';
-import { BreadcrumbsDocModule } from './breadcrumbs';
-import { ButtonDocModule } from './button';
-import { CalendarDocModule } from './calendar';
-import { CardDocModule } from './card';
-import { ContainerDocModule } from './container';
-import { docConfig, DocConfig } from './doc.module.config';
-import { DocComponent } from './doc.component';
-import { SbLinkModule, SbNavBarModule, SbPaginatorModule } from 'sb-element';
 import { RouterModule } from '@angular/router';
+import { SbElementModule } from 'sb-element';
+import { DocCoreModule } from './doc-core';
+import { DocComponent } from './doc.component';
+import { DocRoutePipe } from './doc-route.pipe';
+
+import { SbAlertModuleDocComponent } from './sb-alert-module';
+import { SbBreadcrumbsModuleDocComponent } from './sb-breadcrumbs-module';
+import { SbButtonModuleDocComponent } from './sb-button-module';
+import { SbCalendarModuleDocComponent } from './sb-calendar-module';
+import { SbCardModuleDocComponent } from './sb-card-module';
+import { SbContainerModuleDocComponent } from './sb-container-module';
+import { SbFileInputModuleDocComponent } from './sb-file-input-module';
 
 @NgModule({
+  declarations: [
+    SbAlertModuleDocComponent,
+		SbBreadcrumbsModuleDocComponent,
+		SbButtonModuleDocComponent,
+		SbCalendarModuleDocComponent,
+		SbCardModuleDocComponent,
+		SbContainerModuleDocComponent,
+    SbFileInputModuleDocComponent,
+    DocComponent,
+    DocRoutePipe
+  ],
   imports: [
     CommonModule,
-    SbNavBarModule,
-    SbLinkModule,
     RouterModule,
-    SbPaginatorModule
-  ],
-  exports: [
-    AlertDocModule,
-    BreadcrumbsDocModule,
-    ButtonDocModule,
-    CalendarDocModule,
-    CardDocModule,
-    ContainerDocModule
-  ],
-  providers: [
-    { provide: DocConfig, useValue: docConfig}
-  ],
-  declarations: [
-    DocComponent
+    PortalModule,
+    SbElementModule,
+    DocCoreModule
   ]
 })
 export class DocModule { }

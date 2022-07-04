@@ -12,6 +12,7 @@ import {
   Size
 } from '../core';
 
+/** @internal */
 const SbButtonCore = mixinAccent(
   mixinPill(
     mixinPlain(

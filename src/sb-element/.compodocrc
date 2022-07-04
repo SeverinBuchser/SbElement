@@ -1,0 +1,7 @@
+{
+  "tsconfig": "./tsconfig.lib.json",
+  "output": "../../dist/documentation",
+  "disablePrivate": true,
+  "disableProtected": true,
+  "disableInternal": true
+}

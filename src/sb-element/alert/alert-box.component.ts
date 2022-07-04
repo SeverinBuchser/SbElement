@@ -25,6 +25,7 @@ export interface SbAlertBoxData {
   message: string;
 }
 
+/** @internal */
 const SbAlertBoxCore = mixinPill(
   mixinPlain(
     mixinSize(

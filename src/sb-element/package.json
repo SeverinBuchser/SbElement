@@ -8,23 +8,26 @@
   },
   "scripts": {
     "build": "ng build sb-element -c production",
-    "dev": "ng build sb-element --watch"
+    "dev": "ng build sb-element --watch",
+    "build:doc": "npx compodoc -c .compodocrc",
+    "dev:doc": "npx compodoc -w -s -c .compodocrc"
   },
   "schematics": "./schematics/collection.json",
   "ng-add": {
     "save": "devDependencies"
   },
   "peerDependencies": {
-    "@angular/common": "~13.2.0",
-    "@angular/core": "~13.2.0",
-    "@angular/cdk": "^13.3.4",
-    "date-fns": "^2.24.0",
+    "@angular/cdk": "^13.3.7",
+    "@angular/common": "~13.3.9",
+    "@angular/core": "~13.3.9",
+    "date-fns": "^2.28.0",
     "highlight.js": "^11.5.1"
   },
   "dependencies": {
-    "tslib": "^2.1.0"
+    "tslib": "^2.4.0"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "file:../../node_modules/@compodoc/compodoc",
     "typescript": "file:../../node_modules/typescript"
   },
   "keywords": [
@@ -32,7 +35,6 @@
     "angular",
     "sb",
     "component",
-    "sb-theming",
     "sb-element"
   ],
   "exports": {

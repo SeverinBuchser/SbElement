@@ -1,0 +1,1 @@
+export * from './sb-file-input-module-doc.component';

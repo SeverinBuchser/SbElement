@@ -20,6 +20,10 @@ Card / Stlye
     @include spacing.margin(0);
   }
 
+  img + &__content-hr {
+    display: none;
+  }
+
   &.shadow {
     @include box-shadow.weak;
   }

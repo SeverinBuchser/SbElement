@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   Component,
   ContentChild,
   ContentChildren,
@@ -11,9 +10,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { hasElementRefClass, mixinClassName } from '../core';
-import { SbCardContentComponent } from './card-content.component';
+import { SbCardContentDirective } from './card-content.directive';
 import { SbCardHeaderComponent } from './card-header.component';
-import { SbCardImageComponent } from './card-image.component';
 
 const SbCardCore = mixinClassName(hasElementRefClass, 'sb-card');
 
@@ -27,13 +25,10 @@ const SbCardCore = mixinClassName(hasElementRefClass, 'sb-card');
     '[class.shadow]': 'shadow'
   }
 })
-export class SbCardComponent extends SbCardCore implements AfterContentInit {
+export class SbCardComponent extends SbCardCore {
 
   @Input()
-  public titleSeparator: boolean = true;
-
-  @Input()
-  public footerSeprator: boolean = true;
+  public showHeaderSeparator: boolean = true;
 
   @Input()
   public title?: string;
@@ -44,11 +39,8 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
   @ContentChild(SbCardHeaderComponent)
   public header?: SbCardHeaderComponent;
 
-  @ContentChildren(SbCardImageComponent)
-  public images!: QueryList<SbCardImageComponent>;;
-
-  @ContentChildren(SbCardContentComponent)
-  public contents!: QueryList<SbCardContentComponent>;
+  @ContentChildren(SbCardContentDirective)
+  public contents!: QueryList<SbCardContentDirective>;
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
@@ -58,24 +50,8 @@ export class SbCardComponent extends SbCardCore implements AfterContentInit {
     return this.header || this.title ? true : false;
   }
 
-  public ngAfterContentInit(): void {
-
-    if (this.images.length > 0) {
-      if (!this._hasHeader()) {
-        this.images.first.borderTop = false;
-      }
-      if (this.contents.length == 0) {
-        this.images.last.borderBottom = false;
-      }
-    }
-
-    this.images.forEach((image: SbCardImageComponent, index: number) => {
-      if (index > 0) image.borderTop = false;
-    })
-  }
-
   public showContentTopRule(index: number): boolean {
-    if (index > 0 || this.images.length <= 0 && this._hasHeader()) {
+    if (index > 0 || this._hasHeader() && this.showHeaderSeparator) {
       return true;
     }
     return false;

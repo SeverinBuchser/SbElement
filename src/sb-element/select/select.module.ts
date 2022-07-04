@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SbCoreModule } from '../core';
-import { SbGridModule } from '../grid';
 import { SbPopperModule } from '../popper';
 
 import { SbButtonModule } from '../button';
@@ -25,7 +24,6 @@ import { SbSelectCheckboxComponent } from './select-checkbox';
     FormsModule,
     SbButtonModule,
     SbCoreModule,
-    SbGridModule,
     SbPopperModule
   ],
   exports: [

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlertDocComponent, BreadcrumbsDocComponent, ButtonDocComponent, CalendarDocComponent, CardDocComponent, ContainerDocComponent, DocComponent } from './doc';
+import { docRoute } from './doc/doc-routing';
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 import { ExampleComponentt } from "./example/example.component";
 import { FormExampleComponent } from "./example/form/form-example/form-example.component";
@@ -26,30 +26,6 @@ const routes: Routes = [
           {
             path: '',
             component: ExampleDefaultComponent
-          },
-          {
-            path: 'alert',
-            component: AlertDocComponent
-          },
-          {
-            path: 'breadcrumbs',
-            component: BreadcrumbsDocComponent
-          },
-          {
-            path: 'button',
-            component: ButtonDocComponent
-          },
-          {
-            path: 'calendar',
-            component: CalendarDocComponent
-          },
-          {
-            path: 'card',
-            component: CardDocComponent
-          },
-          {
-            path: 'container',
-            component: ContainerDocComponent
           },
           {
             path: 'indicator',
@@ -89,10 +65,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: 'documentation',
-        component: DocComponent
-      }
+      docRoute
     ]
   }
 ];

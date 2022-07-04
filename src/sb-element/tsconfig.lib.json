@@ -3,6 +3,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
+    "rootDir": "./",
     "target": "es2017",
     "declaration": true,
     "declarationMap": true,
@@ -15,6 +16,7 @@
   },
   "exclude": [
     "./test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/testing/*"
   ]
 }

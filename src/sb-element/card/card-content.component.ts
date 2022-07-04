@@ -1,34 +1,25 @@
 import {
   Component,
-  ElementRef,
-  Input,
-  TemplateRef,
-  ViewChild,
-  ViewEncapsulation
+  ElementRef, ViewEncapsulation
 } from '@angular/core';
-import { hasElementRefClass, mixinClassName } from '../core';
+import { mixinClassName } from '../core';
+import { SbCardContentDirective } from './card-content.directive';
 
-const SbCardContentCore = mixinClassName(hasElementRefClass, 'sb-card-content');
+const SbCardContentCore = mixinClassName(SbCardContentDirective, 'sb-card-content');
 
 @Component({
   selector: 'sb-card-content',
   templateUrl: './card-content.component.html',
   styleUrls: ['./card-content.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [
+    { provide: SbCardContentDirective, useExisting: SbCardContentComponent }
+  ]
 })
 export class SbCardContentComponent extends SbCardContentCore {
-
-  @Input()
-  public showTopDivider: boolean = false;
-
-  get classes(): Array<string> {
-    return this._elementRef.nativeElement.classList;
-  }
-
-  @ViewChild(TemplateRef, { static: true })
-  public template!: TemplateRef<any>;
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
   }
+  
 }

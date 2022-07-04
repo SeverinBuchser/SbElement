@@ -22,7 +22,7 @@
 		</button>
 	</sb-popper-content>
 	<sb-popper-overlay>
-		<sb-grid [dim]="dim" gap="xs">
+		<div [ngClass]="className + '__colors'">
 			<div *ngFor="let option of options"
 				[ngClass]="[
 					className + '__color',
@@ -31,6 +31,6 @@
 				]"
 				(click)="select(option)">
 			</div>
-		</sb-grid>
+		</div>
 	</sb-popper-overlay>
 </sb-popper>
