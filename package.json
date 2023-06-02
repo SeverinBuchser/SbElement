@@ -26,7 +26,6 @@
     "highlight.js": "^11.5.1",
     "ng-packager": "^1.0.0",
     "rxjs": "~6.6.0",
-    "sb-element": "file:dist/sb-element",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
   },
@@ -45,10 +44,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^13.2.1",
-    "sass-loader": "^12.6.0",
-    "sb-cli": "file:../SbCli",
-    "sb-devkit": "^0.0.4",
-    "sb-log": "file:../SbLog/dist",
     "typescript": "^4.4.4"
   }
 }
