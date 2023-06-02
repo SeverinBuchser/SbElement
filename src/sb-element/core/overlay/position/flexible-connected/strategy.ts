@@ -3,8 +3,7 @@ import { ElementRef, EventEmitter, NgZone } from "@angular/core";
 import { extendStyles } from "../../../util";
 import { merge, Subscription } from "rxjs";
 import { mergeDimensions, SbDimensions } from "../dimensions";
-import { OverlayContainer, PositionStrategy, ViewportRuler } from "@angular/cdk/overlay";
-import { OverlayReference } from "@angular/cdk/overlay/overlay-reference";
+import { OverlayContainer, OverlayRef, PositionStrategy, ViewportRuler } from "@angular/cdk/overlay";
 import { SbDimensionsOverlap } from "../overlap";
 import { SbDimensionsOverlapOverflow } from '../overflow';
 import {
@@ -23,7 +22,7 @@ export class SbFlexibleConnectedPositionStrategy implements PositionStrategy {
 	private _realign: EventEmitter<void> = new EventEmitter();
 	private _applySubscription: Subscription = Subscription.EMPTY;
 
-	private _overlayRef?: OverlayReference
+	private _overlayRef?: OverlayRef
 	private _overlayElement?: HTMLElement;
 
 	protected _positionConfig: SbFlexibleConnectedPositionConfig =
@@ -76,7 +75,7 @@ export class SbFlexibleConnectedPositionStrategy implements PositionStrategy {
 		this._setOverlayElementStyles();
   }
 
-  public attach(overlayRef: OverlayReference): void {
+  public attach(overlayRef: OverlayRef): void {
 		if (this._overlayRef && overlayRef !== this._overlayRef) {
 			throw new Error('This position strategy is already attached to an overlay')
 		}
