@@ -16,7 +16,7 @@
           "strict": true
         }
       },
-      "root": "example-app",
+      "root": "src/example-app",
       "sourceRoot": "src/example-app",
       "prefix": "app",
       "architect": {
@@ -151,7 +151,7 @@
     },
     "sb-element": {
       "projectType": "library",
-      "root": "sb-element",
+      "root": "src/sb-element",
       "sourceRoot": "src/sb-element",
       "prefix": "sb",
       "architect": {

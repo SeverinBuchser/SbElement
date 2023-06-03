@@ -22,7 +22,7 @@ export class SbCardContentComponent extends SbCardContentCore {
   public showTopDivider: boolean = false;
 
   get classes(): Array<string> {
-    return this._elementRef.nativeElement.classList;
+    return this._elementRef.nativeElement.classList.value;
   }
 
   @ViewChild(TemplateRef, { static: true })
