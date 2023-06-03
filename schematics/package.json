@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/node": "file:../node_modules/@types/node",
     "@types/jasmine": "file:../node_modules/@types/jasmine",
+    "copyfiles": "file:../node_modules/copyfiles",
     "jasmine": "file:../node_modules/jasmine"
   }
 }
