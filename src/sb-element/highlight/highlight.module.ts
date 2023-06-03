@@ -5,15 +5,18 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SbCoreModule } from '../core';
 import { SbIconModule } from '../icon';
 import { SbPopperModule } from '../popper';
-
 import { SbButtonModule } from '../button';
-import { SbHighlightComponent } from './highlight';
+
+import { SbHighlightComponent } from './highlight.component';
 import {
   SbHighlightModuleConfig,
   SB_HIGHLIGHT_CONFIG,
   SB_HIGHLIGHT_CONFIG_DEFAULT
 } from './highlight.module.config';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [SbHighlightComponent],
   imports: [
@@ -26,7 +29,10 @@ import {
   ],
   exports: [SbHighlightComponent],
   providers: [
-    { provide: SB_HIGHLIGHT_CONFIG, useValue: SB_HIGHLIGHT_CONFIG_DEFAULT }
+    { 
+      provide: SB_HIGHLIGHT_CONFIG, 
+      useValue: SB_HIGHLIGHT_CONFIG_DEFAULT 
+    }
   ]
 })
 export class SbHighlightModule {

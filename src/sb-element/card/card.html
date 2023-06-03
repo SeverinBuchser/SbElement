@@ -1,6 +1,0 @@
-<ng-content select="sb-card-header"></ng-content>
-<ng-content select="[sbCardImage]"></ng-content>
-<ng-container *ngFor="let content of contents; index as index">
-	<hr *ngIf="showContentTopRule(index)" [ngClass]="className + '__content-hr'">
-	<ng-container *ngTemplateOutlet="content.template"></ng-container>
-</ng-container>

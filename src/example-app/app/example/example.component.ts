@@ -7,7 +7,7 @@ import { mixinClassName, mixinColor, Color } from 'sb-element';
   templateUrl: './example.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class ExampleComponent extends
+export class ExampleComponentt extends
 mixinColor(
   mixinClassName(
     class {

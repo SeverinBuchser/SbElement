@@ -1,0 +1,46 @@
+@use "../styles/display";
+@use "../styles/spacing";
+/*****************************************************************************
+Timeline / Style
+******************************************************************************/
+
+// SIZE
+@mixin timeline-size($key, $spacing) {
+  $bigger: spacing.get-bigger($key);
+  &.sb--#{$key} &__grid {
+    grid-gap: 0 calc(2 * $bigger);
+  }
+
+  &.sb--#{$key} &__line {
+    right: calc(-2 * $bigger - 50% + min(25%, spacing.get-spacing(xl)));
+    width: calc(2 * $bigger + 100% - 2 * min(25%, spacing.get-spacing(xl)));
+  }
+}
+
+// ROOT
+.sb-timeline {
+
+  &__grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  &__name {
+    @include display.flex();
+  }
+
+  &__indicator {
+    position: relative;
+    @include display.flex();
+  }
+
+  &__line {
+    position: absolute;
+    height: 0;
+  }
+
+  @include spacing.for-each-spacing using ($key, $spacing) {
+    @include timeline-size($key, $spacing);
+  }
+}

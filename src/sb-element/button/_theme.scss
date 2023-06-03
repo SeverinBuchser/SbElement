@@ -1,4 +1,4 @@
-@use "button.theme";
+@use "button.component.theme";
 
 @mixin theme($theme) {
   @include button.theme($theme);

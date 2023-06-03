@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
-import hljs from 'highlight.js/lib/core';
 import { HighlightResult } from 'highlight.js';
-import { SB_HIGHLIGHT_CONFIG, SbHighlightModuleConfig } from './highlight.module.config';
-import { SbHighlightLanguage } from './highlight-language';
+import hljs from 'highlight.js/lib/core';
 
+import { SbHighlightLanguage } from './highlight-language';
+import { SbHighlightModuleConfig, SB_HIGHLIGHT_CONFIG } from './highlight.module.config';
 
 @Injectable({
   providedIn: 'root'

@@ -7,12 +7,10 @@
     "url": "https://github.com/SeverinBuchser/SbElement.git"
   },
   "scripts": {
-    "build": "ng build sb-element -c production && tsc --project tsconfig.schematics.json",
-    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/*/** schematics/collection.json ../../dist/sb-element/",
+    "build": "ng build sb-element -c production",
     "dev": "ng build sb-element --watch",
-    "build:schematics": "tsc --project tsconfig.schematics.json && npm run postbuild",
-    "doc": "compodoc --config .compodocrc",
-    "copy:doc": "cp -ra ./documentation/. ../../SeverinBuchser.github.io/sb-element-doc"
+    "build:doc": "npx compodoc -c .compodocrc",
+    "dev:doc": "npx compodoc -w -s -c .compodocrc"
   },
   "schematics": "./schematics/collection.json",
   "ng-add": {
@@ -22,14 +20,14 @@
     "@angular/common": "^16.0.4",
     "@angular/core": "^16.0.4",
     "@angular/cdk": "^16.0.3",
-    "date-fns": "^2.24.0",
+    "date-fns": "^2.28.0",
     "highlight.js": "^11.5.1"
   },
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "copyfiles": "file:../../node_modules/copyfiles",
+    "@compodoc/compodoc": "file:../../node_modules/@compodoc/compodoc",
     "typescript": "file:../../node_modules/typescript"
   },
   "keywords": [
@@ -37,7 +35,6 @@
     "angular",
     "sb",
     "component",
-    "sb-theming",
     "sb-element"
   ],
   "exports": {

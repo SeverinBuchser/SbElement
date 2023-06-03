@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Add sb-element to the project.",
+      "factory": "./ng-add/index#ngAdd"
+    },
+    "component": {
+      "description": "Generate a sb-element component.",
+      "factory": "./component/index#sbComponent",
+      "schema": "./component/schema.json"
+    }
+  }
+}

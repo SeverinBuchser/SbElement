@@ -1,7 +1,7 @@
-import { OverlayRef } from "@angular/cdk/overlay";
-import { Subject } from "rxjs";
-import { SbAlertConfig } from "./alert-config";
-import { SbAlertContainerComponent } from "./alert-container";
+import { OverlayRef } from '@angular/cdk/overlay';
+import { Subject } from 'rxjs';
+import { SbAlertConfig } from './alert-config';
+import { SbAlertContainerComponent } from './alert-container.component';
 
 export class SbAlertRef {
 	public dismissed: Subject<void> = new Subject();

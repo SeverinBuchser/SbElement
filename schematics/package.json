@@ -1,0 +1,21 @@
+{
+  "name": "sb-element-dev-schematics",
+  "scripts": {
+    "build": "rm -rf ../dist/schematics && tsc --project tsconfig.schematics.json",
+    "postbuild": "copyfiles ./package.json ./*/schema.json */files/*/** */files/*/*/** ./collection.json ../dist/schematics",
+    "dev": "npx nodemon --config ./nodemon.schematics.json --exec npm run build",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "schematics": "./collection.json",
+  "private": true,
+  "dependencies": {
+    "@angular-devkit/core": "file:../node_modules/@angular-devkit/core",
+    "@angular-devkit/schematics": "file:../node_modules/@angular-devkit/schematics",
+    "typescript": "file:../node_modules/typescript"
+  },
+  "devDependencies": {
+    "@types/node": "file:../node_modules/@types/node",
+    "@types/jasmine": "file:../node_modules/@types/jasmine",
+    "jasmine": "file:../node_modules/jasmine"
+  }
+}

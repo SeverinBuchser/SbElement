@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { SbFileInputComponent } from './file-input';
 import { SbIconModule } from '../icon';
 
+import { SbFileInputComponent } from './file-input.component';
+
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbFileInputComponent

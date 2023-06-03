@@ -31,21 +31,15 @@
       <p class="sb--s">Alert Box</p>
     </sb-card-header>
     <sb-card-content>
-      <sb-grid dim="2x1" gap="xl">
-        <sb-grid dim="1x5" gap="s">
-          <sb-alert-box color="primary">Primary Notification</sb-alert-box>
-          <sb-alert-box color="secondary">Secondary Notification</sb-alert-box>
-          <sb-alert-box color="success">Success Notification</sb-alert-box>
-          <sb-alert-box color="warn">Warn Notification</sb-alert-box>
-          <sb-alert-box color="info">Info Notification</sb-alert-box>
-        </sb-grid>
-        <sb-grid dim="1x4" gap="m">
-          <sb-alert-box size="s"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
-          <sb-alert-box size="m"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
-          <sb-alert-box size="l"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
-          <sb-alert-box size="xl" color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
-        </sb-grid>
-      </sb-grid>
+      <sb-alert-box color="primary">Primary Notification</sb-alert-box>
+      <sb-alert-box color="secondary">Secondary Notification</sb-alert-box>
+      <sb-alert-box color="success">Success Notification</sb-alert-box>
+      <sb-alert-box color="warn">Warn Notification</sb-alert-box>
+      <sb-alert-box color="info">Info Notification</sb-alert-box>
+      <sb-alert-box size="s"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
+      <sb-alert-box size="m"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
+      <sb-alert-box size="l"  color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
+      <sb-alert-box size="xl" color="primary" [arrow]="false" [icon]="false">Primary Notification</sb-alert-box>
     </sb-card-content>
     <sb-card-content>
       <sb-highlight [code]="alertBoxDoc" language="xml"></sb-highlight>
@@ -56,13 +50,11 @@
       <p class="sb--s">Alert</p>
     </sb-card-header>
     <sb-card-content>
-      <sb-grid dim="2x2" gap="s">
-        <button color="primary" (click)="alertPrimary()" plain size="s">Primary Notification</button>
-        <button color="secondary" (click)="alertSecondary()" plain size="s">Secondary Notification</button>
-        <button color="success" (click)="alertSuccess()" plain size="s">Success Notification</button>
-        <button color="warn" (click)="alertWarn()" plain size="s">Warn Notification</button>
-        <button color="info" (click)="alertInform()" plain size="s">Info Notification</button>
-      </sb-grid>
+      <button color="primary" (click)="alertPrimary()" plain size="s">Primary Notification</button>
+      <button color="secondary" (click)="alertSecondary()" plain size="s">Secondary Notification</button>
+      <button color="success" (click)="alertSuccess()" plain size="s">Success Notification</button>
+      <button color="warn" (click)="alertWarn()" plain size="s">Warn Notification</button>
+      <button color="info" (click)="alertInform()" plain size="s">Info Notification</button>
     </sb-card-content>
   </sb-card>
 </sb-grid>

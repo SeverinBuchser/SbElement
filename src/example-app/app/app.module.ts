@@ -11,19 +11,21 @@ import { SbElementModule, SbHighlightModule, SbTabsModule, SbThemingModule } fro
 import { IndicatorExampleComponent } from './example/indicator/indicator-example/indicator-example.component';
 import { NotificationExampleComponent } from './example/notification/notification-example/notification-example.component';
 import { TimelineExampleComponent } from './example/timeline/timeline-example/timeline-example.component';
-import { CalendarExampleComponent } from './example/calendar/calendar-example/calendar-example.component';
 import { TableExampleComponent } from './example/table/table-example/table-example.component';
 import { HomeComponent } from './home/home.component';
-import { ExampleComponent } from './example/example.component';
+import { ExampleComponentt } from './example/example.component';
 import { FormExampleComponent } from './example/form/form-example/form-example.component';
 import { PopperExampleComponent } from './example/popper/popper-example/popper-example.component';
 import { TypographyExampleComponent } from './example/typography/typography-example/typography-example.component';
-import { CardExampleComponent } from './example/card/card-example/card-example.component';
 import { ExampleDefaultComponent } from './example/example-default/example-default.component';
 
 import xml from 'highlight.js/lib/languages/xml';
+import typescript from 'highlight.js/lib/languages/typescript';
 import { TabsExampleComponent } from './example/tabs/tabs-example/tabs-example.component';
 import { InputExampleComponent } from './example/input/input-example/input-example.component';
+import { DocModule } from './doc';
+import { ExampleModule } from './example';
+
 
 @NgModule({
   declarations: [
@@ -31,17 +33,15 @@ import { InputExampleComponent } from './example/input/input-example/input-examp
     IndicatorExampleComponent,
     NotificationExampleComponent,
     TimelineExampleComponent,
-    CalendarExampleComponent,
     TableExampleComponent,
     HomeComponent,
-    ExampleComponent,
+    ExampleComponentt,
     FormExampleComponent,
     PopperExampleComponent,
     TypographyExampleComponent,
-    CardExampleComponent,
     ExampleDefaultComponent,
     TabsExampleComponent,
-    InputExampleComponent,
+    InputExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -56,13 +56,16 @@ import { InputExampleComponent } from './example/input/input-example/input-examp
     ]),
     SbHighlightModule.forRoot({
       languages: [
-        { name: 'xml', languageFn: xml }
+        { name: 'xml', languageFn: xml },
+        { name: 'typescript', languageFn: typescript }
       ]
     }),
     SbTabsModule.forRoot({
       animationDuration: '0.3s'
     }),
-    UtilModule
+    UtilModule,
+    DocModule,
+    ExampleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

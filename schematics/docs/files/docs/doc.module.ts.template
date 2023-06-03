@@ -1,0 +1,26 @@
+import { PortalModule } from '@angular/cdk/portal';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SbElementModule } from 'sb-element';
+import { DocCoreModule } from './doc-core';
+import { DocComponent } from './doc.component';
+import { DocRoutePipe } from './doc-route.pipe';
+
+<%= imports %>
+
+@NgModule({
+  declarations: [
+    <%= components %>
+    DocComponent,
+    DocRoutePipe
+  ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    PortalModule,
+    SbElementModule,
+    DocCoreModule
+  ]
+})
+export class DocModule { }

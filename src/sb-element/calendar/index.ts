@@ -1,6 +1,7 @@
-export * from './calendar-dates';
-export * from './calendar-period';
+export * from './calendar-dates.component';
+export * from './calendar-period.component';
+export * from './calendar.component';
 export * from './calendar.module';
-export * from './calendar';
-export * from './markable-date';
+export * from './markable-date.component';
 export * from './marked-dates';
+

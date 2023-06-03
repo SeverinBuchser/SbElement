@@ -1,4 +1,4 @@
-@use "link.theme";
+@use "link.component.theme";
 
 @mixin theme($theme) {
   @include link.theme($theme);

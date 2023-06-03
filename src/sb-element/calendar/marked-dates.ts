@@ -1,5 +1,5 @@
-import * as fns from "date-fns";
-import { Subject } from "rxjs";
+import * as fns from 'date-fns';
+import { Subject } from 'rxjs';
 
 export type SbDateUnit = 'day' | 'month' | 'year';
 export function toDurationKey(unit: SbDateUnit): string {

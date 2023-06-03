@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { SbThemingModuleConfig, SB_THEMING_CONFIG } from "./theming.module.config";
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [],
   imports: [

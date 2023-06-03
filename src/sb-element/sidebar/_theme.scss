@@ -1,4 +1,4 @@
-@use "sidebar-container.theme";
+@use "sidebar-container.component.theme";
 
 @mixin theme($theme) {
   @include sidebar-container.theme($theme);

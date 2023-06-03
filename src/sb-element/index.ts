@@ -6,7 +6,6 @@ export * from './card';
 export * from './container';
 export * from './core';
 export * from './file-input';
-export * from './grid';
 export * from './highlight';
 export * from './button';
 export * from './icon';

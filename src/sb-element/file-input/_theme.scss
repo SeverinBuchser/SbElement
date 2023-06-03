@@ -1,4 +1,4 @@
-@use "file-input.theme";
+@use "file-input.component.theme";
 
 @mixin theme($theme) {
   @include file-input.theme($theme);

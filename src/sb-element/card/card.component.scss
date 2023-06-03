@@ -1,0 +1,61 @@
+@use "../styles/border";
+@use "../styles/box-shadow";
+@use "../styles/display";
+@use "../styles/spacing";
+@use "../styles/transition";
+@use "../styles/typography";
+/*****************************************************************************
+Card / Stlye
+******************************************************************************/
+
+// ROOT
+.sb-card {
+  @include transition.ease(300ms, box-shadow, transform);
+  @include border.radius(m);
+  overflow: hidden;
+  display: block;
+
+  &__content-hr {
+    @include spacing.padding(0);
+    @include spacing.margin(0);
+  }
+
+  img + &__content-hr {
+    display: none;
+  }
+
+  &.shadow {
+    @include box-shadow.weak;
+  }
+
+  &.shadow.hover:hover {
+    transform: translateY(-2px);
+    @include box-shadow.strong;
+  }
+
+  &__expanding-content {
+    @include transition.ease(200ms);
+    height: 0;
+    overflow: hidden;
+  }
+
+  &.sb--visible .sb-card-header .sb-icon {
+    transform: rotate(180deg);
+  }
+
+  &.sb--hidden &__expanding-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &.sb--visibly-hidden &__expanding-content {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.sb--visible &__expanding-content {
+    opacity: 1;
+    visibility: visible;
+  }
+}

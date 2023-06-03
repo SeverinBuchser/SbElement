@@ -1,15 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-
-import { SbIconModule } from "../icon";
+import { FormsModule } from '@angular/forms';
 
 import { SbButtonModule } from '../button';
-import { SbCalendarComponent } from './calendar';
-import { SbCalendarDatesComponent } from "./calendar-dates";
-import { SbCalendarPeriodComponent } from './calendar-period';
-import { SbMarkableDateComponent } from './markable-date';
+import { SbIconModule } from '../icon';
 
+import { SbCalendarDatesComponent } from './calendar-dates.component';
+import { SbCalendarPeriodComponent } from './calendar-period.component';
+import { SbCalendarComponent } from './calendar.component';
+import { SbMarkableDateComponent } from './markable-date.component';
+
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
     SbCalendarComponent,

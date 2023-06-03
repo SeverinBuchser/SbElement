@@ -2,6 +2,7 @@
 
 # compodocrc
 documentation/
+/doc
 
 # compiled output
 /dist
@@ -33,6 +34,7 @@ chrome-profiler-events*.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+*.code-workspace
 
 # misc
 /.sass-cache

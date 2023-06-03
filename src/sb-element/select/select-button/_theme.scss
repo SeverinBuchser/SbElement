@@ -1,4 +1,4 @@
-@use "select-button-list.theme";
+@use "select-button-list.component.theme";
 
 @mixin theme($theme) {
   @include select-button-list.theme($theme);

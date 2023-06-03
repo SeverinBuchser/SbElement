@@ -1,16 +1,19 @@
 {
-  "name": "sb-element",
-  "version": "0.0.0",
+  "name": "sb-element-dev",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:sb": "npm run build --prefix ./src/sb-element && npm run build --prefix ./src/schematics",
     "dev:sb": "npm run dev --prefix ./src/sb-element",
-    "build:sb": "npm run build --prefix ./src/sb-element",
-    "doc:sb": "npm run doc --prefix ./src/sb-element",
-    "copy:doc:sb": "npm run copy:doc --prefix ./src/sb-element",
-    "test": "ng test"
+    "build:schematics:sb": "npm run build --prefix ./src/schematics",
+    "dev:schematics:sb": "npm run dev --prefix ./src/schematics",
+    "build:schematics": "npm run build --prefix ./schematics",
+    "dev:schematics": "npm run dev --prefix ./schematics",
+    "build:doc": "npm run build:doc --prefix ./src/sb-element",
+    "dev:doc": "npm run dev:doc --prefix ./src/sb-element",
+    "test:sb": "ng test sb-element"
   },
+  "schematics": "./dist/schematics/collection.json",
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.4",
@@ -22,21 +25,24 @@
     "@angular/platform-browser": "^16.0.4",
     "@angular/platform-browser-dynamic": "^16.0.4",
     "@angular/router": "^16.0.4",
-    "date-fns": "^2.24.0",
+    "date-fns": "^2.28.0",
     "highlight.js": "^11.5.1",
-    "ng-packager": "^1.0.0",
     "rxjs": "~6.6.0",
+    "sb-element": "file:dist/sb-element",
     "tslib": "^2.3.1",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.4",
+    "@angular-devkit/core": "^13.3.6",
     "@angular-devkit/schematics": "^16.0.4",
     "@angular/cli": "^16.0.4",
     "@angular/compiler-cli": "^16.0.4",
+    "@compodoc/compodoc": "^1.1.19",
     "@schematics/angular": "^13.3.5",
-    "@types/jasmine": "~3.6.0",
-    "copyfiles": "^2.4.1",
+    "@types/jasmine": "~3.10.0",
+    "@types/node": "^17.0.35",
+    "jasmine": "^4.1.0",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -44,6 +50,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^16.0.1",
+    "nodemon": "^2.0.16",
+    "tree-model": "^1.0.7",
+    "tslib": "^2.4.0",
     "typescript": "^5.0.4"
   }
 }

@@ -1,0 +1,16 @@
+<pre><code [sbInsert]="innerHTML"></code></pre>
+<sb-tooltip
+	*ngIf="copy"
+	[ngClass]="className + '__copy'"
+	text="Copy to Clipboard"
+	position="left"
+	alignment="start">
+	<sb-icon-button
+		*ngIf="copy"
+		plain
+		round
+		size="s"
+		(click)="handleCopy()">
+		copy
+	</sb-icon-button>
+</sb-tooltip>

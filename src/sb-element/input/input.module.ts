@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { SbCalendarModule } from '../calendar';
 import { SbCoreModule } from '../core';
@@ -8,31 +8,34 @@ import { SbIconModule } from '../icon';
 import { SbPopperModule } from '../popper';
 
 import { SbDateInputComponent, SbDateRangeInputComponent } from './date-input';
-import { SbInputComponent } from './input';
-import { SbInputGroupComponent } from './input-group';
+import { SbInputGroupComponent } from './input-group.component';
+import { SbInputComponent } from './input.component';
 import { SbTimeInputComponent } from './time-input';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [
-    SbInputComponent,
-    SbInputGroupComponent,
     SbDateInputComponent,
     SbDateRangeInputComponent,
+    SbInputComponent,
+    SbInputGroupComponent,
     SbTimeInputComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    SbIconModule,
-    SbPopperModule,
+    SbCalendarModule,
     SbCoreModule,
-    SbCalendarModule
+    SbIconModule,
+    SbPopperModule
   ],
   exports: [
-    SbInputComponent,
-    SbInputGroupComponent,
     SbDateInputComponent,
     SbDateRangeInputComponent,
+    SbInputComponent,
+    SbInputGroupComponent,
     SbTimeInputComponent
   ]
 })

@@ -1,1 +1,1 @@
-export * from './select-checkbox';
+export * from './select-checkbox.component';

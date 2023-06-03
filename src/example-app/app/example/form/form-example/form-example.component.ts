@@ -24,8 +24,6 @@ export class FormExampleComponent implements OnInit {
   public toggleSwitchPicker!: PickerCardComponent;
   @ViewChild('fileInputPicker', { static: true })
   public fileInputPicker!: PickerCardComponent;
-  @ViewChild('buttonPicker', { static: true })
-  public buttonPicker!: PickerCardComponent;
   public hi = 'Option 1';
 
   @Input()
@@ -51,9 +49,6 @@ export class FormExampleComponent implements OnInit {
       this.handleDoc();
     })
     this.toggleSwitchPicker.change.subscribe(() => {
-      this.handleDoc();
-    })
-    this.buttonPicker.change.subscribe(() => {
       this.handleDoc();
     })
     this.fileInputPicker.change.subscribe(() => {
@@ -88,16 +83,16 @@ export class FormExampleComponent implements OnInit {
       });
     })
 
-    this.doc.get('forms', 'button').subscribe((doc: string) => {
-      this.buttonDoc = this.doc.replace(doc, {
-        pill: this.buttonPicker.shape == 'pill',
-        round: this.buttonPicker.shape == 'round',
-        plain: this.buttonPicker.look.includes('plain'),
-        accent: this.buttonPicker.look.includes('accent'),
-        color: this.buttonPicker.color,
-        content: this.buttonPicker.shape == 'round' ? 'Btn' : 'Button'
-      });
-    })
+    // this.doc.get('forms', 'button').subscribe((doc: string) => {
+    //   this.buttonDoc = this.doc.replace(doc, {
+    //     pill: this.buttonPicker.shape == 'pill',
+    //     round: this.buttonPicker.shape == 'round',
+    //     plain: this.buttonPicker.look.includes('plain'),
+    //     accent: this.buttonPicker.look.includes('accent'),
+    //     color: this.buttonPicker.color,
+    //     content: this.buttonPicker.shape == 'round' ? 'Btn' : 'Button'
+    //   });
+    // })
 
     this.doc.get('forms', 'file-input').subscribe((doc: string) => {
       this.fileInputDoc = this.doc.replace(doc, {

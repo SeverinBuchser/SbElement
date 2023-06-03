@@ -1,0 +1,1 @@
+export * from './sb-alert-module-doc.component';

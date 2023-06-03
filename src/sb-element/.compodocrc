@@ -1,7 +1,7 @@
 {
-    "output": "../dist/documentation",
-    "serve": true,
-    "tsconfig": "tsconfig.lib.doc.json",
-    "watch": true,
-    "theme": "gitbook"
+  "tsconfig": "./tsconfig.lib.json",
+  "output": "../../dist/documentation",
+  "disablePrivate": true,
+  "disableProtected": true,
+  "disableInternal": true
 }

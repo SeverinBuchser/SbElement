@@ -1,0 +1,33 @@
+<sb-container>
+  <sb-highlight [code]="code" language="typescript" [copy]="false"></sb-highlight>
+</sb-container>
+<hr>
+<h2>Directives</h2>
+<sb-card>
+  <sb-card-content-table>
+    <tr *ngFor="let directive of directives">
+      <td>{{ directive }}</td>
+      <td>{{ directive }} Description</td>
+    </tr>
+  </sb-card-content-table>
+</sb-card>
+<hr>
+<h2>Components</h2>
+<sb-card>
+  <sb-card-content-table>
+    <tr *ngFor="let component of components">
+      <td>{{ component }}</td>
+      <td>{{ component }} Description</td>
+    </tr>
+  </sb-card-content-table>
+</sb-card>
+<hr>
+<h2>Pipes</h2>
+<sb-card>
+  <sb-card-content-table>
+    <tr *ngFor="let pipe of pipes">
+      <td>{{ pipe }}</td>
+      <td>{{ pipe }} Description</td>
+    </tr>
+  </sb-card-content-table>
+</sb-card>

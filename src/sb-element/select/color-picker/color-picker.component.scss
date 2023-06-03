@@ -1,0 +1,39 @@
+@use "../../styles/border";
+@use "../../styles/display";
+@use "../../styles/spacing";
+@use "../../styles/transition";
+/*****************************************************************************
+Color-Picker / Style
+******************************************************************************/
+
+// ROOT
+.sb-color-picker {
+  .sb-button {
+    width: 100%;
+    @include display.flex($direction: row, $gap: xs);
+    div {
+      height: spacing.get-spacing(s);
+      width: spacing.get-spacing(s);
+      @include border.radius(s);
+    }
+  }
+
+  &__colors {
+    display: grid;
+    grid-gap: spacing.get-spacing(xs);
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(21, 1fr);
+  }
+
+  &__color {
+    height: spacing.get-spacing(m);
+    width: spacing.get-spacing(m);
+    cursor: pointer;
+    @include border.radius(s);
+    @include transition.ease(200ms, transform);
+
+    &:hover, &.selected {
+      transform: scale(1.5);
+    }
+  }
+}

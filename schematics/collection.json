@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "docs": {
+      "description": "A schematic for creating the docs for sb-element.",
+      "factory": "./docs/index#docs",
+      "schema": "./docs/schema.json"
+    }
+  }
+}

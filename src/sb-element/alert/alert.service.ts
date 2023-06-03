@@ -6,7 +6,7 @@ import {
 } from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType, TemplatePortal } from '@angular/cdk/portal';
 import { ComponentRef, Inject, Injectable, Injector, TemplateRef } from '@angular/core';
-import { SbAlertBoxComponent } from './alert-box';
+import { SbAlertBoxComponent } from './alert-box.component';
 import { Color } from "../core";
 import {
   SbAlertBoxConfig,
@@ -16,15 +16,20 @@ import {
   SB_ALERT_CONFIG_DEFAULT,
   SB_ALERT_DATA
 } from './alert-config';
-import { SbAlertContainerComponent } from './alert-container';
+import { SbAlertContainerComponent } from './alert-container.component';
 import { SbAlertModule } from './alert.module';
 import { SbAlertRef } from './alert-ref';
+
+interface WaitingAlert {
+  content: ComponentType<any> | TemplateRef<any>;
+  config: Partial<SbAlertConfig>
+}
 
 @Injectable({ providedIn: SbAlertModule })
 export class SbAlertService {
 
   private _currentAlertRef?: SbAlertRef;
-  private _waiting: Array<Partial<SbAlertConfig>> = new Array();
+  private _waiting: Array<WaitingAlert> = new Array();
 
   constructor(
     private _overlay: Overlay,
@@ -81,6 +86,7 @@ export class SbAlertService {
   private _createOverlay(config: SbAlertConfig): OverlayRef {
     const overlayConfig = new OverlayConfig();
     overlayConfig.positionStrategy = this._createPositionStrategy(config);
+    overlayConfig.panelClass = 'sb-alert-overlay-pane';
     return this._overlay.create(overlayConfig);
   }
 
@@ -107,6 +113,7 @@ export class SbAlertService {
     content: ComponentType<T> | TemplateRef<T>,
     userConfig?: Partial<SbAlertConfig>,
   ): any {
+    
     const config: SbAlertConfig = {
       ...this._defaultAlertContainerConfig,
       ...userConfig
@@ -115,8 +122,7 @@ export class SbAlertService {
     const container = this._attachAlertContainer(overlayRef, config);
 
     if (content instanceof TemplateRef) {
-      const portal = new TemplatePortal(content, null!);
-
+      const portal = new TemplatePortal(content, null!, config.data);
       container.attach(portal);
     } else {
       const injector = Injector.create({
@@ -133,19 +139,35 @@ export class SbAlertService {
       config
     );
 
-    this._currentAlertRef.disposed.subscribe(() => {
-      this._currentAlertRef = undefined;
-      let config = this._waiting.shift();
-      if (config) {
-        this._attach(SbAlertBoxComponent, config);
-        if (this._waiting.length > 0) {
-          this._currentAlertRef!.dispose();
-        }
-      }
-    })
-
+    this._currentAlertRef.disposed.subscribe(() => this._consumeNextAlert())
     this._currentAlertRef.consume();
     return this._currentAlertRef;
+  }
+
+  private _queueAlert<T>(
+    content: ComponentType<T> | TemplateRef<T>,
+    config: Partial<SbAlertConfig> = {},
+  ) {
+    if (this._currentAlertRef) {
+      this._waiting.push({
+        content,
+        config
+      });
+      this._currentAlertRef.dispose();
+    } else {
+      this._attach(content, config);
+    }
+  }
+
+  private _consumeNextAlert(): void {
+    this._currentAlertRef = undefined;
+    let waiting = this._waiting.shift();
+    if (waiting) {
+      this._attach(waiting.content, waiting.config);
+      if (this._waiting.length > 0) {
+        this._currentAlertRef!.dispose();
+      }
+    }
   }
 
   public warn(
@@ -206,11 +228,13 @@ export class SbAlertService {
         message
       }
     };
-    if (this._currentAlertRef) {
-      this._waiting.push(config);
-      this._currentAlertRef.dispose();
-    } else {
-      this._attach(SbAlertBoxComponent, config);
-    }
+    this._queueAlert(SbAlertBoxComponent, config);
+  }
+
+  public alertFromTemplate(
+    template: TemplateRef<any>,
+    alertConfig: Partial<SbAlertConfig> = {}
+  ): void {
+    this._queueAlert(template, alertConfig); 
   }
 }

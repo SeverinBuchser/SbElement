@@ -1,1 +1,1 @@
-export * from './toggle-checkbox';
+export * from './toggle-checkbox.component';

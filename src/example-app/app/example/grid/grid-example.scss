@@ -1,0 +1,11 @@
+@use "sb-element/styles/spacing";
+
+.app-grid-example {
+  display: block;
+
+  .grid-3x3 {
+    sb-container {
+      height: 150px;
+    }
+  }
+}

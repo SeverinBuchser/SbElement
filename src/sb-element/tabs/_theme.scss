@@ -1,4 +1,4 @@
-@use "tab-bar.theme";
+@use "tab-bar.component.theme";
 
 @mixin theme($theme) {
   @include tab-bar.theme($theme);

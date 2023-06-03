@@ -8,7 +8,6 @@ import { SbCardModule } from './card';
 import { SbContainerModule } from './container';
 import { SbCoreModule } from './core';
 import { SbFileInputModule } from './file-input';
-import { SbGridModule } from './grid';
 import { SbHighlightModule } from './highlight';
 import { SbButtonModule } from './button';
 import { SbIconModule } from './icon';
@@ -29,6 +28,9 @@ import { SbSelectModule } from './select';
 import { SbSliderModule } from './slider';
 import { SbRadioModule } from './radio';
 
+/**
+ * @category NgModule
+ */
 @NgModule({
   declarations: [],
   imports: [
@@ -43,7 +45,6 @@ import { SbRadioModule } from './radio';
     SbContainerModule,
     SbCoreModule,
     SbFileInputModule,
-    SbGridModule,
     SbHighlightModule,
     SbButtonModule,
     SbIconModule,

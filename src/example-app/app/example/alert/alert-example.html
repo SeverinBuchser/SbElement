@@ -1,0 +1,35 @@
+<h1 class="no-margin-top">
+  Alert Example
+</h1>
+<p>The alert module provides a service and a component. The <code>SbAlertService</code> and the <code>SbAlertBoxComonent</code>.</p>
+<br>
+<sb-card title="Alert Box">
+  <sb-card-content>
+      <sb-alert-box color="primary">Primary Alert Box</sb-alert-box>
+      <sb-alert-box color="secondary">Secondary Alert Box</sb-alert-box>
+      <sb-alert-box color="success">Success Alert Box</sb-alert-box>
+      <sb-alert-box color="warn">Warn Alert Box</sb-alert-box>
+      <sb-alert-box color="info">Info Alert Box</sb-alert-box>
+      <sb-alert-box size="s"  color="primary" [arrow]="false" [icon]="false">Primary Alert Box</sb-alert-box>
+      <sb-alert-box size="m"  color="primary" [arrow]="false" [icon]="false">Primary Alert Box</sb-alert-box>
+      <sb-alert-box size="l"  color="primary" [arrow]="false" [icon]="false">Primary Alert Box</sb-alert-box>
+      <sb-alert-box size="xl" color="primary" [arrow]="false" [icon]="false">Primary Alert Box</sb-alert-box>
+  </sb-card-content>
+</sb-card>
+<sb-card title="Alert Service">
+  <sb-card-content>
+    <button color="primary" (click)="alertPrimary()" plain size="s">Primary Alert</button>
+    <button color="secondary" (click)="alertSecondary()" plain size="s">Secondary Alert</button>
+    <button color="success" (click)="alertSuccess()" plain size="s">Success Alert</button>
+    <button color="warn" (click)="alertWarn()" plain size="s">Warn Alert</button>
+    <button color="info" (click)="alertInform()" plain size="s">Info Alert</button>
+    <button (click)="alertCustom()" plain size="s">Custom Alert</button>
+  </sb-card-content>
+</sb-card>
+
+
+<ng-template #customAlertTemplate>
+  <div class="sb--bg-red-desaturated-400 sb--padding-s">
+    This is a custom Alert
+  </div>
+</ng-template>

@@ -1,0 +1,62 @@
+@use "../../styles/border";
+@use "../../styles/display";
+@use "../../styles/spacing";
+@use "../../styles/transition";
+/*****************************************************************************
+Select-Button-List / Style
+******************************************************************************/
+// SIZE
+@mixin select-button-list-size($key, $size) {
+  &.sb--#{$key} {
+    max-height: calc(3 * spacing.get-bigger($key));
+  }
+
+  &.sb--#{$key} &__option {
+    height: spacing.get-bigger($key);
+  }
+}
+
+
+// ROOT
+.sb-select-button-list {
+  display: block;
+  pointer-events: all;
+  transform-origin: top center;
+  @include transition.ease(200ms, opacity, transform, color);
+  @include border.radius(s);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &__option {
+    cursor: pointer;
+    white-space: nowrap;
+    @include display.flex();
+    @include transition.ease(300ms, color, background);
+    @include spacing.padding-x(xs);
+  }
+
+  @include spacing.for-each-spacing using ($key, $size) {
+    @include select-button-list-size($key, $size);
+  }
+
+  &::-webkit-scrollbar {
+  	width: spacing.get-spacing(s);
+  	@include border.radius(s);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+  	@include border.radius(s);
+  	background-clip: padding-box;
+  	border: calc(spacing.get-spacing(s) / 3) solid transparent;
+  	box-shadow: inset 0 0 0 spacing.get-spacing(s);
+  }
+}

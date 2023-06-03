@@ -1,0 +1,36 @@
+{
+  "examples": [
+    {
+      "component": "AlertExampleComponent",
+      "for": "SbAlertModule",
+      "path": "src/example-app/app/example/alert"
+    },
+    {
+      "component": "BreadcrumbsExampleComponent",
+      "for": "SbBreadcrumbsModule",
+      "path": "src/example-app/app/example/breadcrumbs"
+    },
+    {
+      "component": "ButtonExampleComponent",
+      "for": "SbButtonModule",
+      "path": "src/example-app/app/example/button"
+    },
+    {
+      "component": "CalendarExampleComponent",
+      "for": "SbCalendarModule",
+      "path": "src/example-app/app/example/calendar"
+    },
+    {
+      "component": "CardExampleComponent",
+      "for": "SbCardModule",
+      "path": "src/example-app/app/example/card"
+    },
+    {
+      "component": "ContainerExampleComponent",
+      "for": "SbContainerModule",
+      "path": "src/example-app/app/example/container"
+    }
+  ],
+  "ngPackage": "src/sb-element/ng-package.json",
+  "tsConfig": "src/sb-element/tsconfig.lib.json"
+}

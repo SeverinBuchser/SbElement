@@ -1,6 +1,6 @@
-@use "toggle-button/toggle-button.theme";
-@use "toggle-checkbox/toggle-checkbox.theme";
-@use "toggle-switch/toggle-switch.theme";
+@use "toggle-button/toggle-button.component.theme";
+@use "toggle-checkbox/toggle-checkbox.component.theme";
+@use "toggle-switch/toggle-switch.component.theme";
 
 @mixin theme($theme) {
   @include toggle-button.theme($theme);

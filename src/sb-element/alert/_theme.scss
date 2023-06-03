@@ -1,4 +1,4 @@
-@use "alert-box.theme";
+@use "alert-box.component.theme";
 
 @mixin theme($theme) {
   @include alert-box.theme($theme);

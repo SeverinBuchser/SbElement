@@ -1,0 +1,10 @@
+<sb-nav-bar>
+  <sb-nav-bar-content>
+    <sb-link *ngFor="let route of routes" 
+      [routerLink]="['/', 'documentation', route.path]" 
+      sbContentPagination>
+      {{ route.path | docRoute }}
+    </sb-link>
+  </sb-nav-bar-content>
+</sb-nav-bar>
+<router-outlet></router-outlet>
