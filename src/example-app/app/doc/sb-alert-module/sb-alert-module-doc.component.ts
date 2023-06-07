@@ -11,4 +11,14 @@ export class SbAlertModuleDocComponent {
     return AlertExampleComponent;
   }
 
+  public data: Array<Array<any>> = [[
+    "Jhon", "Doe"
+  ], [
+    "Any", "Body"
+  ],[
+    null, "Noone"
+  ]];
+
+  public head: Array<any> = ["Name", "Surname"];
+
 }

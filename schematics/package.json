@@ -10,13 +10,13 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/core": "file:../node_modules/@angular-devkit/core",
-    "@angular-devkit/schematics": "file:../node_modules/@angular-devkit/schematics",
-    "typescript": "file:../node_modules/typescript"
+    "@angular-devkit/schematics": "file:../node_modules/@angular-devkit/schematics"
   },
   "devDependencies": {
     "@types/node": "file:../node_modules/@types/node",
     "@types/jasmine": "file:../node_modules/@types/jasmine",
     "copyfiles": "file:../node_modules/copyfiles",
-    "jasmine": "file:../node_modules/jasmine"
+    "jasmine": "file:../node_modules/jasmine",
+    "typescript": "file:../node_modules/typescript"
   }
 }

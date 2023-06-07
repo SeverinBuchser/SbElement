@@ -21,6 +21,6 @@ describe('my-full-schematic', () => {
       .toPromise();
 
     // Listing files
-    expect(tree.files.sort()).toEqual(['/allo', '/hola', '/test1', '/test2']);
+    expect(tree!.files.sort()).toEqual(['/allo', '/hola', '/test1', '/test2']);
   });
 });

@@ -3,7 +3,7 @@
   "schematics": {
     "docs": {
       "description": "A schematic for creating the docs for sb-element.",
-      "factory": "./docs/index#docs",
+      "factory": "./docs",
       "schema": "./docs/schema.json"
     }
   }

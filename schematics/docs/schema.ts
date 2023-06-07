@@ -1,7 +1,7 @@
 export interface Schema {
-  docConfigFile: string;
-  path: string;
+  docConfig: string;
   project: string;
+  path: string;
 }
 
 export function validate(schema: Partial<Schema>): schema is Schema {
@@ -9,14 +9,9 @@ export function validate(schema: Partial<Schema>): schema is Schema {
     schema.path = '';
   }
 
-  if (!schema.docConfigFile) {
-    throw new SchemaValidationError(`The schema is missing the docConfigFile`, schema);
-  }
-
-  if (!schema.project) {
-    throw new SchemaValidationError(`The schema is missing the project`, schema);
-  }
-
+  if (!schema.docConfig) {
+    throw new SchemaValidationError(`The schema is missing docConfig`, schema);
+  }  
   return true;
 }
 

@@ -1,7 +1,16 @@
 {
   "tsconfig": "./tsconfig.lib.json",
   "output": "../../dist/documentation",
-  "disablePrivate": true,
-  "disableProtected": true,
-  "disableInternal": true
+  "exportFormat": "json",
+  "disableDomTree": false,
+	"disableTemplateTab": false,
+	"disableStyleTab": true,
+	"disableGraph": true,
+	"disableCoverage": false,
+	"disablePrivate": true,
+	"disableProtected": true,
+	"disableInternal": true,
+	"disableLifeCycleHooks": true,
+	"disableRoutesGraph": false,
+	"disableSearch": true
 }

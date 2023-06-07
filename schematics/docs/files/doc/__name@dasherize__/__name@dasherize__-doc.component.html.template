@@ -1,6 +1,12 @@
 <app-module-doc [exampleComponent]="exampleComponent">
   <h1 class="no-margin-top">
-    <%= name %> API
+    API reference for <%= name %>
   </h1>
+  <code>import {{ '{' }} <%= name %> {{ '}' }} from 'sb-element';</code>
+  <sb-card>
+    <sb-card-content>
+      <sb-highlight [code]="" language="typescript"></sb-highlight>
+    </sb-card-content>
+  </sb-card>
   
 </app-module-doc>

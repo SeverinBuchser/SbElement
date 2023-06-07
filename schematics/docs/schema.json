@@ -4,8 +4,9 @@
   "title": "Generating documentation for sb-element.",
   "type": "object",
   "description": "Creates a new, sb component definition in the given or default project.",
+  "additionalProperties": false,
   "properties": {
-    "docConfigFile": {
+    "docConfig": {
       "type": "string",
       "description": "The path at which the doc config file is located, relative to the current workspace. Default is a folder with the same name as the component in the project root.",
       "$default": {
@@ -14,25 +15,24 @@
       },
       "x-prompt": "Where is the doc config file located?"
     },
-    "path": {
-      "type": "string",
-      "format": "path",
-      "description": "The path at which to create the component file, relative to the current workspace. Default is a folder with the same name as the component in the project root.",
-      "$default": {
-        "$source": "argv",
-        "index": 1
-      },
-      "x-prompt": "Where would you like to create the documentation?"
-    },
     "project": {
       "type": "string",
       "description": "The name of the project.",
       "$default": {
         "$source": "projectName"
+      },
+      "x-prompt": "For which project would you like to create the documentation?"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path at which to create the component file, relative to the current workspace. Default is a folder with the same name as the component in the project root.",
+      "$default": {
+        "$source": "workingDirectory"
       }
     }
   },
   "required": [
-    "docConfigFile"
+    "docConfig"
   ]
 }

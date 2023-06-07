@@ -1,23 +1,18 @@
-import { strings } from '@angular-devkit/core';
 import {
   apply,
-  applyTemplates, chain, MergeStrategy,
+  applyTemplates,
+  chain,
+  MergeStrategy,
   mergeWith,
-  move, noop, Rule,
+  move,
+  noop, Rule,
   Tree,
-  url
-} from '@angular-devkit/schematics';
-import { buildRelativePath } from '@schematics/angular/utility/find-module';
-
-import { getWorkspace } from '@schematics/angular/utility/workspace';
-import { join, resolve } from 'path';
-import { DocConfig, DocReader, SbDocGenerator } from 'sb-doc-generator';
-import { AngularModuleReflection, isAngularModuleReflection, ReflectionRegister } from 'sb-doc-generator/dist/reflection';
-import { ComponentList } from './component-list';
-import { GeneratorHelper } from './generator-helper';
-import { Importer } from './import-generator';
-import { Router } from './route-generator';
+  url} from '@angular-devkit/schematics';
 import { Schema, validate } from './schema';
+import { readFileSync } from 'fs';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
+import { join, resolve, strings } from '@angular-devkit/core';
+import { buildRelativePath } from '@schematics/angular/utility/find-module';
 
 /**
  * Directory structure:
@@ -41,13 +36,14 @@ import { Schema, validate } from './schema';
  *  - index.ts
  */
 
-export function docs(options: Partial<Schema>): Rule {
+export default function(options: Partial<Schema>): Rule {
   if (!validate(options)) return noop();
   return async (host: Tree) => {
+
     const workspace = await getWorkspace(host);
 
-    if (!host.exists(options.docConfigFile)) {
-      throw new Error(`The doc config file at "${options.docConfigFile}" does not exist`);
+    if (!host.exists(options.docConfig)) {
+      throw new Error(`The doc config file at "${options.docConfig}" does not exist`);
     }
     if (!host.getDir(options.path)) {
       throw new Error(`The path "${options.path}" does not exist`);
@@ -55,87 +51,165 @@ export function docs(options: Partial<Schema>): Rule {
     if (!workspace.projects.has(options.project)) {
       throw new Error(`The project "${options.project}" does not exist`);
     }
-    
-    // const project = workspace.projects.get(options.project)!;
-    // const projectPath = buildDefaultPath(project);
-    const config = new DocReader().read(options.docConfigFile);
-    const generator = new SbDocGenerator(config);
-    
-    const reflections = generator.convert();
 
-    const componentList = new ComponentList(2, [], false);
-    const importer = new Importer();
-    const router = new Router(1, [], false);
-
-    const generatorHelper = new GeneratorHelper(
-      componentList,
-      importer,
-      router
-    );
-
-    const docRules = applyModuleDocs(reflections, config, options, generatorHelper);
-    
-
-    const docsSource = apply(url('./files/docs'), [
-      applyTemplates({
-        ...strings,
-        ...generatorHelper.get()
-      }),
-      move(options.path)
-    ])
-
-    return chain([
-      docRules,
-      mergeWith(docsSource, MergeStrategy.Overwrite)
-    ])
+    // buildDocReference(options.doc);    
   };
 }
 
-function applyModuleDocs(
-  reflections: ReflectionRegister,
-  config: DocConfig,
-  options: Schema,
-  generatorHelper: GeneratorHelper
-): Rule {
-  const rules: Array<Rule> = new Array();
+// function buildDocReference(doc: string): {
+//   entryModules: Container<AngularModule>, 
+//   modules: Container<AngularModule>, 
+//   declarables: Container<AngularDeclarable>
+// } {
+//   const docData: any = JSON.parse(readFileSync(doc).toString());
+//   const declarables = buildDeclarables(docData);
+//   const modules = buildModules(docData.modules);
+//   const entryModules = findEntryModules(modules);
 
-  reflections.filter(isAngularModuleReflection).forEach((reflection: AngularModuleReflection) => {
-    const doc = applyModuleDoc(reflection, config, options.path);
-    if (doc) {
-      generatorHelper.add(
-        strings.classify(reflection.name) + 'DocComponent',
-        `./${strings.dasherize(reflection.name)}`,
-        strings.dasherize(reflection.name)
-      );
-      rules.push(doc)
-    }
-  })  
+//   entryModules.forEach(entryModule => referenceModule(entryModule, modules, declarables));
+//   console.log(modules[0].generateSignature())
+//   return {
+//     entryModules,
+//     modules,
+//     declarables
+//   }
+// }
+
+// function buildModules(modulesData: Array<any>): Container<AngularModule> {
+//   const modules = new Container<AngularModule>();
+//   modulesData.forEach((moduleData: any) => {
+//     modules.push(AngularModule.build(moduleData));
+//   })
+//   return modules;
+// }
+
+// function referenceModule(
+//   module: AngularModule, 
+//   modules: Container<AngularModule>, 
+//   declarables: Container<AngularDeclarable>
+// ) {
+//   module.getChildrenByType('declarations').forEach(declaration => {
+//     module.addDeclaration(declarables.findByName(declaration)!);
+//   });
+
+//   module.getChildrenByType('exports').forEach(exportData => {
+//     const exportt = declarables.findByName(exportData);
+//     if (exportt) {
+//       module.addExport(exportt)
+//     } else {
+//       const exportModule = modules.findByName(exportData)!;
+//       module.addExport(exportModule)
+//       referenceModule(exportModule, modules, declarables);
+//     }
+//   });
+// }
+
+// function buildDeclarables(docData: any): Container<AngularDeclarable> {
+//   const declarables = new Container<AngularDeclarable>();
+
+//   // docData.pipes.forEach((pipeData: any) => {
+//   //   console.log(pipeData)
+//   // })
+
+//   docData.directives.forEach((directiveData: any) => {
+//     declarables.push(AngularDirective.build(directiveData));
+//   })
+
+//   docData.components.forEach((componentData: any) => {  
+//     declarables.push(AngularComponent.build(componentData));
+//   })
+//   return declarables;
+// }
+
+// function findEntryModules(modules: Container<AngularModule>): Container<AngularModule> {
+//   const entryModules = new Container<AngularModule>();
+
+//   modules.forEach((moduleOne: AngularModule) => {
+//     if (modules.every((moduleTwo: AngularModule) => {
+//       return !moduleTwo.getChildrenByType('exports').includes(moduleOne.name);
+//     })) {
+//       entryModules.push(moduleOne)
+//     }
+//   })
+
+//   return entryModules;
+// }
+
+
+
+// export function docs(options: Partial<Schema>): Rule {
+//   if (!validate(options)) return noop();
+//   return async (host: Tree) => {
+//     const workspace = await getWorkspace(host);
+
+//     if (!host.exists(options.docConfig)) {
+//       throw new Error(`The doc config file at "${options.docConfig}" does not exist`);
+//     }
+//     if (!host.getDir(options.path)) {
+//       throw new Error(`The path "${options.path}" does not exist`);
+//     }
+//     if (!workspace.projects.has(options.project)) {
+//       throw new Error(`The project "${options.project}" does not exist`);
+//     }
+
+//     // const docRules = applyModuleDocs();
     
-  return chain(rules)
-}
+
+//     const docsSource = apply(url('./files/docs'), [
+//       applyTemplates({
+//         ...strings//,
+//         // ...generatorHelper.get()
+//       }),
+//       move(options.path)
+//     ])
+
+//     return chain([
+//       // docRules,
+//       mergeWith(docsSource, MergeStrategy.Overwrite)
+//     ])
+//   };
+// }
+
+// function applyModuleDocs(): Rule {
+//   const rules: Array<Rule> = new Array();
+
+//   reflections.filter(isAngularModuleReflection).forEach((reflection: AngularModuleReflection) => {
+//     const doc = applyModuleDoc(reflection, config, options.path);
+//     if (doc) {
+//       generatorHelper.add(
+//         strings.classify(reflection.name) + 'DocComponent',
+//         `./${strings.dasherize(reflection.name)}`,
+//         strings.dasherize(reflection.name)
+//       );
+//       rules.push(doc)
+//     }
+//   })  
+    
+//   return chain(rules)
+// }
 
 
-function applyModuleDoc(
-  reflection: AngularModuleReflection,
-  config: DocConfig,
-  path: string
-): Rule | undefined {
-  const exampleConfig = config.examples.get(reflection.name);
+// function applyModuleDoc(
+//   reflection: AngularModuleReflection,
+//   config: DocConfig,
+//   path: string
+// ): Rule | undefined {
+//   const exampleConfig = config.examples.get(reflection.name);
 
-  if (exampleConfig) {
-    const docDirName = strings.dasherize(reflection.name);
-    const docTempPath = resolve(join(path, docDirName, "necessary.any"));
-    const absExampleComponentPath = resolve(exampleConfig.path);
-    return mergeWith(apply(url('./files/doc'), [
-      applyTemplates({
-        ...strings,
-        name: reflection.name,
-        exampleComponent: exampleConfig.component,
-        exampleComponentPath: buildRelativePath(docTempPath, absExampleComponentPath),
-        docObject: ""
-      }),
-      move(path)
-    ]), MergeStrategy.Overwrite)
-  }
-  return;
-}
+//   if (exampleConfig) {
+//     const docDirName = strings.dasherize(reflection.name);
+//     const docTempPath = resolve(join(path, docDirName, "necessary.any"));
+//     const absExampleComponentPath = resolve(exampleConfig.path);
+//     return mergeWith(apply(url('./files/doc'), [
+//       applyTemplates({
+//         ...strings,
+//         name: reflection.name,
+//         exampleComponent: exampleConfig.component,
+//         exampleComponentPath: buildRelativePath(docTempPath, absExampleComponentPath),
+//         docObject: ""
+//       }),
+//       move(path)
+//     ]), MergeStrategy.Overwrite)
+//   }
+//   return;
+// }
