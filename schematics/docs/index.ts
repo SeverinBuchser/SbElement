@@ -13,6 +13,8 @@ import { readFileSync } from 'fs';
 import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { join, resolve, strings } from '@angular-devkit/core';
 import { buildRelativePath } from '@schematics/angular/utility/find-module';
+import { DocConfig } from './doc-config';
+import { AngularProject } from './angular-project';
 
 /**
  * Directory structure:
@@ -51,6 +53,13 @@ export default function(options: Partial<Schema>): Rule {
     if (!workspace.projects.has(options.project)) {
       throw new Error(`The project "${options.project}" does not exist`);
     }
+
+    const docConfig = new DocConfig(host, options.docConfig);
+    const ngProject = new AngularProject({
+      tsConfigFilePath: docConfig.tsConfig
+    }); 
+    
+    console.log(ngProject.getAngularModules().map(ngModule => ngModule.getName()))
 
     // buildDocReference(options.doc);    
   };

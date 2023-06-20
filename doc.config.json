@@ -1,34 +1,34 @@
 {
-  "examples": [
+  "ngModuleConfigs": [
     {
-      "component": "AlertExampleComponent",
-      "for": "SbAlertModule",
-      "path": "src/example-app/app/example/alert"
+      "ngModuleName": "SbAlertModule",
+      "exampleNgComponent": "AlertExampleComponent",
+      "exampleNgComponentPath": "src/example-app/app/example/alert"
     },
     {
-      "component": "BreadcrumbsExampleComponent",
-      "for": "SbBreadcrumbsModule",
-      "path": "src/example-app/app/example/breadcrumbs"
+      "ngModuleName": "SbBreadcrumbsModule",
+      "exampleNgComponent": "BreadcrumbsExampleComponent",
+      "exampleNgComponentPath": "src/example-app/app/example/breadcrumbs"
     },
     {
-      "component": "ButtonExampleComponent",
-      "for": "SbButtonModule",
-      "path": "src/example-app/app/example/button"
+      "ngModuleName": "SbButtonModule",
+      "exampleNgComponent": "ButtonExampleComponent",
+      "exampleNgComponentPath": "src/example-app/app/example/button"
     },
     {
-      "component": "CalendarExampleComponent",
-      "for": "SbCalendarModule",
-      "path": "src/example-app/app/example/calendar"
+      "ngModuleName": "SbCalendarModule",
+      "exampleNgComponent": "CalendarExampleComponent",
+      "exampleNgComponentPath": "src/example-app/app/example/calendar"
     },
     {
-      "component": "CardExampleComponent",
-      "for": "SbCardModule",
-      "path": "src/example-app/app/example/card"
+      "ngModuleName": "SbCardModule",
+      "exampleNgComponent": "CardExampleComponent",
+      "exampleNgComponentPath": "src/example-app/app/example/card"
     },
     {
-      "component": "ContainerExampleComponent",
-      "for": "SbContainerModule",
-      "path": "src/example-app/app/example/container"
+      "ngModuleName": "SbContainerModule",
+      "exampleNgComponent": "ContainerExampleComponent",
+      "exampleNgComponentPath": "src/example-app/app/example/container"
     }
   ],
   "ngPackage": "src/sb-element/ng-package.json",

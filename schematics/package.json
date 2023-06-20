@@ -10,7 +10,9 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/core": "file:../node_modules/@angular-devkit/core",
-    "@angular-devkit/schematics": "file:../node_modules/@angular-devkit/schematics"
+    "@angular-devkit/schematics": "file:../node_modules/@angular-devkit/schematics",
+    "ajv": "file:../node_modules/ajv",
+    "ts-morph": "file:../node_modules/ts-morph"
   },
   "devDependencies": {
     "@types/node": "file:../node_modules/@types/node",
