@@ -16,23 +16,23 @@ Table / Style
     height: 100%;
   }
 
-  &__th, &__td {
+  th, td {
     @include spacing.padding(s);
   }
 
-  &.left &__th, &.left &__td {
+  &.left th, &.left td {
     text-align: left;
   }
 
-  &.center &__th, &.center &__td {
+  &.center th, &.center td {
     text-align: center;
   }
 
-  &.right &__th, &.right &__td {
+  &.right th, &.right td {
     text-align: right;
   }
 
-  &__head &__th {
+  th {
     &:first-child {
       @include border.radius-top-left(s);
     }
@@ -41,7 +41,7 @@ Table / Style
     }
   }
 
-  &__row:last-child &__td {
+  tr:last-child td {
     &:first-child {
       @include border.radius-bottom-left(s);
     }

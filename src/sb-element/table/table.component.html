@@ -1,21 +1,25 @@
 <table>
-  <thead>
-    <tr [ngClass]="className + '__head'">
-      <th *ngFor="let data of head" [ngClass]="className + '__th'">
-        <div>
-          <span>{{ data }}</span>
-        </div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let row of body"
-      [ngClass]="className + '__row'">
-      <td *ngFor="let data of row" [ngClass]="className + '__td'">
-        <div>
-          <span>{{ data }}</span>
-        </div>
-      </td>
-    </tr>
-  </tbody>
+  <ng-template [ngIf]="hasData" [ngIfElse]="content">
+    <thead>
+      <tr>
+        <th *ngFor="let data of head">
+          <div>
+            <span>{{ data }}</span>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of body">
+        <td *ngFor="let data of row">
+          <div>
+            <span>{{ data }}</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </ng-template>
+  <ng-template #content>
+    <ng-content></ng-content>
+  </ng-template>
 </table>

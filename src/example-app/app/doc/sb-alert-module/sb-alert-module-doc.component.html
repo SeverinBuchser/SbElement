@@ -5,31 +5,7 @@
   <code>import {{ '{' }} SbAlertModule {{ '}' }} from 'sb-element';</code>
   <sb-card>
     <sb-card-content>
-      <sb-highlight [code]="'@NgModule({
-  declarations: [
-    SbAlertBoxComponent,
-    SbAlertContainerComponent
-  ],
-  imports: [
-    CommonModule,
-    PortalModule,
-    SbCoreModule,
-    SbIconModule
-  ],
-  exports: [
-    SbAlertBoxComponent
-  ],
-  providers: [
-    {
-      provide: SB_ALERT_CONFIG_DEFAULT,
-      useValue: SB_ALERT_CONFIG_DEFAULT_DEFAULT
-    },
-    {
-      provide: SB_ALERT_BOX_CONFIG_DEFAULT,
-      useValue: SB_ALERT_BOX_CONFIG_DEFAULT_DEFAULT
-    }
-  ]
-})
+      <sb-highlight [code]="'
 export class SbAlertModule {
   public static forRoot(
     alertConfig: Partial<SbAlertConfig>,
@@ -39,7 +15,14 @@ export class SbAlertModule {
     </sb-card-content>
   </sb-card>
   <h2>
-    Directives
+    Components
   </h2>
-  <sb-table color="primary" [head]="head" [body]="data" plain alignment="center"></sb-table>
+  <sb-table color="primary" plain alignment="left">
+    <tbody>
+      <tr>
+        <td>SbAlertBoxComponent</td>
+        <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit fugiat, corporis mollitia animi labore molestiae vitae ad excepturi magnam officia reiciendis et consequatur dicta quod quam neque reprehenderit ratione est?</td>
+      </tr>
+    </tbody>
+  </sb-table>
 </app-module-doc>

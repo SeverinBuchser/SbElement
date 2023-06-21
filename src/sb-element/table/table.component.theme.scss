@@ -9,23 +9,23 @@ Table / Theme
   .sb-table {
     @include border.border-accent($theme);
 
-    &__row:nth-child(even) {
+    tbody tr:nth-child(even) {
       background: theming.get-background($theme);
       color: theming.get-background-text($theme);
     }
 
-    &__row:nth-child(odd) {
+    tbody tr:nth-child(odd) {
       background: theming.get-foreground($theme);
       color: theming.get-foreground-text($theme);
     }
 
     @include theming.for-each-color($theme) using ($color) {
-      &.sb--#{$color} &__head {
+      &.sb--#{$color} thead tr {
         background: theming.get-color($theme, $color);
         color: theming.get-text($theme, $color);
       }
 
-      &.sb--#{$color}.plain &__head  {
+      &.sb--#{$color}.plain thead tr  {
         background: theming.get-color-inverted($theme, $color);
         color: theming.get-text-inverted($theme, $color);
       }

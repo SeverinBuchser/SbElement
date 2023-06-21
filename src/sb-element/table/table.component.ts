@@ -42,6 +42,10 @@ export class SbTableComponent extends SbTableCore {
   @Input()
   public body: Array<Array<any>> = new Array<Array<any>>();
 
+  get hasData(): boolean {
+    return this.head.length > 0 || this.body.length > 0;
+  }
+
   constructor(
     elementRef: ElementRef,
     @Optional() @Attribute('plain') plain: any
