@@ -49,4 +49,28 @@ Table / Style
       @include border.radius-bottom-right(s);
     }
   }
+
+  table:not(:has(tbody)) {
+    th {
+      &:first-child {
+        @include border.radius-bottom-left(s);
+      }
+      &:last-child {
+        @include border.radius-bottom-right(s);
+      }
+    }
+  }
+
+
+  table:not(:has(thead)) {
+    tr:first-child td {
+      &:first-child {
+        @include border.radius-top-left(s);
+      }
+      &:last-child {
+        @include border.radius-top-right(s);
+      }
+    }
+  }
+
 }

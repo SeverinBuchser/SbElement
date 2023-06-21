@@ -2,7 +2,8 @@
 	<sb-tab-label
 		*ngFor="let tab of tabs; let i = index"
 		[isActive]="i == activeTabIndex"
-		(click)="setActive(i)">
+		(click)="setActive(i)"
+		[routerLink]="tab.route">
 		<ng-container [cdkPortalOutlet]="tab.label"></ng-container>
 	</sb-tab-label>
 </sb-tab-bar>

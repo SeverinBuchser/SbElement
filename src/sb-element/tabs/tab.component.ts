@@ -55,6 +55,9 @@ export class SbTabComponent implements OnInit {
     return this._animationDuration + 's';
   }
 
+  @Input()
+  public route?: string | any[];
+
   @Output()
   public positionChange: EventEmitter<SbTabPositionChange> = new EventEmitter();
 

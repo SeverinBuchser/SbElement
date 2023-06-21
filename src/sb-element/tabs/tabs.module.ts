@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 import { SbCoreModule } from '../core';
 import { SbPaginatorModule } from '../paginator';
@@ -37,6 +38,7 @@ import {
     PortalModule,
     SbCoreModule,
     SbPaginatorModule,
+    RouterModule
   ],
   exports: [
     SbTabBarComponent,
