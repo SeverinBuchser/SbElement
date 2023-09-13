@@ -9,6 +9,8 @@ import { SbCalendarModuleDocComponent } from './sb-calendar-module';
 import { SbCardModuleDocComponent } from './sb-card-module';
 import { SbContainerModuleDocComponent } from './sb-container-module';
 import { SbFileInputModuleDocComponent } from './sb-file-input-module';
+import { AlertExampleComponent } from '../example';
+import { ApiDocComponent } from './doc-core/api-doc.component';
 
 export const docRoute: Route = {
   path: 'documentation',
@@ -16,7 +18,21 @@ export const docRoute: Route = {
   children: [
 		{
 			path: 'sb-alert-module',
-			component: SbAlertModuleDocComponent
+			redirectTo: 'sb-alert-module/example'
+		},
+		{
+			path: 'sb-alert-module',
+			component: SbAlertModuleDocComponent,
+			children: [
+				{
+					path: 'example',
+					component: AlertExampleComponent
+				},
+				{
+					path: 'api',
+					component: ApiDocComponent
+				}
+			]
 		},
 		{
 			path: 'sb-breadcrumbs-module',

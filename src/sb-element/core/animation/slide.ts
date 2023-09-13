@@ -1,51 +1,26 @@
 import {
   trigger,
-  state,
-  style,
-  animate,
   transition,
-  AnimationTriggerMetadata,} from '@angular/animations';
+  AnimationTriggerMetadata,
+  style,
+  state,
+  query} from '@angular/animations';
+import { transform, transformTo } from './helper';
 
 export type SbSlideAnimationState =
-  'left' |
-  'right' |
-  'center' |
-  'void' |
-  'inital-center-left' |
-  'inital-center-right';
+  'isCenter' |
+  'isRight' |
+  'isLeft';
 
 export interface SbSlideAnimationParams {
 	animationDuration: string;
 }
 
-export const sbSlideAnimation: AnimationTriggerMetadata =
-	trigger('slideAnimation', [
-		state('left', style({
-			transform: 'translateX(-100%)'
-		})),
-		state('right', style({
-			transform: 'translateX(100%)'
-		})),
-		state(
-      'center, void, inital-center-left, inital-center-right', 
-      style({transform: 'none'})
-    ),
-		transition(
-			'* => left, * => right, left => center, right => center',
-			animate('{{animationDuration}} ease'),
-		),
-		transition(
-			'void => inital-center-left', [
-			style({
-				transform: 'translateX(100%)'
-			}),
-			animate('{{animationDuration}} ease')
-		]),
-		transition(
-			'void => inital-center-right', [
-			style({
-				transform: 'translateX(-100%)'
-			}),
-			animate('{{animationDuration}} ease')
-		])
-	])
+export const sbSlideAnimation: AnimationTriggerMetadata = trigger("slideAnimation", [
+    transition('* => isLeft', transformTo({ x: -100 }) ),
+    transition('* => isRight', transformTo({ x: 100 }) ),
+    transition('isRight => *', transformTo({ x: -100 }) ),
+    transition('isLeft => *', transformTo({ x: 100 }) )
+]);
+
+

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ModuleDocComponent } from './module-doc.component';
 import { SbTabsModule } from 'sb-element';
 import { PortalModule } from '@angular/cdk/portal';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { PortalModule } from '@angular/cdk/portal';
   imports: [
     CommonModule,
     PortalModule,
+    RouterModule,
     SbTabsModule
   ],
   exports: [

@@ -9,7 +9,6 @@ import { SbCoreModule } from '../core';
 import { SbPaginatorModule } from '../paginator';
 
 import { SbTabBarComponent } from './tab-bar.component';
-import { SbTabContentComponent } from './tab-content.component';
 import { SbTabLabelComponent } from './tab-label.component';
 import { SbTabComponent } from './tab.component';
 import { SbTabsComponent } from './tabs.component';
@@ -27,7 +26,6 @@ import {
   declarations: [
     SbTabBarComponent,
     SbTabComponent,
-    SbTabContentComponent,
     SbTabLabelComponent,
     SbTabsComponent,
   ],

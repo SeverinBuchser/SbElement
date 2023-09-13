@@ -2,7 +2,6 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  Input,
   NgZone,
   Optional,
   Output,
@@ -16,6 +15,10 @@ import { SbContentPaginationDirective } from '../paginator';
 
 const SbTabLabelCore = mixinClassName(SbContentPaginationDirective, 'sb-tab-label');
 
+
+/**
+ * Only activates from within and only deactivates from outside
+ */
 @Component({
   selector: 'sb-tab-label',
   templateUrl: './tab-label.component.html',
@@ -28,32 +31,34 @@ const SbTabLabelCore = mixinClassName(SbContentPaginationDirective, 'sb-tab-labe
 export class SbTabLabelComponent extends SbTabLabelCore {
 
   @Output()
-  public isActiveChange: EventEmitter<boolean> = new EventEmitter();
+  public activate: EventEmitter<void> = new EventEmitter();
+
+  @Output()
+  public deactivate: EventEmitter<void> = new EventEmitter();
 
   private _isActive: boolean = false;
-  @Input()
   get isActive(): boolean {
     return this._isActive;
-  }
-  set isActive(isActive: boolean) {
-    if (this._isActive != isActive) {
-      this._isActive = isActive;
-      this.isActiveChange.emit(isActive);
-    }
   }
 
   constructor(
     elementRef: ElementRef,
-    private _ngZone: NgZone,
-    @Optional() private routerActiveLink?: RouterLinkActive
+    private _ngZone: NgZone
   ) {
     super(elementRef);
-    if (this.routerActiveLink) {
-      this.routerActiveLink.isActiveChange.subscribe(isActive => this.isActive = isActive);
+    this._ngZone.onStable.pipe(take(1)).subscribe(() => this._emit());
+  }
+
+  public setActive(isActive: boolean): void {
+    if (this._isActive != isActive) {
+      this._isActive = isActive;
+      this._emit();
     }
-    this._ngZone.onStable.pipe(take(1)).subscribe(() => {
-      this.isActiveChange.emit(this.isActive);
-    });
+  }
+
+  private _emit(): void {
+    if (this._isActive) this.activate.emit();
+    else this.deactivate.emit();
   }
 
 }

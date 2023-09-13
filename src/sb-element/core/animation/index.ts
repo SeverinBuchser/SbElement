@@ -13,6 +13,6 @@ export const sbAnimations: {
 	readonly sbSlideAnimation: AnimationTriggerMetadata;
 } = {
 	sbCollapseAnimation,
-	sbSlideAnimation,  
-	sbSlideInOutAnimation
+	sbSlideInOutAnimation,
+	sbSlideAnimation
 };

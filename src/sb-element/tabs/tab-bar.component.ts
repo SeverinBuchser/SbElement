@@ -4,14 +4,15 @@ import {
   Component,
   ContentChildren,
   ElementRef,
+  Input,
   NgZone,
   OnDestroy,
   QueryList,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { merge, Subject } from 'rxjs';
-import { auditTime, filter, map, take, takeUntil } from 'rxjs/operators';
+import { merge, Subject, Subscription } from 'rxjs';
+import { auditTime, map, take, takeUntil } from 'rxjs/operators';
 
 import { hasElementRefClass, mixinClassName, SbAlignDirective } from "../core";
 
@@ -34,7 +35,10 @@ export class SbTabBarComponent extends SbTabBarCore
   @ViewChild(SbAlignDirective, { static: true })
   public activeUnderlay!: SbAlignDirective;
 
-  private activeLabel?: SbTabLabelComponent;
+  @Input()
+  public activeLabel?: SbTabLabelComponent;
+
+  private _deactivationSubscription?: Subscription;
 
   protected readonly _destroyed = new Subject<void>();
 
@@ -47,14 +51,25 @@ export class SbTabBarComponent extends SbTabBarCore
   }
 
   public ngAfterContentInit() {
-    const activeChange = merge(...this.labels.map((tab: SbTabLabelComponent) => {
-      return tab.isActiveChange.pipe(
-        filter((isActive: boolean) => isActive),
-        map(() => tab),
+    const activatedLabels = merge(...this.labels.map((label: SbTabLabelComponent) => {
+      return label.activate.pipe(
+        map(() => label),
         takeUntil(this._destroyed)
       )})
     );
-    activeChange.subscribe((tab: SbTabLabelComponent) => this.activeLabel = tab);
+
+    activatedLabels.subscribe((label: SbTabLabelComponent) => {
+      if (label != this.activeLabel) {
+        this._deactivationSubscription?.unsubscribe();
+        this._deactivationSubscription = label.deactivate.subscribe(() => {
+          this.activeLabel = undefined;
+          this._deactivationSubscription?.unsubscribe();
+          this.updateActiveUnderlay();
+        })
+        this.activeLabel?.setActive(false);
+        this.activeLabel = label
+      }
+    });
 
     // directly from angular material
     this._ngZone.onStable.pipe(take(1)).subscribe(() => {
@@ -63,7 +78,7 @@ export class SbTabBarComponent extends SbTabBarCore
     merge(
       this._viewportRuler.change(150),
       this.labels.changes,
-      activeChange.pipe(auditTime(150))
+      activatedLabels.pipe(auditTime(150))
     )
       .pipe(takeUntil(this._destroyed))
       .subscribe(() => {
@@ -72,7 +87,6 @@ export class SbTabBarComponent extends SbTabBarCore
         });
       });
   }
-
 
   private updateActiveUnderlay(): void {
     if (this.activeLabel && this.activeLabel.isActive) {
